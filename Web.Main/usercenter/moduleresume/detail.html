@@ -1,0 +1,897 @@
+
+  <!--主内容区 开始-->
+  <div ng-cloak>
+    <!--主内容区 左侧-->
+    <div class="rsmM" id="rsmM">
+      <!--头像 开始-->
+      <!--<div class="avatarUploadBtn" data-targetimg=".rsm_avatarImg" data-imgsize="116x116"></div>-->
+      <div class="rsm_avatar">
+        <img class="rsm_avatarImg" src="{{dhw.urlcdn}}usercenter/images/zp_avatar.png" alt="{{usernameTemp.name}}">
+      </div>
+      <!--头像 结束-->
+      <div class="rsmM_header">
+        <!--名字 开始-->
+        <div class="rsmM_box rsmM_box-header" id="username">
+          <div class="rsm_template">
+            <div class="rsm_result rsm_result-header">
+              <p class="rsm_username">{{usernameTemp.name}}<span class="rsm_result_edit" ng-click="edit($event, -1); delDflt('name', '请输入姓名')"><i class="rsm_result_edit_icon"></i>编辑</span></p>
+            </div>
+            <form  name="formUsername">
+              <div class="rsm_form rsm_form-header">
+                <div class="rsm_inputGroup">
+                  <input class="rsm_inputGroup_input" name="name" type="text" ng-model="usernameTemp.name" ng-pattern="/^.{1,20}$/" required ng-touched>
+                  <div class="rsm_form_ctrl">
+                    <input class="rsm_form_ctrl_btn hl" type="submit" value="保存" ng-disabled="formUsername.$invalid" ng-click="save($event, -1)">
+                    <button class="rsm_form_ctrl_btn" type="button" ng-disabled="username.content == null" ng-click="save($event, -1)">取消</button>
+                  </div>
+                  <p class="rsm_inputGroup_error" ng-show="(formUsername.name.$touched || formUsername.name.$dirty) && (formUsername.name.required || formUsername.name.$invalid)">请输入正确的姓名</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--名字 结束-->
+        <!--介绍 开始-->
+        <div class="rsmM_box rsmM_box-header" id="userintro">
+          <div class="rsm_template">
+            <div class="rsm_result rsm_result-header">
+              <p class="rsm_userintro">{{userintroTemp.intro}}<span class="rsm_result_edit" ng-click="edit($event, -1);  delDflt('intro', '请介绍你自己')"><i class="rsm_result_edit_icon"></i>编辑</span></p>
+            </div>
+            <form  name="formUserintro">
+              <div class="rsm_form rsm_form-header">
+                <div class="rsm_inputGroup">
+                  <input class="rsm_inputGroup_input" name="intro" type="text" ng-model="userintroTemp.intro" ng-pattern="/^.{4,58}$/" required ng-touched>
+                  <div class="rsm_form_ctrl">
+                    <input class="rsm_form_ctrl_btn hl" type="submit" value="保存" ng-disabled="formUserintro.$invalid" ng-click="save($event, -1)">
+                    <button class="rsm_form_ctrl_btn" type="button" ng-disabled="username.content == null" ng-click="save($event, -1)">取消</button>
+                  </div>
+                  <p class="rsm_inputGroup_error" ng-show="(formUserintro.intro.$touched || formUserintro.intro.$dirty) && (formUserintro.intro.required || formUserintro.intro.$invalid)">请输入4-58个字的介绍</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--介绍 结束-->
+        <!--基本信息 开始-->
+        <div class="rsmM_box" id="info">
+          <div class="rsmM_box_cont">
+            <!--添加 开始-->
+            <div class="rsmM_add" ng-click="show.info=true" ng-show="!show.info">
+              <i></i>
+              <span>添加基本信息</span>
+            </div>
+            <!--添加 结束-->
+            <div class="rsm_template" ng-show="show.info">
+              <!--展示 开始-->
+              <div class="rsm_result rsm_result-header">
+                <span class="rsm_result_edit" ng-click="edit($event, -1)"><i class="rsm_result_edit_icon"></i>编辑</span>
+                <p class="rsm_items">
+                  <span class="rsm_item rsm_item-gerder"><i></i>{{infoTemp.gender}}</span>
+                  <span class="rsm_item">{{date.today().year - infoTemp.birthYear}}</span>
+                  <span class="rsm_item">{{infoTemp.degree}}</span>
+                  <span class="rsm_item">{{infoTemp.experience}}</span>
+                  <span class="rsm_item">{{infoTemp.location}}</span>
+                </p>
+                <p class="rsm_items">
+                  <span class="rsm_item rsm_item-tel"><i></i>{{infoTemp.tel}}</span>
+                  <span class="rsm_item rsm_item-email"><i></i>{{infoTemp.email}}</span>
+                </p>
+              </div>
+              <!--展示 结束-->
+              <!--表单 开始-->
+              <form name="formInfo">
+                <div class="rsm_form rsm_form-info">
+                  <!--性别 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">性别</label>
+                    <input class="formInfo_gender" type="hidden" ng-model="infoTemp.gender">
+                    <span class="rsm_inputGroup_gender rsm_inputGroup_gender-male" ng-click="selectGerder($event)"><i></i><span>男</span></span>
+                    <span class="rsm_inputGroup_gender rsm_inputGroup_gender-female" ng-click="selectGerder($event)"><i></i><span>女</span></span>
+                    <span class="rsm_inputGroup_required">*</span>
+                  </div>
+                  <!--性别 结束-->
+                  <!--出生年月 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">出生年月</label>
+                    <div class="clearfix">
+                      <div class="rsm_select birth">
+                        <div class="rsm_select_btn">
+                          <span class="rsm_select_text">{{infoTemp.birthYear}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="infoTemp.birthYear" required>
+                        </div>
+                        <div class="rsm_select_lists rsm_select_lists-normal">
+                          <ul>
+                            <li ng-repeat="item in date.birthYear()" ng-click="selectData($event, 'birthYear', -1)">{{item}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="rsm_select birth birth-day">
+                        <div class="rsm_select_btn">
+                          <span class="rsm_select_text">{{infoTemp.birthDay}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="infoTemp.birthDay" required>
+                        </div>
+                        <div class="rsm_select_lists rsm_select_lists-normal">
+                          <ul>
+                            <li ng-repeat="item in date.month" ng-click="selectData($event, 'birthDay', -1)">{{item}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                    </div>
+                  </div>
+                  <!--出生年月 结束-->
+                  <!--最高学历 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">最高学历</label>
+                    <div class="clearfix">
+                      <div class="rsm_select">
+                        <div class="rsm_select_btn">
+                          <span class="rsm_select_text">{{infoTemp.degree}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="infoTemp.degree" required>
+                        </div>
+                        <div class="rsm_select_lists rsm_select_lists-normal">
+                          <ul>
+                            <li ng-repeat="degree in listData.degree" ng-click="selectData($event, 'degree', -1)">{{degree}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                    </div>
+                  </div>
+                  <!--最高学历 结束-->
+                  <!--最高学历 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">工作年限</label>
+                    <div class="clearfix">
+                      <div class="rsm_select">
+                        <div class="rsm_select_btn">
+                          <span class="rsm_select_text">{{infoTemp.experience}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="infoTemp.experience" required>
+                        </div>
+                        <div class="rsm_select_lists rsm_select_lists-normal">
+                          <ul>
+                            <li ng-repeat="experience in listData.experience" ng-click="selectData($event, 'experience', -1)">{{experience}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                    </div>
+                  </div>
+                  <!--最高学历 结束-->
+                  <!--所在城市 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">所在城市</label>
+                    <div class="clearfix">
+                      <div class="rsm_select">
+                        <div class="rsm_select_btn">
+                          <span class="rsm_select_text">{{infoTemp.location}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="infoTemp.location" required>
+                        </div>
+                        <div class="rsm_select_lists clearfix">
+                          <ul class="rsm_select_list rsm_select_list-left rsm_select_list-prov">
+                            <li class="active" ng-click="listData.getCitys('热门城市')">热门城市</li>
+                            <li ng-repeat="prov in listData.provs" ng-click="listData.getCitys(prov)">{{prov}}</li>
+                          </ul>
+                          <ul class="rsm_select_list rsm_select_list-right rsm_select_list-city">
+                            <li ng-repeat="city in listData.citys" ng-click="selectData($event, 'location', -1)">{{city}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                    </div>
+                  </div>
+                  <!--所在城市 结束-->
+                  <!--手机号码 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">手机号码</label>
+                    <input class="rsm_inputGroup_input" name="tel" type="text" ng-pattern="/^1\d{10}$/" ng-model="infoTemp.tel" required ng-touched><span class="rsm_inputGroup_required">*</span>
+                    <p class="rsm_inputGroup_error" ng-show="(formInfo.tel.$touched || formInfo.tel.$dirty) && (formInfo.tel.$error.required || formInfo.tel.$invalid)">请输入正确的手机号码</p>
+                  </div>
+                  <!--手机号码 结束-->
+                  <!--电子邮箱 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">电子邮箱</label>
+                    <input class="rsm_inputGroup_input" name="email" type="email" ng-model="infoTemp.email" required ng-touched><span class="rsm_inputGroup_required">*</span>
+                    <p class="rsm_inputGroup_error" ng-show="(formInfo.email.$touched || formInfo.email.$dirty) && (formInfo.email.$error.required || formInfo.email.$invalid)">请输入正确的邮箱地址</p>
+                  </div>
+                  <!--电子邮箱 结束-->
+                  <!--表单底部按钮 开始-->
+                  <div class="rsm_form_ctrl">
+                    <input class="rsm_form_ctrl_btn big hl" type="submit" ng-disabled="formInfo.$invalid" ng-click="save($event, -1)" value="保存">
+                    <button class="rsm_form_ctrl_btn big" type="button" ng-disabled="info.content == null" ng-click="save($event, -1)">取消</button>
+                  </div>
+                  <!--表单底部按钮 结束-->
+                </div>
+              </form>
+              <!--表单结束-->
+            </div>
+          </div>
+        </div>
+        <!--基本信息 结束-->
+      </div>
+      <!--实习经历 开始-->
+      <div class="rsmM_box" id="internship">
+        <div class="rsmM_box_ttl">
+          <div class="rsmM_box_ttl_l">
+            <span class="rsmM_box_ttl_w_l"></span>
+            <span class="rsmM_box_ttl_w_c">实习经历</span>
+            <span class="rsmM_box_ttl_w_r"></span>
+          </div>
+          <button class="rsmM_box_ttl_r" type="button" ng-click="add($event)"><i></i>添加</button>
+        </div>
+        <div class="rsmM_box_cont">
+          <!--添加 开始-->
+          <div class="rsmM_add" ng-click="add($event)" ng-show="!internships.length">
+            <i></i>
+            <span>添加实习经历</span>
+          </div>
+          <!--添加 结束-->
+          <div class="rsm_template" ng-repeat="item in internships">
+            <!--展示 开始-->
+            <div class="rsm_result clearfix">
+              <div class="rsm_result_t clearfix">
+                <div class="rsm_result_t_l">
+                  <h4 class="rsm_result_ttl">{{item.company}}</h4>
+                  <p class="rsm_result_small">{{item.post}}</p>
+                </div>
+                <div class="rsm_result_t_r">
+                  <p class="rsm_result_edit" ng-click="edit($event, $index)"><i class="rsm_result_edit_icon"></i>编辑</p>
+                  <p class="rsm_result_time">{{item.startTime}} — {{item.endTime}}</p>
+                </div>
+              </div>
+              <div class="rsm_result_b">
+                <p class="rsm_result_text">{{item.jobContent}}</p>
+              </div>
+            </div>
+            <!--展示 结束-->
+            <!--表单 开始-->
+            <form name="formInternship">
+              <div class="rsm_form">
+                <!--公司 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">公司</label>
+                  <input class="rsm_inputGroup_input" type="text" ng-model="item.company" required><span class="rsm_inputGroup_required">*</span>
+                </div>
+                <!--公司 结束-->
+                <!--职位 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">职位</label>
+                  <input class="rsm_inputGroup_input" type="text" ng-model="item.post" required><span class="rsm_inputGroup_required">*</span>
+                </div>
+                <!--职位 结束-->
+                <!--在职时间 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">在职时间</label>
+                  <div class="clearfix">
+                    <div class="rsm_select calender">
+                      <div class="rsm_select_btn">
+                        <span class="rsm_select_text">{{item.startTime}}</span>
+                        <i class="rsm_select_arrow"></i>
+                        <input class="rsm_select_input" type="hidden" ng-model="item.startTime" required>
+                      </div>
+                      <div class="rsm_select_lists clearfix">
+                        <ul class="rsm_select_list rsm_select_list-left">
+                          <li ng-repeat="item in date.wokrYear()" ng-class="{active:$index==0, thisyear:$index==0}">{{item}}</li>
+                        </ul>
+                        <ul class="rsm_select_list rsm_select_list-right rsm_select_list-month">
+                          <li ng-repeat="item in date.month" ng-click="selectData($event, 'startTime', $parent.$index)">{{item}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="rsm_select calender">
+                      <div class="rsm_select_btn">
+                        <span class="rsm_select_text">{{item.endTime}}</span>
+                        <i class="rsm_select_arrow"></i>
+                        <input class="rsm_select_input" type="hidden" ng-model="item.endTime" required>
+                      </div>
+                      <div class="rsm_select_lists clearfix">
+                        <ul class="rsm_select_list rsm_select_list-left">
+                          <li ng-repeat="item in date.wokrYear()" ng-class="{active:$index==0, thisyear:$index==0}">{{item}}</li>
+                        </ul>
+                        <ul class="rsm_select_list rsm_select_list-right rsm_select_list-month">
+                          <li ng-repeat="item in date.month" ng-click="selectData($event, 'endTime', $parent.$index)">{{item}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                  </div>
+                </div>
+                <!--在职时间 结束-->
+                <!--工作内容 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">工作内容</label>
+                  <textarea class="rsm_inputGroup_textarea" ng-model="item.jobContent"></textarea>
+                </div>
+                <!--工作内容 结束-->
+                <!--表单底部按钮 开始-->
+                <div class="rsm_form_ctrl">
+                  <input class="rsm_form_ctrl_btn big hl" type="submit" ng-disabled="formInternship.$invalid" ng-click="save($event, $index)" value="保存">
+                  <button class="rsm_form_ctrl_btn big" type="button" ng-click="save($event, $index)">取消</button>
+                  <div class="rsm_form_ctrl_deleteWrap">
+                    <span class="rsm_form_ctrl_delete" ng-click="del($event)">删除本条</span>
+                    <div class="rsm_form_ctrl_model">
+                      <p>确定删除本条信息？</p>
+                      <p><button class="rsm_form_ctrl_btn small hl" type="button" ng-click="delConfirm($event, $index)">删除</button><button class="rsm_form_ctrl_btn small delCancel" type="button">取消</button></p>
+                    </div>
+                  </div>
+                </div>
+                <!--表单底部按钮 结束-->
+              </div>
+            </form>
+            <!--表单结束-->
+          </div>
+        </div>
+      </div>
+      <!--实习经历 结束-->
+      <!--教育经历 开始-->
+      <div class="rsmM_box" id="education">
+        <div class="rsmM_box_ttl">
+          <div class="rsmM_box_ttl_l">
+            <span class="rsmM_box_ttl_w_l"></span>
+            <span class="rsmM_box_ttl_w_c">教育经历</span>
+            <span class="rsmM_box_ttl_w_r"></span>
+          </div>
+          <button class="rsmM_box_ttl_r" type="button" ng-click="add($event)"><i></i>添加</button>
+        </div>
+        <div class="rsmM_box_cont">
+          <!--添加 开始-->
+          <div class="rsmM_add" ng-click="add($event)" ng-show="!educations.length">
+            <i></i>
+            <span>添加教育经历</span>
+          </div>
+          <!--添加 结束-->
+          <div class="rsm_template" ng-repeat="item in educations">
+            <!--展示 开始-->
+            <div class="rsm_result clearfix">
+              <div class="rsm_result_t clearfix">
+                <div class="rsm_result_t_l">
+                  <h4 class="rsm_result_ttl">{{item.school}}</h4>
+                  <p class="rsm_result_small">{{item.degree}} · {{item.major}}</p>
+                </div>
+                <div class="rsm_result_t_r">
+                  <p class="rsm_result_edit" ng-click="edit($event, $index)"><i class="rsm_result_edit_icon"></i>编辑</p>
+                  <p class="rsm_result_time">{{item.gradTime}}</p>
+                </div>
+              </div>
+            </div>
+            <!--展示 结束-->
+            <!--表单 开始-->
+            <form name="formEducation">
+              <div class="rsm_form">
+                <!--学校名称 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">学校名称</label>
+                  <input class="rsm_inputGroup_input" type="text" ng-model="item.school" required><span class="rsm_inputGroup_required">*</span>
+                </div>
+                <!--学校名称 结束-->
+                <!--所属专业 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">所属专业</label>
+                  <input class="rsm_inputGroup_input" type="text" ng-model="item.major" required><span class="rsm_inputGroup_required">*</span>
+                </div>
+                <!--所属专业 结束-->
+                <div class="rsm_inputGroups clearfix">
+                  <!--学历 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">学历</label>
+                    <div class="clearfix">
+                      <div class="rsm_select">
+                        <div class="rsm_select_btn rsm_select_btn-half">
+                          <span class="rsm_select_text">{{item.degree}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="item.degree" required>
+                        </div>
+                        <div class="rsm_select_lists rsm_select_lists-normal rsm_select_lists-half">
+                          <ul>
+                            <li ng-repeat="degree in listData.degree" ng-click="selectData($event, 'degree', $parent.$index)">{{degree}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--学历 结束-->
+                  <!--毕业年份 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">毕业年份</label>
+                    <div class="clearfix">
+                      <div class="rsm_select">
+                        <div class="rsm_select_btn rsm_select_btn-half">
+                          <span class="rsm_select_text">{{item.gradTime}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="item.gradTime" required>
+                        </div>
+                        <div class="rsm_select_lists rsm_select_lists-normal rsm_select_lists-half">
+                          <ul>
+                            <li ng-repeat="gradYear in date.gradYear()" ng-click="selectData($event, 'gradTime', $parent.$index)">{{gradYear}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                    </div>
+                  </div>
+                  <!--毕业年份 结束-->
+                </div>
+                <!--表单底部按钮 开始-->
+                <div class="rsm_form_ctrl">
+                  <input class="rsm_form_ctrl_btn big hl" type="submit" ng-disabled="formEducation.$invalid" ng-click="save($event, $index)" value="保存">
+                  <button class="rsm_form_ctrl_btn big" type="button" ng-click="save($event, $index)">取消</button>
+                  <div class="rsm_form_ctrl_deleteWrap">
+                    <span class="rsm_form_ctrl_delete" ng-click="del($event)">删除本条</span>
+                    <div class="rsm_form_ctrl_model">
+                      <p>确定删除本条信息？</p>
+                      <p><button class="rsm_form_ctrl_btn small hl" type="button" ng-click="delConfirm($event, $index)">删除</button><button class="rsm_form_ctrl_btn small delCancel" type="button">取消</button></p>
+                    </div>
+                  </div>
+                </div>
+                <!--表单底部按钮 结束-->
+              </div>
+            </form>
+            <!--表单结束-->
+          </div>
+        </div>
+      </div>
+      <!--教育经历 结束-->
+      <!--项目经验 开始-->
+      <div class="rsmM_box" id="project" ng-show="show.project">
+        <div class="rsmM_box_ttl">
+          <div class="rsmM_box_ttl_l">
+            <span class="rsmM_box_ttl_w_l"></span>
+            <span class="rsmM_box_ttl_w_c">项目经验</span>
+            <span class="rsmM_box_ttl_w_r"></span>
+          </div>
+          <button class="rsmM_box_ttl_r" type="button" ng-click="add($event)"><i></i>添加</button>
+        </div>
+        <div class="rsmM_box_cont">
+          <!--添加 开始-->
+          <div class="rsmM_add" ng-click="add($event)" ng-show="!projects.length">
+            <i></i>
+            <span>添加项目经验</span>
+          </div>
+          <!--添加 结束-->
+          <div class="rsm_template" ng-repeat="item in projects">
+            <!--展示 开始-->
+            <div class="rsm_result clearfix">
+              <div class="rsm_result_t clearfix">
+                <div class="rsm_result_t_l">
+                  <h4 class="rsm_result_ttl" ng-if="item.link"><a href="{{item.link}}">{{item.name}}<i></i></a></h4>
+                  <h4 class="rsm_result_ttl" ng-if="!item.link">{{item.name}}</h4>
+                  <p class="rsm_result_small">{{item.duty}}</p>
+                </div>
+                <div class="rsm_result_t_r">
+                  <p class="rsm_result_edit" ng-click="edit($event, $index)"><i class="rsm_result_edit_icon"></i>编辑</p>
+                  <p class="rsm_result_time">{{item.startTime}} — {{item.endTime}}</p>
+                </div>
+              </div>
+              <div class="rsm_result_b">
+                <p class="rsm_result_text">{{item.description}}</p>
+              </div>
+            </div>
+            <!--展示 结束-->
+            <!--表单 开始-->
+            <form name="formProject">
+              <div class="rsm_form">
+                <!--项目名称 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">项目名称</label>
+                  <input class="rsm_inputGroup_input" type="text" ng-model="item.name" required><span class="rsm_inputGroup_required">*</span>
+                </div>
+                <!--项目名称 结束-->
+                <!--你的职责 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">你的职责</label>
+                  <input class="rsm_inputGroup_input" type="text" ng-model="item.duty" required><span class="rsm_inputGroup_required">*</span>
+                </div>
+                <!--你的职责 结束-->
+                <!--项目起止时间 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">项目起止时间</label>
+                  <div class="clearfix">
+                    <div class="rsm_select calender">
+                      <div class="rsm_select_btn">
+                        <span class="rsm_select_text">{{item.startTime}}</span>
+                        <i class="rsm_select_arrow"></i>
+                        <input class="rsm_select_input" type="hidden" ng-model="item.startTime" required>
+                      </div>
+                      <div class="rsm_select_lists clearfix">
+                        <ul class="rsm_select_list rsm_select_list-left">
+                          <li ng-repeat="item in date.wokrYear()" ng-class="{active:$index==0, thisyear:$index==0}">{{item}}</li>
+                        </ul>
+                        <ul class="rsm_select_list rsm_select_list-right rsm_select_list-month">
+                          <li ng-repeat="item in date.month" ng-click="selectData($event, 'startTime', $parent.$index)">{{item}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="rsm_select calender">
+                      <div class="rsm_select_btn">
+                        <span class="rsm_select_text">{{item.endTime}}</span>
+                        <i class="rsm_select_arrow"></i>
+                        <input class="rsm_select_input" type="hidden" ng-model="item.endTime" required>
+                      </div>
+                      <div class="rsm_select_lists clearfix">
+                        <ul class="rsm_select_list rsm_select_list-left">
+                          <li ng-repeat="item in date.wokrYear()" ng-class="{active:$index==0, thisyear:$index==0}">{{item}}</li>
+                        </ul>
+                        <ul class="rsm_select_list rsm_select_list-right rsm_select_list-month">
+                          <li ng-repeat="item in date.month" ng-click="selectData($event, 'endTime', $parent.$index)">{{item}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                  </div>
+                </div>
+                <!--项目起止时间 结束-->
+                <!--项目描述 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">项目描述</label>
+                  <textarea class="rsm_inputGroup_textarea" ng-model="item.description"></textarea>
+                </div>
+                <!--项目描述 结束-->
+                <!--项目链接 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">项目链接（若有）</label>
+                  <input class="rsm_inputGroup_input" name="url" type="url" ng-model="item.link" ng-touched>
+                  <p class="rsm_inputGroup_error" ng-show="formProject.url.$touched && formProject.url.$invalid">请输入正确的链接</p>
+                </div>
+                <!--项目链接 结束-->
+                <!--表单底部按钮 开始-->
+                <div class="rsm_form_ctrl">
+                  <input class="rsm_form_ctrl_btn big hl" type="submit" ng-disabled="formProject.$invalid" ng-click="save($event, $index)" value="保存">
+                  <button class="rsm_form_ctrl_btn big" type="button" ng-click="save($event, $index)">取消</button>
+                  <div class="rsm_form_ctrl_deleteWrap">
+                    <span class="rsm_form_ctrl_delete" ng-click="del($event)">删除本条</span>
+                    <div class="rsm_form_ctrl_model">
+                      <p>确定删除本条信息？</p>
+                      <p><button class="rsm_form_ctrl_btn small hl" type="button" ng-click="delConfirm($event, $index)">删除</button><button class="rsm_form_ctrl_btn small delCancel" type="button">取消</button></p>
+                    </div>
+                  </div>
+                </div>
+                <!--表单底部按钮 结束-->
+              </div>
+            </form>
+            <!--表单结束-->
+          </div>
+        </div>
+      </div>
+      <!--项目经验 结束-->
+      <!--自我描述 开始-->
+      <div class="rsmM_box" id="presentation" ng-show="show.presentation">
+        <div class="rsmM_box_ttl">
+          <div class="rsmM_box_ttl_l">
+            <span class="rsmM_box_ttl_w_l"></span>
+            <span class="rsmM_box_ttl_w_c">自我描述</span>
+            <span class="rsmM_box_ttl_w_r"></span>
+          </div>
+          <div class="rsmM_box_ttl_r outerEdit" ng-click="edit($event, $index)"><i></i>编辑</div>
+        </div>
+        <div class="rsmM_box_cont">
+          <!--添加 开始-->
+          <div class="rsmM_add" ng-click="add($event)" ng-show="!presentations.length">
+            <i></i>
+            <span>编辑自我描述</span>
+          </div>
+          <!--添加 结束-->
+          <div class="rsm_template" ng-repeat="item in presentations">
+            <!--展示 开始-->
+            <div class="rsm_result clearfix">
+              <div class="rsm_result_b">
+                <p class="rsm_result_text">{{item.intro}}</p>
+              </div>
+            </div>
+            <!--展示 结束-->
+            <!--表单 开始-->
+            <form name="formPresentation">
+              <div class="rsm_form">
+                <!--自我描述 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">自我描述</label>
+                  <textarea class="rsm_inputGroup_textarea" ng-model="item.intro" required></textarea>
+                </div>
+                <!--自我描述 结束-->
+                <!--表单底部按钮 开始-->
+                <div class="rsm_form_ctrl">
+                  <input class="rsm_form_ctrl_btn big hl" type="submit" ng-disabled="formPresentation.$invalid" ng-click="save($event, $index)" value="保存">
+                  <button class="rsm_form_ctrl_btn big" type="button" ng-click="save($event, $index)">取消</button>
+                  <div class="rsm_form_ctrl_deleteWrap">
+                    <span class="rsm_form_ctrl_delete" ng-click="del($event)">删除本条</span>
+                    <div class="rsm_form_ctrl_model">
+                      <p>确定删除本条信息？</p>
+                      <p><button class="rsm_form_ctrl_btn small hl noDel" type="button" ng-click="delConfirm($event, $index)">删除</button><button class="rsm_form_ctrl_btn small delCancel" type="button">取消</button></p>
+                    </div>
+                  </div>
+                </div>
+                <!--表单底部按钮 结束-->
+              </div>
+            </form>
+            <!--表单结束-->
+          </div>
+        </div>
+      </div>
+      <!--自我描述 结束-->
+      <!--期望工作 开始-->
+      <div class="rsmM_box" id="expectation" ng-show="show.expectation">
+        <div class="rsmM_box_ttl">
+          <div class="rsmM_box_ttl_l">
+            <span class="rsmM_box_ttl_w_l"></span>
+            <span class="rsmM_box_ttl_w_c">期望工作</span>
+            <span class="rsmM_box_ttl_w_r"></span>
+          </div>
+          <div class="rsmM_box_ttl_r outerEdit" ng-click="edit($event, $index)"><i></i>编辑</div>
+        </div>
+        <div class="rsmM_box_cont">
+          <!--添加 开始-->
+          <div class="rsmM_add" ng-click="add($event)" ng-show="!expectations.length">
+            <i></i>
+            <span>编辑期望工作</span>
+          </div>
+          <!--添加 结束-->
+          <div class="rsm_template" ng-repeat="item in expectations">
+            <!--展示 开始-->
+            <div class="rsm_result clearfix">
+              <div class="rsm_result_t clearfix">
+                <p class="rsm_result_t_single">
+                  <span class="expectPost"><i></i>{{item.position}}</span>
+                  <span class="expectNature"><i></i>{{item.nature}}</span>
+                  <span class="expectLocation"><i></i>{{item.location}}</span>
+                  <span class="expectSalary"><i></i>{{item.salary}}</span>
+                </p>
+              </div>
+              <div class="rsm_result_b">
+                <p class="rsm_result_text expectAddition"><i class="expectAddition_lt"></i>{{item.addition}}<i class="expectAddition_rt"></i></p>
+              </div>
+            </div>
+            <!--展示 结束-->
+            <!--表单 开始-->
+            <form name="formExpectation">
+              <div class="rsm_form">
+                <div class="rsm_inputGroups clearfix">
+                  <!--期望职位 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">期望职位</label>
+                    <input class="rsm_inputGroup_input rsm_inputGroup_input-half" type="text" ng-model="item.position" required>
+                  </div>
+                  <!--期望职位 结束-->
+                  <!--职位性质 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">职位性质</label>
+                    <div class="clearfix">
+                      <div class="rsm_select">
+                        <div class="rsm_select_btn rsm_select_btn-half">
+                          <span class="rsm_select_text">{{item.nature}}</span>
+                          <i class="rsm_select_arrow"></i>
+                          <input class="rsm_select_input" type="hidden" ng-model="item.nature" required>
+                        </div>
+                        <div class="rsm_select_lists rsm_select_lists-normal rsm_select_lists-half">
+                          <ul>
+                            <li ng-repeat="nature in listData.nature" ng-click="selectData($event, 'nature', $parent.$index)">{{nature}}</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                    </div>
+                  </div>
+                  <!--职位性质 结束-->
+                </div>
+                <div class="rsm_inputGroups clearfix">
+                  <!--期望城市 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">期望城市</label>
+                    <div class="rsm_select">
+                      <div class="rsm_select_btn rsm_select_btn-half">
+                        <span class="rsm_select_text">{{item.location}}</span>
+                        <i class="rsm_select_arrow"></i>
+                        <input class="rsm_select_input" type="hidden" ng-model="item.location" required>
+                      </div>
+                      <div class="rsm_select_lists clearfix">
+                        <ul class="rsm_select_list rsm_select_list-left rsm_select_list-prov">
+                          <li class="active" ng-click="listData.getCitys('热门城市')">热门城市</li>
+                          <li ng-repeat="prov in listData.provs" ng-click="listData.getCitys(prov)">{{prov}}</li>
+                        </ul>
+                        <ul class="rsm_select_list rsm_select_list-right rsm_select_list-city">
+                          <li ng-repeat="city in listData.citys" ng-click="selectData($event, 'location', $parent.$index)">{{city}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--期望城市 结束-->
+                  <!--期望月薪 开始-->
+                  <div class="rsm_inputGroup">
+                    <label class="rsm_inputGroup_label">期望月薪</label>
+                    <div class="rsm_select">
+                      <div class="rsm_select_btn rsm_select_btn-half">
+                        <span class="rsm_select_text">{{item.salary}}</span>
+                        <i class="rsm_select_arrow"></i>
+                        <input class="rsm_select_input" type="hidden" ng-model="item.salary" required>
+                      </div>
+                      <div class="rsm_select_lists rsm_select_lists-normal rsm_select_lists-half">
+                        <ul>
+                          <li ng-repeat="salary in listData.salary" ng-click="selectData($event, 'salary', $parent.$index)">{{salary}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="rsm_inputGroup_required rsm_inputGroup_required-float">*</span>
+                  </div>
+                  <!--期望月薪 结束-->
+                </div>
+                <!--补充说明 开始-->
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">补充说明（若有）</label>
+                  <textarea class="rsm_inputGroup_textarea" ng-model="item.addition"></textarea>
+                </div>
+                <!--补充说明 结束-->
+                <!--表单底部按钮 开始-->
+                <div class="rsm_form_ctrl">
+                  <input class="rsm_form_ctrl_btn big hl" type="submit" ng-disabled="formExpectation.$invalid" ng-click="save($event, $index)" value="保存">
+                  <button class="rsm_form_ctrl_btn big" type="button" ng-click="save($event, $index)">取消</button>
+                  <div class="rsm_form_ctrl_deleteWrap">
+                    <span class="rsm_form_ctrl_delete" ng-click="del($event)">删除本条</span>
+                    <div class="rsm_form_ctrl_model">
+                      <p>确定删除本条信息？</p>
+                      <p><button class="rsm_form_ctrl_btn small hl noDel" type="button" ng-click="delConfirm($event, $index)">删除</button><button class="rsm_form_ctrl_btn small delCancel" type="button">取消</button></p>
+                    </div>
+                  </div>
+                </div>
+                <!--表单底部按钮 结束-->
+              </div>
+            </form>
+            <!--表单结束-->
+          </div>
+        </div>
+      </div>
+      <!--期望工作 结束-->
+      <!--技能评价 开始-->
+      <div class="rsmM_box" id="evaluation" ng-show="show.evaluation">
+        <div class="rsmM_box_ttl">
+          <div class="rsmM_box_ttl_l">
+            <span class="rsmM_box_ttl_w_l"></span>
+            <span class="rsmM_box_ttl_w_c">技能评价</span>
+            <span class="rsmM_box_ttl_w_r"></span>
+          </div>
+          <div class="rsmM_box_ttl_r outerEdit" ng-click="edit($event, $index)"><i></i>编辑</div>
+        </div>
+        <div class="rsmM_box_cont">
+          <!--添加 开始-->
+          <div class="rsmM_add" ng-click="add($event)" ng-show="!evaluations.length">
+            <i></i>
+            <span>编辑技能评价</span>
+          </div>
+          <!--添加 结束-->
+          <div class="rsm_template" ng-repeat="item in evaluations">
+            <!--展示 开始-->
+            <div class="rsm_result clearfix">
+              <div class="rsm_result_t">
+                <ul class="rsm_result_skill">
+                  <li ng-repeat="skill in skills">{{skill.name}}：{{skill.level}}</li>
+                </ul>
+              </div>
+            </div>
+            <!--展示 结束-->
+            <!--表单 开始-->
+            <form name="formEvaluation">
+              <div class="rsm_form">
+                <div class="rsm_inputGroup">
+                  <label class="rsm_inputGroup_label">技能名称</label>
+                  <div class="rsm_inputGroup_skill clearfix" ng-repeat="skill in skills">
+                    <input class="rsm_inputGroup_input rsm_inputGroup_input-half" type="text" ng-model="skill.name" required>
+                    <div class="rsm_select">
+                      <div class="rsm_select_btn rsm_select_btn-half">
+                        <span class="rsm_select_text">{{skill.level}}</span>
+                        <i class="rsm_select_arrow"></i>
+                        <input class="rsm_select_input" type="hidden" ng-model="skill.level" required>
+                      </div>
+                      <div class="rsm_select_lists rsm_select_lists-normal rsm_select_lists-half">
+                        <ul>
+                          <li class="skill" ng-repeat="level in listData.level" ng-click="selectData($event, 'level', $parent.$index)">{{level}}</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <span class="rsm_select_skillDel" ng-click="skillDel($index)">×</span>
+                  </div>
+                  <div class="rsm_select_skillAdd"><span ng-click="skillAdd()">添加一条新技能</span></div>
+                </div>
+                <!--表单底部按钮 开始-->
+                <div class="rsm_form_ctrl">
+                  <input class="rsm_form_ctrl_btn big hl" type="submit" ng-disabled="formEvaluation.$invalid" ng-click="save($event, $index)" value="保存">
+                  <!--<button class="rsm_form_ctrl_btn big" type="button" ng-click="save($event, $index)">取消</button>-->
+                  <div class="rsm_form_ctrl_deleteWrap">
+                    <span class="rsm_form_ctrl_delete" ng-click="del($event)">删除本条</span>
+                    <div class="rsm_form_ctrl_model">
+                      <p>确定删除本条信息？</p>
+                      <p><button class="rsm_form_ctrl_btn small hl noDel" type="button" ng-click="delConfirm($event, $index)">删除</button><button class="rsm_form_ctrl_btn small delCancel" type="button">取消</button></p>
+                    </div>
+                  </div>
+                </div>
+                <!--表单底部按钮 结束-->
+              </div>
+            </form>
+            <!--表单结束-->
+          </div>
+        </div>
+      </div>
+      <!--技能评价 结束-->
+      
+      <div class="rsmM_bottom">
+        <!--求职意向 开始-->
+        <div class="rsmM_box" id="intent">
+          <div class="rsm_inputGroup">
+            <div class="clearfix">
+              <div class="rsm_select">
+                <div class="rsm_select_btn">
+                  <span class="rsm_select_text">{{intentTemp.situation}}</span>
+                  <i class="rsm_select_arrow"></i>
+                  <input class="rsm_select_input" type="hidden" ng-model="intentTemp.situation" required>
+                </div>
+                <div class="rsm_select_lists rsm_select_lists-normal">
+                  <ul>
+                    <li class="hl" ng-repeat="intent in listData.intent" ng-click="selectData($event, 'situation', -1); intentSave()">{{intent}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--求职意向 结束-->
+      </div>
+    </div>
+    
+    <!--主内容 右侧-->
+    <div class="rsmS">
+      <div class="rsmS_t">
+        <a href="#" class="rsmS_t_items"><i class="rsmS_t_items_tdx"></i>投递箱</a>
+        <a href="#" class="rsmS_t_items"><i class="rsmS_t_items_yqh"></i>邀请函</a>
+        <a href="#" class="rsmS_t_items"><i class="rsmS_t_items_scj"></i>收藏夹</a>
+        <a href="#" class="rsmS_t_items rsmS_t_items-last"><i class="rsmS_t_items_dyl"></i>订阅栏</a>
+      </div>
+      <div class="rsmS_fj">
+        <i></i>
+        <span>我要上传附件简历</span>
+      </div>
+      <div class="rsmS_fixed">
+        <div class="rsmS_jd">
+          <div class="rsmS_jd_t">
+            <span class="rsmS_jd_t_l">简历完整度 : <i class="rsmS_jd_s"> {{percentage}}%</i></span><a class="rsmS_jd_t_r" href="#/preview">预览简历</a>
+          </div>
+          <div class="rsmS_jd_gray">
+            <div class="rsmS_jd_lgreen" style="width:{{percentage}}%">
+              <!--<div class="rsmS_jd_green">
+              </div>-->
+            </div>
+          </div>
+        </div>
+        <ul class="rsmS_items">
+          <li><a class="rsmS_item current" href="#rsmM"><i class="rsmS_jbxx pic"></i>基本信息</a></li>
+          <li><a class="rsmS_item" href="#internship"><i class="rsmS_sxjl pic"></i>实习经历</a></li>
+          <li><a class="rsmS_item" href="#education"><i class="rsmS_jyjl pic"></i>教育经历</a></li>
+          <li>
+            <a class="rsmS_item" href="#project"><i class="rsmS_xmjy pic"></i>项目经验</a>
+            <span class="rsmS_item_btn add" ng-show="!show.project" ng-click="show.project = !show.project">+</span>
+            <span class="rsmS_item_btn" ng-show="show.project" ng-click="show.project = !show.project; delSider('projects', 4)">×</span>
+          </li>
+          <!--<li class="rsmS_item "><i class="rsmS_zpzs pic"></i>作品展示</li>-->
+          <li>
+            <a class="rsmS_item" href="#presentation"><i class="rsmS_zwms pic"></i>自我描述</a>
+            <span class="rsmS_item_btn add" ng-show="!show.presentation" ng-click="show.presentation = !show.presentation">+</span>
+            <span class="rsmS_item_btn" ng-show="show.presentation" ng-click="show.presentation = !show.presentation; delSider('presentations', 5)">×</span>
+          </li>
+          </li>
+          <li>
+            <a class="rsmS_item" href="#expectation"><i class="rsmS_qwgz pic"></i>期望工作</a>
+            <span class="rsmS_item_btn add" ng-show="!show.expectation" ng-click="show.expectation = !show.expectation">+</span>
+            <span class="rsmS_item_btn" ng-show="show.expectation" ng-click="show.expectation = !show.expectation; delSider('expectations', 10)">×</span>
+          </li>
+          <li>
+            <a class="rsmS_item" href="#evaluation"><i class="rsmS_jnpj pic"></i>技能评价</a>
+            <span class="rsmS_item_btn add" ng-show="!show.evaluation" ng-click="show.evaluation = !show.evaluation">+</span>
+            <span class="rsmS_item_btn" ng-show="show.evaluation" ng-click="show.evaluation = !show.evaluation; delSider('evaluations', 7)">×</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--主内容区 结束-->
+  
+  <script src="http://localhost:8070/scripts/zpForm.js"></script>

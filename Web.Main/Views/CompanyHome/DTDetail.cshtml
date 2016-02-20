@@ -1,0 +1,42 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
+@{
+    var compay = CompanyTopInfo.compay;
+    var trade = CompanyTopInfo.trade;
+    ViewBag.Title = "动态详情" + compay;
+    ViewBag.Keywords = compay + ",动态详情," + trade;
+}
+@{ var data = ViewBag.detail as DHW.Main.Controllers.CH_Detail; }
+<!--内容 开始-->
+<div class="gsdetail_wrap clearfix">
+    <div class="gsdetail clearfix">
+        <h2>
+            @data.title</h2>
+        <p class="gsd_ll">
+            <i></i>@data.visitors 人浏览 <span class="date" style="float: right;">@data.date</span></p>
+        @Html.Raw(data.txt)
+        @*<p class="gsd_txt">
+            石狮日报8月6日讯 记者从石狮高新技术产业开发区获悉，石狮国家高新区创新创业中心 正逐步完善各项建设，不断加快项目引进步伐，泉州和省级孵化器项目申请工作也正在稳步进行中。截至目前，已有包括福建好士福智能科技有限
+            公司、闽和信息科技有限公司和华辉医药等在内的20家企业入驻创新创业中心， 其中，石狮市闽和信息科技有限公司、石狮市广汇龙环保设备有限公司相继投产。 石狮日报8月6日讯
+            记者从石狮高新技术产业开发区获悉，石狮国家高新区创新创业中心 正逐步完善各项建设，不断加快项目引进步伐，泉州和省级孵化器项目申请工作也正在稳步进行中。截至目前，已有包括福建好士福智能科技有限
+            公司、闽和信息科技有限公司和华辉医药等在内的20家企业入驻创新创业中心， 其中，石狮市闽和信息科技有限公司、石狮市广汇龙环保设备有限公司相继投产。 石狮日报8月6日讯
+            记者从石狮高新技术产业开发区获悉，石狮国家高新区创新创业中心
+        </p>
+        <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/gs_detail_01.jpg" alt="">*@
+        <p class="gsd_xz">
+            @*附件：<a href="#">照片下载</a>*@
+        </p>
+        <div class="gsd_b">
+            @*<p>
+                上一篇：<a href="#">你好吗</a></p>
+            <p>
+                下一篇：<a href="#">我不好</a></p>*@
+        </div>
+        <a class="return" href="/Company/DongTai/@ViewBag.ddid"><i></i>返回列表</a>
+    </div>
+</div>
+<!--内容 结束-->

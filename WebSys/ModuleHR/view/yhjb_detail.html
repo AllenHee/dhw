@@ -1,0 +1,120 @@
+﻿<p class="title-right bg-info small">
+    <a href="/HR#/">人才</a> > <a href="#/yhjb">用户举报</a> > <span>Android主管</span></p>
+<div class="container container-main">
+    <div class="row small info-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>用户举报的详细信息</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-right">
+                        举报人
+                    </td>
+                    <td>
+                        {{data.Name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        举报人邮箱
+                    </td>
+                    <td>
+                        {{data.email}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        举报人QQ
+                    </td>
+                    <td>
+                        {{data.qq}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        举报的招聘信息
+                    </td>
+                    <td>
+                        <a href="{{dhw.hrurl}}jobs/detail/{{data.JobID}}" target="_blank">{{data.Position}}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        举报原因
+                    </td>
+                    <td>
+                        {{data.reason}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        详情描述
+                    </td>
+                    <td>
+                        {{data.desc}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        是否匿名
+                    </td>
+                    <td>
+                        {{data.Anonymous?'是':'否'}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        举报时间
+                    </td>
+                    <td>
+                        {{data.timeflag}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        处理人姓名
+                    </td>
+                    <td>
+                        {{data.dousername}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>处理信息</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <td class="text-right input-td">
+                    处理结果
+                </td>
+                <td>
+                    <input class="form-control" style="max-width: 650px" type="text" ng-model="data.doresult">
+                </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        回复用户
+                    </td>
+                    <td>
+                        <textarea class="form-control" rows="10" style="max-width: 650px" ng-model="data.dohuifu"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="opr-btns">
+            <input class="btn btn-primary" type="button" ng-click="save()" value="提交">
+            <a class="btn btn-default" href="#/yhjb">返回列表</a>
+        </p>
+    </div>
+</div>
+</div> 

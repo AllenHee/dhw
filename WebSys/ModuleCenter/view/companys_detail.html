@@ -1,0 +1,254 @@
+﻿<p class="title-right bg-info small">
+    <span>中心模块</span> > <a href="#/companys">公司列表</a> > <span>{{data.compay}}</span></p>
+<div class="container container-main">
+    <form name="myForm" class="form-horizontal" novalidate>
+    <div class="row small info-table">
+        <table ng-if="type=='add'" class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>公司信息详细列表</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-right">
+                        编号：
+                    </td>
+                    <td>
+                        {{data.id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        用户ID：
+                    </td>
+                    <td>
+                    <div class="has-feedback">
+                        <input class="form-control" name="duid" type="text" required ng-model="data.duid" dh-v1="myForm.duid" />
+                    <div class="text-danger form-control-static" ng-show="myForm.duid.$invalid" role="alert">
+                                请输入用户ID</div>
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司账号：
+                    </td>
+                    <td>
+                    <div class="has-feedback">
+                        <input class="form-control" name="name" type="text" required ng-model="data.name" dh-v1="myForm.name" />
+                    <div class="text-danger form-control-static" ng-show="myForm.name.$invalid" role="alert">
+                                请输入公司账号</div>
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table ng-if="type=='edit'" class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>公司信息详细列表</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-right">
+                        编号：
+                    </td>
+                    <td>
+                        {{data.id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        用户名称：
+                    </td>
+                    <td>
+                        {{data.duname}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        公司账号：
+                    </td>
+                    <td>
+                        {{data.name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        所属行业：
+                    </td>
+                    <td>
+                    <div class="has-feedback">
+                        <select class="form-control" name="dtid" ng-model="data.dtid" required ng-options="trade.id as trade.text for trade in trades" dh-v1="myForm.dtid">
+                            <option value="">请选择</option>
+                        </select>
+                    <div class="text-danger form-control-static" ng-show="myForm.dtid.$invalid" role="alert">
+                                请选择行业</div>
+                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司名称：
+                    </td>
+                    <td>
+                        <div class="has-feedback">
+                            <input class="form-control" name="compay" type="text" required ng-model="data.compay"
+                                dh-v1="myForm.compay" />
+                            <div class="text-danger form-control-static" ng-show="myForm.compay.$invalid" role="alert">
+                                请输入公司名称</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司简介：
+                    </td>
+                    <td>
+                        <textarea rows="5" style="width: 650px" ng-model="data.profile"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司logo：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.logo">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司网站等级：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.Rating">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        所属城市：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.city">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司电话：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.phone">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        邮箱：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.email">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        加入平台时间：
+                    </td>
+                    <td>
+                        {{data.Registerdate}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        信息状态：
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="data.state">
+                            <option value="0">停用</option>
+                            <option value="1">正常</option>
+                            <option value="2">审核过</option>
+                            <option value="3">未处理</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        是否认证：
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="data.auth">
+                            <option value="true">是</option>
+                            <option value="false">否</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        认证时间：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.attestdate" uib-datepicker-popup=""
+                            is-open="ui.isopen" ng-click="ui.click()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司规模：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.scale">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        融资阶段：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.financing">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司主页：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.homepage">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        公司地址：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.Addr">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        百度地图：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.AddrBdMap">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        企业性质：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.Nature">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="opr-btns">
+            <input class="btn btn-primary" type="button" ng-click="save()" ng-disabled="myForm.$invalid"  value="保存">
+            <a class="btn btn-default" href="#/companys">返回列表</a>
+        </p>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,777 @@
+﻿@{ViewBag.Title = "梦高速 - 众筹 - 表单";}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn<text>zhongchou/styles/zhongchou.css</text>}">
+   <!--文本编辑模板 开始-->
+  <script type="text/html" id="edit-text-templet">
+    <div class="edit-text edit-box {{className}}" id="edit-text">
+      <div class="edit-text-result">
+        <ul class="edit-text-btns clearfix">
+          <li class="edit-text-btn edit" title="编辑"><i></i></li>
+          <li class="edit-text-btn delete editable-delet" title="删除"><i></i></li>
+          <li class="edit-text-btn up" title="上移"><i></i></li>
+          <li class="edit-text-btn down" title="下移"><i></i></li>
+        </ul>
+        <div class="edit-text-result-content">
+          <p class="edit-text-title">{{title}}</p>
+          <p class="edit-text-content">{{content}}</p>
+        </div>
+      </div>
+      <div class="editable">
+        <div class="editable-title"><span>添加文本</span> <div><button class="editable-delet">删除</button><button class="editable-save forbid">保存</button></div></div>
+        <div class="form-input-set countable">
+          <input class="editable-text-title" type="text" maxlength="30">
+          <span class="form-word-count"><span class="form-word-used">30</span>/<span class="form-word-total">30</span></span>
+        </div>
+        <div class="form-input-set">
+          <textarea class="editable-text-content"></textarea>
+        </div>
+      </div>
+    </div>
+  </script>
+  <!--文本编辑模板 结束-->
+  <!--图片编辑模板 开始-->
+  <script type="text/html" id="edit-img-template">
+    <div class="edit-img edit-box browse-wrap {{className}}">
+      <div class="edit-img-result">
+        <ul class="edit-text-btns clearfix">
+          <li class="edit-text-btn delete editable-delet" title="删除"><i></i></li>
+          <li class="edit-text-btn up" title="上移"><i></i></li>
+          <li class="edit-text-btn down" title="下移"><i></i></li>
+        </ul>
+        <div><img class="browse-img" src="{{domain}}{{url}}670x670.jpg" ssrc="{{url}}"></div>
+      </div>
+      <div class="edit-img-upload">
+        <div class="edit-img-title"><span>上传照片</span><button class="editable-delet">删除</button></div>
+        <div class="edit-img-content">
+          <div><button class="browse browse-bg edit-browse" data-imgsize="670x670"></button></div>
+          <p>支持上传JPG、GIF、PNG格式的图片，图片尺寸建议大于300x300像素，大小限制为1M以内！</p>
+          <p>图片最大宽度为670像素，大于的自动缩减，小于的按照实际宽度显示</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  <!--图片编辑模板 结束-->
+  <!--回报设置模板 开始-->
+  <script type="text/html" id="return-box-template">
+  {{each result as hb i}}
+    <div class="return-box browse-wrap" data-id="{{hb.id}}">
+      <h3 class="hbsz-title">回报{{i+1}}</h3>
+      <div class="return-box-edit">
+        <div class="form-content">
+          <div class="form-input-set clearfix">
+            <label class="form-radio-label">选择回报类型 :</label>
+            <ul class="form-radio clearfix return-type">
+              {{if hb.type == 1}}
+              <li class="form-radio-item"><i class="return-type-substance current"></i>实物回报（需要快递邮寄的）</li>
+              <li class="form-radio-item"><i class="return-type-virtual"></i>虚拟回报 （不需要实物寄送的，例：电子照片）</li>
+              {{/if}}
+              {{if hb.type == 0}}
+              <li class="form-radio-item"><i class="return-type-substance"></i>实物回报（需要快递邮寄的）</li>
+              <li class="form-radio-item"><i class="return-type-virtual current"></i>虚拟回报 （不需要实物寄送的，例：电子照片）</li>
+              {{/if}}
+            </ul>
+          </div>
+          <!--<div class="virtual-return">
+            <div class="tri"></div>
+            <div class="virtual-return-bg">
+              <span>支持者信息(可选):
+              <input type="checkbox"><label>手机号</label><input type="checkbox"><label>邮箱</label><input type="checkbox"><label class="last">姓名</label>
+            </div>
+          </div>-->
+          <div class="form-input-set">
+            <label>支持金额 :</label>
+            <input class="form-long-input hbszSum" type="supportmoney" value="{{hb.sum}}" placeholder="输入需要用户支持的金额(必填)"> 元
+            <p class="form-error-tip">*请输入支持金额(只能为整数,最高为999999元)</p>
+          </div>
+          <div class="form-input-set countable">
+            <label>回报标题 :</label>
+            <input class="form-long-input hbszTitle" type="normal" value="{{hb.title}}" maxlength="50" placeholder="输入回报标题(必填)">
+            <span class="form-word-count"><span class="form-word-used">50</span>/<span class="form-word-total">50</span></span>
+          </div>
+          <div class="form-input-set countable">
+            <label class="form-textarea-label">回报内容 :</label>
+            <textarea class="hbszContent" maxlength="500" value="{{hb.text}}"></textarea>
+            <span class="form-word-count"><span class="form-word-used">500</span>/<span class="form-word-total">500</span></span>
+          </div>
+          <div class="form-input-set">
+            <label>限定名额 :</label>
+            <input class="form-short-input hbszNumber" type="quota" value="{{hb.Places}}" placeholder="0"> 个
+            <span class="form-small-tip">"0"为不限定名额</span>
+            <p class="form-error-tip">*限定名额只能为整数,最多为999个</p>
+          </div>
+          <div class="form-input-set">
+            <label>运费设置 :</label>
+            <input class="form-short-input hbszShipment" type="quota" value="{{hb.Shipment}}" placeholder="0"> 元
+            <span class="form-small-tip">"0"为不收运费</span>
+            <p class="form-error-tip">*运费只能为整数,最高为999元</p>
+          </div>
+          <div class="form-input-set">
+            <label>回报时间 :</label>
+            <input class="form-short-input hbszPaytime" type="quota" value="{{hb.paytime}}" placeholder="0"> 天
+            <span class="form-small-tip">"0"为项目结束后立即发送</span>
+            <p class="form-error-tip">*回报时间只能为整数,最长为999天</p>
+          </div>
+          <div class="form-input-set form-img-upload clearfix">
+            <label>上传照片 :</label>
+            {{if hb.img != ""}}
+            <img class='browse-img' src="{{domain}}{{hb.img}}55x55.jpg" ssrc="{{hb.img}}" style="display:block;">
+            {{/if}}
+            {{if hb.img == ""}}
+            <img class='browse-img' ssrc>
+            {{/if}}
+            <div class="form-img-upload-btn-wrap">
+              <!--<div class='browse-img-wrap'><span class='browse-img-mask'>删除</span><img class='browse-img' src="{{domain}}{{hb.img}}"></div>-->
+              <button class="browse browse-bg" data-imgsize="55x55">支持jpg、jpeg、png、gif格式，图片大小不要超过500KB！</button>
+            </div>
+          </div>
+          <div class="form-content-btn">
+            <button class="return-box-delete">删除</button><button class="return-box-save">保存</button>
+          </div>
+        </div>
+      </div>
+      <div class="return-box-result">
+        <ul class="edit-text-btns clearfix">
+          <li class="edit-text-btn edit" title="编辑"><i></i></li>
+          <li class="edit-text-btn delete editable-delet" title="删除"><i></i></li>
+          <li class="edit-text-btn up" title="上移"><i></i></li>
+          <li class="edit-text-btn down" title="下移"><i></i></li>
+        </ul>
+        <div><span class="hbszSum-result">{{hb.sum}}</span><span class="hbszNumber-result-wrap">限<span class="hbszNumber-result">{{hb.Places}}</span>人</span></div>
+        <div class="hbszTitle-result-wrap">
+          <div class="hbszTitle-result">{{hb.title}}</div>
+          <div class="hbszContent-result">{{hb.text}}</div>
+        </div>
+        <div class="hbszShipment-result-wrap">
+          <p>配送费用：<span class="hbszShipment-result">¥{{hb.Shipment}}</span>元</p>
+          <p>预计回报发送时间：项目成功结束后<span class="hbszPaytime-result">{{hb.Paytime}}</span>天</p>
+          <div class="browse-img-result-wrap"><a href="#">
+            {{if hb.img != ""}}
+            <img class="browse-img-result" src="{{domain}}{{hb.img}}55x55.jpg" ssrc="{{hb.img}}" style="display:block">
+            {{/if}}
+            {{if hb.img == ""}}
+            <img class="browse-img-result" ssrc>
+            {{/if}}
+            </a></div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+  <!--回报设置模板 结束-->
+  <!--预览模板 开始-->
+  <script type="text/html" id="yl-template">
+    <div class="zc-title">
+      <h2>{{cpbt}}</h2>
+      <ul class="tags">
+        <li class="category"><a href="#">{{lxmc}}</a></li>
+        <li class="location">{{sf}} {{sq}}</li>
+        <li class="labels">
+          {{each tjbqarray as rectag i}}
+          <a href="#">{{rectag}}</a>
+          {{/each}}
+          {{each zdyarray as diytag i}}
+          <a href="#">{{diytag}}</a>
+          {{/each}}
+        </li>
+      </ul>
+    </div>
+    <div class="zc-detail clearfix">
+      <div class="zc-d-l">
+        <img src="{{domain}}{{cpfm}}534x534.jpg">
+      </div>
+      <div class="zc-d-r">
+        <div class="btns">
+          <div class="numbers-r">
+            <p class="digital">{{SupportNum}}</p>
+            <p>支持数</p>
+          </div>
+        </div>
+        <div class="numbers clearfix">
+          <div class="numbers-l">
+            <p class="digital">￥{{moneySum}}</p>
+            <p>已筹款</p>
+          </div>
+          
+        </div>
+        <div class="progress">
+          <div class="bar-wrap">
+            <div class="bar"><div style="width:65%;"></div></div> <i>65%</i>
+          </div>
+          <p class="target"><span class="t-eft"><span>剩余</span>{{numSy}}</span> <span class="t-right"><span>目标筹资</span>￥{{mbcz}}</span></p>
+        </div>
+        <div class="support">
+          <a class="support-btn" href="#">立即支持</a>
+        </div>
+      </div>
+    </div>
+    <!--浮动栏-->
+    <div class="fixedbar-wrap">
+      <div class="fixedbar-fixed">
+        <div class="fixedbar">
+          <ul>
+            <li class="current"><a href="#">项目详情</a></li>
+          </ul>
+          <a class="support-btn" href="#">立即支持</a>
+        </div>
+      </div>
+    </div>
+    <!--主内容区-->
+    <div class="substance clearfix">
+      <!--左栏-->
+      <div class="substance-l">
+        <blockquote>
+          <span class="bk-left-bg"></span>{{cpmd}}<span class="bk-right-bg"></span>
+          <div class="angle"><i class="angle-t"></i> <i class="angle-b"></i></div>
+        </blockquote>
+        <div class="zc-user clearfix">
+          <div class="zc-user-avatar"><a href="#"><img src="{{domain}}{{logo}}" alt=""></a></div>
+          <div class="zc-user-info">
+            <div><a class="zc-user-name" href="#">{{username}}</a> <a class="zc-mail" href="#">私信</a></div>
+            <div class="zc-certificate">营业执照</div>
+          </div>
+        </div>
+        <div class="user-content">
+          {{each content as content i}}
+          {{if content.type == 1}}
+          <div class="content-title">
+            <p></p>
+            <div>
+              <h3>{{content.title}}</h3>
+            </div>
+          </div>
+          <p>{{content.content}}</p>
+          {{/if}}
+          {{if content.type == 2}}
+          <div>
+            <img src="{{domain}}{{content.url}}670x670.jpg">
+          </div>
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+      <!--右栏-->
+      <div class="substance-r">
+        <div class="zjzc">
+          <div class="zjzc-box">
+            <h5>无私支持</h5>
+            <div class="zjzc-select-money">
+              <a class="current" href="#">¥10</a><a href="#">¥20</a><a href="#">¥50</a>
+            </div>
+            <div class="other">
+              <label>其它 <b>¥</b></label>
+              <input type="text">
+            </div>
+            <a class="support-btn" href="#">立即支持</a>
+          </div>
+          
+          <div class="zj-class">
+            <h5><b>¥1</b> 3 人已支持 <i></i></h5>
+            <div class="zj-c-footer">
+              <p>配送费用：<b>免运费</b></p>
+              <p>预计回报发送时间：<b>项目结束后立即回报</b></p>
+            </div>
+            <a class="zj-c-border" href="#"></a>
+          </div>
+        </div>
+        <button class="substance-r-button">支持此项目</button>
+      </div>
+    </div>
+  </script>
+  <!--预览模板 结束-->
+}
+<!--主内容区 开始-->
+<div class="content-zc-wrap">
+    <div class="content">
+        <div class="form-header clearfix">
+            <ul class="form-header-menu clearfix">
+                <li class="form-header-item current" id="jbxxBtn"><i></i>基本信息</li>
+                <li class="form-header-item" id="xmxxBtn"><i></i>项目信息</li>
+                <li class="form-header-item" id="xxmsBtn"><i></i>详细描述</li>
+                <li class="form-header-item last" id="hbszBtn"><i></i>回报设置</li>
+            </ul>
+            <a class="form-header-item form-header-preview" href="#">预览</a>
+        </div>
+        <div class="zc-form-wrap">
+            <!--表单主内容 开始-->
+            <div class="zc-form">
+                <div class="form-body-wrap">
+                    <!--基本信息 开始-->
+                    <div class="form-body jbxx">
+                        <div class="form-title clearfix">
+                            <h2>
+                                选择你的身份类型</h2>
+                            <a class="save-copy-btn" href="#">保存草稿</a>
+                        </div>
+                        <ul class="form-tab clearfix">
+                            <li class="current personal">个人</li>
+                            <li class="institutional">机构</li>
+                        </ul>
+                        <div class="form-personal">
+                            <div class="jbxx-input-set">
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxPName" type="name" value="输入中文姓名，2~5个汉字">
+                                    <p class="form-error-tip">
+                                        *请填写正确的姓名</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxPIdcard" type="id" value="二代身份证，输入数字或字母">
+                                    <p class="form-error-tip">
+                                        *请填写您的身份证号</p>
+                                </div>
+                                <div class="form-input-set cityselect" id="city">
+                                    <select class="prov" id="jbxxProv">
+                                    </select>
+                                    <select class="city" id="jbxxCity" disabled="disabled">
+                                    </select>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxPMobile" type="mobile" value="手机号，输入纯数字，10~15位数字">
+                                    <p class="form-error-tip">
+                                        *请填写您的手机号码</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxPAddress" type="text" value="填写您的详细地址(非必填)">
+                                </div>
+                            </div>
+                            <div class="form-title clearfix">
+                                <h2>
+                                    选择你要创建的项目类型</h2>
+                            </div>
+                            <ul class="form-category-tab personal clearfix">
+                                <li class="current">科技</li>
+                                <li>公益</li>
+                                <li>农业</li>
+                                <li>出版</li>
+                                <li>娱乐</li>
+                                <li>艺术</li>
+                                <li>商铺</li>
+                                <li>房产</li>
+                                <li>其他</li>
+                            </ul>
+                            <p class="form-category-text">
+                                <span>科技</span>类项目发起上传资料</p>
+                            <div class="material-upload">
+                                <div class="form-title clearfix">
+                                    <h2>
+                                        上传相关材料</h2>
+                                </div>
+                                <div class="material-list personal">
+                                    <div class="material-item clearfix">
+                                        <span>个人身份证-正面</span>
+                                        <div class="material-img"><img class="idfront" id="jbxxIDFrongt" ssrc></div>
+                      <div class="material-img-upload"><button class="browse" data-targetimg=".idfront" data-imgsize="64x64">上传</button></div>
+                                    </div>
+                                    <div class="material-item clearfix">
+                                        <span>个人身份证-反面</span>
+                                        <div class="material-img"><img class="idback" id="jbxxIDBack" ssrc></div>
+                      <div class="material-img-upload"><button class="browse" data-targetimg=".idback" data-imgsize="64x64">上传</button></div>
+                                    </div>
+                                    <div class="material-item clearfix">
+                                        <span>产品图片</span>
+                                        <div class="material-img"><img class="productimg" id="jbxxProduct" ssrc></div>
+                      <div class="material-img-upload"><button class="browse" data-targetimg=".productimg" data-imgsize="64x64">上传</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-institutional">
+                            <div class="jbxx-input-set">
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxCCorame" type="normal" value="输入企业、机构名称">
+                                    <p class="form-error-tip">
+                                        *请填写机构或企业名称</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxCNumber" type="normal" value="请填写营业执照号或组织机构代码">
+                                    <p class="form-error-tip">
+                                        *请填写企业营业执照号</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxCName" type="name" value="法定代表人姓名">
+                                    <p class="form-error-tip">
+                                        *请填写法人代表的姓名</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxCAddress" type="normal" value="企业、机构注册地址">
+                                    <p class="form-error-tip">
+                                        *请填写企业注册地址</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxCContactName" type="name" value="输入联系人姓名">
+                                    <p class="form-error-tip">
+                                        *请填写联系人的姓名</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <input class="form-long-input" id="jbxxCContactMobile" type="mobile" value="输入联系人手机号">
+                                    <p class="form-error-tip">
+                                        *请填写联系人的手机号码</p>
+                                </div>
+                            </div>
+                            <div class="form-title clearfix">
+                                <h2>
+                                    选择你要创建的项目类型</h2>
+                            </div>
+                            <ul class="form-category-tab institutional clearfix">
+                                <li class="current">科技</li>
+                                <li>公益</li>
+                                <li>农业</li>
+                                <li>出版</li>
+                                <li>娱乐</li>
+                                <li>艺术</li>
+                                <li>商铺</li>
+                                <li>房产</li>
+                                <li>其他</li>
+                            </ul>
+                            <p class="form-category-text">
+                                科技类项目发起上传资料</p>
+                            <div class="material-list institutional">
+                                <div class="material-item clearfix">
+                    <span>营业执照</span>
+                    <div class="material-img"><img class="zhizhaoimg" id="jbxxCLicense" ssrc></div>
+                    <div class="material-img-upload"><button class="browse" data-targetimg=".zhizhaoimg" data-imgsize="64x64">上传</button></div>
+                  </div>
+                  <div class="material-item clearfix">
+                    <span>组织机构代码证</span>
+                    <div class="material-img"><img class="daimaimg" id="jbxxCCode" ssrc></div>
+                    <div class="material-img-upload"><button class="browse" data-targetimg=".daimaimg" data-imgsize="64x64">上传</button></div>
+                  </div>
+                  <div class="material-item clearfix">
+                    <span>税务登记证</span>
+                    <div class="material-img"><img class="shuiwuimg" id="jbxxCRegister" ssrc></div>
+                    <div class="material-img-upload"><button class="browse" data-targetimg=".shuiwuimg" data-imgsize="64x64">上传</button></div>
+                  </div>
+                            </div>
+                        </div>
+                        <div class="form-title clearfix">
+                            <h2>
+                                选择平台服务内容</h2>
+                        </div>
+                        <p class="form-tip">
+                            提示：根据以往成功项目经验，选择更多的平台服务内容筹资金额就会越多，项目成功率也会越大。</p>
+                        <ul class="service-content-select">
+                            <li class="form-radio-item"><i class="current" id="jbxxService"></i>渠道费 1.5% ＋ 服务费 0%
+                                <a href="#">《服务内容》</a> </li>
+                        </ul>
+                    </div>
+                    <!--基本信息 结束-->
+                    <!--项目信息 开始-->
+                    <div class="form-body xmxx">
+                        <div class="form-title clearfix">
+                            <h2>
+                                创建你的项目信息</h2>
+                            <a class="save-copy-btn" href="#">保存草稿</a>
+                        </div>
+                        <div class="form-content-wide clearfix">
+                            <div class="form-content-left">
+                                <div class="form-input-set form-img-upload clearfix">
+                                    <label>
+                                        设置封面 :</label>
+                                    <button class="browse browse-bg browse-front" data-targetimg=".browse-front-img" data-imgsize="260x260_640x640">建议尺寸大小640*480，图片大小不要超过5M！</button>
+                                </div>
+                                <div class="form-input-set countable">
+                                    <label>
+                                        项目标题 :</label>
+                                    <input class="form-long-input xmxx-title" id="xmxxTitle" type="normal" maxlength="40"
+                                        value="给自己的项目取一个响亮的名字吧!注意不要超过40个字哦~">
+                                    <p class="form-error-tip">
+                                        *请填写项目标题</p>
+                                    <span class="form-word-count"><span class="form-word-used">40</span>/<span class="form-word-total">40</span></span>
+                                </div>
+                                <div class="form-input-set countable">
+                                    <label class="form-textarea-label">
+                                        筹款目的 :</label>
+                                    <textarea class="xmxx-purpose" id="xmxxPurpose" type="normal" maxlength="75"></textarea>
+                                    <p class="form-error-tip">
+                                        *请填写筹款目的</p>
+                                    <span class="form-word-count"><span class="form-word-used">75</span>/<span class="form-word-total">75</span></span>
+                                </div>
+                                <div class="form-input-set cityselect2">
+                                    <label>
+                                        项目地点 :</label>
+                                    <select class="prov" id="xmxxProv">
+                                    </select>
+                                    <select class="city" id="xmxxCity" disabled="disabled">
+                                    </select>
+                                </div>
+                                <div class="form-input-set">
+                                    <label>
+                                        筹资金额 :</label>
+                                    <input class="form-long-input" id="xmxxMoney" type="fundmoney">
+                                    元
+                                    <p class="form-error-tip">
+                                        *筹资金额不能少于500,不能高于1亿</p>
+                                </div>
+                                <div class="form-input-set">
+                                    <label for="">
+                                        筹资天数 :</label>
+                                    <input class="form-long-input" id="xmxxDays" type="fundtime">
+                                    天
+                                    <p class="form-error-tip">
+                                        *筹资时间周期须在10~90天之间</p>
+                                </div>
+                                <div class="form-input-set label-recommend">
+                                    <label for="">
+                                        推荐标签 :</label>
+                                    <div class="label-items">
+                                        <span class="label-item">通讯数码</span> <span class="label-item">家居生活</span> <span class="label-item">
+                                            O2O</span> <span class="label-item">移动互联网</span> <span class="label-item">电子商务</span>
+                                        <span class="label-item">在线教育</span> <span class="label-item">影音娱乐</span> <span class="label-item">
+                                            互联网医疗</span> <span class="label-item">互联网金融</span> <span class="label-item">企业服务</span>
+                                    </div>
+                                </div>
+                                <div class="form-input-set">
+                                    <label for="">
+                                        自定义标签 :</label>
+                                    <input class="form-long-input" id="xmxxDiyTags" type="tag" value="给你的项目设置一些个性的标签,让用户更容易搜索到;标签之间用空格隔开!">
+                                    <p class="form-error-tip">
+                                        *每个标签不超过5个汉字</p>
+                                </div>
+                            </div>
+                            <div class="form-content-right">
+                                <div class="form-right-top">
+                                    <span>预览项目图片</span>
+                                    <img class="browse-front-img" id="xmxxFront" ssrc>
+                                </div>
+                                <div class="form-right-bottom">
+                                    <div class="form-right-bottom-top">
+                                        <a class="xmxx-title-preview" href="#">此处预览标题</a>
+                                        <p class="xmxx-purpose-preview">
+                                            此处预览筹款目的</p>
+                                    </div>
+                                    <div>
+                                        <div class="form-right-bottom-bq" id="xmxxTags">
+                                            <a class="default" href="#">标签</a>
+                                        </div>
+                                        <div class="form-right-bottom-jd">
+                                        </div>
+                                        <div class="form-right-bottom-bottom">
+                                            <div class="form-right-bottom-special">
+                                                <p style="color: red;">
+                                                    0元</p>
+                                                <p>
+                                                    已筹资</p>
+                                            </div>
+                                            <div class="form-right-bottom-special">
+                                                <p>
+                                                    0人</p>
+                                                <p>
+                                                    支持者</p>
+                                            </div>
+                                            <div class="form-right-bottom-last">
+                                                <p>
+                                                    0%</p>
+                                                <p>
+                                                    项目进度</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--项目信息 结束-->
+                    <!--详细描述 开始-->
+                    <div class="form-body xxms">
+                        <div class="form-title clearfix">
+                            <h2>
+                                选择你的身份类型</h2>
+                            <a class="save-copy-btn" href="#">保存草稿</a>
+                        </div>
+                        <div class="form-content-wide clearfix">
+                            <!--左侧-->
+                            <div class="form-content-left">
+                                <!--视频-->
+                                <div class="form-input-set xxms-video">
+                                    <div class="xxms-video-edit">
+                                        <div class="xxms-video-content clearfix">
+                                            <label>
+                                                宣传视频：</label>
+                                            <input class="xxms-video-inpput" type="text" value="例如：http://v.youku.com/...">
+                                            <button class="xxms-video-save forbid">
+                                                保存</button>
+                                        </div>
+                                        <p class="xxms-video-text">
+                                            （请直接输入视频的所在页面的地址，只支持有优酷！（选填））</p>
+                                    </div>
+                                    <div class="xxms-video-result">
+                                        <label>
+                                            宣传视频：</label>
+                                        <a class="xxms-video-url" id="xxmsVideo" href="#"></a>
+                                        <button class="xxms-video-cancel">
+                                            取消</button>
+                                    </div>
+                                </div>
+                                <!--编辑你的项目详情-->
+                                <div class="form-title form-title-small clearfix">
+                                    <h2>
+                                        编辑你的项目详情</h2>
+                                </div>
+                                <div class="edit-area">
+                                    <!--文本编辑-->
+                                    <div class="edit-text edit-box" id="edit-text">
+                                        <div class="edit-text-result">
+                                            <ul class="edit-text-btns clearfix">
+                                                <li class="edit-text-btn edit" title="编辑"><i></i></li>
+                                                <li class="edit-text-btn delete editable-delet" title="删除"><i></i></li>
+                                                <li class="edit-text-btn up" title="上移"><i></i></li>
+                                                <li class="edit-text-btn down" title="下移"><i></i></li>
+                                            </ul>
+                                            <div class="edit-text-result-content">
+                                                <p class="edit-text-title">
+                                                    请在这里输入段落的标题，可点击右侧“添加文本”添加多个！</p>
+                                                <p class="edit-text-content">
+                                                    请在这里输入段落的正文，例如：介绍自己，介绍项目内容。为什么需要大家支持，项目进度等等!</p>
+                                            </div>
+                                        </div>
+                                        <div class="editable">
+                                            <div class="editable-title">
+                                                <span>添加文本</span>
+                                                <div>
+                                                    <button class="editable-delet">
+                                                        删除</button>
+                                                    <button class="editable-save forbid">
+                                                        保存</button></div>
+                                            </div>
+                                            <div class="form-input-set countable">
+                                                <input class="editable-text-title" type="text" maxlength="30">
+                                                <span class="form-word-count"><span class="form-word-used">30</span>/<span class="form-word-total">30</span></span>
+                                            </div>
+                                            <div class="form-input-set">
+                                                <textarea class="editable-text-content"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--图片编辑-->
+                                    <div class="edit-img edit-box addition" id="edit-img">
+                                        <div class="edit-img-result">
+                                            <ul class="edit-text-btns clearfix">
+                                                <li class="edit-text-btn delete editable-delet" title="删除"><i></i></li>
+                                                <li class="edit-text-btn up" title="上移"><i></i></li>
+                                                <li class="edit-text-btn down" title="下移"><i></i></li>
+                                            </ul>
+                                            <div>
+                                                <img class="browse-img" ssrc></div>
+                                        </div>
+                                        <div class="edit-img-upload">
+                                            <div class="edit-img-title">
+                                                <span>上传照片</span>
+                                                <button class="editable-delet">
+                                                    删除</button></div>
+                                            <div class="edit-img-content">
+                                                <div>
+                                                    <button class="browse browse-bg edit-browse"  data-imgsize="670x670">
+                                                    </button>
+                                                </div>
+                                                <p>
+                                                    支持上传JPG、GIF、PNG格式的图片，图片尺寸建议大于300x300像素，大小限制为1M以内！</p>
+                                                <p>
+                                                    图片最大宽度为670像素，大于的自动缩减，小于的按照实际宽度显示</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--右侧-->
+                            <div class="form-content-right">
+                                <dl class="edit-addtion">
+                                    <dt>添加模块</dt>
+                                    <dd class="edit-addtion-text">
+                                        <a href="#"><i></i>添加文本</a></dd>
+                                    <dd class="edit-addtion-img">
+                                        <a href="#"><i></i>添加图片</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <!--详细描述 结束-->
+                    <!--回报设置 开始-->
+                    <div class="form-body hbsz">
+                        <div class="form-title clearfix">
+                            <h2>
+                                设置你的回报信息</h2>
+                            <a class="save-copy-btn" href="#">保存草稿</a>
+                        </div>
+                        <p class="form-tip">
+                            TIPS:回报信息是让用户支持你的项目,你给予一定的汇报内容,可以具体实物也可以是虚拟信息</p>
+                        <div class="return-box-wrap">
+                            
+                        </div>
+                        <div class="hbsz-add">
+                            <em>+</em><a class="return-box-add" href="#">继续添加新的回报</a>
+                        </div>
+                    </div>
+                    <!--回报设置 结束-->
+                    <!--预览 开始-->
+                    <div class="form-body yl">
+                    </div>
+                    <!--预览 结束-->
+                </div>
+            </div>
+            <!--表单主内容 结束-->
+            <!--表单底部 开始-->
+            <div class="form-footer">
+                <div class="form-footer-btns jbxx">
+                    <button class="form-footer-btn next-btn">
+                        下一步</button>
+                </div>
+                <div class="form-footer-btns xmxx">
+                    <button class="form-footer-btn prev-btn">
+                        上一步</button>
+                    <button class="form-footer-btn next-btn">
+                        下一步</button>
+                </div>
+                <div class="form-footer-btns xxms">
+                    <button class="form-footer-btn prev-btn">
+                        上一步</button>
+                    <button class="form-footer-btn next-btn">
+                        下一步</button>
+                </div>
+                <div class="form-footer-btns hbsz">
+                    <button class="form-footer-btn prev-btn">
+                        上一步</button>
+                    <button class="form-verify forbid">
+                        提交审核</button>
+                </div>
+                <div class="form-footer-btns yl">
+                </div>
+            </div>
+            <!--表单底部 结束-->
+            <!--弹出确认框 开始-->
+            <div class="edit-modal">
+            </div>
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <button class="modal-close">
+                        ×</button>
+                    <h4>
+                        删除提示</h4>
+                </div>
+                <div class="modal-body">
+                    确定要删除<span></span>吗</div>
+                <div class="modal-footer">
+                    <button class="modal-cancel">
+                        取消</button>
+                    <button class="modal-confirm">
+                        确定</button>
+                </div>
+            </div>
+            <!--弹出确认框 结束-->
+             <!--保存成功提示框 开始-->
+        @*<div class="form-success">
+          <span></span>保存成功
+        </div>*@
+        <!--保存成功提示框 结束-->
+
+        </div>
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/plupload.full.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/imgUpload.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/validator.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.cityselect.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zcForm.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zcFormData.js"></script>
+}

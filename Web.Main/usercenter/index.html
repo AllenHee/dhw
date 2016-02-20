@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="/usercenter/styles/index.css">
+  <!--[if lt IE 10]>
+    <script type="text/javascript" src="http://192.168.2.21:8070/lib/PIE.js"></script>
+  <![endif]-->
+  <script type="text/javascript">
+    var dhw = {
+      imgurl: 'http://192.168.2.10:81/img/',
+      imguploadurl: 'http://192.168.2.10:82/uploadimg',
+      mainurl: '//192.168.2.21:8085/',
+      staticurl: 'http://192.168.2.10:81',
+      urlmain: '//192.168.2.21:8085/',
+      urlcdn: '//192.168.2.10:81/',
+      urlzc: '//192.168.2.21:8088/',
+      urlkj: '//192.168.2.21:8087/',
+      urlhr: '//192.168.2.21:8086/',
+      urlzckj: '//192.168.2.21:8091/',
+      urlzb: '//192.168.2.21:8090/',
+      urldiy: '//192.168.2.21:8092/',
+      urlsrdz: '//192.168.2.21:8093/',
+      urlcqbh: '//192.168.2.21:8094/',
+      urlzxsj: '//192.168.2.21:8095/',
+      urlgsss: '//192.168.2.21:8096/'
+    };
+    if (dhw) dhw.gettplurl = function (name) { return function () { return '/usercenter/moduledhw/' + name + '?_=' + (+new Date()) } }
+  </script>
+</head>
+<body class="clearfix" ng-app="dhwApp" ng-controller="dhwCtrl">
+  <!--左右箭头 开始-->
+  <div class="arrowLeftWrap" ng-click="moduleSwitch('right', urlstate.current.name)">
+    <i class="arrowLeft"></i>
+  </div>
+  <div class="arrowRightWrap" ng-click="moduleSwitch('left', urlstate.current.name)">
+    <i class="arrowRight"></i>
+  </div>
+  <!--左右箭头结束-->
+  <div class="menuWrap clearfix">
+    <ul class="menu clearfix">
+      <li class="menu_items"><a href="#">注册</a></li>
+      <li class="menu_items"><a href="#">登录</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="logo">
+      <img src="images/index_logo.png" alt="梦高速">
+    </div>
+    <div class="searchWrap">
+      <div class="search clearfix">
+        <label class="search_lable">
+          <i class="module_icon xhhrIcon"></i>
+          <ul class="search_label_items">
+            <li class="search_label_item"><i class="module_icon xhhrIcon"></i>寻合伙人</li>
+            <li class="search_label_item"><i class="module_icon kjfwIcon"></i>注册公司</li>
+            <li class="search_label_item"><i class="module_icon rczpIcon"></i>招兵买马</li>
+            <li class="search_label_item"><i class="module_icon cysjIcon"></i>创意设计</li>
+            <li class="search_label_item"><i class="module_icon zchuangIcon"></i>众创</li>
+            <li class="search_label_item"><i class="module_icon zchouIcon"></i>众筹</li>
+            <li class="search_label_item"><i class="module_icon zbaoIcon"></i>众包</li>
+            <li class="search_label_item"><i class="module_icon cqbhIcon"></i>产权保护</li>
+            <li class="search_label_item"><i class="module_icon srdzIcon"></i>私人定制</li>
+            <li class="search_label_item"><i class="module_icon zxsjIcon"></i>转型升级</li>
+            <li class="search_label_item"><i class="module_icon ssgsIcon"></i>上市公司</li>
+          </ul>
+        </label>
+        <input class="search_box" type="text">
+        <button class="search_btn" type="button">搜 索</button>
+      </div>
+      <div class="hot">
+        <ul class="hot_items clearfix">
+          <li class="hot_item"><a href="#">热门搜索</a></li>
+          <li class="hot_item"><a href="#">热门搜索</a></li>
+          <li class="hot_item"><a href="#">热门搜索</a></li>
+          <li class="hot_item"><a href="#">热门搜索</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="view-animate-container">
+      <div ui-view class="view-animate clearfix"></div>
+    </div>
+    
+  </div>
+  <div class="nav">
+    <ul class="navItems clearfix">
+      <li ng-repeat="module in modules" class="navItem" ng-if="module.show" ng-click="moduleSwitch(module.name, urlstate.current.name)">
+        <i class="module_icon {{module.name}}GreyIcon" ng-class="{ {{module.name}}Icon: urlstate.current.name === module.name}"></i>{{module.text}}
+      </li>
+      <!--<li class="navItem" ng-click="moduleSwitch('home', urlstate.current.name)"><i class="module_icon"></i>首页</li>
+      <li class="navItem" ng-click="moduleSwitch('kjfw', urlstate.current.name)"><i class="module_icon kjfwGreyIcon"></i>会计服务</li>
+      <li class="navItem" ng-click="moduleSwitch('rczp', urlstate.current.name)"><i class="module_icon rczpGreyIcon"></i>人才招聘</li>
+      <li class="navItem" ng-click="moduleSwitch('cysj', urlstate.current.name)"><i class="module_icon cysjGreyIcon"></i>创意设计</li>
+      <li class="navItem" ng-click="moduleSwitch('zchuang', urlstate.current.name)"><i class="module_icon zchuangGreyIcon"></i>众创</li>
+      <li class="navItem"><i class="module_icon zchouGreyIcon"></i>众筹</li>
+      <li class="navItem"><i class="module_icon zbaoGreyIcon"></i>众包</li>
+      <li class="navItem"><i class="module_icon cqbhGreyIcon"></i>产权保护</li>
+      <li class="navItem"><i class="module_icon srdzGreyIcon"></i>私人定制</li>
+      <li class="navItem"><i class="module_icon zxsjGreyIcon"></i>转型升级</li>
+      <li class="navItem" ng-click="moduleSwitch('ssgs', urlstate.current.name)"><i class="module_icon ssgsGreyIcon"></i>上市公司</li>-->
+      <li class="navItem navItem-setting" ng-show="isLogin"><span class="navItem-setting_icon"></span></li>
+    </ul>
+    <div class="navPopWrap">
+      <div class="navPop">
+        <span class="navPop_closeBtn" ng-click="confirmOrCancel(false)"></span>
+        <h3 class="navPop_title">勾选您要显示的模块：</h3>
+        <ul class="navPop_items clearfix">
+          <li ng-repeat="module in modules" class="navPop_item" ng-class="{selected:module.temp}" ng-if="!$index==0" ng-click="module.temp=!module.temp">
+            <i></i>
+            <img ng-src="images/switch_{{module.name}}.png">
+            <p class="navPop_item_text">{{module.text}}</p>
+          </li>
+          <!--<li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_kjfw.png">
+            <p class="navPop_item_text">注册公司</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_rczp.png">
+            <p class="navPop_item_text">招兵买马</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_cysj.png">
+            <p class="navPop_item_text">创意设计</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_zchuang.png">
+            <p class="navPop_item_text">众创</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_zchou.png">
+            <p class="navPop_item_text">众筹</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_zbao.png">
+            <p class="navPop_item_text">众包</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_cqbh.png">
+            <p class="navPop_item_text">产权保护</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_srdz.png">
+            <p class="navPop_item_text">私人定制</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_zxsj.png">
+            <p class="navPop_item_text">转型升级</p>
+          </li>
+          <li class="navPop_item selected">
+            <i></i>
+            <img src="images/switch_ssgs.png">
+            <p class="navPop_item_text">上市公司</p>
+          </li>-->
+        </ul>
+        <p class="navPop_confirm"><button class="navPop_confirm_btn" type="button" ng-click="confirmOrCancel(true)">确定</button></p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/angular/angular.min.js"></script>
+  <script src="http://localhost:8070/lib/angular/angular-animate.min.js"></script>
+  <script src="http://localhost:8070/lib/angular-ui-router/angular-ui-router.min.js"></script>
+  <script src="http://localhost:8070/lib/css3-mediaqueries.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.slider.js"></script>
+  <script src="http://localhost:8070/scripts/dhwCtrl.js"></script>
+  <script>
+    $('input, textarea').placeholder();
+    
+    // 搜索框下拉
+    $('.search_lable>.module_icon').click(function(e) {
+      e.stopPropagation();
+      $('.search_label_items').slideToggle();
+    });
+    $(document).click(function() {
+      $('.search_label_items').slideUp();
+    });
+    $('.search_label_item').click(function() {
+      var _class = $(this).children('i').attr('class');
+      $('.search_lable>.module_icon').attr('class', _class);
+      $('.search_label_items').hide();
+    });
+    
+    // 导航栏弹出
+    $('.navItem-setting').click(function() {
+      $('.navPopWrap').slideToggle();
+    });
+    $('.navPop_closeBtn, .navPop_confirm_btn').click(function() {
+      $('.navPopWrap').hide();
+    });
+  </script>
+</body>
+</html>

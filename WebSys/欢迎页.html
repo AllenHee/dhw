@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>欢迎页面</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/backend.css">
+</head>
+<body>
+	<p class="title-right bg-info">当前版本号： <span class="cq-version">CQMall 5.8</span> 服务器版本号：<input class="btn btn-default btn-xs" type="submit" value="在线升级"></p>
+	<div class="container container-main">
+		<div class="row">
+		<div class="col-sm-12 col-md-6 col-lg-5 info-left">
+			<div class="panel panel-default">
+			<div class="panel-heading">登录信息</div>
+			<div class="panel-body small">
+				<p>用户名：<span class="text-success">admin</span>所在部门：<span class="text-success">管理部</span></p>
+				<p>登陆次数：<span class="text-success">1333</span>上次登陆IP：<span class="text-success">127.0.0.1</span></p>
+				<p>上次登陆：<span class="text-success">2015/9/25 8:45:21</span></p>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">商城信息</div>
+			<div class="panel-body small">
+				<p>会员总数：<span class="text-success">20个</span><a href="#">查看</a>今日最新会员：<span class="text-success">0个</span><a href="#">查看</a></p>
+				<p>企业总数：<span class="text-success">11个</span><a href="#">查看</a>今日最新企业：<span class="text-success">0个</span><a href="#">查看</a></p>
+				<p>等待处理的订单：<span class="text-success">7个</span><a href="#">查看</a>等待发货的订单：<span class="text-success">0个</span><a href="#">查看</a></p>
+				<p>未审核商城留言：<span class="text-success">0个</span><a href="#">查看</a>未审核的商品咨询：<span class="text-success">10个</span><a href="#">查看</a></p>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">销售信息</div>
+			<div class="panel-body small">
+				<p>昨日新增订单：<span class="text-success">0</span><a href="#">查看</a></p>
+				<p>昨日新增订单金额：<span class="text-success">￥0.00</span</p>
+				<p>今日新增订单：<span class="text-success">0</span><a href="#">查看</a></p>
+				<p>今日新增订单金额：<span class="text-success">￥0.00</span</p>
+			</div>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6 col-lg-7 info-right">
+			<div class="panel panel-default">
+			<div class="panel-heading" data-toggle="collapse" data-target="#quickIntro">快速入门</div>
+			<div class="panel-body collapse small" id="quickIntro">
+				<ul>
+				<li>
+					<b>第一步：</b> 首先给商城添加操作员，并对操作员分配相应的权限 <span class="glyphicon glyphicon-play"></span> <a href="#">分配操作员</a><br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> 详细请查看权限设置快速入门
+				</li>
+				<li><b>第二步：</b> 完成对网店的设置 <span class="glyphicon glyphicon-play"></span> <a href="#">参数设置</a></li>
+				<li><b>第三步：</b> 填写关于在本网店购买的一个帮助，包括购买方式，配送方式，付款方式，客户服务,常见问题等 <span class="glyphicon glyphicon-play"></span> <a href="#">网店帮助</a></li>
+				<li>
+					<b>第四步：</b> 建立网店中用到的资源分类，如<br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">图片分类</a><br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">供求分类</a><br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">文章分类</a>
+				</li>
+				<li>
+					<b>第五步：</b> 为添加商品做准备，建立商品分类，商品品牌，商品类型,商品必要信息<br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">添加商品品牌</a><br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">添加商品类型</a><br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">添加商品分类</a>
+				</li>
+				</ul>
+				<p><b>到此基本的设置已经完成</b></p>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading" data-toggle="collapse" data-target="#authoritySet">权限设置</div>
+			<div class="panel-body collapse small" id="authoritySet">
+				<ul>
+				<li>
+					<b>第一步：</b> 如果您是企业用户，可以在添加操作员前添加部门从而更方便的管理操作员，如果您是个人用户，可跳过此步直接添加操作员。<br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">添加部门</a>
+				</li>
+				<li><b>第二步：</b> 给商城添加操作员，可设置操作员的所在部门和其它一些基本信息。</li>
+				<li>
+					<b>第三步：</b> 刚添加的操作员未被分配任何的权限组，因此没有任务权限，系统安装后有一个默认的并且不能删除的管理员权限组，可为操作员分配权限组，若需建立新的权限组可先进行第四步操作，然后再进行第五步操作，最后再进行第三步操作<br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">给操作员分配权限组</a>
+				</li>
+				<li>
+					<b>第四步：</b> 如果要控制不同的操作员登录到后台能访问的页面或控制不同的操作员登录到后台能进行不同的操作，可以添加新的权限组，并为权限组分配页面（第五步），若要控制不同的操作可在完成第五步操作后进行第六步操作<br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">权限组添加</a>
+				</li>
+				<li>
+					<b>第五步：</b> 为不同的权限组分配页面，被分配的页面才能被属于该权限组的操作员使用<br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">权限组页面分配</a>
+				</li>
+				<li>
+					<b>第六步：</b> 为不同的权限组分配页面控件权限<br>
+					------------------------- <span class="glyphicon glyphicon-play"></span> <a href="#">权限组控件分配</a>
+				</li>
+				</ul>
+				<p><b>到此权限组的设置已经完成</b></p>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading" data-toggle="collapse" data-target="#sysInfo">系统信息</div>
+			<div class="panel-body collapse in small" id="sysInfo">
+				<p>数据库类型： (<span class="text-success">SQL</span>)</p>
+				<p>服务器类型： (IP:<span class="text-success">127.0.0.1</span>)</p>
+				<p>站点路径： <span class="text-success">E:\新建文件夹\CQMall.Shop\</span></p>
+				<p>WEB服务器的名称和版本： <span class="text-success"></span></p>
+				<p>虚拟路径： <span class="text-success">/weblogin/show.aspx</span></p>
+				<p>返回服务器处理请求的端口： <span class="text-success">24835</span></p>
+				<p>客户端操作系统： <span class="text-success">WinNT</span></p>
+			</div>
+			</div>
+			<div class="panel panel-default">
+			<div class="panel-heading" data-toggle="collapse" data-target="#cqInfo">CQMall官方信息</div>
+			<div class="panel-body collapse in small" id="cqInfo">
+				<p>客户咨询服务热线： · <span class="text-success">0595-88505963</span> · <span class="text-success">88505963-602</span> · <span class="text-success">88505963-628</span></p>
+				<p>大客户定制部热线： · <span class="text-success">021-88505963</span> · <span class="text-success">88505963-612</span></p>
+				<p>客户技术支持热线： · <span class="text-success">021-88505963-606</span> · <span class="text-success">88505963-620</span> · <span class="text-success">88505963-615</span></p>
+				<p>投诉热线： · <span class="text-success">021-88505963-611</span></p>
+				<p>公司传真： · <span class="text-success">021-88505963-610</span></p>
+				<p>客户咨询购买QQ： · <span class="text-success">475980829</span> · <span class="text-success">88505963</span> · <span class="text-success">88505963</span> · <span class="text-success">867344297</span></p>
+				<p>地址： <span class="text-success">珠海南方软件园</span></p>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+  
+  <script src="scripts/jquery-1.11.3.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+</body>
+</html>

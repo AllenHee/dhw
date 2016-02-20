@@ -1,0 +1,269 @@
+/**bootstrap部分值重置**/
+.container
+{
+    width: auto;
+    margin: 0;
+}
+.text-warning
+{
+    margin-left: 5px;
+    color: red;
+}
+
+/**页面复用部分**/
+/*顶栏*/
+.navbar
+{
+    min-height: 58px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.navbar-brand
+{
+    padding: 0;
+}
+.nav-tabs
+{
+    padding: 0 15px;
+    margin-bottom: 10px;
+}
+/*面板标题显示指针*/
+.panel-heading
+{
+    cursor: pointer;
+}
+/*左栏 尺寸*/
+.left .panel
+{
+    margin-bottom: 5px;
+}
+.left .panel-heading
+{
+    padding: 7px 10px;
+}
+.left .list-group-item
+{
+    padding: 6px 15px;
+}
+/*左栏 点击展开*/
+/*.left .list-group {
+  display: none;
+}*/
+/*右栏 大标题*/
+.title-right
+{
+    padding: 8px 10px;
+    color: #999;
+}
+.cq-version
+{
+    margin-right: 40px;
+}
+/*右栏 页脚*/
+.copy-right
+{
+    padding: 20px;
+    border-top: 5px solid green;
+    margin-top: 20px;
+}
+/*右栏 字体颜色*/
+.container-main
+{
+    color: #666;
+}
+
+/**首页**/
+.info-left .panel-body span, .info-left .panel-body a
+{
+    margin-right: 40px;
+}
+.info-left .panel-body a
+{
+    margin-left: -35px;
+}
+.info-right .panel-body ul
+{
+    line-height: 2.2;
+}
+.info-right b
+{
+    color: #555;
+}
+
+/**管理页**/
+/*管理 表单*/
+.form-list-manage
+{
+    padding: 10px 0 5px;
+    margin: 10px 0;
+    border-width: 1px 0 1px;
+    border-color: #ddd;
+    border-style: solid;
+}
+.form-list-manage .form-inline
+{
+    margin-bottom: 5px;
+}
+.form-list-manage label
+{
+    font-weight: 500;
+    width: 80px;
+    text-align: right;
+}
+.form-list-manage .input-sm, .form-list-manage .input-group
+{
+    width: 168px;
+}
+.form-list-manage .btn
+{
+    margin-left: 15px;
+}
+/*管理 控制栏*/
+.list-ctrlbar
+{
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.list-ctrlbar a
+{
+    margin-left: 20px;
+}
+/*列表页表单*/
+.list-content table
+{
+    border-bottom: 1px solid #ddd;
+}
+
+/**风格管理页**/
+.list-content dl
+{
+    margin-bottom: 0;
+}
+.list-content dt, .list-content dd
+{
+    margin-bottom: 3px;
+}
+
+/**设置页**/
+#siteInfo .form-group, #settingBasic .form-group， #other .form-group
+{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+#siteInfo input[type=radio], #settingBasic input[type=radio], #other input[type=radio]
+{
+    margin-top: 0;
+}
+#ImagLogo
+{
+    height: 30px;
+}
+
+/**图片选择框**/
+.modal-body .form-inline
+{
+    margin-bottom: 15px;
+}
+.img-select dt img
+{
+    width: 100px;
+    height: 100px;
+}
+.img-select dd
+{
+    width: 100px;
+    border: 1px dashed #999;
+}
+
+/**图片悬停**/
+.img-icon
+{
+    font-size: 16px;
+}
+.img-icon img
+{
+    height: 30px;
+}
+.img-tip
+{
+    position: absolute;
+    display: none;
+}
+
+
+/*2015-11-05*/
+body
+{
+    font-family: "Microsoft Yahei";
+}
+.main-content
+{
+    padding: 0 15px;
+}
+.dropdown-menu-modal
+{
+    min-width: 94px;
+}
+.btn-dropdown-modl
+{
+    margin-top: 2px;
+}
+
+
+/*2015-11-09*/
+.list-content tr:hover td
+{
+    background: #599FDB;
+    color: #fff;
+}
+.list-content tr:hover a
+{
+    color: #fff;
+}
+.list-content th
+{
+    background-color: #337ab7;
+    border-bottom: 0 !important;
+    color: #fff;
+    padding: 14px 8px !important;
+}
+
+.table-bordered td.bg-primary
+{
+    padding: 10px;
+    font-size: 14px;
+}
+.table-bordered .text-right
+{
+    width: 120px;
+    background-color: #f8f8f8;
+}
+.opr-btns
+{
+    text-align: center;
+}
+.opr-btns .btn
+{
+    margin: 0 10px;
+}
+.pagination-wrap
+{
+    text-align: center;
+}
+.btn-new
+{
+    margin-top: -5px;
+    padding: 4px 10px !important;
+}
+.input-td
+{
+    line-height: 3 !important;
+}
+.img_size 
+{
+    height:25px;
+    width:25px;
+    }

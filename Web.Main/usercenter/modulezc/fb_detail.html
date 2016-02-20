@@ -1,0 +1,124 @@
+<form name='formDetail'>
+<div class="formWrap formWrap-detail">
+  <div class="formTitle clearfix">
+    <h2>选择你的身份类型</h2>
+    <div class="saveCopyBtnWrap">
+      <span class="saveTip saveTip-detail"></span>
+      <button class="saveCopyBtn" type="button" ng-click="saveDraft(urlstate.current.name, 3, true)">保存草稿</button>
+    </div>
+  </div>
+  <div class="formBody clearfix">
+    <!--左侧-->
+    <div class="xxmsLeft">
+      <!--视频 开始-->
+      <div class="xxmsVideo">
+        <div class="xxmsVideo_edit" ng-show="video.isEdit">
+          <label class="formSet_label">宣传视频：</label>
+          <div class="formSet_inputWrap">
+            <input class="formSet_input" type="text" ng-model="video.temp" ng-pattern="/^(http:\/\/)?v\.youku\.com\/.+$/" placeholder="例如：http://v.youku.com/...">
+            <button class="btnNormal" type="button" ng-click="videoSwitch()" ng-disabled="!video.temp">保存</button>
+            <p class="xxmsVideo_text">（请直接输入视频的所在页面的地址，只支持有优酷！（选填））</p>
+          </div>
+        </div>
+        <div class="xxmsVideo_result" ng-show="!video.isEdit">
+          <label class="formSet_label">宣传视频：</label>
+          <a class="xxmsVideo_url" href="#">{{video.temp}}</a>
+          <button class="btnNormal" ng-click="videoSwitch()">取消</button>
+        </div>
+      </div>
+      <!--视频 结束-->
+      <!--图文 开始-->
+      <div class="formTitle formTitle-small clearfix">
+        <h2>编辑你的项目详情</h2>
+      </div>
+      <div class="editBoxWrap" ng-repeat="item in data.text">
+        <!--文本编辑 开始-->
+        <div class="editBox editText" ng-show="{{item.type == 1}}">
+          <!--展示 开始-->
+          <div class="editText_result"  ng-show="!isEdit[$index]">
+            <ul class="editBox_btns clearfix">
+              <li class="editBox_btn edit" ng-click="isEdit[$index] = !isEdit[$index]" title="编辑"><i></i></li>
+              <li class="editBox_btn delete" ng-click="switchModal($index)" title="删除"><i></i></li>
+              <li class="editBox_btn up" ng-click="move($index, 0)" title="上移"><i></i></li>
+              <li class="editBox_btn down" ng-click="move($index, 1)" title="下移"><i></i></li>
+            </ul>
+            <p class="editText_result_title">{{item.title}}</p>
+            <p class="editText_result_content">{{item.content}}</p>
+          </div>
+          <!--展示 结束-->
+          <!--编辑 开始-->
+          <div class="editText_edit" ng-show="isEdit[$index]">
+            <div class="editText_edit_title clearfix">
+              <span class="editText_edit_title_text">添加文本</span>
+              <div class="editText_edit_title_btns">
+                <button class="editText_edit_title_btn" ng-click="switchModal($index)">删除</button>
+                <button class="editText_edit_title_btn" ng-click="isEdit[$index] = !isEdit[$index];">保存</button>
+              </div>
+            </div>
+            <div class="formSet count">
+              <div class="formSet_inputWrap">
+                <input class="formSet_input" type="text" ng-model="item.title" maxlength="30">
+                <span class="formSet_count"><span class="formSet_count_used">30</span>/30</span>
+              </div>
+            </div>
+            <div class="formSet">
+              <textarea class="formSet_textarea" ng-model="item.content"></textarea>
+            </div>
+          </div>
+          <!--编辑 开始-->
+        </div>
+        <!--文本编辑 结束-->
+        <!--图片编辑 开始-->
+        <div class="editBox editImg" ng-show="{{item.type == 2}}">
+          <div class="editImg_result" ng-show="item.url">
+            <ul class="editBox_btns clearfix">
+              <li class="editBox_btn delete" ng-click="switchModal($index)" title="删除"><i></i></li>
+              <li class="editBox_btn up" ng-click="move($index, 0)" title="上移"><i></i></li>
+              <li class="editBox_btn down" ng-click="move($index, 1)" title="下移"><i></i></li>
+            </ul>
+            <img ng-src="{{(!item.url) ? '' : (dhw.imgurl + item.url + '_670x670' + '.jpg')}}">
+          </div>
+          <div class="editImg_edit" ng-show="!item.url">
+            <div class="editImg_edit_title clearfix">
+              <span class="editImg_edit_title_text">上传照片</span>
+              <button class="btnNormal" ng-click="switchModal($index)">删除</button>
+            </div>
+            <div class="editImg_edit_content">
+              <div><a class="btn-imgUpload" id="{{'browseTPBJ' + $index}}" type="button" ng-model="item.url" data-keyname="cpzc" data-size="670x670" bindimg></a></div>
+              <p>支持上传JPG、GIF、PNG格式的图片，图片尺寸建议大于300x300像素，大小限制为1M以内！</p>
+              <p>图片最大宽度为670像素，大于的自动缩减，小于的按照实际宽度显示</p>
+            </div>
+          </div>
+        </div>
+        <!--图片编辑 开始-->
+      </div>
+      <!--图文 结束-->
+    </div>
+    <!--右侧-->
+    <div class="xxmsRight">
+      <dl class="editBoxAdd">
+        <dt class="editBoxAdd_title">添加模块</dt>
+        <dd class="editBoxAdd_btn" ng-click="data.text.push({type:1, title:'请在这里输入段落的标题，可点击右侧“添加文本”添加多个！', content: '请在这里输入段落的正文，例如：介绍自己，介绍项目内容。为什么需要大家支持，项目进度等等!'});isEdit.push(false)"><i></i>添加文本</dd>
+        <dd class="editBoxAdd_btn img" ng-click="data.text.push({type:2});isEdit.push(false)"><i></i>添加图片</dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<!--用来判断页面是否填写正确的隐藏按钮-->
+<input class="isValid" type="hidden" ng-disabled="formDetail.$invalid">
+</form>
+
+<!--弹出确认框 开始-->
+<div class="modalWrap" ng-class="{show:modal.show}"></div>
+<div class="modal" ng-class="{show:modal.show}">
+  <div class="modal_header">
+    <button class="modal_close" ng-click="switchModal()">×</button>
+    <h4>删除提示</h4>
+  </div>
+  <div class="modal_body">确定要删除这个模块吗</div>
+  <div class="modal_footer">
+    <button class="modal_btn modal_btn-cancel" ng-click="switchModal()">取消</button>
+    <button class="modal_btn modal_btn-confirm" ng-click="del()">确定</button>
+  </div>
+</div>
+<!--弹出确认框 结束-->

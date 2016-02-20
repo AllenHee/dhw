@@ -1,0 +1,49 @@
+﻿<p class="title-right bg-info small">
+    <a href="/Sys">系统管理</a> > <span>用户管理</span><a href="#/user/0"><input class="btn btn-default btn-sm btn-success btn-new pull-right" type="button" value="新增"></a></p>
+<div class="container container-main">
+    <!--右栏主区域开始：订单管理-->
+        <div class="list-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <b>主键ID</b>
+                        </th>
+                        <th>
+                            <b>帐号</b>
+                        </th>
+                        <th>
+                            <b>姓名</b>
+                        </th>                    
+                        <th>
+                            <b>状态</b>
+                        </th>
+                        <th>
+                            <b>详细页面</b>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="it in list">
+                        <td>
+                            {{it.id}}
+                        </td>
+                        <td>
+                            {{it.account}}
+                        </td>
+                        <td>
+                            {{it.name}}
+                        </td>
+                        <td>
+                            {{it.state}}
+                        </td>
+                        <td>
+                            <a href="#/user/{{it.id}}">详细页面</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

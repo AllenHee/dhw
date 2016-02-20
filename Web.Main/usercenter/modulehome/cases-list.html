@@ -1,0 +1,35 @@
+<div class="wdgz">
+    <ul class="wdgz_wdfq">
+        <li><a href="">项目查询</a></li>
+    </ul>
+    <ul class="wdgz_xm">
+        <li class="wdgz_xm1" style="width: 130px">主键ID</li>
+        <li style="width: 130px">案例图片</li>
+        <li style="width: 130px">案例标题</li>
+        <li style="width: 130px">案例路径</li>
+        <li style="width: 130px">发布时间</li>
+        <li style="width: 130px">详细情况</li> 
+    </ul>
+    <ul class="wdgz_main" ng_repeat="it in list">
+        <li>
+            <ul class="wdgz_main_cont">
+                <li style="width: 130px" class="wdgz_main_cont_lx">&nbsp {{it.ccid}}</li>
+                <li style="width: 130px" class="wdgz_main_cont_lx">
+                  <img src="{{dhw.imgurl + it.img + '_100x100.jpg'}}" alt="">
+                </li>
+                <li style="width: 130px" class="wdgz_main_cont_lx">&nbsp{{it.title}}</li>
+                <li style="width: 130px" class="wdgz_main_cont_lx">&nbsp{{it.url}}</li>
+                <li style="width: 130px" class="wdgz_main_cont_lx">&nbsp{{it.createdate}}</li>
+               <li style="width: 130px" class="wdgz_main_cont_cz"><a class="wdgz_main_cont_cz_yl"
+                    href="#/casesdetail/{{it.ccid}}">详细情况</a>
+                    <a class="wdgz_main_cont_cz_yl" href="javascript:;"  ng-click="del(it.ccid,$index)">删除</a>
+                </li>
+         
+            </ul>
+        </li>
+    </ul>
+    <div class="pagination-wrap">
+        <uib-pagination total-items="page.total" max-size="10" items-per-page="page.pageSize"
+            ng-model="page.pageIndex" ng-change="loaddata()"></uib-pagination>
+    </div>
+</div>

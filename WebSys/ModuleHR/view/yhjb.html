@@ -1,0 +1,100 @@
+﻿<p class="title-right bg-info small">
+    <a href="/HR#/">人才</a> > <span>用户举报</span></p>
+<div class="container container-main">
+    <!--右栏主区域开始：订单管理-->
+    <div class="row form-list-manage">
+        <form>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label">
+                    状态：</label>
+                <select class="form-control" ng-model="qrydata.ifdo">
+                    <option value="">请选择</option>
+                    <option value="0">未处理</option>
+                    <option value="1">已处理</option>
+                </select>
+            </div>
+            <input class="btn btn-default" type="button" ng-click="search()" value="查询">
+        </div>
+        </form>
+    </div>
+    <div>
+        <div class="list-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <b>举报人</b>
+                        </th>
+                        <th>
+                            <b>举报人邮箱</b>
+                        </th>
+                        <th>
+                            <b>举报人QQ</b>
+                        </th>
+                       
+                        <th>
+                            <b>举报的招聘信息的职位</b>
+                        </th>
+                        <th>
+                            <b>举报原因</b>
+                        </th>
+                        <th>
+                            <b>匿名</b>
+                        </th>
+                        <th>
+                            <b>举报时间</b>
+                        </th>
+                        <th>
+                            <b>处理结果</b>
+                        </th>
+                        <th>
+                            <b>处理人姓名</b>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="it in list">
+                        <td>
+                            {{it.Name}}
+                        </td>
+                        <td>
+                            {{it.email}}
+                        </td>
+                        <td>
+                            {{it.qq}}
+                        </td>
+                         
+                        <td>
+                           <a href="{{dhw.hrurl}}jobs/detail/{{it.JobID}}" target="_blank">{{it.Position}}</a>
+                        </td>
+                        <td>
+                            {{it.reason}}
+                        </td>
+                        <td>
+                            {{it.Anonymous?'是':'否'}}
+                        </td>
+                        <td>
+                            {{it.timeflag}}
+                        </td>
+                        <td>
+                            {{it.doresult}}
+                        </td>
+                        <td>
+                            {{it.dousername}}
+                        </td>
+                        <td>
+                            <a href="#/yhjb/{{it.UserID}}-{{it.JobID}}">详细页面</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination-wrap">
+                <uib-pagination total-items="page.total" items-per-page="page.pageSize" ng-model="page.pageIndex"
+                    ng-change="loaddata()"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

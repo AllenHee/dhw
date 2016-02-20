@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn<text>kuaiji/styles/kuaiji.css</text>}">
+    @RenderSection("head", required: false)
+}
+@section scripts{    
+    @RenderSection("scripts", required: false)
+}
+@RenderBody()

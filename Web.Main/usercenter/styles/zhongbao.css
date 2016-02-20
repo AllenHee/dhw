@@ -1,0 +1,405 @@
+/*
+  *何伟
+  *2015-11-6
+  
+  *卢铭怀 修改于 2015-11-26
+*/
+.auth {
+  padding-top: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 1.6em;
+}
+.auth a {
+  color: #e34d43;
+}
+.zbFormBox {
+  margin: 20px auto;
+}
+.zbFormBox_ttl {
+  position: relative;
+  width: 174px;
+  height: 40px;
+  background-color: #e34d43;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+}
+.zbFormBox_ttl i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-width: 20px 0 20px 35px;
+  border-color: transparent transparent transparent #e34d43;
+  border-style: solid;
+  margin-right: -35px;
+}
+.formInputSet {
+  margin-top: 20px;
+  /*min-height: */
+}
+.formInputSet_require {
+  color: #e34d43;
+}
+.formInputSet_label {
+  float: left;
+  width: 180px;
+  height: 40px;
+  margin-right: 15px;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: right;
+}
+.formInputSet-check {
+  font-size: 12px;
+}
+.formInputSet-check .formInputSet_label {
+  height: 20px;
+}
+.agreement_text {
+  font-size: 12px;
+}
+.formInputSet_label-top {
+  vertical-align: top;
+}
+.formInputSet_input,
+.formInputSet_textarea {
+  padding: 0 15px;
+  width: 480px;
+  height: 38px;
+  border: 1px solid #eeecea;
+  line-height: 38px;
+}
+.formInputSet_textarea {
+  height: 250px;
+}
+.formInputSet_radioWrap {
+  display: inline-block;
+  line-height: 40px;
+  margin-right: 15px;
+  font-size: 14px;
+}
+.formInputSet_radio {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../images/radio.png) 0 0 no-repeat;
+  vertical-align: middle;
+}
+.formInputSet_radio.active {
+  background: url(../images/radio.png) 0 -20 no-repeat;
+}
+.formInputSet_inputWrap {
+  display: inline-block;
+  position: relative;
+}
+.selectArrow,
+.formInputSet_insideBtn {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  height: 38px;
+  background-color: #fff;
+  border: 0;
+  border-left: 1px solid #eeecea;
+  cursor: pointer;
+}
+.selectArrow {
+  width: 38px;
+  background: url(../images/zbForm_icon.png) 9px 14px no-repeat;
+}
+.formInputSet_insideBtn {
+  padding: 0 15px;
+  color: #e34d43;
+}
+.selectItems {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  width: 510px;
+  border: 1px solid #eeecea;
+  border-top: 0;
+  background: #fff;
+  box-shadow: 2px 2px 4px #e7e7e7;
+}
+.selectItem {
+  height: 40px;
+  padding-left: 15px;
+  line-height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.selectItem:hover {
+  background: #f6f6f6;
+}
+
+.mission_title {
+  font-size: 16px;
+  margin: 20px 0 0 60px;
+}
+.formInputSet_acc {
+  display: inline-block;
+  width: 98px;
+  height: 38px;
+  border: 1px solid #d8d2ce;
+  background: #ebecec url(../images/zbForm_icon.png) 30px -65px no-repeat;
+  line-height: 38px;
+  text-align: left;
+  text-indent: 45px;
+  color: #333;
+}
+a.formInputSet_acc:hover {
+  text-decoration: none;
+}
+.formInputSet_acc_text {
+  font-size: 12px;
+  line-height: 40px;
+}
+.formBtns {
+  margin-top: 20px;
+  text-align: center;
+}
+.formBtn {
+  width: 151px;
+  height: 40px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #e34d43;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+.formBtn[disabled] {
+  background: #ccc;
+}
+.mission_add {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 16px;
+}
+.mission_add span {
+  color: #e34d43;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.content_t_t {
+  text-align: center;
+  margin-top: 20px;
+  color: #e34d43;
+  font-size: 14px;
+}
+.content_t_ckeck {
+  padding-left: 230px;
+  margin-top: 20px;
+  font-size: 1.4em;
+}
+.content_t_b {
+  margin-top: 20px;
+  font-size: 1.4em;
+}
+.content_t_b label {
+  display: inline-block;
+  width: 220px;
+  margin-right: 10px;
+  color: #e34d43;
+  text-align: right;
+}
+.content_t_b a {
+  color: #e34d43;
+}
+
+.formInputSet_error {
+  padding-left: 10px;
+  margin-left: 185px;
+  margin-bottom: -10px;
+  font-size: 12px;
+  color: #e34d43;
+  line-height: 30px;
+}
+.agreement {
+  font-size: 14px;
+}
+.agreementLink {
+  color: #e34d43;
+}
+
+/*规格*/
+.formInputSet_label-sku {
+  vertical-align: top;
+}
+.skuItem {
+  margin-bottom: 10px;
+}
+.skuName {
+  width: 80px;
+  padding: 0 8px;
+}
+.skuContent {
+  width: 345px;
+  padding: 0 8px;
+}
+.skuBtnWrap {
+  padding-left: 245px;
+}
+.skuBtn {
+  height: 30px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 3px;
+  margin-left: 5px;
+  background-color: #e34d43;
+  font-size: 12px;
+  line-height: 30px;
+  color: #fff;
+}
+.skuBtn.del {
+  padding: 0 10px;
+  margin-left: 0;
+}
+.skuTip {
+  font-size: 14px;
+  line-height: 40px;
+}
+/*富文本编辑器*/
+.simditor {
+  display: inline-block;
+  width: 510px;
+}
+.simditor-body {
+  height: 300px;
+  overflow: auto;
+}
+
+/*省市选择*/
+.areaSelect {
+  position: relative;
+}
+.areaContent {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  width: 480px;
+  padding: 10px 15px;
+  border: 1px solid #eeecea;
+  background: #fff;
+}
+.areaItem {
+  float: left;
+  height: 30px;
+  padding: 0 5px;
+  font-size: 13px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.areaItem:hover {
+  background: #e34d43;
+  color: #fff;
+}
+
+/*收货地址*/
+.formInputSet_input.zone {
+  width: 80px;
+}
+.formInputSet_input.number {
+  width: 270px;
+}
+.formInputSet_input.extension {
+  width: 40px;
+}
+
+/*
+* 日期选择
+*/
+.timeSelect {
+  font-size: 14px;
+}
+.timeSelect_year {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 20px;
+}
+.timeSelect_year_change {
+  height: 20px;
+  padding: 0 10px;
+  border: 0;
+  margin: 0 10px;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 20px;
+  color: #e34d43;
+  cursor: pointer;
+}
+.timeSelect_monthNDate {
+  padding: 13px;
+}
+.timeSelect_month,
+.timeSelect_date {
+  float: left;
+}
+.timeSelect_month {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+.timeSelect_date {
+  padding: 15px 0px 0;
+}
+.timeSelect_month_item,
+.timeSelect_date_item {
+  float: left;
+  width: 40px;
+  height: 28px;
+  border-radius: 3px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+}
+.timeSelect_month_item {
+  font-weight: 700;
+}
+.timeSelect_date_item {
+  width: 32px;
+  height: 22px;
+  margin: 5px 4px;
+  line-height: 22px;
+}
+.timeSelect_month_item:hover,
+.timeSelect_date_item:hover  {
+  background-color: #f6f6f6;
+}
+.timeSelect_month_item.current,
+.timeSelect_date_item.current {
+  background-color: #e34d43;
+  color: #fff;
+}
+.timeSelect_month_item.disabled {
+  background-color: transparent;
+  color: #999;
+  cursor: default;
+}
+.timeSelect_date_item.disabled {
+  background-color: transparent;
+  color: #999;
+  cursor: default;
+}
+
+/*
+ * 何伟
+ * 修改于2015-12-14
+*/
+.div-width {
+  width: 810px;
+}
+.checkbox {
+  display: inline-block;
+  margin-top: 13px;
+}

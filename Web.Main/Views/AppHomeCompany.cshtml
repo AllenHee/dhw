@@ -1,0 +1,56 @@
+﻿@{ViewBag.Title = "企业版";}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/jquery.Jcrop.min.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/colpick.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/login.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/usercenter.css">
+    <!--<link rel="stylesheet" href="/usercenter/styles/zhongbao.css">-->
+    <script type="text/javascript">        if (dhw) dhw.gettplurl = function (name) { return function () { return '/modulehome/' + name + '?_=' + (+new Date()) } }</script>
+}
+<div class="content clearfix">
+    <!--左栏 开始-->
+    <div class="cl">
+        <dl class="cygn">
+            <dt>常用功能</dt>
+            <dd>
+                <a href="#/account">帐号信息</a></dd>
+            <dd>
+                <a href="#/servers">公司服务</a></dd>
+            <dd>
+                <a href="#/serversList">服务列表</a></dd>
+            <dd>
+                <a href="#/cases">公司案例</a></dd>
+            <dd>
+                <a href="#/caseslist">案例列表</a></dd>
+            <dd>
+                <a href="#/album/1">企业资质</a></dd>
+            <dd>
+                <a href="#/album/2">企业荣誉</a></dd>
+            <dd>
+                <a href="#/album/3">工作环境</a></dd>
+            <dd>
+                <a href="#/album/4">首页主题图</a></dd>
+            <dd>
+                <a href="#/link">友情链接</a></dd>
+            <dd>
+                <a href="#/bannerDiy">主题修改</a></dd>
+        </dl>
+    </div>
+    <!--左栏 结束-->
+    <div class="cm">
+        <div class="clearfix" ng-app="homeApp" ui-view>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        var dhwtempvar = {
+            isCoporate: true
+        }
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/colpick.js"></script>
+    @Helper1.Displayjs(BaseConfigs.GetUrlCdn)
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/jquery.Jcrop.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/uc.homeCtrl.js"></script>
+}

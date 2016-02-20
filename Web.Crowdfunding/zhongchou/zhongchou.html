@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 众筹</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/zhongchou.css">
+  <script>
+    var su = "";
+    var dhw = {
+        imgurl: 'http://192.168.2.10:82/img/',
+        imguploadurl: 'http://192.168.2.10:82/uploadimg',
+        staticurl: 'http://192.168.2.10:81',
+        urlcdn: '//192.168.2.10:81/',
+    };
+  </script>
+  <script>
+    var project_id = 1;
+  </script>
+  <script type="text/html" id="zcType">
+    <li class="all"><a href="#"><i></i>全部</a></li>
+    {{each result as type i}}
+    <li class="{{type.class}}" data-type="{{type.id}}"><a href="#"><i></i>{{type.name}}</a></li>
+    {{/each}}
+  </script>
+  <script type="text/html" id="fallbox">
+    <li class="fall-box-item">
+      <i class="status">{{ztmc}}</i>
+      <a class="pic" href="#"><img src={{domain}}{{frontpic}} alt={{title}}></a>
+      <div class="title">
+        <h4><a href="#">{{title}}</a></h4>
+        <p><a class="zctypeselect" href="#" data-type="{{ptid}}"><i class={{ptclass}}></i>{{name}}</a></p>
+      </div>
+      <div class="intro">
+        <p><a href="#">{{purpose}}</a></p>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress" style="width:{{percentage}}%"></div>
+      </div>
+      
+      <div class="info">
+        <ul class="clearfix">
+          <li class="info-1">
+            <p>{{progress}}</p>
+            <p class="sub-info">已达</p>
+          </li>
+          <li class="info-2">
+            <p>{{moneySum}}</p>
+            <p class="sub-info">已筹</p>
+          </li>
+          <li class="info-3">
+            <p>{{numSy}}</p>
+            <p class="sub-info">剩余时间</p>
+          </li>
+        </ul>
+      </div>
+      <span class="oneMore">+1</span>
+      <a class="support" href="javascript:void(0);" data-like="{{laud}}" data-id="{{id}}">
+        {{if praise==0 || praise == null}}
+        <i class="laud"></i>
+        {{/if}}
+        {{if praise==1}}
+        <i class="laud lauded"></i>
+        {{/if}}
+      <span>{{laud}}</span></a>
+      <!--<a href="#" class="edit"></a>-->
+    </li>
+  </script>
+</head>
+<body>
+  <!--通用顶栏 开始-->
+  <div class="sitenav clearfix">
+    <div class="sitenav-wrap">
+      <ul class="sitenav-l">
+        <li><a href="#"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+        <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+      </ul>
+      <ul class="sitenav-r">
+        <li class="log">您好，请<a href="#">登陆</a> <a href="#">免费注册</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li class="nav-drop">
+          <a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+          <ul class="sn-dropdown menu-dropdown">
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+          </ul>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60c;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></div>
+            <div>微信</div>
+          </div>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60a;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微博"></div>
+            <div>微博</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--通用顶栏 结束-->
+  <!--头部 开始-->
+  <div class="header">
+    <!--头部主内容 开始-->
+    <div class="header-main clearfix">
+      <div class="header-m-l">
+        <a href="#"><h1><img src="images/zhongchou_logo.png" alt="梦高速 - 众筹"></h1></a>
+      </div>
+      <div class="header-m-m">
+        <ul class="clearfix">
+          <li><a class="zc_type zc_type-chanpin" href="#">产品众筹</a></li>
+          <li><a class="zc_type zc_type-guquan" href="#">股权众筹</a></li>
+          <li><a class="zc_type zc_type-gongyi" href="#">公益众筹</a></li>
+          <li class="last"><a href="#"><i></i>发布项目</a></li>
+        </ul>
+      </div>
+      <div class="header-m-r">
+        <div class="header-search clearfix">
+          <form action="#" class="clearfix">
+            <input type="text" placeholder="请输入关键词">
+            <button>搜索</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--头部 结束-->
+  <!--分割线-->
+  <div class="slide-line"></div>
+  <!--分割线-->
+  <!--分类条 开始-->
+  <div class="zc-category clearfix">
+    <ul class="zc-category-list clearfix">
+      <li class="all"><a class="current" href="#"><i></i>全部</a></li>
+      <li class="tech" data-type="4"><a href="#"><i></i>科技</a></li>
+      <li class="industry" data-type="5"><a href="#"><i></i>工业</a></li>
+      <li class="agriculture" data-type="6"><a href="#"><i></i>农业</a></li>
+      <li class="appliance" data-type="7"><a href="#"><i></i>家电</a></li>
+      <li class="idea" data-type="8"><a href="#"><i></i>设计</a></li>
+      <li class="entertaiment" data-type="9"><a href="#"><i></i>娱乐</a></li>
+      <li class="publish" data-type="10"><a href="#"><i></i>出版</a></li>
+      <li class="other" data-type="12"><a href="#"><i></i>其它</a></li>
+    </ul>
+    <div class="pop-wrap">
+      <div class="title title1">状态：</div>
+      <div class="pop">
+        <a href="#"><span>全部</span> <i></i></a>
+        <ul class="zc-state-menu">
+          <li><a href="#" data-zc-state="10000">全部</a></li>
+          <li><a href="#" data-zc-state="1">筹款中</a></li>
+          <!--<li><a href="#">预热中</a></li>-->
+          <li><a href="#" data-zc-state="2">筹款成功</a></li>
+        </ul>
+      </div>
+      <div class="title">排序：</div>
+      <div class="pop">
+        <a href="#"><span>最新上线</span> <i></i></a>
+        <ul class="zc-sort-menu">
+          <li><a href="#">最新上线</a></li>
+          <li><a href="#">金额最高</a></li>
+          <li><a href="#">最受欢迎</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--分类条 结束-->
+  <!--主内容区 开始-->
+  <div class="content-zc content-zc-color clearfix">
+    <p class="noContent">对不起，没有相关数据</p>
+    <!--瀑布流 开始-->
+    <div class="fall-box-wrap clearfix">
+      <ul class="fall-box fall-box-1">
+      </ul>
+      <ul class="fall-box fall-box-2">
+      </ul>
+      <ul class="fall-box fall-box-3">
+      </ul>
+      <ul class="fall-box fall-box-4 last">
+      </ul>
+    </div>
+    <!--瀑布流 结束-->
+    <div class="fall-more"><a href="#">查看更多</a></div>
+    <p class="interest">“好项目太多了，选择<a href="#">兴趣点</a>可以更快帮您更快找到心仪项目哦~”</p>
+  </div>
+  <!--主内容区 结束-->
+  <!--众筹首页底栏 开始-->
+  <div class="zc-footer">
+    <div class="zc-footer-wrap">
+      <div class="zc-footer-top clearfix">
+        <h4>分类浏览</h4><a href="#">所有项目 ></a>
+      </div>
+      <div class="zc-footer-bottom clearfix">
+        <ul>
+          <li><a href="#">智能穿戴</a></li>
+          <li><a href="#">健康监测</a></li>
+          <li><a href="#">音乐</a></li>
+          <li><a href="#">出版</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">家居安全</a></li>
+          <li><a href="#">生活健康</a></li>
+          <li><a href="#">影视</a></li>
+          <li><a href="#">公益</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">时尚科技</a></li>
+          <li><a href="#">母婴</a></li>
+          <li><a href="#">游戏</a></li>
+          <li><a href="#">其他</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">互联网汽车</a></li>
+          <li><a href="#">智能家电</a></li>
+          <li><a href="#">动漫</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">手机</a></li>
+          <li><a href="#">家居良品</a></li>
+          <li><a href="#">体育</a></li>
+        </ul>
+        <ul class="last">
+          <li><a href="#">数码</a></li>
+          <li><a href="#">设计师</a></li>
+          <li><a href="#">旅游</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--众筹首页底栏 结束-->
+  <!--通用底栏 开始-->
+  <div class="footer">
+    <div class="footer-wrap clearfix">
+      <div class="footer-l">
+        <div class="logo"></div>
+        <div>服务时间：工作日 9:00 - 18:00</div>
+        <div class="tel">0595-32892299</div>
+        <ul class="contact clearfix">
+          <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+          <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+          <li>
+            <a href="#"><i class="iconfont">&#xe60d;</i></a>
+            <!--微信弹出-->
+            <div class="wechat">
+              <span><img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></span>
+              <p></p>
+            </div>
+          </li>
+          <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a></li>
+        </ul>
+        <p>
+          创企科技有限公司 版权所有<br>
+          &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号<br>
+          地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+        </p>
+        <div class="icp"></div>
+      </div>
+      <div class="footer-r">
+        <dl>
+          <dt>公司信息</dt>
+          <dd><a href="#">关于我们</a></dd>
+          <dd><a href="#">人才招聘</a></dd>
+          <dd><a href="#">公司动态</a></dd>
+          <dd><a href="#">媒体报道</a></dd>
+        </dl>
+        <dl>
+          <dt>公司产品</dt>
+          <dd><a href="#">梦高速金融</a></dd>
+          <dd><a href="#">梦高速人才</a></dd>
+          <dd><a href="#">梦高速众筹</a></dd>
+          <dd><a href="#">梦高速众包</a></dd>
+          <dd><a href="#">创企科技</a></dd>
+        </dl>
+        <dl>
+          <dt>相关文档</dt>
+          <dd><a href="#">免责声明</a></dd>
+          <dd><a href="#">帮助中心</a></dd>
+          <dd><a href="#">项目规范</a></dd>
+          <dd><a href="#">服务协议</a></dd>
+        </dl>
+        <dl class="last">
+          <dt>手机应用</dt>
+          <dd><a href="#">iPhone版下载</a></dd>
+          <dd><a href="#">Android版下载</a></dd>
+          <dd><a href="#">微信公众号梦高速</a></dd>
+          <dd><a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/lib/jquery.cookie.js"></script>
+  <script src="http://localhost:8070/scripts/zhongchou.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
+  <script>
+    $('input, textarea').placeholder();
+    
+  </script>
+</body>
+</html>

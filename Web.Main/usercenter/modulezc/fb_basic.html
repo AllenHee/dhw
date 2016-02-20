@@ -1,0 +1,181 @@
+<form name="formBasic">
+<div class="formWrap formWrap-basic">
+  <div class="formTitle clearfix">
+    <h2>选择你的身份类型</h2>
+    <div class="saveCopyBtnWrap">
+      <span class="saveTip saveTip-basic"></span>
+      <button class="saveCopyBtn" type="button" ng-click="saveDraft(urlstate.current.name, 3, true)">保存草稿</button>
+    </div>
+  </div>
+  <ul class="switchTabs clearfix">
+    <li class="switchTab" ng-class="{active:showPersonal}" ng-click="showPersonal=true">个人</li>
+    <li class="switchTab" ng-class="{active:!showPersonal}" ng-click="showPersonal=false">机构</li>
+  </ul>
+  <!--个人 开始-->
+  <div ng-if="showPersonal">
+    <div class="formSetWrap">
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="name" type="text" placeholder="输入中文姓名，2~5个汉字" ng-model="dataP.name" ng-pattern="/^[\u4e00-\u9fa5]{2,5}$/" required>
+          <p class="formSet_error" ng-show="formBasic.name.$dirty && formBasic.name.$invalid">*请填写正确的姓名</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="id" type="text" placeholder="二代身份证，输入数字或字母" ng-model="dataP.idcard" ng-pattern="/(^\d{15}$)|(^\d{17}(\d|X)$)/" required>
+          <p class="formSet_error" ng-show="formBasic.id.$dirty && formBasic.id.$invalid">*请填写您的身份证号</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="mobile" type="text" placeholder="手机号，输入纯数字，10~15位数字" ng-model="dataP.phone" ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/" required>
+          <p class="formSet_error" ng-show="formBasic.mobile.$dirty && formBasic.mobile.$invalid">*请填写您的手机号码</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet-doubleWrap" class="clearfix">
+          <div class="SelectWrap SelectWrap-first">
+            <input class="formSet_input" type="text" ng-model="prov" ng-click="showSelectCont($event)" placeholder="省份" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="prov in provs" ng-click="getCitys($event)">{{prov}}</li>
+            </ul>
+          </div>
+          <div class="SelectWrap">
+            <input class="formSet_input" type="text" ng-model="city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="city in citys" ng-click="setCity($event)">{{city}}</li>
+            </ul>
+          </div>
+        </div>
+      </div> 
+      <div class="formSet">
+        <input class="formSet_input" type="text" placeholder="填写您的详细地址(非必填)" ng-model="dataP.address">
+      </div>
+    </div>
+    <div class="formTitle clearfix">
+      <h2>选择你要创建的项目类型</h2>
+    </div>
+    <input type="hidden" ng-model="dataP.ptid" required>
+    <ul class="cateTabs clearfix">
+      <li class="cateTab" ng-repeat="zctype in zctypes" ng-class="{active:isSelected(zctype.id)}" ng-click="getType($event, zctype.id)">{{zctype.name}}</li>
+    </ul>
+    <div class="material">
+      <div class="form-title clearfix">
+        <h2>上传相关材料</h2>
+      </div>
+      <div class="materialItems">
+        <div class="materialItem clearfix">
+          <span class="materialItem_label">个人身份证-正面</span>
+          <input type="hidden" ng-model="dataP.idcardF" required>
+          <div class="materialItem_img"><img ng-show="!!dataP.idcardF" ng-src='{{(!dataP.idcardF) ? "" : (dhw.imgurl + dataP.idcardF + "_64x64" + ".jpg")}}'></div>
+          <div class="materialItem_btn"><a class="btnNormal" id="browseIDZ" type="button" ng-model="dataP.idcardF" data-keyname="cpzc" data-size="64x64" bindimg>上传</a></div>
+        </div>
+        <div class="materialItem clearfix">
+          <span class="materialItem_label">个人身份证-反面</span>
+          <input type="hidden" ng-model="dataP.idcardB" required>
+          <div class="materialItem_img"><img ng-show="!!dataP.idcardB" ng-src='{{(!dataP.idcardB) ? "" : dhw.imgurl + dataP.idcardB + "_64x64" + ".jpg"}}'></div>
+          <div class="materialItem_btn"><form><a class="btnNormal" id="browseIDF" type="button" ng-model="dataP.idcardB" data-keyname="cpzc" data-size="64x64" bindimg>上传</a></form></div>
+        </div>
+        <div class="materialItem clearfix">
+          <span class="materialItem_label">产品图片</span>
+          <input type="hidden" ng-model="dataP.product" required>
+          <div class="materialItem_img"><img ng-show="!!dataP.product" ng-src='{{(!dataP.product) ? "" : dhw.imgurl + dataP.product + "_64x64" + ".jpg"}}'></div>
+          <div class="materialItem_btn"><a class="btnNormal" id="browseCPTP" type="button" ng-model="dataP.product" data-keyname="cpzc" data-size="64x64" bindimg>上传</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="formTitle clearfix">
+    <h2>选择平台服务内容</h2>
+    </div>
+    <p class="formTip">提示：根据以往成功项目经验，选择更多的平台服务内容筹资金额就会越多，项目成功率也会越大。</p>
+    <ul class="serviceItems">
+      <li class="serviceItem">
+        <input type="hidden" ng-model="dataP.sercont" required>
+        <i class="active" ng-click="setSercont($event)"></i> 渠道费 1.5% ＋ 服务费 0% <a href="#">《服务内容》</a>
+      </li>
+    </ul>
+  </div>
+  <!--个人 结束-->
+  <!--机构 开始-->
+  <div ng-if="!showPersonal">
+    <div class="formSetWrap">
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="entname" type="text" placeholder="输入企业、机构名称" ng-model="dataC.entname" required>
+          <p class="formSet_error" ng-show="formBasic.entname.$dirty && formBasic.entname.$error.required">*请填写机构或企业名称</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="licence" type="text" placeholder="请填写营业执照号或组织机构代码" ng-model="dataC.number" ng-pattern="/^\w+$/" required>
+          <p class="formSet_error" ng-show="formBasic.licence.$dirty && formBasic.licence.$invalid">*请填写企业营业执照号</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="represent" type="text" placeholder="法定代表人姓名" ng-model="dataC.name" ng-pattern="/^[\u4e00-\u9fa5]{2,5}$/" required>
+          <p class="formSet_error" ng-show="formBasic.represent.$dirty && formBasic.represent.$invalid">*请填写法人代表的姓名</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="address" type="text" placeholder="企业、机构注册地址" ng-model="dataC.address" required>
+          <p class="formSet_error" ng-show="formBasic.address.$dirty && formBasic.address.$error.required">*请填写企业注册地址</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="cname" type="text" placeholder="输入联系人姓名" ng-model="dataC.cmitname" ng-pattern="/^[\u4e00-\u9fa5]{2,5}$/" required>
+          <p class="formSet_error" ng-show="formBasic.cname.$dirty && formBasic.cname.$invalid">*请填写联系人的姓名</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="cmobile" type="text" placeholder="输入联系人手机号" ng-model="dataC.cmitphone" ng-pattern="/^\d{10,15}$/" required>
+          <p class="formSet_error" ng-show="formBasic.cmobile.$dirty && formBasic.cmobile.$invalid">*请填写联系人的手机号码</p>
+        </div>
+      </div>
+    </div>
+    <div class="formTitle clearfix">
+      <h2>选择你要创建的项目类型</h2>
+    </div>
+    <input type="hidden" ng-model="dataC.ptid" required>
+    <ul class="cateTabs clearfix">
+      <li class="cateTab" ng-repeat="zctype in zctypes" ng-class="{active:isSelected(zctype.id)}" ng-click="getType($event, zctype.id)">{{zctype.name}}</li>
+    </ul>
+    <div class="materialItems">
+      <div class="materialItem clearfix">
+        <span class="materialItem_label">营业执照</span>
+        <input type="hidden" ng-model="dataC.licpic" required>
+        <div class="materialItem_img"><img ng-show="!!dataC.licpic" ng-src='{{(!dataC.licpic) ? "" : (dhw.imgurl + dataC.licpic + "_64x64" + ".jpg")}}'></div>
+        <div class="materialItem_btn"><a class="btnNormal" id="browseYYZZ" type="button" ng-model="dataC.licpic" data-keyname="cpzc" data-size="64x64" bindimg>上传</a></div>
+      </div>
+      <div class="materialItem clearfix">
+        <span class="materialItem_label">组织机构代码证</span>
+        <input type="hidden" ng-model="dataC.codepic" required>
+        <div class="materialItem_img"><img ng-show="!!dataC.licpic" ng-src='{{(!dataC.codepic) ? "" : (dhw.imgurl + dataC.codepic + "_64x64" + ".jpg")}}'></div>
+        <div class="materialItem_btn"><a class="btnNormal" id="browseZZJGDM" type="button" ng-model="dataC.codepic" data-keyname="cpzc" data-size="64x64" bindimg>上传</a></div>
+      </div>
+      <div class="materialItem clearfix">
+        <span class="materialItem_label">税务登记证</span>
+        <input type="hidden" ng-model="dataC.regpic" required>
+        <div class="materialItem_img"><img ng-show="!!dataC.regpic" ng-src='{{(!dataC.regpic) ? "" : (dhw.imgurl + dataC.regpic + "_64x64" + ".jpg")}}'></div>
+        <div class="materialItem_btn"><a class="btnNormal" id="browseSWDJZ" type="button" ng-model="dataC.regpic" data-keyname="cpzc" data-size="64x64" bindimg>上传</a></div>
+      </div>
+    </div>
+    <div class="formTitle clearfix">
+      <h2>选择平台服务内容</h2>
+    </div>
+    <p class="formTip">提示：根据以往成功项目经验，选择更多的平台服务内容筹资金额就会越多，项目成功率也会越大。</p>
+    <ul class="serviceItems">
+      <li class="serviceItem">
+        <input type="hidden" ng-model="dataC.sercont" required>
+        <i class="active" ng-click="setSercont($event)"></i> 渠道费 1.5% ＋ 服务费 0% <a href="#">《服务内容》</a>
+      </li>
+    </ul>
+  </div>
+  <!--机构 结束-->
+</div>
+<!--用来判断页面是否填写正确的隐藏按钮-->
+<input class="isValid" type="hidden" ng-disabled="formBasic.$invalid">
+</form>

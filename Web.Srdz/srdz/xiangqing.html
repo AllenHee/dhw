@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 私人定制</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="http://localhost:8084/zhongbao/styles/style.css">
+  <link rel="stylesheet" href="styles/srdz.css">
+  <script>
+    var dhw = {
+      imgurl: 'http://192.168.2.10:81/img/',
+      imguploadurl: 'http://192.168.2.10:82/uploadimg',
+      mainurl: 'http://localhost:8085/',
+      staticurl: 'http://localhost:8070'
+    };
+    var fpid = 1
+    window.onload = function() {
+      document.getElementById('a');
+    }
+  </script>
+  <script type="text/html" id="yhpjid">
+    {{each data as pj}}
+    <div class="yhpj_all">
+      <div class="yhpj_cont">
+        <div class="yhpj_logo">
+          {{if pj.logo}}
+          <img src="{{domain+pj.logo}}"> {{/if}} {{if !pj.logo}}
+          <img src="images/avatar.jpg"> {{/if}}
+          <p>{{pj.user}}</p>
+        </div>
+        <div class="yhpj_intro">
+          <p>评分 : {{each pj.rankArr as star}}
+            <i>{{star}}</i> {{/each}}
+          </p>
+          <p>{{pj.comment}}</p>
+          <p><span>{{pj.date}}</span><span> 13:26</span></p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+  <script type="text/html" id="cjjlid">
+    {{each data as cj}}
+    <tr>
+      <td>{{cj.name}}</td>
+      <td>{{cj.price}}</td>
+      <td>{{cj.title}}</td>
+      <td>{{cj.date}}</td>
+    </tr>
+    {{/each}}
+  </script>
+</head>
+
+<body>
+  <!--通用顶栏 开始-->
+  <div class="sitenav clearfix">
+    <div class="sitenav-wrap">
+      <ul class="sitenav-l">
+        <li><a href="#"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+        <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+      </ul>
+      <ul class="sitenav-r">
+        <li class="log">您好，请<a href="#">登陆</a> <a href="#">免费注册</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li class="nav-drop">
+          <a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+          <ul class="sn-dropdown menu-dropdown">
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+          </ul>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60c;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></div>
+            <div>微信</div>
+          </div>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60a;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微博"></div>
+            <div>微博</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--通用顶栏 结束-->
+  <div class="header">
+    <div class="header_main">
+      <div class="header_main_logo">
+        <a href="#"><img src="images/srdz_logo.png" alt="梦高速 - 众包"></a>
+      </div>
+      <ul class="clearfix">
+        <li class="header_main_item"><a href="#">众包</a></li>
+        <li class="header_main_item"><a href="#">创意设计</a></li>
+        <li class="header_main_item header_main_item-current"><a href="#">私人定制</a></li>
+      </ul>
+      <div class="header_main_find">
+        <input class="header_main_find_input" type="text" placeholder="不知道定制什么?点这里看看">
+        <input class="header_main_find_btn" type="button">
+      </div>
+    </div>
+  </div>
+  <!--标题栏 结束-->
+  <!--主内容区 开始-->
+  <div class="content">
+    <p class="title"><span>私人订制</span> > <span>其他</span> > 任务详情</p>
+    <!--顶部详情-->
+    <div class="topDetail">
+      <div class="topDetail_l">
+        <img src="images/srdzxq-3.png">
+        <h1>始祖鸟定制</h1>
+        <div class="topDetail_l_level clearfix">
+          <i class="topDetail_l_level_item"></i>
+          <i class="topDetail_l_level_item"></i>
+          <i class="topDetail_l_level_item"></i>
+          <i class="topDetail_l_level_item"></i>
+          <i class="topDetail_l_level_item"></i>
+        </div>
+        <div class="topDetail_l_butWrap">
+          <button class="topDetail_l_but"></button>发私信
+        </div>
+        <p class="topDetail_l_addr">所在地：<span>福建 泉州市 石狮</span></p>
+        <p class="topDetail_l_addr">好评率：<span>99%</span></p>
+      </div>
+      <div class="topDetail_c">
+        <div class="topDetail_c_imgWrap">
+          <img class="topDetail_c_img" src="images/TB2Y4nXipXXXXc5XXXXXXXXXXXX_!!723103324.jpg">
+        </div>
+        <ul class="topDetail_c_pic">
+          <li class="topDetail_c_pic_items"><img class="topDetail_c_pic_items_img" src="images/srdzxq-1_90x80.png"></li>
+          <li class="topDetail_c_pic_items"><img class="topDetail_c_pic_items_img" src="images/201202221008224491_90x80.png"></li>
+        </ul>
+      </div>
+      <div class="topDetail_r">
+        <h1>|品自然 善相传|品牌视觉设计</h1>
+        <div class="topDetail_r_intro max-height">
+          啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈，哈哈啊哈哈哈哈哈哈哈哈，哈啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊，哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈
+          <!--<button class="less_btn">∧</button>
+          <button class="more_btn">∨</button>-->
+        </div>
+        <div class="topDetail_r_style">
+          <div class="topDetail_r_style_l">
+            <label>款式 :</label>
+          </div>
+          <ul class="topDetail_r_style_r clearfix">
+            <li class="topDetail_r_style_span">简洁款<i></i></li>
+            <li class="topDetail_r_style_span">经款<i></i></li>
+            <li class="topDetail_r_style_span">特制特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制制款<i></i></li>
+            <li class="topDetail_r_style_span">特特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+          </ul>
+        </div>
+        <div class="topDetail_r_qua">
+          <label>件数 :</label>
+          <span class="topDetail_r_qua_red minus"></span>
+          <input class="topDetail_r_qua_input" type="text" value="1"><span class="topDetail_r_qua_add plus"></span>
+          <span class="topDetail_r_qua_total" data-kc="10">件（库存10件）</span>
+        </div>
+        <div class="topDetail_r_price">
+          <label>价格 :</label><span>¥2000</span>
+        </div>
+        <div class="topDetail_r_bt">
+          <botton class="topDetail_r_btn">立即定制</botton>
+        </div>
+        <!--<div class="topDetail_r_b">
+          <span class="topDetail_r_b_focus">关注(3)</span><span class="bdsharebuttonbox"><a href="#" class="hd_cont_l_share bds_more" data-cmd="more">分享</a></span>
+        </div>-->
+        <ul class="topDetail_r_b clearfix">
+          <li><a href="javascript:void(0)" class="hd_cont_l_keep" data-attention="10" onclick="atten()">关注(<span>10</span>)</a></li>
+          <li class="bdsharebuttonbox">
+            <a href="#" class="hd_cont_l_share bds_more" data-cmd="more">
+                分享
+              </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--顶部详情 结束-->
+    <div>
+      <ul class="Mtitle">
+        <li class="Mtitle_items Mtitle_items_current">商品详情</li>
+        <li class="Mtitle_items">用户评价(<span class="commentTotal">18</span>)</li>
+        <li class="Mtitle_items">成交记录(<span class="recordTotal">26</span>)</li>
+      </ul>
+      <!--商品详情 开始-->
+      <div class="spxq show">
+        <p>一颗纯真的心.一份归真的设计 聆听自然,品读人生,善意传递,爱的释放</p>
+        <img src="images/TB2Fl3FdpXXXXcVXXXXXXXXXXXX_!!723103324.jpg">
+        <p>一颗纯真的心.一份归真的设计 聆听自然,品读人生,善意传递,爱的释放</p>
+        <img src="images/TB2QRcUdpXXXXXmXXXXXXXXXXXX_!!723103324.jpg">
+        <p>一颗纯真的心.一份归真的设计 聆听自然,品读人生,善意传递,爱的释放</p>
+        <img src="images/TB2X5yMaXXXXXcjXXXXXXXXXXXX_!!723103324.jpg">
+      </div>
+      <!--商品详情 结束-->
+      <!--用户评价 开始-->
+      <div class="yhpj show">
+        <div class="yhpj_wrap">
+          <div class="yhpj_all">
+            <div class="yhpj_cont">
+              <div class="yhpj_logo">
+                <img src="images/srdzxq-3.png">
+                <p>骚年</p>
+              </div>
+              <div class="yhpj_intro">
+                <p>评分 : <i></i></p>
+                <p>跟描述的一样,完全的满意,就是有点遗憾的是,既然是送礼物,应该送一个配套的贺卡什么的,要是有一个这样的赠送,就更完美了</p>
+                <p><span>2015.11.16 </span><span> 13:26</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="yhpj_all">
+            <div class="yhpj_cont">
+              <div class="yhpj_logo">
+                <img src="images/srdzxq-3.png">
+                <p>骚年</p>
+              </div>
+              <div class="yhpj_intro">
+                <p>评分 : <i></i></p>
+                <p>跟描述的一样,完全的满意,就是有点遗憾的是,既然是送礼物,应该送一个配套的贺卡什么的,要是有一个这样的赠送,就更完美了</p>
+                <p><span>2015.11.16 </span><span> 13:26</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="yhpj_all">
+            <div class="yhpj_cont">
+              <div class="yhpj_logo">
+                <img src="images/srdzxq-3.png">
+                <p>骚年</p>
+              </div>
+              <div class="yhpj_intro">
+                <p>评分 : <i></i></p>
+                <p>跟描述的一样,完全的满意,就是有点遗憾的是,既然是送礼物,应该送一个配套的贺卡什么的,要是有一个这样的赠送,就更完美了</p>
+                <p><span>2015.11.16 </span><span> 13:26</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pagination pagination-pj"></div>
+      </div>
+      <!--用户评价 结束-->
+      <!--成交记录 开始-->
+      <div class="cjjl show">
+        <div class="cjjl_wrap">
+          <table cellspacing="0">
+            <thead>
+              <tr>
+                <td class="cjjl_person">定制人</td>
+                <td class="cjjl_price">定制价格</td>
+                <td class="cjjl_project">定制项目</td>
+                <td class="xjjl_time">交易时间</td>
+              </tr>
+            </thead>
+            <tbody class="cjjl_tbody">
+              <tr>
+                <td>骚年</td>
+                <td>2000</td>
+                <td>|品自然 善相传|品牌视觉设计</td>
+                <td>2015.11.11 13.33</td>
+              </tr>
+              <tr>
+                <td>骚年</td>
+                <td>2000</td>
+                <td>|品自然 善相传|品牌视觉设计</td>
+                <td>2015.11.11 13.33</td>
+              </tr>
+              <tr>
+                <td>骚年</td>
+                <td>2000</td>
+                <td>|品自然 善相传|品牌视觉设计</td>
+                <td>2015.11.11 13.33</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination pagination-jl"></div>
+      </div>
+      <!--成交记录 结束-->
+    </div>
+  </div>
+  <!--主内容区 结束-->
+  <!--通用底栏 开始-->
+  <div class="footer">
+    <div class="footer-wrap clearfix">
+      <div class="footer-l">
+        <div class="logo"></div>
+        <div>服务时间：工作日 9:00 - 18:00</div>
+        <div class="tel">0595-32892299</div>
+        <ul class="contact clearfix">
+          <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+          <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+          <li>
+            <a href="#"><i class="iconfont">&#xe60d;</i></a>
+            <!--微信弹出-->
+            <div class="wechat">
+              <span><img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></span>
+              <p></p>
+            </div>
+          </li>
+          <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a></li>
+        </ul>
+        <p>
+          创企科技有限公司 版权所有
+          <br> &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号
+          <br> 地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+        </p>
+        <div class="icp"></div>
+      </div>
+      <div class="footer-r">
+        <dl>
+          <dt>公司信息</dt>
+          <dd><a href="#">关于我们</a></dd>
+          <dd><a href="#">人才招聘</a></dd>
+          <dd><a href="#">公司动态</a></dd>
+          <dd><a href="#">媒体报道</a></dd>
+        </dl>
+        <dl>
+          <dt>公司产品</dt>
+          <dd><a href="#">梦高速金融</a></dd>
+          <dd><a href="#">梦高速人才</a></dd>
+          <dd><a href="#">梦高速众筹</a></dd>
+          <dd><a href="#">梦高速众包</a></dd>
+          <dd><a href="#">创企科技</a></dd>
+        </dl>
+        <dl>
+          <dt>相关文档</dt>
+          <dd><a href="#">免责声明</a></dd>
+          <dd><a href="#">帮助中心</a></dd>
+          <dd><a href="#">项目规范</a></dd>
+          <dd><a href="#">服务协议</a></dd>
+        </dl>
+        <dl class="last">
+          <dt>手机应用</dt>
+          <dd><a href="#">iPhone版下载</a></dd>
+          <dd><a href="#">Android版下载</a></dd>
+          <dd><a href="#">微信公众号梦高速</a></dd>
+          <dd>
+            <a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <!--通用底栏 结束-->
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
+  <script src="http://localhost:8070/scripts/srdz.detail.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script>
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
+@{
+    var compay = CompanyTopInfo.compay;
+    var trade = CompanyTopInfo.trade;
+    ViewBag.Title = "公司招聘" + compay;
+    ViewBag.Keywords = compay + ",公司招聘," + trade;
+}
+@*蔡铭艺 2016-01-12*@
+<!--内容 开始-->
+<div class="gsJob_wrap">
+    <div class="gsJob">
+        <div class="gsJob_left">
+            <div class="gsJob_welfare">
+                <dl>
+                    <dt class="gsJob_dt"><span class="gsJob_span">公司福利</span></dt>
+                    <dd class="">
+                        <span class="gsJob_pic">福利</span><a href="#">五险一金</a>
+                    </dd>
+                    <dd class="">
+                        <span class="gsJob_pic">福利</span><a href="#">周末双休</a>
+                    </dd>
+                    <dd class="">
+                        <span class="gsJob_pic">福利</span><a href="#">年终奖金</a>
+                    </dd>
+                    <dd class="">
+                        <span class="gsJob_pic">福利</span><a href="#">住房津贴</a>
+                    </dd>
+                    <dd class="">
+                        <span class="gsJob_pic">福利</span><a href="#">工作午餐</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="gsJob_list">
+                <div class="gsJob_head_box">
+                    <span class="gsJob_span">招聘列表</span>
+                </div>
+                <table class="gsJob_table">
+                    <thead>
+                        <th>
+                            职业名称
+                        </th>
+                        <th>
+                            薪资待遇
+                        </th>
+                        <th>
+                            学历
+                        </th>
+                        <th>
+                            工作区域
+                        </th>
+                        <th>
+                            更新时间
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                前端工程师
+                            </td>
+                            <td>
+                                5k-8k
+                            </td>
+                            <td>
+                                本科
+                            </td>
+                            <td>
+                                泉州
+                            </td>
+                            <td>
+                                2016-02-3-2016-02-3
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="gsJob_right">
+            <div class="gsJob_pj">
+                <dl>
+                    <dt class="gsJob_dt"><span class="gsJob_span">面试评价</span></dt>
+                    <dd class="gsJob_dd">
+                        <label class="gsJob_label">
+                            <img class=".gsJob_userimg" src="images/tx.png">
+                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
+                                asdasdsadasddasd</span>
+                        </label>
+                        <p class="gsJob_pj_detail">
+                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf sdfsdfsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+                        </p>
+                        <span class="gsJob_sum">有用( 7 )</span>
+                    </dd>
+                    <dd class="gsJob_dd">
+                        <label class="gsJob_label">
+                            <img src="images/tx.png">
+                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
+                                asdasdsadasddasd</span>
+                        </label>
+                        <p class="gsJob_pj_detail">
+                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf sdfsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+                        </p>
+                        <span class="gsJob_sum">有用( 7 )</span>
+                    </dd>
+                    <dd class="gsJob_dd">
+                        <label class="gsJob_label">
+                            <img src="images/tx.png">
+                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
+                                asdasdsadasddasd</span>
+                        </label>
+                        <p class="gsJob_pj_detail">
+                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd fsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+                        </p>
+                        <span class="gsJob_sum">有用( 7 )</span>
+                    </dd>
+                    <dd class="gsJob_dd">
+                        <label class="gsJob_label">
+                            <img src="images/tx.png">
+                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
+                                asdasdsadasddasd</span>
+                        </label>
+                        <p class="gsJob_pj_detail">
+                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfs dfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+                        </p>
+                        <span class="gsJob_sum">有用( 7 )</span>
+                    </dd>
+                </dl>
+                <span class="gsJob_bemore"><a href="#">更多></a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--内容 结束-->
+@section scripts{
+    <script type="text/html" id="jobList">
+    {{each data as job}}
+       <tr>
+            <td><a href="@{@BaseConfigs.GetUrlHr}jobs/detail/{{job.djiid}}" target="_blank">{{job.zpgw}}</a></td>
+            <td>{{job.money}}</td>
+            <td>{{job.xueli}}</td>
+            <td>{{job.gzdd}}</td>
+            <td>{{job.date}}</td>
+        </tr>
+    {{/each}}
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script>
+        var para = {
+            companyid: @ViewBag.ddid,
+            pageIndex: 1,
+            pageSize: 10
+        }
+        loadData('/CompanyHome/ZhaopinList', para, 'jobList', ".gsJob_table tbody");
+    </script>
+}

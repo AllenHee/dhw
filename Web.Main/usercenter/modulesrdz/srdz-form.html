@@ -1,0 +1,92 @@
+<form name="srdzForm">
+  <div ng-show="!data.realnameauth" class="auth">您还未实名验证，无法发布需求 <a href="#">马上验证</a></div>
+  <!--项目基本信息 开始-->
+  <div ng-show="data.realnameauth">
+    <div class="zbFormBox">
+      <!--<div area-select></div>-->
+
+      <div class="formSet clearfix areaSelect">
+        <label class="formSet_label"><span class="formSet_required">*</span> 所在地</label>
+        <div area-select></div>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span> 产品标题</label>
+          <input class="formSet_input" type="text" ng-model="data.title" required>
+        </div>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label formInputSet_label-top"><span class="formSet_required">*</span> 产品卖点</label>
+          <textarea class="formSet_textarea formInputSet_textarea-big" ng-model="data.desc" required></textarea>
+        </div>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span> 价格</label>
+          <input class="formSet_input" name="price" type="text" ng-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/" ng-model="data.price" required>
+        </div>
+        <label class="formSet_error" ng-show="srdzForm.price.$dirty && srdzForm.price.$invalid">请输入大于0的数字，最多2位小数</label>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>分类</label>
+          <select class="formSet_select" class="formSet_input" name="type" type="text" ng-model="data.type" required>
+            <option class="formSet_option" value="">请选择</option>
+            <option class="formSet_option" value="1">创意定制</option>
+            <option class="formSet_option" value="2">企业定制</option>
+            <option class="formSet_option" value="3">找代加工</option>
+            <option class="formSet_option" value="4">礼品定制</option>
+            <option class="formSet_option" value="5">logo定制</option>
+            <option class="formSet_option" value="6">制服定制</option>
+            <option class="formSet_option" value="7">3D打印设备定制</option>
+            <option class="formSet_option" value="8">智能设备硬件加工</option>
+          </select>
+          <i class="formSet_icon success select" ng-show="registerC.trade.$dirty && registerC.trade.$valid"></i>
+        </div>
+      </div>
+      <div class="formSet clearfix">
+        <label class="formSet_label formSet_label-sku">规格</label>
+        <span class="skuTip">填写类型，如颜色。填写分类，多个分类用空格隔开，如：白色 绿色 黑色。</span>
+        <ul class="formSetWrap formSetWrap-sku clearfix">
+          <li class="skuItem clearfix" ng-repeat="sku in skuTemp">
+            <input class="formSet_input formSet_input-extrasmall" type="text" ng-model="sku.name" required>
+            <input class="formSet_input" type="text" ng-model="sku.content" required>
+            <button class="formSet_input_btn del" type="button" ng-click="skuTemp.splice($index, 1)">删除</button>
+          </li>
+        </ul>
+        <button class="formSet_input_btn formSet_input_btn-sku" type="button" class="skuBtn" ng-click="addSku()">添加规格类型</button>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span> 库存数量</label>
+          <input class="formSet_input" name="inventory" type="text" ng-pattern="/^[1-9]\d*$/" ng-model="data.inventory" required>
+        </div>
+        <label class="formSet_error" ng-show="srdzForm.inventory.$dirty && srdzForm.inventory.$invalid">请输大于0的整数</label>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label formSet_label-top"><span class="formSet_required">*</span> 产品描述</label>
+          <textarea class="formSet_textarea" id="editor" ng-model="data.text" simditor required></textarea>
+        </div>
+      </div>
+      <div class="formSet formSet-agreement clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span></label>
+          <p class="agreementWrap">
+            <input class="agreement" type="checkbox" ng-model="data.verification" required>
+            <label>是否同意《<a href="#">梦高速众包服务协议</a>》</label>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--项目基本信息 结束-->
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label"></label>
+        <button class="submitBtn" ng-disabled="srdzForm.$invalid" ng-click="submit()">提交</button>
+      </div>
+    </div>
+  </div>
+  <div pup-pop data-text="{{popupText}}"></div>
+</form>

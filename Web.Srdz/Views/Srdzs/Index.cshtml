@@ -1,0 +1,103 @@
+﻿<!--主内容区 开始-->
+<div class="content">
+    @*   <div class="liebiao_top clearfix">
+        <div class="lb_text">
+            <a href="#">首页</a> > <a href="#">所有分类</a> ></div>
+        <div class="lb_input">
+            <input type="text" placeholder="在当前条件下搜索">
+            <button type="button" href="#">
+            </button>
+        </div>
+        <div class="lb_r">
+            共848款</div>
+    </div>*@
+    <div class="main">
+        <div class="cont_fl clearfix">
+            <h4>
+                分类</h4>
+            <ul>
+                <li>
+                    <input name="cate" type="radio" checked="checked">全部</li>
+                <li>
+                    <input name="cate" type="radio">时尚饰品</li>
+                <li>
+                    <input name="cate" type="radio">围巾配饰</li>
+                <li>
+                    <input name="cate" type="radio">家具日用</li>
+                <li>
+                    <input name="cate" type="radio">服装内衣</li>
+                <li>
+                    <input name="cate" type="radio">布衣甲方</li>
+                <li>
+                    <input name="cate" type="radio">创意报见</li>
+                <li>
+                    <input name="cate" type="radio">花翘课了</li>
+                <li>
+                    <input name="cate" type="radio">数码办公</li>
+                <li>
+                    <input name="cate" type="radio">照片印刷</li>
+            </ul>
+        </div>
+        <div class="cont_choose clearfix">
+            <ul class="choose_tj">
+                <li class="active">推荐</li>
+                <li>新品</li>
+            </ul>
+            <ul class="choose_jg">
+                <li class="jg_first">价格：</li>
+                <li class="active">全部</li>
+                <li data-low="" data-heht="100">100以下</li>
+                <li data-low="100" data-heht="200">100-200</li>
+                <li data-low="200" data-heht="500">200-500</li>
+                <li data-low="500" data-heht="1000">500-1000</li>
+                <li data-low="1000" data-heht="">大于1000</li>
+            </ul>
+        </div>
+        <div class="cont_main clearfix">
+            <ul class="cont_main_ul clearfix">
+            </ul>
+            <div class="pagination">
+            </div>
+        </div>
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script type="text/javascript">
+        var dhwtempvar = {
+            type: '@ViewBag.type'
+        }
+    </script>
+    <script type="text/html" id="List">
+    {{each data as list i}}
+      <li>
+        <a href="#"><img src="{{domain}}{{list.img}}" alt=""></a>           
+        <div class="cont_main_text">
+          <a href="#">{{list.title}}</a>
+          <!--<span>￥399.00</span></br>-->
+          <span class="cont_main_red">￥{{list.price}}</span>
+        </div>           
+      </li>
+    {{/each}}
+    </script>
+    <script type="text/javascript">
+        var su = '@ViewBag.su';
+        $('#su').val(su);
+    </script>
+    <script>
+        $('input, textarea').placeholder();
+
+        $(".choose_tj li").click(function () {
+            $(".choose_tj li").removeClass("active");
+            $(this).addClass("active");
+        });
+        $(".choose_jg li").click(function () {
+            $(".choose_jg li").removeClass("active");
+            $(this).addClass("active");
+        });
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/srdzList.js"></script>
+}

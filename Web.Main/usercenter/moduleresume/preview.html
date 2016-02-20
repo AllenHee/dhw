@@ -1,0 +1,246 @@
+﻿<div class="content" ng-cloak>
+    <div class="rsmM preview" id="rsmM">
+        <!--头像 开始-->
+        <!--<div class="avatarUploadBtn" data-targetimg=".rsm_avatarImg" data-imgsize="116x116"></div>-->
+        <div class="rsm_avatar">
+            <img class="rsm_avatarImg" src="http://192.168.2.10:81/usercenter/images/zp_avatar.png"
+                alt="{{usernameTemp.name}}">
+        </div>
+        <!--头像 结束-->
+        <div class="rsmM_header">
+            <!--名字 开始-->
+            <div class="rsmM_box rsmM_box-header" id="username">
+                <div class="rsm_template">
+                    <div class="rsm_result rsm_result-header">
+                        <p class="rsm_username">
+                            {{usernameTemp.name}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--名字 结束-->
+            <!--介绍 开始-->
+            <div class="rsmM_box rsmM_box-header" id="userintro">
+                <div class="rsm_template">
+                    <div class="rsm_result rsm_result-header">
+                        <p class="rsm_userintro">
+                            {{userintroTemp.intro}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--介绍 结束-->
+            <!--基本信息 开始-->
+            <div class="rsmM_box" id="info">
+                <div class="rsmM_box_cont">
+                    <div class="rsm_template" ng-show="show.info">
+                        <!--展示 开始-->
+                        <div class="rsm_result rsm_result-header">
+                            <p class="rsm_items">
+                                <span class="rsm_item rsm_item-gerder"><i></i>{{infoTemp.gender}}</span> <span class="rsm_item">
+                                    {{date.today().year - infoTemp.birthYear}}</span> <span class="rsm_item">{{infoTemp.degree}}</span>
+                                <span class="rsm_item">{{infoTemp.experience}}</span> <span class="rsm_item">{{infoTemp.location}}</span>
+                            </p>
+                            <p class="rsm_items">
+                                <span class="rsm_item rsm_item-tel"><i></i>{{infoTemp.tel}}</span> <span class="rsm_item rsm_item-email">
+                                    <i></i>{{infoTemp.email}}</span>
+                            </p>
+                        </div>
+                        <!--展示 结束-->
+                    </div>
+                </div>
+            </div>
+            <!--基本信息 结束-->
+        </div>
+        <!--工作经历 开始-->
+        <div class="rsmM_box" id="internship">
+            <div class="rsmM_box_ttl">
+                <div class="rsmM_box_ttl_l">
+                    <span class="rsmM_box_ttl_w_l"></span><span class="rsmM_box_ttl_w_c">工作经历</span>
+                    <span class="rsmM_box_ttl_w_r"></span>
+                </div>
+            </div>
+            <div class="rsmM_box_cont">
+                <div class="rsm_template" ng-repeat="item in internships">
+                    <!--展示 开始-->
+                    <div class="rsm_result clearfix">
+                        <div class="rsm_result_t clearfix">
+                            <div class="rsm_result_t_l">
+                                <h4 class="rsm_result_ttl">
+                                    {{item.company}}</h4>
+                                <p class="rsm_result_small">
+                                    {{item.post}}</p>
+                            </div>
+                            <div class="rsm_result_t_r">
+                                <p class="rsm_result_time">
+                                    {{item.startTime}} — {{item.endTime}}</p>
+                            </div>
+                        </div>
+                        <div class="rsm_result_b">
+                            <p class="rsm_result_text">
+                                {{item.jobContent}}</p>
+                        </div>
+                    </div>
+                    <!--展示 结束-->
+                </div>
+            </div>
+        </div>
+        <!--工作经历 结束-->
+        <!--教育经历 开始-->
+        <div class="rsmM_box" id="education">
+            <div class="rsmM_box_ttl">
+                <div class="rsmM_box_ttl_l">
+                    <span class="rsmM_box_ttl_w_l"></span><span class="rsmM_box_ttl_w_c">教育经历</span>
+                    <span class="rsmM_box_ttl_w_r"></span>
+                </div>
+            </div>
+            <div class="rsmM_box_cont">
+                <div class="rsm_template" ng-repeat="item in educations">
+                    <!--展示 开始-->
+                    <div class="rsm_result clearfix">
+                        <div class="rsm_result_t clearfix">
+                            <div class="rsm_result_t_l">
+                                <h4 class="rsm_result_ttl">
+                                    {{item.school}}</h4>
+                                <p class="rsm_result_small">
+                                    {{item.degree}} · {{item.major}}</p>
+                            </div>
+                            <div class="rsm_result_t_r">
+                                <p class="rsm_result_time">
+                                    {{item.gradTime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--展示 结束-->
+                </div>
+            </div>
+        </div>
+        <!--教育经历 结束-->
+        <!--项目经验 开始-->
+        <div class="rsmM_box" id="project" ng-show="show.project">
+            <div class="rsmM_box_ttl">
+                <div class="rsmM_box_ttl_l">
+                    <span class="rsmM_box_ttl_w_l"></span><span class="rsmM_box_ttl_w_c">项目经验</span>
+                    <span class="rsmM_box_ttl_w_r"></span>
+                </div>
+            </div>
+            <div class="rsmM_box_cont">
+                <div class="rsm_template" ng-repeat="item in projects">
+                    <!--展示 开始-->
+                    <div class="rsm_result clearfix">
+                        <div class="rsm_result_t clearfix">
+                            <div class="rsm_result_t_l">
+                                <h4 class="rsm_result_ttl" ng-if="item.link">
+                                    <a href="{{item.link}}">{{item.name}}<i></i></a></h4>
+                                <h4 class="rsm_result_ttl" ng-if="!item.link">
+                                    {{item.name}}</h4>
+                                <p class="rsm_result_small">
+                                    {{item.duty}}</p>
+                            </div>
+                            <div class="rsm_result_t_r">
+                                <p class="rsm_result_time">
+                                    {{item.startTime}} — {{item.endTime}}</p>
+                            </div>
+                        </div>
+                        <div class="rsm_result_b">
+                            <p class="rsm_result_text">
+                                {{item.description}}</p>
+                        </div>
+                    </div>
+                    <!--展示 结束-->
+                </div>
+            </div>
+        </div>
+        <!--项目经验 结束-->
+        <!--自我描述 开始-->
+        <div class="rsmM_box" id="presentation" ng-show="show.presentation">
+            <div class="rsmM_box_ttl">
+                <div class="rsmM_box_ttl_l">
+                    <span class="rsmM_box_ttl_w_l"></span><span class="rsmM_box_ttl_w_c">自我描述</span>
+                    <span class="rsmM_box_ttl_w_r"></span>
+                </div>
+            </div>
+            <div class="rsmM_box_cont">
+                <div class="rsm_template" ng-repeat="item in presentations">
+                    <!--展示 开始-->
+                    <div class="rsm_result clearfix">
+                        <div class="rsm_result_b">
+                            <p class="rsm_result_text">
+                                {{item.intro}}</p>
+                        </div>
+                    </div>
+                    <!--展示 结束-->
+                </div>
+            </div>
+        </div>
+        <!--自我描述 结束-->
+        <!--期望工作 开始-->
+        <div class="rsmM_box" id="expectation" ng-show="show.expectation">
+            <div class="rsmM_box_ttl">
+                <div class="rsmM_box_ttl_l">
+                    <span class="rsmM_box_ttl_w_l"></span><span class="rsmM_box_ttl_w_c">期望工作</span>
+                    <span class="rsmM_box_ttl_w_r"></span>
+                </div>
+            </div>
+            <div class="rsmM_box_cont">
+                <div class="rsm_template" ng-repeat="item in expectations">
+                    <!--展示 开始-->
+                    <div class="rsm_result clearfix">
+                        <div class="rsm_result_t clearfix">
+                            <p class="rsm_result_t_single">
+                                <span class="expectPost"><i></i>{{item.position}}</span> <span class="expectNature">
+                                    <i></i>{{item.nature}}</span> <span class="expectLocation"><i></i>{{item.location}}</span>
+                                <span class="expectSalary"><i></i>{{item.salary}}</span>
+                            </p>
+                        </div>
+                        <div class="rsm_result_b">
+                            <p class="rsm_result_text expectAddition">
+                                <i class="expectAddition_lt"></i>{{item.addition}}<i class="expectAddition_rt"></i></p>
+                        </div>
+                    </div>
+                    <!--展示 结束-->
+                </div>
+            </div>
+        </div>
+        <!--期望工作 结束-->
+        <!--技能评价 开始-->
+        <div class="rsmM_box" id="evaluation" ng-show="show.evaluation">
+            <div class="rsmM_box_ttl">
+                <div class="rsmM_box_ttl_l">
+                    <span class="rsmM_box_ttl_w_l"></span><span class="rsmM_box_ttl_w_c">技能评价</span>
+                    <span class="rsmM_box_ttl_w_r"></span>
+                </div>
+            </div>
+            <div class="rsmM_box_cont">
+                <div class="rsm_template" ng-repeat="item in evaluations">
+                    <!--展示 开始-->
+                    <div class="rsm_result clearfix">
+                        <div class="rsm_result_t">
+                            <ul class="rsm_result_skill">
+                                <li ng-repeat="skill in skills">{{skill.name}}：{{skill.level}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--展示 结束-->
+                </div>
+            </div>
+        </div>
+        <!--技能评价 结束-->
+        <div class="rsmM_bottom">
+            <!--求职意向 开始-->
+            <div class="rsmM_box" id="intent">
+                <div class="rsm_inputGroup">
+                    <div class="clearfix">
+                        <div class="rsm_select">
+                            <div class="rsm_select_btn">
+                                <span class="rsm_select_text">{{intentTemp.situation}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--求职意向 结束-->
+        </div>
+        <div class="return_btn" ng-if="table!=0">
+            <a href="#/">返回</a> <a href="#/tdjl-list" ng-click="tzcg()">投递</a>
+        </div>
+    </div>
+</div>

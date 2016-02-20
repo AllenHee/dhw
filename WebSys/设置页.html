@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>平台设置</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/backend.css">
+</head>
+<body>
+  <p class="title-right bg-info">【 平台设置 】</p>
+  <div class="container container-main">
+    <div class="row small">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#siteInfo">站点信息设置</a></li>
+        <li><a data-toggle="tab" href="#settingBasic">基本设置</a></li>
+        <li><a data-toggle="tab" href="#other">其他</a></li>
+      </ul>
+      <!--站点信息设置-->
+      <div class="tab-content">
+        <div class="tab-pane active" id="siteInfo">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-md-2">站点名称：</label>
+              <div class="col-md-4 col-lg-2">
+                <input class="form-control input-sm" type="text" value="威博商城天天购物">
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">网站的名称，如：南方动力商城，天天购物等 <span class="text-warning">*</span></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">站点网址：</label>
+              <div class="col-md-4 col-lg-2">
+                <input class="form-control input-sm" type="text">
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">您的网站地址，如http://www.CQShop.com.cn/</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">站点标题：</label>
+              <div class="col-md-4 col-lg-2">
+                <input class="form-control input-sm" type="text">
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">概括您网站经营范围或与网站内容有关的网站标题 <span class="text-warning">*</span></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">站点LOGO：</label>
+              <div class="col-md-4 col-lg-2">
+                <input class="form-control input-sm" type="text">
+              </div>
+              <div class="col-md-4 form-inline">
+                <p class="img-icon"><span title="20120210161344.jpg"><img src="images/20120210161344.jpg" alt="站点logo"></span> <input class="form-control input-sm" type="button" value="选择图片"> <span class="text-warning">*</span></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">交易控制：</label>
+              <div class="col-md-4 col-lg-3">
+                <label class="radio-inline">
+                  <input type="radio">向总平台支付
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">自由交易
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">网站关键字：</label>
+              <div class="col-md-6 col-lg-3">
+                <textarea class="form-control input-sm" rows="6"></textarea>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">Keywords,即与您网站内容有关的关键词。用于前台搜索引擎优化。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">站点描述：</label>
+              <div class="col-md-6 col-lg-3">
+                <textarea class="form-control input-sm" rows="4"></textarea>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">Description,即网站内容的描述。用于前台搜索引擎优化。 <span class="text-warning">*</span></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">网站版权：</label>
+              <div class="col-md-6 col-lg-3">
+                <textarea class="form-control input-sm" rows="5"></textarea>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">网站的版权与免责声明。 <span class="text-warning">*</span></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">会员注册协议：</label>
+              <div class="col-md-9">
+                <p>会员注册时显示的注册协议。包含网站声明等 <span class="text-warning">*</span></p>
+                <div class="form-inline">
+                  <input class="form-control input-sm" type="button" value="选择图片">
+                </div>
+                <!--编辑器嵌入-->
+                <textarea class="form-control input-sm" rows="20">编辑器占位</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-2"></div>
+              <div class="col-md-4 form-inline">
+                <input class="form-control input-sm" type="submit" value="修改">
+                <input class="form-control input-sm" type="reset" value="重置">
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--基本设置-->
+        <div class="tab-pane" id="settingBasic">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-md-2">网站是否关闭：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">开启
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">关闭
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">如果选择开启，客户可正常浏览前台页面，选择关闭，客户则无法访问。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">关闭网站的原因：</label>
+              <div class="col-md-4 col-lg-2">
+                <textarea class="form-control input-sm" rows="5"></textarea>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">网站关闭时，呈现给前台客户的关闭原因</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">ICP备案号：</label>
+              <div class="col-md-4 col-lg-2">
+                <input class="form-control input-sm" type="text">
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">从信息产业部获取的备案号。<a href="http://www.miibeian.gov.cn" target="_blank">点击申请</a></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">ICP 备案证书文件：</label>
+              <div class="col-md-4 col-lg-2">
+                <input class="form-control input-sm" type="file">
+              </div>
+              <div class="col-md-4 form-inline">
+                <p class="text-info">
+                  <span class="text-warning" id="lblICPFileStatus">未上传</span>
+                  <input class="form-control input-sm" type="submit" value="上传">
+                  从信息产业部申请获取的证书在此处上传。
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">商品评论验证码：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">开启
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">关闭
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">开启此项可防止机器人恶意灌水或发布非法信息，建议开启此项。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">前台留言验证码：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">开启
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">关闭
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">开启此项可防止机器人恶意灌水或发布非法信息，建议开启此项。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">前台登录验证码：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">开启
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">关闭
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">开启此项可防止机器人恶意灌水或发布非法信息，建议开启此项。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">前台注册验证码：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">开启
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">关闭
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">开启此项可防止机器人恶意灌水或发布非法信息，建议开启此项。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">留言审核：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">开启
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">关闭
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">开启此项可防止机器人恶意灌水或发布非法信息，建议开启此项。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">默认商品图片：</label>
+              <div class="col-md-4 col-lg-4">
+                <div class="form-inline">
+                  <input class="form-control input-sm" type="text">
+                  <input class="form-control input-sm" type="button" value="选择图片">
+                  <span class="text-warning">*</span>
+                </div>
+                <div>
+                  <img src="images/2009729277.jpg" alt="暂无图片">
+                  <span class="text-info">当商品图片为空时，前台会呈现此图片</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">店铺LOGO默认图片：</label>
+              <div class="col-md-4 col-lg-4">
+                <div class="form-inline">
+                  <input class="form-control input-sm" type="text">
+                  <input class="form-control input-sm" type="button" value="选择图片">
+                  <span class="text-warning">*</span>
+                </div>
+                <div>
+                  <img src="images/2009729277.jpg" alt="暂无图片">
+                  <span class="text-info">申请店铺时，默认的店铺LOGO</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-2"></div>
+              <div class="col-md-4 form-inline">
+                <input class="form-control input-sm" type="submit" value="修改">
+                <input class="form-control input-sm" type="reset" value="重置">
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--其他-->
+        <div class="tab-pane" id="other">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-md-2">注册成功发送邮件：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">开启
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">关闭
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">开启此项，会员注册成功后则会将注册资料发送到会员邮件。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">最后订单确认间隔时间：</label>
+              <div class="col-md-4 col-lg-2 form-inline">
+                <input class="form-control input-sm" type="text" value="1"> <span>(小时)</span>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">在发货订单超时时间间隔系统自动修改为“已收货”。 <span class="text-warning">*</span></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">发货通知时间间隔：</label>
+              <div class="col-md-4 col-lg-2 form-inline">
+                <input class="form-control input-sm" type="text" value="1"> <span>(小时)</span>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">设置该时间后,管理平台发送Email给店主，通知店主发货!  <span class="text-warning">*</span></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-2">自动评价状态：</label>
+              <div class="col-md-4 col-lg-2">
+                <label class="radio-inline">
+                  <input type="radio">好评
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">中评
+                </label>
+                <label class="radio-inline">
+                  <input type="radio">差评
+                </label>
+              </div>
+              <div class="col-md-4">
+                <p class="form-control-static text-info">当前台无评价时，选择此项，可显示评价的状态。</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">平台模板风格选择：</label>
+              <div class="col-md-4 col-lg-2">
+                <select class="form-control input-sm" id="drpTemplateID" name="drpTemplateID">
+                  <option selected="selected" value="platform_default">平台标准模板</option>
+                  <option value="platform_skin3">橙心橙意</option>
+                  <option value="platform_skin2">仿拍拍</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="control-label col-md-2">店铺注册协议：</label>
+              <div class="col-md-9">
+                <textarea class="form-control input-sm" rows="20"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/jquery-1.11.3.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/imgtip.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@{string ap = Request.Url.AbsolutePath.ToLower();}
+<!--头部导航条 开始-->
+<div class="header-nav">
+    <div class="header-nav-wrap clearfix">
+        <ul id="xx">
+            <li @if (ap == "/")
+                {<text>class="current"</text>}><a href="/">首页</a><i></i></li>
+            <li @if (ap == "/accounting")
+                {<text>class="current"</text>}><a href="/accounting">会计公司</a><i></i></li>
+            <li  @if (ap == "/assessment")
+                 {<text>class="current"</text>}><a href="/assessment" target="_blank">评估服务</a><i></i></li>
+            <li><a target="_blank" href="http://bbs.dreamhiway.com/forum.php?mod=forumdisplay&fid=49">
+                会计百事通</a><i></i></li>
+            <li class="last">@* <div>
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)kuaiji/images/kj_user.png" alt="用户头像">我的服务
+                    <i class="iconfont">&#xe60f;</i></div>
+                <ul class="last-pop">
+                    <li><a href="#">菜单项目</a></li>
+                    <li><a href="#">菜单项目</a></li>
+                    <li><a href="#">菜单项目</a></li>
+                    <li><a href="#">菜单项目</a></li>
+                    <li><a href="#">菜单项目</a></li>
+                    <li><a href="#">菜单项目</a></li>
+                    <li><a href="#">菜单项目</a></li>
+                    <li><a href="#">菜单项目</a></li>
+                </ul>*@ </li>
+        </ul>
+    </div>
+</div>
+<!--头部导航条 结束-->

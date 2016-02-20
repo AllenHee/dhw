@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="col-md-10">
+        <form name="myForm" class="form-horizontal" novalidate>
+        <div class="has-feedback">
+            <div class="col-md-4">
+                <label for="name">
+                    1.必填项</label>
+            </div>
+            <div class="col-md-8">
+                <input class="form-control" name="name" type="text" required ng-model='user.name'
+                    dh-v1="myForm.name" />
+                <div class="text-danger form-control-static" ng-show="myForm.name.$invalid" role="alert">
+                    必填项</div>
+            </div>
+        </div>
+        <div class=" has-feedback">
+            <div class="col-md-4">
+                <label for="name">
+                    1.必填项</label>
+            </div>
+            <div class="col-md-8">
+                <select class="form-control" name="name1" ng-model="user.name1" required dh-v1="myForm.name1"
+                    ng-options="trade.id as trade.text for trade in trades">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="has-feedback">
+            <div class="col-md-4">
+                <label for="minlength">
+                    2.最小长度=5</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="minlength" ng-minlength="5" ng-model="user.minlength" class="form-control"
+                    dh-v1="myForm.minlength" />
+            </div>
+        </div>
+        <div class="has-feedback">
+            <div class="col-md-4">
+                <label for="maxlength">
+                    3.最大长度=20</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="maxlength" ng-model="user.maxlength" ng-maxlength="20" class="form-control"
+                    dh-v1="myForm.maxlength" />
+            </div>
+        </div>
+        <div class="has-feedback">
+            <div class="col-md-4">
+                <label for="pattern">
+                    4. 模式匹配</label>
+            </div>
+            <div class="col-md-8">
+                <input type="text" name="pattern" ng-model="user.pattern" ng-pattern="/^[a-zA-Z]*\d$/"
+                    class="form-control" dh-v1="myForm.pattern" />
+            </div>
+        </div>
+        <div class="has-feedback">
+            <div class="col-md-4">
+                <label for="email">
+                    5. 电子邮件</label>
+            </div>
+            <div class="col-md-8">
+                <input type="email" name="email" ng-model="user.email" class="form-control" dh-v1="myForm.email" />
+            </div>
+        </div>
+        <div class="has-feedback">
+            <div class="col-md-4">
+                <label for="age">
+                    6. 数字</label>
+            </div>
+            <div class="col-md-8">
+                <input type="number" name="age" ng-model="user.age" class="form-control" dh-v1="myForm.age" />
+            </div>
+        </div>
+        <div class="has-feedback">
+            <div class="col-md-4">
+                <label for="url">
+                    7. URL</label>
+            </div>
+            <div class="col-md-8">
+                <input type="url" name="url" ng-model="user.url" class="form-control" dh-v1="myForm.url" />
+            </div>
+        </div>
+        <div class="text-center">
+            <input class="btn btn-primary btn-lg" ng-disabled="myForm.$invalid" type="button"
+                ng-click="submitForm(myForm.$valid)" value="提交" />
+        </div>
+        </form>
+    </div>
+    <div class="col-md-12">
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿@{ViewBag.Title = "个人中心 - 招聘 - 发布简历";}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/zpform.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/login.css">
+    <script type="text/javascript">        if (dhw) dhw.gettplurl = function (name) { return function () { return '/moduleresume/' + name + '?_=' + (+new Date()) } }</script>
+}
+<!--主内容 开始-->
+<div class="content clearfix">
+    <!--左栏 开始-->
+    <div class="cl">
+        <dl class="cygn">
+            <dt>常用功能</dt>
+            @if (ViewBag.LoginAsCompany)
+            {
+                <dd>
+                    <a href="#/hire">发布招聘</a></dd>
+                <dd>
+                    <a href="#/yfb-list">已发布的招聘</a></dd>
+                <dd>
+                    <a href="#/yfb-list_down">已下线的招聘</a></dd>
+                <dd>
+                    <a href="#/td-list0">等待筛选简历</a></dd>
+                <dd>
+                    <a href="#/td-list1">已查看简历</a></dd>
+                <dd>
+                    <a href="#/td-list2">待沟通简历</a></dd>
+                <dd>
+                    <a href="#/td-list3">已通知面试简历</a></dd>
+                <dd>
+                    <a href="#/td-list4">不适合简历</a></dd>
+            }
+            else
+            {
+                <dd>
+                    <a href="#/">修改简历</a></dd>
+                <dd>
+                    <a href="#/preview?table=0">简历预览</a></dd>
+                <dd>
+                    <a href="#/tdjl-list">已投简历</a></dd>
+                <dd>
+                    <a href="#/list">收藏职位</a></dd>
+                <dd>
+                    <a href="#/jbzwlist">举报职位</a></dd>
+            }
+        </dl>
+    </div>
+    <!--左栏 结束-->
+    <!--中栏 开始-->
+    <div class="cm">
+        <div class="clearfix" ng-app="resumeApp" ui-view>
+        </div>
+    </div>
+    <!--中栏 结束-->
+    <!--右栏 开始-->
+    <div class="cr">
+    </div>
+    <!--右栏 结束-->
+</div>
+<!--主内容 结束-->
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/data.js"></script>
+    @Helper1.Displayjs(BaseConfigs.GetUrlCdn)
+    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/uc.ResumeCtrl.js"></script>
+}

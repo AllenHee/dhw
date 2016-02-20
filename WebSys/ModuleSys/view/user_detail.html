@@ -1,0 +1,54 @@
+﻿<p class="title-right bg-info small">
+   <span>系统管理</span> > <a href="#/user">用户管理</a> > <span>{{data.name}}</span></p>
+   <div class="container container-main">
+    <div class="row small info-table">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>用户表详细信息</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-right">
+                        ID：
+                    </td>
+                    <td>
+                        {{data.id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        账号：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.account">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        姓名：
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.name">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        状态：
+                    </td>
+                    <td>
+                        {{data.stateName}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="opr-btns">
+        <input class="btn btn-primary" type="button" ng-click="save()" value="保存">
+        <input class="btn btn-danger" type="button" ng-click="del()" value="删除">
+        <a class="btn btn-default" href="#/user">返回列表</a> 
+        </p>      
+    </div>
+</div> 

@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchuang/styles/zhongchuang.css">
+    @RenderSection("head", required: false)
+}
+@section scripts{
+    @RenderSection("scripts", required: false)
+}
+<!--头部 开始-->
+<div class="nav_wrap">
+    <div class="nav">
+        <ul class="nav_cont">
+            <li><a href="/">首页</a></li>
+            <li><a href="#">空间服务</a></li>
+            <li><a href="#">常见问题</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+        <div class="nav_l">
+            <a href="#">
+                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchuang/images/zckj_02.png" alt="#"></a>
+        </div>
+        <div class="nav_r">
+            <a href="#">
+                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchuang/images/zckj_04.png" alt="#"></a>
+        </div>
+    </div>
+</div>
+<div class="header_picture">
+    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchuang/images/zckj_07.jpg" alt="#"></div>
+<!--头部 结束-->
+@RenderBody()

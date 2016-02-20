@@ -1,0 +1,42 @@
+﻿@{ViewBag.Title = "111";}
+<div style="color: Black; font-size: 22px;">
+    <a href="javascript:void(0)" onclick="login()"><i></i>修改密码</a>
+    <div class="cont_r_login">
+        <form action="">
+        <input class="login_zh" type="password" value="请输入原密码" name="pwd">
+        <div class="passWrap">
+            <input class="login_psw" type="password" name="newpwd">
+            <span class="passTip">请输入新密码</span>
+        </div>
+        <button type="button" onclick="save()">
+            保存</button>
+        </form>
+    </div>
+</div>
+@section scripts{
+    @*<script>
+        function login() {
+            $.post('/login/loginin', { _: new Date() }, function (d) {
+                if (d.success && '@ViewBag.redirectURL'!='') { window.location.href = '@ViewBag.redirectURL'; }
+            });
+        }
+
+    </script>*@
+    <script type="text/javascript">
+
+        function save() {
+            $.post('/CenterChangePwd/ChangePwd', { pwd: $('[name=pwd]').val(), newpwd: $('[name=newpwd]').val() }, function (d) {
+                if (d.success) {
+                    window.location.href = '/';
+                }
+                else {
+                    alert(d.msg);
+                    aa();
+                }
+            });
+        }
+        function aa() {
+            $("#yzm").attr('src', '/AppLogin/VerifyCode?_=' + (+new Date()));
+        }
+    </script>
+}

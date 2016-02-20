@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--
+  陈树阳
+  2015.11.24
+-->
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>创意设计-任务详情</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="http://localhost:8084/zhongbao/styles/style.css">
+  <link rel="stylesheet" href="styles/cysj.css">
+  <script type="text/javascript">
+    var dhw = {
+      imgurl: 'http://192.168.2.10:81/img/',
+      imguploadurl: 'http://192.168.2.10:82/uploadimg',
+      mainurl: 'http://localhost:8085/',
+      staticurl: 'http://localhost:8070'
+    };
+    var cpid = 1;
+  </script>
+  <script type="text/html" id="commentTpl">
+    {{each data as comment}}
+    <li class="fbly_items">
+      <img src="{{domain+comment.userimage}}" alt="{{comment.username}}">
+      <p class="fbly_items_time"><a href="{{comment.id}}">{{comment.username}} </a>留言于 {{comment.time}}</p>
+      <p>{{comment.commemt}}</p>
+    </li>
+    {{/each}}
+  </script>
+  <script type="text/html" id="cytg">
+    {{each data as tg}}
+    <li class="cytg_group clearfix">
+      <div class="cytg_l">
+        <div class="cytg_l_img"><img src="{{domain+tg.img}}" alt="#"></div>
+        <div class="cytg_l_text">
+          <div><a href="{{tg.id}}">{{tg.username}}</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+          <p class="cytg_l_gray">{{tg.usertype}}<span>|</span>{{tg.address}}</p>
+        </div>
+      </div>
+      <div class="cytg_r">
+        <button>快速沟通</button>
+        <button>雇佣TA</button>
+      </div>
+    </li>
+    {{/each}}
+  </script>
+</head>
+
+<body>
+  <div class="content">
+    <div class="cont_l">
+      <!--招标任务-->
+      <div class="zbrw clearfix">
+        <div class="zbrw_t_l">
+          <div class="clearfix">
+            <span class="zbrw_t_l_ttl">招标任务</span>
+            <span class="zbrw_t_l_mny">￥500-￥1000</span>
+          </div>
+          <h2>科技公司LOGO设计</h2>
+          <ul class="clearfix">
+            <li class="zbrw_t_l_time"><i></i>距交稿截至还有：<span>05天02时04分15秒</span></li>
+            <li class="zbrw_t_l_sjfp">
+              <span class="zbrw_t_l_sjfp-icon"></span>赏金分配：一人独享赏金
+              <i></i>
+              <div class="pos_tip">解释说明文字解释说明文字解释说明文字解解释说明文字解释说明文字解释说明文字解释说明文字释说明文字解释说明文字</div>
+            </li>
+          </ul>
+        </div>
+        <div class="zbrw_t_r clearfix">
+          <div class="zbrw_t_r-div">
+            <p>浏览人数</p>
+            <p class="zbrw_t_r_black">1111</p>
+          </div>
+          <div class="zbrw_t_r-div">
+            <p>交稿数量</p>
+            <p class="zbrw_t_r_red">58</p>
+          </div>
+          <div class="bdsharebuttonbox">
+            <a href="#" class="hd_cont_l_share bds_more" data-cmd="more">
+                分享
+              </a>
+          </div>
+        </div>
+        <!--进度块-->
+        <div class="zbrw_jind">
+          <div class="zbrw_jd">
+            <ul class="clearfix">
+              <li class="zbrw_jd_item zbrw_jd_item-first success"><i></i><span>发布需求<br>2015.1.1</span></li>
+              <li class="zbrw_jd_item success"><i></i><span>威客投标<br>2014.11.10</span></li>
+              <li class="zbrw_jd_item success"><i></i><span>雇主选标</span></li>
+              <li class="zbrw_jd_item success"><i></i><span>托管赏金</span></li>
+              <li class="zbrw_jd_item"><i></i><span>威客工作</span></li>
+              <li class="zbrw_jd_item zbrw_jd_item-last"><i></i><span>验收付款</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!--任务需求-->
+      <div class="rwxq clearfix">
+        <h4>任务需求</h4>
+        <p>1、极致简约大气风格；2、极致简约大气风格极致简约大气风格；3、极致简约大气风格极致简约大气风格极致简约大气风格极致简约大气风格；4、极致简约大气风格。</p>
+        <h4>项目附件</h4>
+        <ul>
+          <li class="rwxq_doc">
+            <a href="#"><i></i>任务需求.docx</a>（15.00k）
+            <a href="#">下载</a>
+          </li>
+          <li class="rwxq_dl">
+            <a href="#"><i></i>apple.jpg</a>（15.00k）
+          </li>
+        </ul>
+      </div>
+      <!--投标-->
+      <div class="toubiao" ng-app="toubiao" ng-controller="tbCtrl">
+        <form name="toubiao">
+          <div class="price">
+            <label>任务报价：</label>
+            <input class="toubiao_input" type="text" id="price" name="price" ng-model="data.quote" ng-pattern="/^[1-9]{1}\d*$/" required>元（雇佣预期价格为￥500-1000）
+            <span class="wrongTip" ng-show="toubiao.price.$dirty && toubiao.price.$invalid">* 请输入正确报价</span>
+          </div>
+          <div class="cycle">
+            <label>工作周期：</label>
+            <input class="toubiao_input" type="text" id="cycle" name="worktime" ng-model="data.worktime" ng-pattern="/^[1-9]{1}\d*$/"
+            required>天
+            <span class="wrongTip" ng-show="toubiao.worktime.$dirty && toubiao.worktime.$invalid">* 请输入正确工作周期</span>
+          </div>
+          <div class="areaselect">
+            <label>所在地区：</label>
+            <input type="text" id="address" name="address" ng-model="data.address" required>
+            <span class="wrongTip" ng-show="toubiao.address.$dirty && toubiao.address.$invalid">* 请选择地址</span>
+            <ul class="provUl">
+
+            </ul>
+            <ul class="cityUl">
+
+            </ul>
+            <ul class="countyUl">
+
+            </ul>
+          </div>
+          <div class="explain">
+            <label>报价说明：</label>
+            </br>
+            <textarea class="toubiao_textarea" name="intro" ng-model="data.intro" required></textarea>
+            <span class="wrongTip" ng-show="toubiao.intro.$dirty && toubiao.intro.$invalid">* 请输入报价说明</span>
+          </div>
+          <div class="toubiao_yzm">
+            <label>验证码：</label>
+            <input type="text">
+          </div>
+          <p>请遵守<a href="#">投标/投稿规则</a>，否则将隐藏稿件并酌情予以惩罚。</p>
+          <button id="toubiao" class="tb" ng-click="submit()">投标</button>
+        </form>
+      </div>
+
+
+      <!--参与投稿-->
+      <div class="cytg">
+        <ul class="cytg_ttl clearfix">
+          <li class="current">参与投稿（<span class="tgCount">58</span>）</li>
+          <li>任务留言（<span class="commentCount">8</span>）</li>
+        </ul>
+        <div class="cytg_cont">
+          <ul id="cytg_cont">
+            <li class="cytg_group clearfix">
+              <div class="cytg_l">
+                <div class="cytg_l_img"><img src="images/rwxq_05.jpg" alt="#"></div>
+                <div class="cytg_l_text">
+                  <div><a href="#">伊尔设计工作室</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+                  <p class="cytg_l_gray">公司<span>|</span>福建省，泉州市，石狮市</p>
+                </div>
+              </div>
+              <div class="cytg_r">
+                <button>快速沟通</button>
+                <button>雇佣TA</button>
+              </div>
+            </li>
+            <li class="cytg_group clearfix">
+              <div class="cytg_l">
+                <div class="cytg_l_img"><img src="images/rwxq_05.jpg" alt="#"></div>
+                <div class="cytg_l_text">
+                  <div><a href="#">伊尔设计工作室</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+                  <p class="cytg_l_gray">公司<span>|</span>福建省，泉州市，石狮市</p>
+                </div>
+              </div>
+              <div class="cytg_r">
+                <button>快速沟通</button>
+                <button>雇佣TA</button>
+              </div>
+            </li>
+            <li class="cytg_group clearfix">
+              <div class="cytg_l">
+                <div class="cytg_l_img"><img src="images/rwxq_05.jpg" alt="#"></div>
+                <div class="cytg_l_text">
+                  <div><a href="#">伊尔设计工作室</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+                  <p class="cytg_l_gray">公司<span>|</span>福建省，泉州市，石狮市</p>
+                </div>
+              </div>
+              <div class="cytg_r">
+                <button>快速沟通</button>
+                <button>雇佣TA</button>
+              </div>
+            </li>
+            <li class="cytg_group clearfix">
+              <div class="cytg_l">
+                <div class="cytg_l_img"><img src="images/rwxq_05.jpg" alt="#"></div>
+                <div class="cytg_l_text">
+                  <div><a href="#">伊尔设计工作室</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+                  <p class="cytg_l_gray">公司<span>|</span>福建省，泉州市，石狮市</p>
+                </div>
+              </div>
+              <div class="cytg_r">
+                <button>快速沟通</button>
+                <button>雇佣TA</button>
+              </div>
+            </li>
+            <li class="cytg_group clearfix">
+              <div class="cytg_l">
+                <div class="cytg_l_img"><img src="images/rwxq_05.jpg" alt="#"></div>
+                <div class="cytg_l_text">
+                  <div><a href="#">伊尔设计工作室</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+                  <p class="cytg_l_gray">公司<span>|</span>福建省，泉州市，石狮市</p>
+                </div>
+              </div>
+              <div class="cytg_r">
+                <button>快速沟通</button>
+                <button>雇佣TA</button>
+              </div>
+            </li>
+            <li class="cytg_group clearfix">
+              <div class="cytg_l">
+                <div class="cytg_l_img"><img src="images/rwxq_05.jpg" alt="#"></div>
+                <div class="cytg_l_text">
+                  <div><a href="#">伊尔设计工作室</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+                  <p class="cytg_l_gray">公司<span>|</span>福建省，泉州市，石狮市</p>
+                </div>
+              </div>
+              <div class="cytg_r">
+                <button>快速沟通</button>
+                <button>雇佣TA</button>
+              </div>
+            </li>
+          </ul>
+          <div class="pagination pagination_tg"></div>
+        </div>
+        <!--发布留言-->
+        <div class="cytg_cont hidden">
+          <div class="fbly clearfix">
+            <div class="fbly_img"><img src="images/rwxq_05.jpg" alt=""></div>
+            <div class="fbly_cont">
+              <textarea class="fbly_ta" cols="30" rows="10"></textarea>
+              <button class="fbly_btn">发表留言</button>
+              <p class="errorTip">留言不能为空</p>
+            </div>
+          </div>
+          <ul class="commentCont">
+            <li class="fbly_items">
+              <img class="fbly_img" src="images/rwxq_05.jpg" alt="">
+              <p class="fbly_items_time"><a href="#">啊啊啊 </a>留言于 2015-11-11 10:10</p>
+              <p>啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈</p>
+            </li>
+            <li class="fbly_items">
+              <img src="images/rwxq_05.jpg" alt="">
+              <p class="fbly_items_time"><a href="#">啊啊啊 </a>留言于 2015-11-11 10:10</p>
+              <p>啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈</p>
+            </li>
+            <li class="fbly_items">
+              <img src="images/rwxq_05.jpg" alt="">
+              <p class="fbly_items_time"><a href="#">啊啊啊 </a>留言于 2015-11-11 10:10</p>
+              <p>啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈</p>
+            </li>
+            <li class="fbly_items">
+              <img src="images/rwxq_05.jpg" alt="">
+              <p class="fbly_items_time"><a href="#">啊啊啊 </a>留言于 2015-11-11 10:10</p>
+              <p>啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈</p>
+            </li>
+            <li class="fbly_items">
+              <img src="images/rwxq_05.jpg" alt="">
+              <p class="fbly_items_time"><a href="#">啊啊啊 </a>留言于 2015-11-11 10:10</p>
+              <p>啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈</p>
+            </li>
+          </ul>
+          <div class="pagination pagination_comment"></div>
+        </div>
+      </div>
+    </div>
+    <!--右侧-->
+    <div class="cont_r">
+      <div class="cont_r_t clearfix">
+        <div class="cont_r_t_head clearfix">
+          <div class="cont_r_t_head_img">
+            <div>
+              <a href="#"><img src="images/zb_03.jpg" alt="头像"></a>
+            </div>
+          </div>
+          <div class="cont_r_t_head_text">
+            <div><a href="#">oschina</a></div>
+            <i class="icon_rz"></i><i class="icon_phone"></i>
+            <button>私信</button>
+          </div>
+        </div>
+        <ul class="cont_r_t_haop">
+          <li>
+            <p>100%</p>
+            <p>好评</p>
+          </li>
+          <li>
+            <p>100%</p>
+            <p>诚信</p>
+          </li>
+          <li class="cont_r_t_last">
+            <div><img src="images/zb_14.jpg" alt="等级"></div>
+            <p>等级</p>
+          </li>
+        </ul>
+      </div>
+      <div class="cont_r_b">
+        <h4>参与需求,开始赚钱</h4>
+        <ul>
+          <li>
+            <span class="cont_r_b_time">第一步:提交您的稿件</span>
+          </li>
+          <li>
+            <span class="cont_r_b_time">第二步:中标后交付作品</span>
+          </li>
+          <li>
+            <span class="cont_r_b_time">第三步:获得赏金</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/angular/angular.min.js"></script>
+  <script src="http://localhost:8070/scripts/data.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.circliful.min.js"></script>
+  <script src="http://localhost:8070/scripts/cysj.rwxq.js"></script>
+  <script src="http://localhost:8070/scripts/cysj.rwxqCtrl.js"></script>
+  <script>
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+  </script>
+</body>
+
+</html>

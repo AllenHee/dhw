@@ -1,0 +1,23 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+@{
+    ViewBag.Title = "梦高速 - 联系我们";
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
+@{
+    var compay = CompanyTopInfo.compay;
+    var trade = CompanyTopInfo.trade;
+    ViewBag.Title = "联系我们" + compay;
+    ViewBag.Keywords = compay + ",联系我们," + trade;
+}
+<p>
+    联系我们
+</p>
+@section scripts{
+    <script type="text/javascript">
+    var ddid = @ViewBag.ddid;
+    </script>
+}

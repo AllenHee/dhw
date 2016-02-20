@@ -1,0 +1,1013 @@
+/*
+*头部
+*/
+/*左侧*/
+.header-m-l {
+  margin-top: 10px;
+}
+/*右侧*/
+.header-search .select {
+  float: left;
+  font-size: 1.6em;
+}
+.header-search .select {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  padding: 8px 25px;
+  border: 2px solid #3d9ccc;
+  border-right: 0;
+  background: url(../images/select_arrow.jpg) no-repeat 65px 16px;
+  cursor: pointer;
+}
+.header-search .select ul {
+  display: none;
+  position: absolute;
+  left: -2px;
+  top: 36px;
+  z-index: 101;
+  width: 70px;
+  padding: 2px 10px;
+  border: 2px solid #bbb;
+  background-color: #fff;
+  text-align: center;
+}
+.header-search .select li {
+  padding: 3px;
+  cursor: pointer;
+}
+.header-search input {
+  width: 335px;
+  border-color: #3d9ccc;
+}
+.header-search button {
+  width: 120px;
+  height: 40px;
+  background: #3d9ccc;
+}
+/*导航条*/
+.header-nav {
+  background-color: #3d9ccc;
+}
+.header-nav ul {
+  margin-left: 229px;
+}
+.header-nav a {
+  width: 110px;
+  font-weight: 700;
+  font-size: 1.6em;
+  line-height: 2.5;
+  color: #fff;
+}
+.header-nav .current a,
+.header-nav a:hover {
+  background-color: #3689b3;
+}
+/*最后一个按钮*/
+.header-nav li.last {
+  right: 0;
+  top: -5px;
+  padding-top: 5px;
+  padding-left: 5px;
+  margin-right: 0;
+  background-color: #266280;
+  background: url(../images/nav_resume.jpg) no-repeat;
+}
+.header-nav li.last a:hover {
+  background-color: transparent;
+}
+
+/*
+*主内容区
+*/
+.content-l,
+.content-r {
+  float: left;
+}
+/**左侧**/
+.content-l {
+  width: 230px;
+}
+/*名企职位*/
+.content-famous h2 {
+  padding-left: 8px;
+  border-left: 7px solid #3d9ccc;
+  margin: 31px 0 19px 0;
+  font-size: 1.6em;
+  line-height: 24px;
+  color: #3d9ccc;
+}
+.c-f-item {
+  padding: 8px;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 20px;
+}
+.c-f-item h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.c-f-job {
+  font-size: 1.2em;
+}
+.c-f-job li {
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #e2e2e2;
+}
+.c-f-job li.last {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.c-f-job li div {
+  padding: 3px 0;
+}
+.c-f-title {
+  color: #b1b1b1;
+}
+.c-f-title a {
+  color: #3d9ccc;
+}
+.c-f-title span {
+  float: right;
+}
+.c-f-discription {
+  color: #6c6c6c;
+}
+.salary {
+  color: #e60012;
+}
+/**右侧**/
+.content-r {
+  width: 758px;
+  padding: 27px 0 0 36px;
+  overflow: hidden;
+}
+/*推广区*/
+.mask {
+  margin: 25px 0 32px;
+}
+
+/*标签切换模块*/
+.tb-tabs {
+  width: 757px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #3d9ccc;
+  overflow: hidden;
+}
+.tb-tabs li {
+  float: left;
+  width: 99px;
+  font-size: 1.6em;
+  line-height: 35px;
+  text-align: center;
+  cursor: pointer;
+}
+.tb-tabs li.current {
+  background-color: #3d9ccc;
+  color: #fff;
+}
+.tb-box {
+  display: none;
+}
+.tb-box-1 {
+  display: block;
+}
+.pos-box li {
+  padding: 16px 12px;
+  border: 1px solid #e4e4e4;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+/*盒子左半边*/
+.pos-box-l {
+  float: left;
+  width: 460px;
+  overflow: hidden;
+  font-size: 1.6em;
+}
+/*内页单独设宽度*/
+.pos-box-in .pos-box-l {
+  width: 630px;
+}
+.pos-logo,
+.pos-info {
+  float: left;
+}
+.pos-logo {
+  width: 110px;
+  margin-right: 26px;
+}
+.pos-logo img {
+  width: 118px;
+  /*height: 81px;*/
+}
+.pos-info {
+  width: 465px;
+  overflow: hidden;
+}
+.pos-box-l h4 {
+  margin-bottom: 18px;
+  color: #c8c8c8;
+}
+.pos-box-l h4 a {
+  color: #3d9ccc;
+}
+.pos-box-l h4 small {
+  margin-left: 6px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.pos-box-l .salary {
+  margin-right: 10px;
+}
+.pos-box-l .exp {
+  font-size: 0.9em;
+}
+.advantage {
+  margin-top: 10px;
+  overflow: hidden;
+  font-size: 0.75em;
+  color: #666;
+  clear: both;
+}
+.advantage li {
+  float: left;
+  padding: 3px;
+  border: 1px solid #e4e4e4;
+  margin: 5px 5px 0 0;
+}
+/*盒子右半边*/
+.pos-box-r {
+  float: right;
+  width: 260px;
+  overflow: hidden;
+  font-size: 1.4em;
+  text-align: left;
+
+}
+/*内页另外设宽*/
+.pos-box-in .pos-box-r  {
+  width: 360px;
+}
+.pos-corp {
+  float: left;
+}
+.pos-apply {
+  float: right;
+}
+.pos-box-r p {
+  margin-bottom: 20px;
+}
+.pos-box-r a {
+  color: #333;
+}
+.pos-apply button {
+  width: 90px;
+  border: 0;
+  margin: 20px 0 0 60px;
+  background-color: #3d9ccc;
+  line-height: 36px;
+  color: #fff;
+  font-size: 1.15em;
+  border-radius: 5px;
+  /*background: url(../images/pos_apply_bg.jpg) no-repeat 0 2px; */
+  cursor: pointer;
+}
+.collection,
+.report {
+  color: #999;
+}
+/*更多*/
+.tab-box .more {
+  float: right;
+  margin-right: 9px;
+  font-size: 1.2em;
+}
+.tab-box .more a {
+  display: block;
+  padding: 0 6px;
+  background-color: #3d9ccc;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+}
+
+/*大筛选框*/
+.filter-box,
+.filter-box ul {
+  padding: 16px 36px 6px 18px;
+  border: 1px solid #e7e7e7;
+  margin: 22px 0 30px;
+  font-size: 1.4em;
+  line-height: 1.7;
+}
+.filter-box div {
+  position: relative;
+  padding-bottom: 10px;
+}
+.filter-box dt,
+.filter-box dd,
+.filter-box li {
+  float: left;
+}
+.filter-box dt {
+  font-weight: 700;
+  margin-right: 10px;
+}
+.filter-box dd,
+.filter-box li {
+  padding: 0 6px;
+  margin-right: 3px;
+  line-height: 24px;
+  transition: background-color 300ms ease-out, color 300ms ease-out;
+  cursor: pointer;
+}
+.filter-box dd.current,
+.filter-box dd:hover,
+.filter-box li:hover {
+  background-color: #3d9ccc;
+  color: #fff;
+}
+.filter-box .more {
+  float: right;
+  position: relative;
+  padding-right: 20px;
+  margin-right: 0;
+}
+.filter-box .more:hover {
+  background-color: #fff;
+  color: #333;
+}
+.filter-box .more i,
+/*小筛选框*/.filter-box-s span i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #3d9ccc transparent transparent;
+  margin-top: -3px;
+  transition: transform .4s ease;
+}
+.filter-box .more:hover i,
+.rotate {
+  transform: rotateZ(180deg);
+}
+/*弹出层*/
+.filter-box ul {
+  display: none;
+  position: absolute;
+  left: -19px;
+  top: 34px;
+  z-index: 101;
+  width: 968px;
+  padding-bottom: 10px;
+  border-top-style: dashed;
+  margin: 0;
+  background-color: #fff;
+  font-size: 1em;
+}
+.filter-box li {
+  line-height: 32px;
+}
+
+/*小筛选框*/
+.filter-box-s {
+  position: relative;
+  padding: 9px 0 9px 18px;
+  border: 1px solid #e7e7e7;
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+.filter-box-s div {
+  float: left;
+  margin-right: 36px;
+  font-size: 1.4em;
+}
+.filter-box-s dt,
+.filter-box-s dd {
+  float: left;
+  position: relative;
+}
+.filter-box-s dt {
+  margin-right: 12px;
+}
+.filter-box-s .sort dd {
+  padding: 0 9px;
+  margin-right: 5px;
+  transition: background-color 300ms ease-out, color 300ms ease-out;
+}
+.filter-box-s .sort dd:hover,
+.filter-box-s .sort dd.current {
+  background-color: #3d9ccc;
+  color: #fff;
+}
+.filter-box-s dd .has-more {
+  display: inline-block;
+  position: relative;
+  width: 75px;
+}
+.filter-box-s dd,
+.filter-box-s li {
+  cursor: pointer;
+}
+/*翻页*/
+.filter-box-s .page-s {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 128px;
+  border-left: 1px solid #e7e7e7;
+  margin-right: 0;
+  line-height: 42px;
+  text-align: center;
+}
+.page-s i {
+  display: inline-block;
+  position: absolute;
+  width: 32px;
+  height: 42px;
+  cursor: pointer;
+}
+.page-s i.prev {
+  left: 0;
+  top: 0;
+}
+.page-s i.next {
+  right: 0;
+  top: 0;
+}
+.page-s .current-page {
+  color: #3d9ccc;
+}
+/*弹出层*/
+.filter-box-s ul {
+  display: none;
+  position: absolute;
+  left: -8px;
+  top: 100%;
+  z-index: 101;
+  width: 70px;
+  padding: 0 7px;
+  border: 1px solid #eee;
+  background-color: #fff;
+}
+.filter-box-s ul li {
+  padding: 5px 0;
+}
+
+/*公司列表*/
+.filter-result li {
+  padding: 24px 24px 16px;
+  border: 1px solid #e7e7e7;
+  margin-bottom: 10px;
+}
+.f-r-l, .f-r-r {
+  float: left;
+}
+.f-r-l img {
+  width: 120px;
+}
+.f-r-r {
+  margin-left: 34px;
+}
+.f-r-r h3 {
+  font-size: 2.4em;
+}
+.f-r-r h3 a {
+  color: #000;
+}
+.f-r-r small {
+  margin-left: 8px;
+  font-size: 0.65em;
+  color: #6c6c6c;
+}
+.f-r-r p {
+  margin: 10px 0;
+  font-size: 1.8em;
+}
+.f-r-r p a {
+  margin-right: 10px;
+}
+.f-r-r .job-pos {
+  font-size: 0.75em;
+}
+.f-r-r p a {
+  color: #127fb6;
+}
+.f-r-r .job-pos,
+.f-r-r .job-pos a {
+  color: #3d9ccc
+}
+.f-r-r .job-pos a {
+  margin: 0 4px;
+}
+.f-r-r .advantage li {
+  padding: 3px;
+}
+
+/*
+*职位详情
+*/
+.pos-detail {
+  margin-top: 40px;
+}
+.pos-detail-l,
+.pos-detail-r {
+  float: left;
+}
+.pos-detail .salary {
+  color: #ec6941;
+}
+.pos-detail h4 {
+  padding-left: 10px;
+  border-left: 6px solid #3d9ccc;
+  font-size: 1.4em;
+  line-height: 16px;
+}
+/*左侧*/
+/*左侧上*/
+.pos-detail-l {
+  width: 724px;
+}
+.pos-detail-l h2 {
+  padding: 11px 10px;
+  background-color: #3d9ccc;
+  font-size: 1.6em;
+  line-height: 1.625;
+  color: #fff;
+}
+.pos-detail-l h2 .title {
+  font-size: 1.75em;
+  line-height: 1.65;
+}
+.pos-summarize {
+  padding: 0 30px 30px 18px;
+  border-bottom: 1px dashed #e5e5e5;
+  font-size: 1.6em;
+}
+.pos-summarize-l {
+  float: left;
+}
+.pos-summarize-l p {
+  margin-top: 20px;
+}
+.pos-summarize-l .salary {
+  font-weight: 700;
+  font-size: 1.625em;
+}
+.pos-summarize-l span {
+  padding-right: 20px;
+  border-right: 1px solid #b2b2b2;
+  margin-right: 20px;
+}
+.pos-summarize-r {
+  float: right;
+}
+.pos-summarize-r p {
+  padding: 6px 18px;
+  font-size: 0.875em;
+  text-align: right;
+  color: #bfbfbf;
+}
+.pos-summarize-r a {
+  color: #3d9ccc;
+}
+.pos-summarize-r button {
+  width: 145px;
+  margin-top: 25px;
+  margin-left: 0;
+}
+/*左侧下*/
+.pos-intro {
+  padding: 0 38px 0 28px;
+}
+.pos-intro h4 {
+  margin-top: 24px;
+}
+.pos-intro p {
+  font-size: 1.2em;
+  text-indent: 2em;
+  line-height: 2;
+}
+/*右侧*/
+.pos-detail-r {
+  width: 266px;
+  margin-left: 30px;
+  overflow: hidden;
+}
+.pdr-wrap {
+  padding: 13px 0 0 15px;
+  margin-bottom: 40px;
+  line-height: 2;
+}
+.promulgate div {
+  font-size: 1.4em;
+}
+.promulgate,
+.promulgate a {
+  color: #808080;
+  word-break: break-all;
+}
+.promulgate .first {
+  position: relative;
+}
+.promulgate .first span {
+  position: absolute;
+  bottom: 5px;
+  line-height: 1.2;
+}
+.promulgate img {
+  width: 85px;
+  margin-right: 14px;
+  vertical-align: text-bottom;
+}
+.promulgate span {
+  margin-right: 10px;
+  color: #333;
+}
+.promulgate .homepage a {
+  text-decoration: underline;
+}
+.recommend div {
+  font-size: 1.2em;
+}
+.recommend a {
+  font-size: 1.16em;
+  color: #3d9ccc;
+}
+.recommend li {
+  padding: 10px 0 20px;
+  border-bottom: 1px dashed #e5e5e5;
+}
+.recommend li.last {
+  border-bottom: 0;
+}
+.recommend .clearfix a,
+.recommend .salary-wrap {
+  float: left;
+  line-height: 32px;
+}
+.recommend a {
+  width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.recommend .salary-wrap {
+  margin-left: 8px;
+}
+.recommend .salary-wrap .salary {
+  font-size: 1.25em;
+}
+.recommend .info {
+  color: #cbcbcb;
+}
+.recommend .info span {
+  color: #333;
+}
+.recommend .more {
+  text-align: center;
+}
+.recommend .more a {
+  color: #666;
+}
+/*工作环境*/
+.e-slide {
+  position: relative;
+  width: 250px;
+  height: 180px;
+  overflow: hidden;
+}
+.e-slide-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 180px;
+}
+.e-slide-wrap li {
+  float: left;
+  width: 250px;
+  height: 180px;
+  margin: 0;
+  overflow: hidden;
+}
+.e-slider {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  margin-left: -17px;
+}
+.e-slider li {
+  float: left;
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+  background: url(../images/dot.png) no-repeat 0 -17px; 
+  cursor: pointer;
+}
+.e-slider li.last {
+  margin-left: 0;
+}
+.e-slider li.current {
+  background: url(../images/dot.png) no-repeat 0 0; 
+}
+
+
+
+/*图片轮播模块*/
+.slide {
+  width: 758px;
+  height: 240px;
+}
+.slide-wrap {
+  top: 0;
+  left: 0;
+  width: 612px;
+  height: 960px;
+}
+.slide-wrap li {
+  height: 240px;
+}
+.slider {
+  top: 0;
+  right: 0;
+}
+.slider ul {
+  padding-left: 7px;
+}
+.slider li {
+  height: 42px;
+  border: 4px solid #d6d6d6;
+  margin-bottom: 13px;
+  overflow: hidden;
+}
+.slider li.last {
+  margin-bottom: 0;
+}
+.slider li img {
+  height: 42px;
+  width: 113px;
+}
+.slider em {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 128px;
+  height: 50px;
+  background: url(../images/slider_bg.png) no-repeat;
+}
+
+
+/*弹出式大菜单模块*/
+.pop-menu {
+  width: 228px;
+  border: 1px solid #e1e1e1;
+  border-top: 0;
+}
+.pop-menu-item {
+  position: relative;
+  padding-left: 55px;
+  border: 1px solid #fff;
+}
+.pop-menu-item_icon {
+  display: block;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
+.pop-menu-item_js {
+  background: url(../images/zhaop_icon.png) no-repeat;
+}
+.pop-menu-item_cp {
+  background: url(../images/zhaop_icon.png) no-repeat 0 -29px;
+}
+.pop-menu-item_sj {
+  background: url(../images/zhaop_icon.png) no-repeat 0 -57px;
+}
+.pop-menu-item_yy {
+  background: url(../images/zhaop_icon.png) no-repeat 0 -84px;
+}
+.pop-menu-item_sc {
+  background: url(../images/zhaop_icon.png) no-repeat 0 -111px;
+}
+.pop-menu-item_zn {
+  background: url(../images/zhaop_icon.png) no-repeat 0 -139px;
+}
+.pop-menu-item_jr {
+  background: url(../images/zhaop_icon.png) no-repeat 0 -165px;
+}
+/*固定项*/
+.pop-menu-item dl {
+  position: relative;
+  padding: 16px 25px 17px 0;
+  background: #fff url(../images/c-menu_bg.jpg) no-repeat 154px 15px;
+}
+.pop-menu-item dt {
+  font-size: 1.6em;
+}
+.pop-menu-item dd {
+  font-size: 1.3em;
+}
+.pop-menu-item dd a {
+  color: #868484;
+}
+/*弹出项*/
+.pop-menu-sub {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 225px;
+  z-index: 101;
+  width: 540px;
+  padding: 15px 30px 0 30px;
+  border: 1px solid #e1e1e1;
+  overflow: hidden;
+  background-color: #fff;
+}
+.pop-menu-sub dl {
+  padding: 0;
+  margin-bottom: 20px;
+  background: none;
+  overflow: hidden;
+}
+.pop-menu-sub dt,
+.pop-menu-sub dd {
+  float: left;
+  line-height: 2;
+}
+.pop-menu-sub dt {
+  font-size: 1.4em;
+}
+.pop-menu-sub dt a {
+  text-decoration: underline;
+  color: #666;
+}
+.pop-menu-sub dd {
+  margin-left: 24px;
+}
+.pop-menu-sub dd ul {
+  width: 430px;
+}
+.pop-menu-sub dd li {
+  float: left;
+  margin-left: 16px;
+}
+.pop-menu-sub dd li.highlight a {
+  color: #3d9ccc;
+}
+
+/*
+* 翻页
+*/
+.pagination .current,
+.pagination a:hover {
+  border-color: #3d9ccc;
+  background-color: #3d9ccc;
+}
+
+/*弹出层*/
+.modal_bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  filter: Alpha(opacity = 70);
+  -moz-opacity:0.5;
+ -khtml-opacity: 0.5;
+}
+.modal_cont {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  margin-top: -85px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.modal_cont_t {
+  position: relative;
+  padding: 10px;
+  
+}
+.modal_cont_t_close {
+ position: absolute;
+ right: 10px;
+ top: 0;
+ font-size: 20px;
+ cursor: pointer;
+}
+.modal_cont_m {
+  padding: 20px 10px;
+  border-top: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 16px;
+}
+.modal_cont_b {
+  overflow: hidden;
+  padding: 10px;
+}
+.modal_cont_b_conf {
+  float: right;
+  width: 90px;
+  border: 0;
+  margin-right: 10px;
+  background-color: #3d9ccc;
+  line-height: 36px;
+  color: #fff;
+  font-size: 1.6em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.modal_cont_b_cancel {
+  float: right;
+  width: 90px;
+  border: 0;
+  line-height: 36px;
+  font-size: 1.6em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/*何伟*/
+.footer-l .logo {
+  height: 48px;
+  background: url(../images/rencaizhaopin.png) no-repeat 0 -70px;
+}
+.footer-l .logo:hover {
+  background: url(../images/rencaizhaopin.png) no-repeat 0 -6px;
+}
+
+
+/*
+ * 何伟
+ * 2015-12-10
+*/
+.modal_cont_reason label,
+.modal_cont_detail label {
+  display: inline-block;
+  width: 100px;
+  margin-right: 10px;
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.modal_cont_detail label {
+  vertical-align: top;
+}
+.modal_cont_reason input {
+  width: 290px;
+  height: 30px;
+  padding: 0 10px;
+}
+.modal_cont_detail textarea{
+  width: 290px;
+  height: 100px;
+  padding: 10px;
+  
+}
+.modal_cont_button {
+  margin: 15px 0;
+  text-align: center;
+}
+.modal_cont_button_conf {
+  padding: 5px 20px;
+  border: 0;
+  border-radius: 5px;
+  background-color: #3d9ccc;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.model_pos {
+  top: 35%;
+}
+.pos-apply a {
+  cursor: pointer;
+}
+
+/*谌基旭
+* 2016.1.20 修改图片宽高
+*/
+.e-slide-wrap img {
+  width: 251px;
+  height: 180px;
+}
+
+/*
+ 何伟
+ 城市选择
+*/
+.city,
+.c-f-title span {
+  cursor: pointer;
+}

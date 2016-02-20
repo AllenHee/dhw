@@ -1,0 +1,240 @@
+﻿@*黄文明 2015-11-13*@
+@{var zb = ViewBag.detail as System.Data.DataRow;}
+@{
+    var title = @zb["title"];
+    ViewBag.Title = title + " - 梦高速 - 众包";
+}
+<!--主内容区 开始-->
+<div class="content">
+    <!--头部 开始-->
+    <div class="hd">
+        <div class="hd_cont">
+            <div class="hd_cont_l">
+                <h2 class="hd_cont_l_title">
+                    @zb["title"]</h2>
+                <ul class="hd_cont_l_icon">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="hd_cont_l_xm">
+                    <div class="hd_cont_l_xmzj">
+                        <p class="hd_cont_l-red">
+                            ￥@zb["totalfin"]</p>
+                        <p>
+                            项目资金</p>
+                    </div>
+                    <div class="hd_cont_l_xmgq">
+                        <p class="hd_cont_l-red">
+                            @zb["procycle"]天</p>
+                        <p>
+                            项目工期</p>
+                    </div>
+                </div>
+                <ul class="hd_cont_l_shouc">
+                    @if (ViewBag.HasLogin)
+                    {
+                        if (@zb["collection"] == "1")
+                        {
+                        <li><a href="#" class="hd_cont_l_keep">已收藏(<span>@zb["collect"]</span>)</a></li>
+                        }
+                        else
+                        {
+                        <li><a href="#" class="hd_cont_l_keep">收藏(<span>@zb["collect"]</span>)</a></li>
+                        }
+                    }
+                    else
+                    {
+                        <li><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}" class="hd_cont_l_keep">
+                            收藏(<span>@zb["collect"]</span>)</a></li>
+                    }
+                    <li class="bdsharebuttonbox"><a href="#" class="hd_cont_l_share bds_more" data-cmd="more">
+                        分享 </a></li>
+                </ul>
+                @if ((byte)@zb["state"] >= 2)
+                {
+                    <div class="hd_cont_l_tuog">
+                        <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_10.jpg" alt="已托管"></div>
+                }
+            </div>
+            <div class="hd_cont_r">
+                <div class="hd_cont_r_head clearfix">
+                    <a class="hd_cont_r_head_img" href="#">
+                        <img  class="hd_cont_r_head_toux" src="@zb["logo"]" alt="头像"></a>
+                    <div class="hd_cont_r_head_six">
+                        <a href="#" class="hd_cont_r_head-size">@zb["name"]</a>
+                        <button>
+                            私信</button>
+                    </div>
+                </div>
+                <ul class="hd_cont_r_haop">
+                    <li>
+                        <p>
+                            100%</p>
+                        <p>
+                            好评</p>
+                    </li>
+                    <li>
+                        <p>
+                            100%</p>
+                        <p>
+                            诚信</p>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_14.jpg" alt="#"></div>
+                        <p>
+                            等级</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--放进度div-->
+        <div class="hd_jind">
+            <div class="jd">
+                <ul class="clearfix">
+                    <li class="jd_item jd_item-first @if ((byte)@zb["state"] >= 0)
+                                                     {<text>success</text>}"><i></i><span>发布<br>
+                                                         @{ string time = ((DateTime)zb["time"]).ToString("yyyy-MM-dd");@time}
+                                                     </span></li>
+                    <li class="jd_item jd_item-2 @if ((byte)@zb["state"] >= 1)
+                                                 {<text>success</text>}"><i></i><span>审核通过<br>
+                                                     @if ((byte)@zb["state"] >= 1)
+                                                     {
+                                                         string shtime = ((DateTime)zb["shtime"]).ToString("yyyy-MM-dd");@shtime
+                                                     }
+                                                 </span></li>
+                    <li class="jd_item jd_item-3 @if ((byte)@zb["state"] >= 2)
+                                                 {<text>success</text>}"><i></i><span>资金托管</span></li>
+                    <li class="jd_item jd_item-4 @if ((byte)@zb["state"] >= 2)
+                                                 {<text>success</text>}"><i></i><span>报名中</span></li>
+                    <li class="jd_item jd_item-5 @if ((byte)@zb["state"] >= 3)
+                                                 {<text>success</text>}"><i>
+                                                     <div id="myStat" data-dimension="28" data-width="4" data-fgcolor="#d54844" data-bgcolor="#eee"
+                                                         data-fill="#ddd" data-total="100" data-part="66">
+                                                     </div>
+                                                 </i><span>项目进行中<br>
+                                                     @if ((byte)@zb["state"] >= 3)
+                                                     {
+                                                         <text>66%</text>
+                                                     }</span></li>
+                    <li class="jd_item jd_item-last @if ((byte)@zb["state"] >= 4)
+                                                    {<text>success</text>}"><i></i><span>已结赏</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--头部 结束-->
+    <div class="zbxq_nav_wrap" id="xmxq">
+        <div class="zbxq_nav_bg">
+            <ul class="zbxq_nav clearfix">
+                <li><a class="zbxq_nav_item zbxq_nav_item-first current" href="#xmxq"><span>项目详情</span>
+                    <i></i></a></li>
+                @for (int i = 0; i < ViewBag.xmzb.Rows.Count; i++)
+                {
+                    var item = ViewBag.xmzb.Rows[i];
+                    string miaodian = "#xm" + @item["id"].ToString();
+                    <li><a class="zbxq_nav_item" href="@miaodian"><span>@item["missionna"]</span> <i></i>
+                    </a></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <!--项目详情-->
+    <div class="container_xmxq">
+        <div class="container_cont">
+            <div class="container_cont_l">
+                <p>
+                    @zb["intro"]
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--界面设计-->
+    @for (int i = 0; i < ViewBag.xmzb.Rows.Count; i++)
+    {
+        var it = ViewBag.xmzb.Rows[i];
+        string miaodian = "xm" + @it["id"].ToString();
+        var mir = it["mirequire"];
+        <div class="subPrjt" id="@miaodian">
+            <div class="container_title">
+                <p>
+                </p>
+                <div>
+                    <h3>
+                        @it["missionna"]</h3>
+                </div>
+            </div>
+            <div class="container_cont">
+                <div class="container_cont_l">
+                    <div class="container_cont_l_top">
+                        <div class="container_cont_l_money">
+                            <span class="container_cont_l_money-l">￥@it["unitprice"]</span><span class="container_cont_l_money-r">@it["jdrs"]/@it["mipnum"]</span>
+                        </div>
+                        <div class="container_cont_l_time">
+                            完成时间：<span>@{ string str = ((DateTime)zb["shtime"]).ToString("yyyy-MM-dd");@str}
+                            </span>
+                        </div>
+                    </div>
+                    @if (mir != "")
+                    {
+                        var mire = mir.Split('\n');
+                        foreach (var mirequire in mire)
+                        {
+                        <p>@mirequire</p>
+                        }
+                    }
+                    <div class="container_but">
+                        <button>
+                            立即接单</button>
+                    </div>
+                </div>
+                <div class="container_cont_r">
+                    <input type="hidden" value="@it["id"]"/>
+                    <table>
+                        <colgroup>
+                            <col width="120px">
+                            <col width="auto">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>
+                                    投稿人
+                                </th>
+                                <th>
+                                    投稿时间
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script type="text/html" id="zbRecord">
+    {{each data as record i}}
+    <tr>
+      <td>{{record.name}}</td>
+      <td>{{record.date}}</td>
+    </tr>
+    {{/each}}
+    </script>
+    <script>
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loadData.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.circliful.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zb.detail.js"></script>
+}

@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@Html.Raw(@BaseConfigs.GetUrlCdn)zhongbao/styles/style.css">
+    <link rel="stylesheet" href="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/styles/srdz.css">
+    @RenderSection("head", required: false)
+}
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
+    <script type="text/javascript">
+        $("#su").keydown(function (event) {
+            if (!event) { event = widnow.event }
+            if (event.keyCode == 13) { $(this).next().trigger("click"); return false; }
+        });
+
+
+        function search() {
+            var key = $('#su').val();
+
+            if (key == '不知道定制什么?点这里看看') key = '';
+
+            if (window.location.pathname.toLowerCase() == '/')
+                searchb(key);
+            else
+                searchb(key, '_self');
+        }
+        function searchb(key, tar) {
+            tar = tar || '_blank';
+            var url = '/Srdzs' + '?su=' + encodeURI(key) + '&_=' + (+new Date());
+            window.open(url, tar);
+        }
+        
+        
+    </script>
+    @RenderSection("scripts", required: false)
+}
+<!--标题栏 开始-->
+@{string ap = Request.Url.AbsolutePath.ToLower();}
+<div class="header">
+    <div class="header_main">
+        <div class="header_main_logo">
+            <a href="/">
+                <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_logo.png" alt="梦高速 - 众包"></a>
+        </div>
+        <ul class="clearfix">
+            <li class="header_main_item"><a href="@BaseConfigs.GetUrlZb">众包</a></li>
+            <li class="header_main_item"><a href="@BaseConfigs.GetUrlDiy">创意设计</a></li>
+            <li class="header_main_item  header_main_item-current"><a href="/">私人定制</a></li>
+        </ul>
+        <div class="header_main_find">
+            <input id="su" class="header_main_find_input" type="text" placeholder="不知道定制什么?点这里看看">
+            <input class="header_main_find_btn" type="button" onclick="search()">
+        </div>
+    </div>
+</div>
+<!--标题栏 结束-->
+@RenderBody()

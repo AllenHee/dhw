@@ -1,0 +1,194 @@
+﻿@{ViewBag.Title = "梦高速-个人认证"; Layout = null;}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>梦高速 - 欢迎注册</title>
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/login.css">
+    <script>
+        var dhw = {
+            imgurl: '@BaseConfigs.GetImgPath',
+            imguploadurl: '@BaseConfigs.GetImgUploadPath',
+            imgcuturl: '@BaseConfigs.GetImgCutPath',
+            mainurl: '@BaseConfigs.GetUrlMain',
+            staticurl: '@BaseConfigs.GetStaticPath',
+            urlmain: '@BaseConfigs.GetUrlMain',
+            urlcdn: '@BaseConfigs.GetUrlCdn',
+            urlzc: '@BaseConfigs.GetUrlZc',
+            urlkj: '@BaseConfigs.GetUrlKj',
+            urlhr: '@BaseConfigs.GetUrlHr',
+            urlzckj: '@BaseConfigs.GetUrlZckj',
+            urlzb: '@BaseConfigs.GetUrlZb',
+            urldiy: '@BaseConfigs.GetUrlDiy',
+            urlsrdz: '@BaseConfigs.GetUrlSrdz',
+            urlcqbh: '@BaseConfigs.GetUrlCqbh',
+            urlzxsj: '@BaseConfigs.GetUrlZxsj',
+            urlgsss: '@BaseConfigs.GetUrlGsss'
+        };
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="logo clearfix">
+            <div class="logo_img">
+                <a href="#">
+                    <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/dl_logo.jpg" alt="#"></a>
+            </div>
+            <h2 class="logo_text">
+                企业 个人认证</h2>
+        </div>
+        <div class="form_wrapper rz_per" ng-app="rzPerApp" ng-controller="rzPerCtrl">
+            <form name="grrz">
+            <h4 class="reg_form_title reg_form_title-first">
+                大陆个人认证</h4>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>真实姓名：</label>
+                    <input class="formSet_input" name="name" ng-model="data.name" type="text" ng-focus="nameTip=true"
+                        ng-blur="nameTip=false" required>
+                    <label class="formSet-tip" ng-show="nameTip">
+                        为保障您的资金安全，实名认证姓名和身份证号须和您提现的银行卡的户名保持一致</label>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>身份证号码：</label>
+                    <input class="formSet_input" name="identity" ng-model="data.identity" type="text"
+                        ng-focus="identityTip=true" ng-blur="identityTip=false" required>
+                    <label class="formSet-tip" ng-show="identityTip">
+                        身份证号码前后不能有空格。年龄不足18岁，不能认证。</label>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        性别：</label>
+                    <select class="formSet_select" name="sex" ng-model="data.sex" required>
+                        <option class="formSet_option" value="">请选择</option>
+                        <option class="formSet_option" value="male">男</option>
+                        <option class="formSet_option" value="female">女</option>
+                    </select>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>手持身份证正面照：</label>
+                    <div class="picUpLoad">
+                        <div class="imgUpLoad">
+                            <img ng-src="{{data.papersyes ? dhw.imgurl + data.papersyes + '_100x100.jpg'  : ''}}"
+                                alt="">
+                            <button class="upLoadBtn" id="upLoadBtn_2" data-keyname="cpzc" data-size="100x100"
+                                type="button" ng-model="data.papersyes" bindimg required>
+                                单击上传</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rz_per_sl">
+                    <span>示例：</span>
+                    <img class="rz_per_img" src="@{@BaseConfigs.GetUrlCdn}usercenter/images/rz_01.png" alt="">
+                    <ul>
+                        <li>1.请上传本人手持身份证正面头部照片和上半身照片</li>
+                        <li>2.照片为免冠、未化妆的数码照片原始图片，请勿用任何软件编辑修改</li>
+                        <li>3.必须看清证件信息，且证件信息不能被遮挡，持证人五官清晰可见</li>
+                        <li>4.仅支持.jpg.bmp.png.gif的图片格式，建议图片大小不超过3M</li>
+                        <li>5.您提供的照片信息将予以保护，不会用于其他用途。</li>
+                        <li><a href="">实名认证帮助 ></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>身份证反面照：</label>
+                    <div class="picUpLoad">
+                        <div class="imgUpLoad">
+                            <img ng-src="{{data.papersno ? dhw.imgurl + data.papersno + '_100x100.jpg'  : ''}}"
+                                alt="">
+                            <button class="upLoadBtn" id="upLoadBtn_1" data-keyname="cpzc" data-size="100x100"
+                                type="button" ng-model="data.papersno" bindimg required>
+                                单击上传</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rz_per_sl">
+                    <span>示例：</span>
+                    <img class="rz_per_img" src="@{@BaseConfigs.GetUrlCdn}usercenter/images/rz_02.png" alt="">
+                    <ul>
+                        <li>1.必须看清证件信息，且证件信息不能被遮挡</li>
+                        <li>2.仅支持.jpg.bmp.png.gif的图片格式，图片大小不超过3M</li>
+                        <li>3.您提供的照片信息将予以保护，不会用于其他用途。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>身份证到期时间：</label>
+                    <input class="formSet_input" name="overdue" ng-model="data.overdue" type="text" ng-focus="overdueTip=true"
+                        ng-blur="overdueTip=false">
+                    <span class="formSet_checkBox_wrap">
+                        <input type="checkbox" id="longtimeID" ng-click="check($event)">长期 </span>
+                    <label class="formSet-tip formSet-tip-long" ng-show="overdueTip">
+                        请按照身份证背面”有效期限“如实填写</br>（如有效期为长期则直接勾选长期）。</label>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>职业：</label>
+                    <input class="formSet_input" name="job" ng-model="data.job" type="text" required>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>联系手机：</label>
+                    <input class="formSet_input" name="phone" ng-model="data.phone" ng-pattern="/^1\d{10}$/"
+                        type="text" required>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                        <span class="formSet_required">*</span>家庭或工作单位地址：</label>
+                    <input class="formSet_input" name="address" ng-model="data.address" type="text" required>
+                </div>
+            </div>
+            <div class="formSet clearfix">
+                <div class="formSetWrap">
+                    <label class="formSet_label">
+                    </label>
+                    <button class="submitBtn" type="button" ng-click="submit()" ng-disabled="grrz.$invalid">
+                        提交审核</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="bottomNav">
+        <ul class="bottomNav_ul clearfix">
+            <li class="bottomNav_items"><a href="#">关于我们</a></li>
+            <li class="bottomNav_items"><a href="#">联系我们</a></li>
+            <li class="bottomNav_items"><a href="#">人才招聘</a></li>
+            <li class="bottomNav_items"><a href="#">商家入驻</a></li>
+            <li class="bottomNav_items"><a href="#">广告服务</a></li>
+            <li class="bottomNav_items"><a href="#">友情链接</a></li>
+            <li class="bottomNav_items bottomNav_items-last"><a href="#">English Site</a></li>
+        </ul>
+        <p class="copyrightText">
+            Copyright@2015-2016 梦高速dreamhiway.com 版权所有</p>
+    </div>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/tpl.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/plupload.full.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/baseapp.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/rzPerCtrl.js"></script>
+</body>
+</html>

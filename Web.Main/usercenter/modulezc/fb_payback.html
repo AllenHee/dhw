@@ -1,0 +1,140 @@
+<div class="fromWrap fromWrap-payback">
+  <div class="formTitle clearfix">
+    <h2>设置你的回报信息</h2>
+    <div class="saveCopyBtnWrap">
+      <span class="saveTip saveTip-payback"></span>
+      <button class="saveCopyBtn" type="button" ng-click="saveDraft(urlstate.current.name, 3, true)">保存草稿</button>
+    </div>
+  </div>
+  <p class="formTip">TIPS:回报信息是让用户支持你的项目,你给予一定的汇报内容,可以具体实物也可以是虚拟信息</p>
+  <div class="returnItems">
+    <!--回报项目 开始-->
+    <div class="returnItem" ng-repeat="payback in data.hb" data-id="{{hb.id}}">
+      <h3 class="returnItem_title">回报{{$index+1}}</h3>
+      <!--展示 开始-->
+      <div class="returnItem_result" ng-show="!isEdit[$index]">
+        <ul class="editBox_btns clearfix">
+          <li class="editBox_btn edit" ng-click="isEdit[$index] = !isEdit[$index]" title="编辑"><i></i></li>
+          <li class="editBox_btn delete" ng-click="switchModal($index)" title="删除"><i></i></li>
+          <li class="editBox_btn up" ng-click="startMove($index, 0, 'hb')" title="上移"><i></i></li>
+          <li class="editBox_btn down" ng-click="startMove($index, 1, 'hb')" title="下移"><i></i></li>
+        </ul>
+        <div>
+          <span class="returnItem_result_money">{{payback.sum}}</span>
+          <span class="returnItem_result_person">限{{payback.Places}}人</span>
+        </div>
+        <div class="returnItem_result_main">
+          <div class="returnItem_result_tilte">{{payback.title}}</div>
+          <div class="returnItem_result_content">{{payback.text}}</div>
+        </div>
+        <div class="returnItem_result_detail">
+          <p>配送费用：<span>{{payback.Shipment}}元</span></p>
+          <p>预计回报发送时间：<span>项目成功结束后{{payback.Paytime}}天</span></p>
+          <div class="returnItem_result_img"><a href="#"><img ng-src="{{payback.img ? (dhw.imgurl + payback.img + '_68x68' + '.jpg') : ''}}" ng-show="payback.img"></a></div>
+        </div>
+      </div>
+      <!--展示 结束-->
+      <!--编辑 开始-->
+      <div class="returnItem_edit clearfix" ng-show="isEdit[$index]">
+        <form name="formPayback">
+          <div class="formSet">
+            <label class="formSet_label">回报类型 :</label>
+            <ul class="returnItem_edit_types clearfix">
+              <li class="returnItem_edit_type"><i ng-class="{active:payback.type==1}" ng-click="payback.type=1"></i>实物回报（需要快递邮寄的）</li>
+              <li class="returnItem_edit_type"><i ng-class="{active:payback.type==0}" ng-click="payback.type=0"></i>虚拟回报 （不需要实物寄送的，例：电子照片）</li>
+            </ul>
+          </div>
+          <!--<div class="virtual-return">
+            <div class="tri"></div>
+            <div class="virtual-return-bg">
+              <span>支持者信息(可选):
+              <input type="checkbox"><label class="formSet_label">手机号</label><input type="checkbox"><label class="formSet_label">邮箱</label><input type="checkbox"><label class="formSet_label" class="last">姓名</label>
+            </div>
+          </div>-->
+          <div class="formSet">
+            <label class="formSet_label">支持金额 :</label>
+            <div class="formSet_inputWrap">
+              <input class="formSet_input" type="text" name="sum" ng-model="payback.sum" ng-pattern="/^[1-9]{1}\d{0,5}$/" placeholder="输入需要用户支持的金额(必填)" required> 元
+              <p class="formSet_error" ng-show="formPayback.sum.$dirty && formPayback.sum.$invalid">*请输入支持金额（只能为整数,最高为999999元）</p>
+            </div>
+          </div>
+          <div class="formSet count">
+            <label class="formSet_label">回报标题 :</label>
+            <div class="formSet_inputWrap">
+              <input class="formSet_input" type="text" name="title" ng-model="payback.title" maxlength="50" placeholder="输入回报标题（必填）" required>
+              <p class="formSet_error" ng-show="formPayback.title.$dirty && formPayback.title.$error.required">*回报标题必填</p>
+              <span class="formSet_count"><span class="formSet_count_used">50</span>/50</span>
+            </div>
+          </div>
+          <div class="formSet count">
+            <label class="formSet_label">回报内容 :</label>
+            <div class="formSet_inputWrap">
+              <textarea class="formSet_textarea" name="text" ng-model="payback.text" maxlength="500" placeholder="回报内容（必填）" required></textarea>
+              <p class="formSet_error" ng-show="formPayback.text.$dirty && formPayback.text.$error.required">*回报内容必填</p>
+              <span class="formSet_count"><span class="formSet_count_used">500</span>/500</span>
+            </div>
+          </div>
+          <div class="formSet">
+            <label class="formSet_label">限定名额 :</label>
+            <div class="formSet_inputWrap">
+              <input class="formSet_input short" type="text" name="places" ng-model="payback.Places" ng-pattern="/^0$|^([1-9]{1}\d{0,2})$/" maxlength="3" placeholder="0" required> 个
+              <span class="formTipSmall">"0"为不限定名额</span>
+              <p class="formSet_error" ng-show="formPayback.places.$dirty && formPayback.places.$invalid">*回报人数上限只能为整数,最多为999个</p>
+            </div>
+          </div>
+          <div class="formSet">
+            <label class="formSet_label">运费设置 :</label>
+            <div class="formSet_inputWrap">
+              <input class="formSet_input short" type="text" name="shipment" ng-model="payback.Shipment" ng-pattern="/^0$|^([1-9]{1}\d{0,2})$/" maxlength="3" placeholder="0" required> 元
+              <span class="formTipSmall">"0"为不收运费</span>
+              <p class="formSet_error" ng-show="formPayback.shipment.$dirty && formPayback.shipment.$invalid">*运费只能为整数,最高为999元</p>
+            </div>
+          </div>
+          <div class="formSet">
+            <label class="formSet_label">回报时间 :</label>
+            <div class="formSet_inputWrap">
+              <input class="formSet_input short" type="text" name="paytime" ng-model="payback.Paytime" ng-pattern="/^0$|^([1-9]{1}\d{0,2})$/" maxlength="3" placeholder="0" required> 天
+              <span class="formTipSmall">"0"为项目结束后立即发送</span>
+              <p class="formSet_error" ng-show="formPayback.paytime.$dirty && formPayback.paytime.$invalid">*回报时间只能为整数,最长为999天</p>
+            </div>
+          </div>
+          <div class="formSet formSet-returnImg clearfix">
+            <label class="formSet_label">上传照片 :</label>
+            <div class="formSet_inputWrap">
+              <img style="margin-right:5px;" ng-src="{{payback.img ? (dhw.imgurl + payback.img + '_68x68' + '.jpg') : ''}}" ng-show="payback.img">
+              <a class="btn-imgUpload" id="{{'browseHB' + $index}}" ng-model="payback.img"  data-keyname="cpzc" data-size="68x68" bindimg></a>
+              <span class="text-imgUpload">支持jpg、jpeg、png、gif格式，图片大小不要超过500KB！</span>
+            </div>
+          </div>
+          <div class="returnItem_line"></div>
+          <div class="returnItem_edit_btns">
+            <button class="btnNormal" type="button" ng-hide="$index==0" ng-click="switchModal($index)">删除</button>
+            <button class="btnNormal" type="button" ng-click="isEdit[$index] = !isEdit[$index];setValid('payback')" ng-disabled="formPayback.$invalid">保存</button>
+          </div>
+          <!--用来判断页面是否填写正确的隐藏按钮-->
+          <input class="isValid isValid{{$index}}" type="hidden" ng-disabled="formPayback.$invalid">
+        </form>
+      </div>
+      <!--编辑 结束-->
+    </div>
+    <!--回报项目 结束-->
+  </div>
+  <div class="returnItemAdd">
+    +<span ng-click="data.hb.push({type:1});isEdit.push(true);$parent.isValid.payback=false">继续添加新的回报</span>
+  </div>
+</div>
+
+<!--弹出确认框 开始-->
+<div class="modalWrap" ng-class="{show:modal.show}"></div>
+<div class="modal" ng-class="{show:modal.show}">
+  <div class="modal_header">
+    <button class="modal_close" ng-click="switchModal()">×</button>
+    <h4>删除提示</h4>
+  </div>
+  <div class="modal_body">确定要这项回报删除吗</div>
+  <div class="modal_footer">
+    <button class="modal_btn modal_btn-cancel" ng-click="switchModal()">取消</button>
+    <button class="modal_btn modal_btn-confirm" ng-click="del()">确定</button>
+  </div>
+</div>
+<!--弹出确认框 结束-->

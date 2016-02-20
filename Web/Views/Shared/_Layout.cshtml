@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn<text>rencai/styles/rencai.css</text>}">
+    @RenderSection("head", required: false)
+}
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
+    <script type="text/javascript">
+        $("#su").keydown(function (event) {
+            if (!event) { event = widnow.event }
+            if (event.keyCode == 13) { $(this).next().trigger("click"); return false; }
+        });
+        var searchbok = [{ type: "职位", url: "/jobs" }, { type: "公司", url: "/companys"}];
+
+        function search() {
+            var key = $('#su').val();
+
+            if (key == '请输入职位名称，如：前端工程师') key = '';
+
+            var s_text = $.trim($(".header-search span").text());
+            var o = $.grep(searchbok, function (e) { return e.url == window.location.pathname.toLowerCase(); });
+            if (o.length > 0 && o[0].type == s_text)
+                searchb(key, s_text, '_self');
+            else
+                searchb(key, s_text);
+        }
+        function searchLink(v) {
+            searchb($(v).text(), '职位');
+        }
+
+        function searchb(key, lx, tar) {
+            tar = tar || '_blank';
+            var url = $.grep(searchbok, function (e) { return e.type == lx; })[0].url;
+            window.open(url + '?su=' + encodeURI(key) + '&_=' + (+new Date()), tar);
+        }
+        
+        
+    </script>
+    @RenderSection("scripts", required: false)
+}
+<!--头部 开始-->
+<div class="header">
+    <!--头部主内容 开始-->
+    <div class="header-main clearfix">
+        <div class="header-m-l">
+            <a href="/">
+                <h1>
+                    <img src="@{@BaseConfigs.GetUrlCdn<text>/rencai/images/zhaopin_logo.png</text>}" alt="梦高速 - 人才"></h1>
+            </a>
+        </div>
+        <div class="header-m-r">
+            <div class="header-search clearfix">
+                <form action="#" class="clearfix">
+                <div class="select">
+                    <span>职位</span>
+                    <ul class="aa">
+                        <li>职位</li>
+                        <li>公司</li>
+                    </ul>
+                </div>
+                <input id="su" type="text" placeholder="请输入职位名称，如：前端工程师">
+                <button type="button" onclick="search()">
+                    搜索</button>
+                </form>
+            </div>
+            <div class="header-hot-search">
+                <dl class="clearfix">
+                    <dt>热门：</dt>
+                    @{string[] hots = BaseConfigs.GetHotPosition.Split(',');}
+                    @for (int i = 0; i < hots.Length; i++)
+                    {
+                        <dd>
+                            <a href="javascript:void(0);" onclick="searchLink(this)">@hots[i]</a></dd>
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!--头部主内容 结束-->
+    @{string ap = Request.Url.AbsolutePath.ToLower();}
+    <!--头部导航条 开始-->
+    <div class="header-nav">
+        <div class="header-nav-wrap clearfix">
+            <ul id="xx">
+                <li @if (ap == "/")
+                    {<text>class="current"</text>}><a href="/">首页</a></li>
+                <li @if (ap == "/companys")
+                    {<text>class="current"</text>}><a href="/companys">公司</a></li>
+                <li><a href="@{@BaseConfigs.GetUrlMain<text>AppResume_company#/hire</text>}" target="_blank">
+                    发布职位</a></li>
+                <li><a href="/Jobs">寻找合伙人</a></li>
+                <li class="last"><a href="@{@BaseConfigs.GetUrlMain<text>AppResume</text>}" target="_blank">
+                    我的简历</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--头部导航条 结束-->
+</div>
+<!--头部 结束-->
+<!--分割线-->
+<div class="slide-line">
+</div>
+<!--分割线-->
+@RenderBody()

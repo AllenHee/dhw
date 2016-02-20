@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--
+  *陈树阳
+  *2015.12.30
+-->
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 招聘</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/cmpy.css">
+  <script type="text/html" id="jobList">
+   {{each data as job}}
+       <tr>
+            <td><a class="table_a" href="http://localhost:8081/jobs/detail/{{job.djiid}}" target="_blank">{{job.zpgw}}</a></td>
+            <td>{{job.money}}</td>
+            <td>{{job.xueli}}</td>
+            <td>{{job.gzdd}}</td>
+            <td>{{job.date}}</td>
+        </tr>
+    {{/each}}
+  </script>
+  <script type="text/html" id="">
+    
+  </script>
+  <script>
+    var companyid = 51;
+  </script>
+</head>
+<body>
+  <!--头部 开始-->
+  <div class="header">
+    <div class="header_t clearfix">
+      <div class="header_l">
+        <a class="header_logo" href=""><img src="images/com_logo.jpg" alt=""></a>
+        <div class="header_ttl">
+          <h2>创企科技<i></i></h2>
+          <a class="sc" href="#">收藏</a>
+          <a class="share" href="#">分享</a>
+          <span class="xy">
+            信用：<i></i><i></i><i></i><i></i><i></i>
+            <a class="more" href=""><span></span></a>
+          </span> 
+        </div>            
+      </div>
+      <div class="header_r">
+        <input class="emColorBorder" type="text">
+        <a class="emColorBG" href="#"><i></i></a>
+      </div>
+    </div>
+    <!--导航-->
+    <div class="nav_wrap emColorBG">
+      <ul class="nav clearfix">
+        <li class="current"><span></span><em>首页</em></li>
+        <li><span></span><em>案例展示</em></li>
+        <li><span></span><em>服务中心</em></li>
+        <li><span></span><em>公司动态</em></li>
+        <li><span></span><em>公司招聘</em></li>
+        <li><span></span><em>联系我们</em></li>
+        <li><span></span><em>关于我们</em></li>
+      </ul>
+    </div>
+  </div>
+  <!--头部 结束-->
+  <div class="banner">
+    <img src="images/hr_banner.png" alt="">  
+  </div>
+  <!--内容 开始-->
+  <div class="gsJob_wrap">
+    <div class="gsJob">
+      <!--<ul class="gsJob_ttl clearfix">
+        <li><a class="current" href="#">社会招聘</a></li>
+        <li><a href="#">校园招聘</a></li>
+      </ul>-->
+      <!--<div class="clearfix">
+        <div class="gsJob_company">
+          <input type="text" value="所属公司：">
+        </div>
+        <div class="gsJob_address">
+          <input type="text" value="工作地点：">
+        </div>
+        <div class="gsJob_search">
+          <input type="text" value="关键字：">
+          <a href=""></a>
+        </div>
+      </div>-->
+      <!--<table class="gsJob_table">
+        <thead>
+          <tr>
+            <th>招聘岗位</th>-->
+            <!--<th>招聘人数</th>-->
+            <!--<th>工作地点</th>
+            <th>所属部门</th>
+            <th>日期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>php工程师</td>
+            <td>1</td>
+            <td>石狮</td>
+            <td>创企信息科技有限公司</td>
+            <td>2015-11-11-1015-11-11</td>
+          </tr>
+          <tr>
+            <td>php工程师</td>
+            <td>1</td>
+            <td>石狮</td>
+            <td>创企信息科技有限公司</td>
+            <td>2015-11-11-1015-11-11</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination"></div>-->
+      
+      <div class="gsJob_left">
+        <div class="gsJob_welfare">
+          <!--<dl>
+            <dt class="gsJob_dt"><span class="gsJob_span">公司福利</span></dt>
+            <dd class="gsJob_welfare_dd5">
+              <span class="gsJob_pic">福利</span><a href="#">五险一金</a>
+            </dd>
+           <dd class="gsJob_welfare_dd5">
+              <span class="gsJob_pic">福利</span><a href="#">周末双休</a>
+            </dd>
+            <dd class="gsJob_welfare_dd5">
+              <span class="gsJob_pic">福利</span><a href="#">年终奖金</a>
+            </dd>
+            <dd class="gsJob_welfare_dd5">
+              <span class="gsJob_pic">福利</span><a href="#">住房津贴</a>
+            </dd>
+            <dd class="gsJob_welfare_dd5">
+              <span class="gsJob_pic">福利</span><a href="#">工作午餐</a>
+            </dd>
+          </dl>-->
+          <div class="gsJob_head_box">
+            <span class="gsJob_span">招聘列表</span>
+          </div>
+          <table class="gsJob_welfare_table">
+            <tr>
+              <td>
+                <span class="gsJob_pic"></span><a href="#">五险一金</a>
+                <span class="gsJob_pic"></span><a href="#">周末双休</a>
+                <span class="gsJob_pic"></span><a href="#">年终奖金</a>
+                <span class="gsJob_pic"></span><a href="#">住房津贴</a>
+                <span class="gsJob_pic"></span><a href="#">工作午餐</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="gsJob_list">
+          <div class="gsJob_head_box">
+            <span class="gsJob_span">招聘列表</span>
+          </div>
+          <table class="gsJob_table">
+            <thead>
+              <th>职业名称</th>
+              <th>薪资待遇</th>
+              <th>学历</th>
+              <th>工作区域</th>
+              <th>更新时间</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>前端工程师</td>
+                <td>5k-8k</td>
+                <td>本科</td>
+                <td>泉州</td>
+                <td>2016-02-3-2016-02-3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="gsJob_right">
+        <div class="gsJob_pj">
+        <dl>
+          <dt class="gsJob_dt"><span class="gsJob_span">面试评价</span></dt>
+          <dd class="gsJob_dd">
+            <label class="gsJob_label">
+              <img  class=".gsJob_userimg"src="images/tx.png">
+              <span class="gsJob_name">匿名</span >
+              <span class="gsJob_zw">面试职位:</span>
+              <span class="gsJob_zw_name">asdasdsadasddasd</span>
+            </label>
+            <p class="gsJob_pj_detail">fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf
+              sdfsdfsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+            </p>
+            <span class="gsJob_sum">有用( 7 )</span>
+          </dd>
+          <dd class="gsJob_dd">
+            <label class="gsJob_label">
+              <img src="images/tx.png">
+              <span class="gsJob_name">匿名</span >
+              <span class="gsJob_zw">面试职位:</span>
+              <span class="gsJob_zw_name">asdasdsadasddasd</span>
+            </label>
+            <p class="gsJob_pj_detail">fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf
+              sdfsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+            </p>
+            <span class="gsJob_sum">有用( 7 )</span>
+          </dd>          
+          <dd class="gsJob_dd">
+            <label class="gsJob_label">
+              <img src="images/tx.png">
+              <span class="gsJob_name">匿名</span >
+              <span class="gsJob_zw">面试职位:</span>
+              <span class="gsJob_zw_name">asdasdsadasddasd</span>
+            </label>
+            <p class="gsJob_pj_detail">fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd
+              fsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+            </p>
+            <span class="gsJob_sum">有用( 7 )</span>
+          </dd>          
+          <dd class="gsJob_dd">
+            <label class="gsJob_label">
+              <img src="images/tx.png">
+              <span class="gsJob_name">匿名</span >
+              <span class="gsJob_zw">面试职位:</span>
+              <span class="gsJob_zw_name">asdasdsadasddasd</span>
+            </label>
+            <p class="gsJob_pj_detail">fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfs
+              dfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
+            </p>
+            <span class="gsJob_sum">有用( 7 )</span>
+          </dd>
+        </dl>
+        <span class="gsJob_bemore"><a href="#">更多></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--内容 结束-->
+  
+  <!--底部开始-->
+  <div class="gsFoot">
+    <div class="gsFoot_content">
+      <span class="gsFoot_text">© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</span>
+    </div>
+  </div>
+  <!--底部结束-->
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script>
+    var para={
+      
+      companyid : 51,
+      pageIndex : 1,
+      pageSize :10
+    }
+    loadData('/CompanyHome/ZhaopinList',para,'jobList',".gsJob_table tbody");
+   
+  </script>
+</body>
+</html>

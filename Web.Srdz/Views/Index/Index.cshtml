@@ -1,0 +1,176 @@
+﻿@{ViewBag.Title = "梦高速 - 私人定制";}
+<!--主内容区 开始-->
+<div class="content">
+    <!--分类栏 开始-->
+    <div class="topNav">
+        <ul class="classify">
+            <li class="classify_first">全部分类</li>
+            @{var nav = ViewBag.list as List<DHW.Entity.Srdz_Nav_group>;}
+            @for (int i = 0; i < nav.Count; i++)
+            {
+                var first = nav[i];
+                var number = i+1;        
+                <li class="classify_items classify_item@{@number}"><i></i><a href="/Srdzs?type=@first.id">@first.name</a></li>
+            }
+        </ul>
+        <div class="slide">
+            <ul class="slide-wrap">
+                <li><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide1.jpg" alt=""></a></li>
+                <li><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide2.jpg" alt=""></a></li>
+                <li><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide3.jpg" alt=""></a></li>
+                <li><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide4.jpg" alt=""></a></li>
+                <li><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide5.jpg" alt=""></a></li>
+            </ul>
+            <div class="slider">
+                <ul>
+                    <li class="slider_items current"></li>
+                    <li class="slider_items"></li>
+                    <li class="slider_items"></li>
+                    <li class="slider_items"></li>
+                    <li class="slider_items"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="topNav_r">
+            <div class="topNav_r_t">
+                <a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_05.png" alt=""></a></div>
+            <div>
+                <a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_05.png" alt=""></a></div>
+        </div>
+    </div>
+    <!--分类栏 结束-->
+    <!--定制你的生活 开始-->
+    @{ 
+        var li = ViewBag.li as DHW.Web.Srdz.Controllers.Srdz_Index[];
+    }
+    <div class="pic_show">
+        <h2>
+            定制你的生活</h2>
+        <div class="pic_show_all">
+            <div class="pic_show_slide">
+                <ul class="pic_show_ul">
+                    @for (int i = 0; i < li.Length; i++)
+                    {
+                        if (i % 8 == 0 && i != 0)
+                        {
+                        @Html.Raw("                </ul>\r\n                <ul class=\"pic_show_ul\">")    
+                        }
+                        var item = ViewBag.li[i];
+                        <li class="pic_show_items @if (i % 4 == 3)
+                                                  {<text>pic_show_items-last</text>}"><a href="/Detail/@item.id">
+                            <img src="@BaseConfigs.GetImgPath@item.img" alt=""></a>
+                            <p class="rmb">
+                                <span>¥</span>@item.price</p>
+                            <a class="pic_show_intro" href="/Detail/@item.id">@item.title</a> </li>                      
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="left_arrow">
+            <p>
+            </p>
+        </div>
+        <div class="right_arrow">
+            <p>
+            </p>
+        </div>
+    </div>
+    <!--定制你的生活 结束-->
+    <!--优质定制店推荐 开始-->
+    <div class="store_recom">
+        <h2>
+            优质定制店推荐</h2>
+        <div>
+            <a href="#">
+                <img class="store_recom_logo" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_17.png" alt=""></a>
+            <div class="store_recom_m">
+                <h3>
+                    <a href="#">个人牛仔定制</a></h3>
+                <div class="store_recom_m_m">
+                    <p>
+                        店主 : <span>admin</span></p>
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_22.png" alt=""></div>
+                <p class="level">
+                    店铺等级 : <i></i><i></i>
+                </p>
+                <p class="store_recom_m_b">
+                    店铺粉丝 <span class="special">9</span>宝贝 <span>7</span></p>
+            </div>
+            <ul class="store_recom_pic">
+                <li class="store_recom_pic_items"><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                <li class="store_recom_pic_items"><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                <li class="store_recom_pic_items"><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                <li class="store_recom_pic_items"><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                <li class="store_recom_pic_items store_recom_pic_items-last"><a href="#">
+                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <!--优质定制店推荐 结束-->
+    <!--定制工具 开始-->
+    <div class="tool">
+        <h1>
+            使用定制工具,轻松实现可视化定制</h1>
+        <ul class="tool_pic">
+            <li class="tool_pic_items">
+                <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/sr_03.png" alt=""></li>
+            <li class="tool_pic_items">
+                <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/sr_05.png" alt=""></li>
+            <li class="tool_pic_items tool_pic_items-last">
+                <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/sr_07.png" alt=""></li>
+        </ul>
+    </div>
+    <!--定制工具 结束-->
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script src="@Html.Raw(@BaseConfigs.GetUrlCdn)scripts/jquery.slider.js"></script>
+    <script>
+        $(".slide-wrap").slide(true);
+
+        // 定制生活
+
+        $(".right_arrow").click(function () {
+            if ($(".pic_show_slide").is(":animated")) {
+                return false;
+            }
+            else {
+                $(".pic_show_slide").stop(false, true);
+                var s_left = parseInt($(".pic_show_slide").css("left"));
+                if (-s_left >= 2048) {
+                    $(".pic_show_slide").animate({ left: 0 });
+                }
+                else {
+                    $(".pic_show_slide").animate({ left: s_left - 1024 + "px" });
+                }
+            }
+        })
+
+        $(".left_arrow").click(function () {
+            if ($(".pic_show_slide").is(":animated")) {
+                return false;
+            }
+            else {
+                $(".pic_show_slide").stop(false, true);
+                var s_left = parseInt($(".pic_show_slide").css("left"));
+                if (s_left >= 0) {
+                    $(".pic_show_slide").animate({ left: -2048 + "px" });
+                }
+                else {
+                    $(".pic_show_slide").animate({ left: s_left + 1024 + "px" });
+                }
+            }
+        })  
+    </script>
+}

@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}ssgs/styles/ssgs.css">
+    @RenderSection("head", required: false)
+}
+@section scripts{
+    @RenderSection("scripts", required: false)
+}
+<!--导航栏 开始-->
+  <div class="nav">
+    <div class="nav_ttl">
+      <a class="zxsj_logo" href="#"><img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/logo1.png" alt=""></a>
+      <ul class="nav_ul">
+        <li class="nav_ul_items nav_ul_items-current"><a href="/">首页</a></li>
+        <li class="nav_ul_items"><a href="/list">投资人</a></li>
+        <li class="nav_ul_items"><a href="#">中介机构</a></li>
+        <li class="nav_ul_items"><a href="#">新手帮助</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--导航栏 结束-->
+@RenderBody()

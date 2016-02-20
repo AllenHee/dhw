@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/styles/style.css">
+    @RenderSection("head", required: false)
+}
+@section scripts{
+    @RenderSection("scripts", required: false)
+}
+<!--标题栏 开始-->
+@{string ap = Request.Url.AbsolutePath.ToLower();}
+<div class="header">
+    <div class="header_main">
+        <div class="header_main_logo">
+            <a href="/">
+                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/众包_03.png" alt="梦高速 - 众包"></a>
+        </div>
+        <ul class="clearfix">
+            <li class="header_main_item header_main_item-current"><a href="/">众包</a></li>
+            <li class="header_main_item"><a href="@BaseConfigs.GetUrlDiy">创意设计</a></li>
+            <li class="header_main_item"><a href="@BaseConfigs.GetUrlSrdz">私人订制</a></li>
+        </ul>
+        <a href="@{@BaseConfigs.GetMainPath<text>AppZb</text>}" class="header_main_more"><span class="header_main_more_word">发布需求</span><span
+            class="header_main_more_sig"></span></a>
+    </div>
+</div>
+<!--标题栏 结束-->
+@RenderBody()

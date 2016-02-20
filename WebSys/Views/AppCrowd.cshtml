@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 后台管理系统 - 众筹";
+}
+<div class="row main-content" ng-app="default">
+    <div class="col-md-2">
+        <div class="left">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="cate_sort_3">
+                    产品众筹</div>
+                <ul class="list-group list-unstyled" id="sort_3">
+                    <li class="list-group-item"><a href="#/xmsh">发布项目审核</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div ng-view>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var approute = [{ name: 'xmsh', detail: true}];
+        var htmlpath = '/modulecrowd/';
+        var app = sysfactory('default', ['sysbase'], approute, htmlpath);
+    </script>
+    <script src="/ModuleCrowd/Controllers/xmshController.js" type="text/javascript"></script>
+}

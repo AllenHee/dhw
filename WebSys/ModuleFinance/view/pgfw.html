@@ -1,0 +1,115 @@
+﻿<p class="title-right bg-info small">
+    <a href="#/Finance/#">财务</a> > <span>评估服务</span></p>
+<div class="container container-main">
+    <!--右栏主区域开始：订单管理-->
+    <div class="row form-list-manage">
+        <form>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label">
+                    类型：</label>
+                <select class="form-control" ng-model="qrydata.type">
+                    <option value="">请选择</option>
+                    <option value="房地产">房地产</option>
+                    <option value="土地">土地</option>
+                    <option value="资产">资产</option>
+                    <option value="产品">产品</option>
+                </select>
+                <label class="control-label">
+                    状态：</label>
+                <select class="form-control" ng-model="qrydata.state">
+                    <option value="">请选择</option>
+                    <option value="0">未查看</option>
+                    <option value="1">已查看</option>
+                    <option value="2">已经对接</option>
+                    <option value="255">删除</option>
+                </select>
+            </div>
+            <input class="btn btn-default" type="button" ng-click="search()" value="查询">
+        </div>
+        </form>
+    </div>
+    <div>
+        <div class="list-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <b>编号</b>
+                        </th>
+                        <th>
+                            <b>姓名</b>
+                        </th>
+                        <th>
+                            <b>手机</b>
+                        </th>
+                        <th>
+                            <b>QQ</b>
+                        </th>
+                        <th>
+                            <b>类型</b>
+                        </th>
+                        <th>
+                            <b>城市</b>
+                        </th>
+                        <th>
+                            <b>申请评估时间</b>
+                        </th>
+                        <th>
+                            <b>处理人名称</b>
+                        </th>
+                        <th>
+                            <b>处理时间</b>
+                        </th>
+                        <th>
+                            <b>状态</b>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="it in list">
+                        <td>
+                            {{it.id}}
+                        </td>
+                        <td>
+                            {{it.name}}
+                        </td>
+                        <td>
+                            {{it.phone}}
+                        </td>
+                        <td>
+                            {{it.qq}}
+                        </td>
+                        <td>
+                            {{it.type}}
+                        </td>
+                        <td>
+                            {{it.city}}
+                        </td>
+                        <td>
+                            {{it.date}}
+                        </td>
+                        <td>
+                            {{it.clrname}}
+                        </td>
+                        <td>
+                            {{it.clsj}}
+                        </td>
+                        <td>
+                            {{it.state}}
+                        </td>
+                        <td>
+                            <a href="#/pgfw/{{it.id}}">详细页面</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination-wrap">
+                <uib-pagination total-items="page.total" items-per-page="page.pageSize" ng-model="page.pageIndex"
+                    ng-change="loaddata()"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

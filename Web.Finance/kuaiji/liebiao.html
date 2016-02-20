@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 会计服务 - 列表页</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/kuaiji.css">
+  <script type="text/javascript">
+    var dhw = { imgurl: 'http://192.168.2.10:82/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', mainurl: 'http://localhost:8085/' };
+  </script>
+  <script type="text/html" id="financeList">
+    {{each data as finance i}}
+    <li class="rcmd-item">
+      <div class="rcmd-content">
+        <div class="clearfix">
+          <div class="avatar">
+            {{if finance.logo}}
+            <a href="#"><img src="{{domain}}{{finance.logo}}" alt="{{finance.compay}}"></a>
+            {{/if}} {{if !finance.logo}}
+            <a href="#"><img src="http://localhost:8070/images/default2.png" alt="{{finance.compay}}"></a>
+            {{/if}}
+            <div><i></i>{{finance.phone}}</div>
+          </div>
+          <div class="badges-tags">
+            <h3><a href="#">{{finance.compay}}</a></h3>
+            <ul class="badges clearfix">
+              {{if finance.auth === true}}
+              <li class="trueAuth"></li>
+              {{/if}} {{if finance.auth === false}}
+              <li class="falseAuth"></li>
+              {{/if}} {{if finance.level === 1}}
+              <li class="finance_level1"></li>
+              {{/if}} {{if finance.level === 2}}
+              <li class="finance_level2"></li>
+              {{/if}} {{if finance.level === 3}}
+              <li class="finance_level3"></li>
+              {{/if}}
+              <li class="badges-3"></li>
+              <li class="badges-4"></li>
+            </ul>
+            <ul class="tags clearfix">
+              {{each finance.business as advantage}}
+              <li>{{advantage.name}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="rcmd-content-r">
+        <div class="rcmd-title">专业的顾问，专业的咨询，竭诚为您服务
+          <button>我要雇佣</button>
+        </div>
+        <p>{{finance.Prof}}<a href="#">>></a></p>
+      </div>
+    </li>
+    {{/each}}
+  </script>
+</head>
+
+<body>
+  <!--通用顶栏 开始-->
+  <div class="sitenav clearfix">
+    <div class="sitenav-wrap">
+      <ul class="sitenav-l">
+        <li><a href="#"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+        <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+      </ul>
+      <ul class="sitenav-r">
+        <li class="log">您好，请<a href="#">登陆</a> <a href="#">免费注册</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li class="nav-drop">
+          <a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+          <ul class="sn-dropdown menu-dropdown">
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+          </ul>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60c;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></div>
+            <div>微信</div>
+          </div>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60a;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微博"></div>
+            <div>微博</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--通用顶栏 结束-->
+  <!--头部 开始-->
+  <div class="header">
+    <!--头部主内容 开始-->
+    <div class="header-main clearfix">
+      <div class="header-m-l">
+        <a href="#"><h1><img src="images/kuaiji_logo.jpg" alt="梦高速 - 会计"></h1></a>
+      </div>
+      <div class="header-m-r">
+        <div class="header-search clearfix">
+          <form action="#">
+            <input type="text" placeholder="请输入关键词">
+            <button type="submit">搜索</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--头部主内容 结束-->
+    <!--头部轮播 开始-->
+    <div class="slide-bg">
+      <div class="slide">
+        <ul class="slide-wrap">
+          <a class="slide_bg1" href="#">
+            <li><img src="images/slide_1.jpg" alt=""></li>
+          </a>
+          <a class="slide_bg2" href="#">
+            <li><img src="images/slide_2.jpg" alt=""></li>
+          </a>
+          <a class="slide_bg3" href="#">
+            <li><img src="images/slide_3.jpg" alt=""></li>
+          </a>
+          <a class="slide_bg4" href="#">
+            <li><img src="images/slide_4.jpg" alt=""></li>
+          </a>
+          <a class="slide_bg5" href="#">
+            <li><img src="images/slide_5.jpg" alt=""></li>
+          </a>
+        </ul>
+        <a class="s-prev" href="#"></a>
+        <a class="s-next" href="#"></a>
+        <div class="slider">
+          <ul class="clearfix">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li class="last"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--头部轮播 结束-->
+  </div>
+  <!--头部 结束-->
+  <!--主内容区 开始-->
+  <div class="content clearfix">
+    <!--热门会计推荐列表 开始-->
+    <div class="kj-box kj-box-w">
+      <h2>热门会计推荐列表</h2>
+      <ul class="rcmd clearfix">
+        <!--<li class="rcmd-item">
+          <div class="rcmd-content">
+            <div class="clearfix">
+              <div class="avatar">
+                <a href="#"><img src="images/rcmd_1.png" alt="福州市圣鹏财务顾问有限公司"></a>
+                <div><i></i>0595-36892699</div>
+              </div>
+              <div class="badges-tags">
+                <h3><a href="#">福州市圣鹏财务顾问有限公司</a></h3>
+                <ul class="badges clearfix">
+                  <li class="badges-1"></li>
+                  <li class="badges-2"></li>
+                  <li class="badges-3"></li>
+                  <li class="badges-4"></li>
+                </ul>
+                <ul class="tags clearfix">
+                  <li>注册公司</li>
+                  <li>申报纳税</li>
+                  <li>进出口税务申报</li>
+                  <li>审计业务</li>
+                  <li>进出口税务申报</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="rcmd-content-r">
+            <div class="rcmd-title">专业的顾问，专业的咨询，竭诚为您服务
+              <button>我要雇佣</button>
+            </div>
+            <p>深圳美伦港企业管理顾问有限公司是香港环球会计事务所在大陆的分支，专门为全球客户的需求深圳美伦港企业管理顾问有限公司是香港环球会<a href="#">>></a></p>
+          </div>
+        </li>
+        <li class="rcmd-item">
+          <div class="rcmd-content">
+            <div class="clearfix">
+              <div class="avatar">
+                <a href="#"><img src="images/rcmd_1.png" alt="福州市圣鹏财务顾问有限公司"></a>
+                <div><i></i>0595-36892699</div>
+              </div>
+              <div class="badges-tags">
+                <h3><a href="#">福州市圣鹏财务顾问有限公司</a></h3>
+                <ul class="badges clearfix">
+                  <li class="badges-1"></li>
+                  <li class="badges-2"></li>
+                  <li class="badges-3"></li>
+                  <li class="badges-4"></li>
+                </ul>
+                <ul class="tags clearfix">
+                  <li>注册公司</li>
+                  <li>申报纳税</li>
+                  <li>进出口税务申报</li>
+                  <li>审计业务</li>
+                  <li>进出口税务申报</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="rcmd-content-r">
+            <div class="rcmd-title">专业的顾问，专业的咨询，竭诚为您服务
+              <button>我要雇佣</button>
+            </div>
+            <p>深圳美伦港企业管理顾问有限公司是香港环球会计事务所在大陆的分支，专门为全球客户的需求深圳美伦港企业管理顾问有限公司是香港环球会<a href="#">>></a></p>
+          </div>
+        </li>
+        <li class="rcmd-item">
+          <div class="rcmd-content">
+            <div class="clearfix">
+              <div class="avatar">
+                <a href="#"><img src="images/rcmd_1.png" alt="福州市圣鹏财务顾问有限公司"></a>
+                <div><i></i>0595-36892699</div>
+              </div>
+              <div class="badges-tags">
+                <h3><a href="#">福州市圣鹏财务顾问有限公司</a></h3>
+                <ul class="badges clearfix">
+                  <li class="badges-1"></li>
+                  <li class="badges-2"></li>
+                  <li class="badges-3"></li>
+                  <li class="badges-4"></li>
+                </ul>
+                <ul class="tags clearfix">
+                  <li>注册公司</li>
+                  <li>申报纳税</li>
+                  <li>进出口税务申报</li>
+                  <li>审计业务</li>
+                  <li>进出口税务申报</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="rcmd-content-r">
+            <div class="rcmd-title">专业的顾问，专业的咨询，竭诚为您服务
+              <button>我要雇佣</button>
+            </div>
+            <p>深圳美伦港企业管理顾问有限公司是香港环球会计事务所在大陆的分支，专门为全球客户的需求深圳美伦港企业管理顾问有限公司是香港环球会<a href="#">>></a></p>
+          </div>
+        </li>
+        <li class="rcmd-item">
+          <div class="rcmd-content">
+            <div class="clearfix">
+              <div class="avatar">
+                <a href="#"><img src="images/rcmd_1.png" alt="福州市圣鹏财务顾问有限公司"></a>
+                <div><i></i>0595-36892699</div>
+              </div>
+              <div class="badges-tags">
+                <h3><a href="#">福州市圣鹏财务顾问有限公司</a></h3>
+                <ul class="badges clearfix">
+                  <li class="badges-1"></li>
+                  <li class="badges-2"></li>
+                  <li class="badges-3"></li>
+                  <li class="badges-4"></li>
+                </ul>
+                <ul class="tags clearfix">
+                  <li>注册公司</li>
+                  <li>申报纳税</li>
+                  <li>进出口税务申报</li>
+                  <li>审计业务</li>
+                  <li>进出口税务申报</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="rcmd-content-r">
+            <div class="rcmd-title">专业的顾问，专业的咨询，竭诚为您服务
+              <button>我要雇佣</button>
+            </div>
+            <p>深圳美伦港企业管理顾问有限公司是香港环球会计事务所在大陆的分支，专门为全球客户的需求深圳美伦港企业管理顾问有限公司是香港环球会<a href="#">>></a></p>
+          </div>
+        </li>-->
+      </ul>
+    </div>
+    <!--热门会计推荐列表 结束-->
+    <div class="pagination"></div>
+    <!--弹出层 开始-->
+    <div class="modal_bg"></div>
+    <div class="modal_cont">
+      <div class="modal_cont_t">
+        <h1>我要雇佣</h1><span class="modal_cont_t_close">×</span>
+      </div>
+      <div class="modal_cont_m">
+        您是否要雇佣?
+      </div>
+      <div class="modal_cont_b">
+        <button class="modal_cont_b_cancel">取消</button>
+        <button class="modal_cont_b_conf">确认</button>
+      </div>
+    </div>
+    <!--弹出层 结束-->
+  </div>
+  <!--主内容区 结束-->
+  <!--通用底栏 开始-->
+  <div class="footer">
+    <div class="footer-wrap clearfix">
+      <div class="footer-l">
+        <div class="logo"></div>
+        <div>服务时间：工作日 9:00 - 18:00</div>
+        <div class="tel">0595-32892299</div>
+        <ul class="contact clearfix">
+          <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+          <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+          <li>
+            <a href="#"><i class="iconfont">&#xe60d;</i></a>
+            <!--微信弹出-->
+            <div class="wechat">
+              <span><img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></span>
+              <p></p>
+            </div>
+          </li>
+          <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a></li>
+        </ul>
+        <p>
+          创企科技有限公司 版权所有
+          <br> &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号
+          <br> 地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+        </p>
+        <div class="icp"></div>
+      </div>
+      <div class="footer-r">
+        <dl>
+          <dt>公司信息</dt>
+          <dd><a href="#">关于我们</a></dd>
+          <dd><a href="#">人才招聘</a></dd>
+          <dd><a href="#">公司动态</a></dd>
+          <dd><a href="#">媒体报道</a></dd>
+        </dl>
+        <dl>
+          <dt>公司产品</dt>
+          <dd><a href="#">梦高速金融</a></dd>
+          <dd><a href="#">梦高速人才</a></dd>
+          <dd><a href="#">梦高速众筹</a></dd>
+          <dd><a href="#">梦高速众包</a></dd>
+          <dd><a href="#">创企科技</a></dd>
+        </dl>
+        <dl>
+          <dt>相关文档</dt>
+          <dd><a href="#">免责声明</a></dd>
+          <dd><a href="#">帮助中心</a></dd>
+          <dd><a href="#">项目规范</a></dd>
+          <dd><a href="#">服务协议</a></dd>
+        </dl>
+        <dl class="last">
+          <dt>手机应用</dt>
+          <dd><a href="#">iPhone版下载</a></dd>
+          <dd><a href="#">Android版下载</a></dd>
+          <dd><a href="#">微信公众号梦高速</a></dd>
+          <dd>
+            <a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.slider.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/kuaiji.js"></script>
+  <script>
+    // 数据交互
+  $(function() {
+    var para = {
+      pageIndex: 1,
+      pageSize: 10
+    }
+    loadData("/Accounting/List", para, "financeList", ".rcmd");
+    
+  });
+  </script>
+</body>
+
+</html>

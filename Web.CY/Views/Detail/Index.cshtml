@@ -1,0 +1,258 @@
+﻿@{ViewBag.Title = "创意设计-任务详情";}
+@{var cy = ViewBag.detailHead as System.Data.DataRow;}
+@*陈树阳 2015.11.24*@
+<div class="content">
+    <div class="cont_l">
+        <!--招标任务-->
+        <input type="hidden" value="@cy["id"]"/>
+        <div class="zbrw clearfix">
+            <div class="zbrw_t_l">
+                <div class="clearfix">
+                    <span class="zbrw_t_l_ttl">招标任务</span> <span class="zbrw_t_l_mny">￥500-￥1000</span>
+                </div>
+                <h2>
+                    @cy["title"]</h2>
+                <ul class="clearfix">
+                    <li class="zbrw_t_l_time"><i></i>距交稿截至还有：<span>@ViewBag.endtime</span></li>
+                    <li class="zbrw_t_l_sjfp"><span class="zbrw_t_l_sjfp-icon"></span>赏金分配：一人独享赏金 <i></i>
+                        <div class="pos_tip">
+                            解释说明文字解释说明文字解释说明文字解解释说明文字解释说明文字解释说明文字解释说明文字释说明文字解释说明文字</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="zbrw_t_r clearfix">
+                <div>
+                    <p>
+                        浏览人数</p>
+                    <p class="zbrw_t_r_black">
+                        @cy["browse"]</p>
+                </div>
+                <div>
+                    <p>
+                        交稿数量</p>
+                    <p class="zbrw_t_r_red">
+                        @cy["manuscript"]</p>
+                </div>
+                <a class="zbrw_t_r_share" href="#"><i></i>分享（<span>@cy["share"]</span>）</a>
+            </div>
+            <!--进度块-->
+            <div class="zbrw_jind">
+                <div class="zbrw_jd">
+                    <ul class="clearfix">
+                        <li class="zbrw_jd_item zbrw_jd_item-first success"><i></i><span>发布需求<br>
+                            2015.1.1</span></li>
+                        <li class="zbrw_jd_item success"><i></i><span>威客投标<br>
+                            2014.11.10</span></li>
+                        <li class="zbrw_jd_item success"><i></i><span>雇主选标</span></li>
+                        <li class="zbrw_jd_item success"><i></i><span>托管赏金</span></li>
+                        <li class="zbrw_jd_item"><i></i><span>威客工作</span></li>
+                        <li class="zbrw_jd_item zbrw_jd_item-last"><i></i><span>验收付款</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--任务需求-->
+        <div class="rwxq clearfix">
+            <h4>
+                任务需求</h4>
+            <p>
+                @cy["info"]</p>
+            <h4>
+                项目附件</h4>
+            <ul>
+                <li class="rwxq_doc"><a href="#"><i></i>任务需求.docx</a>（15.00k） <a href="#">下载</a>
+                </li>
+                <li class="rwxq_dl"><a href="#"><i></i>apple.jpg</a>（15.00k） </li>
+            </ul>
+        </div>
+        <!--投标-->
+        <div class="toubiao" ng-app="toubiao" ng-controller="tbCtrl">
+            <form name="toubiao">
+            <div class="price">
+                <label>
+                    任务报价：</label>
+                <input class="toubiao_input" type="text" id="price" name="price" ng-model="data.quote"
+                    ng-pattern="/^[1-9]{1}\d*$/" required>元（雇佣预期价格为￥500-1000） <span class="wrongTip"
+                        ng-show="toubiao.price.$dirty && toubiao.price.$invalid">* 请输入正确报价</span>
+            </div>
+            <div class="cycle">
+                <label>
+                    工作周期：</label>
+                <input class="toubiao_input" type="text" id="cycle" name="worktime" ng-model="data.worktime"
+                    ng-pattern="/^[1-9]{1}\d*$/" required>天 <span class="wrongTip" ng-show="toubiao.worktime.$dirty && toubiao.worktime.$invalid">
+                        * 请输入正确工作周期</span>
+            </div>
+            <div class="areaselect">
+                <label>
+                    所在地区：</label>
+                <input type="text" id="address" name="address" ng-model="data.address" required>
+                <span class="wrongTip" ng-show="toubiao.address.$dirty && toubiao.address.$invalid">
+                    * 请选择地址</span>
+                <ul class="provUl">
+                </ul>
+                <ul class="cityUl">
+                </ul>
+                <ul class="countyUl">
+                </ul>
+            </div>
+            <div class="explain">
+                <label>
+                    报价说明：</label></br>
+                <textarea class="toubiao_textarea" name="intro" ng-model="data.intro" required></textarea>
+                <span class="wrongTip" ng-show="toubiao.intro.$dirty && toubiao.intro.$invalid">* 请输入报价说明</span>
+            </div>
+            <div class="toubiao_yzm">
+                <label>
+                    验证码：</label>
+                <input type="text">
+            </div>
+            <p>
+                请遵守<a href="#">投标/投稿规则</a>，否则将隐藏稿件并酌情予以惩罚。</p>
+            <button id="toubiao" class="tb" ng-click="submit()">
+                投标</button>
+            </form>
+        </div>
+        <!--参与投稿-->
+        <div class="cytg">
+            <ul class="cytg_ttl clearfix">
+                <li class="current">参与投稿（<span>58</span>）</li>
+                <li>任务留言（<span>8</span>）</li>
+            </ul>
+            <ul class="cytg_cont" id="cytg_cont">
+            </ul>
+            <!--发布留言-->
+            <div class="cytg_cont hidden">
+                <div class="fbly">
+                    <textarea class="fbly_ta" cols="30" rows="10"></textarea>
+                    <button class="fbly_btn">
+                        发表留言</button>
+                </div>
+                <ul class="commentCont">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--右侧-->
+    <div class="cont_r">
+        <div class="cont_r_t clearfix">
+            <div class="cont_r_t_head clearfix">
+                <div class="cont_r_t_head_img">
+                    <div>
+                        <a href="#">
+                            <img src="@cy["logo"]" alt="头像"></a></div>
+                </div>
+                <div class="cont_r_t_head_text">
+                    <div>
+                        <a href="#">@cy["name"]</a></div>
+                    <i class="icon_rz"></i><i class="icon_phone"></i>
+                    <button>
+                        私信</button>
+                </div>
+            </div>
+            <ul class="cont_r_t_haop">
+                <li>
+                    <p>
+                        100%</p>
+                    <p>
+                        好评</p>
+                </li>
+                <li>
+                    <p>
+                        100%</p>
+                    <p>
+                        诚信</p>
+                </li>
+                <li class="cont_r_t_last">
+                    <div>
+                        <img src="@{@BaseConfigs.GetUrlCdn}cysj/images/zb_14.jpg" alt="等级"></div>
+                    <p>
+                        等级</p>
+                </li>
+            </ul>
+        </div>
+        <div class="cont_r_b">
+            <h4>
+                发布记录</h4>
+            <!--<li class="cont_r_b_line"></li>-->
+            <ul>
+                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
+                    class="cont_r_b_text">LOGO设计</span> </li>
+                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
+                    class="cont_r_b_text">LOGO设计</span> </li>
+                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
+                    class="cont_r_b_text">LOGO设计</span> </li>
+                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
+                    class="cont_r_b_text">LOGO设计</span> </li>
+                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
+                    class="cont_r_b_text">LOGO设计</span> </li>
+                <li><span class="cont_r_b_time cont_r_b_time-last">2015.6.6</span> <i class="cont_r_b_icon">
+                </i><span class="cont_r_b_text">LOGO设计</span> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/areaselect.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/baseapp.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxq.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxqCtrl.js"></script>
+    <script>
+        $('input, textarea').placeholder();
+
+        new locationCard({
+            ids: ['pr1', 'ci1', 'co1']
+        }).init();
+
+        $(".zbrw_t_l_sjfp i").mouseenter(function () {
+            $(".pos_tip").show();
+        }).mouseleave(function () {
+            $(".pos_tip").hide();
+        })
+        $(".cytg_ttl li").click(function () {
+            var indexs = $(this).index();
+            $(".cytg_ttl li").removeClass("current").eq(indexs).addClass("current");
+            $(".cytg_cont").addClass("hidden").eq(indexs).removeClass("hidden");
+        })
+    </script>
+    <script type="text/javascript">
+        var dhw = {
+            imgurl: 'http://192.168.2.10:81/img/',
+            imguploadurl: 'http://192.168.2.10:82/uploadimg',
+            mainurl: 'http://localhost:8085/',
+            staticurl: 'http://localhost:8070'
+        };
+        var cpid = @cy["id"];
+    </script>
+    <script type="text/html" id="commentTpl">
+    {{each data as comment}}
+    <li class="fbly_items">
+      <img src="{{imgurl+comment.userimage}}" alt="{{comment.username}}">
+      <p class="fbly_items_time"><a href="{{comment.id}}">{{comment.username}} </a>留言于 {{comment.time}}</p>
+      <p>{{comment.commemt}}</p>
+    </li>
+    {{/each}}
+    </script>
+    <script type="text/html" id="cytg">
+    {{each data as tg}}
+    <li class="cytg_group clearfix">
+      <div class="cytg_l">
+        <div class="cytg_l_img"><img src="{{tg.img}}" alt="#"></div>
+        <div class="cytg_l_text">
+          <div><a href="{{tg.id}}">{{tg.username}}</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+          <p class="cytg_l_gray">{{tg.usertype}}<span>|</span>{{tg.address}}</p>
+        </div>
+      </div>
+      <div class="cytg_r">
+        <button>快速沟通</button>
+        <button>雇佣TA</button>
+      </div>
+    </li>
+    {{/each}}
+    </script>
+}

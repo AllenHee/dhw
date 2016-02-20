@@ -1,0 +1,121 @@
+﻿<p class="title-right bg-info small">
+    <a>众筹</a> > <span>{{title}}</span>
+</p>
+<div class="container container-main">
+    <!--右栏主区域开始：订单管理-->
+    <div class="row form-list-manage">
+        <form>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label">
+                    关键字：</label>
+                <input class="form-control input-sm" type="text" ng-model="qrydata.keyword">
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    类型：</label>
+                <select class="form-control" ng-model="qrydata.type">
+                    <option selected="selected" value="-3">请选择</option>
+                    <option value="3">公益</option>
+                    <option value="4">科技</option>
+                    <option value="5">工业</option>
+                    <option value="6">农业</option>
+                    <option value="7">家电</option>
+                    <option value="8">创意设计</option>
+                    <option value="9">娱乐</option>
+                    <option value="10">出版</option>
+                    <option value="11">房产</option>
+                    <option value="12">其它</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    状态：</label>
+                <select class="form-control " ng-model="qrydata.state">
+                    <option selected="selected" value="-3">请选择</option>
+                    <option value="253">草稿</option>
+                    <option value="0">待审核</option>
+                    <option value="1">众筹中</option>
+                    <option value="2">成功</option>
+                    <option value="3">失败</option>
+                    <option value="250">审核不通过</option>
+                    <option value="255">失败</option>
+                    <option value="254">删除</option>
+                </select>
+            </div>
+            <input class="btn btn-default " type="button" value="查询" ng-click="search()">
+        </div>
+        </form>
+    </div>
+    <div>
+        <div class="list-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <b>项目ID</b>
+                        </th>
+                        <th>
+                            <b>标题</b>
+                        </th>
+                        <th>
+                            <b>类型名称</b>
+                        </th>
+                        <th>
+                            <b>目的</b>
+                        </th>
+                        <th>
+                            <b>发布时间</b>
+                        </th>
+                        <th>
+                            <b>审核人</b>
+                        </th>
+                        <th>
+                            <b>审核时间</b>
+                        </th>
+                        <th>
+                            <b>状态</b>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="it in list">
+                        <td>
+                            {{it.id}}
+                        </td>
+                        <td>
+                            {{it.title}}
+                        </td>
+                        <td>
+                            {{it.name}}
+                        </td>
+                        <td>
+                            {{it.purpose}}
+                        </td>
+                        <td>
+                            {{it.date}}
+                        </td>
+                        <td>
+                            {{it.shr}}
+                        </td>
+                        <td>
+                            {{it.reviewed}}
+                        </td>
+                        <td>
+                            {{it.ztmc}}
+                        </td>
+                        <td>
+                            <a href="#/xmsh/{{it.id}}">详细页面</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination-wrap">
+                <uib-pagination total-items="page.total" items-per-page="page.pageSize" ng-model="page.pageIndex"
+                    ng-change="loaddata()"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 众筹";
+}
+<!--主内容区 开始-->
+<div class="content-zc clearfix">
+    <!--分类条 开始-->
+    <div class="zc-category clearfix">
+        <ul class="zc-category-list clearfix">
+            <li class="all"><a class="current" href="#"><i></i>全部</a></li>
+            @for (int i = 0; i < ViewBag.type.Rows.Count; i++)
+            {
+                var item = ViewBag.type.Rows[i];
+                <li class="@item["class"]" data-type="@item["id"]"><a href="#"><i></i>@item["name"]</a></li>
+            }
+        </ul>
+        <div class="pop-wrap">
+            <div class="title title1">
+                状态：</div>
+            <div class="pop">
+                <a href="#"><span>全部</span> <i></i></a>
+                <ul class="zc-state-menu">
+                    <li><a href="#" data-zc-state="10000">全部</a></li>
+                    <li><a href="#" data-zc-state="1">筹款中</a></li>
+                    @*<li><a href="#">预热中</a></li>*@
+                    <li><a href="#" data-zc-state="2">筹款成功</a></li>
+                </ul>
+            </div>
+            <div class="title">
+                排序：</div>
+            <div class="pop">
+                <a href="#"><span>最新上线</span> <i></i></a>
+                <ul class="zc-sort-menu">
+                    <li><a href="#">最新上线</a></li>
+                    <li><a href="#">金额最高</a></li>
+                    <li><a href="#">最受欢迎</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--分类条 结束-->
+    <!--瀑布流 开始-->
+    <div class="fall-box-wrap clearfix">
+        <p class="noContent">
+            对不起，没有相关数据</p>
+        <ul class="fall-box fall-box-1">
+        </ul>
+        <ul class="fall-box fall-box-2">
+        </ul>
+        <ul class="fall-box fall-box-3">
+        </ul>
+        <ul class="fall-box fall-box-4 last">
+        </ul>
+    </div>
+    <!--瀑布流 结束-->
+    <div class="fall-more">
+        <a href="#">查看更多</a></div>
+    <p class="interest">
+        “好项目太多了，选择<a href="#">兴趣点</a>可以更快帮您更快找到心仪项目哦~”</p>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    
+    <script type="text/html" id="fallbox">
+    <li class="fall-box-item">
+      <i class="status">{{ztmc}}</i>
+      <a class="pic" target="_blank" href="/cpzcDetail/p{{id}}"><img src="{{domain+frontpic}}" alt="{{title}}"></a>
+      <div class="title">
+        <h4><a target="_blank" href="/cpzcDetail/p{{id}}">{{title}}</a></h4>
+        <p><a href="#"><i class={{ptclass}}></i>{{name}}</a></p>
+      </div>
+      <div class="intro">
+        <p><a target="_blank" href="/cpzcDetail/p{{id}}">{{purpose}}</a></p>
+      </div>
+      <div class="progress" style="width:{{percentage}}%"></div>
+      <div class="info">
+        <ul class="clearfix">
+          <li class="info-1">
+            <p>{{progress}}%</p>
+            <p class="sub-info">已达</p>
+          </li>
+          <li class="info-2">
+            <p>{{moneySum}}</p>
+            <p class="sub-info">已筹</p>
+          </li>
+          <li class="info-3">
+            <p>{{numSy}}</p>
+            <p class="sub-info">剩余时间</p>
+          </li>
+        </ul>
+      </div>
+      <span class="oneMore">+1</span>
+      <a class="support" href="javascript:void(0);" data-like="{{laud}}" data-id="{{id}}">
+        {{if praise==0 || praise == null}}
+        <i class="laud"></i>
+        {{/if}}
+        {{if praise==1}}
+        <i class="laud lauded"></i>
+        {{/if}}<span>{{laud}}</span></a>
+      <a target="_blank" href="/cpzcDetail/p{{id}}" class="edit"></a>
+    </li>
+    </script>
+    <script src="@BaseConfigs.GetStaticPath/lib/jquery.cookie.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zhongchou.js"></script>
+}

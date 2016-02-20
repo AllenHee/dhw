@@ -1,0 +1,111 @@
+<form name="hireForm">
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span> 行业名称</label>
+      <select class="formSet_select formSet_select-area" name="dtmc" ng-model="dtmc" ng-options="item as item.text for item in hangye" required>
+        <option class="formSet_option" value="">请选择</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label">所属部门</label>
+      <input class="formSet_input" name="department" type="text" ng-model="data.department">
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span>职位名称</label>
+      <input class="formSet_input" name="position" type="text" ng-model="data.position" required>
+    </div>
+    <label class="formSet-error" ng-show="hireForm.position.$dirty && hireForm.position.$error.required">*此项必填</label>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span> 工作性质</label>
+      <select class="formSet_select formSet_select-area" name="gzxz" ng-model="data.gzxz" ng-options="item as item for item in xingzhi">
+        <option class="formSet_option" value="">请选择</option>
+      </select>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span> 薪资范围</label>
+      <select class="formSet_select formSet_select-area" name="money" ng-model="data.money" ng-options="item as item for item in money">
+        <option class="formSet_option" value="">请选择</option>
+      </select>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span> 工作经验</label>
+      <select class="formSet_select formSet_select-area" name="req_gznx" ng-model="data.req_gznx" ng-options="item as item for item in jingyan">
+        <option class="formSet_option" value="">请选择</option>
+      </select>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span> 学历要求</label>
+      <select class="formSet_select formSet_select-area" name="req_xueli" ng-model="data.req_xueli" ng-options="item as item for item in xueli" required>
+        <option class="formSet_option" value="">请选择</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span>职位诱惑</label>
+      <input class="formSet_input" name="tag" type="text" ng-model="data.tag" required>
+    </div>
+    <label class="formSet-error" ng-show="hireForm.tag.$dirty && hireForm.tag.$error.required">*此项必填</label>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span>职位描述</label>
+      <textarea class="formSet_textarea" name="desc" ng-model="data.desc" required></textarea>
+    </div>
+    <label class="formSet-error" ng-show="hireForm.desc.$dirty && hireForm.desc.$error.required">*此项必填</label>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span>工作地址</label>
+      <input class="formSet_input" name="gzdz" type="text" ng-model="data.gzdz" required>
+    </div>
+    <label class="formSet-error" ng-show="hireForm.gzdz.$dirty && hireForm.gzdz.$error.required">*此项必填</label>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span>语言要求</label>
+      <input class="formSet_input" name="req_yy" type="text" ng-model="data.req_yy" required>
+    </div>
+    <label class="formSet-error" ng-show="hireForm.req_yy.$dirty && hireForm.req_yy.$error.required">*此项必填</label>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span>最小年龄</label>
+      <input class="formSet_input" name="req_nn_min" type="text" ng-model="data.req_nn_min" required>
+    </div>
+    <label class="formSet-error" ng-show="hireForm.req_nn_min.$dirty && hireForm.req_nn_min.$error.required">*此项必填</label>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"><span class="formSet_required">*</span>最大年龄</label>
+      <input class="formSet_input" name="req_nn_max" type="text" ng-model="data.req_nn_max" required>
+    </div>
+    <label class="formSet-error" ng-show="hireForm.req_nn_max.$dirty && hireForm.req_nn_max.$error.required">*此项必填</label>
+  </div>
+
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"></label>
+      <button class="submitBtn" type="button" ng-disabled="hireForm.$invalid" ng-click="submit()">提交</button>
+    </div>
+  </div>
+</form>

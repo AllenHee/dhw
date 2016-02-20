@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "会计服务 - 梦高速 ";
+}
+@model System.Data.DataTable
+<!--主内容区 开始-->
+<div class="content clearfix">
+    <!--会计热门推荐 开始-->
+    <div class="kj-box kj-box-1">
+        <h2>
+            热门会计推荐<small><i></i>为您挑选量身定做的财务公司</small></h2>
+        <ul class="rcmd clearfix">
+            @for (int i = 0; i < ViewBag.latest.Rows.Count; i++)
+            {
+                var item = ViewBag.latest.Rows[i];
+                var str = i % 2 == 0 ? "" : "even";
+                <li class="rcmd-item @str">
+                    <div class="rcmd-title">
+                        @item["servertenet"]</div>
+                    <div class="rcmd-content">
+                        <h3>
+                            <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@item["id"]" target="_blank">@item["compay"]</a></h3>
+                        <div class="clearfix">
+                            <div class="avatar">
+                                <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@item["id"]" target="_blank">
+                                    <img src="@BaseConfigs.GetImgPath@item["logo"]" alt="@item["compay"]"></a>
+                                <div>
+                                    <i></i>@item["phone"]</div>
+                            </div>
+                            <div class="badges-tags">
+                                <ul class="badges clearfix">
+                                    <li class="@if (item["auth"].ToString() == "True")
+                                               {<text>trueAuth</text>}
+                                               else
+                                               {<text>falseAuth</text>}" ></li>
+                                    @if (item["level"].ToString() == "1")
+                                    {<li class="finance_level1"></li>}
+                                    else if (item["level"].ToString() == "2")
+                                    {<li class="finance_level2"></li>}
+                                    else if (item["level"].ToString() == "3")
+                                    {<li class="finance_level3"></li>}
+                                    else { }
+                                    <li class="badges-3"></li>
+                                    <li class="badges-4"></li>
+                                </ul>
+                                <ul class="tags clearfix">
+                                    @if (ViewBag.business != null)
+                                    {
+                                        foreach (Newtonsoft.Json.Linq.JToken business1 in ViewBag.business)
+                                        {
+                                        <li>@(business1.Value<string>("name"))</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <p>
+                            @item["pro"]<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/@item["id"]" target="_blank">>></a></p>
+                        <div class="detail">
+                            <a href="@{@BaseConfigs.GetUrlMain}Company/Index/@item["id"]" target="_blank">查看公司详情</a></div>
+                    </div>
+                </li>
+            }
+        </ul>
+        <div class="more">
+            <a href="/accounting">查看更多</a></div>
+    </div>
+    <!--会计热门推荐 结束-->
+    <!--热门会计帖子 开始-->
+    <div class="kj-box kj-box-2">
+        <h2>
+            热门会计帖子<small><i></i>为您挑选每日热门交流话题</small></h2>
+        <div class="clearfix">
+            <ul class="post">
+            </ul>
+            <div class="post-pic">
+            </div>
+        </div>
+        <div class="more">
+            <a href="http://bbs.dreamhiway.com/forum.php?mod=forumdisplay&fid=49" target="_blank">
+                查看更多</a></div>
+    </div>
+    <!--热门会计帖子 结束-->
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/kuaiji.js"></script>
+}
+<script type="text/html" id="posts">
+    {{each posts as post}}
+    <li class="clearfix">
+      <h3><a class="post_title" target="_blank" href="{{'http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=' + post.tid}}">{{post.subject}}</a><i class="pic"></i><i class="like"></i><i class="new"></i> <span class="username"><a href="#">{{post.author}}</a></span></h3>
+      <p><span class="post_p">{{post.message}}</span> <span class="post_time">{{post.dateline}}</span></p>
+    </li>
+    {{/each}}
+</script>
+<script type="text/html" id="images">
+    {{each images as img}}
+    {{if img.url}}
+    <a target="_blank" href="{{'http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=' + img.tid}}"><img src="{{img.url}}" alt="帖子大图"></a>
+    {{/if}}
+    {{if !img.url}}
+    <a href="javascript:void(0)"><img src="http://cdn.dreamhiway.com/kuaiji/images/default.png" alt="帖子大图"></a>
+    {{/if}}
+    {{/each}}
+</script>

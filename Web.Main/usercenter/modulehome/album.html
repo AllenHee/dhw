@@ -1,0 +1,36 @@
+<form name="album">
+  <div>
+    <div class="formSet formSet-img">
+    <div ng-show="id==='2'" class="imgRequire">
+      <p>建议图片规格为250*300像素，以获得最佳展示效果！</p>
+    </div>
+    <div ng-show="id==='3'" class="imgRequire">
+      <p>建议图片规格为250*170像素，以获得最佳展示效果！</p>
+    </div>
+    <div ng-show="id==='4'" class="imgRequire">
+      <p>建议图片宽度为1920像素，以获得最佳展示效果！</p>
+    </div>
+    </div>
+    <div ng-repeat="photo in photos" class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">图片：</label>
+        <div class="picUpLoad">
+          <div class="imgUpLoad showPic">
+            <img ng-show="photo.url" ng-src="{{photo.url ? dhw.imgurl +photo.url + '_250x250.jpg'  : ''}}" alt="">
+            <button class="upLoadBtn" id="{{'upLoadBtn_'+$index}}" data-keyname="uc" data-size="250x250" type="button" ng-model="photo.url"
+            bindimg>单击上传</button>
+            <button class="formSet_input_btn formSet_input_btn-photodel" ng-hide="$index===0" type="button" ng-click="delphoto($index)">删除</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="formSet_input_btn formSet_input_btn-sku" type="button" ng-click="addphoto()">添加新图片</button>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label"></label>
+        <button class="submitBtn" type="button" ng-click="submit()" ng-disabled="cases.$invalid">保存修改</button>
+      </div>
+    </div>
+  </div>
+</form>

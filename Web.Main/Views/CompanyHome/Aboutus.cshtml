@@ -1,0 +1,160 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
+@{
+    var compay = CompanyTopInfo.compay;
+    var trade = CompanyTopInfo.trade;
+    ViewBag.Title = "关于我们" + compay;
+    ViewBag.Keywords = compay + ",关于我们," + trade;
+}
+@{var item = ViewBag.dt.Rows[0];
+  var items = ViewBag.dt1;
+  var iphoto = ViewBag.companyphoto;
+  var izhaopin = ViewBag.companyzhaopin;
+}
+<!--内容 开始-->
+<div class="aboutUs_wrap clearfix">
+    <div class="aboutUs clearfix">
+        <div class="au_top clearfix">
+            <div class="au_logo">
+                <a href="#">
+                    <img src="@{@BaseConfigs.GetImgPath}@item["logo"]" alt=""></a>
+            </div>
+            <div class="au_top_intro">
+                <div class="au_top_intro_ttl">
+                    <h2>
+                        @item["compay"]</h2>
+                    @*                    <a href="@item["homepage"]" rel="nofollow" target="_blank">@item["homepage"]</a>*@
+                    <span>@item["homepage"]</span> <a class="@if (item["auth"])
+                                                             {<text>trueAuth</text>}
+                                                             else
+                                                             {<text>falseAuth</text>}" href="" >
+                    </a>
+                </div>
+                <p>
+                    <span>地点：</span>@item["city"]</p>
+                <p>
+                    <span>领域：</span>@item["name"]</p>
+                </br>
+                <p>
+                    <span>规模：</span>@item["scale"]</p>
+                <p>
+                    <span>融资：</span>@item["financing"]</p>
+                </br>
+                <p class="long">
+                    @*<span>公司愿景：</span> 创造价值：一切工作围绕为用户价值展开，不做公司愿景：创造价值：一切工作围绕为用户价值展开，不做 公司愿景：创造价值：一切工作围绕为用户价值展开，不做公司愿景：创造价值：一切工作围绕为用户价值展开，不做
+                    公司愿景：创造价值：一切工作围绕为用户价值展开，不做公司愿景：创造价值：一切工作围绕为用户价值展开，不做。*@
+                </p>
+            </div>
+        </div>
+        <!--左-->
+        <div class="au_left">
+            <div class="au_xx">
+                <h3 class="au_ttl emColorBorder">
+                    公司信息</h3>
+                <p>
+                    @item["profile"] @*<a href="#">展开∨</a>*@
+                </p>
+            </div>
+            <div class="au_fzlc clearfix">
+                <h3 class="au_ttl emColorBorder">
+                    发展历程</h3>
+                @for (int i = 0; i < ViewBag.years.Length; i++)
+                {
+                    var year = ViewBag.years[i];
+                    System.Data.DataView dv = ViewBag.dv1 as System.Data.DataView;
+                    dv.RowFilter = "date>='" + year + "-01-01' And date<'" + (year + 1) + "-01-01'";
+                    <div class="clearfix">
+                        <div class="year">
+                            @year</div>
+                        <ul class="au_fzlc_r">
+                            @for (int j = 0; j < dv.Count; j++)
+                            {
+                                var center = dv[j];
+                                string dates = center["date"].ToString() == "" ? "" : ((DateTime)center["date"]).ToString("yyyy-MM-dd");
+                                <li><span>@dates</span>-@center["title"]-</li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+            <div class="au_address">
+                <h3 class="au_ttl emColorBorder">
+                    公司位置</h3>
+                <div>
+                    <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/au_map.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="au_right">
+            @if (iphoto.Count != 0)
+            {
+                <div class="au_xc">
+                    <h3 class="au_ttl emColorBorder">
+                        公司相册</h3>
+                    <!--轮播 开始-->
+                    <div class="slide-xc">
+                        <div class="slide">
+                            <ul class="slide-wrap"  @if (iphoto.Count != 0)
+                                                    {
+                                                        var wid = 250 * iphoto.Count + "px";
+                                                    <text>style="width:@wid"</text>
+                                                    }>
+                                @for (int i = 0; i < iphoto.Count; i++)
+                                {
+                                    var imgs = @iphoto[i]["img"] + ".jpg";
+                                    <li>
+                                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="公司环境"></li>
+                                }
+                            </ul>
+                            <div class="slider">
+                                <ul>
+                                    @for (int i = 0; i < iphoto.Count - 1; i++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                        <li class="slider_items current"></li>
+                                        }                                
+                                        <li class="slider_items"></li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="s-prev-bg">
+                            </div>
+                            <div class="s-next-bg">
+                            </div>
+                            <a class="s-prev"></a><a class="s-next"></a>
+                        </div>
+                    </div>
+                    <!--轮播 结束-->
+                </div>
+            }
+            @if (izhaopin.Count != 0)
+            {
+                <div>
+                    <h3 class="au_ttl emColorBorder">
+                        最新招聘</h3>
+                    <ul class="au_job">
+                        @for (int i = 0; i < izhaopin.Count; i++)
+                        {
+                            <li><i></i><a href="@{@BaseConfigs.GetUrlHr}Jobs/detail/@izhaopin[i]["djiid"]" target="_blank">@izhaopin[i]["pos"]
+                                (@izhaopin[i]["money"])</a></li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+    var ddid = @ViewBag.ddid;
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.slider.js"></script>
+    <script>
+        $(".slide-wrap").slide(true, true);
+    </script>
+}

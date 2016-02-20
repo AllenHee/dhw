@@ -1,0 +1,610 @@
+.nav_imgWrap {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+.nav_imgCont {
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+.nav_imgWrap-hlwplus .nav_imgCont {
+  width: 1920px;
+  height: 400px;
+  margin-left: -960px;
+}
+.nav_ttl {
+  width: 1024px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.nav_ttl a {
+  display: inline-block;
+  height: 51px;
+  overflow: hidden;
+}
+.zxsj_logo {
+  display: inline-block;
+  margin-top: 10px;
+}
+.nav_ul {
+  float: right;
+  overflow: hidden;
+}
+.nav_ul_items {
+  float: left;
+  width: 100px;
+  height: 65px;
+  line-height: 65px;
+  text-align: center;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+.nav_ul_items a {
+  display: inline-block;
+  color: #333;
+  line-height: 65px;
+}
+.nav_ul_items-current,
+.nav_ul_items:hover {
+  border-bottom: 5px solid #e89800;
+  background-color: #efefef;
+}
+/*
+ * 上市公司-详情页
+ * 何伟
+ * 2015-12-8 
+*/
+.intro {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -512px;
+  width: 1024px;
+  height: 250px;
+  color: #fff;
+  overflow: hidden;
+}
+.intro_logo {
+  float: left;
+  margin-right: 35px;
+}
+.intro_cont {
+  float: left;
+  width: 510px;
+  font-size: 16px;
+}
+.intro_cont_name {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+.fir_label {
+  position: absolute;
+  top: 5px;
+  left: 410px;
+  padding: 3px 5px;
+  border: 1px solid #c2a116;
+  color: #c2a116;
+  font-size: 18px;
+}
+.sec_label {
+  position: absolute;
+  top: 5px;
+  left: 585px;
+  padding: 3px 5px;
+  border: 1px solid #00a60a;
+  color: #00a60a;
+  font-size: 18px;
+}
+.intro_cont_focus {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px 30px;
+  border: 1px solid #3e4e70;
+  color: #3e4e70;
+  font-size: 24px;
+  text-align: center;
+}
+.intro_nav_bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(256, 256, 256, 0.4);
+}
+.intro_nav {
+  width: 1024px;
+  margin: 0 auto;
+  padding-bottom: 1px;
+  overflow: hidden;
+}
+.intro_nav_ul {
+  float: left;
+  padding: 0;
+  margin: 0 0 0 285px;
+  overflow: hidden;
+}
+.intro_nav_ul_item {
+  float: left;
+  padding: 0 30px;
+  border-bottom: 3px solid #fff;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
+.intro_nav_contact {
+  float: right;
+  margin-top: 5px;
+}
+.intro_nav_contact_in {
+  margin-right: 20px;
+}
+.message_bg {
+  width: 100%;
+  background-color: #f4f4f4;
+}
+.message {
+  width: 1024px;
+  margin: auto;
+}
+.message_l {
+  width: 600px;
+  float: left;
+  margin-top: 30px;
+}
+.message_l_exp,
+.message_idea,
+.message_item {
+  padding: 25px;
+  background-color: #fff;
+}
+.message_l_ttl {
+  font-size: 22px;
+}
+.message_l_ul_items {
+  position: relative;
+  width: 550px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #cdcdcd;
+  margin-top: 20px;
+  font-size: 16px;
+  overflow: hidden;
+}
+.message_l_ul_items-last {
+  border-bottom: 0;
+}
+.message_l_ul_items_logo {
+  float: left;
+  margin-right: 25px;
+}
+.message_l_ul_items_name {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+}
+.message_l_ul_items_conf {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 30px;
+  border: 1px solid #666;
+  border-radius: 3px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+}
+.message_idea,
+.message_item {
+  margin-top: 15px;
+  font-size: 15px;
+}
+.message_idea p {
+  margin-top: 20px;
+}
+.message_idea span {
+  font-weight: 700;
+}
+.message_idea dt {
+  margin-top: 15px;
+  font-size: 17px;
+}
+.message_idea dd {
+  margin-left: 15px;
+  font-size: 15px;
+}
+.message_l_more {
+  width: 600px;
+  height: 50px;
+  border: 0;
+  background-color: #dadada;
+  font-size: 16px;
+  color: #333;
+  margin-top: 15px;
+}
+.message_r {
+  float: right;
+  margin-top: 30px;
+}
+.message_r_plan {
+  width: 360px;
+  padding: 20px;
+  background-color: #fff;
+}
+.message_r_ttl {
+  font-size: 18px;
+}
+.message_r_plan_items,
+.message_r_b {
+  width: 320px;
+  height: 60px;
+  padding: 20px;
+  margin-top: 5px;
+  background-color: #e6e6e6;
+}
+.message_r_plan_items h3 {
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: #666;
+}
+.message_r_plan_items p {
+  font-size: 16px;
+  color: #010101;
+  font-weight: 700;
+}
+.message_r_b_l {
+  float: left;
+  text-align: center;
+}
+.message_r_b_r {
+  float: right;
+  text-align: center;
+}
+.message_r_b_tw {
+  font-weight: 700;
+  font-size: 18px;
+}
+.message_r_b_bw {
+  font-size: 16px;
+  color: #666;
+}
+.itemsubmit {
+  width: 350px;
+  height: 50px;
+  background-color: #2266cc;
+  font-size: 18px;
+  color: #fff;
+  border: 0;
+  margin: 5px 0 0 5px;
+  cursor: pointer;
+}
+.message_r_fans {
+  margin-top: 15px;
+}
+.message_r_fans_items {
+  float: left;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+}
+.message_r_fans_items-current {
+  background-color: #fff;
+}
+.focus_show {
+  width: 360px;
+  padding: 20px;
+  background-color: #fff;
+}
+.pic_show_items {
+  float: left;
+  margin: 15px 8px 0 0;
+}
+.pic_show_items-last {
+  margin-right: 0;
+}
+.hide {
+  display: none;
+}
+/*
+  上市公司-列表
+  陈树阳
+  2015.12.8
+*/
+.nav {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 15px;
+}
+.content_lieb {
+  width: 1200px;
+  margin: 0 auto;
+}
+.lieb_l_wrap {
+  float: left;
+  padding: 8px;
+  height: 132px;
+  width: 300px;
+  border: 1px solid #e5e5e5;
+  margin-right: 20px;
+}
+.lieb_l { 
+  background: #f1f1f1;
+  height: 132px;
+}
+.lieb_l_head {
+  float: left;
+  margin: 50px 20px 0 30px;
+}
+.lieb_l_name {
+  float: left;
+}
+.lieb_l_name h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 40px 0 10px;
+}
+.lieb_l_name p {
+  color: #777;
+  font-size: 14px;
+}
+.lieb_main {
+  float: right;
+  width: 860px;
+}
+.lieb_main_section1 {
+  border: 1px solid #e5e5e5;
+  padding: 0 30px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.lieb_main_section1_type {
+  margin: 20px 0 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.lieb_main_section1_type li {
+  float: left;
+  padding: 3px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.lieb_main_section1_address {
+  margin: 20px 0;
+}
+.lieb_main_section1_address li {
+  float: left;
+  border-radius: 3px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.lieb_main_section1 .current,
+.lieb_main_section1 li:hover {
+  background: #e89800;
+  color: #fff;
+}
+.lieb_main_section2 {
+  padding: 30px 30px 20px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 20px;
+}
+.lieb_main_section2_t {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.lieb_main_section2_t_head {
+  float: left;
+  margin-right: 20px;
+  background: #aaa;
+}
+.lieb_main_section2_t_head img {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+.lieb_main_section2_t_introduce {
+  float: left;
+}
+.lieb_main_section2_t_introduce h3 {
+  font-size: 30px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: -5px;
+}
+.lieb_main_section2_t_introduce a {
+  color: #000;
+}
+.lieb_main_section2_t_introduce span {
+  font-size: 16px;
+  color: #a9a9b0;
+}
+.lieb_main_section2_t_introduce_p1 {
+  font-size: 18px;
+  margin: 5px 0 15px;
+}
+.lieb_main_section2_t_introduce_p2 {
+  font-size: 12px;
+  width: 450px;
+  color: #777;
+  line-height: 20px;
+}
+.lieb_main_section2_t_r {
+  float: right;
+}
+.lieb_main_section2_t_r li {
+  margin-bottom: 20px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 12px;
+  color: #777;
+}
+.lieb_main_section2_t_r li i {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+}
+.lieb_main_section2_t_r_wz {
+  background: url(../images/iconfont-weizhi.png) no-repeat;
+}
+.lieb_main_section2_t_r_sl {
+  background: url(../images/iconfont-yonghu.png) no-repeat;
+}
+.lieb_main_section2_t_r_ck {
+  background: url(../images/iconfont-weizhi.png) no-repeat;
+}
+.lieb_main_section2_b {
+  margin-top: 15px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.lieb_main_section2_b span {
+  float: left;
+  font-size: 14px;
+}
+.lieb_main_section2_b_tzg {
+  float: left;
+  margin-right: 15px;
+}
+.lieb_main_section2_b_tzg li {
+  float: left;
+  width: 30px;
+  height: 30px;
+  background: #aaa;
+  margin-right: 5px;
+}
+.lieb_main_section2_b a {
+  color: #3d70df;
+  margin-left: 5px;
+  font-weight: bold;
+}
+/*
+  上市公司 首页
+  陈树阳
+  2015.12.10
+*/
+.nav_ssgs {
+  margin-bottom: 0;
+}
+.ssgs_section1 {
+  background: #f5f5f5;
+}
+.ssgs_section1 img {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+.ssgs_section2 img {
+  display: block;
+  margin: 0 auto;
+  padding: 80px 0 75px;
+}
+.ssgs_section3 {
+  background: #3d9bca;
+  padding-bottom: 60px;
+}
+.ssgs_section3_ttl {
+  font-size: 38px;
+  color: #deaa3f;
+  text-align: center;
+  padding: 50px 0 30px;
+}
+.ssgs_section3_item1_cont {
+  background: url(../images/ssgs_02.png) no-repeat;
+  font-size: 20px;
+  height: 292px;
+  width: 1001px;
+  margin: 0 auto;
+  line-height: 40px;
+}
+.ssgs_section3_item1_cont p {
+  width: 772px;
+  margin-left: 130px;
+}
+.ssgs_section3_item2_cont,
+.ssgs_section3_item3_cont,
+.ssgs_section3_item4_cont {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.ssgs_section3_item2_cont ul {
+  width: 1030px;
+}
+.ssgs_section3_item2_cont ul li {
+  width: 280px;
+  padding: 15px;
+  float: left;
+  margin-right: 30px;
+  border-radius: 20px;
+  background: #f2f2bb;
+  font-size: 18px;  
+  color: #fff;  
+}
+.ssgs_section3_item2_cont ul li p {
+  padding: 15px;
+  border-radius: 10px;
+  line-height: 35px;
+  background: #3d9bca;
+  margin: 0 auto;
+}
+.ssgs_section3_item3_cont {
+  text-align: center;
+}
+.ssgs_section3_item3_cont ul,
+.ssgs_section3_item4_cont ul {
+  width: 1019px;
+}
+.ssgs_section3_item3_cont ul li,
+.ssgs_section3_item4_cont ul li {
+  float: left;
+  width: 235px;
+  height: 290px;
+  background: #fff;
+  margin-right: 19px;
+  font-size: 18px;
+  line-height: 35px;
+}
+.ssgs_section3_item3_cont ul li img {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  margin: 30px 0 10px;
+}
+.ssgs_section4 {
+  background: #f2f2bb;
+  text-align: center;
+  font-size: 20px;
+  overflow: hidden;
+  padding: 20px 0 30px;
+  font-weight: bold;
+}
+.ssgs_section4_p1 {
+  color: #f17878;
+  background: #fff;
+  width: 450px;
+  margin: 0 auto;
+  padding: 15px 0;
+  margin-bottom: 30px;
+}
+.pagination .current,
+.pagination a:hover {
+  color: #e89800;
+}
+
+
+/*何伟*/
+.footer-l .logo {
+  height: 51px;
+  background: url(../images/logo1.png) no-repeat 0 -51px;
+}
+.footer-l .logo:hover {
+  background: url(../images/logo1.png) no-repeat;
+}
+.content_ssgs {
+  margin-top: -15px;
+}

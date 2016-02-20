@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>订单信息</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/backend.css">
+</head>
+<body>
+  <p class="title-right bg-info">【 订单信息 】 <small><a href="#">返回列表</a></small></p>
+  <div class="container container-main">
+    <div class="row small info-table">
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr>
+            <td class="bg-primary" colspan="2"><b>订单信息</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-right">订单单号：</td>
+            <td>120222101374750499</td>
+          </tr>
+          <tr>
+            <td class="text-right">订单状态：</td>
+            <td>等待买家付款</td>
+          </tr>
+          <tr>
+            <td class="text-right">下单时间：</td>
+            <td>2012/2/22 10:13:12</td>
+          </tr>
+          <tr>
+            <td class="text-right">订单状态：</td>
+            <td>
+              <input type="checkbox" checked="checked">
+              等待买家付款 -->
+              <input type="checkbox">
+              买家已付款,等待卖家发货 -->
+              <input type="checkbox">
+              已发货,等待买家确认 -->
+              <input type="checkbox">
+              已收货 -->
+              <input type="checkbox">
+              完成
+              <input class="btn btn-default btn-xs" type="submit" value="修改订单状态">
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right">是否取消订单：</td>
+            <td>
+              正常订单 <input class="btn btn-default btn-xs" type="submit" value="取消订单">
+            </td>
+          </tr>  
+        </tbody>
+      </table>
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <td class="bg-primary"><b>商品信息</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <table class="table table-condensed table-bordered">
+                <thead>
+                  <tr>
+                    <td><b>商品图片</b></td>
+                    <td><b>商品编号</b></td>
+                    <td><b>商品名称</b></td>
+                    <td><b>商品规格</b></td>
+                    <td><b>市场价</b></td>
+                    <td><b>您的价格</b></td>
+                    <td><b>购买数量</b></td>
+                    <td><b>小计</b></td>					
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="img-icon text-center"><span class="glyphicon glyphicon-picture" title="20110903144909.jpg"></span></td>
+                    <td>10100001652</td>
+                    <td>口口香卤香干--</td>
+                    <td>--</td>
+                    <td>4.00</td>
+                    <td>3.50 <input class="btn btn-default btn-xs"type="button" value="更改"></td>
+                    <td>1</td>
+                    <td>3.5</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right text-info"><b>合计：<span>3.5</span></b></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr>
+            <td class="bg-primary" colspan="4"><b>收货人信息</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-right" style="width:120px;">收货人姓名：</td>
+            <td style="width:187px;">颜韩平</td>
+            <td class="text-right" style="width:120px;">手机：</td>
+            <td>13564949975</td>
+          </tr>
+          <tr>
+            <td class="text-right">性别：</td>
+            <td>男</td>
+            <td class="text-right">详细地址：</td>
+            <td>中国江苏省淮阴市12号</td>
+          </tr>
+          <tr>
+            <td class="text-right">联系电话：</td>
+            <td>13546949975</td>
+            <td class="text-right">邮编：</td>
+            <td>46416</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr>
+            <td class="bg-primary" colspan="4"><b>配送/支付/费用信息</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-right" style="width:120px;">配送方式：</td>
+            <td style="width:187px;">申通快递</td>
+            <td class="text-right" style="width:120px;">支付方式：</td>
+            <td>支付宝(即时到帐)</td>
+          </tr>
+          <tr>
+            <td class="text-right">配送费用：</td>
+            <td>10.00</td>
+            <td class="text-right"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="text-right">商品总金额：</td>
+            <td>3.5</td>
+            <td class="text-right">订单支付总金额</td>
+            <td>13.50</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-condensed table-bordered">
+        <thead>
+          <tr>
+            <td class="bg-primary" colspan="4"><b>店铺信息</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-right" style="width:120px;">电话：</td>
+            <td style="width:187px;">021-125524522</td>
+            <td class="text-right" style="width:120px;">联系人：</td>
+            <td>yxj</td>
+          </tr>
+          <tr>
+            <td class="text-right">联系地址：</td>
+            <td>宝山盘古路</td>
+            <td class="text-right"></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script src="scripts/jquery-1.11.3.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/imgtip.js"></script>
+</body>
+</html>

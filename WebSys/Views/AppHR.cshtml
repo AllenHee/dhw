@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 后台管理系统 - 人才招聘";
+}
+<div class="row main-content" ng-app="default">
+    <div class="col-md-2">
+        <div class="left">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="cate_sort_96">
+                    用户举报</div>
+                <ul class="list-group list-unstyled" id="sort_96">
+                    <li class="list-group-item"><a href="#yhjb">用户举报</a></li>
+                </ul>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" id="cate_sort_96">
+                    招聘管理</div>
+                <ul class="list-group list-unstyled" id="sort_96">
+                    <li class="list-group-item"><a href="#jobs">招聘信息管理</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div ng-view>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var approute = [{ name: 'yhjb', detail: true }, { name: 'jobs', detail: true}];
+        var htmlpath = '/ModuleHR/';
+        var app = sysfactory('default', ['sysbase'], approute, htmlpath);       
+
+    </script>
+    <script src="/ModuleHR/Controllers/yhjbController.js" type="text/javascript"></script>
+    <script src="/ModuleHR/Controllers/jobsController.js" type="text/javascript"></script>
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>梦高速 - 个人中心 - 众包发布</title>
+    <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+    <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+    <link rel="stylesheet" href="http://localhost:8070/styles/colpick.css">
+    <link rel="stylesheet" href="http://localhost:8070/styles/jquery.Jcrop.min.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <script type="text/javascript">
+        var dhw = {
+            imgurl: 'http://192.168.2.10:82/img/',
+            imguploadurl: 'http://192.168.2.10:82/uploadimg',
+            imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
+            mainurl: '//localhost:8085/',
+            staticurl: 'http://192.168.2.10:81',
+            urlmain: '//localhost:8085/',
+            urlcdn: '//192.168.2.10:81/',
+            urlzc: '//localhost:8088/',
+            urlkj: '//localhost:8087/',
+            urlhr: '//localhost:8086/',
+            urlzckj: '//localhost:8091/',
+            urlzb: '//localhost:8090/',
+            urldiy: '//localhost:8092/',
+            urlsrdz: '//localhost:8093/',
+            urlcqbh: '//localhost:8094/',
+            urlzxsj: '//localhost:8095/',
+            urlgsss: '//localhost:8096/'
+        };
+
+        var dhwtempvar = {
+          isCoporate: true
+        }
+    </script>
+    
+<link rel="stylesheet" href="/usercenter/styles/usercenter.css">
+    
+    <!--<link rel="stylesheet" href="/usercenter/styles/zhongbao.css">-->
+    <script type="text/javascript">        if (dhw) dhw.gettplurl = function (name) { return function () { return '/usercenter/moduleHome/' + name + '?_=' + (+new Date()) } }</script>
+
+
+</head>
+<body>
+    <!--通用顶栏 开始-->
+    <div class="sitenav clearfix">
+        <div class="sitenav-wrap">
+            <ul class="sitenav-l">
+                <li><a href="//localhost:8085/"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+                <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+            </ul>
+            <ul class="sitenav-r">
+                <li class="log">您好，<a href="//localhost:8085/" target=_blank>test</a><a href="//localhost:8085/login?redirectURL=http%3a%2f%2f192.168.2.145%3a8085%2fAppZb&type=logout">退出</a>
+                </li>
+                <li><a href="#">帮助中心</a></li>
+                <li class="nav-drop"><a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+                    <ul class="sn-dropdown menu-dropdown">
+                        <li><a href="//localhost:8088/">金融众筹</a></li>
+                        <li><a href="//localhost:8087/">会计服务</a></li>
+                        <li><a href="//localhost:8086/">人才招聘</a></li>
+                        <li><a href="//localhost:8091/">众创空间</a></li>
+                        <li><a href="//localhost:8090/">威客众包</a></li>
+                        <li><a href="//localhost:8092/">创意设计</a></li>
+                        <li><a href="//localhost:8093/">私人订制</a></li>
+                        <li><a href="//localhost:8094/">产品保护</a></li>
+                        <li><a href="//localhost:8095/">软件升级</a></li>
+                        <li><a href="//localhost:8096/">公司上市</a></li>
+                    </ul>
+                </li>
+                <li class="icon-drop"><i class="sn-dropper iconfont">&#xe60c;</i>
+                    <div class="sn-dropdown">
+                        <div>
+                            <img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></div>
+                        <div>
+                            微信</div>
+                    </div>
+                </li>
+                <li class="icon-drop"><i class="sn-dropper iconfont">&#xe60a;</i>
+                    <div class="sn-dropdown">
+                        <div>
+                            <img src="http://localhost:8070/images/erweima.jpg" alt="微博"></div>
+                        <div>
+                            微博</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--通用顶栏 结束-->
+    
+<!--头部导航 开始-->
+<div class="tittl_bg">
+    <div class="title_nav">
+        <div class="slider">
+        </div>
+        <ul class="title_nav_ul">
+            <li class="title_nav_ul_items"><a href="/" target="_self">首页</a></li>
+            <li class="title_nav_ul_items"><a href="/AppZb" target="_self">众包</a></li>
+            <li class="title_nav_ul_items"><a href="/AppCy" target="_self">创意设计</a></li>
+            <li class="title_nav_ul_items"><a href="/AppSrdz" target="_self">私人定制</a></li>
+            <li class="title_nav_ul_items title_nav_ul_items-server" id="server">服务<span><i></i></span>
+                <div class="server">
+                    <ul>
+                        <li class="server_t_r_items"><a href="/AppCF">
+                            <img src="/usercenter/images/user-3.png" alt="">众筹</a></li>
+                        <li class="server_t_r_items"><a href="#">
+                            <img src="/usercenter/images/user-3.png" alt="">会计</a></li>
+                        <li class="server_t_r_items"><a href="/AppResume">
+                            <img src="/usercenter/images/user-3.png" alt="">人才</a></li>
+                        <li class="server_t_r_items"><a href="#">
+                            <img src="/usercenter/images/user-3.png" alt="">众创空间</a></li>
+                        <li class="server_t_r_items"><a href="/AppZb">
+                            <img src="/usercenter/images/user-3.png" alt="">众包</a></li>
+                        <li class="server_t_r_items"><a href="/AppCy">
+                            <img src="/usercenter/images/user-3.png" alt="">创意设计</a></li>
+                        <li class="server_t_r_items"><a href="/AppSrdz">
+                            <img src="/usercenter/images/user-3.png" alt="">私人定制</a></li>
+                        <li class="server_t_r_items"><a href="#">
+                            <img src="/usercenter/images/user-3.png" alt="">产权保护</a></li>
+                        <li class="server_t_r_items"><a href="#">
+                            <img src="/usercenter/images/user-3.png" alt="">转型升级</a></li>
+                        <li class="server_t_r_items"><a href="#">
+                            <img src="/usercenter/images/user-3.png" alt="">公司上市</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="title_nav_r">
+            <div class="title_nav_r_l">
+                服务<span></span>
+            </div>
+            <div class="title_nav_r_r">
+                <input type="text">
+                <img src="/usercenter/images/user-2.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部导航 结束-->
+<!--分割线-->
+<div class="slide-line">
+</div>
+<!--分割线-->
+
+<!--主内容 开始-->
+<div class="content clearfix">
+    <!--左栏 开始-->
+    <div class="cl">
+        <dl class="cygn">
+            <dt>常用功能</dt>
+            <dd>
+                <a href="#/">发布项目</a></dd>
+            <dd>
+                <a href="#/list">已发布项目查询</a></dd>
+        </dl>
+    </div>
+    <!--左栏 结束-->
+    <!--中栏 开始-->
+    <div class="cm">
+        <div class="clearfix" ng-app="homeApp" ui-view>
+        </div>
+    </div>
+    <!--中栏 结束-->
+    <!--右栏 开始-->
+    <div class="cr">
+    </div>
+    <!--右栏 结束-->
+</div>
+<!--主内容 结束-->
+
+
+    <!--通用底栏 开始-->
+    <div class="footer">
+        <div class="footer-wrap clearfix">
+            <div class="footer-l">
+                <div class="logo">
+                </div>
+                <div>
+                    服务时间：工作日 9:00 - 18:00</div>
+                <div class="tel">
+                    0595-36892299</div>
+                <ul class="contact clearfix">
+                    <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+                    <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+                    <li><a href="#"><i class="iconfont">&#xe60d;</i></a>
+                        <!--微信弹出-->
+                        <div class="wechat">
+                            <span>
+                                <img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></span>
+                            <p>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a></li>
+                </ul>
+                <p>
+                    创企科技有限公司 版权所有<br>
+                    &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号<br>
+                    地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+                </p>
+                <div class="icp">
+                </div>
+            </div>
+            <div class="footer-r">
+                <dl>
+                    <dt>公司信息</dt>
+                    <dd>
+                        <a href="#">关于我们</a></dd>
+                    <dd>
+                        <a href="#">人才招聘</a></dd>
+                    <dd>
+                        <a href="#">公司动态</a></dd>
+                    <dd>
+                        <a href="#">媒体报道</a></dd>
+                </dl>
+                <dl>
+                    <dt>公司产品</dt>
+                    <dd>
+                        <a href="#">梦高速金融</a></dd>
+                    <dd>
+                        <a href="#">梦高速人才</a></dd>
+                    <dd>
+                        <a href="#">梦高速众筹</a></dd>
+                    <dd>
+                        <a href="#">梦高速众包</a></dd>
+                    <dd>
+                        <a href="#">创企科技</a></dd>
+                </dl>
+                <dl>
+                    <dt>相关文档</dt>
+                    <dd>
+                        <a href="#">免责声明</a></dd>
+                    <dd>
+                        <a href="#">帮助中心</a></dd>
+                    <dd>
+                        <a href="#">项目规范</a></dd>
+                    <dd>
+                        <a href="#">服务协议</a></dd>
+                </dl>
+                <dl class="last">
+                    <dt>手机应用</dt>
+                    <dd>
+                        <a href="#">iPhone版下载</a></dd>
+                    <dd>
+                        <a href="#">Android版下载</a></dd>
+                    <dd>
+                        <a href="#">微信公众号梦高速</a></dd>
+                    <dd>
+                        <a href="#">
+                            <img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+    <script src="http://localhost:8070/scripts/general.js"></script>
+    
+<script type="text/javascript">
+    $(".title_nav_ul_items").mouseover(function () {
+        $(".slider").stop(true, false);
+        var iLeft = $(this).position().left;
+        var iWidth = $(this).width();
+        $(".slider").animate({
+            left: iLeft + "px",
+            width: iWidth + 40 + "px"
+        }, "fast");
+    });
+    $(".title_nav_ul").mouseout(function () {
+        $(".slider").animate({
+            left: "174px",
+            width: "64px"
+        });
+    });
+    // $(".title_nav_ul_items").mouseout(function(event) {
+    //   event.stopPropagation();
+    // });
+
+
+    $("#server").mouseenter(function () {
+        $(".server").stop(false, true);
+        $(".server").slideDown(500);
+    })
+    $("#server").mouseleave(function () {
+        $(".server").stop(false, true);
+        $(".server").slideUp(500);
+    })
+    </script>
+    
+    <script src="http://localhost:8070/lib/angular/angular.min.js"></script>
+    <script src="http://localhost:8070/lib/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="http://localhost:8070/scripts/tpl.js"></script>
+    <script src="http://localhost:8070/scripts/data.js"></script>
+    <script src="http://localhost:8070/scripts/plupload.full.min.js"></script>
+    <script src="http://localhost:8070/scripts/baseapp.js"></script>
+    <script src="http://localhost:8070/lib/jquery.Jcrop.min.js"></script>
+    <script src="http://localhost:8070/scripts/uc.homeCtrl.js"></script>
+    <script src="http://localhost:8070/scripts/colpick.js"></script>
+</body>
+</html>

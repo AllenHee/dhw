@@ -1,0 +1,186 @@
+<form name="zbForm">
+  <div ng-show="!data.realnameauth" class="auth">您还未实名验证，无法发布需求 <a href="#">马上验证</a></div>
+  <!--项目基本信息 开始-->
+  <div ng-show="data.realnameauth">
+    <div class="zbFormBox">
+      <h2 class="zbFormBox_ttl">项目基本信息<i></i></h2>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>项目标题</label>
+          <input class="formSet_input" name="title" ng-model="data.title" ng-pattern="/^.{6,20}$/" required>
+        </div>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>项目总金额</label>
+          <input class="formSet_input" name="totalMonay" ng-model="data.totalfin" ng-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/" required>
+        </div>
+        <label class="formSet-error" ng-show="zbForm.totalMonay.$dirty && zbForm.totalMonay.$invalid">请输入大于0的金额，最多2位小数</label>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>项目周期</label>
+          <input class="formSet_input" name="totalDays" ng-model="data.procycle" ng-pattern="/^[1-9]\d*$/" required>
+        </div>
+        <label class="formSet-error" ng-show="zbForm.totalDays.$dirty && zbForm.totalDays.$invalid">请输大于0的天数</label>
+      </div>
+      <!--截止日期 开始-->
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>截止日期</label>
+          <input class="formSet_input formInputSet_input-select formSet_input-timeSelect" type="text" ng-focus="isShow=true" ng-model="data.endtime"
+          required>
+          <i class="selectArrow selectArrow-timeSelect" ng-click="isShow=!isShow"></i>
+          <div class="selectItems timeSelect" time-select ng-show="isShow"></div>
+        </div>
+      </div>
+      <!--截止日期 结束-->
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>项目简介</label>
+          <textarea class="formSet_textarea" name="intro" ng-model="data.intro" required></textarea>
+        </div>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span> 项目类型</label>
+          <select ng-model="data.typeid" class="formSet_select">
+            <option class="formSet_option" value="">请选择</option>
+            <option class="formSet_option" value="1">开发众包</option>
+            <option class="formSet_option" value="2">装修众包</option>
+            <option class="formSet_option" value="3">营销众包</option>
+            <option class="formSet_option" value="4">电商众包</option>
+            <option class="formSet_option" value="5">其它</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!--项目基本信息 结束-->
+    <!--任务发布 开始-->
+    <div class="zbFormBox">
+      <h2 class="zbFormBox_ttl">任务发布<i></i></h2>
+      <div ng-repeat="mission in items">
+        <div class="mission_title">
+          <h3>任务{{$index+1}}</h3></div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_required">*</span>任务名称</label>
+            <input class="formSet_input" name="missionna" ng-model="mission.missionna" required>
+          </div>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_required">*</span>任务需求描述</label>
+            <textarea class="formSet_textarea" name="intro" ng-model="mission.mirequire" required></textarea>
+          </div>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label">附件</label>
+            <input class="formSet_input" name="enclosure" ng-model="data.enclosure">
+            <a class="formSet_input_btn formSet_input_btn_upload" id="load" bindfile type="button" data-keyname="zb" ng-model="data.enclosure">上传</a>
+          </div>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_required">*</span>任务单价</label>
+            <input class="formSet_input" name="price" ng-model="mission.unitprice" ng-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/" required>
+          </div>
+          <label class="formSet-error" ng-show="zbForm.price.$dirty && zbForm.price.$invalid">请输入大于0的单价，最多2两位小数</label>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_required">*</span>技能要求</label>
+            <input class="formSet_input" ng-model="mission.requireski" required>
+          </div>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_required">*</span>所需人数</label>
+            <input class="formSet_input" name="number" ng-model="mission.mipnum" ng-pattern="/^[1-9]\d*$/" required>
+          </div>
+          <label class="formSet-error" ng-show="zbForm.number.$dirty && zbForm.number.$invalid ">请输入大于0的人数</label>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_required">*</span>完成时间</label>
+            <input class="formSet_input" name="time" ng-model="mission.miday" ng-pattern="/^[1-9]\d*$/" required>
+          </div>
+          <label class="formSet-error" ng-show="zbForm.time.$dirty && zbForm.time.$invalid ">请输入大于0的天数</label>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"></label>
+            <button class="submitBtn" type="button" ng-hide="$index==0" ng-click="del($index)">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="formSet clearfix ">
+      <span class="formSet_addMore" ng-click="items.push({}) ">+继续添加新的任务</span>
+    </div>
+    <!--任务发布 结束-->
+    <!--个人信息 开始-->
+    <div class="zbFormBox ">
+      <h2 class="zbFormBox_ttl ">个人信息<i></i></h2>
+      <div class="content_t_t ">
+        <p>请务必填写您的真实信息,需求发布后,我们会根据此信息与你联系</p>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>姓名</label>
+          <input class="formSet_input" ng-model="data.realname" required>
+        </div>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>联系电话</label>
+          <input class="formSet_input" name="phone" ng-model="data.phone" ng-pattern="/^1\d{10}$/" required>
+        </div>
+        <label class="formSet-error" ng-show="zbForm.phone.$dirty && zbForm.phone.$invalid ">请输入正确的联系电话</label>
+      </div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span>邮箱</label>
+          <input class="formSet_input" name="email" type="email " ng-model="data.email" required>
+        </div>
+        <label class="formSet-error" ng-show="zbForm.email.$dirty && zbForm.email.$invalid ">请输入正确的邮箱</label>
+      </div>
+      <div class="formSet formInputSet-check ">
+        <label class="formSet_label "></label>
+        <input type="checkbox" ng-model="data.smrz ">需要实名认证
+      </div>
+      <div class="formSet formInputSet-check ">
+        <label class="formSet_label "></label>
+        <input type="checkbox" ng-model="data.sjrz ">需要手机验证
+      </div>
+      <div class="formSet clearfix">
+        <label class="formSet_label "><span class="formSet_required ">*</span></label>
+        <div class="chechboxSet">
+          <input class="checkbox" type="checkbox" ng-model="data.sftyxy" required><span class="agreement_text">是否同意《<a class="agreementLink" href="">梦高速众包服务协议</a>》</span>
+        </div>
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label"></label>
+        <button class="submitBtn" type="button" ng-disabled="zbForm.$invalid" ng-click="submit()">提交</button>
+      </div>
+    </div>
+    <div pup-pop data-text="{{popupText}}"></div>
+    <!--个人信息 结束-->
+</form>
+</div>
+
+<script>
+  $(document).on("click", function() {
+    $(".timeSelect").hide();
+  })
+  $(".timeSelect, .formSet_input-timeSelect, .selectArrow-timeSelect").on("click", function(event) {
+    event.stopPropagation();
+  })
+  $('.formSet_input-timeSelect, .selectArrow-timeSelect').on('click', function() {
+    $(".timeSelect").show();
+  })
+
+</script>

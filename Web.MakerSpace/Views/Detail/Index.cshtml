@@ -1,0 +1,52 @@
+﻿@*郑玉云 2015-11-20*@
+@{var detail = ViewBag.detail;}
+@{
+    var title = detail["name"];
+    ViewBag.Title = title + " - 梦高速 - 众创空间";
+}
+<!--主内容 开始-->
+<div class="content clearfix">
+    <!--左边栏 开始-->
+    <div class="sidebar">
+        <div class="sidebar_enter">
+            <a href="#">
+                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchuang/images/zckj_12.jpg" alt="#"></a>
+        </div>
+        <div class="sidebar_contact">
+            <a href="#">
+                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchuang/images/zckj_16.jpg" alt="#"></a>
+        </div>
+        <ul class="sidebar_menu">
+            <li><a class="sidebar_menu_item current" href="#">基地总览<span>></span></a></li>
+            <li><a class="sidebar_menu_item" href="#">基地政策<span>></span></a></li>
+            <li><a class="sidebar_menu_item" href="#">功能区介绍<span>></span></a></li>
+            <li><a class="sidebar_menu_item" href="#">入驻条件<span>></span></a></li>
+        </ul>   
+        <p>
+            工作时间：@detail["gzsj"]</p>
+        <p>
+            非工作时间：@detail["fgzsj"]</p>
+        <p class="sidebar_p-blod">
+            邮箱：@detail["email"]</p>
+    </div>
+    <!--左边栏 结束-->
+    <!--右侧内容区 开始-->
+    <div class="main">
+        <div class="main_box current">
+           @Html.Raw(@detail["jdzl"]); @*@Html.Raw() 方法输出带有html标签的字符串*@
+        </div>
+        <div class="main_box">
+            @Html.Raw(@detail["jdzc"]);
+        </div>
+        <div class="main_box">
+         @Html.Raw(@detail["gnjs"]);         
+        </div>
+        <div class="main_box">
+         @Html.Raw(@detail["rztj"]);       
+    </div>
+    <!--右侧内容区 结束-->
+</div>
+<!--主内容 结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/zchuang.detail.js"></script>
+}

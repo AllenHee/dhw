@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>表单</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/backend.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+</head>
+<body>
+  <p class="title-right bg-info">【 主平台-订单管理 】</p>
+  <div class="container container-main">
+    <!--右栏主区域开始：订单管理-->
+    <div class="row form-list-manage small">
+      <form>
+        <div class="form-inline">
+          <div class="form-group">
+            <label class="control-label">订单单号：</label>
+            <input class="form-control input-sm" type="text">
+          </div>
+          <div class="form-group">
+            <label class="control-label">收货人：</label>
+            <input class="form-control input-sm" type="text">
+          </div>
+          <div class="form-group">
+            <label class="control-label">订单金额：</label>
+            <input class="form-control input-sm money" type="text">
+            <span>-</span>
+            <input class="form-control input-sm money" type="text">
+            <span class="money-warning text-warning" style="display:none;">金额格式不正确</span>
+          </div>
+        </div>
+        <div class="form-inline">
+          <div class="form-group">
+            <label class="control-label">所属店铺：</label>
+            <input class="form-control input-sm" type="text">
+          </div>
+          <div class="form-group">
+            <label class="control-label">订单状态：</label>
+            <select class="form-control input-sm">
+              <option selected="selected" value="-3">请选择</option>
+              <option value="0">等待付款</option>
+              <option value="1">已付款</option>
+              <option value="2">已发货</option>
+              <option value="3">已收货</option>
+              <option value="4">交易完成</option>
+              <option value="-1">用户已取消</option>
+              <option value="-2">管理员已取消</option>
+              <option value="5">退款申请中</option>
+              <option value="6">退款完成</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="control-label">订单日期：</label>
+            <div class="input-group">
+              <input class="form-control input-sm datepicker" type="text">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </div>
+            </div>
+            <span>-</span>
+            <div class="input-group">
+              <input class="form-control input-sm datepicker" type="text">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </div>
+            </div>
+          </div>
+          <input class="btn btn-default btn-sm" type="submit" value="查询">
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <div class="list-ctrlbar">
+        <input class="select-all" type="checkbox"> 全选
+        <a href="#"></span> 查看</a>
+        <a href="#"><span class="glyphicon glyphicon-export"></span> 导出订单[Excel]</a>
+      </div>
+      <div class="list-content small">
+        <table class="table table-condensed table-striped">
+          <thead>
+            <tr>
+              <td></td>
+              <td><b>订单单号</b></td>
+              <td><b>所属店铺</b></td>
+              <td><b>下单时间</b></td>
+              <td><b>订单状态</b></td>
+              <td><b>交易完成时间</b></td>
+              <td><b>订单总金额</b></td>
+              <td><b>配送方式</b></td>
+              <td><b>配送费用</b></td>
+              <td><b>收货人</b></td>
+              <td><b>支付方式</b></td>
+              <td><b>购买用户</b></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>120222101374750499</td>
+              <td>小燕向北飞</td>
+              <td>2012-02-22 10:13:12</td>
+              <td>等待买家付款</td>
+              <td>--</td>
+              <td>13.50</td>
+              <td>STO</td>
+              <td>10.00</td>
+              <td>颜韩平</td>
+              <td>支付宝(即时到帐)</td>
+              <td>xiaoyan</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>120220150523726914</td>
+              <td>奕辰数码</td>
+              <td>2012-02-20 15:05:36</td>
+              <td class="text-success">交易完成</td>
+              <td>2012-02-20 15:06:31</td>
+              <td>3000.00</td>
+              <td>EMS</td>
+              <td>0.00</td>
+              <td>颜韩平</td>
+              <td>支付宝(双功能收款)</td>
+              <td>xiaoyan</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>120214152504376462</td>
+              <td>小燕向北飞</td>
+              <td>2012-02-14 15:25:34</td>
+              <td>已收货</td>
+              <td>2012-02-14 18:43:08</td>
+              <td>4615.00</td>
+              <td>EMS</td>
+              <td>15.00</td>
+              <td>颜韩平</td>
+              <td>网银在线支付</td>
+              <td>xiaoyan</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>111229143685931293</td>
+              <td>男人帮幸福小淘宝</td>
+              <td>2011-12-29 14:36:36</td>
+              <td class="text-primary">已发货</td>
+              <td>--</td>
+              <td>66.00</td>
+              <td>STO</td>
+              <td>10.00</td>
+              <td>小白</td>
+              <td>支付宝(双功能收款)</td>
+              <td>test4</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>111229140847932153</td>
+              <td>男人帮幸福小淘宝</td>
+              <td>2011-12-29 14:08:39</td>
+              <td>等待买家付款</td>
+              <td>--</td>
+              <td>60.00</td>
+              <td>STO</td>
+              <td>10.00</td>
+              <td>小燕</td>
+              <td>支付宝(双功能收款)</td>
+              <td>xiaoyan</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>111226175715363356</td>
+              <td>天地传说</td>
+              <td>2011-12-26 17:57:59</td>
+              <td class="text-warning">退款完成</td>
+              <td>2012-02-20 11:57:52</td>
+              <td>755.00</td>
+              <td>EMS</td>
+              <td>5.00</td>
+              <td>小燕</td>
+              <td>支付宝(双功能收款)</td>
+              <td>xiaoyan</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>111216132655655985</td>
+              <td>小燕向北飞</td>
+              <td>2011-12-16 13:26:37</td>
+              <td>管理员已取消</td>
+              <td>--</td>
+              <td>65.00</td>
+              <td>EMS</td>
+              <td>10.00</td>
+              <td>小李</td>
+              <td>支付宝(双功能收款)</td>
+              <td>xiaoyan</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>111216104062347484</td>
+              <td>小燕向北飞</td>
+              <td>2011-12-16 10:40:32</td>
+              <td>用户已取消</td>
+              <td>--</td>
+              <td>48.00</td>
+              <td>EMS</td>
+              <td>10.00</td>
+              <td>小李</td>
+              <td>支付宝(双功能收款)</td>
+              <td>xiaoyan</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td>111215155738274671</td>
+              <td>小燕向北飞</td>
+              <td>2011-12-15 15:57:06</td>
+              <td class="text-success">交易完成</td>
+              <td>2011-12-15 16:05:15</td>
+              <td>2018.50</td>
+              <td>EMS</td>
+              <td>15.00</td>
+              <td>小李</td>
+              <td>支付宝(双功能收款)</td>
+              <td>xiaoyan</td>
+            </tr>		
+          </tbody>
+        </table>
+        <nav class="text-center">
+          <ul class="pagination">
+            <li><span>共 <span>13</span> 页</span></li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#"><span>上一页</span></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#"><span>下一页</span></a></li>
+            <li><a href="#">末页</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  
+  <script src="scripts/jquery-1.11.3.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/bootstrap-datepicker.min.js"></script>
+  <script src="scripts/bootstrap-datepicker.zh-CN.min.js"></script>
+  <script src="scripts/selectAll.js"></script>
+  <!--日历控件-->
+  <script>
+    $('.datepicker').datepicker({
+      language: "zh-CN",
+      format: "yyyy-mm-dd",
+      autoclose: "true"
+    });
+  </script>
+  <!--表单验证-->
+  <script>
+    // 验证金额
+    $(".money").blur(function() {
+      if (this.value != "" && !/^\d+\.?\d*$/.test(this.value)) {
+        $(".money-warning").show();
+      } else {
+        $(".money-warning").hide();
+      }
+    });
+  </script>
+</body>
+</html>

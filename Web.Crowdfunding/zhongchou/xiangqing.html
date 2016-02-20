@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 众筹 - 详情页</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/zhongchou.css">
+  <script type="text/javascript">
+    var dhw = {
+      imgurl: 'http://192.168.2.10:82/img/',
+      imguploadurl: 'http://192.168.2.10:82/uploadimg',
+      mainurl: 'http://localhost:8075/',
+      staticurl: 'http://192.168.2.10:81'
+    };
+    var project_id = "01";
+  </script>
+  <script type="text/html" id="support-record">
+    {{each data as record i}}
+    <tr>
+      <td class="td-bold">23</td>
+      <td class="td-bold">{{record.name}}</td>
+      <td class="td-bold td-money td-big">{{record.money}}</td>
+      <td class="td-big">1</td>
+      <td>
+        <p>{{record.date.split(" ")[0]}}</p>
+        <p>{{record.date.split(" ")[1]}}</p>
+      </td>
+    </tr>
+    {{/each}}
+  </script>
+  <script type="text/html" id="zc-comment">
+    {{each data as comment i}}
+    <li class="cm-content" data-id="{{comment.id}}">
+      {{if comment.logo == ""}}
+      <div class="cm-avatar"><a href="#"><img src="{{staticDomain}}/images/defult_logo.png" alt="{{comment.user}}"></a></div>
+      {{/if}}
+      {{if comment.logo != ""}}
+      <div class="cm-avatar"><a href="#"><img src="{{domain}}{{comment.logo}}" alt="{{comment.user}}"></a></div>
+      {{/if}}
+      <a class="cm-username" href="#">{{comment.user}}</a>
+      <p class="cm-text">{{comment.comment}}</p>
+      <p class="cm-footer clearfix"><span class="cm-time">{{comment.date}}</span> <span class="sub-cm-count"><a class="cm-reply" href="#">评论({{comment.child.length}})</a></span></p>
+      <div class="comment-box clearfix">
+        <div class="cm-area">
+          <textarea placeholder="，写点什么吧~"></textarea>
+        </div>
+        <div class="cm-btns">
+          <div class="cm-submit"><button type="button">发布</button></div>
+        </div>
+      </div>
+      {{if comment.child.length != 0}}
+      <div class="sub-comments">
+        <i class="angle"></i>
+        <ul>
+          {{each comment.child as subcomment i}}
+          <li class="sub-comment clearfix" data-id="{{subcomment.id}}">
+            <div class="clearfix">
+              <div class="sub-cm-content"><a class="cm-username" href="#">{{subcomment.ower.name}}</a> 回复了 <a class="cm-username" href="#">{{subcomment.to.name}}</a>：{{subcomment.comment}}<span class="cm-time">{{subcomment.date}}</span></div>
+              <span><a class="cm-reply sub-cm-replay" href="#">回复</a></span>
+            </div>
+            <div class="comment-box clearfix">
+              <div class="cm-area">
+                <textarea placeholder="，写点什么吧~"></textarea>
+              </div>
+              <div class="cm-btns">
+                <div class="cm-submit"><button>发布</button></div>
+              </div>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+    </li>
+    {{/each}}
+  </script>
+</head>
+<body>
+  <!--通用顶栏 开始-->
+  <div class="sitenav clearfix">
+    <div class="sitenav-wrap">
+      <ul class="sitenav-l">
+        <li><a href="#"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+        <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+      </ul>
+      <ul class="sitenav-r">
+        <li class="log">您好，请<a href="#">登陆</a> <a href="#">免费注册</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li class="nav-drop">
+          <a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+          <ul class="sn-dropdown menu-dropdown">
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+          </ul>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60c;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></div>
+            <div>微信</div>
+          </div>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60a;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微博"></div>
+            <div>微博</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--通用顶栏 结束-->
+  <!--头部 开始-->
+  <div class="header">
+    <!--头部主内容 开始-->
+    <div class="header-main clearfix">
+      <div class="header-m-l">
+        <a href="#"><h1><img src="images/zhongchou_logo.png" alt="梦高速 - 众筹"></h1></a>
+      </div>
+      <div class="header-m-m">
+        <ul class="clearfix">
+          <li><a href="#">首页</a></li>
+          <li><a href="#">股权众筹</a></li>
+          <li><a href="#">创意众筹</a></li>
+          <li><a href="#">公益众筹</a></li>
+          <li class="last"><a href="#"><i></i>发布项目</a></li>
+        </ul>
+      </div>
+      <div class="header-m-r">
+        <div class="header-search clearfix">
+          <form action="#">
+            <input type="text" placeholder="请输入关键词">
+            <button>搜索</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--头部主内容 结束-->
+  </div>
+  <!--头部 结束-->
+  <!--分割线-->
+  <div class="slide-line"></div>
+  <!--分割线-->
+  <!--主内容区 开始-->
+  <div class="content-zc-wrap">
+    <div class="content clearfix">
+      <!--标题栏-->
+      <div class="zc-title">
+        <i class="zc-status zc-underway"></i> <!--这里请生成正确的class以显示正确状态-->
+        <h2>北京低价超值吉他入门课，等你来玩！</h2>
+        <ul class="tags">
+          <li class="category"><a class="category_link" data-type="4" href="#">艺术</a></li>
+          <li class="location">北京 东城区</li>
+          <li class="labels"><a href="#">培训</a><a href="#">音乐</a><a href="#">吉他</a></li>
+        </ul>
+      </div>
+      <!--详情栏-->
+      <div class="zc-detail clearfix">
+        <div class="zc-d-l">
+          <img src="images/thumb_534x400.jpg" alt="">
+        </div>
+        <div class="zc-d-r">
+          <div class="btns">
+            <button class="zc-follow" data-focus="585" onclick="attention()">关注（<span>585</span>）</button>
+            <button class="zc-like" data-like="785" onclick="like()">赞（<span>785</span>）</button>
+          </div>
+          <div class="numbers clearfix">
+            <div class="numbers-l">
+              <p class="digital">¥233,698</p>
+              <p>已筹款</p>
+            </div>
+            <div class="numbers-r">
+              <p class="digital">123</p>
+              <p>支持数</p>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="bar-wrap">
+              <div class="bar"><div style="width:65%;"></div></div> <i>65%</i>
+            </div>
+            <p class="target"><span class="t-eft"><span>剩余</span>4天</span> <span class="t-right"><span>目标筹资</span>¥2,000</span></p>
+          </div>
+          <div class="support">
+            <a class="support-btn" href="#">立即支持</a>
+          </div>
+          <div class="bdsharebuttonbox">
+            <span>分享</span>
+            <a href="#" class="bds_more" data-cmd="more"></a>
+            <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone"></a>
+            <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+            <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+            <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
+          </div>
+        </div>
+      </div>
+      <!--浮动栏-->
+      <div class="fixedbar-wrap">
+        <div class="fixedbar-fixed">
+          <div class="fixedbar">
+            <ul>
+              <li class="current"><a href="#xmxq">项目详情</a></li>
+              <li><a href="#zxjz">项目进展（4）</a></li>
+              <li><a class="fixedbar-comment" href="#pl">评论（9） </a></li>
+              <li><a href="#zcjl">支持记录（23）</a></li>
+            </ul>
+            <a class="support-btn" href="#">立即支持</a>
+          </div>
+        </div>
+      </div>
+      <!--内容栏-->
+      <div class="substance clearfix">
+        <!--左栏-->
+        <div class="substance-l" id="xmxq">
+          <blockquote>
+            <span class="bk-left-bg"></span>帮助热爱吉他的朋友们快速学会吉他，上一次课就能学会一首简单曲目。帮助热爱吉他的朋友们快速学会吉他，上一次课就能学会一首简单曲目。<span class="bk-right-bg"></span>
+            <div class="angle"><i class="angle-t"></i> <i class="angle-b"></i></div>
+          </blockquote>
+          <div class="zc-user clearfix">
+            <div class="zc-user-avatar"><a href="#"><img src="images/default_5.png" alt=""></a></div>
+            <div class="zc-user-info">
+              <div><a class="zc-user-name" href="#">SKN18980</a> <a class="zc-mail" href="#">私信</a></div>
+              <div class="zc-certificate">营业执照</div>
+            </div>
+          </div>
+          <div class="user-content">
+            <div class="content-title">
+              <p></p>
+              <div>
+                <h3>关于丁老师</h3>
+              </div>
+            </div>
+            <p>丁磊，本次吉他课的授课老师。</p>
+            <p>弹吉他十六年，中央音乐学院音乐教育专业毕业。1999年开始 师从于知名吉他演奏家赖康康。</p>
+            <p>十二年吉他授课经验，至今培训过600多名吉他学员。有独创的培训方法，能帮助零基础学员两小时学会简单的吉他曲目。</p>
+            <p>擅长吉他现场演奏、即兴表演、编曲。</p>
+            <p>曾为阿肆（《我在人民广场吃炸鸡》原唱）巡演专场音乐会伴奏，参与过阿肆新专辑的制作和吉他录制，擅长即兴表演。</p>
+            <p>曾为高姗（《何以笙箫默》《杉杉来了》插曲原唱）专场音乐会伴奏。</p>
+          </div>
+          <div class="headway" id="zxjz">
+            <div class="content-title">
+              <p></p>
+              <div>
+                <h3>最新进展</h3>
+              </div>
+            </div>
+            <div class="headway-wrap">
+              <ul>
+                <li>
+                  <div>
+                    <h4><a href="#">用户</a> 发起人</h4>
+                    <p>请大家注意：课和琴是分着拍的，是为了方便那些想买琴、但不上课的朋友们，而且课程的名额有限。所以大家拍的时候注意一下哦，想上课又想买琴的话，要拍两个产品呢！</p>
+                  </div>
+                  <div class="headway-date">2015-10-15 <i></i></div>
+                </li>
+                <li>
+                  <div>
+                    <h4><a href="#">约偶像</a> 发起人</h4>
+                    <p>请大家注意：课和琴是分着拍的，是为了方便那些想买琴、但不上课的朋友们，而且课程的名额有限。所以大家拍的时候注意一下哦，想上课又想买琴的话，要拍两个产品呢！</p>
+                  </div>
+                  <div class="headway-date">2015-10-15 <i></i></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="zc-comment" id="pl">
+            <div class="content-title">
+              <p></p>
+              <div>
+                <h3>评论</h3>
+              </div>
+            </div>
+            <div class="comments">
+              <div class="cm-input">
+                <div class="cm-avatar"><a href="#"><img src="images/defult_sys_avatar_s.png" alt=""></a></div>
+                <div class="cm-area">
+                  <textarea class="fbBox"></textarea>
+                </div>
+                <div class="cm-btns clearfix">
+                  <!--<div class="cm-select-img"><button>选择图片</button></div>
+                  <div class="cm-img-number"><span>最多5张</span></div>-->
+                  <div class="cm-submit"><button type="button">发布</button></div>
+                </div>
+              </div>
+              <ul class="cm-contents">
+                <!--评论内容-->
+              </ul>
+            </div>
+            <div class="pagination comment-pagination"></div>
+          </div>
+          <div class="zc-record" id="zcjl">
+            <div class="content-title">
+              <p></p>
+              <div>
+                <h3>支持记录</h3>
+              </div>
+            </div>
+            <table class="support-record">
+              <colgroup>
+                <col width="80px">
+                <col width="220px">
+                <col width="80px">
+                <col width="140px">
+                <col width="auto">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>订单序号</th>
+                  <th>支持者</th>
+                  <th>支持项</th>
+                  <th>数量(23)</th>
+                  <th>支持时间</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-bold">23</td>
+                  <td class="td-bold">用户B9CK9015</td>
+                  <td class="td-bold td-money td-big">¥1</td>
+                  <td class="td-big">1</td>
+                  <td>
+                    <p>2015-10-22</p>
+                    <p>20:16:41</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-bold">23</td>
+                  <td class="td-bold">用户B9CK9015</td>
+                  <td class="td-bold td-money td-big">¥1</td>
+                  <td class="td-big">1</td>
+                  <td>
+                    <p>2015-10-22</p>
+                    <p>20:16:41</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-bold">23</td>
+                  <td class="td-bold">用户B9CK9015</td>
+                  <td class="td-bold td-money td-big">¥1</td>
+                  <td class="td-big">1</td>
+                  <td>
+                    <p>2015-10-22</p>
+                    <p>20:16:41</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination record-pagination"></div>
+          </div>
+        </div>
+        <!--右栏-->
+        <div class="substance-r">
+          <div class="zjzc">
+            <div class="zjzc-box">
+              <h5>感谢您的支持 <small>2 人已支持</small></h5>
+              <p>感谢您的支持，您将收到我们寄出的信件或贺卡，这份支持将助我们的梦想飞的更高更远。</p>
+              <div class="zjzc-select-money">
+                <a class="current" href="#">¥10</a><a href="#">¥20</a><a href="#">¥50</a>
+              </div>
+              <div class="other">
+                <label>其它 <b>¥</b></label>
+                <input type="text">
+              </div>
+              <a class="support-btn" href="#">立即支持</a>
+            </div>
+            <div class="zj-class">
+              <h5><b>¥1</b> 3 人已支持 <i></i></h5>
+              <div class="zj-c-title">吉他教学视频（简单易学）</div>
+              <p>丁老师吉他歌曲教学视频一份</p>
+              <div class="zj-c-footer">
+                <p>配送费用：<b>免运费</b></p>
+                <p>预计回报发送时间：<b>项目结束后立即回报</b></p>
+              </div>
+              <a class="zj-c-border" href="#"></a>
+            </div>
+            <div class="zj-class">
+              <h5><b>¥1</b> 3 人已支持 <i></i></h5>
+              <div class="zj-c-title">吉他教学视频（简单易学）</div>
+              <p>丁老师吉他歌曲教学视频一份</p>
+              <div class="zj-c-footer">
+                <p>配送费用：<b>免运费</b></p>
+                <p>预计回报发送时间：<b>项目结束后立即回报</b></p>
+              </div>
+              <a class="zj-c-border" href="#"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--弹出登陆框 应该放到主站做 注释掉-->
+      <!--<div class="mask-box"></div>
+      <div class="log-box">
+        <div class="log-header">登陆 <i></i></div>
+        <div class="log-content clearfix">
+          <div class="log-content-left">
+            <p class="log-error-tip">*请输入密码</p>
+            <div class="log-input-wrap"><input type="text" value="用户名/手机号/邮箱"></div>
+            <div class="log-input-wrap"><input type="password" value="密码"></div>
+            <div class="log-btn-wrap">
+              <a class="log-btn" href="#">登陆</a>
+              <a class="log-forget" href="#">忘记密码</a>
+            </div>
+          </div>
+          <div class="log-content-right">
+            <div class="log-to-sign">没有账号？<a href="#">快速注册</a></div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+  <!--主内容区 结束-->
+  <!--通用底栏 开始-->
+  <div class="footer">
+    <div class="footer-wrap clearfix">
+      <div class="footer-l">
+        <div class="logo"></div>
+        <div>服务时间：工作日 9:00 - 18:00</div>
+        <div class="tel">0595-32892299</div>
+        <ul class="contact clearfix">
+          <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+          <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+          <li>
+            <a href="#"><i class="iconfont">&#xe60d;</i></a>
+            <!--微信弹出-->
+            <div class="wechat">
+              <span><img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></span>
+              <p></p>
+            </div>
+          </li>
+          <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a></li>
+        </ul>
+        <p>
+          创企科技有限公司 版权所有<br>
+          &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号<br>
+          地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+        </p>
+        <div class="icp"></div>
+      </div>
+      <div class="footer-r">
+        <dl>
+          <dt>公司信息</dt>
+          <dd><a href="#">关于我们</a></dd>
+          <dd><a href="#">人才招聘</a></dd>
+          <dd><a href="#">公司动态</a></dd>
+          <dd><a href="#">媒体报道</a></dd>
+        </dl>
+        <dl>
+          <dt>公司产品</dt>
+          <dd><a href="#">梦高速金融</a></dd>
+          <dd><a href="#">梦高速人才</a></dd>
+          <dd><a href="#">梦高速众筹</a></dd>
+          <dd><a href="#">梦高速众包</a></dd>
+          <dd><a href="#">创企科技</a></dd>
+        </dl>
+        <dl>
+          <dt>相关文档</dt>
+          <dd><a href="#">免责声明</a></dd>
+          <dd><a href="#">帮助中心</a></dd>
+          <dd><a href="#">项目规范</a></dd>
+          <dd><a href="#">服务协议</a></dd>
+        </dl>
+        <dl class="last">
+          <dt>手机应用</dt>
+          <dd><a href="#">iPhone版下载</a></dd>
+          <dd><a href="#">Android版下载</a></dd>
+          <dd><a href="#">微信公众号梦高速</a></dd>
+          <dd><a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/jquery.cookie.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/plupload.full.min.js"></script>
+  <script src="http://localhost:8070/scripts/zchou.detail.js"></script>
+  <script>
+    $('input, textarea').placeholder();
+    
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+  </script>
+</body>
+</html>

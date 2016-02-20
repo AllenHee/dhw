@@ -1,0 +1,130 @@
+<form name="formProject">
+<div class="formWrap formWrap-project">
+  <div class="formTitle clearfix">
+    <h2>创建你的项目信息</h2>
+    <div class="saveCopyBtnWrap">
+      <span class="saveTip saveTip-project"></span>
+      <button class="saveCopyBtn" type="button" ng-click="saveDraft(urlstate.current.name, 3, true)">保存草稿</button>
+    </div>
+  </div>
+  <div class="formBody clearfix">
+    <div class="xmxxLeft">
+      <div class="formSet formSet-imgUpload">
+        <label class="formSet_label">设置封面 :</label>
+        <input type="hidden" ng-model="data.frontpic" required>
+        <a class="btn-imgUpload" id="browseFM" type="button" ng-model="data.frontpic" data-keyname="cpzc" data-size="280x280_260x260_534x534" bindimg></a>
+        <span class="text-imgUpload">建议尺寸大小640*480，图片大小不要超过5M！</span>
+      </div>
+      <div class="formSet count">
+        <label class="formSet_label">项目标题 :</label>
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" name="title" type="text" ng-model="data.title" maxlength="40" placeholder="给自己的项目取一个响亮的名字吧!注意不要超过40个字哦~" required>
+          <p class="formSet_error" ng-show="formProject.title.$dirty && formProject.title.$error.required">*请填写项目标题</p>
+          <span class="formSet_count"><span class="formSet_count_used">40</span>/40</span>
+        </div>
+      </div>
+      <div class="formSet count">
+        <label class="formSet_label">筹款目的 :</label>
+        <div class="formSet_inputWrap">
+          <textarea class="formSet_textarea" name="purpose" type="text" ng-model="data.purpose" maxlength="75" required></textarea>
+          <p class="formSet_error" ng-show="formProject.purpose.$dirty && formProject.purpose.$error.required">*请填写筹款目的</p>
+          <span class="formSet_count"><span class="formSet_count_used">75</span>/75</span>
+        </div>
+      </div>
+      <div class="formSet">
+        <label class="formSet_label">项目地点 :</label>
+        <div class="formSet-doubleWrap" class="clearfix">
+          <div class="SelectWrap SelectWrap-first">
+            <input class="formSet_input" type="text" ng-model="data.province" ng-click="showSelectCont($event)" placeholder="省份" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="prov in provs" ng-click="getCitys($event)">{{prov}}</li>
+            </ul>
+          </div>
+          <div class="SelectWrap">
+            <input class="formSet_input" type="text" ng-model="data.city" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="city in citys" ng-click="setCity($event)">{{city}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="formSet">
+        <label class="formSet_label">筹资金额 :</label>
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" type="text" name="money" ng-model="data.money" ng-pattern="/(^[5-9]\d{2}$)|(^[1-9]\d{3,7}$)|(^100000000$)/" required> 元
+          <p class="formSet_error" ng-show="formProject.money.$dirty && formProject.money.$invalid">*筹资金额不能少于500,不能高于1亿</p>
+        </div>
+      </div>
+      <div class="formSet">
+        <label class="formSet_label">筹资天数 :</label>
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" type="text" name="daysum" ng-model="data.daysum" ng-pattern="/(^[1-8]?[0-9]?$)|(^90$)/"> 天
+          <p class="formSet_error" ng-show="formProject.daysum.$dirty && formProject.daysum.$invalid">*筹资时间周期须在10~90天之间</p>
+        </div>
+      </div>
+      <div class="formSet label-recommend">
+        <label class="formSet_label">推荐标签 :</label>
+        <div class="label-items">
+          <span class="label-item" ng-repeat="rectagName in rectagNames" ng-class="{active: isSelected(rectagName)}" ng-click="selectTags($event)">{{rectagName}}</span>
+        </div>
+      </div>
+      <div class="formSet">
+        <label class="formSet_label">自定义标签 :</label>
+        <div class="formSet_inputWrap">
+          <input class="formSet_input" type="text" name="diytag" ng-model="data.diytag" ng-pattern="/^(([\u4e00-\u9fa5]|[a-zA-Z0-9]){1,5}\s{1}){0,2}([\u4e00-\u9fa5]|[a-zA-Z0-9]){1,5}$/" placeholder="给你的项目设置个性标签，让用户更容易搜索到；标签之间用空格隔开！">
+          <p class="formSet_error" ng-show="formProject.diytag.$dirty && formProject.diytag.$invalid">*最多输入三个自定义标签，标签之间用空格隔开，每个标签不超过5个汉字</p>
+        </div>
+      </div>
+  </div>
+  <div class="xmxxRight">
+    <div class="form-right-top">
+      <span>预览项目图片</span>
+      <img ng-show="!!data.frontpic" ng-src="{{(!data.frontpic) ? '' : (dhw.imgurl + data.frontpic + '_260x260' + '.jpg')}}">
+    </div>
+    <div class="form-right-bottom">
+      <div class="form-right-bottom-top">
+        <a class="xmxx-title-preview" href="#">{{data.title ? data.title : "此处预览标题"}}</a>
+        <p class="xmxx-purpose-preview">{{data.purpose ? data.purpose : "此处预览筹款目的"}}</p>
+      </div>
+      <div>
+        <div class="form-right-bottom-bq" id="xmxxTags">
+          <a href="#" ng-show="!data.rectag.length">标签</a>
+          <a href="#" ng-repeat="tag in data.rectag">{{tag}}</a>
+        </div>
+        <div class="form-right-bottom-jd"></div>
+        <div class="form-right-bottom-bottom">
+          <div class="form-right-bottom-special">
+            <p>0元</p>
+            <p>已筹资</p>
+          </div>
+          <div class="form-right-bottom-special">
+            <p>0人</p>
+            <p>支持者</p>
+          </div>
+          <div class="form-right-bottom-last">
+            <p>0%</p>
+            <p>项目进度</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<!--用来判断页面是否填写正确的隐藏按钮-->
+<input class="isValid" type="hidden" ng-disabled="formProject.$invalid">
+</form>
+
+<!--弹出确认框 开始-->
+<div class="modalWrap" ng-class="{show:modal.show}"></div>
+<div class="modal" ng-class="{show:modal.show}">
+  <div class="modal_header">
+    <button class="modal_close" ng-click="switchModal()">×</button>
+    <h4>错误提示</h4>
+  </div>
+  <div class="modal_body">最多只能选择两个推荐标签</div>
+  <div class="modal_footer">
+    <button class="modal_btn modal_btn-confirm" ng-click="switchModal()">确定</button>
+  </div>
+</div>
+<!--弹出确认框 结束-->

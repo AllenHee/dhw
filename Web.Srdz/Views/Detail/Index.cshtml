@@ -1,0 +1,226 @@
+﻿@using Newtonsoft.Json.Linq;
+@{var item = ViewBag.detail as DHW.Web.Srdz.Controllers.Srdz_Detail;}
+@{
+    var title = item.title;
+    ViewBag.Title = title + " - 梦高速 - 私人定制";
+}
+<!--主内容区 开始-->
+<div class="content">
+    @* <p class="title">
+        <span>私人订制</span> > <span>其他</span> > 任务详情</p>*@
+    <!--顶部详情-->
+    <div class="topDetail">
+        <div class="topDetail_l">
+            <img src="@Html.Raw(BaseConfigs.GetUrlCdn)@item.logo">
+            <h1>
+                @item.sname</h1>
+            <div class="topDetail_l_level clearfix">
+                <i class="topDetail_l_level_item"></i><i class="topDetail_l_level_item"></i><i class="topDetail_l_level_item">
+                </i><i class="topDetail_l_level_item"></i><i class="topDetail_l_level_item"></i>
+            </div>
+            <div class="topDetail_l_butWrap">
+                <button class="topDetail_l_but">
+                </button>
+                发私信
+            </div>
+            <p class="topDetail_l_addr">
+                所在地：<span>@item.province @item.city</span></p>
+            <p class="topDetail_l_addr">
+                好评率：<span>99%</span></p>
+        </div>
+        <div class="topDetail_c">
+            <div class="topDetail_c_imgWrap">
+                <img class="topDetail_c_img" src="@BaseConfigs.GetImgPath@item.img">
+            </div>
+            <ul class="topDetail_c_pic">
+                @for (int a = 0; a < ViewBag.img.Rows.Count; a++)
+                {
+                    var url = ViewBag.img.Rows[a]["url"];
+                    <li class="topDetail_c_pic_items">
+                        <img class="topDetail_c_pic_items_img" src="@Html.Raw(BaseConfigs.GetUrlCdn + url)_90x80.png"></li>
+                }
+            </ul>
+        </div>
+        <div class="topDetail_r">
+            <h1>
+                @item.title</h1>
+            <div class="topDetail_r_intro max-height">
+                @item.desc
+                <!--<button class="less_btn">∧</button>
+          <button class="more_btn">∨</button>-->
+            </div>
+            @if (@item.sku != null)
+            {
+                foreach (JProperty jp in item.sku as JToken)
+                {
+                    JArray iitem = jp.Value as JArray;
+                <div class="topDetail_r_style">
+                    <div class="topDetail_r_style_l">
+                        <label>
+                            @jp.Name:</label></div>
+                    <ul class="topDetail_r_style_r clearfix">
+                        @for (int i = 0; i < iitem.Count; i++)
+                        {
+                           
+                            <li class="topDetail_r_style_span">@iitem[i]<i></i></li>
+                        }
+                    </ul>
+                </div>
+                }
+            }
+            <div class="topDetail_r_qua">
+                <label>
+                    件数 :</label>
+                <span class="topDetail_r_qua_red minus"></span>
+                <input class="topDetail_r_qua_input" type="text" value="1">
+                <span class="topDetail_r_qua_add plus"></span><span class="topDetail_r_qua_total" data-kc="@item.inventory">
+                    件（库存 @item.inventory 件）</span>
+            </div>
+            <div class="topDetail_r_price">
+                <label>
+                    价格 :</label><span>¥@item.price</span>
+            </div>
+            <div class="topDetail_r_bt">
+                <botton class="topDetail_r_btn">立即定制</botton>
+            </div>
+            <div class="topDetail_r_b">
+                @if (!ViewBag.DUser.HasLogin)
+                {
+                    <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
+                        <span class="topDetail_r_b_focus">关注(@item.attention)</span> </a>}
+                else
+                {
+                    if (ViewBag.gz != "1")
+                    {
+                    <span class="topDetail_r_b_focus">关注(@item.attention)</span>}
+                    <span class="topDetail_r_b_focus" attention>关注(@item.attention)</span>}
+                    else
+                    { 
+                    <span class="topDetail_r_b_focus">已关注(@item.attention)</span>
+                    }
+                }
+                <span class="topDetail_r_b_share">分享(@item.share)</span>
+            </div>
+        </div>
+    </div>
+    <!--顶部详情 结束-->
+    <div>
+        <ul class="Mtitle">
+            <li class="Mtitle_items Mtitle_items_current">商品详情</li>
+            <li class="Mtitle_items">用户评价(<span class="commentTotal">18</span>)</li>
+            <li class="Mtitle_items">成交记录(<span class="recordTotal">26</span>)</li>
+        </ul>
+        <!--商品详情 开始-->
+        <div class="spxq show">
+            @Html.Raw(item.text)
+        </div>
+        <!--商品详情 结束-->
+        <!--用户评价 开始-->
+        <div class="yhpj show">
+            <div class="yhpj_wrap">
+            </div>
+            <div class="pagination pagination-pj">
+            </div>
+        </div>
+        <!--用户评价 结束-->
+        <!--成交记录 开始-->
+        <div class="cjjl show">
+            <div class="cjjl_wrap">
+                <table cellspacing="0">
+                    <thead>
+                        <tr>
+                            <td class="cjjl_person">
+                                定制人
+                            </td>
+                            <td class="cjjl_price">
+                                定制价格
+                            </td>
+                            <td class="cjjl_project">
+                                定制项目
+                            </td>
+                            <td class="xjjl_time">
+                                交易时间
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody class="cjjl_tbody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination pagination-jl">
+            </div>
+        </div>
+        <!--成交记录 结束-->
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    
+    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/srdz.detail.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/jquery.loaddata.js"></script>
+    <script>
+        var fpid = @item.id;
+    </script>
+    <script type="text/html" id="yhpjid">
+    {{each data as pj}}
+    <div class="yhpj_all">
+        <div class="yhpj_cont">
+          <div class="yhpj_logo">
+            {{if pj.logo}}
+            <img src="{{domain+pj.logo}}">
+            {{/if}}
+            {{if !pj.logo}}
+            <img src="@Html.Raw(BaseConfigs.GetUrlCdn)/srdz/images/avatar.jpg">
+            {{/if}}
+            <p>{{pj.user}}</p>
+          </div>
+          <div class="yhpj_intro">
+            <p>评分 : 
+              {{each pj.rankArr as star}}
+              <i>{{star}}</i>
+              {{/each}}
+            </p>
+            <p>{{pj.comment}}</p>
+            <p><span>{{pj.date}}</span><span> 13:26</span></p>
+          </div>
+        </div>
+      </div>    
+    {{/each}}
+    </script>
+    <script type="text/html" id="cjjlid">
+    {{each data as cj}}
+    <tr>
+      <td>{{cj.name}}</td>
+      <td>{{cj.price}}</td>
+      <td>{{cj.title}}</td>
+      <td>{{cj.date}}</td>
+    </tr>  
+    {{/each}}
+    </script>
+    <script>
+        var para = {
+            fpid: fpid,
+            pageIndex: 1,
+            pageSize: 5
+        }
+
+        loadData("/Detail/Pjxx", para, "yhpjid", ".yhpj_wrap", function (data) {
+            for (var j = 0; j < data.result.data.length; j++) {
+                data.result.data[j].rankArr = [];
+                for (var i = 0; i < data.result.data[j].rank; i++) {
+                    data.result.data[j].rankArr.push("");
+                }
+            }
+            var total = data.result.total;
+            $(".commentTotal").text(total);
+        }, '.pagination-pj');
+
+        loadData("/Detail/Cjjl", para, "cjjlid", ".cjjl_tbody", function (data) {
+            var total = data.result.total;
+            $(".recordTotal").text(total);
+        }, '.pagination-jl');
+    
+    </script>
+}

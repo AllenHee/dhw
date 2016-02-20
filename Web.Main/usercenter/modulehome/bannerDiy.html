@@ -1,0 +1,26 @@
+<form name="banner">
+  <div class="formSet clearfix">
+    <div class="formSetWrap clearfix">
+      <label class="formSet_label">主标题：</label>
+      <input class="formSet_input" type="text" name="maintitle" ng-model="data.maintitle" required>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap clearfix">
+      <label class="formSet_label">副标题：</label>
+      <input class="formSet_input" type="text" name="subtitle" ng-model="data.subtitle" required>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap clearfix">
+      <label class="formSet_label">主题色：</label>
+      <input class="formSet_input" name="themes" ng-model="data.themes.themeColor" id="picker" required>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"></label>
+      <button class="submitBtn" type="button" ng-click="submit()" ng-disabled="banner.$invalid">点击提交</button>
+    </div>
+  </div>
+</form>

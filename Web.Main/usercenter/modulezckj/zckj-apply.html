@@ -1,0 +1,74 @@
+<h4 class="reg_form_title reg_form_title-first">创业空间入驻申请表</h4>
+<div>
+  <form name="personal">
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">公司(团队)全称</label>
+        <input class="formSet_input" name="company" type="text" ng-model="data.company" required>
+        <!--<label class="formSet-tip" ng-show="phoneTip">请填写联系电话</label>
+        <label class="formSet-error" ng-show="!phoneTip && personal.phone.$invalid">号码格式不正确，请重新输入</label>-->
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">一句话项目介绍</label>
+        <input class="formSet_input" name="profile" ng-model="data.profile" required>
+        <!--<label class="formSet-tip" ng-show="emailTip">请填写邮箱地址</label>
+        <label class="formSet-error" ng-show="!emailTip && personal.email.$invalid">邮箱地址格式不正确，请重新输入</label>-->
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">项目所属行业</label>
+        <select class="formSet_select" class="formSet_input" name="trade" type="text" ng-model="data.dtid" ng-options="trade as trade.text for trade in todata"
+        required>
+          <option value="">请选择所属行业</option>
+          <!--<option class="formSet_option" value="">请选择</option>-->
+          <!--<option class="formSet_option" ng-repeat="trade in list.trades" value="{{trade}}">{{trade.text}}</option>-->
+          <!--<option ng-repeat="trade in todata" value="{}">{{trade}}</option>-->
+        </select>
+        <i class="formSet_icon success select" ng-show="corporate.trade.$dirty && corporate.trade.$valid"></i>
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">法人代表(负责人)姓名</label>
+        <input class="formSet_input" name="introducer" ng-model="data.introducer" required>
+        <!--<label class="formSet-tip" ng-show="emailTip">请填写邮箱地址</label>
+        <label class="formSet-error" ng-show="!emailTip && personal.email.$invalid">邮箱地址格式不正确，请重新输入</label>-->
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">联系人姓名</label>
+        <input class="formSet_input" name="contacts" ng-model="data.contacts" required>
+        <!--<label class="formSet-tip" ng-show="emailTip">请填写邮箱地址</label>
+        <label class="formSet-error" ng-show="!emailTip && personal.email.$invalid">邮箱地址格式不正确，请重新输入</label>-->
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">联系人电子邮箱</label>
+        <input class="formSet_input" name="email" type="email" ng-model="data.email" required>
+        <!--<label class="formSet-tip" ng-show="emailTip">请填写邮箱地址</label>
+        <label class="formSet-error" ng-show="!emailTip && personal.email.$invalid">邮箱地址格式不正确，请重新输入</label>-->
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label">商业计划书</label>
+        <input class="formSet_input" name="plan" ng-model="data.plan" required>
+        <a class="formSet_input_btn formSet_input_btn_upload" id="plan" bindfile type="button" data-keyname="zckj" ng-model="data.plan">上传</a>
+        <!--<label class="formSet-tip" ng-show="emailTip">请填写邮箱地址</label>
+        <label class="formSet-error" ng-show="!emailTip && personal.email.$invalid">邮箱地址格式不正确，请重新输入</label>-->
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label"></label>
+        <button class="submitBtn" type="button" ng-disabled="personal.$invalid" ng-click="submit()">提交</button>
+      </div>
+    </div>
+    <div pup-pop data-text="{{popupText}}"></div>
+  </form>
+</div>

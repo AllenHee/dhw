@@ -1,0 +1,13 @@
+﻿@helper Displayjs(string UrlCdn)
+    {<script src="@{@UrlCdn}scripts/plupload.full.min.js"></script>
+    <script src="@{@UrlCdn}lib/angular/angular.min.js"></script>
+    <script src="@{@UrlCdn}lib/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="@{@UrlCdn}scripts/tpl.js" type="text/javascript"></script>
+    <script src="@{@UrlCdn}scripts/baseapp.js"></script>
+}
+@helper AppUrl(string url, bool iscompany)
+    {if (iscompany)
+     {@url<text>_company</text>}
+     else
+     {@url} 
+}

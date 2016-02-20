@@ -1,0 +1,30 @@
+<form name="link">
+  <div ng-repeat="link in links" class="formLink formSet">
+    <h6 class="formSet">友情链接{{$index + 1}}</h6>
+    <div class="formSet clearfix">
+      <div class="formSetWrap clearfix">
+        <label class="formSet_label">链接名称：</label>
+        <input class="formSet_input" name="text" ng-model="link.text" required>
+        <button class="formSet_input_btn formSet_input_btn-photodel formSet_input_btn_link_del " ng-hide="$index===0" type="button"
+        ng-click="dellink($index)">删除</button>
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap clearfix">
+        <label class="formSet_label">案例链接：</label>
+        <input class="formSet_input" type="url" name="url" ng-model="link.url" ng-focus="urlTip=true" ng-blur="urlTip=false" required>
+        <label class="formSet-tip" ng-show="urlTip">请输入http:// 或者 https:// 开头的地址</label>
+      </div>
+    </div>
+  </div>
+
+
+  <button class="formSet_input_btn formSet_input_btn-sku formSet_input_btn_marginTop" type="button" ng-click="addlink()">添加友情链接</button>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"></label>
+      <button class="submitBtn" type="button" ng-click="submit()" ng-disabled="link.$invalid">点击提交</button>
+    </div>
+  </div>
+
+</form>

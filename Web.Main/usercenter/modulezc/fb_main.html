@@ -1,0 +1,41 @@
+  <!--主内容区 开始-->
+  <div class="content content-zcForm clearfix" ng-click="hideSelectCont()">
+    
+    <!--顶部切换标签 开始-->
+    <div class="formHeader clearfix">
+      <ul class="formHeader_menu clearfix">
+        <li class="formHeader_item" ng-class="{current:urlstate.current.name=='basic'}" ng-click="route('basic', urlstate.current.name)">
+          <i ng-class={valid:isValid.basic}></i>基本信息
+        </li>
+        <li class="formHeader_item" ng-class="{current:urlstate.current.name=='project'}" ng-click="route('project', urlstate.current.name)">
+          <i ng-class={valid:isValid.project}></i>项目信息
+        </li>
+        <li class="formHeader_item" ng-class="{current:urlstate.current.name=='detail'}" ng-click="route('detail', urlstate.current.name)">
+          <i ng-class={valid:isValid.detail}></i>详细描述
+        </li>
+        <li  class="formHeader_item last" ng-class="{current:urlstate.current.name=='payback'}" ng-click="route('payback', urlstate.current.name)">
+          <i ng-class={valid:isValid.payback}></i>回报设置
+        </li>
+      </ul>
+      <a class="formHeader_item formHeader_item-preview" ng-click="route('preview', urlstate.current.name)">预览</a>
+    </div>
+    <!--顶部切换标签 结束-->
+      <!--表单主内容 开始-->
+      <div class="formCont">
+        <div class="formBodyWrap" ui-view>
+          <!--路由内容-->
+        </div>
+      </div>
+      <!--表单主内容 结束-->
+      <!--表单底部 开始-->
+      <div class="formFooter">
+        <div class="formFooter_btns">
+          <button class="formFooter_btn" ng-hide="urlstate.is('ProjectLaunch.basic') || urlstate.is('ProjectLaunch.preview')" ng-click="saveDraft(urlstate.current.name, 0)">上一步</button>
+          <button class="formFooter_btn" ng-hide="urlstate.is('ProjectLaunch.payback') || urlstate.is('ProjectLaunch.preview')" ng-click="saveDraft(urlstate.current.name, 1)">下一步</button>
+          <button class="formFooter_btn" ng-show="urlstate.is('ProjectLaunch.payback')" ng-click="saveDraft(urlstate.current.name);submit();" ng-disabled="!isValid.basic || !isValid.project || !isValid.detail || !isValid.payback">提交审核</button>
+        </div>
+      </div>
+      <!--表单底部 结束-->
+      
+  </div>
+  <!--主内容区 结束-->

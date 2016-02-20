@@ -1,0 +1,142 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
+@{
+    var compay = CompanyTopInfo.compay;
+    var trade = CompanyTopInfo.trade;
+    ViewBag.Title = "公司动态" + compay;
+    ViewBag.Keywords = compay + ",公司动态," + trade;
+}
+<div class="banner">
+    <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/com_banner.png" alt="">
+    <div class="banner_txt">
+        <h3>
+            @ViewBag.dttitle["maintitle"]</h3>
+        <p>
+            @ViewBag.dttitle["subtitle"]</p>
+    </div>
+</div>
+<!--内容 开始-->
+<div class="content gsdt clearfix">
+    <div class="ban_btns">
+        <a class="current emColorBG" href="#">公司动态</a> <a href="#">行业动态</a>
+    </div>
+    <!--公司动态-->
+    <div class="comDt show">
+        <ul class="gongsi main clearfix">
+        </ul>
+        <div class="pagination">
+        </div>
+    </div>
+    <!--行业动态-->
+    <div class="hyDt">
+        <ul class="main hangye clearfix">
+            <li>
+                <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/com_02.jpg" alt="">
+                <h3>
+                    8月12日，福建省科技厅福建省科技厅</h3>
+                <div class="txt">
+                    <p>
+                        8月12日，福建省科技厅高新技术与工业科技处郑焕安处长等领导一行到创企信息科技有限公司视察。</p>
+                    <p>
+                        创企信息科技有限公司CEO刘相信为视察领导们汇报了公司的发展计划和商业模式，刘相 信说，互联网的发展价值不在于多少资产，不在于周详的计划，而是要随机应变，灵活转
+                        向，敢于尝试。互联网创业主要能节省用户时间，充分利用大数据及网络高速信息解决难题，</p>
+                </div>
+                <div class="time">
+                    <i></i><span>2015-12-11</span>
+                </div>
+            </li>
+            <li>
+                <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/com_01.jpg" alt="">
+                <h3>
+                    8月12日，福建省科技厅福建省科技厅</h3>
+                <div class="txt">
+                    <p>
+                        8月12日，福建省科技厅高新技术与工业科技处郑焕安处长等领导一行到创企信息科技有限公司视察。</p>
+                    <p>
+                        创企信息科技有限公司CEO刘相信为视察领导们汇报了公司的发展计划和商业模式，刘相</p>
+                </div>
+                <div class="time">
+                    <i></i><span>2015-12-11</span>
+                </div>
+            </li>
+            <li>
+                <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/com_03.jpg" alt="">
+                <h3>
+                    8月12日，福建省科技厅福建省科技厅</h3>
+                <div class="txt">
+                    <p>
+                        8月12日，福建省科技厅高新技术与工业科技处郑焕安处长等领导一行到创企信息科技有限公司视察。</p>
+                    <p>
+                        创企信息科技有限公司CEO刘相信为视察领导们汇报了公司的发展计划和商业模式，刘相 信说，互联网的发展价值不在于多少资产，不在于周详的计划，而是要随机应变，灵活转</p>
+                </div>
+                <div class="time">
+                    <i></i><span>2015-12-11</span>
+                </div>
+            </li>
+            <li class="last">
+                <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/com_04.jpg" alt="">
+                <h3>
+                    8月12日，福建省科技厅福建省科技厅</h3>
+                <div class="txt">
+                    <p>
+                        8月12日，福建省科技厅高新技术与工业科技处郑焕安处长等领导一行到创企信息科技有限公司视察。</p>
+                    <p>
+                        创企信息科技有限公司CEO刘相信为视察领导们汇报了公司的发展计划和商业模式，刘相 信说，互联网的发展价值不在于多少资产，不在于周详的计划，而是要随机应变，灵活转
+                        向，敢于尝试。互联网创业主要能节省用户时间，充分利用大数据及网络高速信息解决难题，</p>
+                </div>
+                <div class="time">
+                    <i></i><span>2015-12-11</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--内容 结束-->
+@section scripts{
+    <script type="text/javascript">
+    var ddid = @ViewBag.ddid;
+    </script>
+    <script type="text/html" id="dongtai">
+  {{each data as dt}}
+    <li>
+    <a href="/Company/DTDetail/{{ddid}}/{{dt.id}}">
+      <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/com_01.jpg" alt=""></a>
+      <h3>{{dt.title}}</h3>
+      <div class="txt">
+        <p>{{dt.summary}}</p>
+      </div>
+      <div class="time">
+        <i></i>
+        <span>{{dt.date}}</span>
+      </div>
+    </li>
+  {{/each}}    
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script>
+        $(".ban_btns a").click(function () {
+            $(this).addClass("current").siblings().removeClass("current");
+
+            var i = $(this).index();
+            $(".gsdt").children("div").eq(i + 1).addClass("show").siblings().removeClass("show");
+        })
+    </script>
+    <script>
+        $(function () {
+            var para = {
+                pageIndex: 1,
+                pageSize: 4,
+                ddid: ddid
+            };
+
+            loadData("/CompanyHome/DTList", para, "dongtai", ".gongsi", function (d) { d.result.ddid = ddid; });
+        })
+    
+    </script>
+}

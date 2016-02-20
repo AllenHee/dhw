@@ -1,0 +1,233 @@
+﻿@using Newtonsoft.Json.Linq;
+@{
+    Layout = Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
+@{
+    var compay = CompanyTopInfo.compay;
+    var trade = CompanyTopInfo.trade;
+    ViewBag.Title = compay + "-梦高速";
+    ViewBag.Keywords = compay + "," + trade;
+    ViewBag.Description = ViewBag.companyinfo["gsjs"];
+}
+<!--轮播 开始-->
+<div class="slide-bg">
+    <div class="slide">
+        @{
+            var wid = 1920 * @ViewBag.syphoto.Count + "px";
+        }
+        <ul class="slide-wrap" style = "width:@wid">
+            @for (int i = 0; i < @ViewBag.syphoto.Count; i++)
+            {
+
+                var imgs = @ViewBag.syphoto[i]["img"] + ".jpg";
+                var side = "slide_bg" + (i + 1);
+                <a class="@side" href="#">
+                    <li>
+                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt=""></li></a>               
+            }
+        </ul>
+        @if (@ViewBag.syphoto.Count > 1)
+        {
+            <a class="s-prev"></a><a class="s-next"></a>
+        }
+    </div>
+</div>
+<!--轮播 结束-->
+<div class="maincontbg">
+    <!--内容上部 开始-->
+    <div class="maincont clearfix">
+        <div class="maincont_t clearfix">
+            <div class="maincont_t_l">
+                <h1>
+                    公司简介</h1>
+                <div class="comp_intro clearfix">
+                    <img class="comp_logo" src="@{@BaseConfigs.GetImgPath}/@ViewBag.companyinfo["gstp"]" alt="">
+                    <div class="comp_intro_r">
+                        <p>
+                            地点 :<span>@ViewBag.companyinfo["gsdd"]</span>
+                        </p>
+                        <p class="comp_intro_type">
+                            领域 :<span>@ViewBag.companyinfo["gsly"]</span></p>
+                        <p>
+                            规模 :<span>@ViewBag.companyinfo["gsgm"]</span>
+                        </p>
+                        <p class="comp_intro_rz">
+                            融资 :<span>@ViewBag.companyinfo["gsrz"]</span></p>
+                        <p>
+                            @*                            <label>
+                                公司愿景 :</label><a class="comp_hope" href="">创造价值,提供优质的产品和服务,赢得用户的喜爱和尊敬.利益均沾,让公司的每一成员都获得满意的回报</a>*@
+                        </p>
+                    </div>
+                    <a class="detail" href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/@ViewBag.ddid">查看详情
+                        〉</a>
+                </div>
+                <div class="introduce">
+                    <span class="introduce_line"></span><span class="comp_intro_ttl">公司介绍</span> <span
+                        class="introduce_line"></span>
+                    <p>@ViewBag.companyinfo["gsjs"]
+                        @*                    <a href="#">[查看详细]</a>*@
+                    </p>
+                </div>
+                @if (@ViewBag.ryphoto.Count != 0)
+                {
+                    <div class="honor">
+                        <span class="introduce_line"></span><span class="comp_intro_ttl">公司荣誉</span> <span
+                            class="introduce_line"></span>
+                        @for (int i = 0; i < @ViewBag.ryphoto.Count; i++)
+                        {
+                            var imgs = @ViewBag.ryphoto[i]["img"] + ".jpg";
+                            <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="公司荣誉"> 
+                            if (i + 1 != @ViewBag.ryphoto.Count)
+                            {
+                            <br>
+                            }
+                        }
+                    </div>
+                }
+            </div>
+            <div class="maincont_t_r">
+            </div>
+        </div>
+        <!--内容上部 结束-->
+        <!--内容中部 开始-->
+        <div class="maincont_m clearfix">
+            <div class="maincont_m_l">
+                <div class="server">
+                    <div class="maincont_ttl">
+                        企业服务 <a class="detail" href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@ViewBag.ddid">查看详情
+                            〉</a>
+                    </div>
+                    <ul class="clearfix">
+                        @for (int i = 0; i < ViewBag.companyservice.Count; i++)
+                        {
+                            var vservice = ViewBag.companyservice[i];
+                            <li class="@if (i == 0 || i % 3 != 0)
+                                       {<text>comp_position</text>}
+                                       else
+                                       {<text>comp_position comp_position-last</text>}">
+                                <img src="@{@BaseConfigs.GetImgPath}@vservice["fwtp"]_282x284.jpg" alt="">
+                                <p class="comp_position_par">@vservice["fwje"]<p>
+                                    <p class="comp_position_ttl">
+                                        <a href="@vservice["fwlj"]" target=_blank  rel="nofollow">@vservice["fwmc"]</a><p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="appreciation">
+                    <div class="maincont_ttl">
+                        案例赏析 <a class="detail" href="@{@BaseConfigs.GetUrlMain}Company/CaseShow/@ViewBag.ddid">
+                            查看详情 〉</a>
+                    </div>
+                    @{var datas = ViewBag.companycase as System.Data.DataRowCollection; }
+                    <ul class="clearfix">
+                        @for (int index = 0; index < 4; index++)
+                        {
+                            <li class="appr_show_item @if (index == 3)
+                                                      {<text>cont_show_items-last</text>}">
+                                @for (int j = index; j < datas.Count; j = j + 4)
+                                {
+                                    var item = datas[j];
+                                    <div class="appr_show_items appr_show_items-top">
+                                        <img  class="appr_show_items_pic" src="@{@(BaseConfigs.GetImgPath + item["img"] + ".jpg")}" alt="">
+                                        <div class="popup">
+                                            <div class="popup_bg">
+                                            </div>
+                                            <a href="@item["url"]" target="_blank" rel="nofollow">
+                                                <img class="popup_more" src="@{@BaseConfigs.GetUrlCdn}usercenter/images/iconfont-icon05.png" alt=""></a>
+                                            <span class="popup_ttl">@item["title"]</span>
+                                        </div>
+                                    </div>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="maincont_m_r">
+                <div class="visitor">
+                    <h2>
+                        最近访客</h2>
+                    <ul>
+                        @for (int i = 0; i < ViewBag.visit.Rows.Count; i++)
+                        {
+                            var visit = ViewBag.visit.Rows[i];
+                        
+                            <li class="visitor_items clearfix"><a href="#">
+                                <img class="visitor_logo" src="@{@BaseConfigs.GetImgPath}@visit["logo"]" alt=""></a>
+                                <a class="visitor_name" href="#">@visit["name"]</a>
+                                <p class="visit_time">
+                                    @(((DateTime)visit["date"]).ToString("yyyy-MM-dd"))<p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="link">
+                    <h2>
+                        友情链接</h2>
+                    <ul>
+                        @if (ViewBag.comlinks != null)
+                        {
+                            JArray iitem = ViewBag.comlinks as JArray;
+                            for (int i = 0; i < iitem.Count; i++)
+                            {
+                            <li class="link_items"><a href="@iitem[i]["url"]" target="_blank" rel="nofollow">@iitem[i]["text"]</a></li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="count">
+                    <h2>
+                        浏览与收藏</h2>
+                    <p>
+                        <label>
+                            访问人数 :</label><span>@ViewBag.companyinfo["pv"]</span>次</p>
+                    <p>
+                        <label>
+                            收藏人数 :</label><span>@ViewBag.companyinfo["collect"]</span>人</p>
+                </div>
+            </div>
+        </div>
+        <!--内容中部 结束-->
+        <!--资质 开始-->
+        @if (@ViewBag.zzphoto.Count != 0)
+        {
+            <div class="aptitude">
+                <h2>
+                    企业自传资质</h2>
+                <ul class="clearfix">
+                    @for (int i = 0; i < @ViewBag.zzphoto.Count; i++)
+                    {
+                        var imgs = @ViewBag.zzphoto[i]["img"] + ".jpg";
+                        <li class="aptitude_show @if (i == 0)
+                                                 {<text>aptitude_show-first</text>}">
+                            <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="企业资质">
+                        </li>                    
+                    }
+                </ul>
+            </div>
+        }
+        <!--资质 结束-->
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+    var ddid = @ViewBag.ddid;
+    </script>
+    <script type="text/javascript">
+         !function () { $.post('/CompanyHome/VisitAdd', { companyid: @ViewBag.ddid }); }()
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.slider.js"></script>
+    <script>
+        $(".slide-wrap").slide(true, true);
+
+        $(".appr_show_items").mouseenter(function () {
+            $(this).children(".popup").css("display", "block")
+        });
+        $(".appr_show_items").mouseleave(function () {
+            $(this).children(".popup").css("display", "none")
+        });
+    </script>
+}

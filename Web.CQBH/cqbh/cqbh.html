@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+  陈树阳
+  2015.11.30
+-->
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>产权保护-首页</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/cqbh.css">
+</head>
+<body>
+  <div class="cqbh_bgWrap">
+    <div class="cqbh_bg"></div>
+  </div>
+  <div class="cqbh">
+    <form>
+      <input class="cqbh_text" type="text">
+      <input class="cqbh_btn" type="button" value="免费查询能否注册">
+    </form>   
+    <ul class="cqbh_items">
+      <li class="cqbh_item1 current">
+        <a href="#">商标</br>注册</a>
+        <i></i>
+      </li>
+      <li class="cqbh_item2">
+        <a href="#">版权</br>登记</a>
+        <i></i>
+      </li>
+      <li class="cqbh_item3">
+        <a href="#">法律</br>服务</a>
+        <i></i>
+      </li>
+      <li class="cqbh_item4">
+        <a href="#">软件</br>著作权</a>
+        <i></i>
+      </li>
+    </ul>
+    <div class="cqbh_img"><img src="images/cqbh_02.jpg"></div>
+    <!--弹出层 开始-->
+    <div class="query_bg">
+      <div class="query">
+        <div class="query_title">产权免费查询</div>
+        <span class="query_close">×</span>
+        <div class="query_cont">
+          <form>
+            <h2>专业顾问人工查询 , 结果分析更精确.</h2>
+            <div class="query_items">
+              <label><span class="redstar">*</span>产权名称 : </label>
+              <input type="text" id="name">
+              <span class="errorTip" id="name_err">产权名称不能为空</span>
+            </div>
+            <div class="query_items">
+              <label><span class="redstar">*</span>联系电话 : </label>
+              <input type="text" id="phone">
+              <span class="errorTip" id="wrong_phone">请输入正确的联系电话</span>
+              <span class="errorTip" id="phone_err">联系电话不能为空</span>
+            </div>
+            <div>
+              <label>联系人 : </label>
+              <input id="contant" type="text">
+            </div>
+            <div class="query_button">
+              <button class="cq" type="button" id="query_button">获取查询结果</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--弹出层 结束-->
+  </div>
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/cqbh.js"></script>
+</body>
+</html>

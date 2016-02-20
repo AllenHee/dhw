@@ -1,0 +1,76 @@
+﻿<p class="title-right bg-info small"><a href="#/art/0">
+    <a href="#/Appsys/#">系统管理</a> > <span>文章管理</span><a href="#/art/0"><input class="btn btn-default btn-sm btn-success btn-new pull-right" type="button" value="新增"></a></p>
+<div class="container container-main">
+    <!--右栏主区域开始：订单管理-->
+    <div class="list-content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <b>标题</b>
+                    </th>
+                    <th>
+                        <b>类型名称</b>
+                    </th>
+                    <th>
+                        <b>编号</b>
+                    </th>
+                    <th>
+                        <b>发布者姓名</b>
+                    </th>
+                    <th>
+                        <b>发布时间</b>
+                    </th>
+                    <th>
+                        <b>修改时间</b>
+                    </th>
+                    <th>
+                        <b>点击数</b>
+                    </th>
+                    <th>
+                        <b>状态</b>
+                    </th>
+                    <th>
+                        <b>详细页面</b>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="it in list">
+                    <td>
+                        {{it.title}}
+                    </td>
+                    <td>
+                        {{it.typename}}
+                    </td>
+                    <td>
+                        {{it.id}}
+                    </td>
+                    <td>
+                        {{it.suname}}
+                    </td>
+                    <td>
+                        {{it.publishtime}}
+                    </td>
+                    <td>
+                        {{it.changetime}}
+                    </td>
+                    <td>
+                        {{it.PV}}
+                    </td>
+                    <td>
+                        {{it.state}}
+                    </td>
+                    <td>
+                        <a href="#/art/{{it.id}}">详细页面</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination-wrap">
+            <uib-pagination total-items="page.total" items-per-page="page.pageSize" ng-model="page.pageIndex"
+                ng-change="loaddata()"></uib-pagination>
+        </div>
+    </div>
+</div>
+</div> 

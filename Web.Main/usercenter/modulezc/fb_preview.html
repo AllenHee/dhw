@@ -1,0 +1,115 @@
+<div class="form-body yl">
+  <div class="zc-title">
+      <h2>{{project.data.title}}</h2>
+      <ul class="tags">
+        <!--<li class="category"><a href="#">{{}}</a></li>-->
+        <li class="category"><a href="#">{{ptid}}</a></li>
+        <li class="location">{{project.data.province}} {{project.data.city}}</li>
+        <li class="labels">
+          <a href="#" ng-repeat="rectag in project.data.rectag">{{rectag}}</a>
+          <a href="#" ng-repeat="diytag in project.data.diytag">{{diytag}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="zc-detail clearfix">
+      <div class="zc-d-l">
+        <img ng-src="{{(!project.data.frontpic) ? '' : (dhw.imgurl + project.data.frontpic + '_534x534' + '.jpg')}}">
+      </div>
+      <div class="zc-d-r">
+        <div class="btns">
+          <div class="numbers-r">
+            <p class="digital">0</p>
+            <p>支持数</p>
+          </div>
+        </div>
+        <div class="numbers clearfix">
+          <div class="numbers-l">
+            <p class="digital">￥0</p>
+            <p>已筹款</p>
+          </div>
+          
+        </div>
+        <div class="progress">
+          <div class="bar-wrap">
+            <div class="bar"><div style="width:0%;"></div></div> <i>0%</i>
+          </div>
+          <p class="target"><span class="t-eft"><span>剩余</span>{{project.data.daysum}}</span>天 <span class="t-right"><span>目标筹资</span>￥{{project.data.money}}</span></p>
+        </div>
+        <div class="support">
+          <a class="support-btn" href="javascript:void(0);">立即支持</a>
+        </div>
+      </div>
+    </div>
+    <!--浮动栏-->
+    <div class="fixedbar-wrap">
+      <div class="fixedbar-fixed">
+        <div class="fixedbar">
+          <ul>
+            <li class="current"><a href="#">项目详情</a></li>
+          </ul>
+          <a class="support-btn" href="javascript:void(0);">立即支持</a>
+        </div>
+      </div>
+    </div>
+    <!--主内容区-->
+    <div class="substance clearfix">
+      <!--左栏-->
+      <div class="substance-l">
+        <blockquote>
+          <span class="bk-left-bg"></span>{{project.data.purpose}}<span class="bk-right-bg"></span>
+          <div class="angle"><i class="angle-t"></i> <i class="angle-b"></i></div>
+        </blockquote>
+        <div class="zc-user clearfix">
+          <div class="zc-user-avatar"><a href="#"><img src="{{project.userlogo}}" alt=""></a></div>
+          <div class="zc-user-info">
+            <div><a class="zc-user-name" href="#">{{project.username}}</a> <a class="zc-mail" href="#">私信</a></div>
+            <div class="zc-certificate">营业执照</div>
+          </div>
+        </div>
+        <div class="user-content">
+          <div ng-repeat="text in detail.data.text">
+            <div ng-show="text.type == '1'">
+              <div class="content-title">
+                <p></p>
+                <div>
+                  <h3>{{text.title}}</h3>
+                </div>
+              </div>
+              <p>{{text.content}}</p>
+              </div>
+            <div ng-show="text.type == '2'">
+              <img ng-src="{{(!text.url) ? '' : (dhw.imgurl + text.url + '_670x670' + '.jpg')}}">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--右栏-->
+      <div class="substance-r">
+        <div class="zjzc">
+          <div class="zjzc-box">
+            <h5>无私支持</h5>
+            <div class="zjzc-select-money">
+              <a class="current" href="javascript:void(0);">¥10</a><a href="javascript:void(0);">¥20</a><a href="javascript:void(0);">¥50</a>
+            </div>
+            <div class="other">
+              <label>其它 <b>¥</b></label>
+              <input type="text">
+            </div>
+            <a class="support-btn" href="javascript:void(0);">立即支持</a>
+          </div>
+          
+          <div class="zj-class" ng-repeat="hb in payback.data.hb">
+            <h5><b>¥{{hb.sum}}</b> 0 人已支持 <i></i></h5>
+            <div class="zj-c-title">{{hb.title}}</div>
+            <p>{{hb.text}}</p>
+            <div class="zj-c-footer">
+              <p>配送费用：<b>¥{{hb.Shipment}}</b></p>
+              <p>预计回报发送时间：<b>{{hb.Paytime}}天</b></p>
+            </div>
+            <a class="zj-c-border" href="#"></a>
+          </div>
+        </div>
+        <button class="substance-r-button">支持此项目</button>
+      </div>
+    </div>
+</div>

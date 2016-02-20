@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 后台管理系统 - 演示模块";
+}
+<div class="row main-content" ng-app="default">
+    <div class="col-md-2">
+       
+    </div>
+    <div class="col-md-10">
+        <div ng-view>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var approute = [{ name: 'demo', detail: true}];
+        var htmlpath = '/Moduledemo/';
+        var app = sysfactory('default', ['sysbase'], approute, htmlpath);
+        window.location.href = '#/demo';
+    </script>
+    <script src="/Moduledemo/Controllers/demoController.js" type="text/javascript"></script>
+}

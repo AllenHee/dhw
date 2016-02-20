@@ -1,0 +1,961 @@
+/*
+* 何伟
+* 页面框架
+* 2015-11-17
+*
+* 卢铭怀
+* 表单详细
+* 2015-11-19
+*/
+
+/*主内容区左侧*/
+.rsmM {
+  float: left;
+  position: relative;
+  width: 702px;
+  border: 1px solid #f2f2f2;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #fcfcfc;
+}
+/*表单头部*/
+.rsmM_header {
+  position: relative;
+  z-index: 1;
+  padding: 170px 49px 8px;
+  background: url(../images/tou.png) no-repeat;
+  text-align: center;
+}
+/*头部表单共用*/
+div.rsm_result-header {
+  position: relative;
+  padding: 0;
+}
+.rsm_result-header:hover {
+  background: #fefef2;
+}
+.rsm_result-header .rsm_result_edit {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+.rsm_result-header:hover .rsm_result_edit {
+  display: block;
+}
+/*头部前两个表单共用*/
+.rsmM_box-header .rsm_result {
+  display: block;
+}
+.rsmM_box-header .rsm_form {
+  display: none;
+}
+div.rsm_form-header {
+  position: relative;
+  background: transparent;
+  margin: 0 -15px;
+  padding: 0;
+}
+.rsm_form-header .rsm_inputGroup_input {
+  width: 368px;
+  height: 38px;
+  padding: 0 10px;
+  line-height: 38px;
+}
+.rsm_form-header .rsm_form_ctrl {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  margin: 0;
+}
+.rsm_form-header .rsm_form_ctrl_btn {
+  height: 30px;
+  padding: 0 11px;
+  font-size: 14px;
+  line-height: 30px;
+}
+/*头部头像*/
+.rsm_avatar {
+  position: absolute;
+  left: 50%;
+  top: 45px;
+  z-index: 0;
+  width: 118px;
+  height: 118px;
+  margin-left: -59px;
+  overflow: hidden;
+}
+/*.avatarUploadBtn {
+  position: absolute;
+  left: 50%;
+  top: 43px;
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+  margin-left: -60px;
+  cursor: pointer;
+}
+.avatarUploadBtn.hover {
+  background: url(../images/zp_avatar_btn.png) no-repeat 1px 1px;
+}*/
+/*头部名字表单*/
+.rsm_username {
+  height: 40px;
+  font-size: 26px;
+  line-height: 40px;
+}
+/*头部介绍表单*/
+.rsm_userintro {
+  height: 34px;
+  font-size: 16px;
+  line-height: 34px;
+}
+/*头部基本信息表单*/
+.rsm_items {
+  font-size: 14px;
+  line-height: 32px;
+  color: #666;
+}
+.rsm_item {
+  margin-right: 5px;
+}
+.rsm_item-gerder i,
+.rsm_item-tel i,
+.rsm_item-email i {
+  display: inline-block;
+  margin-right: 5px;
+  background: url(../images/ucZpResumeIcon.png) no-repeat;
+  vertical-align: middle;
+}
+.rsm_item-gerder i {
+  width: 13px;
+  height: 13px;
+  background-position: -111px -70px;
+}
+.rsm_item-tel i {
+  width: 12px;
+  height: 14px;
+  background-position: -131px -70px;
+}
+.rsm_item-email i {
+  width: 14px;
+  height: 10px;
+  background-position: -150px -73px;
+}
+.rsm_form-info {
+  text-align: left;
+}
+.rsm_inputGroup_gender {
+  display: inline-block;
+  width: 70px;
+  height: 46px;
+  padding-left: 30px;
+  border: 1px solid #f1f3e9;
+  border-radius: 3px;
+  background: #fff;
+  font-size: 14px;
+  line-height: 46px;
+  color: #999;
+  cursor: pointer;
+}
+.rsm_inputGroup_gender.active {
+  color: #333;
+}
+.rsm_inputGroup_gender i {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 11px;
+  background: url(../images/ucZpResumeIcon.png) no-repeat;
+  vertical-align: middle;
+}
+.rsm_inputGroup_gender-male i {
+  background-position: -4px -25px;
+}
+.rsm_inputGroup_gender-male.active i {
+  background-position: -4px -5px
+}
+.rsm_inputGroup_gender-female i {
+  background-position: -27px -25px;
+}
+.rsm_inputGroup_gender-female.active i {
+  background-position: -27px -5px;
+}
+
+/*表单盒子*/
+/*.rsmM_box {
+  margin: 0 49px;
+}*/
+/*标题*/
+.rsmM_box_ttl {
+  width: 604px;
+  overflow: hidden;
+  margin: 0 auto 23px;
+}
+.rsmM_box_ttl_l {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.rsmM_box_ttl_l span {
+  vertical-align: middle;
+  display: inline-block;
+}
+.rsmM_box_ttl_w_l {
+  width: 230px;
+  height: 0;
+  border-top: 1px solid #ededed;
+}
+.rsmM_box_ttl_w_c {
+  font-size: 18px;
+  padding: 6px 24px;
+  text-align: center;
+  background-color: #eee;
+  -moz-border-radius: 26px;
+  -webkit-border-radius: 26px;
+  border-radius: 26px;
+  margin: 0 13px;
+}
+.rsmM_box_ttl_w_r {
+  width: 152px;
+  height: 0;
+  border-top: 1px solid #ededed;
+}
+.rsmM_box_ttl_r {
+  float: right;
+  border: 0;
+  margin-top: 3px;
+  background-color: transparent;
+  font-size: 16px;
+  color: #3d9ccc;
+  cursor: pointer;
+}
+.rsmM_box_ttl_r[disabled] {
+  color: #ccc;
+}
+.rsmM_box_ttl_r i {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+  background: url(../images/ucZpResumeIcon.png) -5px -69px no-repeat;
+  vertical-align: middle;
+}
+/*内容*/
+.rsmM_box_cont {
+  width: 604px;
+  margin: 0 auto;
+}
+/*添加*/
+.rsmM_add {
+  width: 602;
+  height: 98px;
+  border: 1px dashed #d7d7d7;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 98px;
+  text-align: center;
+  color: #3d9ccc;
+  cursor: pointer;
+}
+.rsmM_add i {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../images/ucZpResumeIcon.png) -5px -69px no-repeat;
+  vertical-align: middle;
+}
+/*展示*/
+.rsm_result {
+  display: none;
+  padding-bottom: 44px;
+  line-height: 22px;
+}
+/*期望工作 开始*/
+.rsm_result_t_single {
+  height: 24px;
+  padding-left: 18px;
+  line-height: 24px;
+}
+.rsm_result_t_single span {
+  display: inline-block;
+  position: relative;
+  width: 105px;
+  height: 24px;
+  padding-left: 22px;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.rsm_result_t_single i {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  background: url(../images/ucZpResumeIcon.png) no-repeat;
+  vertical-align: middle;
+}
+.rsm_result_t_single .expectPost {
+  width: 170px;
+  padding-left: 16px;
+}
+.expectPost i {
+  background-position: -97px -220px;
+}
+.expectNature i {
+  height: 17px;
+  margin-top: -8px;
+  background-position: -93px -247px;
+}
+.expectLocation i {
+  height: 17px;
+  background-position: -93px -273px;
+}
+.expectSalary i {
+  background-position: -92px -294px;
+}
+.expectAddition {
+  position: relative;
+  padding: 15px 38px 25px 47px;
+  margin-top: 28px;
+  font-size: 14px;
+  line-height: 22px;
+}
+.expectAddition i {
+  width: 32px;
+  height: 31px;
+  background: url(../images/ucZpResumeIcon.png) no-repeat;
+}
+.expectAddition .expectAddition_lt {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  background-position: -160px -110px;
+}
+.expectAddition .expectAddition_rt {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  background-position: -160px -153px;
+}
+/*期望工作 结束*/
+.rsm_result_t_l {
+  float: left;
+}
+.rsm_result_t_r {
+  float: right;
+}
+.rsm_result_ttl {
+  font-size: 1.6em;
+}
+.rsm_result_ttl a {
+  color: #333;
+}
+.rsm_result_ttl a:hover {
+  color: #3d9ccc;
+  text-decoration: none;
+}
+.rsm_result_ttl i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  background: url(../images/ucZpResumeIcon.png) -95px -197px no-repeat;
+}
+.rsm_result_small {
+  font-size: 1.4em;
+  color: #999;
+}
+.rsm_result_edit {
+  text-align: right;
+  font-size: 16px;
+  color: #3d9ccc;
+  cursor: pointer;
+}
+.rsm_result_edit_icon {
+  display: inline-block;
+  width: 12px;
+  height: 14px;
+  margin-right: 7px;
+  background: url(../images/ucZpResumeIcon.png) no-repeat -53px -6px;
+  vertical-align: middle;
+}
+.rsm_result_time {
+  font-size: 1.4em;
+  color: #999;
+}
+.rsm_result_text {
+  padding-top: 4px;
+  font-size: 1.4em;
+}
+/*表单*/
+.rsm_form {
+  padding: 48px 88px;
+  margin: 0 -48px;
+  background-color: #fefef2;
+}
+.rsm_inputGroup {
+  margin-bottom: 9px;
+}
+.rsm_inputGroups .rsm_inputGroup {
+  float: left;
+}
+.rsm_inputGroup_label {
+  display: block;
+  padding: 0 0 4px 3px;
+  font-size: 1.4em;
+  color: #afafa9;
+}
+.rsm_inputGroup_input,
+.rsm_inputGroup_textarea {
+  border: 1px solid #f1f3e9;
+  border-radius: 3px;
+  line-height: 24px;
+}
+.rsm_inputGroup_input {
+  width: 356px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 17px;
+}
+.rsm_inputGroup_input-half {
+  width: 156px;
+  margin-right: 9px;
+}
+.rsm_inputGroup_textarea {
+  width: 520px;
+  height: 148px;
+  padding: 5px 10px;
+}
+/*表单验证 开始*/
+.rsm_inputGroup_error {
+  padding-left: 10px;
+  font-size: 12px;
+  line-height: 28px;
+  color: #ff6a6a;
+}
+.ng-touched.ng-invalid,
+.ng-touched.ng-invalid-required {
+  border-color: #ff6a6a;
+}
+/*表单验证 结束*/
+.rsm_inputGroup_required {
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  height: 48px;
+  line-height: 48px;
+  vertical-align: middle;
+  color: #ff6a6a;
+}
+.rsm_inputGroup_required-float {
+  float: left;
+  margin-left: 6px;
+} 
+/*.rsm_inputGroup_input.focus {
+  border-color: #3d9ccc;
+}*/
+
+/*技能评价 开始*/
+.rsm_inputGroup_skill {
+  margin-bottom: 10px;
+}
+.rsm_inputGroup_skill input {
+  float: left;
+}
+.rsm_select_skillDel {
+  float: left;
+  font-size: 24px;
+  line-height: 48px;
+  color: #999;
+  cursor: pointer;
+}
+.rsm_select_skillDel:hover {
+  color: #ff6a6a;
+}
+.rsm_select_skillAdd span {
+  display: inline-block;
+  height: 22px;
+  padding-left: 20px;
+  background: url(../images/skillAdd.png) no-repeat left 3px;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
+  color: #999;
+}
+.rsm_result_skill {
+  padding: 15px 38px 25px 47px;
+  font-size: 16px;
+}
+.rsm_result_skill li {
+  padding-left: 6px;
+  list-style-type: disc;
+}
+/*技能评价 结束*/
+
+.rsm_form_ctrl {
+  margin-top: 34px;
+}
+.rsm_form_ctrl_btn {
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 16px;
+  color: #3d9ccc;
+  cursor: pointer;
+}
+.rsm_form_ctrl_btn[disabled] {
+  color: #ccc;
+}
+.rsm_form_ctrl_btn.big {
+  padding: 12px 18px;
+}
+.rsm_form_ctrl_btn.small {
+  padding: 7px 16px;
+}
+.rsm_form_ctrl_btn.hl {
+  border-radius: 3px;
+  background: #3d9ccc;
+  color: #fff;
+}
+.rsm_form_ctrl_btn.hl[disabled] {
+  background: #aaa;
+}
+
+.rsm_form_ctrl_deleteWrap {
+  float: right;
+  position: relative;
+}
+.rsm_form_ctrl_delete {
+  font-size: 16px;
+  line-height: 47px;
+  color: #ff685e;
+  cursor: pointer;
+}
+.rsm_form_ctrl_model {
+  display: none;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  width: 146px;
+  height: 80px;
+  padding: 18px 24px;
+  border: 1px solid #e7e7e7;
+  margin-left: -91px;
+  margin-top: -64px;
+  background-color: #fff;
+  box-shadow: 2px 2px 4px #efefe4;
+  font-size: 16px;
+}
+.rsm_form_ctrl_model p {
+  margin-bottom: 20px;
+}
+
+/*下拉控件共用*/
+.rsm_select {
+  float: left;
+  position: relative;
+}
+.rsm_select_btn {
+  width: 390px;
+  height: 46px;
+  border: 1px solid #f1f3e9;
+  margin-right: 9px;
+  background: #fff;
+  cursor: pointer;
+}
+.rsm_select_btn-half {
+  width: 190px;
+}
+.rsm_select_text {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  margin-top: -10px;
+  font-size: 1.3em;
+  line-height: 20px;
+}
+.rsm_select_arrow {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #d3d3d3 transparent transparent;
+  margin-top: -3px;
+}
+.rsm_select_lists {
+  display: none;
+  position: absolute;
+  left: -1px;
+  top: 106%;
+  z-index: 101;
+  width: 390px;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px #e7e7e7;
+  font-size: 14px;
+}
+.rsm_select_lists-half {
+  width: 190px;
+}
+/*单列*/
+.rsm_select_lists-normal {
+  max-height: 182px;
+  overflow: auto;
+}
+.rsm_select_lists-normal li {
+  height: 36px;
+  padding-left: 17px;
+  line-height: 36px;
+  cursor: pointer;
+}
+.rsm_select_lists-normal li:hover {
+  background: #f4f4f4;
+}
+/*双列*/
+.rsm_select_list {
+  float: left;
+  overflow: hidden;
+}
+.rsm_select_list-left {
+  width: 90px;
+  height: 160px;
+  overflow: auto;
+}
+.rsm_select_list-left li {
+  width: 72px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  cursor: pointer;
+}
+.rsm_select_list-left .active {
+  background-color: #3d9ccc;
+  color: #fff;
+}
+.rsm_select_list-right {
+  padding: 20px 8px 15px 8px;
+  height: 125px;
+  overflow: auto;
+}
+.rsm_select_list-right li {
+  float: left;
+  height: 22px;
+  padding: 0 14px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
+}
+.rsm_select_list-right li:hover {
+  background-color: #f4f4f4;
+}
+.rsm_select_list-right li.active {
+  background-color: #3d9ccc;
+  color: #fff;
+}
+
+/*日历*/
+.calender .rsm_select_btn {
+  width: 190px;
+}
+.calender .rsm_select_lists {
+  width: 244px;
+  height: 160px;
+}
+.rsm_select_list-month {
+  width: 135px;
+}
+
+/*出生日期*/
+.birth .rsm_select_btn {
+  width: 190px;
+}
+.birth .rsm_select_lists {
+  width: 190px;
+  height: 182px;
+  overflow: auto;
+}
+.birth-day .rsm_select_btn {
+  width: 88px;
+}
+.birth-day .rsm_select_lists {
+  width: 88px;
+}
+
+/*所在城市*/
+.rsm_select_list-city {
+  width: 284px;
+}
+
+/*求职意向*/
+#intent .rsm_select {
+  float: none;
+  width: 270px;
+  margin: 23px auto 0;
+}
+#intent .rsm_select_btn,
+#intent .rsm_select_lists {
+  width: 270px;
+}
+
+/*左侧底部*/
+.rsmM_bottom {
+  height: 94px;
+  background: #f6f6f6;
+}
+
+/*主内容区右侧*/
+.rsmS {
+  float: right;
+  width: 282px;
+}
+.rsmS_t {
+  overflow: hidden;
+  margin-bottom: 19px;
+}
+.rsmS_t_items {
+  display: inline-block;
+  width: 66px;
+  height: 66px;
+  margin-right: 3px;
+  border: 1px solid #f2f2f2;
+  border-radius: 3px;
+  padding-top: 40px;
+  height: 26px;
+  text-align: center;
+  background-color: #fafafa;
+  font-size: 14px;
+}
+.rsmS_t_items {
+  color: #333;
+  text-decoration: none !important;
+}
+.rsmS_t_items:hover {
+  color: #3d9ccc;
+}
+.rsmS_t_items {
+  float: left;
+  position: relative;
+  width: 66px;
+  height: 26px;
+  padding-top: 40px;
+  border: 1px solid #f2f2f2;
+  border-radius: 3px;
+  margin-right: 3px;
+  background-color: #fafafa;
+  font-size: 14px;
+  text-align: center;
+}
+.rsmS_t_items-last {
+  margin-right: 0;
+}
+.rsmS_t_items i {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  width: 30px;
+  height: 25px;
+  margin-left: -14px;
+  background: url(../images/ucZpResumeIcon.png) no-repeat;
+}
+i.rsmS_t_items_tdx {
+  background-position: 0 -316px;
+}
+i.rsmS_t_items_yqh {
+  background-position: -101px -316px;
+}
+i.rsmS_t_items_scj {
+  background-position: -35px -316px;
+}
+i.rsmS_t_items_dyl {
+  background-position: -67px -316px;
+}
+.rsmS_t_items:hover i.rsmS_t_items_tdx {
+  background-position: 0px -348px;
+}
+.rsmS_t_items:hover i.rsmS_t_items_yqh {
+  background-position: -101px -348px;
+}
+.rsmS_t_items:hover i.rsmS_t_items_scj {
+  background-position: -35px -348px;
+}
+.rsmS_t_items:hover i.rsmS_t_items_dyl {
+  background-position: -67px -348px;
+}
+.rsmS_fj {
+  position: relative;
+  height: 57px;
+  border: 1px solid #f2f2f2;
+  background-color: #fafafa;
+  border-radius: 3px;
+  margin-bottom: 19px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.rsmS_fj:hover {
+ color: #3d9ccc; 
+}
+.rsmS_fj i {
+  position: absolute;
+  top: 22px;
+  left: 58px;
+  width: 16px;
+  height: 15px;
+  margin-right: 10px;
+  background: url(../images/ucZpResumeIcon.png) -64px -70px no-repeat;
+}
+.rsmS_fj span {
+  display: block;
+  text-align: center;
+  line-height: 57px;
+}
+.rsmS_fixed {
+  top: 0;
+}
+.rsmS_jd {
+  padding: 16px 16px 18px;
+  border: 1px solid #f2f2f2;
+  background-color: #fafafa;
+  border-radius: 3px;
+  margin-bottom: 19px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.rsmS_jd_t {
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.rsmS_jd_s {
+  color: #3d9ccc;
+}
+.rsmS_jd_t_l {
+  float: left;
+}
+.rsmS_jd_t_r {
+  float: right;
+  color: #3d9ccc;
+}
+a.rsmS_jd_t_r:hover {
+  text-decoration: none;
+}
+.rsmS_jd_gray {
+  height: 6px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+.rsmS_jd_lgreen {
+  height: 100%;
+  background-color: #3d9ccc;
+  border-radius: 3px
+}
+.rsmS_items li {
+  position: relative;
+  width: 270px;
+}
+.rsmS_item {
+  display: block;
+  width: 270px;
+  height: 50px;
+  line-height: 50px;
+  border-left: 1px solid #e5e5e5;
+  font-size: 14px;
+  color: #333;
+}
+.rsmS_item:hover,
+.rsmS_item.hover {
+  background-color: #fafafa;
+  text-decoration: none !important;
+}
+.rsmS_item.current {
+  border-left: 2px solid #3d9ccc;
+  color: #3d9ccc;
+}
+.rsmS_item_btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  font-size: 22px;
+  line-height: 30px;
+  text-align: center;
+  color: #ccc;
+  cursor: pointer;
+}
+.rsmS_item_btn:hover {
+  color: #333;
+}
+.pic {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 24px 0 29px;
+  background: url(../images/ucZpResumeIcon.png) no-repeat;
+  vertical-align: middle;
+}
+.rsmS_jbxx {
+  background-position: -24px -117px;
+}
+.rsmS_sxjl {
+  background-position: -24px -137px;
+}
+.rsmS_jyjl {
+  background-position: -23px -156px;
+}
+.rsmS_xmjy {
+  background-position: -67px -177px;
+}
+.rsmS_zpzs {
+  background-position: -23px -156px;
+}
+.rsmS_zwms {
+  background-position: -67px -218px;
+}
+.rsmS_qwgz {
+  background-position: -63px -239px;
+}
+.rsmS_jnpj {
+  background-position: -66px -262px;
+}
+
+/*预览*/
+.rsmM.preview {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preview .rsmM_header .rsm_result:hover {
+  background-color: transparent;
+}
+
+.preview .rsm_select_text {
+  position: static;
+}
+.preview .rsm_select_btn {
+  text-align: center;
+  line-height: 46px;
+}
+
+.return_btn {
+  margin-top: 25px;
+  text-align: center;
+}
+.return_btn a {
+  display: inline-block;
+  height: 35px;
+  padding: 0 25px;
+  border-radius: 3px;
+  background: #3d9ccc;
+  font-size: 14px;
+  line-height: 35px;
+  color: #fff;
+}

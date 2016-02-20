@@ -1,0 +1,724 @@
+/*
+陈树阳
+2015.11.30
+*/
+/*版权登记 开始*/
+.section1 {
+  position: relative;
+  background: #cb275c;
+  height: 498px;
+  overflow: hidden;
+}
+.section1_img {
+  position: absolute;
+  left: 50%;
+  margin-left: -960px;
+  height: 498px;
+  width: 1920px;
+  background: url(../images/bqdj_01.png) no-repeat;
+}
+.section2 {
+  background: #fed40e;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.section2 h2 {
+  padding: 35px 0;
+  font-size: 32px;
+  font-weight: normal;
+}
+.section2 p {
+  font-size: 22px;
+}
+.section3 {
+  position: relative;
+  background: #5c339b;
+  height: 1053px;
+  overflow: hidden;
+}
+.section3_img {
+  position: absolute;
+  left: 50%;
+  margin-left: -960px;
+  height: 1053px;
+  width: 1920px;
+  background: url(../images/bqdj_02.jpg) no-repeat;  
+}
+.section4 {
+  background: #d1295f;
+  height: 1045px;
+  text-align: center;
+}
+.section4_ttl h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
+.section4_ttl {
+  margin-bottom: 50px;
+  font-size: 22px;
+}
+.packages_wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+.packages {
+  width: 1050px;
+  overflow: hidden;
+  overflow: hidden;
+}
+.package {
+  float: left;
+  margin: 0 50px 60px 0;
+  width: 300px;
+}
+.package_t {
+  height: 157px;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+}
+.package_t_text {
+  padding-top: 20px;
+}
+.package_t_text p {
+  font-size: 35px;
+  margin: 10px 0;
+}
+.package_b {
+  height: 225px;
+  background: #fff; 
+}
+.package_text {
+  padding: 27px 0;
+}
+.package_text p {
+  font-size: 16px;
+  line-height: 30px;
+}
+.package_text .package_big {
+  font-size: 20px;
+}
+.package_btn {
+  width: 150px;
+  height: 50px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.package1 .package_t {
+  background: #2a2a32;
+}
+.package1 .package_btn {
+  background: #f96e6e;
+}
+.package2 .package_t {
+  background: #04dadc;
+}
+.package2 .package_btn {
+  background: #04ada6;
+}
+.package3 .package_t {
+  background: #512882;
+}
+.package3 .package_btn {
+  background: #fed318;
+}
+.package4 .package_t {
+  background: #9fd6dd;
+}
+.package4 .package_btn {
+  background: #1ebed7;
+}
+.package5 .package_t {
+  background: #5f8f81;
+}
+.package5 .package_btn {
+  background: #a4d8d3;
+}
+.package6 .package_t {
+  background: #9dd098;
+}
+.package6 .package_btn {
+  background: #b0e1e6;
+}
+/*版权登记 结束*/
+/*产权保护 开始*/
+.cqbh_bgWrap {
+  height: 411px;
+  background: #3d9ccc;
+}
+.cqbh_bg {
+  position: absolute;
+  left: 50%;
+  height: 411px;
+  width: 1920px;
+  margin-left: -960px;
+  background: url(../images/cqbh_01.png) no-repeat;
+}
+.cqbh {
+  margin-top: 50px;
+}
+.cqbh form,
+.sbzc form {
+  width: 688px;
+  margin: 0 auto;
+}
+.cqbh_text,
+.sbzc_text {
+  width: 488px;
+  height: 43px;
+  border: 1px solid #0d9947;
+  border-radius: 5px;
+  padding: 0 0 0 10px;;
+  margin: 0 auto;
+}
+.cqbh_btn,
+.sbzc_btn {
+  width: 180px;
+  height: 45px;
+  border: 0;
+  background: #0d9947;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.cqbh_items {
+  margin: 70px auto;
+  height: 185px;
+  width: 635px;
+  background: url(../images/cqbh_11.png) no-repeat;
+}
+.cqbh_items li {
+  float: left;
+  text-align: center;
+  position: relative;
+}
+.cqbh_items li a {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  margin-top: -40px; 
+  font-size: 30px;
+  color: #979797;
+  text-decoration: none;
+}
+.cqbh_item1 {
+  width: 168px;
+  height: 185px;
+  background: url(../images/cqbh_14.png) no-repeat;
+}
+.cqbh_item1 a { 
+  left: 65px;
+}
+.cqbh_item2 a,
+.cqbh_item3 a { 
+  left: 45px;
+}
+.cqbh_item4 a { 
+  right: 43px;
+}
+.cqbh_item2,
+.cqbh_item3 {
+  width: 150px;
+  height: 185px;
+  background: url(../images/cqbh_13.png) no-repeat;
+}
+.cqbh_item4 {
+  width: 167px;
+  height: 185px;
+  background: url(../images/cqbh_12.png) no-repeat;
+}
+.cqbh_items li i {
+  position: absolute;
+  top: 0;
+  left: -18px;
+  z-index: 1;
+  height: 185px;
+  width: 185px;
+  cursor: pointer;
+}
+.cqbh_items li i:hover {
+  background: url(../images/cqbh_15.png) no-repeat;
+}
+.cqbh_items .cqbh_item1 i {
+  left: 0;
+}
+.cqbh_img {
+  width: 841px;
+  margin: 0 auto;
+}
+/*
+  何伟
+  软件著作权
+  2015-12-1
+*/
+body {
+  margin: 0;
+}
+.bg {
+  position: relative;
+  width: 100%;
+  height: 2296px;
+  overflow: hidden;
+}
+.bg_img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1920px;
+  height: 2296px;
+  margin-left: -960px;
+  background: url(../images/top.png) no-repeat;
+}
+.allCont {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 1024px;
+  margin-left: -512px;
+}
+.search {
+  width: 850px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.search_down {
+  position: relative;
+  float: left;
+  padding: 15px 15px 15px 20px;
+  border: 2px solid #d30b5a;
+  color: #d30b5a;
+  font-size: 16px;
+  cursor: pointer;
+}
+.search_down_hide {
+  border-bottom: 2px solid #d30b5a;
+  border-radius: 5px 0 0 5px;
+}
+.search_down_show {
+  border-bottom: 0;
+  border-radius: 5px 0 0 0;
+}
+.search_ul_hide {
+  border-top: 2px solid #d30b5a;
+}
+.search_ul_show {
+  border-top: 0;
+}
+.search i {
+  display: inline-block;
+  border-width: 5px 5px 0 5px;
+  border-color: #d30b5a transparent transparent;
+  border-style: solid;
+  margin: 0 0 3px 5px;
+  transition: transform .5s;
+}
+.search_ul {
+  display: none;
+  position: absolute;
+  top: 51px;
+  left: -2px;
+  width: 100%;
+  padding-bottom: 10px;
+  border: 2px solid #d30b5a;
+  color: #d30b5a;
+  text-align: center;
+}
+.search_ul li {
+  line-height: 35px;
+}
+.search_inp {
+  float: left;
+  width: 580px;
+  height: 49px;
+  padding-left: 20px;
+  border: 2px solid #d30b5a;
+  border-left: 0;
+  margin-right: 5px;
+}
+.search_btn {
+  float: left;
+  width: 100px;
+  height: 55px;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+  background-color: #d30b5a;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.advantage {
+  margin-top: 250px;
+}
+.advantage_ttl {
+  border-bottom: 2px solid #d30b5a;
+  text-align: center;
+  color: #d30b5a;
+}
+.advantage_ttl h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.advantage_ul {
+  padding-top: 100px;
+  padding-left: 60px;
+  overflow: hidden;
+}
+.advantage_items {
+  float: left;
+  width: 178px;
+  margin-right: 150px;
+  text-align: center;
+  line-height: 25px;
+}
+.advantage_items h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 100;
+}
+.advantage_items p {
+  font-size: 14px;
+}
+.advantage_items-last {
+  margin-right: 0;
+}
+.advantage_items_one {
+  transition: transform 1s;
+}
+.advantage_items_one:hover {
+  transform: rotateY(360deg);
+}
+.advantage_items_two {
+  transition: all 1s;
+}
+.advantage_items_two:hover {
+  transform: rotate(360deg);
+}
+.advantage_items_three {
+  position: relative;
+}
+.process {
+  margin-top: 100px;
+}
+.process_proc {
+  margin-top: 100px;
+  text-align: center;
+}
+.process_proc span {
+  display: inline-block;
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: #d30b5a;
+  font-weight: bold;
+}
+.bg_b {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+}
+/*产权保护 结束*/
+/*
+  陈树阳
+  2015.12.1
+*/
+/*商标注册 开始*/
+.sbzc_wrap {
+  position: relative;
+  height: 776px;
+  background: #582be6;
+  overflow: hidden;
+}
+.sbzc_top {
+  position: absolute;
+  left: 50%;
+  margin-left: -960px;
+  height: 837px;
+  width: 1920px;
+  background: url(../images/sbzc_01.png) no-repeat;  
+}
+.sbzc form {
+  margin-top: 90px;
+}
+.sbzc_txt {
+  background: url(../images/sbzc_02.png) no-repeat;
+  text-align: center;
+  height: 305px;
+  width: 1140px;
+  margin: 10px auto 50px; 
+}
+.sbzc_p1 {
+  padding-top: 40px;
+  font-size: 35px;
+  line-height: 60px;
+}
+.sbzc_p2 {
+  font-size: 70px;
+  color: #4922e4;
+}
+.sbzc_p3 {
+  font-size: 30px;
+  color: #4922e6;
+  padding: 10px 0;
+}
+.sbzc_imgs_wrap {
+  width: 1140px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: -65px;
+}
+.sbzc_imgs {
+  overflow: hidden;
+}
+.sbzc_imgs li {
+  float: left;
+  border: 8px solid #fff;
+  border-radius: 14px;
+  margin-right: 50px;
+  height: 313px;
+  background: #fff;
+}
+.sbzc_imgs img {
+  width: 226px;
+  height: 313px;
+  border-radius: 10px;
+}
+.sbzc_imgs .last {
+  margin-right: 0;
+}
+
+.sbzc_b {
+  background: #5629e4;
+  text-align: center;
+}
+.sbzc_b_p1 {
+  font-size: 35px;
+  color: #bd8497;
+  padding-top: 158px;
+}
+.sbzc_b_p2 {
+  font-size: 48px;
+  color: #fff;
+  padding: 60px 0 100px;
+}
+.sbzc_b img {
+  margin-bottom: 225px;
+}
+/*商标注册 结束*/
+/*法律服务 开始*/
+.flfw_top_wrap {
+  position: relative;
+  height: 996px;
+  background: #fefada;
+  overflow: hidden;
+}
+.flfw_top {
+  position: absolute;
+  left: 50%;
+  margin-left: -960px;
+  height: 996px;
+  width: 1920px;
+  background: url(../images/flfw_01.png) no-repeat; 
+  position: relative; 
+}
+.flfw_btn {
+  display: block;
+  padding: 15px 35px;
+  position: absolute;
+  left: 50%;
+  margin-left: 170px;
+  bottom: 300px;
+  font-size: 40px;
+  color: #fff;
+  text-decoration: none;
+}
+.flfw_cont_wrap {
+  position: relative;
+  background: #ebeace;
+  height: 1300px;
+}
+.flfw_cont {
+  position: absolute;
+  left: 50%;
+  margin-left: -688px;
+  width: 1376px;
+  height: 1300px;
+  background: url(../images/flfw_02.png) no-repeat; 
+  padding-top: 1px;
+}
+.flfw_cont_items {
+  width: 880px;
+  margin: 0 auto;
+  margin-top: -190px;
+}
+.flfw_cont_item {
+  background: #dcdcbb;
+  margin-bottom: 12px;
+  border-radius: 15px;
+  width:  540px;
+  height: 207px;
+  overflow: hidden;
+  position: relative;
+}
+.flfw_cont_item h3 {
+  font-size: 40px;
+  font-weight: normal;
+  padding: 20px 40px 10px;
+}
+.flfw_cont_item p {
+  line-height: 28px;
+  font-size: 16px;
+}
+.flfw_cont_item_1 p {
+  padding-left: 80px;
+}
+.flfw_cont_item_2,
+.flfw_cont_item_2 h3 {
+  float: right;
+}
+.flfw_cont_item_2 p {
+  clear: both;
+  text-align: right;
+  padding-right: 80px;
+}
+.flfw_cont_item i {
+  display: block;
+  height: 55px;
+  width: 65px;
+  position: absolute;
+  top: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 38px;
+  font-style: normal;
+  line-height: 45px;
+}
+.flfw_cont_item_1 i {
+  right: 0;
+  background: url(../images/flfw_red.png) no-repeat 0 -23px; 
+}
+.flfw_cont_item_2 i {
+  left: 0;
+  background: url(../images/flfw_red.png) no-repeat -15px -23px; 
+}
+/*法律服务 结束*/
+/*
+  弹出框
+  何伟
+  2015-12-2
+*/
+.query_bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 9999;
+  background: rgba(77, 77, 77, 0.53);
+}
+.query {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 419px;
+  margin-left: -250px;
+  margin-top: -210px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.query_close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: rgba(255, 255, 255, 0.48);
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  height: 18px;
+  line-height: 14px;
+}
+.query_title {
+  height: 55px;
+  font-size: 24px;
+  line-height: 55px;
+  color: #fff;
+  text-indent: 20px;
+  background-color: #009934;
+  font-weight: bold;
+}
+.query_cont {
+  background: #fff;
+  padding: 18px 26px;
+}
+.query_cont h2 {
+  color: #ff8575;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.query_cont form {
+  width: 448px;
+}
+.redstar {
+  color: red;
+}
+.query_cont label {
+  display: inline-block;
+  width: 133px;
+  margin-right: 5px;
+  text-align: right;
+  font-size: 15px;
+}
+.query_cont input {
+  height: 16px;
+  width: 216px;
+  padding: 8px 0 8px 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+  line-height: 20px;
+  color: #999;
+  font-size: 12px;
+  background-color: #fff;
+}
+.query_button {
+  margin: 20px 0;
+  text-align: center;
+}
+.query_button button {
+  height: 52px;
+  width: 250px;
+  border-radius: 5px;
+  border: 0;
+  background: #009934;
+  line-height: 52px;
+  text-align: center;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+.query_items {
+  position: relative;
+}
+.errorTip {
+  display: none;
+  position: absolute;
+  left: 150px;
+  bottom: 8px;
+  color: red;
+  font-size: 12px;
+}
+
+/*何伟*/
+.footer-l .logo {
+  height: 50px;
+  background: url(../images/cqbh_logo.png) no-repeat 0 -50px;
+}
+.footer-l .logo:hover {
+  background: url(../images/cqbh_logo.png) no-repeat;
+}

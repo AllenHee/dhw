@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>梦高速-账户安全</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/login.css">
+  <link rel="stylesheet" href="styles/usercenter.css">
+</head>
+<body>
+  <!--头部导航 开始-->
+  <div class="tittl_bg">
+    <div class="title_nav">
+      <div class="slider"></div>
+      <ul class="title_nav_ul">
+        <li class="title_nav_ul_items"><a href="#">首页</a></li>
+        <li class="title_nav_ul_items"><a href="#">批发进货</a></li>
+        <li class="title_nav_ul_items"><a href="#">生产采购</a></li>
+        <li class="title_nav_ul_items"><a href="#">销售</a></li>
+        <li class="title_nav_ul_items title_nav_ul_items-server" id="server">服务<span><i></i></span>
+          <div class="server">
+            <ul>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">创意设计</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <div class="title_nav_r">
+        <div class="title_nav_r_l">
+          服务<span></span>
+        </div>
+        <div class="title_nav_r_r">
+          <input type="text">
+          <img src="images/user-2.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--头部导航 结束-->
+  <!--主内容 开始-->
+  <div class="content clearfix">
+    <!--左栏 开始-->
+    <div class="cl">
+      <dl class="cygn">
+        <dt>常用功能</dt>
+        <dd><a href="#">所有寻源项目</a></dd>
+        <dd><a href="#">已买到的物品</a></dd>
+        <dd><a href="#">优惠券管理</a></dd>
+        <dd><a href="#">交易收支明细</a></dd>
+        <dd><a href="#">做出的评价</a></dd>
+      </dl>
+    </div>
+    <!--左栏 结束-->
+    <!--中栏 开始-->
+    <div class="cm">
+      <div class="jcxx">
+        <h4 class="reg_form_title jcxx_ttl">基础信息</h4> 
+        <p>会员名：sdsas654</p>
+        <p>
+          手机号码：177****45
+          <a href="#">修改</a>
+          <a href="#">开启手机登录</a>
+          <a href="#">取消手机绑定</a>
+        </p>
+        <p>
+          登录邮箱：guo***@qq.com
+          <a href="#">修改邮箱</a>
+        </p>     
+      </div>
+      <div>
+        <h4 class="reg_form_title jcxx_ttl">安全产品</h4>
+        <ul class="aqcp">
+          <li>
+            <div class="aqcp_1">身份认证</div>
+            <div class="aqcp_2">身份认证是指通过工商信息，或银行卡信息和身份证信息的核实，来证明会员身份的真实性和类型。包括企业认证和个人实名认证。</div>
+            <div class="aqcp_0"><a href="">个人实名认证</a></div>
+            <div class="aqcp_3"><a href="#">查看详情</a></div>
+          </li>
+          <li>
+            <div class="aqcp_1">登录密码</div>
+            <div class="aqcp_2">修改更高级别的密码能提高帐号的安全性。</div>
+            <div class="aqcp_3"><a href="#">修改</a></div>
+          </li>
+          <li>
+            <div class="aqcp_1">密保问题管理</div>
+            <div class="aqcp_2">新一代密码保护问题由3个问题以及对应的答案组成，专门用于您忘记密码时取回密码。与之前的密码保护问题相比，采用最新的问题验证，更加安全。</div>
+            <div class="aqcp_3"><a href="#">管理</a></div>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <!--中栏 结束-->
+    <!--右栏 开始-->
+    <div class="cr"></div>
+    <!--右栏 结束-->
+  </div>
+  <!--主内容 结束-->
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+      $(".title_nav_ul_items").mouseover(function () {
+        $(".slider").stop(true, false);
+        var iLeft = $(this).position().left;
+        var iWidth = $(this).width();
+        $(".slider").animate({
+          left: iLeft +"px",
+          width : iWidth + 40 + "px"
+        }, "fast");
+    });
+    $(".title_nav_ul").mouseout(function() {
+       $(".slider").animate({
+          left: "174px",
+          width : "64px"
+        });
+    });
+    // $(".title_nav_ul_items").mouseout(function(event) {
+    //   event.stopPropagation();
+    // });
+    
+    
+    $("#server").mouseenter(function() {
+        $(".server").stop(false,false).slideDown(500);
+    })
+    $("#server").mouseleave(function() {
+       $(".server").stop(false,false).slideUp(500);
+    })
+  </script>
+</body>
+</html>

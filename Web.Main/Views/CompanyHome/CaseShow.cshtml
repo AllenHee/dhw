@@ -1,0 +1,52 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
+@{
+    var compay = CompanyTopInfo.compay;
+    var trade = CompanyTopInfo.trade;
+    ViewBag.Title = "公司案例" + compay;
+    ViewBag.Keywords = compay + ",公司案例," + trade;
+}
+<div class="contbg clearfix">
+    <div class="cont">
+        @{var datas = ViewBag.companycase as System.Data.DataRowCollection; }
+        <ul class="clearfix">
+            @for (int index = 0; index < 4; index++)
+            {
+                <li class="cont_show_items @if (index == 3)
+                                           {<text>cont_show_items-last</text>}">
+                    @for (int j = index; j < datas.Count; j = j + 4)
+                    {
+                        var item = datas[j];
+                        <div class="appr_show_items appr_show_items-top">
+                            <img class="appr_show_items_img" src="@{@(BaseConfigs.GetImgPath + item["img"] + ".jpg")}" alt="">
+                            <div class="popup">
+                                <div class="popup_bg">
+                                </div>
+                                <a href="@item["url"]" target="_blank" rel="nofollow">
+                                    <img class="popup_more" src="@{@BaseConfigs.GetUrlCdn}usercenter/images/iconfont-icon05.png" alt=""></a>
+                                <span class="popup_ttl">@item["title"]</span>
+                            </div>
+                        </div>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+    var ddid = @ViewBag.ddid;
+    </script>
+    <script>
+        $(".appr_show_items").mouseenter(function () {
+            $(this).find(".popup").css("display", "block")
+        });
+        $(".appr_show_items").mouseleave(function () {
+            $(this).find(".popup").css("display", "none")
+        });
+    </script>
+}

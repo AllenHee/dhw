@@ -1,0 +1,278 @@
+﻿<p class="title-right bg-info  small">
+    <a>众筹</a> > <a href="#/xmsh">{{title}}</a> > <span>下载</span></p>
+<div class="container container-main">
+    <div class="row small info-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>详细信息</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-right">
+                        标题：
+                    </td>
+                    <td>
+                        {{detail.cpbt}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        类型名称：
+                    </td>
+                    <td>
+                        {{detail.lxmc}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        目的：
+                    </td>
+                    <td>
+                        {{detail.cpmd }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        推荐标签：
+                    </td>
+                    <td>
+                        {{detail.tjbq}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        自定义标签：
+                    </td>
+                    <td>
+                        {{detail.zdy}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        已筹款：
+                    </td>
+                    <td>
+                        {{detail.moneySum}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        目标筹资：
+                    </td>
+                    <td>
+                        {{detail.mbcz}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        剩余天数：
+                    </td>
+                    <td>
+                        {{detail.numSy}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        视频：
+                    </td>
+                    <td>
+                        <a href="{{dhw.imguploadurl+detail.cpsp}}" target="_blank">下载</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        省：
+                    </td>
+                    <td>
+                        {{detail.sf}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        市：
+                    </td>
+                    <td>
+                        {{detail.sq}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        填表人：
+                    </td>
+                    <td>
+                        {{detail.username}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        状态：
+                    </td>
+                    <td>
+                        {{detail.ztmc}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        封面：
+                    </td>
+                    <td>
+                        <img src="{{dhw.imgurl+detail.cpfm}}" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table  table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>详细内容</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div ng-repeat="it in detail.content">
+                            <div ng-if="it.type==1">
+                                <div>
+                                    <p>
+                                    </p>
+                                    <div>
+                                        <h3>
+                                           标题： {{it.title}}</h3>
+                                    </div>
+                                </div>
+                                <p>
+                                   内容： {{it.content}}</p>
+                            </div>
+                            <div ng-if="it.type==2">
+                                <img src="{{dhw.imgurl+it.url}}" />
+                                <p></p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>回报信息</b>
+                    </td>
+                </tr>
+            </thead>
+        </table>
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        <b>编号</b>
+                    </td>
+                    <td>
+                        <b>回报标题</b>
+                    </td>
+                    <td>
+                        <b>回报内容</b>
+                    </td>
+                    <td>
+                        <b>回报时间</b>
+                    </td>
+                    <td>
+                        <b>支持金额</b>
+                    </td>
+                    <td>
+                        <b>已支持人数</b>
+                    </td>
+                    <td>
+                        <b>限定名额</b>
+                    </td>
+                    <td>
+                        <b>运费设置</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="it in payback">
+                    <td>
+                        {{it.hbid}}
+                    </td>
+                    <td>
+                        {{it.hbbt}}
+                    </td>
+                    <td>
+                        {{it.hbnr}}
+                    </td>
+                    <td>
+                        {{it.hbsj}}
+                    </td>
+                    <td>
+                        {{it.zcje}}
+                    </td>
+                    <td>
+                        {{it.yzcrs}}
+                    </td>
+                    <td>
+                        {{it.xdme}}
+                    </td>
+                    <td>
+                        {{it.yfsz}}
+                    </td>
+                    <table class="table table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <td class="bg-primary" colspan="2">
+                                    <b>进展信息</b>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-condensed table-striped">
+                        <thead>
+                            <tr>
+                                <td>
+                                    <b>发布时间</b>
+                                </td>
+                                <td>
+                                    <b>进展描述</b>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="it in Projectprogress">
+                                <td>
+                                    {{it.fbsj}}
+                                </td>
+                                <td>
+                                    {{it.jzms}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <td class="bg-primary" colspan="2">
+                                    <b>修改信息</b>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                </tr>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+        <p class="opr-btns">
+            <input class="btn btn-primary" type="button" ng-click="save(1)" value="审核通过">
+            <input class="btn btn-danger" type="button" ng-click="save(2)" value="审核不通过">
+            <a class="btn btn-default" href="#/xmsh">返回列表</a>
+        </p>
+        
+    </div>
+</div>
+</div> 

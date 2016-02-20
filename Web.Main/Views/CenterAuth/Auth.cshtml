@@ -1,0 +1,105 @@
+﻿@{ViewBag.Title = "梦高速-欢迎认证"; Layout = null;}
+<!DOCTYPE html>
+<!--
+  卢铭怀
+  2015.12.17
+-->
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>梦高速 - 欢迎认证</title>
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/login.css">
+    <script>
+        var dhw = {
+            imgurl: '@BaseConfigs.GetImgPath',
+            imguploadurl: '@BaseConfigs.GetImgUploadPath',
+            imgcuturl: '@BaseConfigs.GetImgCutPath',
+            mainurl: '@BaseConfigs.GetUrlMain',
+            staticurl: '@BaseConfigs.GetStaticPath',
+            urlmain: '@BaseConfigs.GetUrlMain',
+            urlcdn: '@BaseConfigs.GetUrlCdn',
+            urlzc: '@BaseConfigs.GetUrlZc',
+            urlkj: '@BaseConfigs.GetUrlKj',
+            urlhr: '@BaseConfigs.GetUrlHr',
+            urlzckj: '@BaseConfigs.GetUrlZckj',
+            urlzb: '@BaseConfigs.GetUrlZb',
+            urldiy: '@BaseConfigs.GetUrlDiy',
+            urlsrdz: '@BaseConfigs.GetUrlSrdz',
+            urlcqbh: '@BaseConfigs.GetUrlCqbh',
+            urlzxsj: '@BaseConfigs.GetUrlZxsj',
+            urlgsss: '@BaseConfigs.GetUrlGsss'
+        };
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="logo clearfix">
+            <div class="logo_img">
+                <a href="#">
+                    <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/dl_logo.jpg" alt="#"></a></div>
+            <h2 class="logo_text">
+                企业 个人认证</h2>
+        </div>
+        <div class="rz_enter clearfix">
+            <div class="rz_enter_l">
+                <a class="rz_enter_img" href="@{@BaseConfigs.GetUrlMain}CenterAuth/Personal"></a>
+                <dl>
+                    <dt>需要提前准备的上传材料：</dt>
+                    <dd>
+                        . 手持二代身份证正面照片（<a href="#">拍照攻略</a>）</dd>
+                    <dd>
+                        . 二代身份证背面照片</dd>
+                </dl>
+                <p>
+                    1、填写个人信息 > 2、提交审核</p>
+            </div>
+            <div class="rz_enter_r">
+                <a class="rz_enter_img" href="@{@BaseConfigs.GetUrlMain}CenterAuth/Company"></a>
+                <dl>
+                    <dt>需要提前准备的上传材料：</dt>
+                    <dd>
+                        . 组织机构代码证扫描（<a href="#">拍照攻略</a>）</dd>
+                    <dd>
+                        . 营业执照副本扫描件</dd>
+                    <dd>
+                        . 法人证件正面照片</dd>
+                    <dd>
+                        . 法人证件背面照片</dd>
+                </dl>
+                <dl>
+                    <dt>当企业法人证件是境外护照时，还需要：</dt>
+                    <dd>
+                        . 大陆担保人二代身份证正面照片</dd>
+                    <dd>
+                        . 大陆担保人二代身份证背面照片</dd>
+                    <dd>
+                        . 外籍法人担保函扫描件（<a href="#">下载模版</a>）</dd>
+                </dl>
+                <p>
+                    1、填写公司信息 > 2、填写申请人信息 > 3、提交审核</p>
+            </div>
+        </div>
+    </div>
+    <div class="bottomNav">
+        <ul class="bottomNav_ul clearfix">
+            <li class="bottomNav_items"><a href="#">关于我们</a></li>
+            <li class="bottomNav_items"><a href="#">联系我们</a></li>
+            <li class="bottomNav_items"><a href="#">人才招聘</a></li>
+            <li class="bottomNav_items"><a href="#">商家入驻</a></li>
+            <li class="bottomNav_items"><a href="#">广告服务</a></li>
+            <li class="bottomNav_items"><a href="#">友情链接</a></li>
+            <li class="bottomNav_items bottomNav_items-last"><a href="#">English Site</a></li>
+        </ul>
+        <p class="copyrightText">
+            Copyright@2015-2016 梦高速dreamhiway.com 版权所有</p>
+    </div>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/tpl.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/baseapp.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/regCtrl.js"></script>
+</body>
+</html>

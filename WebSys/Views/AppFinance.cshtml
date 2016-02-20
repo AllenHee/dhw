@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 后台管理系统 - 众筹";
+}
+<div class="row main-content" ng-app="default">
+    <div class="col-md-2">
+        <div class="left">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="cate_sort_96">
+                    评估服务</div>
+                <ul class="list-group list-unstyled" id="sort_96">
+                    <li class="list-group-item"><a href="#pgfw">评估服务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div ng-view>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var approute = [{ name: 'pgfw', detail: true}];
+        var htmlpath = '/moduleFinance/';
+        var app = sysfactory('default', ['sysbase'], approute, htmlpath);       
+
+    </script>
+    <script src="/ModuleFinance/Controllers/pgfwController.js" type="text/javascript"></script>
+}

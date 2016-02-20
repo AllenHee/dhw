@@ -1,0 +1,503 @@
+﻿@{var cpqk = ViewBag.cpqk as System.Data.DataRow;
+  //根据已筹金额与总筹资金额计算进度
+  decimal? moneySum = cpqk["moneySum"] as decimal?;
+  decimal? moneyAll = cpqk["mbcz"] as decimal?;
+  var moneyProgress = moneySum.Value / moneyAll.Value * 100;
+  int progress = Convert.ToInt32(moneyProgress);       //百分比 
+  int percentage = (progress >= 100 ? 100 : progress);    //红条进度
+
+  var contents = ViewBag.contents as List<DHW.Entity.fb_xxqk_json>;
+}
+<!--主内容区 开始-->
+<div class="content-zc-wrap">
+    <div class="content clearfix">
+        <!--标题栏-->
+        <div class="zc-title">
+            @{
+                var state = cpqk["ztmc"].ToString();
+                string lx;
+                if (state == "众筹中")
+                {
+                    lx = "zc-status zc-underway";
+                }
+                else
+                {
+                    lx = "";
+                }
+                <i class="@lx"></i>
+                <!--这里请生成正确的class以显示正确状态-->
+                    //陈磊 2015-12-03 修改
+            }
+            <h2>
+                @cpqk["cpbt"]</h2>
+            <ul class="tags">
+                <li class="category"><a href="#">@cpqk["lxmc"]</a></li>
+                <li class="location">@cpqk["sf"] @cpqk["sq"]</li>
+                <li class="labels"><a href="#">@cpqk["ztmc"]</a><a href="#">@cpqk["tjbq"]</a><a href="#">@cpqk["zdy"]</a></li>
+            </ul>
+        </div>
+        @{
+            var title = @cpqk["cpbt"];
+            ViewBag.Title = title + " - 梦高速众筹";
+        }
+        <!--详情栏-->
+        <div class="zc-detail clearfix">
+            <div class="zc-d-l">
+                <img src="@BaseConfigs.GetImgPath@cpqk["cpfm"]" alt="@cpqk["cpbt"]">
+            </div>
+            <div class="zc-d-r">
+                <div class="btns">
+                    @if (!ViewBag.DUser.HasLogin)
+                    { <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
+                        <button class="zc-follow">
+                            关注(@ViewBag.attention)</button></a> }
+                    else
+                    {
+                        if (ViewBag.gz == "0")
+                        {
+                        <button class="zc-follow" data-focus="@cpqk["Attention"]" onclick="attention()">
+                            关注(<span>@ViewBag.attention</span>)</button>
+                        }
+                        else if (ViewBag.gz == "1")
+                        {
+                        <button class="zc-follow cancel" data-focus="@cpqk["Attention"]">
+                            已关注(@ViewBag.attention)</button>
+                        }
+                    }
+                    @if (ViewBag.praise != "1")
+                    {
+                        <button class="zc-like" data-like="@cpqk["laud"]" onclick="like()">
+                            赞(<span>@ViewBag.laud</span>)</button>
+                    }
+                    else
+                    {
+                        <button class="zc-like cancel" data-laud="true" data-like="@cpqk["laud"]" onclick="like()" >
+                            已赞(<span>@ViewBag.laud</span>)</button> 
+                    }
+                </div>
+                <div class="numbers clearfix">
+                    <div class="numbers-l">
+                        <p class="digital">
+                            ¥@cpqk["moneySum"]</p>
+                        <p>
+                            已筹款</p>
+                    </div>
+                    <div class="numbers-r">
+                        <p class="digital">
+                            @cpqk["SupportNum"]</p>
+                        <p>
+                            支持数</p>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="bar-wrap">
+                        <div class="bar">
+                            <div style="width: @percentage%;">
+                            </div>
+                        </div>
+                        <i>@progress%</i>
+                    </div>
+                    <p class="target">
+                        <span class="t-eft"><span>剩余</span>@cpqk["numSy"]天</span> <span class="t-right"><span>
+                            目标筹资</span>¥@cpqk["mbcz"]</span></p>
+                </div>
+                <div class="support">
+                    <a class="support-btn" href="#">立即支持</a>
+                </div>
+                <div class="bdsharebuttonbox">
+                    <span>分享</span> <a href="#" class="bds_more" data-cmd="more"></a><a title="分享到QQ空间"
+                        href="#" class="bds_qzone" data-cmd="qzone"></a><a title="分享到新浪微博" href="#" class="bds_tsina"
+                            data-cmd="tsina"></a><a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq">
+                    </a><a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin"></a>
+                </div>
+            </div>
+        </div>
+        <!--浮动栏-->
+        <div class="fixedbar-wrap">
+            <div class="fixedbar-fixed">
+                <div class="fixedbar">
+                    <ul>
+                        <li class="current"><a href="#xmxq">项目详情</a></li>
+                        @if (@cpqk["xmjz"].ToString() != "0")
+                        {
+                            <li><a href="#zxjz">项目进展（@cpqk["xmjz"]）</a></li>
+                        }
+                        @if (@cpqk["pl"].ToString() != "0")
+                        {
+                            <li><a class="fixedbar-comment" href="#pl">评论(@cpqk["pl"])</a></li>
+                        }
+                        @if (@cpqk["SupportNum"].ToString() != "0")
+                        {
+                            <li><a href="#zcjl">支持记录（@cpqk["SupportNum"]）</a></li>
+                        }
+                    </ul>
+                    <a class="support-btn" href="#">立即支持</a>
+                </div>
+            </div>
+        </div>
+        <!--内容栏-->
+        <div class="substance clearfix">
+            <!--左栏-->
+            <div class="substance-l" id="xmxq">
+                <blockquote>
+                    <span class="bk-left-bg"></span>@cpqk["cpmd"]<span class="bk-right-bg"></span>
+                    <div class="angle">
+                        <i class="angle-t"></i><i class="angle-b"></i>
+                    </div>
+                </blockquote>
+                <div class="zc-user clearfix">
+                    <div class="zc-user-avatar">
+                        <a href="#">
+                            <img src="@cpqk["logo"]" alt=""></a></div>
+                    <div class="zc-user-info">
+                        <div>
+                            <a class="zc-user-name" href="#">@cpqk["username"]</a> <a class="zc-mail" href="#">私信</a></div>
+                        <div class="zc-certificate">
+                            营业执照</div>
+                    </div>
+                </div>
+                <div class="user-content">
+                    @for (int i = 0; i < contents.Count; i++)
+                    {
+                        var item = contents[i];
+                        if (item.type == 1)
+                        {
+                        <div class="content-title">
+                            <p>
+                            </p>
+                            <div>
+                                <h3>
+                                    @item.title</h3>
+                            </div>
+                        </div>
+                        <p>
+                            @item.content</p>
+                        }
+                        else
+                        {
+                        <img src="@BaseConfigs.GetImgPath@item.url" />
+                        }
+                    }
+                </div>
+                @if (@cpqk["xmjz"].ToString() != "0")
+                {
+                    <div class="headway" id="zxjz">
+                        <div class="content-title">
+                            <p>
+                            </p>
+                            <div>
+                                <h3>
+                                    最新进展</h3>
+                            </div>
+                        </div>
+                        <div class="headway-wrap">
+                            <ul>
+                                @for (int i = 0; i < ViewBag.zxjz.Rows.Count; i++)
+                                {
+                                    var item = ViewBag.zxjz.Rows[i];
+                               
+                                    <li>
+                                        <div>
+                                            @*<h4>
+                                        <a href="#">用户</a> 发起人</h4>*@
+                                            <p>
+                                                @item["jzms"]</p>
+                                        </div>
+                                        <div class="headway-date">
+                                            @{ string str = ((DateTime)item["fbsj"]).ToString("yyyy-MM-dd");@str}
+                                            <i></i>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+                <div class="zc-comment" id="pl">
+                    <div class="content-title">
+                        <p>
+                        </p>
+                        <div>
+                            <h3>
+                                评论</h3>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <div class="cm-input">
+                            <div class="cm-avatar">
+                                <a href="#">
+                                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchou
+/images/defult_sys_avatar_s.png" alt=""></a></div>
+                            <div class="cm-area">
+                                <textarea class="fbBox"></textarea>
+                            </div>
+                            <div class="cm-btns clearfix">
+                                <div class="cm-submit">
+                                    @if (!ViewBag.DUser.HasLogin)
+                                    {
+                                        <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}" >
+                                            <button>
+                                                发布</button>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <button>
+                                            发布</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="cm-contents">
+                            <!--评论内容-->
+                        </ul>
+                    </div>
+                    @if (@cpqk["pl"].ToString() != "0")
+                    {
+                        <div class="pagination comment-pagination">
+                        </div>
+                    }
+                </div>
+                @if (@cpqk["SupportNum"].ToString() != "0")
+                {
+                    <div class="zc-record" id="zcjl">
+                        <div class="content-title">
+                            <p>
+                            </p>
+                            <div>
+                                <h3>
+                                    支持记录</h3>
+                            </div>
+                        </div>
+                        <table class="support-record">
+                            <colgroup>
+                                <col width="80px">
+                                <col width="220px">
+                                <col width="80px">
+                                <col width="140px">
+                                <col width="auto">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        订单序号
+                                    </th>
+                                    <th>
+                                        支持者
+                                    </th>
+                                    <th>
+                                        支持项
+                                    </th>
+                                    <th>
+                                        数量(@cpqk["SupportNum"])
+                                    </th>
+                                    <th>
+                                        支持时间
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="td-bold">
+                                        23
+                                    </td>
+                                    <td class="td-bold">
+                                        用户B9CK9015
+                                    </td>
+                                    <td class="td-bold td-money td-big">
+                                        ¥1
+                                    </td>
+                                    <td class="td-big">
+                                        1
+                                    </td>
+                                    <td>
+                                        <p>
+                                            2015-10-22</p>
+                                        <p>
+                                            20:16:41</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bold">
+                                        23
+                                    </td>
+                                    <td class="td-bold">
+                                        用户B9CK9015
+                                    </td>
+                                    <td class="td-bold td-money td-big">
+                                        ¥1
+                                    </td>
+                                    <td class="td-big">
+                                        1
+                                    </td>
+                                    <td>
+                                        <p>
+                                            2015-10-22</p>
+                                        <p>
+                                            20:16:41</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="td-bold">
+                                        23
+                                    </td>
+                                    <td class="td-bold">
+                                        用户B9CK9015
+                                    </td>
+                                    <td class="td-bold td-money td-big">
+                                        ¥1
+                                    </td>
+                                    <td class="td-big">
+                                        1
+                                    </td>
+                                    <td>
+                                        <p>
+                                            2015-10-22</p>
+                                        <p>
+                                            20:16:41</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="pagination record-pagination">
+                        </div>
+                    </div>
+                }
+            </div>
+            <!--右栏-->
+            <div class="substance-r">
+                <div class="zjzc">
+                    <div class="zjzc-box">
+                        <h5>
+                            感谢您的支持 <small>2 人已支持</small></h5>
+                        <p>
+                            感谢您的支持，您将收到我们寄出的信件或贺卡，这份支持将助我们的梦想飞的更高更远。</p>
+                        <div class="zjzc-select-money">
+                            <a class="current" href="#">¥10</a><a href="#">¥20</a><a href="#">¥50</a>
+                        </div>
+                        <div class="other">
+                            <label>
+                                其它 <b>¥</b></label>
+                            <input type="text">
+                        </div>
+                        <a class="support-btn" href="#">立即支持</a>
+                    </div>
+                    @for (int i = 0; i < ViewBag.hbxx.Rows.Count; i++)
+                    {
+                        var item = ViewBag.hbxx.Rows[i] as System.Data.DataRow;
+                        string stryf = item["yfsz"].ToString();
+                        stryf = (stryf == "0" ? "免运费" : stryf);
+                        string strhb = item["hbsj"].ToString();
+                        strhb = (strhb == "0" ? "项目结束后立即回报" : strhb);
+                        <div class="zj-class">
+                            <h5>
+                                <b>¥@(((decimal)item["zcje"]).ToString("f0"))</b> @item["yzcrs"] 人已支持/限定 @item["xdme"]
+                                人 <i></i>
+                            </h5>
+                            <div class="zj-c-title">
+                                @item["hbbt"]</div>
+                            <p>
+                                @item["hbnr"]</p>
+                            <div class="zj-c-footer">
+                                <p>
+                                    配送费用：<b>@stryf</b></p>
+                                <p>
+                                    预计回报发送时间：<b>@strhb</b></p>
+                            </div>
+                            <a class="zj-c-border" href="#"></a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!--弹出登陆框 应该放到主站做 注释掉-->
+        <!--<div class="mask-box"></div>
+      <div class="log-box">
+        <div class="log-header">登陆 <i></i></div>
+        <div class="log-content clearfix">
+          <div class="log-content-left">
+            <p class="log-error-tip">*请输入密码</p>
+            <div class="log-input-wrap"><input type="text" value="用户名/手机号/邮箱"></div>
+            <div class="log-input-wrap"><input type="password" value="密码"></div>
+            <div class="log-btn-wrap">
+              <a class="log-btn" href="#">登陆</a>
+              <a class="log-forget" href="#">忘记密码</a>
+            </div>
+          </div>
+          <div class="log-content-right">
+            <div class="log-to-sign">没有账号？<a href="#">快速注册</a></div>
+          </div>
+        </div>
+      </div>-->
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script type="text/html" id="support-record">
+    {{each data as record i}}
+    <tr>
+      <td class="td-bold">23</td>
+      <td class="td-bold">{{record.name}}</td>
+      <td class="td-bold td-money td-big">{{record.money}}</td>
+      <td class="td-big">1</td>
+      <td>
+        <p>{{record.date.split(" ")[0]}}</p>
+        <p>{{record.date.split(" ")[1]}}</p>
+      </td>
+    </tr>
+    {{/each}}
+    </script>
+    <script type="text/html" id="zc-comment">
+    {{each data as comment i}}
+    <li class="cm-content" data-id="{{comment.id}}">
+      <div class="cm-avatar"><a href="#"><img src="{{domain+comment.logo}}" alt="{{comment.user}}"></a></div>
+      <a class="cm-username" href="#">{{comment.user}}</a>
+      <p class="cm-text">{{comment.comment}}</p>
+      <p class="cm-footer clearfix"><span class="cm-time">{{comment.date}}</span> <span class="sub-cm-count"><a class="cm-reply" href="#">评论({{comment.child.length}})</a></span></p>
+      <div class="comment-box clearfix">
+        <div class="cm-area">
+          <textarea placeholder="，写点什么吧~"></textarea>
+        </div>
+        <div class="cm-btns">
+          <div class="cm-submit"><button>发布</button></div>
+        </div>
+      </div>
+      {{if comment.child.length != 0}}
+      <div class="sub-comments">
+        <i class="angle"></i>
+        <ul>
+          {{each comment.child as subcomment i}}
+          <li class="sub-comment clearfix" data-id="{{subcomment.id}}">
+            <div class="clearfix">
+              <div class="sub-cm-content"><a class="cm-username" href="#">{{subcomment.ower.name}}</a> 回复了 <a class="cm-username" href="#">{{subcomment.to.name}}</a>：{{subcomment.comment}}<span class="cm-time">{{subcomment.date}}</span></div>
+              <span><a class="cm-reply sub-cm-replay" href="#">回复</a></span>
+            </div>
+            <div class="comment-box clearfix">
+              <div class="cm-area">
+                <textarea placeholder="，写点什么吧~"></textarea>
+              </div>
+              <div class="cm-btns">
+                <div class="cm-submit"><button>发布</button></div>
+              </div>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+    </li>
+    {{/each}}
+    </script>
+    <script type="text/javascript">
+        var project_id = @ViewBag.id;
+        var isLogined=@(ViewBag.DUser.HasLogin?"true":"false");
+    </script>
+    <script>
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+    <script src="@BaseConfigs.GetStaticPath/lib/jquery.cookie.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loaddata.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zchou.detail.js"></script>
+}

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 众包列表";
+}
+@*郑玉云 2015-11-12*@
+<!--横幅 开始-->
+<div class="bigPic">
+    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/众包_07.png" alt="">
+</div>
+<!--横幅 结束-->
+<!--主内容区 开始-->
+<div class="content clearfix">
+    <!--主内容区 左侧-->
+    <ul class="content_l">
+        <li class="content_l_item content_l-qb @if (@ViewBag.type == null)
+                                               {<text>content_l-current</text>}"><i></i><a href="/list">全部分类</a></li>
+        <li class="content_l_item content_l-kf @if (@ViewBag.type == 1)
+                                               {<text>content_l-current</text>}" ><i></i><a href="/list?type=1">开发众包</a></li>
+        <li class="content_l_item content_l-zx @if (@ViewBag.type == 2)
+                                               {<text>content_l-current</text>}"><i></i><a href="/list?type=2">装修众包</a></li>
+        <li class="content_l_item content_l-yx @if (@ViewBag.type == 3)
+                                               {<text>content_l-current</text>}"><i></i><a href="/list?type=3">营销众包</a></li>
+        <li class="content_l_item content_l-dx @if (@ViewBag.type == 4)
+                                               {<text>content_l-current</text>}"><i></i><a href="/list?type=4">电商众包</a></li>
+        <li class="content_l_item content_l-qt @if (@ViewBag.type == 5)
+                                               {<text>content_l-current</text>}"><i></i><a href="/list?type=5">其他</a></li>
+    </ul>
+    <!--主内容区 右侧-->
+    <div class="content_r">
+        <!--右侧 标题-->
+        <div class="content_r_ttl clearfix">
+            <div v="" class="content_r_ttl_item content_r_ttl-current">
+                <p class="content_r_ttl_item_word">
+                    全部众包</p>
+                <p class="content_r_ttl_l_single">
+                </p>
+            </div>
+            <div v="3" class="content_r_ttl_item">
+                <p class="content_r_ttl_item_word">
+                    进行中</p>
+                <p class="content_r_ttl_l_single">
+                </p>
+            </div>
+            <div v="4" class="content_r_ttl_item">
+                <p class="content_r_ttl_item_word">
+                    已结束</p>
+                <p class="content_r_ttl_l_single">
+                </p>
+            </div>
+        </div>
+        <!--右侧 内容-->
+        <div class="zbList zbList-list">
+        </div>
+        <div class="pagination">
+        </div>
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script type="text/html" id="zbItem">
+    {{each data as it i}}
+    <div class="zbItem">
+      <div class="zbItem_l">
+        <h2 class="zbItem_l_id"><a href="/detail/{{it.id}}" target="_blank" ><span>[{{it.statemc}}]</span> {{it.title}}</a></h2>
+        <div class="zbItem_l_cont">{{it.intro}}</div>
+      </div>
+      <div class="zbItem_r">
+        <p class="zbItem_r_t">[{{it.zjzt}}]</p>
+        <p class="zbItem_r_b"><span>¥{{it.totalfin}} </span>元</p>
+      </div>
+      <div class="zbItem_b">
+        <p class="clearfix">
+          <div class="zbItem_b_l"><span class="first">发布者：</span>{{it.fbzname}} <span>发布时间：</span>{{it.time}} <span>参与者：</span>{{it.num}}个</div>
+          <div class="zbItem_b_r"><span>截止日期：</span>{{it.endtime}}</div>
+        </p>
+      </div>
+    </div>
+    {{/each}}
+    </script>
+    <script>
+        var type = '@ViewBag.type';
+    </script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.slider.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loadData.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zhongbao.js"></script>
+}

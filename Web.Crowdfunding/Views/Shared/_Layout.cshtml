@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchou/styles/zhongchou.css">
+    @RenderSection("head", required: false)
+}
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        $("#su").keydown(function (event) {
+            if (!event) { event = widnow.event }
+            if (event.keyCode == 13) { $(this).next().trigger("click"); return false; }
+        });
+
+
+        function search() {
+            if (window.location.pathname.toLowerCase() == '/')
+                searchNoRedirect();
+            else
+                searchRedirect();
+        }
+        function searchRedirect() { // 其它页搜索
+            var keyword = $('#su').val();
+            $.cookie('zchou_keyword', keyword, { path: '/' });
+            window.location.pathname = '/';
+        }
+        
+        
+    </script>
+    @RenderSection("scripts", required: false)
+}
+<!--头部 开始-->
+<div class="header">
+    <!--头部主内容 开始-->
+    <div class="header-main clearfix">
+        <div class="header-m-l">
+            <a href="/">
+                <h1>
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongchou/images/zhongchou_logo.png" alt="梦高速 - 众筹"></h1>
+            </a>
+        </div>
+        <div class="header-m-m">
+            <ul class="clearfix">
+                <li><a class="zc_type zc_type-chanpin" href="/">产品众筹</a></li>
+                <li><a class="zc_type zc_type-guquan" href="#">股权众筹</a></li>
+                <li><a class="zc_type zc_type-gongyi" href="#">公益众筹</a></li>
+                <li class="last"><a target=_blank href="@{@BaseConfigs.GetMainPath<text>AppCF#/fb</text>}">
+                    <i></i>发布项目</a></li>
+            </ul>
+        </div>
+        <div class="header-m-r">
+            <div class="header-search clearfix">
+                <form action="#">
+                <input id="su" type="text" placeholder="请输入关键词">
+                <button type="button" onclick="search()">
+                    搜索</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部 结束-->
+@RenderBody()

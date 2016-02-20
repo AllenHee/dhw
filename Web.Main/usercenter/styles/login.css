@@ -1,0 +1,1178 @@
+/*
+  陈树阳
+  2015.11.26
+*/
+.login_form {
+  color: #666;
+}
+.logo {
+  padding: 39px 0;
+}
+.logo_img,
+.logo_text {
+  float: left;
+}
+.logo_img {
+  height: 50px;
+  overflow: hidden;
+}
+.logo_text {
+  padding-left: 20px;
+  border-left: 1px solid #999;
+  margin-left: 20px;
+  font-size: 28px;
+  line-height: 45px;
+}
+/*表单*/
+.bg .content {
+  position: relative;
+}
+.login_form {
+  position: absolute;
+  right: 5%;
+  top: 50px;
+  width: 306px;
+  padding: 20px;
+  background: #fff
+}
+.ttl_warp {
+  overflow: hidden;
+}
+.login_form h3 {
+  float: left;
+  font-size: 20px;
+}
+.ljzc {
+  float: right;
+  padding-left: 25px;
+  background: url(../images/icon.png) 0 -2px no-repeat;
+  font-size: 12px;
+  line-height: 16px;
+  color: #177cff;
+}
+.cr_warn {
+  position: relative;
+  margin: 10px 0;
+  width: 306px;
+  text-align: center;
+  background: #fef5d2;
+  border: 1px solid #fee791; 
+  font-size: 12px;
+  line-height: 24px;
+  color: #777;
+}
+.cr_warn i {
+  position: absolute;
+  top:3px;
+  left: 20px;
+  display: block;
+  width: 12px;
+  height: 16px;
+  background: url(../images/pwd-icons-new.png) no-repeat -104px -23px;
+}
+.cr_zh input,
+.cr_mm input {
+  height: 36px;
+  width: 254px;
+  border: 1px solid #bcbcbc;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-left: 50px;
+  line-height: 36px;
+}
+.cr_zh,
+.cr_mm {
+  position: relative;
+}
+.cr_zh i {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  display: block;
+  width: 38px;
+  height: 38px;
+  background: url(../images/pwd-icons-new.png) no-repeat;
+  border-right: 1px solid #bcbcbc;
+}
+.cr_mm i {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  display: block;
+  width: 38px;
+  height: 38px;
+  background: url(../images/pwd-icons-new.png) no-repeat -48px 0;
+  border-right: 1px solid #bcbcbc;
+}
+/*.cr_mm span {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  display: block;
+  width: 19px;
+  height: 15px;
+  background: url(../images/jp.jpg) no-repeat;
+}*/
+.zr_choose {
+  font-size: 12px;
+}
+.zr_choose span {
+  float: right;
+}
+.cr_zddl {
+  float: left;
+  margin-right: 15px;
+}
+.cr_aqkjdl {
+  float: left;
+}
+.cr_btn button {
+  margin: 15px 0 20px;
+  height: 35px;
+  width: 100%;
+  background-color: #177cff;
+  border: 0;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 20px;
+  text-align: center;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.cr_hzdl p {
+  font-size: 12px;
+  color: #989898;
+  margin-bottom: 10px;
+}
+.cr_hzdl span {
+  color: #989898;
+  margin: 0 10px;
+}
+.cr_hzdl a {
+  font-size: 12px;
+}
+
+/*大背景图*/
+.bgWrap {
+  position: relative;
+  width: 100%;
+  height: 485px;
+  background-color: #005d9a;
+  overflow: hidden;
+}
+.bg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1920px;
+  height: 485px;
+  margin-left: -960px;
+  background: url(../images/bg_big.png) no-repeat;
+}
+
+/*
+ * 何伟
+ * 修改于2015-12-16
+*/
+.bottomNav {
+  margin-top: 50px;
+  text-align: center;
+}
+.bottomNav_ul {
+  display: inline-block;
+  text-align: center;
+}
+.bottomNav_items {
+  float: left;
+  padding: 0 15px;
+  border-right: 1px solid #adadad;
+}
+.bottomNav_items-last {
+  border: 0;
+}
+.bottomNav_items a {
+  color: #333;
+}
+
+.copyrightText {
+  margin: 15px 0;
+}
+
+/*
+ * 验证码样式
+ * 卢铭怀
+ */
+.login_yz-warp {
+  display: none;
+  margin-bottom: 20px;
+}
+.login_yz {
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #bcbcbc;
+  vertical-align: middle;
+}
+.login_yztp {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+/*
+ * 注册
+ * 卢铭怀
+*/
+.register {
+  position: relative;
+}
+.register_text {
+  position: absolute;
+  right: 38px;
+  top: 12px;
+  font-size: 12px;
+}
+.register_text a {
+  color: #027cff;
+}
+
+.reg_tabs {
+  margin: 0 0 -1px 295px;
+  font-size: 15px;
+  overflow: hidden;
+}
+.reg_tab {
+  float: left;
+  width: 100px;
+  height: 28px;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  margin-top: 3px;
+  background-color: #f7f7f7;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+}
+.reg_tab.current {
+  height: 31px;
+  border-bottom-color: #fff;
+  line-height: 31px;
+  margin-top: 0;
+  background-color: #fff;
+  box-shadow: 2px 0 2px 0 #ddd;
+  font-weight: 700;
+  color: #027cff;
+}
+
+.reg_form,
+.form_wrapper {
+  width: 988px;
+  padding: 8px 0 40px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+}
+
+.formSet_input,
+.formSet_select,
+.formSet_textarea,
+.formSet_input_btn,
+.formSet_btn     {
+  border-radius: 3px;
+}
+.formSet {
+  margin-top: 30px;
+}
+/*用户中心友情链接上传titile样式*/
+.formLink {
+  position: relative;
+}
+.formLink h6 {
+  font-size: 20px;
+  margin: 20px 0px 0px 20px;
+  color: #999;
+}
+
+.formSetWrap {
+  float: left;
+  position: relative;
+}
+.formSet_label,
+.formSet_input,
+.formSet_textarea,
+.formSet_select {
+  float: left;
+  font-size: 14px;
+}
+.formSet_input[disabled],
+.formSet_select[disabled],
+.formSet_textarea[disabled] {
+  color: #aaa;
+}
+.formSet_label {
+  width: 230px;
+  height: 38px;
+  margin-right: 20px;
+  line-height: 38px;
+  text-align: right;
+  color: #999;
+}
+.formSet_input,
+.formSet_textarea {
+  width: 238px;
+  height: 36px;
+  padding: 0 25px 0 5px;
+  border: 1px solid #ccc;
+  line-height: 36px;
+}
+.formSet_input.ng-dirty.ng-invalid,
+.formSet_textarea.ng-dirty.ng-invalid {
+  border-color: #f00;
+}
+.formSet_textarea {
+  width: 440px;
+  height: 104px;
+  padding-right: 5px;
+  line-height: 26px;
+}
+.formSet_text {
+  float: left;
+  margin-left: -6px;
+  margin-right: 8px;
+  font-size: 14px;
+  line-height: 38px;
+}
+.formSet_text_link {
+  color: #027cff;
+}
+.formSet_multipleSelect {
+  display: inline-block;
+}
+.formSet_select {
+  width: 135px;
+  height: 36px;
+  padding-left: 5px;
+  border: 1px solid #ccc;
+  line-height: 36px;
+}
+.formSet_select-small {
+  width: 85px;
+  margin-right: 8px;
+}
+.formSet_option {
+  color: #999;
+}
+.formSet_input-short {
+  width: 100px;
+}
+.formSet_input:focus {
+  border-color: #7abd54;
+}
+.formSet_icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  margin-top: -8px;
+}
+.formSet_icon.select {
+  right: -25px;
+}
+.formSet_icon.user {
+  width: 16px;
+  height: 16px;
+  background: url(../images/reg_user.jpg) no-repeat;
+}
+.formSet_icon.security {
+  width: 14px;
+  height: 19px;
+  background: url(../images/reg_security.jpg) no-repeat;
+}
+.formSet_icon.phone {
+  width: 14px;
+  height: 21px;
+  background: url(../images/reg_phone.jpg) no-repeat;
+}
+.formSet_icon.success {
+  z-index: 10;
+  width: 16px;
+  height: 21px;
+  background: #fff url(../images/reg_success.png) 0 1px no-repeat;
+}
+.formSet-tip,
+.formSet-error {
+  float: left;
+  height: 36px;
+  padding: 0 8px;
+  margin-left: 5px;
+  font-size: 12px;
+  line-height: 36px;
+}
+.formSet-tip-long,
+.formSet-error-long {
+  line-height: 18px;
+}
+.formSet-tip {
+  border: 1px solid #ddd;
+  background-color: #f7f7f7;
+}
+.formSet-error {
+  border: 1px solid #ffbdbe;
+  background-color: #FFEBEB;
+  color: #f00;
+}
+.formSet_input_btn {
+  height: 38px;
+  padding: 0 10px;
+  border: 0;
+  margin-left: 10px;
+  color: #fff;
+  background-color: #027cff;
+  cursor: pointer;
+}
+/*.formSet_input_btn:hover {
+  opacity: 0.9;
+}*/
+.formSet_addMore {
+  display: block;
+  margin-left: -170px;
+  font-size: 16px;
+  color: #027cff;
+  text-align: center;
+  cursor: pointer;
+}
+.formSet_required {
+  margin-right: 5px;
+  color: #027cff;
+}
+.auth {
+  padding-top: 80px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 1.6em;
+}
+.auth a {
+  color: #027cff;
+}
+
+
+.formSet_label a {
+  display: inline-block;
+  width: 80px;
+  height: 38px;
+  border: 1px solid #d8d2ce;
+  background: #ebecec url(../images/zbForm_icon.png) 30px -65px no-repeat;
+  line-height: 38px;
+  text-align: left;
+  text-indent: 45px;
+  color: #333;
+}
+
+.valiSwitch {
+  clear: both;
+  display: block;
+  margin-left: 205px;
+  height: 20px;
+  margin-bottom: -20px;
+  font-size: 12px;
+  line-height: 22px;
+}
+.valiSwitch a {
+  color: #027cff;
+}
+
+.getPhoneValiCode {
+  width: 108px;
+  height: 38px;
+  border: 1px solid #dddddd;
+  margin-left: 10px;
+  background-color: #f4f4f4;
+  font-size: 12px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.verifyImg {
+  margin-left: 10px;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+.formSet-agreement {
+  margin-top: 15px;
+}
+.agreementWrap {
+  float: left;
+  font-size: 12px;
+  line-height: 38px;
+}
+.agreementWrap a {
+  color: #027cff;
+}
+
+.submitBtn,
+.errorPop_btn {
+  width: 270px;
+  height: 36px;
+  border: 0;
+  border-radius: 3px;
+  background-color: #027cff;
+  font-size: 16px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+.submitBtn span {
+  color: #fff;
+}
+.submitBtn[disabled] {
+  background-color: #ccc;
+}
+
+/*企业*/
+.reg_form_title {
+  height: 34px;
+  padding-left: 16px;
+  border-top: 1px solid #ddd;
+  margin-top: 22px;
+  background-color: #f7f7f7;
+  font-size: 14px;
+  line-height: 34px;
+}
+.reg_form_title-first {
+  margin-top: -9px;
+}
+
+
+.errorPop_wrap {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.successPop,
+.errorPop {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 102;
+  width: 300px;
+  height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-left: -150px;
+  margin-top: -75px;
+  background-color: #fff;
+  text-align: center;
+}
+.verifyCodeError {
+  padding: 35px 0;
+  font-size: 16px;
+}
+.errorPop_btn {
+  width: 80px;
+}
+
+/*
+  陈树阳
+  2015.12.22
+  帐号安全
+*/
+.cm .jcxx_ttl {
+  border: 0;
+  font-weight: bold;
+  color: #0065d1;
+}
+.jcxx_ttl {
+  margin-bottom: 30px;
+}
+.jcxx p {
+  text-indent: 2em;
+  font-size: 12px;
+  line-height: 40px;
+}
+.jcxx a {
+  margin-left: 10px;
+  color: #027cff;
+}
+.aqcp li {
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 12px;
+  overflow: hidden;
+  padding: 25px 0;
+}
+.aqcp a {
+  color: #027cff;
+}
+.aqcp_1 {
+  float: left;
+  width: 100px;
+  padding-left: 15px;
+  font-weight: bold;
+}
+.aqcp_2 {
+  float: left;
+  width: 500px;
+}
+.aqcp_3 {
+  float: right;
+  width: 100px;
+}
+.aqcp_0 {
+  float: left;
+  width: 80px;
+  margin-left: 15px;
+}
+
+
+/*
+ * 账户信息
+ */
+
+/*标签*/
+.accTabs_wrap {
+  border-bottom: 1px solid #c2c2c2;
+}
+.accTabs {
+  margin-bottom: -1px;
+}
+.accTab {
+  float: left;
+  width: 95px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #c2c2c2;
+  border-radius: 3px 3px 0 0;
+  margin-right: 6px;
+  background: url(../images/accTabOffBg.png) repeat-x;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+.accTab.active {
+  border-bottom-color: #fff;
+  background: url(../images/accTabOnBg.png) repeat-x;
+}
+
+/*账户信息表格*/
+.accountInfoTable {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 12px;
+}
+.accountInfoTable thead td {
+  background: #f7f7f7;
+  font-weight: bold;
+}
+.accountInfoTable td {
+  border: 1px solid #ddd;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.accountInfoTable td a {
+  color: #177cff;
+}
+.accountInfoTable_ttl {
+  background: #ddd;
+}
+.accountInfoTable a:hover {
+  text-decoration: none;
+}
+
+/*至今*/
+.formSet_checkBox_wrap {
+  float: left;
+  line-height: 38px;
+}
+
+.jyjl_ttl {
+  background: #e5e5e5;
+}
+/*
+ * 何伟
+ * 修改于2015-12-28
+ * 企业认证
+*/
+.register_ttl {
+  margin-left: 20px;
+}
+.requireTip {
+  padding: 15px 20px;
+  border: 1px solid #fef3e2;
+  margin: 20px;
+  background-color: #fefaf0;
+  color: #b5835f;
+}
+.requireTip h2 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.requireTip ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+.requireTip li {
+  font-size: 14px;
+  line-height: 20px;
+}
+.picUpLoad {
+  float: left;
+  width: 450px;
+  font-size: 12px;
+}
+.imgUpLoad {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #d0d0d0;
+  margin-bottom: 40px;
+}
+.upLoadBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #d0d0d0;
+  border-left: 0;
+  border-right: 0;
+  cursor: pointer;
+}
+.imgRequire {
+  color: #999;
+}
+.imgRequire span {
+  color: #f63;
+}
+.imgUpLoad img {
+  width: 100px;
+  height: 100px;
+}
+/*
+  企业 个人认证
+  陈树阳
+  2015.12.28
+*/
+
+.rz_enter {
+  width: 1000px;
+  height: 560px;
+  margin: 40px auto;
+  border: 1px solid #ddd;
+  line-height: 25px;
+  font-size: 12px;
+  color: #999;
+}
+.rz_enter_l,
+.rz_enter_r {
+  float: left;
+  width: 380px;
+  margin-left: 80px;
+}
+.rz_enter_img {
+  display: block;
+  width: 380px;
+  height: 122px;
+  margin: 50px 0 20px;
+}
+.rz_enter_l .rz_enter_img {
+  background: url(../images/rz_per.png) no-repeat;
+}
+.rz_enter_r .rz_enter_img {
+  background: url(../images/rz_qy.png) no-repeat;
+}
+.rz_enter dt {
+  font-weight: bold;
+  margin-top: 5px;
+}
+.rz_enter p {
+  line-height: 40px;
+  border-top: 1px dashed #ccc;
+  margin-top: 10px;
+}
+.rz_enter a {
+  color: #999;
+  text-decoration: underline;
+}
+/*认证 个人*/
+.rz_per .picUpLoad {
+  width: 200px;
+}
+.rz_per_img {
+  width: 160px;
+}
+.rz_per_sl {
+  font-size: 12px;
+  line-height: 20px;
+}
+.rz_per_sl span,
+.rz_per_sl img,
+.rz_per_sl ul {
+  float: left;
+  margin-left: 5px;
+}
+.rz_per_sl a {
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #f63;
+}
+
+/*
+* 何伟
+*/
+/*众包标题*/
+.zbFormBox_ttl {
+  position: relative;
+  width: 174px;
+  height: 40px;
+  background-color: #027cff;
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+}
+.zbFormBox_ttl i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-width: 20px 0 20px 35px;
+  border-color: transparent transparent transparent #027cff;
+  border-style: solid;
+  margin-right: -35px;
+}
+.mission_title {
+  font-size: 16px;
+  margin: 20px 0 0 60px;
+}
+/*模拟单选按钮*/
+.formInputSet_radioWrap {
+  display: inline-block;
+  line-height: 40px;
+  margin-right: 15px;
+  font-size: 14px;
+}
+.formInputSet_radio {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../images/radio.png) 0 0 no-repeat;
+  vertical-align: middle;
+}
+.selectArrow {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  height: 36px;
+  width: 38px;
+  border: 0;
+  border-left: 1px solid #ccc;
+  background: url(../images/zbForm_icon.png) 9px 14px no-repeat;
+  cursor: pointer;
+}
+.selectItems {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 10;
+  width: 510px;
+  border: 1px solid #eeecea;
+  border-top: 0;
+  margin-left: 100px;
+  background: #fff;
+  box-shadow: 2px 2px 4px #e7e7e7;
+}
+.selectItem {
+  height: 40px;
+  padding-left: 15px;
+  line-height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.selectItem:hover {
+  background: #f6f6f6;
+}
+/*日期选择*/
+.timeSelect {
+  font-size: 14px;
+}
+.timeSelect_year {
+  padding: 10px 0;
+  text-align: center;
+  font-size: 20px;
+}
+.timeSelect_year_change {
+  height: 20px;
+  padding: 0 10px;
+  border: 0;
+  margin: 0 10px;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 20px;
+  color: #027cff;
+  cursor: pointer;
+}
+.timeSelect_monthNDate {
+  padding: 13px;
+}
+.timeSelect_month,
+.timeSelect_date {
+  float: left;
+}
+.timeSelect_month {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #ccc;
+}
+.timeSelect_date {
+  padding: 15px 0px 0;
+}
+.timeSelect_month_item,
+.timeSelect_date_item {
+  float: left;
+  width: 40px;
+  height: 28px;
+  border-radius: 3px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+}
+.timeSelect_month_item {
+  font-weight: 700;
+}
+.timeSelect_date_item {
+  width: 32px;
+  height: 22px;
+  margin: 5px 4px;
+  line-height: 22px;
+}
+.timeSelect_month_item:hover,
+.timeSelect_date_item:hover  {
+  background-color: #f6f6f6;
+}
+.timeSelect_month_item.current,
+.timeSelect_date_item.current {
+  background-color: #027cff;
+  color: #fff;
+}
+.timeSelect_month_item.disabled {
+  background-color: transparent;
+  color: #999;
+  cursor: default;
+}
+.timeSelect_date_item.disabled {
+  background-color: transparent;
+  color: #999;
+  cursor: default;
+}
+
+.content_t_t  {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: -200px;
+  color: #e34d43;
+  font-size: 14px;
+}
+.zbFormBox {
+  margin-top: 50px;
+}
+/*省市选择*/
+.formSet_select-area {
+  width: auto;
+  margin-right: 10px;
+}
+/*富文本*/
+.simditor {
+  float: left;
+  margin-left: 100px;
+}
+.simditor-body {
+  width: 651px;
+  overflow: auto;
+}
+/*添加规格*/
+.skuTip {
+  height: 38px;
+  line-height: 38px;
+  color: #999;
+}
+.formSet_input-extrasmall {
+  width: 50px; 
+}
+.skuItem .formSet_input {
+  float: none;
+}
+.skuItem {
+  margin-bottom: 10px;
+}
+.formSetWrap-sku {
+  float: none;
+  margin-left: 200px;
+}
+.formSet_input_btn-sku {
+  margin-left: 200px;
+}
+.formSet_input_btn_marginTop {
+  margin-top:20px;
+}
+.formSet_input_btn_upload {
+  display: inline-block;
+  line-height: 38px;
+}
+.formSet_input_btn_upload:hover {
+  text-decoration: none !important;
+}
+
+.photo {
+  display:inline-block;
+  width: 100px;
+}
+.accountAvatar {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+/*职位选择*/
+/*.postionSelectSet {
+  float: left;
+  position: relative;
+  height: 38px;
+}
+.position_select {
+  position: absolute;
+  top: 100%;
+  left: -65px;
+  width: 400px;
+  border: 1px solid #ccc;
+}
+.position_select_item {
+  float: left;
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: 14px;
+  cursor: pointer;
+}*/
+
+
+/*
+ * 头像上传
+ */
+.avatarWrap {
+  margin-top: 20px;
+  margin-bottom: -20px;
+  text-align: center;
+}
+.avatarBtn {
+  display: block;
+  width: 120px;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0 auto;
+  background-color: #ececec;
+  line-height: 36px;
+  text-align: center;
+  font-size: 14px;
+}
+.avatarUpload {
+  width: 705px;
+  min-height: 200px;
+  margin: 20px auto;
+}
+.jcrop-holder,
+.avatarPre {
+  float: left;
+}
+.avatarPre {
+  width: 100px;
+  height: 100px;
+  margin-left: 5px;
+  overflow: hidden;
+}
+.formSet-avatar {
+  text-align: center;
+}
+
+/*相册*/
+.formSet_input_btn-photodel {
+  position: absolute;
+  left: 150%;
+  top: 50%;
+  width: 50px;
+  margin-top: -19px;
+}
+.formSet-img {
+  margin-left: -250px;
+  text-align: center;
+}
+
+/*弹出层*/
+.modal_bg {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  filter: Alpha(opacity = 70);
+  -moz-opacity:0.5;
+ -khtml-opacity: 0.5;
+}
+.modal_cont {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  margin-top: -85px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #fff;
+  z-index: 500;
+}
+.modal_cont_t {
+  position: relative;
+  padding: 10px;
+  
+}
+.modal_cont_t_close {
+ position: absolute;
+ right: 10px;
+ top: 0;
+ font-size: 20px;
+ cursor: pointer;
+ z-index: 11;
+}
+.modal_cont_button {
+  text-align: center;
+  padding: 10px;
+  overflow: hidden;
+}
+.modal_cont_text {
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: center;
+}
+.modal_cont_button_conf {
+  padding: 5px 10px;
+  color: #fff;
+  border: 1px solid #027cff;
+  background-color: #027cff;
+  cursor: pointer;
+}
+/*用户中心友情链接页面删除按钮样式*/
+.formSet_input_btn_link_del {
+  left: 110%;
+}

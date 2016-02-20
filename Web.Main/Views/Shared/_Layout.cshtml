@@ -1,0 +1,141 @@
+﻿@{
+    Layout = "~/Views/Shared/_CenterLayout.cshtml";
+}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/usercenter.css">
+    @RenderSection("head", required: false)
+}
+@section scripts{
+    <script type="text/javascript">
+        var wLeft = $('.title_nav_ul_items-current').position().left;
+        $(".slider").css("left", wLeft + 'px')
+        $(".title_nav_ul_items").click(function () {
+            var indexs = $(this).index()
+            $('.title_nav_ul_items').removeClass('title_nav_ul_items-current').eq(indexs).addClass('title_nav_ul_items-current');
+        })
+        $(".title_nav_ul_items").mouseover(function () {
+            $(".slider").stop(true, false);
+            var iLeft = $(this).position().left;
+            var iWidth = $(this).width();
+            $(".slider").animate({
+                left: iLeft + "px",
+                width: iWidth + 40 + "px"
+            }, "fast");
+        });
+        $(".title_nav_ul_items").mouseout(function () {
+            var width = $('.title_nav_ul_items-current').width();
+            if (!$(this).hasClass('title_nav_ul_items-current')) {
+                $(".slider").animate({
+                    left: wLeft,
+                    width: width
+                });
+            }
+        });
+        // $(".title_nav_ul_items").mouseout(function(event) {
+        //   event.stopPropagation();
+        // });
+
+
+        $("#server").mouseenter(function () {
+            $(".server").stop(false, false);
+            $(".server").slideDown(500);
+        })
+        $("#server").mouseleave(function () {
+            $(".server").stop(false, false);
+            $(".server").slideUp(500);
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+}
+@{ string ap = Request.Url.AbsolutePath.ToLower(); ap = ap.Replace("_company", "");}
+<!--头部导航 开始-->
+<div class="tittl_bg">
+    <div class="title_nav">
+        <div class="slider">
+        </div>
+        <ul class="title_nav_ul">
+            <li @if (ap == "/apphome")
+                { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
+                else
+                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppHome", ViewBag.LoginAsCompany)" target="_self">
+                    首页</a></li>
+            <li @if (ap == "/appzb")
+                { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
+                else
+                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppZb", ViewBag.LoginAsCompany)" target="_self">
+                    众包</a></li>
+            <li @if (ap == "/appcy")
+                { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
+                else
+                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppCy", ViewBag.LoginAsCompany)" target="_self">
+                    创意设计</a></li>
+            <li @if (ap == "/appsrdz")
+                { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
+                else
+                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppSrdz", ViewBag.LoginAsCompany)" target="_self">
+                    私人定制</a></li>
+            <li @if (ap != "/apphome" && ap != "/appzby" && ap != "/appcy" && ap != "/appsrdz")
+                {<text> class="title_nav_ul_items title_nav_ul_items-server title_nav_ul_items-current"</text>}
+                else
+                {<text> class="title_nav_ul_items title_nav_ul_items-server"</text>} id="server">
+                服务<span><i></i></span>
+                <div class="server">
+                    <ul>
+                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppCF", ViewBag.LoginAsCompany)">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-zchou.png" alt="">众筹</a></li>
+                        <li class="server_t_r_items"><a href="@BaseConfigs.GetUrlKj" target="_blank">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-kjfw.png" alt="">会计</a></li>
+                        <li class="server_t_r_items"><a href="@{@Helper1.AppUrl("/AppResume", ViewBag.LoginAsCompany)}@if (ViewBag.LoginAsCompany)
+                                                                                                                      {<text>#/hire</text>}
+                                                                                                                      else { }">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-rczp.png" alt="">人才</a></li>
+                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-zchuang.png" alt="">众创空间</a></li>
+                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppZb", ViewBag.LoginAsCompany)">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-zbao.png" alt="">众包</a></li>
+                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppCy", ViewBag.LoginAsCompany)">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-cysj.png" alt="">创意设计</a></li>
+                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppSrdz", ViewBag.LoginAsCompany)">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-srdz.png" alt="">私人定制</a></li>
+                        <li class="server_t_r_items"><a href="@BaseConfigs.GetUrlCqbh" target="_blank">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-cqbh.png" alt="">产权保护</a></li>
+                        <li class="server_t_r_items"><a href="@BaseConfigs.GetUrlZxsj" target="_blank">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-zxsj.png" alt="">转型升级</a></li>
+                        <li class="server_t_r_items"><a href="@BaseConfigs.GetUrlGsss" target="_blank">
+                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-gsss.png" alt="">公司上市</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="title_nav_r">
+            <a class="ucSwitcher" href="@Helper1.AppUrl("/AppHome", !ViewBag.LoginAsCompany)">
+                @{if (ViewBag.DUser.IsCompany)
+                  {
+                      if (ViewBag.LoginAsCompany)
+                      {<text>切换到个人版</text>}
+                      else
+                      {<text>切换到企业版</text>}
+                  }
+@*                  else if (ViewBag.DUser.IsPerson)
+                  {
+                      <text>注册为企业账户</text>
+                  }*@      
+                               
+                }
+            </a>
+            <div class="title_nav_r_l">
+                服务<span></span>
+            </div>
+            <div class="title_nav_r_r">
+                <input type="text">
+                <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/user-2.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部导航 结束-->
+<!--分割线-->
+<div class="slide-line">
+</div>
+<!--分割线-->
+@RenderBody()

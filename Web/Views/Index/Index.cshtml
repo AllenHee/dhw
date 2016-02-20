@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "人才招聘-梦高速高端人才服务";
+    ViewBag.Description = "互联网个性化高端人才招聘服务站，让人才了解更真实可靠的工作，让企业找到最合适的人才。";
+    ViewBag.Keywords = "招聘网,人才招聘,找工作,互联网人才招聘";
+}
+@model System.Data.DataTable
+<!--主内容区 开始-->
+<div class="content clearfix">
+    <!--主内容区左侧 开始-->
+    <div class="content-l">
+        <!--左栏弹出式大菜单-->
+        <div class="pop-menu">
+            <!--IT·互联网-->
+            @for (int i = 0; i < ViewBag.groups.Count; i++)
+            {
+                var first = ViewBag.groups[i];
+                var seconds = first.positions;
+                <div class="pop-menu-item">
+                    <i class="@first.Class"></i>
+                    <dl>
+                        <dt>@first.Name</dt>
+                        <dd>
+                            @*<a href="#">技术</a> <a href="#">产品</a> <a href="#">设计</a> <a href="#">运营</a>*@
+                            @*陈磊 2015-12-03 暂时注释*@
+                        </dd>
+                    </dl>
+                    <div class="pop-menu-sub">
+                        @for (int j = 0; j < seconds.Count; j++)
+                        {
+                            var second = seconds[j];
+                            var thirds = second.positions;
+                            <dl>
+                                <dt><a href="javascript:void(0);" onclick="searchLink(this)">@second.Name</a></dt>
+                                <dd>
+                                    <ul>
+                                        @for (int k = 0; k < thirds.Count; k++)
+                                        {
+                                            var third = thirds[k];
+                                            <li><a href="javascript:void(0);" onclick="searchLink(this)">@third.Name</a></li>
+                                        }
+                                    </ul>
+                                </dd>
+                            </dl>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+        <!--名企职位-->
+        <div class="content-famous">
+            <h2>
+                名企招聘</h2>
+            @for (int i = 0; i < @ViewBag.famcompany.Count; i++)
+            {
+                var companyID = ViewBag.famcompany[i]["ddid"];
+                System.Data.DataView job = ViewBag.famjob as System.Data.DataView;
+                job.RowFilter = "ddid =" + companyID;
+                <div class="c-f-item">
+                    <h3>
+                        <a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/@ViewBag.famcompany[i]["ddid"]" target="_blank">
+                            <img src="@{@BaseConfigs.GetImgPath}/@ViewBag.famcompany[i]["logo"]" alt="公司logo"></a></h3>
+                    <ul class="c-f-job">
+                        @for (int j = 0; j < job.Count; j++)
+                        {
+                            <li>
+                                <div class="c-f-title">
+                                    <a href= "@{@BaseConfigs.GetUrlHr}jobs/detail/@job[j]["jobid"]" target="_blank">@job[j]["position"]</a>
+                                    <span data-citycode = @job[j]["citycode"]>@job[j]["city"]</span></div>
+                                <div class="c-f-discription">
+                                    <span class="salary">@job[j]["money"]</span> <span>@job[j]["gznx"]
+                                        / @job[j]["xueli"]</span></div>
+                            </li>
+                        }
+                    </ul>
+                </div>                
+            }
+        </div>
+    </div>
+    <!--主内容区左侧 结束-->
+    <!--主内容区右侧 开始-->
+    <div class="content-r">
+        <!--推广区-->
+        <div class="content-promotion">
+            <!--滑动推广-->
+            <div class="slide">
+                <ul class="slide-wrap">
+                    @for (int i = 0; i < @ViewBag.hrsydt.Count; i++)
+                    {
+                        var imgs = @ViewBag.hrsydt[i]["img"] + ".jpg"; 
+                        <li><a href="@ViewBag.hrsyxt[i]["url"]" target="_blank">
+                            <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="人才首页大图广告"></a></li>
+                    }
+                </ul>
+                <div class="slider">
+                    <em></em>
+                    <ul>
+                        @for (int i = 0; i < @ViewBag.hrsydt.Count; i++)
+                        {
+                            var imgs = @ViewBag.hrsydt[i]["img"] + ".jpg"; 
+                            <li class="@if ((i + 1) % 6 == 0)
+                                       {<text>last</text>}">
+                                <img src="@{@BaseConfigs.GetImgPath}@imgs" width="128px" alt=""></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <!--遮罩滑动推广-->
+            <ul class="mask clearfix">
+                @for (int i = 0; i < @ViewBag.hrsyxt.Count; i++)
+                {
+                    var imgs = @ViewBag.hrsyxt[i]["img"] + ".jpg";
+                    <li class="@if ((i + 1) % 6 == 0)
+                               {<text>last</text>}">
+                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="人才首页小图广告">
+                        <a href="@ViewBag.hrsyxt[i]["url"]" target="_blank">
+                            <div>
+                                <h5>
+                                    @ViewBag.hrsyxt[i]["tag"]</h5>
+                                <p>
+                                    @ViewBag.hrsyxt[i]["tag"]欢迎你！</p>
+                            </div>
+                        </a></li>
+                }
+            </ul>
+        </div>
+        <!--标签切换模块-->
+        <div class="tab-box">
+            <!--标签-->
+            <ul class="tb-tabs">
+                <li class="current">热门职位</li>
+                <li>最新职位</li>
+            </ul>
+            <div class="tb-box-wrap">
+                <!--切换区1-->
+                <ul class="pos-box tb-box tb-box-1">
+                    @for (int j = 0; j < ViewBag.hot.Rows.Count; j++)
+                    {
+                        var item = ViewBag.hot.Rows[j];
+                        var fls = item["Dci_fuli"].ToString();
+                        <li>
+                            <div class="pos-box-l">
+                                <h4>
+                                    <a target="_blank" href="jobs/detail/@item["id"]">@item["Dji_Position"]</a> <small>[<span class="city" data-citycode = @item["citycode"]>@item["Dji_City"]</span>]<span>@item["timeFormat"]</span></small></h4>
+                                <div>
+                                    <span class="salary">薪酬：@item["Dji_Money"]</span> <span class="exp">经验：@item["Dji_Req_gznx"]/@item["Dji_Req_xueli"]</span></div>
+                                <ul class="advantage">
+                                    @if (fls != "")
+                                    {
+                                        var fls2 = fls.Split(',');
+                                        foreach (var welfare in fls2)
+                                        {
+                                        <li>@welfare</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div class="pos-box-r">
+                                <p>
+                                    <a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/@item["ddid"]" target="_blank">@item["Dd_compay"]</a></p>
+                                <p>
+                                    @item["Dd_trade"]、@item["Dd_scale"]</p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <!--切换区2-->
+                <ul class="pos-box tb-box tb-box-2">
+                    @for (int i = 0; i < ViewBag.latest.Rows.Count; i++)
+                    {
+                        var item = ViewBag.latest.Rows[i];
+                        var fls = item["Dci_fuli"].ToString();
+                        <li>
+                            <div class="pos-box-l">
+                                <h4>
+                                    <a target="_blank" href="jobs/detail/@item["id"]">@item["Dji_Position"]</a> <small>[<span class="city" data-citycode = @item["citycode"]>@item["Dji_City"]</span>]<span>@item["timeFormat"]</span></small></h4>
+                                <div>
+                                    <span class="salary">薪酬：@item["Dji_Money"]</span> <span class="exp">经验：@item["Dji_Req_gznx"]/@item["Dji_Req_xueli"]</span></div>
+                                <ul class="advantage">
+                                    @if (fls != "")
+                                    {
+                                        var fls2 = fls.Split(',');
+                                        foreach (var welfare in fls2)
+                                        {
+                                        <li>@welfare</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div class="pos-box-r">
+                                <p>
+                                    <a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/@item["ddid"]" target="_blank">@item["Dd_compay"]</a></p>
+                                <p>
+                                    @item["Dd_trade"]、@item["Dd_scale"]</p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <div class="more">
+                    <a href="/Jobs">查看更多 > </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--主内容区右侧 结束-->
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/lib/jquery.cookie.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.popmenu.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.slider.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.mask.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zpDetail.js"></script>
+    <script>
+        $(".pop-menu").popmenu();
+        $(".slide-wrap").slide(false);
+        $(".mask li").mask();
+    </script>
+}

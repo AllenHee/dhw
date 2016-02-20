@@ -1,0 +1,26 @@
+<div class="wdgz">
+  <ul class="wdgz_wdfq">
+    <li><a href="">项目查询</a></li>
+  </ul>
+  <ul class="wdgz_xm">
+    <li class="wdgz_xm1" style="width: 130px">图片</li>
+    <li style="width: 130px">名称</li>
+    <li style="width: 130px">价格</li>
+    <li style="width: 130px">类型</li>
+  </ul>
+  <ul class="wdgz_main" ng_repeat="it in list">
+    <li class="wdgz_main_item">
+      <ul class="wdgz_main_cont">
+        <li style="width: 130px" class="wdgz_main_cont_lx"><img src="{{dhw.imgurl + it.img}}" alt=""></li>
+        <li style="width: 130px" class="wdgz_main_cont_lx"><a href="{{it.url}}">{{it.name}}</a></li>
+        <li style="width: 130px" class="wdgz_main_cont_lx">{{it.money}}</li>
+        <li style="width: 130px" class="wdgz_main_cont_lx" title="">{{it.typeid}}</li>
+        <li style="width: 130px" class="wdgz_main_cont_cz"><a class="wdgz_main_cont_cz_yl" href="#/serversDetail/{{it.id}}" data-ddid="{{it.ddid}}">详细情况</a> </li>
+        <li style="width: 130px" class="wdgz_main_cont_lx"><a class="wdgz_main_cont_cz_yl delete" data-id="{{it.id}}" ng-click='remove(it.id, $index)' href="javascript:void(0)">删除</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="pagination-wrap">
+    <uib-pagination total-items="page.total" max-size="10" items-per-page="page.pageSize" ng-model="page.pageIndex" ng-change="loaddata()"></uib-pagination>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 众创空间";
+}
+<!--主内容区 开始-->
+<div class="content">
+    <!--城市选择 开始-->
+    <div class="slct clearfix">
+        <label class="slct_label">
+            按条件查询：</label>
+        <div class="slct_cnt_wrap">
+            <div class="slct_cnt_input_wrap">
+                <input class="slct_cnt_input" type="text" value="请选择省市区" readonly="readonly"><i class="iconfont">&#xe60f;</i>
+            </div>
+            <div class="slct_cnt">
+                <h3 class="slct_cnt_ttl">
+                    请选择省市区 <i class="slct_cnt_close">×</i></h3>
+                <div class="slct_cnt_list">
+                    <ul class="slct_cnt_list_tabs clearfix">
+                        <li class="slct_cnt_list_tab current">热门</li>
+                        <li class="slct_cnt_list_tab">省份</li>
+                        <li class="slct_cnt_list_tab slct_cnt_list_tab-citys">市区</li>
+                    </ul>
+                    <ul class="slct_cnt_list_items">
+                        <li class="slct_cnt_list_item_wrap current">
+                            <ul class="slct_cnt_list_item slct_cnt_list_item-hot clearfix">
+                                <li>北京</li>
+                                <li>上海</li>
+                                <li>浙江</li>
+                                <li>江苏</li>
+                                <li>天津</li>
+                                <li>广东</li>
+                            </ul>
+                        </li>
+                        <li class="slct_cnt_list_item_wrap">
+                            <ul class="slct_cnt_list_item slct_cnt_list_item-provs clearfix">
+                            </ul>
+                        </li>
+                        <li class="slct_cnt_list_item_wrap">
+                            <ul class="slct_cnt_list_item slct_cnt_list_item-citys clearfix">
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="slct_btn">
+            查询</button>
+    </div>
+    <!--城市选择 结束-->
+    <!--地图容器 开始-->
+    <div class="map">
+        <div id="mapContent">
+        </div>
+        <a class="map_back" href="#">返回全国地图</a>
+    </div>
+    <!--地图容器 结束-->
+    <!--弹出层 开始-->
+    <div class="mapPop_grey">
+    </div>
+    <div class="mapPop">
+        <div class="mapPop_ttl">
+            <h2>
+            </h2>
+            <i class="mapPop_closeBtn">×</i>
+        </div>
+        <ul class="mapPop_list">
+            <!--<li class="mapPop_list_items"><a href="#"></a></li>-->
+        </ul>
+    </div>
+    <!--弹出层 结束-->
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/echarts.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zhongchuang.js"></script>
+}

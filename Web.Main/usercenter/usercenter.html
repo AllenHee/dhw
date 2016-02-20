@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>梦高速-用户中心</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/usercenter.css">
+</head>
+<body>
+  <!--头部导航 开始-->
+  <div class="tittl_bg">
+    <div class="title_nav">
+      <div class="slider"></div>
+      <ul class="title_nav_ul">
+        <li class="title_nav_ul_items"><a href="#">首页</a></li>
+        <li class="title_nav_ul_items"><a href="#">批发进货</a></li>
+        <li class="title_nav_ul_items"><a href="#">生产采购</a></li>
+        <li class="title_nav_ul_items"><a href="#">销售</a></li>
+        <li class="title_nav_ul_items title_nav_ul_items-server" id="server">服务<span><i></i></span>
+          <div class="server">
+            <ul>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">众包</a></li>
+              <li class="server_t_r_items"><a href="#"><img src="images/user-3.png" alt="">创意设计</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <div class="title_nav_r">
+        <a class="ucSwitcher" href="#">切换到企业版</a>
+        <div class="title_nav_r_l">
+          服务<span></span>
+        </div>
+        <div class="title_nav_r_r">
+          <input type="text">
+          <img src="images/user-2.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--头部导航 结束-->
+  <!--主内容 开始-->
+  <div class="content clearfix">
+    <!--左栏 开始-->
+    <div class="cl">
+      <dl class="cygn">
+        <dt>常用功能</dt>
+        <dd><a href="#">所有寻源项目</a></dd>
+        <dd><a href="#">已买到的物品</a></dd>
+        <dd><a href="#">优惠券管理</a></dd>
+        <dd><a href="#">交易收支明细</a></dd>
+        <dd><a href="#">做出的评价</a></dd>
+      </dl>
+    </div>
+    <!--左栏 结束-->
+    <!--中栏 开始-->
+    <div class="cm"></div>
+    <!--中栏 结束-->
+    <!--右栏 开始-->
+    <div class="cr"></div>
+    <!--右栏 结束-->
+  </div>
+  <!--主内容 结束-->
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
+      $(".title_nav_ul_items").mouseover(function () {
+        $(".slider").stop(true, false);
+        var iLeft = $(this).position().left;
+        var iWidth = $(this).width();
+        $(".slider").animate({
+          left: iLeft +"px",
+          width : iWidth + 40 + "px"
+        }, "fast");
+    });
+    $(".title_nav_ul").mouseout(function() {
+       $(".slider").animate({
+          left: "174px",
+          width : "64px"
+        });
+    });
+    // $(".title_nav_ul_items").mouseout(function(event) {
+    //   event.stopPropagation();
+    // });
+    
+    
+    $("#server").mouseenter(function() {
+        $(".server").stop(false,false).slideDown(500);
+    })
+    $("#server").mouseleave(function() {
+       $(".server").stop(false,false).slideUp(500);
+    })
+  </script>
+</body>
+</html>

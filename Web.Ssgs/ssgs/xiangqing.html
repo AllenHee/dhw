@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>上市公司-详情页</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/ssgs.css">
+  <script type="text/javascript">
+    var dhw = {
+            imgurl: 'http://192.168.2.10:81/img/',
+            imguploadurl: 'http://192.168.2.10:82/uploadimg',
+            mainurl: '//localhost:8085/',
+            staticurl: 'http://192.168.2.10:81',
+            urlmain: '//localhost:8085/',
+            urlcdn: '//192.168.2.10:81/',
+            urlzc: '//localhost:8088/',
+            urlkj: '//localhost:8087/',
+            urlhr: '//localhost:8086/',
+            urlzckj: '//localhost:8091/',
+            urlzb: '//localhost:8090/',
+            urldiy: '//localhost:8092/',
+            urlsrdz: '//localhost:8093/',
+            urlcqbh: '//localhost:8094/',
+            urlzxsj: '//localhost:8095/',
+            urlgsss: '//localhost:8096/'
+        };
+  </script>
+  <script type="text/html" id="logo_show">
+    {{each data as logo}}
+    <li class="pic_show_items"><a href="#"><img src="{{domain}}{{logo.userlogo}}" alt=""></a></li>
+    {{/each}}
+  </script>
+  <script>
+    var id = 2;
+  </script>
+</head>
+<body>
+  <!--通用顶栏 开始-->
+  <div class="sitenav clearfix">
+    <div class="sitenav-wrap">
+      <ul class="sitenav-l">
+        <li><a href="#"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+        <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+      </ul>
+      <ul class="sitenav-r">
+        <li class="log">您好，请<a href="#">登陆</a> <a href="#">免费注册</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li class="nav-drop">
+          <a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+          <ul class="sn-dropdown menu-dropdown">
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+          </ul>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60c;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></div>
+            <div>微信</div>
+          </div>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60a;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微博"></div>
+            <div>微博</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--通用顶栏 结束-->
+  <!--导航栏 开始-->
+  <div class="nav">
+    <div class="nav_ttl">
+      <a class="zxsj_logo" href="#"><img src="images/logo1.png" alt=""></a>
+      <ul class="nav_ul">
+        <li class="nav_ul_items nav_ul_items-current">首页</li>
+        <li class="nav_ul_items"><a href="#">解决方案</a></li>
+        <li class="nav_ul_items"><a href="#">互联网+</a></li>
+        <li class="nav_ul_items"><a href="#">活动策划</a></li>
+        <li class="nav_ul_items"><a href="#">成本控制</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--导航栏 结束-->
+  <!--头部简介 开始-->
+  <div class="nav_imgWrap nav_imgWrap-hlwplus">
+    <div class="nav_imgCont">
+      <img src="images/bg-12.png">
+    </div>
+    <div class="intro">
+      <img class="intro_logo" src="images/xieyameiyinglefulan.jpg" alt="">
+      <div class="intro_cont">
+        <h1 class="intro_cont_name">胡博宇</h1>
+        <p>博予有近10年的创业经验。他参与创办了信贷管理软件公司安 硕科技最终在创业板上市（股票代码 SHE:300380）。在创办Blue lake capital之前,博宇在著名的风险投资基金DCM工作.另外博宇还曾就职于摩根士丹利</p>
+        <a class="intro_cont_focus" href="#" onclick="attention()">关 注</a>
+        <span class="fir_label">蓝湖资本·合作人</span>
+        <span class="sec_label">天使汇认证投资人</span>
+      </div>
+    </div>
+    <div class="intro_nav_bg">
+      <div class="intro_nav">
+        <ul class="intro_nav_ul">
+          <li class="intro_nav_ul_item">基本信息</li>
+        </ul>
+        <div class="intro_nav_contact">
+          <a class="intro_nav_contact_in" href="#"><img src="images/in.png" alt=""></a>
+          <a href="#"><img src="images/weibo.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--头部简介 结束-->
+  <!--基本信息 开始-->
+  <div class="message_bg">
+    <div class="message clearfix">
+      <!--左侧 开始-->
+      <div class="message_l">
+        <div class="message_l_exp">
+          <h1 class="message_l_ttl">过往投资案例及个人经历</h1>
+          <ul>
+            <li class="message_l_ul_items">
+              <img class="message_l_ul_items_logo" src="images/火箭icon-副本.png" alt="">
+              <a class="message_l_ul_items_name" href="#">豌豆荚</a>
+              <p>投资人</p>
+              <span class="message_l_ul_items_conf">待确认</span>
+            </li>
+            <li class="message_l_ul_items">
+              <img class="message_l_ul_items_logo" src="images/火箭icon-副本.png" alt="">
+              <a class="message_l_ul_items_name" href="#">豌豆荚</a>
+              <p>投资人</p>
+              <span class="message_l_ul_items_conf">待确认</span>
+            </li>
+            <li class="message_l_ul_items message_l_ul_items-last">
+              <img class="message_l_ul_items_logo" src="images/火箭icon-副本.png" alt="">
+              <a class="message_l_ul_items_name" href="#">豌豆荚</a>
+              <p>投资人</p>
+              <span class="message_l_ul_items_conf">待确认</span>
+            </li>
+          </ul>
+        </div>
+        <div class="message_idea">
+          <h1 class="message_l_ttl">投资理念</h1>
+          <p>所在的市场足够大,有机会建立可持续的先发优势,团队有很强的执行力.其他偏好</p>
+          <dl>
+            <dt><span>· </span>擅长投资领域</dt>
+            <dd>移动互联网·电子商务·O2O·B2B电脑平台·社交</dd>
+            <dt><span>· </span>可以提供的附加价值</dt>
+            <dd>战略的建议,人脉资源其他服务</dd>
+          </dl>
+        </div>
+        <div class="message_item">
+          <h1 class="message_l_ttl">关注项目</h1>
+          <ul>
+            <li class="message_l_ul_items">
+              <img class="message_l_ul_items_logo" src="images/火箭icon-副本.png" alt="">
+              <a class="message_l_ul_items_name" href="#">豌豆荚</a>
+              <p>有超过2亿用户的移动内容发现引擎</p>
+            </li>
+            <li class="message_l_ul_items">
+              <img class="message_l_ul_items_logo" src="images/火箭icon-副本.png" alt="">
+              <a class="message_l_ul_items_name" href="#">优信拍</a>
+              <p>中国最大二手车拍卖平台</p>
+            </li>
+            <li class="message_l_ul_items">
+              <img class="message_l_ul_items_logo" src="images/火箭icon-副本.png" alt="">
+              <a class="message_l_ul_items_name" href="#">51talk</a>
+              <p>领先的真人外教在线英语培训服务</p>
+            </li>
+            <li class="message_l_ul_items message_l_ul_items-last">
+              <img class="message_l_ul_items_logo" src="images/火箭icon-副本.png" alt="">
+              <a class="message_l_ul_items_name" href="#">豌豆荚</a>
+              <p>投资人</p>
+            </li>
+          </ul>
+        </div>
+        <button class="message_l_more">查看更多</button>
+      </div>
+      <!--左侧 结束-->
+      <!--右侧 开始-->
+      <div class="message_r">
+        <div class="message_r_plan">
+          <h2 class="message_r_ttl">投资计划</h2>
+          <ul>
+            <li class="message_r_plan_items">
+              <h3>关注领域</h3>
+              <p>电子商务·网络社区·LBS·O2O·移动社交</p>
+            </li>
+            <li class="message_r_plan_items">
+              <h3>关注城市</h3>
+              <p>北京·上海</p>
+            </li>
+          </ul>
+          <div class="message_r_b clearfix">
+            <div class="message_r_b_l">
+              <p class="message_r_b_tw">4个</p>
+              <p class="message_r_b_bw">一年计划投资项目</p>
+            </div>
+            <div class="message_r_b_r">
+              <p class="message_r_b_tw">600万-1000万</p>
+              <p class="message_r_b_bw">单个项目投资额度范围</p>
+            </div>
+          </div>
+          <button class="itemsubmit">提交项目</button>
+        </div>
+        
+        <div class="message_r_fans">
+          <ul class="clearfix">
+            <li class="message_r_fans_items message_r_fans_items-current" >关注 <span id="quantity" data-quantity="10"> 10 </span></li>
+            <li class="message_r_fans_items">粉丝 <span> 5 </span></li>
+          </ul>
+          <ul class="focus_show clearfix">
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items pic_show_items-last"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+            <li class="pic_show_items pic_show_items-last"><a href="#"><img src="images/xieyameiyinglefulan1.jpg" alt=""></a></li>              
+          </ul>
+          <ul class="focus_show clearfix hide">
+            <li class="pic_show_items"><a href="#"><img src="images/66525f33668c616250a9df5659915397_650x394.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/66525f33668c616250a9df5659915397_650x394.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/66525f33668c616250a9df5659915397_650x394.jpg" alt=""></a></li>
+            <li class="pic_show_items"><a href="#"><img src="images/66525f33668c616250a9df5659915397_650x394.jpg" alt=""></a></li>
+            <li class="pic_show_items pic_show_items-last"><a href="#"><img src="images/66525f33668c616250a9df5659915397_650x394.jpg" alt=""></a></li>           
+          </ul>
+        </div>
+      </div>
+      <!--右侧 结束-->
+    </div>
+  </div>
+  <!--基本信息 结束-->
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>  
+  <script src="http://localhost:8070/scripts/ssgs.detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 人才招聘 - 公司列表</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/rencai.css">
+  <script type="text/javascript">
+    var dhw = { imgurl: 'http://192.168.2.10:82/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', mainurl: 'http://localhost:8085/' };
+    var su = "";
+  </script>
+  <script type="text/html" id="comTemplate">
+    {{each data as company i}}
+    <li>
+      <div class="clearfix">
+        {{if company.logo}}
+        <div class="f-r-l"><a href="#"><img src="{{domain}}{{company.logo}}" alt="公司图标"></a></div>
+        {{/if}}
+        {{if !company.logo}}
+        <div class="f-r-l"><a href="#"><img src="http://localhost:8070/images/default2.png" alt="公司图标"></a></div>
+        {{/if}}
+        <div class="f-r-r">
+          <h3><a href="#">{{company.compay}}</a><small>{{company.trade}} / {{company.Nature}} / 规模：{{company.scale}}人</small></h3>
+          <p><a href="#">{{company.numEvaluation}}</a>条面试评价</p>
+          <p><a href="#">{{company.jobs.length}}</a>个在招职位
+            <span class="job-pos">
+              {{each company.jobs as job i}}
+              {{if (i + 1) < 3}}
+              <a href="http://hr.dreamhiway.com/jobs/detail/{{job.id}}">{{job.name}}</a>/
+              {{/if}}
+              {{if (i + 1) == 3}}
+              <a href="http://hr.dreamhiway.com/jobs/detail/{{job.id}}">{{job.name}}</a>
+              {{/if}}
+              {{/each}}
+            </span>
+          </p>
+          <ul class="advantage">
+            {{each company.fuli as fuli i}}
+            <li>{{fuli}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+  </script>
+</head>
+<body>
+  <!--通用顶栏 开始-->
+  <div class="sitenav clearfix">
+    <div class="sitenav-wrap">
+      <ul class="sitenav-l">
+        <li><a href="#"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+        <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+      </ul>
+      <ul class="sitenav-r">
+        <li class="log">您好，请<a href="#">登陆</a> <a href="#">免费注册</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li class="nav-drop">
+          <a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+          <ul class="sn-dropdown menu-dropdown">
+            <li>aaaa</li>
+            <li>bbbb</li>
+            <li>cccc</li>
+          </ul>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60c;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></div>
+            <div>微信</div>
+          </div>
+        </li>
+        <li class="icon-drop">
+          <i class="sn-dropper iconfont">&#xe60a;</i>
+          <div class="sn-dropdown">
+            <div><img src="http://localhost:8070/images/erweima.jpg" alt="微博"></div>
+            <div>微博</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--通用顶栏 结束-->
+  <!--头部 开始-->
+  <div class="header">
+    <!--头部主内容 开始-->
+    <div class="header-main clearfix">
+      <div class="header-m-l">
+        <a href="#"><h1><img src="images/zhaopin_logo.png" alt="梦高速 - 人才"></h1></a>
+      </div>
+      <div class="header-m-r">
+        <div class="header-search">
+          <form action="#" class="clearfix">
+            <div class="select">
+              <span>职位</span>
+              <ul class="aa">
+                <li>职位</li>
+                <li>公司</li>
+              </ul>
+            </div>
+            <input type="text" placeholder="请输入职位名称，如：前端工程师">
+            <button type="submit">搜索</button>
+          </form>
+        </div>
+        <div class="header-hot-search">
+          <dl class="clearfix">
+            <dt>热门：</dt>
+            <dd><a href="#">平面设计</a></dd>
+            <dd><a href="#">电脑运营</a></dd>
+            <dd><a href="#">程序开发</a></dd>
+            <dd><a href="#">网络推广</a></dd>
+            <dd><a href="#">客服主管</a></dd>
+            <dd><a href="#">产品经理</a></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <!--头部主内容 结束-->
+    <!--头部导航条 开始-->
+    <div class="header-nav">
+      <div class="header-nav-wrap clearfix">
+        <ul>
+          <li class="current"><a href="#">首页</a></li>
+          <li><a href="#">公司</a></li>
+          <li><a href="#">发布职位</a></li>
+          <li><a href="#">寻找合伙人</a></li>
+          <li class="last"><a href="#">我的简历</a></li>
+        </ul>
+      </div>
+    </div>
+    <!--头部导航条 结束-->
+  </div>
+  <!--头部 结束-->
+  <!--主内容区 开始-->
+  <div class="content clearfix">
+    <!--大筛选框 开始-->
+    <div class="filter-box">
+      <div class="has-more">
+        <dl class="clearfix">
+          <dt>公司地点：</dt>
+          <dd class="current">全国</dd>
+          <dd>北京</dd>
+          <dd>上海</dd>
+          <dd>深圳</dd>
+          <dd>广州</dd>
+          <dd>杭州</dd>
+          <dd>成都</dd>
+          <dd>南京</dd>
+          <dd>武汉</dd>
+          <dd>西安</dd>
+          <dd>厦门</dd>
+          <dd>长沙</dd>
+          <dd>苏州</dd>
+          <dd>天津</dd>
+          <dd></dd>
+          <dd class="more">更多 <i></i></dd>
+        </dl>
+        <ul class="clearfix">
+          <li>重庆</li>
+          <li>郑州</li>
+          <li>青岛</li>
+          <li>合肥</li>
+          <li>福州</li>
+          <li>济南</li>
+          <li>大连</li>
+          <li>珠海</li>
+          <li>无锡</li>
+          <li>佛山</li>
+          <li>东莞</li>
+          <li>宁波</li>
+          <li>常州</li>
+          <li>沈阳</li>
+          <li>石家庄</li>
+          <li>昆明</li>
+          <li>南昌</li>
+          <li>南宁</li>
+          <li>哈尔滨</li>
+          <li>海口</li>
+          <li>中山</li>
+          <li>惠州</li>
+          <li>贵阳</li>
+          <li>长春</li>
+          <li>太原</li>
+          <li>嘉兴</li>
+          <li>泰安</li>
+          <li>昆山</li>
+          <li>烟台</li>
+          <li>兰州</li>
+          <li>泉州</li>
+        </ul>
+      </div>
+      <div>
+        <dl class="clearfix">
+          <dt>公司规模：</dt>
+          <dd class="current">不限</dd>
+          <dd>5-10人</dd>
+          <dd>10-50人</dd>
+          <dd>50-100人</dd>
+          <dd>100-200人</dd>
+          <dd>200人以上</dd>
+        </dl>
+      </div>
+      <div class="has-more">
+        <dl class="clearfix">
+          <dt>行业领域：</dt>
+          <dd class="current">不限</dd>
+          <dd>移动互联网</dd>
+          <dd>电子商务</dd>
+          <dd>金融</dd>
+          <dd>企业服务</dd>
+          <dd>教育</dd>
+          <dd>O2O</dd>
+          <dd>硬件</dd>
+          <dd>社交网络</dd>
+          <dd class="more">更多 <i></i></dd>
+        </dl>
+        <ul class="clearfix">
+          <dd>旅游</dd>
+          <dd>医疗健康</dd>
+          <dd>生活服务</dd>
+          <dd>信息安全</dd>
+          <dd>数据服务</dd>
+          <dd>广告营销</dd>
+          <dd>招聘</dd>
+          <dd>其他</dd>
+        </ul>
+      </div>
+    </div>
+    <!--大筛选框 结束-->
+    <!--筛选结果 按公司-->
+    <ul class="filter-result">
+      <li>
+        <div class="clearfix">
+          <div class="f-r-l"><a href="#"><img src="images/corp-logo.jpg" alt="公司图标"></a></div>
+          <div class="f-r-r">
+            <h3><a href="#">圈子在线</a><small>上海池乐信息科技有限公司 / 互联网 / 私营企业 / 规模：1-50人</small></h3>
+            <p><a href="#">8</a>条面试评价</p>
+            <p><a href="#">6</a>个在招职位 <span class="job-pos"><a href="#">高级UI设计师</a>/<a href="#">视频编辑&采编</a>/<a href="#">产品经理</a>/<a href="#">产品专员</a>/<a href="#">视觉设计师</a>/<a href="#">视频编辑&采编</a></span></p>
+            <ul class="advantage">
+              <li>公司发展前景大</li>
+              <li>个人成长机会多</li>
+              <li>薪酬体系完善</li>
+              <li>节日福利</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="clearfix">
+          <div class="f-r-l"><a href="#"><img src="images/corp-logo.jpg" alt="公司图标"></a></div>
+          <div class="f-r-r">
+            <h3><a href="#">圈子在线</a><small>上海池乐信息科技有限公司 / 互联网 / 私营企业 / 规模：1-50人</small></h3>
+            <p><a href="#">8</a>条面试评价</p>
+            <p><a href="#">6</a>个在招职位 <span class="job-pos"><a href="#">高级UI设计师</a>/<a href="#">视频编辑&采编</a>/<a href="#">产品经理</a>/<a href="#">产品专员</a>/<a href="#">视觉设计师</a>/<a href="#">视频编辑&采编</a></span></p>
+            <ul class="advantage">
+              <li>公司发展前景大</li>
+              <li>个人成长机会多</li>
+              <li>薪酬体系完善</li>
+              <li>节日福利</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="clearfix">
+          <div class="f-r-l"><a href="#"><img src="images/corp-logo.jpg" alt="公司图标"></a></div>
+          <div class="f-r-r">
+            <h3><a href="#">圈子在线</a><small>上海池乐信息科技有限公司 / 互联网 / 私营企业 / 规模：1-50人</small></h3>
+            <p><a href="#">8</a>条面试评价</p>
+            <p><a href="#">6</a>个在招职位 <span class="job-pos"><a href="#">高级UI设计师</a>/<a href="#">视频编辑&采编</a>/<a href="#">产品经理</a>/<a href="#">产品专员</a>/<a href="#">视觉设计师</a>/<a href="#">视频编辑&采编</a></span></p>
+            <ul class="advantage">
+              <li>公司发展前景大</li>
+              <li>个人成长机会多</li>
+              <li>薪酬体系完善</li>
+              <li>节日福利</li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!--翻页条 开始-->
+    <div class="pagination"> </div>
+    <!--翻页条 结束-->
+  </div>
+  <!--主内容区 结束-->
+  <!--通用底栏 开始-->
+  <div class="footer">
+    <div class="footer-wrap clearfix">
+      <div class="footer-l">
+        <div class="logo"></div>
+        <div>服务时间：工作日 9:00 - 18:00</div>
+        <div class="tel">0595-32892299</div>
+        <ul class="contact clearfix">
+          <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+          <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+          <li>
+            <a href="#"><i class="iconfont">&#xe60d;</i></a>
+            <!--微信弹出-->
+            <div class="wechat">
+              <span><img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></span>
+              <p></p>
+            </div>
+          </li>
+          <li class="last">
+            <a href="#"><i class="iconfont">&#xe60b;</i></a>
+            <div class="weibo">
+              <span><img src="http://localhost:8070/images/erweima.jpg" alt="微博二维码"></span>
+              <p></p>
+            </div>
+          </li>
+        </ul>
+        <p>
+          创企科技有限公司 版权所有<br>
+          &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号<br>
+          地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+        </p>
+        <div class="icp"></div>
+      </div>
+      <div class="footer-r">
+        <dl>
+          <dt>公司信息</dt>
+          <dd><a href="#">关于我们</a></dd>
+          <dd><a href="#">人才招聘</a></dd>
+          <dd><a href="#">公司动态</a></dd>
+          <dd><a href="#">媒体报道</a></dd>
+        </dl>
+        <dl>
+          <dt>公司产品</dt>
+          <dd><a href="#">梦高速金融</a></dd>
+          <dd><a href="#">梦高速人才</a></dd>
+          <dd><a href="#">梦高速众筹</a></dd>
+          <dd><a href="#">梦高速众包</a></dd>
+          <dd><a href="#">创企科技</a></dd>
+        </dl>
+        <dl>
+          <dt>相关文档</dt>
+          <dd><a href="#">免责声明</a></dd>
+          <dd><a href="#">帮助中心</a></dd>
+          <dd><a href="#">项目规范</a></dd>
+          <dd><a href="#">服务协议</a></dd>
+        </dl>
+        <dl class="last">
+          <dt>手机应用</dt>
+          <dd><a href="#">iPhone版下载</a></dd>
+          <dd><a href="#">Android版下载</a></dd>
+          <dd><a href="#">微信公众号梦高速</a></dd>
+          <dd><a href="#"><img src="http://localhost:8070/images/weixin_temp.png" alt="微信二维码"></a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/zpLoaddata.js"></script>
+  <script>
+    $('input, textarea').placeholder();
+  </script>
+</body>
+</html>

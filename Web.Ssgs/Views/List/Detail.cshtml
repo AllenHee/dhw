@@ -1,0 +1,111 @@
+﻿@{var data = ViewBag.detail as DHW.Web.Gsss.Controllers.Ssgs_Detail;}
+<!--头部简介 开始-->
+<div class="nav_imgWrap nav_imgWrap-hlwplus">
+    <div class="nav_imgCont">
+        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/bg-12.png">
+    </div>
+    <div class="intro">
+        <img class="intro_logo" src="@{@BaseConfigs.GetUrlCdn}@data.logo" alt="">
+        <div class="intro_cont">
+            <h1 class="intro_cont_name">
+                @data.name</h1>
+            <p>
+                @data.intro</p>
+            @if (!ViewBag.HasLogin)
+            {
+                <a class="intro_cont_focus" href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
+                    关 注</a>
+            }
+            else
+            {
+                if (data.attention == "1")
+                {
+                <a class="intro_cont_focus cancel" href="#" style="color: #999" onclick="attention()">
+                    取消关注</a>
+                }
+                else
+                {
+                <a class="intro_cont_focus" href="#" onclick="attention()">关 注</a>
+                }
+            }
+            <span class="fir_label">蓝湖资本·合作人</span> <span class="sec_label">天使汇认证投资人</span>
+        </div>
+    </div>
+    <div class="intro_nav_bg">
+        <div class="intro_nav">
+            <ul class="intro_nav_ul">
+                <li class="intro_nav_ul_item">基本信息</li>
+            </ul>
+            <div class="intro_nav_contact">
+                <a class="intro_nav_contact_in" href="#">
+                    <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/in.png" alt=""></a> <a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/weibo.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--头部简介 结束-->
+<!--基本信息 开始-->
+<div class="message_bg">
+    <div class="message clearfix">
+        <!--左侧 开始-->
+        <div class="message_l">
+            <div class="message_l_exp">
+                <h1 class="message_l_ttl">
+                    过往投资案例</h1>
+                <ul>
+                    @for (int i = 0; i < ViewBag.text.Rows.Count; i++)
+                    {
+                        var item = ViewBag.text.Rows[i]["text"];
+                        @Html.Raw(item)
+                    }
+                </ul>
+            </div>
+            <div class="message_idea">
+                <h1 class="message_l_ttl">
+                    投资理念</h1>
+                @Html.Raw(data.idea)
+            </div>
+        </div>
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <div class="message_r">
+            <div class="message_r_fans">
+                <ul class="clearfix">
+                    <li class="message_r_fans_items message_r_fans_items-current">关注<span id="quantity" data-quantity="@data.fans">@data.fans</span>
+                    </li>
+                </ul>
+                <ul class="focus_show clearfix">
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items pic_show_items-last"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                    <li class="pic_show_items pic_show_items-last"><a href="#">
+                        <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/xieyameiyinglefulan1.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--右侧 结束-->
+    </div>
+</div>
+<!--基本信息 结束-->
+@section scripts{
+    <script type="text/javascript">
+        var id = @data.id;
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/ssgs.detail.js"></script>
+}

@@ -1,0 +1,295 @@
+﻿<!--主内容区开始-->
+<div class="content">
+    <!--内容区上部分开始-->
+    <div class="main clearfix">
+        <!--左侧-->
+        <div class="main_l">
+            <ul>
+                @{var nav = ViewBag.list as List<DHW.Entity.CY_Nav_group>;}
+                @for (int i = 0; i < nav.Count; i++)
+                {
+                    var first = nav[i];            
+                    <li>
+                        <dl>
+                            <dt class="@first.Class">@first.Name</dt>
+                            @for (int j = 0; j < first.CY_Nav_Items.Count / 2 + 1; j++)
+                            {
+                                if (j * 2 < first.CY_Nav_Items.Count)
+                                {
+                                    var seconds111 = first.CY_Nav_Items[j * 2];                                                          
+                                <dd>
+                                    <a class="@if (j == 0)
+                                              {<text>main_l-current</text>}" href="#">@seconds111.Name</a>@if (j * 2 + 1 < first.CY_Nav_Items.Count)
+                                                                                                          {<a class="" href="#">@first.CY_Nav_Items[j * 2 + 1].Name</a>}</dd>
+                                }
+                            }
+                        </dl>
+                    </li>      
+                }
+            </ul>
+        </div>
+        <!--右侧-->
+        <div class="main_cr">
+            <!--轮播块-->
+            <div class="clearfix">
+                <div class="main_c">
+                    <div class="slide">
+                        <ul class="slide-wrap clearfix">
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--需求块-->
+                <div class="main_r">
+                    <dl>
+                        <dt>如何解决您的需求</dt>
+                        <dd class="main_r_num1">
+                            <a href="#">详细描述你的需求</a></dd>
+                        <dd class="main_r_num2">
+                            <a href="#">托管赏金到梦高速</a></dd>
+                        <dd class="main_r_num3">
+                            <a href="#">众多服务商提交解决方案</a></dd>
+                        <dd class="main_r_num4">
+                            <a href="#">选择满意的方案</a></dd>
+                        <dd class="main_r_num5 main_r-last">
+                            <a href="#">验收方案后付款给服务商</a><span></span></dd>
+                    </dl>
+                    <button>
+                        发布需求</button>
+                </div>
+            </div>
+            <!--底块-->
+            <div class="main_b">
+                <div class="slide-text">
+                    <ul class="slide-wrap-text">
+                        <li><span class="main_b_red">￥15000</span><a href="#">重庆：万元征集墙壁开关插座创意外观设计得到了圆满解决</a></li>
+                        <li><span class="main_b_red">￥16000</span><a href="#">重庆：万元征集墙壁开关插座创意外观设计得到了圆满解决</a></li>
+                        <li><span class="main_b_red">￥17000</span><a href="#">重庆：万元征集墙壁开关插座创意外观设计得到了圆满解决</a></li>
+                        <li><span class="main_b_red">￥18000</span><a href="#">重庆：万元征集墙壁开关插座创意外观设计得到了圆满解决</a></li>
+                        <li><span class="main_b_red">￥19000</span><a href="#">重庆：万元征集墙壁开关插座创意外观设计得到了圆满解决</a></li>
+                    </ul>
+                    <div class="main_b_ctrl">
+                        <span class="main_b_ctrl_item s-next" href="#">∨</span> <span class="main_b_ctrl_item s-prev"
+                            href="#">∧</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容区上部分结束-->
+    <!--内容区下部分开始-->
+    <!--悬赏流程-->
+    <div class="content_box content_xslc">
+        <h2>
+            悬赏流程</h2>
+        <div class="xslc_picture">
+            <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/xslc.png" alt=""></div>
+        <!--<ul class="xslc_text clearfix">
+        <li>1.发布悬赏</li>
+        <li>2.等待服务商交稿</li>
+        <li>3.选择满意稿件</li>
+        <li class="xslc_text-last">4.确认付款并好评</li>
+      </ul>-->
+    </div>
+    <!--最新项目-->
+    <div class="content_box content_zxxm">
+        <h2>
+            最新项目<a class="content_more" href="#">查看更多>></a></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        需求信息
+                    </th>
+                    <th>
+                        需求金额
+                    </th>
+                    <th>
+                        方案数量
+                    </th>
+                    <th>
+                        截止日期
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ 
+                    var list = ViewBag.latest as DHW.Web.CY.Controllers.CY_Index[];
+                }
+                @for (int i = 0; i < list.Length; i++)
+                {
+                    var item = ViewBag.latest[i];
+                    <tr>
+                        <td>@item.id
+                        </td>
+                        <td>
+                            <a href="detail/@item.id">@item.info</a>
+                        </td>
+                        <td class="zxxm-red">
+                            ￥@item.money
+                        </td>
+                        <td>@item.count
+                        </td>
+                        <td>@item.enddate
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!--案例赏析-->
+    <div class="content_box content_alsx">
+        <h2>
+            案例赏析<a class="content_more" href="#">查看更多>></a></h2>
+        <ul id="alsx" class="clearfix">
+            <li>
+                <button class="alsx_btn alsx_btn_current">
+                    logo专场案例赏析<i></i></button>
+            </li>
+            <li>
+                <button class="alsx_btn">
+                    logo专场案例赏析<i></i></button>
+            </li>
+            <li>
+                <button class="alsx_btn">
+                    logo专场案例赏析<i></i></button>
+            </li>
+        </ul>
+        <ul class="alsx_picture_group alsx_picture_group_current">
+            <li class="alsx_picture"><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+            <li class="alsx_picture"><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+            <li class="alsx_picture alsx-last "><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+        </ul>
+        <ul class="alsx_picture_group">
+            <li class="alsx_picture"><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+            <li class="alsx_picture"><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+            <li class="alsx_picture alsx-last "><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+        </ul>
+        <ul class="alsx_picture_group">
+            <li class="alsx_picture"><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+            <li class="alsx_picture"><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+            <li class="alsx_picture alsx-last "><a href="#">
+                <div class="alsx_logo">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
+                    <div class="alsx_logo_text_wrap">
+                        <p>
+                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
+                        </p>
+                    </div>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<!--主内容区结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.slider.js"></script>
+    <script>
+        $(function () {
+            $(".slide-wrap").slide(true);
+            $(".slide-wrap-text").slide();
+
+            // 鼠标悬浮出现文字
+            $(".alsx_picture").mouseenter(function () {
+                $(this).find(".alsx_logo_text_wrap").show();
+            }).mouseleave(function () {
+                $(this).find(".alsx_logo_text_wrap").hide();
+            })
+
+            // 点击切换图片组
+            var btn = $(".alsx_btn");
+            var pct = $(".alsx_picture_group");
+            btn.click(function () {
+                var i = $(this).parents().index();
+                btn.removeClass("alsx_btn_current");
+                $(this).addClass("alsx_btn_current");
+                pct.hide();
+                pct.eq(i).show();
+            });
+        });
+    </script>
+}

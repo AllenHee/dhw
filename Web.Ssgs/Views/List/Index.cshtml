@@ -1,0 +1,120 @@
+﻿<!--内容区 开始-->
+<div class="content_lieb clearfix">
+    <div class="lieb_l_wrap">
+        <div class="lieb_l">
+            <div class="lieb_l_head">
+                <img src="@{@BaseConfigs.GetUrlCdn}ssgs/images/iconfont-ren.png" alt=""></div>
+            <div class="lieb_l_name">
+                <h3>
+                    天使投资人</h3>
+                <p>
+                    著名的天使投资人</p>
+            </div>
+        </div>
+    </div>
+    <div class="lieb_main">
+        <div class="lieb_main_section1">
+            <ul class="lieb_main_section1_type clearfix">
+                <li class="current">全部</li>
+                <li>移动互联网</li>
+                <li>电子商务</li>
+                <li>O2O</li>
+                <li>互联网金融</li>
+                <li>互联网</li>
+                <li>移动社交</li>
+                <li>医疗健康</li>
+                <li>社交网络</li>
+                <li>教育</li>
+                <li>手机游戏</li>
+                <li>移动应用数据</li>
+                <li>游戏</li>
+                <li>移动商务</li>
+                <li>硬件</li>
+                <li>云计算</li>
+                <li>平台</li>
+                <li>移动支付</li>
+                <li>新兴技术</li>
+                <li>IT</li>
+                <li>语音识别</li>
+                <li>LBS</li>
+                <li>网络社区</li>
+                <li>信息技术</li>
+                <li>网络教育</li>
+                <li>网络游戏</li>
+                <li>健康管理</li>
+                <li>移动广告</li>
+                <li>医疗</li>
+                <li>医疗服务</li>
+            </ul>
+            <ul class="lieb_main_section1_address clearfix">
+                <li class="current">全部</li>
+                <li>北京</li>
+                <li>上海</li>
+                <li>深圳</li>
+                <li>广州</li>
+                <li>杭州</li>
+                <li>南京</li>
+                <li>西安</li>
+                <li>成都</li>
+                <li>苏州</li>
+                <li>天津</li>
+                <li>无锡</li>
+                <li>武汉</li>
+                <li>重庆</li>
+                <li>厦门</li>
+                <li>青岛</li>
+            </ul>
+        </div>
+        <div class="lieb_main_section2_wrap">
+        </div>
+        <div class="pagination">
+        </div>
+    </div>
+</div>
+<!--内容区 结束-->
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/ssgs.list.js"></script>
+    <script>
+        var dhw = {
+            imgurl: '@{@BaseConfigs.GetUrlCdn}',
+            imguploadurl: '@BaseConfigs.GetImgUploadPath',
+            mainurl: '@BaseConfigs.GetUrlMain',
+            staticurl: '@BaseConfigs.GetStaticPath'
+        };
+    </script>
+    <script type="text/html" id="tzrid">
+    {{each data as tzr}}
+    <div class="lieb_main_section2">
+        <div class="lieb_main_section2_t clearfix">
+          <div class="lieb_main_section2_t_head">
+            <a href="/"><img src="{{domain + tzr.logo}}" alt=""></a>
+          </div>      
+          <div class="lieb_main_section2_t_introduce">
+            <h3><a href="/List/{{tzr.id}}">{{tzr.name}}</a></h3>
+            <span>{{tzr.slogan}}</span>
+            <p class="lieb_main_section2_t_introduce_p1">{{tzr.realm}}</p>
+            <p class="lieb_main_section2_t_introduce_p2">{{tzr.intro}}</p>
+          </div>
+          <ul class="lieb_main_section2_t_r">
+            <li class="lieb_main_section2_t_r_wz"><i></i>{{tzr.city}}</li>
+            <li class="lieb_main_section2_t_r_sl"><i></i>粉丝数量：<span>{{tzr.fans}}</span></li>
+          </ul>
+        </div>
+        <div class="lieb_main_section2_b clearfix">
+          <span>孙红枫层投资过：</span>
+          <ul class="lieb_main_section2_b_tzg">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <span>您可以<a href="/">向孙红枫提交项目</a></span>       
+        </div>
+      </div>
+      {{/each}}
+    </script>
+}

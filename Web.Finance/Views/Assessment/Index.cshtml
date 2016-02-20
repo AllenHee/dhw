@@ -1,0 +1,152 @@
+﻿@{
+    
+    ViewBag.Title = " 评估服务 - 会计服务 - 梦高速 ";
+}
+<!--头部 开始-->
+<div class="header">
+    @RenderPage("~/Views/Shared/Nav.cshtml")
+</div>
+<!--头部 结束-->
+<!--主内容区 开始-->
+<div class="content clearfix">
+    <div class="pinggu-logo">
+        <img src="@{@BaseConfigs.GetUrlCdn<text>kuaiji/images/pinggufuwu.png</text>}" alt="评估服务"></div>
+    <div class="pinggu-search">
+        <ul class="clearfix">
+            <li class="fangchan current" style="" data-text="房地产评估">房地产</li>
+            <li class="tudi" data-text="土地评估">土地</li>
+            <li class="zichan" data-text="资产评估">资产</li>
+            <li class="chanpin" data-text="产品评估">产品</li>
+        </ul>
+        <div class="header-search clearfix">
+            <form action="#">
+            <input class="pinggu-search-input" type="text" placeholder="请输入关键词">
+            <button class="pinggu-search-btn">
+                搜索</button>
+            </form>
+        </div>
+    </div>
+    <!--弹出层 开始-->
+    <div class="pinggu-submit-bg">
+    </div>
+    <div class="pinggu-submit">
+        <div class="ps-title">
+            免费咨询评估 <i>×</i></div>
+        <div class="ps-content">
+            <p>
+                免费人工查询，提交后，专业顾问一对一评估服务并告知</p>
+            <div class="ps-input-group">
+                <label>
+                    QQ：</label><input type="text" id="qq"><span>*</span>
+            </div>
+            <div class="ps-input-group">
+                <label>
+                    电话：</label><input type="text" id="phone"><span>*</span>
+            </div>
+            <div class="ps-input-group">
+                <label>
+                    联系人：</label><input type="text" id="name"><span>*</span>
+            </div>
+            <div class="ps-button">
+                <button>
+                    提交咨询</button></div>
+        </div>
+    </div>
+    <!--弹出层 结束-->
+    <ul class="pinggu-list clearfix">
+        <li class="fdcpg" data-text="房地产评估"><i></i>
+            <h4>
+                房地产评估</h4>
+            <p>
+                房产评估、二手房评估</p>
+        </li>
+        <li class="tdpg" data-text="土地评估"><i></i>
+            <h4>
+                土地评估</h4>
+            <p>
+                地价评估/租借/转让评估</p>
+        </li>
+        <li class="zcpg" data-text="资产评估"><i></i>
+            <h4>
+                资产评估</h4>
+            <p>
+                企业/个人资产认证评估</p>
+        </li>
+        <li class="cppg last" data-text="产品评估"><i></i>
+            <h4>
+                产品评估</h4>
+            <p>
+                产品产值评估</p>
+        </li>
+    </ul>
+    <div class="media-trends clearfix">
+        <div class="m-t-l">
+            <h2>
+                媒体报道 <a class="more" href="#">更多 >></a></h2>
+            <ul>
+                <script type="text/javascript" src="http://bbs.dreamhiway.com/api.php?mod=js&bid=18"></script>
+                <script type="text/javascript" src="http://bbs.dreamhiway.com/api.php?mod=js&bid=20"></script>
+            </ul>
+        </div>
+        <div class="m-t-r">
+            <h2>
+                评估服务动态</h2>
+            <div class="trends">
+                <ul>
+                    @for (int i = 0; i < ViewBag.list.Rows.Count; i++)
+                    {
+                        var item = ViewBag.list.Rows[i];
+                        <li>@item["city"]@item["name"]
+                            办理了@{@item["type"]}
+                            评估 <span class="time">@item["data"]</span></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主内容区 结束-->
+<!--评估服务页底栏 开始-->
+<div class="pinggu-footer">
+    <ul class="clearfix">
+        <li class="items-one">
+            <dl>
+                <dt>专业的顾问团队</dt>
+                <dd>
+                    知识产权顾问</dd>
+                <dd>
+                    严格风险把控与告知</dd>
+            </dl>
+        </li>
+        <li class="items-two">
+            <dl>
+                <dt>平台保障全程服务</dt>
+                <dd>
+                    平台保障资金</dd>
+                <dd>
+                    顾问一站式一对一引导服务</dd>
+            </dl>
+        </li>
+        <li class="last items-three">
+            <dl>
+                <dt>低资费 高服务</dt>
+                <dd>
+                    价格公开透明</dd>
+                <dd>
+                    担保注册不成功全额退款</dd>
+            </dl>
+        </li>
+    </ul>
+</div>
+<!--评估服务页底栏 结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/kj.pinggu.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
+    @*根据ip地址获取位置*@
+    <script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"> </script>
+    <script type="text/javascript">
+        var country = remote_ip_info.country; //国家
+        var province = remote_ip_info.province; //省份
+        var city = remote_ip_info.city; //城市
+    </script>
+}

@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 众包";
+}
+@*杨辉 2015-11-13*@
+<!--主内容区 开始-->
+<div class="content">
+    <!--内容区头部 开始-->
+    <div class="header_cont">
+        <!--左侧-->
+        <ul class="header_l">
+            <li class="content_l_item content_l-qb @if (@ViewBag.type == null)
+                                                   {<text>content_l-current</text>}"><i></i><a href="/list">全部分类</a></li>
+            <li class="content_l_item content_l-kf @if (@ViewBag.type == 1)
+                                                   {<text>content_l-current</text>}" ><i></i><a href="/list?type=1">开发众包</a></li>
+            <li class="content_l_item content_l-zx @if (@ViewBag.type == 2)
+                                                   {<text>content_l-current</text>}"><i></i><a href="/list?type=2">装修众包</a></li>
+            <li class="content_l_item content_l-yx @if (@ViewBag.type == 3)
+                                                   {<text>content_l-current</text>}"><i></i><a href="/list?type=3">营销众包</a></li>
+            <li class="content_l_item content_l-dx @if (@ViewBag.type == 4)
+                                                   {<text>content_l-current</text>}"><i></i><a href="/list?type=4">电商众包</a></li>
+            <li class="content_l_item content_l-qt @if (@ViewBag.type == 5)
+                                                   {<text>content_l-current</text>}"><i></i><a href="/list?type=5">其他</a></li>
+        </ul>
+        <!--右侧-->
+        <div class="header_r clearfix">
+            <div class="header_r_search">
+                <input type="text" class="header_r_inp">
+                <a class="header_r_a">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/众包首页改3_07.png" alt=""></a>
+            </div>
+            <div class="header_r_b">
+                <div class="header_r_b_l">
+                    <div class="slide">
+                        <ul class="slide-wrap clearfix">
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_slide1.jpg" alt=""></a></li>
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_slide2.jpg" alt=""></a></li>
+                            <li><a href="#">
+                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_slide3.jpg" alt=""></a></li>
+                        </ul>
+                        <div class="slider">
+                            <ul>
+                                <li class="current"></li>
+                                <li></li>
+                                <li class="last"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="header_r_b_r">
+                    <a class="header_r_b_r_item header_r_b_r_item-first" href="#">热搜榜</a> <a class="header_r_b_r_item header_r_b_r_item-second"
+                        href="#">最新发布</a> <a class="header_r_b_r_item header_r_b_r_item-last" href="#">我要接单</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--内容区头部 结束-->
+    <div class="clearfix">
+        <!--主内容区左侧-->
+        <div class="content_l zbsy">
+            <h2 class="content_l_ttl">
+                最新项目</h2>
+            @{ 
+                var list = ViewBag.latest as DHW.Web.CrowdSourcing.Controllers.CrowdSourcing_Index[];
+            }
+            @for (int i = 0; i < list.Length; i++)
+            {
+                var item = ViewBag.latest[i];
+                
+                <div class="zbList">
+                    <div class="zbItem">
+                        <div class="zbItem_l">
+                            <h2 class="zbItem_l_id">
+                                <a href="/detail/@item.id" target="_blank"><span>[@item.statemc]</span>@item.title</a></h2>
+                            <div class="zbItem_l_cont">@item.intro</div>
+                        </div>
+                        <div class="zbItem_r">
+                            <p class="zbItem_r_t">
+                                [@item.state]</p>
+                            <p class="zbItem_r_b">
+                                <span>¥@item.totalfin</span>元</p>
+                        </div>
+                        <div class="zbItem_b">
+                            <p>
+                            </p>
+                            <p class="clearfix">
+                                <div class="zbItem_b_l">
+                                    <span class="first">发布者：</span>@item.fbzname <span>发布时间：</span>@item.time <span>参与者：</span>@item.num
+                                    个</div>
+                                <div class="zbItem_b_r">
+                                    <span>截止日期：</span>@item.endtime</div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <!--主内容区右侧-->
+        <div class="content_r zbsy">
+            <h2 class="content_r_ttl">
+                热门推荐</h2>
+            <ul class="content_r_cont">
+                <li class="content_r_cont_items"><a href="#">公众账号微信墙项目</a> <span class="content_r_cont_items_l">
+                    发布者 : admin</span> <span class="content_r_cont_items_r">2015-11-07</span> </li>
+                <li class="content_r_cont_items"><a href="#">Nginx模块开发——基于Web的upstream监...</a> <span
+                    class="content_r_cont_items_l">发布者 : admin</span> <span class="content_r_cont_items_r">
+                        2015-11-07</span> </li>
+                <li class="content_r_cont_items"><a href="#">公众账号微信墙项目</a> <span class="content_r_cont_items_l">
+                    发布者 : admin</span> <span class="content_r_cont_items_r">2015-11-07</span> </li>
+                <li class="content_r_cont_items"><a href="#">Nginx模块开发——基于Web的upstream监...</a> <span
+                    class="content_r_cont_items_l">发布者 : admin</span> <span class="content_r_cont_items_r">
+                        2015-11-07</span> </li>
+                <li class="content_r_cont_items"><a href="#">公众账号微信墙项目</a> <span class="content_r_cont_items_l">
+                    发布者 : admin</span> <span class="content_r_cont_items_r">2015-11-07</span> </li>
+                <li class="content_r_cont_items content_r_cont_items-last"><a href="#">Nginx模块开发——基于Web的upstream监...</a>
+                    <span class="content_r_cont_items_l">发布者 : admin</span> <span class="content_r_cont_items_r">
+                        2015-11-07</span> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.slider.js"></script>
+    <script>
+        $(".slide-wrap").slide(true);
+    </script>
+    <script>
+        $(".slide-wrap").slide(true);
+        // 分类栏图标效果
+        $(".content_l_item a").hover(function () {
+            $(this).siblings("i").addClass("current");
+        }, function () {
+            $(this).siblings("i").removeClass("current");
+        });
+    </script>
+}

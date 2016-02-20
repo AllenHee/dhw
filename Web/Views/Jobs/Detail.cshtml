@@ -1,0 +1,260 @@
+﻿@{
+    var title = @ViewBag.Position;
+    ViewBag.Title = title + " - " + ViewBag.compay + " - 梦高速";
+    ViewBag.Keywords = title + "," + title + "招聘," + ViewBag.compay + ViewBag.Position + "招聘";
+    //Layout = "在此处显示布局页";
+}
+@{
+    var iphoto = ViewBag.companyphoto;
+}
+<!--主内容区 开始-->
+<div class="content clearfix">
+    <!--职位详情 开始-->
+    <div class="pos-detail clearfix">
+        <!--左侧 开始-->
+        <div class="pos-detail-l">
+            <h2>
+                <p class="title">
+                    @ViewBag.Position</p>
+                <p>
+                    @ViewBag.compay</p>
+            </h2>
+            <div class="pos-summarize clearfix">
+                <div class="pos-summarize-l">
+                    <p class="salary">
+                        @ViewBag.Money</p>
+                    <p>
+                        <i class="iconfont">&#xe601;</i>@ViewBag.City <i class="iconfont">&#xe611;</i>发布于
+                        @ViewBag.PublicTime</p>
+                    <p>
+                        @IsNull(ViewBag.Req_xueli)@IsNull(ViewBag.Req_gznx)@IsNull(ViewBag.Req_yy)
+                        @if (ViewBag.Req_nn_min == "" && ViewBag.Req_nn_max == "")
+                        {
+
+                        }
+                        else
+                        { 
+                            <span>@ViewBag.Req_nn_min - @ViewBag.Req_nn_max 岁</span>
+                        }
+                    </p>
+                    <ul class="advantage">
+                        @if (ViewBag.fuli != "")
+                        {
+                            var fls = ViewBag.fuli.Split(',');
+                            foreach (var welfare in fls)
+                            {
+                            <li>@welfare</li>}
+
+                        }
+                    </ul>
+                </div>
+                <div class="pos-summarize-r pos-apply">
+                    @if (!ViewBag.DUser.HasLogin)
+                    {
+                        <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}" rel="nofollow">
+                            <button class>
+                                登陆后申请</button></a>
+                    }
+                    else
+                    {
+
+                        if (ViewBag.delivery == "1")
+                        {
+                        <button class>
+                            已申请</button> 
+                        }
+                        else
+                        { 
+                        <a target="_blank" href="@BaseConfigs.GetUrlMain/AppResume#/preview?JobID=@ViewBag.ID" rel="nofollow">
+                            <button class>
+                                申请</button></a>
+                        }
+                    }
+                    <p>
+                        @if (!ViewBag.DUser.HasLogin)
+                        {
+                            <span class="collection"><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
+                                收藏</a></span> <text>|</text><span class="collection"><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">举报</a></span>
+                        }
+                        else
+                        {
+                            if (ViewBag.collection == "1")
+                            {<span>已收藏</span><text>|</text>}
+                            else
+                            {
+                            <span class="collection"><a onclick="collection()">收藏</a></span> <text>|</text>
+                            }
+                            if (ViewBag.report == "1")
+                            {<span>已举报</span>}
+                            else
+                            {
+                            <span class="report"><a onclick="report()">举报</a></span> 
+                            }
+                        }
+                    </p>
+                </div>
+            </div>
+            <div class="pos-intro">
+                <h4>
+                    职位描述</h4>
+                @if (ViewBag.Desc != "")
+                {
+                    var des = ViewBag.Desc.Split('\n');
+                    foreach (var desc in des)
+                    {
+                    <p>
+                        @desc</p>
+                    }
+                }
+                else
+                {
+                    <p>
+                        无描述</p>
+
+                }
+                <h4>
+                    企业介绍</h4>
+                @if (ViewBag.profile != "")
+                {
+                    var pro = ViewBag.profile.Split('\n');
+                    foreach (var pros in pro)
+                    {
+                    <p>
+                        @pros</p>
+                    }
+                }
+                else
+                {
+                    <p>
+                        无描述</p>
+
+                }
+            </div>
+        </div>
+        <!--左侧 结束-->
+        <!--右侧 开始-->
+        <div class="pos-detail-r">
+            <div class="promulgate">
+                <h4>
+                    职位发布者</h4>
+                <div class="pdr-wrap">
+                    <p class="first">
+                        <a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/@ViewBag.CompanyID" target="_blank">
+                            <img src="@BaseConfigs.GetImgPath@ViewBag.logo" alt="发布者"></a><span><a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/@ViewBag.CompanyID" target="_blank">@ViewBag.compay</a></span></p>
+                    <p>
+                        <span>领域</span>@ViewBag.trade</p>
+                    <p>
+                        <span>规模</span>@ViewBag.scale</p>
+                    <p class="homepage">
+                        <span>主页</span> @*                        <a href="@ViewBag.homepage" target="_blank" rel="nofollow">*@
+                        @ViewBag.homepage</a></p>
+                </div>
+            </div>
+            <div class="address">
+                <h4>
+                    @ViewBag.gzdz</h4>
+                <div class="pdr-wrap small-map">
+                    <!--地图-->
+                </div>
+            </div>
+            <div class="recommend">
+                <h4>
+                    可能感兴趣的职位</h4>
+                <div class="pdr-wrap">
+                    <ul>
+                        @for (int i = 0; i < ViewBag.interest.Rows.Count; i++)
+                        {
+                            var item = ViewBag.interest.Rows[i];
+                            <li @if (i >= 2)
+                                {<text>class="last"</text>}>
+                                <p class="clearfix">
+                                    <a target="_blank" href="/jobs/detail/@item["id"]">@item["position"]</a><span class="salary-wrap">年薪
+                                        <span class="salary">@item["money"]</span></span></p>
+                                <p class="info">
+                                    <span>@item["compay"]</span> | <span>@item["gzdz"]</span></p>
+                            </li>
+                        }
+                    </ul>
+                    <p class="more">
+                        <a href="/jobs/?su=@ViewBag.Position">查看更多相似职位 ></a></p>
+                </div>
+            </div>
+            @if (iphoto.Count != 0)
+            {
+                <div class="envir">
+                    <h4>
+                        工作环境</h4>
+                    <div class="pdr-wrap">
+                        <div class="e-slide">
+                            <ul class="e-slide-wrap">
+                                @for (int i = 0; i < iphoto.Count; i++)
+                                {
+                                    var imgs = @iphoto[i]["img"] + ".jpg";
+                                    <li><a href="javascript:;">
+                                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="工作环境"></li>
+                                }
+                            </ul>
+                            <div class="e-slider">
+                                <ul class="clearfix">
+                                    <li class="current"></li>
+                                    <li class="last"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <!--右侧 结束-->
+    </div>
+    <!--职位详情 结束-->
+    <!--弹出层 开始-->
+    <div class="modal_bg">
+    </div>
+    <div class="modal_cont model_pos">
+        <div class="modal_cont_t">
+            <h1>
+                举报信息</h1>
+            <span class="modal_cont_t_close">×</span>
+        </div>
+        <div class="modal_cont_reason">
+            <label>
+                举报原因:</label>
+            <input type="text" id="reason">
+        </div>
+        <div class="modal_cont_detail">
+            <label>
+                详情描述:</label>
+            <textarea name="" id="detail"></textarea>
+        </div>
+        <div class="modal_cont_button">
+            <button class="modal_cont_button_conf">
+                确认举报</button>
+        </div>
+    </div>
+    <!--弹出层 结束-->
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script>
+        // 工作环境
+        $(".e-slider li").click(function () {
+            var index = $(this).index();
+            var width = $(".e-slide").width();
+            $(".e-slide-wrap").animate({ "left": -width * index + "px" });
+            $(this).siblings().removeClass("current")
+             .end().addClass("current");
+        })
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/zp.detail.js"></script>
+    <script type="text/javascript">
+        var jobid = @ViewBag.ID;
+    </script>
+}
+@helper IsNull(string str)
+    {
+        if (str == "")
+        { }
+        else
+        {<span>@str</span> }
+}

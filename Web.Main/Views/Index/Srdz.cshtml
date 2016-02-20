@@ -1,0 +1,89 @@
+﻿@{Layout = null;}
+<div class="module module-srdz">
+    <h2>
+        热门定制</h2>
+    <ul class="srdz_fl clearfix">
+        <li><a href="">创意定制</a>|</li>
+        <li><a href="">企业定制</a>|</li>
+        <li><a href="">找代加工</a></li>
+    </ul>
+    <div class="srdz_imgs_wrap">
+        @{
+            var data = ViewBag.cydz as DHW.Web.Controllers.IndexController.Home_Srdz[];
+        }
+        <ul class="srdz_imgs current clearfix">
+            @for (int i = 0; i < data.Length; i++)
+            {
+                var item = data[i];
+                <li><a target="_blank" href="@{@BaseConfigs.GetUrlSrdz}Detail/@item.id">
+                    <img src="@BaseConfigs.GetImgPath@item.productlmg" alt="">
+                    <p>
+                        @item.title</p>
+                </a></li>
+            }
+        </ul>
+        @{
+            var data1 = ViewBag.qydz as DHW.Web.Controllers.IndexController.Home_Srdz[];
+        }
+        <ul class="srdz_imgs clearfix">
+            @for (int i = 0; i < data1.Length; i++)
+            {
+                var item = data1[i];
+                <li><a target="_blank" href="@BaseConfigs.GetUrlSrdz/Detail/@item.id">
+                    <img src="@BaseConfigs.GetImgPath@item.productlmg" alt="">
+                    <p>
+                        @item.title</p>
+                </a></li>
+            }
+        </ul>
+        @{
+            var data2 = ViewBag.zdjg as DHW.Web.Controllers.IndexController.Home_Srdz[];
+        }
+        <ul class="srdz_imgs clearfix">
+            @for (int i = 0; i < data2.Length; i++)
+            {
+                var item = data2[i];
+                <li><a target="_blank" href="@BaseConfigs.GetUrlSrdz/Detail/@item.id">
+                    <img src="@BaseConfigs.GetImgPath@item.productlmg" alt="">
+                    <p>
+                        @item.title</p>
+                </a></li>
+            }
+        </ul>
+    </div>
+    <a target="_blank" class="srdz_more" href="@{@BaseConfigs.GetUrlSrdz}Srdzs">浏览更多 >></a>
+    <ul class="srdz_imgs_b clearfix">
+        <li><a href="#">
+            <img src="//cdn.dreamhiway.com/usercenter/images/srdz_b.png" alt=""></a> </li>
+        <li><a href="#">
+            <img src="//cdn.dreamhiway.com/usercenter/images/srdz_b.png" alt=""></a> </li>
+        <li><a href="#">
+            <img src="//cdn.dreamhiway.com/usercenter/images/srdz_b.png" alt=""></a> </li>
+        <li><a href="#">
+            <img src="//cdn.dreamhiway.com/usercenter/images/srdz_b.png" alt=""></a> </li>
+        <li><a href="#">
+            <img src="//cdn.dreamhiway.com/usercenter/images/srdz_b.png" alt=""></a> </li>
+        <li><a href="#">
+            <img src="//cdn.dreamhiway.com/usercenter/images/srdz_b.png" alt=""></a> </li>
+    </ul>
+</div>
+<script>
+    // 滑动显示字
+    $(".srdz_imgs li").hover(function () {
+        $(this).find("p").stop(true, false);
+        var bottom = parseInt($(this).find("p").css("bottom"));
+        $(this).find("p").animate({
+            bottom: 0 + "px"
+        })
+    }, function () {
+        $(this).find("p").stop(true, false);
+        $(this).find("p").animate({
+            bottom: -30 + "px"
+        })
+    })
+
+    $(".srdz_fl li").click(function () {
+        var i = $(this).index();
+        $(".srdz_imgs_wrap ul").eq(i).addClass("current").siblings().removeClass("current");
+    })
+</script>

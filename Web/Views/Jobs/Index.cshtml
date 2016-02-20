@@ -1,0 +1,321 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 人才招聘 - 职位信息";     
+}
+<!--主内容区 开始-->
+<div class="content clearfix">
+    <!--大筛选框 开始-->
+    <div class="filter-box">
+        <div class="has-more">
+            <dl class="clearfix">
+                <dt>工作地点：</dt>
+                <dd class="current">
+                    全国</dd>
+                <dd data-citycode = "110000">
+                    北京</dd>
+                <dd data-citycode = "310000">
+                    上海</dd>
+                <dd data-citycode = "440300">
+                    深圳</dd>
+                <dd data-citycode = "440100">
+                    广州</dd>
+                <dd data-citycode = "330100">
+                    杭州</dd>
+                <dd data-citycode = "510100">
+                    成都</dd>
+                <dd data-citycode = "320100">
+                    南京</dd>
+                <dd data-citycode = "420100">
+                    武汉</dd>
+                <dd data-citycode = "210200">
+                    大连</dd>
+                <dd data-citycode = "350200">
+                    厦门</dd>
+                <dd data-citycode = "350100">
+                    福州</dd>
+                <dd data-citycode = "350500">
+                    泉州</dd>
+                <dd data-citycode = "120000">
+                    天津</dd>
+                <dd>
+                </dd>
+                <dd class="more">
+                    更多 <i></i>
+                </dd>
+            </dl>
+            <ul class="clearfix">
+                <li data-citycode = "500000">重庆</li>
+                <li data-citycode = "430100">长沙</li>
+                <li data-citycode = "370200">青岛</li>
+                <li data-citycode = "320200">无锡</li>
+                <li data-citycode = "440600">佛山</li>
+                <li data-citycode = "330200">宁波</li>
+                <li data-citycode = "410100">郑州</li>
+                <li data-citycode = "441900">东莞</li>
+                <li data-citycode = "320400">常州</li>
+                <li data-citycode = "210100">沈阳</li>
+                <li data-citycode = "130100">石家庄</li>
+                <li data-citycode = "530100">昆明</li>
+                <li data-citycode = "360100">南昌</li>
+                <li data-citycode = "450100">南宁 </li>
+                <li data-citycode = "230100">哈尔滨</li>
+                <li data-citycode = "460100">海口</li>
+                <li data-citycode = "442000">中山</li>
+                <li data-citycode = "441300">惠州</li>
+                <li data-citycode = "520100">贵阳</li>
+                <li data-citycode = "220100">长春</li>
+                <li data-citycode = "140100">太原</li>
+                <li data-citycode = "330400">嘉兴</li>
+                <li data-citycode = "370900">泰安</li>
+                <li data-citycode = "320583">昆山</li>
+                <li data-citycode = "370600">烟台</li>
+                <li data-citycode = "620100">兰州</li>
+            </ul>
+        </div>
+        <div>
+            <dl class="clearfix">
+                <dt>工作经验：</dt>
+                <dd class="current">
+                    不限</dd>
+                <dd>
+                    应届毕业生</dd>
+                <dd>
+                    一年以下</dd>
+                <dd>
+                    1-3年</dd>
+                <dd>
+                    3-5年</dd>
+                <dd>
+                    5-10年</dd>
+                <dd>
+                    10年以上</dd>
+            </dl>
+        </div>
+        <div>
+            <dl class="clearfix">
+                <dt>学历要求：</dt>
+                <dd class="current">
+                    不限</dd>
+                <dd>
+                    大专</dd>
+                <dd>
+                    本科</dd>
+                <dd>
+                    硕士</dd>
+                <dd>
+                    博士</dd>
+            </dl>
+        </div>
+        <div>
+            <dl class="clearfix">
+                <dt>公司规模：</dt>
+                <dd class="current">
+                    不限</dd>
+                <dd>
+                    5-10人</dd>
+                <dd>
+                    10-50人</dd>
+                <dd>
+                    50-100人</dd>
+                <dd>
+                    100-200人</dd>
+                <dd>
+                    200人以上</dd>
+            </dl>
+        </div>
+        <div class="has-more">
+            <dl class="clearfix">
+                <dt>行业领域：</dt>
+                <dd class="current">
+                    不限</dd>
+                <dd>
+                    移动互联网</dd>
+                <dd>
+                    电子商务</dd>
+                <dd>
+                    金融</dd>
+                <dd>
+                    企业服务</dd>
+                <dd>
+                    教育</dd>
+                <dd>
+                    O2O</dd>
+                <dd>
+                    硬件</dd>
+                <dd>
+                    社交网络</dd>
+                <dd class="more">
+                    更多 <i></i>
+                </dd>
+            </dl>
+            <ul class="clearfix">
+                <dd>
+                    旅游</dd>
+                <dd>
+                    医疗健康</dd>
+                <dd>
+                    生活服务</dd>
+                <dd>
+                    信息安全</dd>
+                <dd>
+                    数据服务</dd>
+                <dd>
+                    广告营销</dd>
+                <dd>
+                    招聘</dd>
+                <dd>
+                    其他</dd>
+            </ul>
+        </div>
+    </div>
+    <!--大筛选框 结束-->
+    <!--小筛选框 开始-->
+    <div class="filter-box-s clearfix">
+        <div>
+            <dl class="sort">
+                <dt>排序方式：</dt>
+                <dd>
+                    默认</dd>
+                <dd class="current">
+                    最新</dd>
+            </dl>
+        </div>
+        <div>
+            <dl>
+                <dt>薪酬：</dt>
+                <dd>
+                    <span class="has-more"><span>不限</span> <i></i></span>
+                    <ul>
+                        <li>不限</li>
+                        <li>2k以下</li>
+                        <li>2k-5k</li>
+                        <li>5k-10k</li>
+                        <li>10k-15k</li>
+                        <li>15k-25k</li>
+                        <li>25k-50k</li>
+                        <li>50k以上</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <dl>
+                <dt>工作性质：</dt>
+                <dd>
+                    <span class="has-more"><span>不限</span> <i></i></span>
+                    <ul>
+                        <li>不限</li>
+                        <li>全职</li>
+                        <li>兼职</li>
+                        <li>实习</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <div class="page-s">
+            <i class="prev iconfont">&#xe610;</i> <span class="current-page"></span>/ <span class="total-pages">
+            </span><i class="next iconfont">&#xe60e;</i>
+        </div>
+    </div>
+    <!--小筛选框 结束-->
+    <!--筛选结果 按公司-->
+    <ul class="pos-box pos-box-in">
+    </ul>
+    <!--翻页条 开始-->
+    <div class="pagination">
+    </div>
+    <!--翻页条 结束-->
+    <!--弹出层 开始-->
+    <div class="modal_bg">
+    </div>
+    <div class="modal_cont">
+        <div class="modal_cont_t">
+            <h1>
+                确认框</h1>
+            <span class="modal_cont_t_close">×</span>
+        </div>
+        <div class="modal_cont_m">
+            您确定要申请此职位吗?
+        </div>
+        <div class="modal_cont_b">
+            <button class="modal_cont_b_cancel">
+                取消</button>
+            <button class="modal_cont_b_conf">
+                确认</button>
+        </div>
+    </div>
+    <!--弹出层 结束-->
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script type="text/javascript">
+        var su = '@ViewBag.su';
+        $('#su').val(su); $(".header-search span").text('职位'); 
+    </script>
+    <script type="text/javascript">
+
+        //申请职位弹出层
+        //关闭弹出层
+        function close() {
+            $(".modal_bg").fadeOut();
+            $(".modal_cont").fadeOut();
+        }
+        $(".modal_cont_t_close").click(function () {
+            close();
+        });
+        $(".modal_cont_b_cancel").click(function () {
+            close();
+        });
+        //显示弹出层
+        //        $(".pos-box").on("click", ".pos-apply button", function () {
+        //            $(".modal_bg").fadeIn();
+        //            $(".modal_cont").fadeIn();
+        //        });
+        $(".pos-box").on("click", ".applyPost", function () {
+
+            var id = $(this).attr("data-ID")
+            console.log(id)
+            if (dhw.isLogined !== false) {
+                location.href = "@{@BaseConfigs.GetUrlMain}AppResume#/preview?JobID=" + id;
+            } else {
+                location.href = "@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}"
+            }
+        });
+    </script>
+    <script src="@BaseConfigs.GetStaticPath/lib/jquery.cookie.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loaddata.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/zpLoaddata.js"></script>
+    <script type="text/html" id="jobTemplate">
+    {{each data as job i}}
+    <li>
+      <div class="pos-box-l">
+        <div class="pos-logo"><a target="_blank" href="/jobs/detail/{{job.ID}}"><img src="{{domain}}{{job.logo}}" alt="公司logo"></a></div>
+        <div class="pos-info">
+          <h4><a target="_blank" href="/jobs/detail/{{job.ID}}">{{job.Position}}</a> <small>[{{job.CityName}}]{{job.PublicTime}}</small></h4>
+          <div><span class="salary">薪酬：{{job.Money}}</span> <span class="exp">经验：{{job.Req_gznx}}/{{job.Req_xueli}}</span></div>
+          <ul class="advantage">
+            {{each job.fuli as feature i}}
+            <li>{{feature}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="pos-box-r">
+        <div class="pos-corp">
+          <p><a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/{{job.ddid}}" target="_blank">{{job.company}}</a></p>
+          <p>{{job.trade}}</p>
+        </div>
+        <div class="pos-apply"> 
+        {{if job.delivery!="1"}}
+           <a class="applyPost" data-id="{{job.ID}}" target="_self" href="javascript:void(0);" rel="nofollow"> <button type="button">申请职位</button> </a>
+        {{/if}}
+        {{if job.delivery=="1"}}
+        <button type="button">已申请</button> 
+         {{/if}}
+        </div>
+      </div>
+    </li>
+    {{/each}}
+    </script>
+}

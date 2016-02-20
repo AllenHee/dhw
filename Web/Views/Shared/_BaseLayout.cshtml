@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.Keywords">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}fonts/iconfont.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
+    <script type="text/javascript">
+        var dhw = {
+            imgurl: '@BaseConfigs.GetImgPath', imguploadurl: '@BaseConfigs.GetImgUploadPath', imgcuturl: '@BaseConfigs.GetImgCutPath',
+            mainurl: '@BaseConfigs.GetUrlMain', staticurl: '@BaseConfigs.GetStaticPath',
+            urlmain: '@BaseConfigs.GetUrlMain', urlcdn: '@BaseConfigs.GetUrlCdn', urlzc: '@BaseConfigs.GetUrlZc', urlkj: '@BaseConfigs.GetUrlKj', urlhr: '@BaseConfigs.GetUrlHr', urlzckj: '@BaseConfigs.GetUrlZckj',
+            urlzb: '@BaseConfigs.GetUrlZb', urldiy: '@BaseConfigs.GetUrlDiy', urlsrdz: '@BaseConfigs.GetUrlSrdz', urlcqbh: '@BaseConfigs.GetUrlCqbh', urlzxsj: '@BaseConfigs.GetUrlZxsj', urlgsss: '@BaseConfigs.GetUrlGsss'
+        };
+    </script>
+    <script type="text/javascript">
+        var readCookie = function (a) { var b = a + "="; var c = document.cookie.split(";"); for (var d = 0; d < c.length; d++) { var e = c[d]; for (; " " == e.charAt(0); ) e = e.substring(1, e.length); if (0 == e.indexOf(b)) return e.substring(b.length, e.length) } return null }
+        var login = function () { return location.href = dhw.mainurl + "login?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 }; var regist = function () { return location.href = dhw.mainurl + "reg?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 };</script>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <!--通用顶栏 开始-->
+    <div class="sitenav clearfix">
+        <div class="sitenav-wrap">
+            <ul class="sitenav-l">
+                <li><a href="@BaseConfigs.GetUrlMain"><i class="iconfont">&#xe605;</i>梦高速首页</a></li>
+                <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
+            </ul>
+            <ul class="sitenav-r">
+                <li class="log">您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">
+                    免费注册</a> </li>
+                <li><a href="http://bbs.dreamhiway.com" target="_blank">帮助中心</a></li>
+                <li class="nav-drop"><a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
+                    <ul class="sn-dropdown menu-dropdown">
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlKj">会计服务</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlHr">人才招聘</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlDiy">创意设计</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlZckj">众创空间</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlZc">众筹</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlZb">众包</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlCqbh">产权保护</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlSrdz">私人订制</a></li>
+                        <li><a target="_blank" href="//cygc.dreamhiway.com/">创意工厂</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlZxsj">转型升级</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlGsss">公司上市</a></li>
+                        <li><a target="_blank" href="//bbs.dreamhiway.com/">社区论坛</a></li>
+                    </ul>
+                </li>
+                <li class="icon-drop"><i class="sn-dropper iconfont">&#xe60c;</i>
+                    <div class="sn-dropdown">
+                        <div>
+                            <div>
+                                <img src="@{@BaseConfigs.GetUrlCdn}images/weixin_temp.png" alt="微信二维码"></div>
+                            微信</div>
+                    </div>
+                </li>
+                <li class="icon-drop"><i class="sn-dropper iconfont">&#xe60a;</i>
+                    <div class="sn-dropdown">
+                        <div>
+                            <img src="@{@BaseConfigs.GetUrlCdn}images/erweima.jpg" alt="微博"></div>
+                        <div>
+                            微博</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--通用顶栏 结束-->
+    @RenderBody()
+    <!--通用底栏 开始-->
+    <div class="footer">
+        <div class="footer-wrap clearfix">
+            <div class="footer-l">
+                <div class="logo">
+                </div>
+                <div>
+                    服务时间：工作日 9:00 - 18:00</div>
+                <div class="tel">
+                    0595-36892299</div>
+                <ul class="contact clearfix">
+                    <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+                    <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+                    <li><a href="#"><i class="iconfont">&#xe60d;</i></a>
+                        <!--微信弹出-->
+                        <div class="wechat">
+                            <span>
+                                <img src="@{@BaseConfigs.GetUrlCdn}images/weixin_temp.png" alt="微信二维码"></span>
+                            <p>
+                            </p>
+                        </div>
+                    </li>
+                    <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a>
+                        <div class="weibo">
+                            <span>
+                                <img src="@{@BaseConfigs.GetUrlCdn}images/erweima.jpg" alt="微博二维码"></span>
+                            <p>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <p>
+                    创企科技有限公司 版权所有<br>
+                    &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号<br>
+                    地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+                </p>
+                <div>
+                    <a rel="nofollow" href="https://ss.knet.cn/verifyseal.dll?sn=e15060835000001171113505557&userid=dZ2zwVrmBqyt0Mkl&time=1452848821&stoken=4d43613eaf78398df8b7fd3058e9f1fa&pa=1452848&dn=dreamhiway.com">
+                        <div class="icp icp_one">
+                        </div>
+                    </a>
+                    <div class="icp icp_two">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-r">
+                <dl>
+                    <dt>公司信息</dt>
+                    <dd>
+                        <a href="http://www.chuangqikeji.com/a/guanyuwomen/gongsijianjie/" target="_blank">关于我们</a></dd>
+                    <dd>
+                        <a href="@BaseConfigs.GetUrlHr" target="_blank">人才招聘</a></dd>
+                    <dd>
+                        <a href="http://www.chuangqikeji.com/a/xinwenzhongxin/gongsiyaowen/" target="_blank">
+                            公司动态</a></dd>
+                    <dd>
+                        <a href="http://www.chuangqikeji.com/a/xinwenzhongxin/a/xinwenzhongxin/meitib/" target="_blank">
+                            媒体报道</a></dd>
+                </dl>
+                <dl>
+                    <dt>公司产品</dt>
+                    <dd>
+                        <a href="@BaseConfigs.GetUrlHr" target="_blank">梦高速人才</a></dd>
+                    <dd>
+                        <a href="@BaseConfigs.GetUrlZc" target="_blank">梦高速众筹</a></dd>
+                    <dd>
+                        <a href="@BaseConfigs.GetUrlZb" target="_blank">梦高速众包</a></dd>
+                    <dd>
+                        <a href="@BaseConfigs.GetUrlDiy" target="_blank">梦高速设计</a></dd>
+                    <dd>
+                        <a href="@BaseConfigs.GetUrlSrdz" target="_blank">梦高速定制</a></dd>
+                </dl>
+                <dl>
+                    <dt>相关文档</dt>
+                    <dd>
+                        <a href="http://bbs.dreamhiway.com" target="_blank">免责声明</a></dd>
+                    <dd>
+                        <a href="http://bbs.dreamhiway.com" target="_blank">帮助中心</a></dd>
+                    <dd>
+                        <a href="http://bbs.dreamhiway.com" target="_blank">项目规范</a></dd>
+                    <dd>
+                        <a href="http://bbs.dreamhiway.com" target="_blank">服务协议</a></dd>
+                </dl>
+                <dl class="last">
+                    <dt>手机应用</dt>
+                    <dd>
+                        <a href="#">iPhone版下载</a></dd>
+                    <dd>
+                        <a href="#">Android版下载</a></dd>
+                    <dd>
+                        <a href="#">微信公众号梦高速</a></dd>
+                    <dd>
+                        <a href="#">
+                            <img src="@{@BaseConfigs.GetUrlCdn}images/weixin_temp.png" alt="微信二维码"></a></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/general.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
+                if (r.success && r.result.IsAuthenticated) {
+                    dhw = dhw || {};
+                    dhw.isLogined = true;
+                    var app;
+                    if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
+                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + app + '" target="_blank">' + r.result.Name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+                }
+                else {
+                    dhw.isLogined = false;
+                    $('li.log').html('您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">免费注册</a>');
+                }
+            });
+        })
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

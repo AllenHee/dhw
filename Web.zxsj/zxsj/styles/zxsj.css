@@ -1,0 +1,636 @@
+/*
+  何伟
+  互联网+
+  2015-12-2
+*/
+.nav_imgWrap {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+}
+.nav_img {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1920px;
+  margin-left: -960px;
+}
+.nav_imgCont {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1920px;
+  height: 450px;
+  margin-left: -960px;
+}
+.nav_imgWrap-hlwplus {
+  height: 159px;
+}
+.nav_imgWrap-hlwplus .nav_imgCont {
+  width: 1424px;
+  height: 159px;
+  margin-left: -712px;
+}
+.nav_ttl {
+  width: 1024px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.zxsj_logo {
+  display: inline-block;
+  margin-top: 10px;
+}
+.nav_ul {
+  float: right;
+  overflow: hidden;
+}
+.nav_ul_items {
+  float: left;
+  width: 100px;
+  height: 65px;
+  line-height: 65px;
+  text-align: center;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+.nav_ul_items a {
+  display: inline-block;
+  color: #333;
+  line-height: 65px;
+}
+.nav_ul_items-current,
+.nav_ul_items:hover {
+  border-bottom: 5px solid #1ab3f2;
+  background-color: #efefef;
+}
+/*转型*/
+.intro,
+.server,
+.value {
+  margin-top: 115px;
+}
+.intro_ttl {
+  position: relative;
+  width: 470px;
+  padding: 0;
+  border-bottom: 1px solid #dedede;
+  margin: 0 auto;
+  text-align: center;
+}
+.intro_ttl_cont {
+  line-height: 85px;
+  font-size: 3.2em;
+  color: #1ab3f2;
+}
+.intro_ttl_cont span {
+  font-weight: 700;
+}
+.blue_line {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 140px;
+  height: 5px;
+  margin-left: -70px;
+  background-color: #1ab3f2;
+}
+.intro_ul {
+  overflow: hidden;
+  padding-left: 25px;
+  margin-top: 60px;
+}
+.intro_ul_items {
+  float: left;
+  width: 214px;
+  margin-right: 40px;
+}
+.intro_ul_items img,
+.value_ul_items img {
+  display: block;
+}
+.intro_ul_items_cont {
+  position: relative;
+  height: 140px;
+  padding: 20px;
+  font-size: 1.6em;
+  background-color: #1ab3f2;
+  color: #fff;
+}
+.intro_ul_items-last {
+  margin-right: 0;
+}
+.uptri,
+.downtri {
+  position: absolute;
+  right: 15px;
+  border-style: solid;
+}
+.uptri {
+  top: -5px;
+  border-width: 0 5px 5px;
+  border-color: transparent transparent #1ab3f2 transparent;
+}
+.downtri {
+  bottom: -5px;
+  border-width: 5px 5px 0;
+  border-color: #1ab3f2 transparent transparent;
+}
+/*服务*/
+.server_intro {
+  width: 605px;
+  margin: 60px auto;
+  font-size: 1.8em;
+  text-align: center;
+  line-height: 30px;
+}
+.server_intro_third_mh {
+    width: 263px;
+    padding: 10px 20px 0px 89px;
+    float: left;
+    text-align: center;
+}
+.server_intro_third_jf {
+    width: 263px;
+    padding: 10px 20px 0px 57px;
+    float: left;
+    text-align: center;
+}
+.server_intro_third_jpt {
+    width: 254px;
+    padding: 10px 20px 0px 38px;
+    float: left;
+    text-align: center;
+}
+/*价值*/
+.value_ul {
+  overflow: hidden;
+  margin-top: 60px;
+  padding-left: 35px;
+}
+.value_ul_items {
+  
+  width: 256px;
+  margin-right: 80px;
+  float: left;
+}
+.value_ul_items_cont {
+  padding: 20px;
+  font-size: 1.4em;
+  line-height: 25px;
+}
+.value_ul_items-last {
+  margin-right: 0;
+}
+/*
+* 转型升级-解决方案
+* 陈树阳 2015.12.2
+*/
+  
+/*转型升级-解决方案 开始*/
+.jjfa_banner {
+  height: 550px;
+  width: 1920px;
+  margin: 0 auto;
+}
+.content.jjfa {
+  width: 100%;
+  overflow: hidden;
+}
+.jjfa_section1_wrap {
+  background: #f3f3f3;
+}
+.jjfa_section1 {
+  width: 1024px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.jjfa_nav {
+  margin: 30px auto 40px;
+  height: 70px;
+  width: 1000px;
+  border: 1px solid #ccccca;
+  background: #fff;
+  border-radius: 5px;
+}
+.jjfa_nav_items {
+  float: left;
+  width: 99px;
+  height: 70px;
+  padding: 0 50px;
+  border-right: 1px solid #ccccca;
+}
+.jjfa_nav_items a {
+  display: block;
+  height: 66px;
+  font-size: 16px;
+  padding-left: 35px;
+  text-align: center;
+  line-height: 66px;
+  color: #333;
+}
+.iconPic_1 {
+  background: url(../images/proClass01.png) no-repeat 0 18px;
+}
+.iconPic_2 {
+  background: url(../images/proClass02.png) no-repeat 0 18px;
+}
+.iconPic_3 {
+  background: url(../images/proClass03.png) no-repeat 0 18px;
+}
+.iconPic_4 {
+  background: url(../images/proClass04.png) no-repeat 0 18px;
+}
+.iconPic_5 {
+  background: url(../images/proClass05.png) no-repeat 0 18px;
+}
+.jjfa_nav_items-last {
+  border: 0;
+}
+.jjfa_nav_items a:hover {
+  text-decoration: none;
+}
+.jjfa_nav_items:hover {
+  height: 66px;
+  border-bottom: 4px solid #0b9ae1;
+}
+.jjfa_nav .current {
+  height: 66px;
+  border-bottom: 4px solid #0b9ae1;
+}
+.jjfa_section1_txt {
+  padding: 0 20px 100px 20px;
+  font-size: 12px;
+  line-height: 25px;
+  background: url(../images/jjfa_02.png) no-repeat 500px 150px;
+}
+.jjfa_section1_txt_t {
+  border-bottom: 1px dashed #aaa;
+  padding-bottom: 20px;
+  color: #000;
+}
+.jjfa_section1_txt_b {
+  padding-top: 20px;
+}
+.jjfa_section1_txt_b h3 {
+  font-weight: 700;
+}
+.jjfa_section1_txt_b1 {
+  margin-bottom: 20px;
+}
+.jjfa_section2 {
+  background: #0279bb url(../images/jjfa_2bg.jpg) no-repeat 50%;
+}
+.jjfa_ttl {
+  text-align: center;
+  padding: 50px 0 40px;
+}
+.jjfa_section2 p {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 35px;
+}
+.jjfa_section2_imgs_wrap {
+  width: 970px;
+  height: 312px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.jjfa_section2_imgs {
+  width: 984px;
+}
+.jjfa_section2_imgs li {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.jjfa_section2_imgs li img {
+  width: 236;
+  height: 148px;
+}
+.jjfa_more {
+  display: block;
+  width: 86px;
+  height: 23px;
+  margin: 35px auto 35px;
+  border-radius: 15px;
+  line-height: 20px;
+  border: 0;
+  cursor: pointer;
+  background: #fff;
+}
+.jjfa_section3 {
+  background: #f3f3f3;
+}
+.jjfa_section3_wrap {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.jjfa_section3_wrap ul {
+  width: 1000px;
+}
+.jjfa_section3_item {
+  float: left;
+  width: 400px;
+  margin: 0 100px 40px 0;
+  line-height: 25px;
+  font-size: 12px;
+}
+.jjfa_section3_item img {
+  float: left;
+  margin-right: 10px;
+}
+.jjfa_section3_txt h4 a {
+  color: #333;
+}
+.jjfa_section3_txt p {
+  color: #777;
+}
+/*转型升级-解决方案 结束*/
+/*
+ * 何伟
+ * 转型升级-活动策划
+ * 2015-12-5
+*/
+
+.activity,
+.pic_show {
+  width: 1024px;
+  margin: 65px auto 0;
+  text-align: center;
+}
+.all_title {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #666;
+  text-align: center;
+}
+.all_title_word {
+  display: inline-block;
+  width: 700px;
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+}
+.activity_img {
+  margin-top: 30px;
+}
+.activity_ul {
+  padding-left: 150px;
+  overflow: hidden;
+}
+.activity_ul_items {
+  float: left;
+  text-align: center;
+  margin-right: 30px;
+  color: #666;
+  text-align: left;
+}
+.activity_ul_items h2 {
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: center;
+}
+.activity_ul_items p {
+  font-size: 14px;
+}
+.first {
+  width: 210px;
+}
+.second {
+  width: 265px;
+}
+.third {
+  width: 225px;
+  margin-right: 0;
+}
+.able_bg {
+  width: 100%;
+  margin-top: 65px;
+  background-color: #f0efef;
+}
+.able {
+  width: 1024px;
+  padding-top: 30px;
+  margin: 0 auto;
+  background: url(../images/zxsj_1212.png) 0 180px no-repeat;
+  text-align: center;
+  overflow: hidden;
+}
+.able_ul {
+  float: right;
+  margin-top: 70px;
+}
+.able_ul_items {
+  width: 450px;
+  padding: 20px 0;
+  border-bottom: 1px solid #cdcdcd;
+  color: #666;
+  text-align: left; 
+}
+.able_ul_items-last {
+  border: 0;
+}
+.able_ul_items h2 {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+.able_ul_items p {
+  font-size: 15px;
+}
+.more {
+  width: 1024px;
+  padding: 35px 0;
+  border-top: 1px solid #cdcdcd;
+  margin: 500px auto 0;
+  text-align: center;
+}
+.more a {
+  color: #d23030;
+  font-size: 16px;
+}
+.portfolio {
+  margin: 65px 0 20px;
+}
+.pic_show_ul {
+  text-align: left;
+  overflow: hidden;
+}
+.pic_show_ul_items {
+  float: left;
+  width: 240px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  font-size: 14px;
+}
+.pic_show_ul_items img {
+  margin-bottom: 20px;
+}
+.company {
+  color: #d23030;
+}
+.pic_show_ul_items-last {
+  margin-right: 0;
+}
+.pic_show_img {
+  margin-bottom: 100px;
+}
+
+
+/*
+* 成本控制
+* 卢铭怀 2015-12-05
+*/
+
+.cbkz_hdWrap,
+.cbkz_ftWrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+}
+.cbkz_hdWrap {
+  height: 473px;
+  background-color: #d0cfcb;
+}
+.cbkz_hd,
+.cbkz_ft {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1920px;
+  margin-left: -960px;
+}
+.cbkz_hd {
+  position: relative;
+  height: 473px;
+  background: url(../images/cbkz_hd_bg.png) no-repeat;
+}
+.cbkz_hd_link {
+  position: absolute;
+  left:568px;
+  top: 272px;
+  width: 198px;
+  height: 40px;
+}
+.cbkz_intro {
+  padding: 50px 0 110px;
+}
+.cbkz_intro_title {
+  padding-left: 510px;
+}
+.cbkz_intro_title h2 {
+  width: 305px;
+  height: 72px;
+  border-radius: 0 35px 35px 0;
+  background-color: #029be3;
+  font-size: 34px;
+  line-height: 72px;
+  text-align: center;
+  color: #fff;
+}
+.cbkz_intro_cont {
+  width: 569px;
+  height: 241px;
+  padding:125px 0 0 455px;
+  background: url(../images/zxsj_cbgk.png) no-repeat;
+}
+.cbkz_intro_cont dl {
+  padding-left: 15px;
+}
+.cbkz_intro_cont dt,
+.cbkz_intro_cont dd {
+  float: left;
+  font-size: 16px; 
+  line-height: 48px;
+}
+.cbkzItem_ttl-a {
+  color: #2d8f05;
+}
+.cbkzItem_ttl-b {
+  color: #aa1114;
+}
+.cbkzItem_ttl-c {
+  color: #c57711;
+}
+.cbkzItem_ttl-d {
+  color: #e24546;
+}
+.cbkzItem_ttl-e {
+  color: #53b604;
+}
+.cbkz_ftWrap {
+  height: 622px;
+  background-color: #624218;
+  overflow: hidden;
+}
+.cbkz_ft {
+  height: 622px;
+  background: url(../images/cbkz_ft_bg.png) no-repeat;
+}
+.cbkz_ft_cont {
+  width: 1024px;
+  padding-top: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cbkz_ft_cont h2 {
+  font-size: 42px;
+  color: #fff;
+}
+.cbkz_senseItems {
+  margin-top: 80px;
+}
+.cbkz_senseItem {
+  float: left;
+  position: relative;
+  width: 208px;
+  height: 222px;
+  padding-top: 50px;
+  margin-right: 63px;
+  background-color: #fff;
+  text-align: center;
+}
+.cbkz_senseItem.last {
+  margin-right: 0;
+}
+.cbkz_senseItem h3 {
+  font-size: 22px;
+  color: #bd2430;
+}
+.cbkz_senseItem p {
+  margin-top: 22px;
+  font-size: 14px;
+}
+.senseIcon {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 60px;
+  height: 69px;
+  margin-left: -30px;
+  margin-top: -25px;
+}
+.senseIcon-a {
+  background: url(../images/zxsj_icon1.png) no-repeat;
+}
+.senseIcon-a {
+  background: url(../images/zxsj_icon2.png) no-repeat;
+}
+.senseIcon-a {
+  background: url(../images/zxsj_icon3.png) no-repeat;
+}
+.senseIcon-a {
+  background: url(../images/zxsj_icon4.png) no-repeat;
+}
+
+/*何伟*/
+.footer-l .logo {
+  height: 51px;
+  background: url(../images/zxsj_logo.png) no-repeat 0 -51px;
+}
+.footer-l .logo:hover {
+  background: url(../images/zxsj_logo.png) no-repeat;
+}

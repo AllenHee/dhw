@@ -1,0 +1,220 @@
+﻿<p class="title-right bg-info small">
+    <a href="/AppHR#/">招聘管理</a> > <a href="#/jobs"><span>招聘信息</span></a> > {{data.company}}</p>
+<div class="container container-main">
+    <div class="row small info-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td class="bg-primary" colspan="2">
+                        <b>详细信息</b>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-right">
+                        编号
+                    </td>
+                    <td>
+                        {{data.ID}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        公司名称
+                    </td>
+                    <td>
+                        {{data.company}}
+                    </td>
+                </tr>
+                <!--<tr>
+                <td class="text-right">
+                    类型名称
+                </td>
+                <td>
+                    <select class="form-control" ng-model="data.type" ng-options="type.id as type.text for type in types">
+                        <option value="">请选择</option>
+                    </select>
+                </td>
+                </tr>-->
+                <tr>
+                    <td class="text-right">
+                        行业名称
+                    </td>
+                    <td>
+                        {{data.Dtmc}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        城市名称
+                    </td>
+                    <td>
+                        {{data.City}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        福利
+                    </td>
+                    <td>
+                       {{data.fuli}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        发布时间
+                    </td>
+                    <td>
+                        {{data.PublicTime}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        职位名称
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.Position">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        语言要求
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.yy">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        工作地址
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.gzdz">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        薪资范围
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="data.Money">
+                            <option value="">不限</option>
+                            <option value="2k以下">2k以下</option>
+                            <option value="2k-5k">2k-5k</option>
+                            <option value="5k-10k">5k-10k</option>
+                            <option value="10k-15k">10k-15k</option>
+                            <option value="15k-25k">15k-25k</option>
+                            <option value="25k-30k">25k-30k</option>
+                            <option value="20k以上">20k以上</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        工作经验
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="data.gznx">
+                            <option value="">不限</option>
+                            <option value="应届毕业生">应届毕业生</option>
+                            <option value="一年以下">一年以下</option>
+                            <option value="1-3年">1-3年</option>
+                            <option value="3-5年">3-5年</option>
+                            <option value="5-10年">5-10年</option>
+                            <option value="10年以上">10年以上</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        学历要求
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="data.xueli">
+                            <option value="">不限</option>
+                            <option value="大专">大专</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                            <option value="博士">博士</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        工作性质
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="data.gzxz">
+                            <option value="">请选择</option>
+                            <option value="全职">全职</option>
+                            <option value="兼职">兼职</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        职位描述
+                    </td>
+                    <td>
+                        <textarea rows="10" style="width: 650px" ng-model="data.Desc"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        职位标签
+                    </td>
+                    <td>
+                        <textarea rows="10" style="width: 650px" ng-model="data.Tag"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        最小年龄
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.min">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        最大年龄
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.max">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right input-td">
+                        工作地址API参数
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" ng-model="data.gzdzBDMap">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        访问量
+                    </td>
+                    <td>
+                        {{data.PV}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-right">
+                        刷新次数
+                    </td>
+                    <td>
+                        {{data.changNum}}
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <p class="opr-btns">
+            <input class="btn btn-primary" type="button" ng-click="save()" value="保存">
+            <input class="btn btn-danger" type="button" ng-click="del()" value="删除">
+            <a class="btn btn-default" href="#/jobs">返回</a>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,174 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "梦高速-中小微企业一站式服务平台";
+    ViewBag.Description = "梦高速平台通过会计服务、人才招聘、威客众包、众筹、互联网+等帮助中小微企业从0到1，从1到n高速发展的服务平台。";
+    ViewBag.Keywords = "威客,互联网+,众包,需求定制,梦高速";
+}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>梦高速</title>
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}fonts/iconfont.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}/usercenter/styles/index.css">
+    <script type="text/javascript">
+        var dhw = {
+            imgurl: '@BaseConfigs.GetImgPath',
+            imguploadurl: '@BaseConfigs.GetImgUploadPath',
+            mainurl: '@BaseConfigs.GetUrlMain',
+            staticurl: '@BaseConfigs.GetStaticPath',
+            urlmain: '@BaseConfigs.GetUrlMain',
+            urlcdn: '@BaseConfigs.GetUrlCdn',
+            urlzc: '@BaseConfigs.GetUrlZc',
+            urlkj: '@BaseConfigs.GetUrlKj',
+            urlhr: '@BaseConfigs.GetUrlHr',
+            urlzckj: '@BaseConfigs.GetUrlZckj',
+            urlzb: '@BaseConfigs.GetUrlZb',
+            urldiy: '@BaseConfigs.GetUrlDiy',
+            urlsrdz: '@BaseConfigs.GetUrlSrdz',
+            urlcqbh: '@BaseConfigs.GetUrlCqbh',
+            urlzxsj: '@BaseConfigs.GetUrlZxsj',
+            urlgsss: '@BaseConfigs.GetUrlGsss'
+        };
+        if (dhw) dhw.gettplurl = function (name) { return function () { return '/moduledhw/' + name + '?_=' + (+new Date()) } }
+    </script>
+</head>
+<body class="clearfix" ng-app="dhwApp" ng-controller="dhwCtrl">
+    <!--左右箭头 开始-->
+    <div class="arrowLeftWrap" ng-click="moduleSwitch('right', urlstate.current.name)">
+        <i class="arrowLeft"></i>
+    </div>
+    <div class="arrowRightWrap" ng-click="moduleSwitch('left', urlstate.current.name)">
+        <i class="arrowRight"></i>
+    </div>
+    <!--左右箭头结束-->
+    <div class="menuWrap">
+        <ul class="menu clearfix">
+            @{if (ViewBag.DUser.HasLogin)
+              {
+                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}@if (ViewBag.DUser.Type == 1)
+                                                                          {<text>apphome</text>}
+                                                                          else
+                                                                          {<text>apphome_company</text>}">
+                    @{@ViewBag.DUser.UserName}
+                    的个人中心</a></li>
+                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}&type=logout">
+                    退出</a></li>}
+              else
+              {  
+                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}reg?redirectURL=@Request.Url">
+                    注册</a></li>
+                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
+                    登录</a></li>
+              }}
+            <li class="menu_items"><a href="http://www.chuangqikeji.com/" target="_blank">创企官网</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="logo">
+            <img src="@{@BaseConfigs.GetUrlCdn}/usercenter/images/index_logo.png" alt="梦高速">
+        </div>
+        <div class="searchWrap">
+            <div class="search clearfix">
+                <label class="search_lable">
+                    <i class="module_icon xhhrIcon"></i>
+                    <ul class="search_label_items">
+                        <li class="search_label_item"><i class="module_icon xhhrIcon"></i>寻合伙人</li>
+                        <li class="search_label_item"><i class="module_icon kjfwIcon"></i>注册公司</li>
+                        <li class="search_label_item"><i class="module_icon rczpIcon"></i>招兵买马</li>
+                        <li class="search_label_item"><i class="module_icon cysjIcon"></i>创意设计</li>
+                        <li class="search_label_item"><i class="module_icon zchuangIcon"></i>众创</li>
+                        <li class="search_label_item"><i class="module_icon zchouIcon"></i>众筹</li>
+                        <li class="search_label_item"><i class="module_icon zbaoIcon"></i>众包</li>
+                        <li class="search_label_item"><i class="module_icon cqbhIcon"></i>产权保护</li>
+                        <li class="search_label_item"><i class="module_icon srdzIcon"></i>私人定制</li>
+                        <li class="search_label_item"><i class="module_icon zxsjIcon"></i>转型升级</li>
+                        <li class="search_label_item"><i class="module_icon ssgsIcon"></i>上市公司</li>
+                    </ul>
+                </label>
+                <input class="search_box" type="text">
+                <button class="search_btn" type="button">
+                    搜 索</button>
+            </div>
+            <div class="hot">
+                <ul class="hot_items clearfix">
+                    <li class="hot_item"><a href="#">互联网+</a></li>
+                    <li class="hot_item"><a href="#">软件工程师</a></li>
+                    <li class="hot_item"><a href="#">高端定制</a></li>
+                    <li class="hot_item"><a href="#">科技众筹</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="view-animate-container">
+            <div ui-view class="view-animate clearfix">
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <ul class="navItems clearfix">
+            <li ng-repeat="module in modules" class="navItem" ng-if="module.show" ng-click="moduleSwitch(module.name, urlstate.current.name)">
+                <i class="module_icon {{module.name}}GreyIcon" ng-class="{ {{module.name}}Icon: urlstate.current.name === module.name}"></i>{{module.text}} </li>
+            <li class="navItem navItem-setting" ng-show="isLogin"><span class="navItem-setting_icon">
+            </span></li>
+        </ul>
+        <div class="navPopWrap">
+            <div class="navPop">
+                <span class="navPop_closeBtn" ng-click="confirmOrCancel(false)"></span>
+                <h3 class="navPop_title">
+                    勾选您要显示的模块：</h3>
+                <ul class="navPop_items clearfix">
+                    <li ng-repeat="module in modules" class="navPop_item" ng-class="{selected:module.temp}"
+                        ng-if="!$index==0" ng-click="module.temp=!module.temp"><i></i>
+                        <img ng-src="@{@BaseConfigs.GetUrlCdn}/usercenter/images/switch_{{module.name}}.png">
+                        <p class="navPop_item_text">
+                            {{module.text}}</p>
+                    </li>
+                </ul>
+                <p class="navPop_confirm">
+                    <button class="navPop_confirm_btn" type="button" ng-click="confirmOrCancel(true)">
+                        确定</button></p>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 10]>
+    <script type="text/javascript" src="@{@BaseConfigs.GetUrlCdn}lib/PIE.js"></script>
+  <![endif]-->
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular-animate.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/css3-mediaqueries.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/general.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.slider.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/dhwCtrl.js"></script>
+    <script>
+        $('input, textarea').placeholder();
+
+        // 搜索框下拉
+        $('.search_lable>.module_icon').click(function (e) {
+            e.stopPropagation();
+            $('.search_label_items').slideToggle();
+        });
+        $(document).click(function () {
+            $('.search_label_items').slideUp();
+        });
+        $('.search_label_item').click(function () {
+            var _class = $(this).children('i').attr('class');
+            $('.search_lable>.module_icon').attr('class', _class);
+            $('.search_label_items').hide();
+        });
+
+        // 导航栏弹出
+        $('.navItem-setting').click(function () {
+            $('.navPopWrap').slideToggle();
+        });
+        $('.navPop_closeBtn, .navPop_confirm_btn').click(function () {
+            $('.navPopWrap').hide();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>案例展示</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/cmpy.css">
+</head>
+<body>
+  <!--头部 开始-->
+  <div class="header">
+    <div class="header_t clearfix">
+      <div class="header_l">
+        <a class="header_logo" href=""><img src="images/com_logo.jpg" alt=""></a>
+        <div class="header_ttl">
+          <h2>创企科技<i></i></h2>
+          <a class="sc" href="#">收藏</a>
+          <a class="share" href="#">分享</a>
+          <span class="xy">
+            信用：<i></i><i></i><i></i><i></i><i></i>
+            <a class="more" href=""><span></span></a>
+          </span> 
+        </div>            
+      </div>
+      <div class="header_r">
+        <input type="text">
+        <a href="#"><i></i></a>
+      </div>
+    </div>
+    <!--导航-->
+    <div class="nav_wrap">
+      <ul class="nav clearfix">
+        <li class="current">首页</li>
+        <li>案例展示</li>
+        <li>服务中心</li>
+        <li>公司动态</li>
+        <li>公司招聘</li>
+        <li>联系我们</li>
+        <li>关于我们</li>
+      </ul>
+    </div>
+  </div>
+  <!--头部 结束-->
+  <div class="contbg clearfix">
+    <div class="cont">
+      <ul class="clearfix">
+        <li class="cont_show_items">
+          <div class="appr_show_items appr_show_items-top">
+            <img class="appr_show_items_img" src="images/anzs_03.png" alt="">
+            <div class="popup">
+              <div class="popup_bg"></div>
+              <a href="#"><img class="popup_more" src="images/iconfont-icon05.png" alt=""></a>
+              <span class="popup_ttl">创企科技UI设计</span>
+            </div>
+          </div>
+        </li>
+        <li class="cont_show_items">
+          <div class="appr_show_items appr_show_items-top">
+            <img class="appr_show_items_img" src="images/anzs_05.png" alt="">
+            <div class="popup">
+              <div class="popup_bg"></div>
+              <a href="#"><img class="popup_more" src="images/iconfont-icon05.png" alt=""></a>
+              <span class="popup_ttl">创企科技UI设计</span>
+            </div>
+          </div>
+        </li>
+        <li class="cont_show_items">
+          <div class="appr_show_items appr_show_items-top">
+            <img class="appr_show_items_img" src="images/anzs_07.png" alt="">
+            <div class="popup">
+              <div class="popup_bg"></div>
+              <a href="#"><img class="popup_more" src="images/iconfont-icon05.png" alt=""></a>
+              <span class="popup_ttl">创企科技UI设计</span>
+            </div>
+          </div>
+        </li>
+        <li class="cont_show_items cont_show_items-last">
+          <div class="appr_show_items appr_show_items-top">
+            <img class="appr_show_items_img" src="images/anzs_09.png" alt="">
+            <div class="popup">
+              <div class="popup_bg"></div>
+              <a href="#"><img class="popup_more" src="images/iconfont-icon05.png" alt=""></a>
+              <span class="popup_ttl">创企科技UI设计</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script>
+    $(".appr_show_items").mouseenter(function() {
+      $(this).find(".popup").css("display", "block")
+    });
+    $(".appr_show_items").mouseleave(function() {
+      $(this).find(".popup").css("display", "none")
+    });
+  </script>
+</body>
+</html>

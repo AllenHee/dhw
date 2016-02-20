@@ -1,0 +1,41 @@
+﻿@{ViewBag.Title = "梦高速 - 个人中心 - 创意设计发布";}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/login.css">
+    <script type="text/javascript">        if (dhw) dhw.gettplurl = function (name) { return function () { return '/modulecysj/' + name + '?_=' + (+new Date()) } }</script>
+}
+<!--主内容 开始-->
+<div class="content clearfix">
+    <!--左栏 开始-->
+    <div class="cl">
+        <dl class="cygn">
+            <dt>常用功能</dt>
+            @if (ViewBag.LoginAsCompany)
+            {
+                <dd>
+                    <a href="#/">发布项目</a></dd>
+                <dd>
+                    <a href="#/list">已发布项目查询</a></dd>
+            }
+            else
+            {
+            }
+        </dl>
+    </div>
+    <!--左栏 结束-->
+    <!--中栏 开始-->
+    <div class="cm">
+        <div class="" ng-app="cysjApp" ui-view>
+        </div>
+    </div>
+    <!--中栏 结束-->
+    <!--右栏 开始-->
+    <div class="cr">
+    </div>
+    <!--右栏 结束-->
+</div>
+<!--主内容 结束-->
+@section scripts{
+    @Helper1.Displayjs(BaseConfigs.GetUrlCdn)
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/uc.cysjFormCtrl.js"></script>
+    @* <script src="cdn/uc.cysjFormCtrl.js"></script>*@
+}

@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>梦高速 - 后台管理系统 - 众筹</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/backend.css">
+    <link href="/lib/umeditor1_2_2-utf8/themes/default/css/umeditor.min.css" rel="stylesheet"
+        type="text/css" />
+   <style>
+        .dhw-error
+        {
+            color: Red;
+        }
+        .dhw-success
+        {
+            color: Green;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        var dhw = { imgurl: 'http://192.168.2.10:81/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', mainurl: 'http://localhost:8085/',hrurl:'http://localhost:8086/' };
+
+    </script>
+</head>
+<body>
+    <!--头部-->
+    <nav class="navbar navbar-default">
+	<div class="navbar-header">
+		<div class="navbar-brand">
+			<img src="/images/logo.jpg" alt="logo">
+		</div>
+	</div>
+	<p class="navbar-text">您好，<a href="#">admin</a>，欢迎访问站点后台操作界面</p>
+	<ul class="nav nav-pills navbar-right small">
+    
+		<li><a href="#">快捷设置</a></li>
+		<li><a href="#" target="_blank">进入商城首页</a></li>
+		<li><a href="#">清空缓存</a></li>
+		<li><a href="#" target="_blank">在线帮助</a></li>
+		<li><a href="#">关于CQMall</a></li>
+		<li><a href="#">刷新</a></li>
+		<li><a href="#">注销</a></li>
+	</ul>
+  </nav>
+    <!--选项栏-->
+    <ul id="xx" class="nav nav-tabs nav-main">
+        <li><a href="/AppCenter">中心模块</a></li>
+        <li><a href="/AppHR">人才</a></li>
+        <li><a href="/AppFinance">财务</a></li>
+        <li><a href="/Appcrowd">众筹</a></li>
+        <li><a href="/">众包</a></li>
+        <li><a href="/Appsys">系统管理</a></li>
+        <li><a href="/Appdemo">demo</a></li>
+    </ul>
+    @RenderBody()
+    <div class="copy-right text-info">
+        <p>
+            版权所有：福建省创企信息科技有限公司<br>
+            Copyright @@ 2003-2012 By CQMall . All Rights Reserved
+        </p>
+    </div>
+    <script src="/scripts/jquery-1.11.3.min.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+     <script src="/lib/umeditor1_2_2-utf8/umeditor.config.js" type="text/javascript"></script>
+    <script src="/lib/umeditor1_2_2-utf8/umeditor.min.js" type="text/javascript"></script>
+    <script src="/lib/umeditor1_2_2-utf8/lang/zh-cn/zh-cn.js" type="text/javascript"></script>
+    <script src="/lib/angular/angular.min.js" type="text/javascript"></script>
+    <script src="/lib/angular/angular-locale_zh-cn.js" type="text/javascript"></script>
+    <script src="/lib/angular-route/angular-route.min.js" type="text/javascript"></script>
+    <script src="/lib/angular-ui-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+    <script src="/ModuleBase/app.js" type="text/javascript"></script>
+    <script>
+        var pathname = window.location.pathname;
+        $('#xx>li:has(a[href="' + pathname + '"])').addClass("active");
+        function getfuncpath(path, key, detail) {
+            if (!detail)
+                return function () {
+                    return path + 'view/' + key.name + '.html?_=' + (+new Date());
+                }
+            else
+                return function () {
+                    return path + 'view/' + key.name + '_detail.html?_=' + (+new Date());
+                }
+        }
+        function sysfactory(modulename, ng, approute, htmlpath) {
+            var app = angular.module(modulename, ng);
+            app.config(['$routeProvider', function ($routeProvider) {
+                $routeProvider.when('/', { template: '<h1>欢迎光临</h1>' });
+                for (var i = 0; i < approute.length; i++) {
+                    var item = approute[i];
+                    $routeProvider.when('/' + item.name, { controller: item.name + 'ctrl', templateUrl: getfuncpath(htmlpath, item) })
+                    if (item.detail) $routeProvider.when('/' + item.name + '/:id', { controller: item.name + 'detailctrl', templateUrl: getfuncpath(htmlpath, item, true) })
+                }
+                $routeProvider.otherwise({ redirectTo: '/' });
+            } ]);
+            return app;
+        }
+        // $(".left .panel-heading").click(function () {
+        //     $(".left").find(".list-group").each(function () {
+        //         $(this).slideUp();
+        //     });
+        //     var $list_in_click = $(this).parent().find(".list-group");
+        //     if ($list_in_click.is(":visible")) {
+        //         $list_in_click.slideUp();
+        //     } else {
+        //         $list_in_click.slideDown();
+        //     }
+        // });
+        // $(".nav-tabs li").click(function() {
+        //   $(".nav-tabs li").removeClass("active");
+        //   $(this).addClass("active");
+        // });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

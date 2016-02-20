@@ -1,0 +1,312 @@
+﻿@{ViewBag.Title = "梦高速-欢迎注册"; Layout = null;}
+<!DOCTYPE html>
+<!--
+  陈树阳
+  2015.11.26
+-->
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>梦高速-欢迎注册</title>
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/login.css">
+    <script>
+        var dhw = {};
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="logo clearfix">
+            <div class="logo_img">
+                <a href="#">
+                    <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/dl_logo.jpg" alt="#"></a></div>
+            <h2 class="logo_text">
+                账户注册</h2>
+        </div>
+        <div class="register" ng-app="regApp" ng-controller="regCtrl">
+            <p class="register_text">
+                我已经注册，现在就 <a href="@{@BaseConfigs.GetUrlMain}login">登录</a></p>
+<<<<<<< HEAD
+=======
+            <ul class="reg_tabs clearfix">
+                <li class="reg_tab" ng-class="{current:isPersonal}" ng-click="isPersonal=true">个人用户</li>
+            </ul>
+>>>>>>> 02c04467372f1e6df1776150db58660542e949ee
+            <div class="reg_form reg_form-personal" ng-show="isPersonal" ng-cloak>
+                <form name="registerP">
+                <div class="formSet clearfix">
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                            用户名：</label>
+                        <input class="formSet_input" name="username" id="user" type="text" ng-model="dataP.name"
+                            ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,20}$/" ng-focus="usernameTipP=true"
+                            ng-blur="usernameTipP=false; validate(dataP.name, 'usernameP')" ng-change="isValid.usernameP=undefined"
+                            required>
+                        <i class="formSet_icon user"></i><i class="formSet_icon success" ng-show="registerP.username.$dirty && registerP.username.$valid && isValid.usernameP==1">
+                        </i>
+                    </div>
+                    <label class="formSet-tip" ng-show="usernameTipP">
+                        4-20位字符，支持汉字、字母、数字及“-”、"_"组合</label>
+                    <label class="formSet-error formSet-error-long" ng-show="!usernameTipP && registerP.username.$invalid && !registerP.username.$error.required">
+                        用户名长度只能在4-20位字符之间<br>
+                        用户名只能由中文、英文、数字及"-"、"_"组成"_"组合</label>
+                    <label class="formSet-error" ng-show="!usernameTipP && registerP.username.$dirty && registerP.username.$error.required">
+                        请输入用户名</label>
+                    <label class="formSet-error" ng-show="!usernameTipP && isValid.usernameP==0">
+                        该用户名已被注册，请重新输入</label>
+                </div>
+                <div class="formSet clearfix">
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                            请设置密码：</label>
+                        <input class="formSet_input" name="password" id="userpwd" type="password" ng-model="dataP.pwd"
+                            ng-pattern="/^.{6,20}$/" ng-focus="passwordTipP=true" ng-blur="passwordTipP=false"
+                            required>
+                        <i class="formSet_icon security"></i><i class="formSet_icon success" ng-show="registerP.password.$dirty && registerP.password.$valid">
+                        </i>
+                    </div>
+                    <label class="formSet-tip" ng-show="passwordTipP">
+                        6-20位字符，建议由字母、数字和符号两种以上组合</label>
+                    <label class="formSet-error" ng-show="!passwordTipP && registerP.password.$invalid && !registerP.password.$error.required">
+                        密码长度只能在6-20位字符之间</label>
+                    <label class="formSet-error" ng-show="!passwordTipP && registerP.password.$dirty && registerP.password.$error.required">
+                        请输入密码</label>
+                </div>
+                <div class="formSet clearfix">
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                            请确认密码：</label>
+                        <input class="formSet_input" name="confirm" id="usercon" type="password" ng-model="confirmP"
+                            ng-pattern="/^.{6,20}$/" ng-focus="confirmTipP=true" ng-blur="confirmTipP=false"
+                            required>
+                        <i class="formSet_icon security"></i><i class="formSet_icon success" ng-show="registerP.confirm.$dirty && registerP.confirm.$valid">
+                        </i>
+                    </div>
+                    <label class="formSet-tip" ng-show="confirmTipP">
+                        请再次输入密码</label>
+                    <label class="formSet-error" ng-show="!confirmTipP && registerP.confirm.$dirty && (confirmP != dataP.pwd)">
+                        两次输入密码不一致</label>
+                </div>
+                <div class="formSet clearfix" ng-if="valiType==0">
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                            验证手机：</label>
+                        <input class="formSet_input" name="mobile" type="text" ng-model="dataP.phone" ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
+                            ng-focus="mobileTipP=true" ng-blur="mobileTipP=false; validate(dataP.phone, 'mobileP')"
+                            ng-change="isValid.mobileP=undefined" required>
+                        <i class="formSet_icon phone"></i><i class="formSet_icon success" ng-show="registerP.mobile.$dirty && registerP.mobile.$valid && isValid.mobileP==1">
+                        </i>
+                    </div>
+                    <label class="formSet-tip" ng-if="mobileTipP">
+                        完成验证后，您可以用该手机号登录或找回密码</label>
+                    <label class="formSet-error" ng-show="!mobileTipP && registerP.mobile.$invalid && !registerP.mobile.$error.required">
+                        手机号码格式有误，请输入正确的手机号</label>
+                    <label class="formSet-error" ng-show="!mobileTipP && registerP.mobile.$dirty && registerP.mobile.$error.required">
+                        请输入手机号码</label>
+                    <label class="formSet-error" ng-show="!mobileTipP && isValid.mobileP==0">
+                        该手机已被注册，请重新输入</label>
+                </div>
+                <div class="formSet clearfix" ng-if="valiType==1">
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                            验证邮箱：</label>
+                        <input class="formSet_input" name="email" type="email" ng-model="dataP.email" ng-focus="emailTipP=true"
+                            ng-blur="emailTipP=false; validate(dataP.email, 'emailP')" ng-change="isValid.emailP=undefined"
+                            required>
+                        <i class="formSet_icon success" ng-show="registerP.email.$dirty && registerP.email.$valid  && isValid.emailP==1">
+                        </i>
+                    </div>
+                    <label class="formSet-tip" ng-show="emailTipP">
+                        完成验证后，您可以用该邮箱登录或找回密码</label>
+                    <label class="formSet-error" ng-show="!emailTipP && registerP.email.$invalid && !registerP.email.$error.required">
+                        邮箱地址不正确，请重新输入</label>
+                    <label class="formSet-error" ng-show="!emailTipP && registerP.email.$dirty && registerP.email.$error.required">
+                        请输入邮箱地址</label>
+                    <label class="formSet-error" ng-show="!emailTipP && isValid.emailP==0">
+                        该邮箱地址已被注册，请重新输入</label>
+                </div>
+                <span class="valiSwitch" ng-show="valiType==0">或 <a href="javascript:void(0)" ng-click="valiType=1">
+                    验证邮箱</a></span> <span class="valiSwitch" ng-show="valiType==1">或 <a href="javascript:void(0)"
+                        ng-click="valiType=0">验证手机</a></span>
+                <!--<div class="formSet clearfix" ng-show="valiType==0">
+            <div class="formSetWrap">
+              <label class="formSet_label">短信验证码：</label>
+              <input class="formSet_input formSet_input-short" name="phoneValiCode" type="text" ng-model="phoneValiCode" maxlength="6" required>
+              <input class="getPhoneValiCode" type="button" value="获取短信验证码">
+            </div>
+          </div>-->
+<<<<<<< HEAD
+                @*<div class="formSet clearfix">
+=======
+                <div class="formSet clearfix">
+>>>>>>> 02c04467372f1e6df1776150db58660542e949ee
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                            验证码：</label>
+                        <input class="formSet_input formSet_input-short" name="verify" type="text" ng-model="dataP.verify"
+                            required>
+                        <img class="verifyImg" ng-click="codeRefresh()" src="/Login/VerifyCode?_=1450339330618"
+                            alt="验证码">
+                    </div>
+<<<<<<< HEAD
+                </div>*@
+=======
+                </div>
+>>>>>>> 02c04467372f1e6df1776150db58660542e949ee
+                <div class="formSet formSet-agreement clearfix">
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                        </label>
+                        <p class="agreementWrap">
+                            <input class="agreement" type="checkbox" ng-model="agreementP">
+                            <label>
+                                我已经阅读并同意<a href="#">《梦高速用户注册协议》</a></label></p>
+                    </div>
+                </div>
+                <div class="formSet clearfix">
+                    <div class="formSetWrap">
+                        <label class="formSet_label">
+                        </label>
+                        <button class="submitBtn" type="button" ng-disabled="registerP.$invalid || !agreementP"
+                            ng-click="submit()">
+                            立即注册</button>
+                    </div>
+                </div>
+                </form>
+<<<<<<< HEAD
+                <!--绑定QQ帐号开始-->
+                <div class="login_form">
+                    <div class="ttl_warp">
+                        <h3>
+                            已有梦高速帐号？直接绑定</h3>
+                    </div>
+                    <div class="cr_warn">
+                        <i></i>公告场所不建议自动登录，以防帐号丢失
+                    </div>
+                    <div class="cr_zh">
+                        <i></i>
+                        <input type="text" placeholder="邮箱/用户名/已验证手机" name="name" id="account">
+                    </div>
+                    <div class="cr_mm">
+                        <i></i>
+                        <input type="password" placeholder="密码" name="pwd" id="password">
+                        <!--<span></span>-->
+                    </div>
+                    <div id="divyzm" class="login_yz-warp">
+                        <input id="txt1" class="login_yz" type="text" name="verify" placeholder="请输入验证码">
+                        <img class="login_yztp" id="yzm" src="/Login/VerifyCode?_=@{@DateTime.Now.Ticks}" alt="验证图片">
+                    </div>
+                    <div class="zr_choose">
+                        <span><a href="#">忘记密码？</a></span>
+                    </div>
+                    <div class="cr_btn">
+                        <button onclick="login()">
+                            绑定帐号</button>
+                    </div>
+                </div>
+                <!--绑定QQ帐号结束-->
+=======
+>>>>>>> 02c04467372f1e6df1776150db58660542e949ee
+            </div>
+            <div class="errorPop_wrap">
+            </div>
+            <div class="errorPop">
+                <div class="successPop">
+                    <p class="verifyCodeError">
+                        恭喜您您注册成功<br>
+                        系统正在转跳到登陆页面</p>
+                </div>
+                <p class="verifyCodeError">
+                    验证码有误，请重新填写</p>
+                <button class="errorPop_btn" type="button" ng-click="closeErrorPop()">
+                    确定</button>
+            </div>
+        </div>
+    </div>
+    <div class="bottomNav">
+        <ul class="bottomNav_ul clearfix">
+            <li class="bottomNav_items"><a href="#">关于我们</a></li>
+            <li class="bottomNav_items"><a href="#">联系我们</a></li>
+            <li class="bottomNav_items"><a href="#">人才招聘</a></li>
+            <li class="bottomNav_items"><a href="#">商家入驻</a></li>
+            <li class="bottomNav_items"><a href="#">广告服务</a></li>
+            <li class="bottomNav_items"><a href="#">友情链接</a></li>
+            <li class="bottomNav_items bottomNav_items-last"><a href="#">English Site</a></li>
+        </ul>
+        <p class="copyrightText">
+            Copyright@2015-2016 梦高速dreamhiway.com 版权所有</p>
+    </div>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/tpl.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/baseapp.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/regCtrl.js"></script>
+<<<<<<< HEAD
+    <script src="@Html.Raw(BaseConfigs.GetUrlCdn)scripts/jquery.placeholder.js"></script>
+    <script>
+        $('input, textarea').placeholder();
+        var redirectURL = '@Html.Raw(ViewBag.redirectURL)' || '/';
+    </script>
+    <script type="text/javascript">
+        function login() {
+            $.post('/Reg/UserQQReg', { name: $('[name=name]').val(), pwd: $('[name=pwd]').val(), verify: $('[name=verify]').val() }, function (d) {
+                if (d.success) {
+                    window.location.href = redirectURL;
+                }
+                else {
+                    alert(d.msg);
+                    window.location.reload();
+                }
+            });
+        }
+        function aa() {
+            $("#yzm").attr('src', '/Login/VerifyCode?_=' + (+new Date()));
+        }
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#yzm").click(aa);
+            // 文本输入框原文字消失与复原
+            $("input").each(function () {
+                if (this.value == this.defaultValue) {
+                    $(this).css("color", "#aaa");
+
+                    $(this).focus(function () {
+                        if (this.value == this.defaultValue) {
+                            this.value = "";
+                            $(this).css("color", "#333");
+                        }
+                    }).blur(function () {
+                        if (this.value == "") {
+                            this.value = this.defaultValue;
+                            $(this).css("color", "#aaa");
+                        }
+                    });
+                }
+            });
+            $("#txt1").keydown(function (event) {
+                if (!event) { event = widnow.event }
+                if (event.keyCode == 13) { login(); }
+            });
+            $("#account").keydown(function (event) {
+                if (!event) { event = widnow.event }
+                if (event.keyCode == 13) { login(); }
+            });
+            $("#password").keydown(function (event) {
+                if (!event) { event = widnow.event }
+                if (event.keyCode == 13) { login(); }
+            });
+            $.post('/Login/ShowAuthCode', function (d) {
+                if (d.success && d.result.verifycode == true) {
+                    $('#divyzm').show();
+                }
+                else $('#divyzm').hide();
+            });
+        })
+    </script>
+=======
+>>>>>>> 02c04467372f1e6df1776150db58660542e949ee
+</body>
+</html>

@@ -1,0 +1,156 @@
+﻿@{ViewBag.Title = "梦高速-欢迎登录";
+  Layout = null;}
+<!DOCTYPE html>
+<!--
+  陈树阳
+  2015.11.26
+-->
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>梦高速-欢迎登录</title>
+    <link rel="stylesheet" href="@Html.Raw(BaseConfigs.GetUrlCdn)styles/general.css">
+    <link rel="stylesheet" href="@Html.Raw(BaseConfigs.GetUrlCdn)usercenter/styles/login.css">
+</head>
+<body>
+    <!--大背景图-->
+    <div class="content">
+        <div class="logo clearfix">
+            <div class="logo_img">
+                <a href="#">
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)usercenter/images/dl_logo.jpg" alt="#"></a></div>
+            <h2 class="logo_text">
+                个人帐户登录</h2>
+        </div>
+    </div>
+    <div class="bgWrap">
+        <div class="bg">
+            <div class="content">
+                <div class="login_form">
+                    <div class="ttl_warp">
+                        <h3>
+                            梦高速会员</h3>
+                        <a class="ljzc" href="@{@BaseConfigs.GetUrlMain}reg?redirectURL=@Request.Url">立即注册</a>
+                    </div>
+                    <div class="cr_warn">
+                        <i></i>公告场所不建议自动登录，以防帐号丢失
+                    </div>
+                    <div class="cr_zh">
+                        <i></i>
+                        <input type="text" placeholder="邮箱/用户名/已验证手机" name="name" id="account">
+                    </div>
+                    <div class="cr_mm">
+                        <i></i>
+                        <input type="password" placeholder="密码" name="pwd" id="password">
+                        <!--<span></span>-->
+                    </div>
+                    <div id="divyzm" class="login_yz-warp">
+                        <input id="txt1" class="login_yz" type="text" name="verify" placeholder="请输入验证码">
+                        <img class="login_yztp" id="yzm" src="/Login/VerifyCode?_=@{@DateTime.Now.Ticks}" alt="验证图片">
+                    </div>
+                    <div class="zr_choose">
+                        <div class="cr_zddl">
+                            <input type="checkbox" id="autoLogin">
+                            <label for="">
+                                自动登录</label>
+                        </div>
+                        <div class="cr_aqkjdl">
+                            <input type="checkbox">
+                            <label for="">
+                                安全控件登录</label>
+                        </div>
+                        <span><a href="#">忘记密码？</a></span>
+                    </div>
+                    <div class="cr_btn">
+                        <button onclick="login()">
+                            登录</button>
+                    </div>
+                    <div class="cr_hzdl">
+                        <p>
+                            使用合作网站帐号登录梦高速：</p>
+                        <a href="/authorize/qqlogin?redirectURL=@Html.Raw(ViewBag.redirectURL)"><img alt="Connect_logo_1.png" src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_1.png">QQ登录</a> <span>
+                            |</span> <a href="#">微信</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottomNav">
+        <ul class="bottomNav_ul clearfix">
+            <li class="bottomNav_items"><a href="#">关于我们</a></li>
+            <li class="bottomNav_items"><a href="#">联系我们</a></li>
+            <li class="bottomNav_items"><a href="#">人才招聘</a></li>
+            <li class="bottomNav_items"><a href="#">商家入驻</a></li>
+            <li class="bottomNav_items"><a href="#">广告服务</a></li>
+            <li class="bottomNav_items"><a href="#">友情链接</a></li>
+            <li class="bottomNav_items bottomNav_items-last"><a href="#">English Site</a></li>
+        </ul>
+        <p class="copyrightText">
+            Copyright@2015-2016 梦高速dreamhiway.com 版权所有</p>
+    </div>
+    <script src="@Html.Raw(BaseConfigs.GetUrlCdn)scripts/jquery-1.11.3.min.js"></script>
+    <script src="@Html.Raw(BaseConfigs.GetUrlCdn)scripts/jquery.placeholder.js"></script>
+    <script>
+        $('input, textarea').placeholder();
+        var redirectURL = '@Html.Raw(ViewBag.redirectURL)' || '/';
+    </script>
+    <script type="text/javascript">
+        function login() {
+            $.post('/Login/LoginIn', { name: $('[name=name]').val(), pwd: $('[name=pwd]').val(), autoLogin: $('#autoLogin:checked').length, verify: $('[name=verify]').val() }, function (d) {
+                if (d.success) {
+                    window.location.href = redirectURL;
+                }
+                else {
+                    alert(d.msg);
+                    window.location.reload();
+                }
+            });
+        }
+        function aa() {
+            $("#yzm").attr('src', '/Login/VerifyCode?_=' + (+new Date()));
+        }
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $("#yzm").click(aa);
+            // 文本输入框原文字消失与复原
+            $("input").each(function () {
+                if (this.value == this.defaultValue) {
+                    $(this).css("color", "#aaa");
+
+                    $(this).focus(function () {
+                        if (this.value == this.defaultValue) {
+                            this.value = "";
+                            $(this).css("color", "#333");
+                        }
+                    }).blur(function () {
+                        if (this.value == "") {
+                            this.value = this.defaultValue;
+                            $(this).css("color", "#aaa");
+                        }
+                    });
+                }
+            });
+            $("#txt1").keydown(function (event) {
+                if (!event) { event = widnow.event }
+                if (event.keyCode == 13) { login(); }
+            });
+            $("#account").keydown(function (event) {
+                if (!event) { event = widnow.event }
+                if (event.keyCode == 13) { login(); }
+            });
+            $("#password").keydown(function (event) {
+                if (!event) { event = widnow.event }
+                if (event.keyCode == 13) { login(); }
+            });
+            $.post('/Login/ShowAuthCode', function (d) {
+                if (d.success && d.result.verifycode == true) {
+                    $('#divyzm').show();
+                }
+                else $('#divyzm').hide();
+            });
+        })
+    </script>
+</body>
+</html>

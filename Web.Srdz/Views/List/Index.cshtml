@@ -1,0 +1,8 @@
+﻿@model System.Data.DataTable
+@for (int i = 0; i < ViewBag.list.Rows.Count; i++ )
+{
+    var item = ViewBag.list.Rows[i];
+    <p>@item["lmg"]</p>
+    <p>@item["price"]</p>
+    <p>@item["title"]</p>
+}

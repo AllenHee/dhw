@@ -1,0 +1,52 @@
+<form name="server">
+  <div class="formSet clearfix">
+    <div class="formSetWrap clearfix">
+      <label class="formSet_label">标题名称：</label>
+      <input class="formSet_input" type="text" name="name" ng-model="data.name" required>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label">图片：</label>
+      <div class="picUpLoad">
+        <div class="imgUpLoad showPic">
+          <img ng-show="data.img" ng-src="{{data.img ? dhw.imgurl + data.img + '_282x284.jpg'  : ''}}" alt="">
+          <button class="upLoadBtn" id="upLoadBtn_3" data-keyname="uc" data-size="282x284" type="button" ng-model="data.img" bindimg>单击上传</button>
+        </div>
+        <div class="imgRequire">
+          <p>建议图片宽度在282像素以上、高宽比1：1，以获得最佳展示效果！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap clearfix">
+      <label class="formSet_label">价格：</label>
+      <input class="formSet_input" type="text" name="money" ng-model="data.money" ng-pattern="/^[1-9]\d*(\.\d{1,2}$|$)/" required>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap clearfix">
+      <label class="formSet_label">链接：</label>
+      <input class="formSet_input" type="url" name="url" ng-model="data.url" ng-focus="urlTip=true" ng-blur="urlTip=false" required>
+      <label class="formSet-tip" ng-show="urlTip">请输入http:// 或者 https:// 开头的地址</label>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label">项目所属行业</label>
+      <select class="formSet_select" class="formSet_input" name="typeid" type="text" ng-model="data.typeid">
+        <option value="">请选择</option>
+        <option ng-repeat="typeid in typeids" value="{{typeid.id}}">{{typeid.text}}</option>
+      </select>
+      <i class="formSet_icon success select" ng-show="server.typeid.$dirty && server.typeid.$valid"></i>
+    </div>
+  </div>
+  <div class="formSet clearfix">
+    <div class="formSetWrap">
+      <label class="formSet_label"></label>
+      <button class="submitBtn" type="button" ng-click="submit()" ng-disabled="server.$invalid">点击提交</button>
+    </div>
+  </div>
+  <div pup-pop data-text="{{popupText}}"></div>
+</form>

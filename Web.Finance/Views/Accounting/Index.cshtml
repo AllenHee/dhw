@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = " 公司信息 - 会计服务 - 梦高速";
+}
+@model System.Data.DataTable
+<!--主内容区 开始-->
+<div class="content clearfix">
+    <!--热门会计推荐列表 开始-->
+    <div class="kj-box kj-box-w">
+        <h2>
+            热门会计推荐列表</h2>
+        <ul class="rcmd clearfix">
+        </ul>
+    </div>
+    <!--热门会计推荐列表 结束-->
+    <div class="pagination">
+    </div>
+    <!--弹出层 开始-->
+    <div class="modal_bg">
+    </div>
+    <div class="modal_cont">
+        <div class="modal_cont_t">
+            <h1>
+                我要雇佣</h1>
+            <span class="modal_cont_t_close">×</span>
+        </div>
+        <div class="modal_cont_m">
+            您是否要雇佣?
+        </div>
+        <div class="modal_cont_b">
+            <button class="modal_cont_b_cancel">
+                取消</button>
+            <button class="modal_cont_b_conf">
+                确认</button>
+        </div>
+    </div>
+    <!--弹出层 结束-->
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script type="text/html" id="financeList">
+    {{each data as finance i}}
+    <li class="rcmd-item">
+      <div class="rcmd-content">
+        <div class="clearfix">
+          <div class="avatar">
+            {{if finance.logo}}
+            <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/{{finance.id}}" target="_blank"><img src="{{domain}}{{finance.logo}}" alt="{{finance.compay}}"></a>
+            {{/if}}
+            {{if !finance.logo}}
+            <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/{{finance.id}}" target="_blank"><img src="@BaseConfigs.GetStaticPath/images/kj_default.png" alt="{{finance.compay}}"></a>
+            {{/if}}
+            <div><i></i>{{finance.phone}}</div></div>
+          <div class="badges-tags">
+            <h3><a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/{{finance.id}}" target="_blank">{{finance.compay}}</a></h3>
+            <ul class="badges clearfix">
+             {{if finance.auth === true}}
+              <li class="trueAuth"></li>
+              {{/if}}
+              {{if finance.auth === false}}
+              <li class="falseAuth"></li>
+              {{/if}}
+              {{if finance.level === 1}}
+              <li class="finance_level1"></li>
+              {{/if}}
+              {{if finance.level === 2}}
+              <li class="finance_level2"></li>
+              {{/if}}
+              {{if finance.level === 3}}
+              <li class="finance_level3"></li>
+              {{/if}}
+              <li class="badges-3"></li>
+              <li class="badges-4"></li>
+            </ul>
+            <ul class="tags clearfix">
+              <li>注册公司</li>
+              <li>申报纳税</li>
+              <li>进出口税务申报</li>
+              <li>审计业务</li>
+              <li>进出口税务申报</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="rcmd-content-r">
+        <div class="rcmd-title">{{finance.servertenet}}<button>我要雇佣</button></div>
+        <p>{{finance.prof}}<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/{{finance.id}}" target="_blank">>></a></p>
+      </div>
+    </li>
+    {{/each}}
+    </script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loaddata.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/kuaiji.js"></script>
+    <script>
+        // 数据交互
+        $(function () {
+            var para = {
+                pageIndex: 1,
+                pageSize: 10
+            }
+            loadData("/Accounting/List", para, "financeList", ".rcmd");
+        });
+    </script>
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速 - 个人中心 - 收货地址</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+  <div class="content" ng-app="addr" ng-controller="AddrCtrl">
+    <form name="addr">
+      <div class="zbFormBox">
+        <div area-select></div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_require">*</span> 详细地址</label>
+            <input class="formSet_input" type="text" ng-model="data.detailAddr" required>
+          </div>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label">邮政编码</label>
+            <input class="formSet_input" name="code" type="text" ng-model="data.code" ng-pattern="/^\d{6}$/">
+            <label class="formSet-error" ng-show="addr.code.$invalid && addr.code.$dirty">请输入正确的邮政编码</label>
+          </div>
+        </div>
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"><span class="formSet_require">*</span> 收货人姓名</label>
+            <input class="formSet_input" type="text" ng-model="data.name" required>
+          </div>
+        </div>
+        <div>
+          <div class="formSet clearfix">
+            <label class="formSet_label"><span class="formSet_require">*</span> 手机号码</label>
+            <input class="formSet_input" name="mobile" type="text" ng-model="data.mobile" ng-pattern="/^1\d{10}$/" required>
+            <label class="formSet-error" ng-show="addr.mobile.$invalid && addr.mobile.$dirty">请输入正确的手机号码</label>
+          </div>
+          <div class="formSet clearfix">
+            <label class="formSet_label">电话号码</label>
+            <input class="formSet_input zone" name="zone" type="text" ng-model="data.phone.zone" ng-pattern="/^\d{2,5}$/" placeholder="区号">
+            <label class="formSet-error" ng-show="addr.zone.$invalid && addr.zone.$dirty">请输入正确的区号</label>
+          </div>
+          <div class="formSet clearfix"> 
+            <label class="formSet_label"></label>
+            <input class="formSet_input number" name="number" type="text" ng-model="data.phone.number" ng-pattern="/^\d{7,8}$/" placeholder="座机号">
+            <label class="formSet-error" ng-show="!addr.zone.$invalid && addr.number.$invalid && addr.number.$dirty">请输入正确的座机号</label>
+          </div>
+          <div class="formSet clearfix"> 
+            <label class="formSet_label"></label>
+            <input class="formSet_input extension" type="text" ng-model="data.phone.extension" placeholder="分机号">
+          </div>
+        </div>  
+        <div class="formSet clearfix">
+          <div class="formSetWrap">
+            <label class="formSet_label"></label>
+            <button class="submitBtn" ng-disabled="addr.$invalid" ng-click="submit()">提交</button>
+          </div>
+        </div>
+    </form>
+  </div>
+
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/angular/angular.min.js"></script>
+  <script src="http://localhost:8070/scripts/data.js"></script>
+  <script src="http://localhost:8070/scripts/baseapp.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
+  <script src="http://localhost:8070/scripts/uc.AddrCtrl.js"></script>
+  <script src="http://localhost:8070/scripts/zbForm.js"></script>
+  <script>
+    $('input, textarea').placeholder();
+  </script>
+</body>
+</html>
