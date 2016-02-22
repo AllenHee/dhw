@@ -98,7 +98,7 @@ $(function () {
   });
   // 排序加载
   $(".zc-sort-menu a").click(function () {
-    var zc_sort = $.trim($(this).text());
+    var zc_sort = $(this).attr('data-zc-sort')
     paydata.sort = zc_sort;
     loaded = 0;
     loadedPages = 1;
