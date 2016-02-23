@@ -107,8 +107,8 @@
       <div class="header-m-r">
         <div class="header-search clearfix">
           <form action="#">
-            <input type="text" placeholder="请输入关键词">
-            <button type="submit">搜索</button>
+            <input type="text" id="searchValue" placeholder="请输入关键词">
+            <button onclick="search()">搜索</button>
           </form>
         </div>
       </div>
@@ -376,14 +376,21 @@
   <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
   <script src="http://localhost:8070/scripts/kuaiji.js"></script>
   <script>
+    function search() {
+      var searchValue = $("#searchValue").val();
+      window.location.href = 'http://localhost:8082/kuaiji/liebiao.html?searchkey='+ searchValue;
+    }
     // 数据交互
   $(function() {
     var para = {
       pageIndex: 1,
       pageSize: 10
     }
+    var  searchkey = location.search.split('=')[1];
+    if(searchkey) {
+      para.compay = searchkey
+    }
     loadData("/Accounting/List", para, "financeList", ".rcmd");
-    
   });
   </script>
 </body>
