@@ -1433,12 +1433,12 @@ body .zc-mail:hover {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
 /*支付完成——李雅丽*/
 .pay {
   width: 1156px;
   height: 782px;
   margin: 300px auto;
+  overflow: hidden;
   border: 1px solid #ececec;
  
 }
@@ -1512,7 +1512,7 @@ body .zc-mail:hover {
 }
 .pay_b a {
   text-decoration: none;
-=======
+}
 
 /*没找到众筹时显示的页面*/
 .notFound {
@@ -1545,5 +1545,4 @@ body .zc-mail:hover {
 }
 .notFound_time {
   color: red;
->>>>>>> 4e48f5b292541751ab5b208511222ca6e4c8e227
 }
