@@ -19,7 +19,14 @@ $(function() {
     $(".pinggu-submit").hide();
     $("body").css("overflow", "visible");
   }
-  
+  $('.complete-submit_cancel').click(function() {
+    $(".pinggu-submit-bg").hide();
+    $(".complete-submit").hide();
+  })
+  $('.confim_btn').click(function() {
+    $(".pinggu-submit-bg").hide();
+    $(".complete-submit").hide();
+  })
   
   
   // 搜索框和底下分类
@@ -103,7 +110,7 @@ $('.ps-button').find('button').click(function(){
        var r=confirm("信息提交成功");
         if (r==true) {
             $(".pinggu-submit").hide();
-            $(".pinggu-submit-bg").hide();
+            $(".complete-submit").show();
         }
     }
   })
