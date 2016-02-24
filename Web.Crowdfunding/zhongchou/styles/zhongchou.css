@@ -1438,7 +1438,7 @@ body .zc-mail:hover {
 .pay {
   width: 1156px;
   height: 782px;
-  margin: 300px auto;
+  margin: 0 auto;
   overflow: hidden;
   border: 1px solid #ececec;
  
@@ -1462,8 +1462,8 @@ body .zc-mail:hover {
   color: #ea544a;
 }
 .online {
-  padding-top: 30px;
   padding-left: 30px;
+  margin-top: 30px;
   font-size: 10px;
   color: #333;
 } 
@@ -1561,10 +1561,12 @@ body .zc-mail:hover {
   z-index: 11;
 }
 .model {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   width: 690px;
+  height: 542px;
   border: 5px solid #676767;
   margin-top: -267px;
   margin-left: -345px;
@@ -1582,8 +1584,10 @@ body .zc-mail:hover {
   right: 20px;
   top: 25px;
   font-size: 20px;
+  cursor: pointer;
 }
 .model_cont {
+  height: 430px;
   padding: 20px;
   border-top: 1px solid #ececec;
   overflow-y: scroll;
@@ -1596,8 +1600,7 @@ body .zc-mail:hover {
   font-size: 12px;
   color: #666;
 }
-.support_items:hover,
-.support_pay_items:hover {
+.support_items:hover  {
   border-color: #ea544a;
 }
 .support_num {
@@ -1619,6 +1622,9 @@ body .zc-mail:hover {
   font-size: 14px;
   color: #333;
   cursor: pointer;
+}
+.support_pay_items-current {
+  border-color: #ea544a;
 }
 .support_pay_items-last {
   cursor: default;
@@ -1648,7 +1654,40 @@ body .zc-mail:hover {
   margin-right: 10px;
   font-weight: 900;
 }
-.support_items_det h2 {
+.support_items_t {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+}
+.support_items_t h2 {
   margin-bottom: 35px;
   font-size: 12px;
 } 
+.support_items_t_ttl {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #333;
+}
+.support_items_t_cont {
+  line-height: 25px;
+}
+.support_items_b {
+  position: relative;
+  line-height: 18px;
+}
+.support_items_b span {
+  color: #000;
+}
+.support_but {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px 35px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ea544a;
+}
+.support_but span {
+  color: #fff;
+}
