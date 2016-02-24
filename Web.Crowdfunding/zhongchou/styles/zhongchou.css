@@ -1439,6 +1439,7 @@ body .zc-mail:hover {
   width: 1156px;
   height: 782px;
   margin: 300px auto;
+  overflow: hidden;
   border: 1px solid #ececec;
  
 }
