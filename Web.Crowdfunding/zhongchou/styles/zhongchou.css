@@ -1434,6 +1434,85 @@ body .zc-mail:hover {
   overflow: hidden;
 }
 
+/*支付完成——李雅丽*/
+.pay {
+  width: 1156px;
+  height: 782px;
+  margin: 300px auto;
+  border: 1px solid #ececec;
+ 
+}
+.pay_l {
+  float: left;
+  width: 350px;
+  margin-top: 70px;
+  margin-left: 250px;
+}
+.pay_l img {
+  float: left;
+}
+.text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.number {
+  font-size:10px;
+  color: #ea544a;
+}
+.online {
+  padding-top: 30px;
+  padding-left: 30px;
+  font-size: 10px;
+  color: #333;
+} 
+.pay_l .details {
+  padding-left: 30px;
+  text-decoration: none;
+  font-size: 10px;
+  color: #333;
+}
+.pay_l .going
+ {
+  width: 150px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 30px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #ea544a;
+  border: 1px solid #ea544a;
+  border-radius: 10px;
+}
+.pay_r {
+ float: right;
+ margin-top: 100px;
+ margin-right: 240px;
+}
+.pay_r img {
+  margin-left: 55px;
+}
+.pay_r p { 
+  font-size: 15px;
+  font-weight: bold;
+  color: #666;
+}
+.pay_b {
+  float: left;
+  margin-left: 100px;
+  margin-top: 190px;
+  color: #333;
+  font-size: 16px;
+}
+.important {
+  font-weight: bold;
+}
+.pay_b span {
+  color: #ea544a;
+}
+.pay_b a {
+  text-decoration: none;
+}
 
 /*没找到众筹时显示的页面*/
 .notFound {
