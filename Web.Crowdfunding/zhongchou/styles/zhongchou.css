@@ -1514,6 +1514,9 @@ body .zc-mail:hover {
 .pay_b a {
   text-decoration: none;
 }
+.notice {
+  color: #5c5fcd;
+}
 
 /*没找到众筹时显示的页面*/
 .notFound {
