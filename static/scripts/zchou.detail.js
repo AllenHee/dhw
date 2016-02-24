@@ -1,6 +1,6 @@
 $(function() {
 
-  if ( !$.cookie("dhwsid") ) {
+  if ( !$.cookie("accountType") ) {
     $(".fbBox").attr("placeholder", "您必须登录后才可发表评论，点此登录。")
     var mainurl = dhw.mainurl;
     var localurl = encodeURIComponent(window.location.href);
@@ -8,7 +8,7 @@ $(function() {
     $(".cm-area textarea").focus(function() {
       var conf = confirm("您还未登录，请先登录再进行评论，点击确定跳转到登录页面");
       if(conf == true) {
-        location = url;
+        location.href = url;
       }else {
         
       }

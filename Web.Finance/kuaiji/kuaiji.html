@@ -76,8 +76,8 @@
         <div class="header-search clearfix">
           <form action="#">
             <span></span>
-            <input type="text" placeholder="请输入关键词">
-            <button type="submit">搜索</button>
+            <input type="text" id="searchValue" placeholder="请输入关键词">
+            <button onclick="search()">搜索</button>
           </form>
         </div>
       </div>
@@ -382,7 +382,10 @@
   <script>
     $('input, textarea').placeholder();
     
-    
+    function search() {
+      var searchValue = $("#searchValue").val();
+      window.location.href = 'http://localhost:8082/kuaiji/liebiao.html?searchkey='+ searchValue;
+    }
   </script>
 </body>
 

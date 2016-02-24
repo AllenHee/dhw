@@ -206,11 +206,11 @@
 }
 .zc-category .publish a i,
 .fall-box .publish {
-  background-position: -10px -692px;
+  background-position: -10px -976px;
 }
 .zc-category .publish .active i,
 .zc-category .other .current i {
-  background-position: -10px -524px;
+  background-position: -10px -936px;
 }
 .zc-category .realestate a i,
 .fall-box .realestate {
@@ -1433,6 +1433,7 @@ body .zc-mail:hover {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 /*支付完成——李雅丽*/
 .pay {
   width: 1156px;
@@ -1511,4 +1512,38 @@ body .zc-mail:hover {
 }
 .pay_b a {
   text-decoration: none;
+=======
+
+/*没找到众筹时显示的页面*/
+.notFound {
+  width: 600px;
+  margin: 100px auto;
+  overflow: hidden;
+}
+
+.notFound_pic {
+  float: left;
+}
+
+.notFound_r {
+  float:left;
+  margin-left: 50px;
+  font-size: 14px;
+}
+
+.notFound_ttl {
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.return {
+  margin-right: 40px;
+  color: #f58c37;
+  text-decoration: none;
+  font-size: 12px;
+}
+.notFound_time {
+  color: red;
+>>>>>>> 4e48f5b292541751ab5b208511222ca6e4c8e227
 }

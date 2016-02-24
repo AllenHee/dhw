@@ -100,7 +100,11 @@ $('.ps-button').find('button').click(function(){
   console.log(para);
   $.post('/Assessment/Add',para,function(data){
     if(data.success) {
-      alert("信息提交成功");
+       var r=confirm("信息提交成功");
+        if (r==true) {
+            $(".pinggu-submit").hide();
+            $(".pinggu-submit-bg").hide();
+        }
     }
   })
 })

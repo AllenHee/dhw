@@ -226,7 +226,7 @@
         <img ng-src="{{avatar ? dhw.imgurl + avatar : 'http://cdn.dreamhiway.com/usercenter/images/iconfont-touxiang.png'}}">
       </div>
       <div class="formSet clearfix">
-        <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" data-keyname="uc" data-size="600x600" bindimg>上传头像</span>
+        <span class="avatarBtn" id="accountAvatar" ng-model="data.logo" ng-click="clear()" data-keyname="uc" data-size="600x600" bindimg>上传头像</span>
       </div>
       <div ng-show="data.logo">
         <div class="avatarUpload clearfix">

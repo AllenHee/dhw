@@ -70,7 +70,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       }
       s.data.themes = JSON.parse(s.data.themes);
     });
-// 取色器插件
+    // 取色器插件
     $('#picker').colpick({
 
       layout: 'hex',
@@ -95,10 +95,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       $(this).colpickSetColor(this.value);
     });
 
-    s.submit = function() {
+    s.submit = function () {
       var para = $.extend(true, {}, s.data);
       para.themes = angular.toJson(para.themes);
-      h.post('/CompanyHomeEdit/TitleSave', para).success(function() {
+      h.post('/CompanyHomeEdit/TitleSave', para).success(function () {
       })
     }
 
@@ -324,6 +324,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       }
 
     });
+    
+    s.$watch('data.logo', function(oldValue, newValue) {
+      var url = dhw.imgurl + s.data.logo + '_600x600' + '.jpg'
+      if (s.data.logo) {
+        $('.jcrop-holder').find('img').attr('ng-src', url);
+        $('.jcrop-holder').find('img').attr('src', url);
+      }
+    })
 
     s.submit = function () {
       var params = $.extend({}, s.data);
@@ -376,12 +384,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     // 添加业务范围
     s.businessTemp = [];
     s.addBusiness = function () {
-    s.businessTemp.push({});
-  };
-    s.isVisible = function(elem) {
-      if($(elem).is(':checked')) {
+      s.businessTemp.push({});
+    };
+    s.isVisible = function (elem) {
+      if ($(elem).is(':checked')) {
         s.data.phonevisible = true;
-      }else {
+      } else {
         s.data.phonevisible = false;
       }
     }
@@ -392,7 +400,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       para.business = [];
       for (var i = 0, len = s.businessTemp.length; i < len; i++) {
         para.business.push(s.businessTemp[i]);
-    }
+      }
       h.post('/UserAccount/CompanyEdit', para).success(function () {
       });
     };
