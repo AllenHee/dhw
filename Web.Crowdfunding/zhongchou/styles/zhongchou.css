@@ -1437,32 +1437,34 @@ body .zc-mail:hover {
 .pay {
   width: 1156px;
   height: 782px;
-  margin: 300px auto;
+  margin: 0 auto;
   overflow: hidden;
   border: 1px solid #ececec;
- 
 }
 .pay_l {
   float: left;
   width: 350px;
   margin-top: 70px;
   margin-left: 250px;
+  background: url(../images/wancheng.png) no-repeat;
 }
 .pay_l img {
   float: left;
 }
 .text {
+  margin-left: 60px;
   font-size: 16px;
   font-weight: bold;
   color: #333;
 }
 .number {
+  margin-left: 60px;
   font-size:10px;
   color: #ea544a;
 }
 .online {
-  padding-top: 30px;
-  padding-left: 30px;
+  margin-top: 30px;
+  margin-left: 30px;
   font-size: 10px;
   color: #333;
 } 
@@ -1545,4 +1547,91 @@ body .zc-mail:hover {
 }
 .notFound_time {
   color: red;
+}
+
+/*付款——李雅丽*/
+.fukuan {
+  width: 1160px;
+  height: 782px;
+  margin: 0 auto;
+  border: 1px solid #ececec;
+  font-family: 黑体;
+}
+
+.fukuan h2 {
+  height: 60px;
+  margin-left: 25px;
+  padding-left: 35px;
+  border-bottom: 1px solid #ececec;
+  color: #333;
+  background: url('../images/qingzhifu.png') no-repeat;
+}
+
+.fukuan_tt {
+  width: 1110px;
+  height: 55px;
+  margin: 0 auto;
+  font-size: 20px;
+  color: #333;
+  border-bottom: 1px solid #ececec;
+}
+
+.fukuan_way {
+  padding-left: 25px;
+  font-size: 20px;
+  color: #333;
+}
+
+.fukuan span {
+  color: #ea544a;
+}
+
+.fukuan ul {
+  height: 150px;
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.fukuan_radiot {
+  float: left;
+  padding-left: 30px;
+  background: url('../images/radio2.png') no-repeat; 
+}
+.fukuan_radioo {
+  display: inline;
+  padding-left: 30px;
+  background: url('../images/radio1.png') no-repeat;
+}
+.fukuan_radioo .fukuan_pic {
+  border: 1px solid red;
+}
+
+.fukuan input
+ {
+  overflow: hidden;
+  width: 105px;
+  height: 40px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.bottom {
+  height: 130px;
+}
+
+.fukuan .paynow {
+  margin-left: 470px;
+  background-color: #ea544a;
+  border: 2px solid #ea544a;
+}
+
+.fukuan .return {
+  margin-right: 470px;
+  background-color: #cbcbcb;
+  border: 2px solid #cbcbcb;
+}
+
+.bottom p {
+  text-align: center;
 }

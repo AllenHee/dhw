@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/zhongchou.css">
+</head>
+
+<body>
+  <div class="fukuan">
+    <h2>请完成支付</h2>
+    <p class="fukuan_tt">订单信息</p>
+    <div class="fukuan_way">
+      <p>应支付金额:<span>50.00</span>元</p>
+    </div>
+    <ul>
+      <li class="fukuan_radiot">
+        <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+      </li>
+      <li class="fukuan_radiot">
+        <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+      </li>
+      <li class="fukuan_radiot">
+        <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+      </li>
+      <li class="fukuan_radiot">
+        <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+      </li>
+    </ul>
+    <div class="bottom">
+      <input class="paynow" type="button" value="立即付款">
+      <input class="return" type="button" value="返回">
+    <p class="bottom">请您在<span>00时15分00秒</span>内完成付款，否则将自动取消订单</p>
+    </div>
+    
+  </div>
+
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script>
+     $(".fukuan_radiot").click(function(){
+        var index=$(this ).index();
+       $(".fukuan_radiot").removeClass("fukuan_radioo").eq(index).addClass("fukuan_radioo");
+     });
+  </script>
+</body>
+
+</html>
