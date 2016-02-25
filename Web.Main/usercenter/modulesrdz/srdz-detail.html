@@ -3,11 +3,12 @@
   <!--项目基本信息 开始-->
   <div ng-show="data.realnameauth">
     <div class="zbFormBox">
-      <!--<div area-select></div>-->
-
-      <div class="formSet clearfix areaSelect">
-        <label class="formSet_label"><span class="formSet_required">*</span> 所在地</label>
-        <div area-select></div>
+      <div select-area data-label="所在地" data-required="true" data-name="area"></div>
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"><span class="formSet_required">*</span> 详细地址</label>
+          <input class="formSet_input" type="text" ng-model="data.address" required>
+        </div>
       </div>
       <div class="formSet clearfix">
         <div class="formSetWrap">
