@@ -158,7 +158,7 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
         // 点击市获取县
         vm.getDistricts = function (city) {
          vm.districts = vm.areaData.filter(function (item) {
-             return item.type === 'district' && item.code.slice(0, 5) === city.code.slice(0, 5);
+             return item.type === 'district' && item.code.slice(0, 4) === city.code.slice(0, 4);
          });
          
           vm.isShowDistricts = true; // 显示县
