@@ -87,20 +87,24 @@ app.controller('rzCorCtrl', ['$scope', '$http', '$location', function (s, h, l) 
     h.post("/CenterAuth/CompanyAuth", para).success(function (data) {
       if (data.success) {
         $(".modal_cont_button_conf").click(function () {
-          location.hash = '#/list';
+          location.hash = '/AppHome#/';
+           $(".modal_bg").fadeOut();
+           $(".modal_cont").fadeOut();
         });
-        s.popupText = "3秒后自动返回,或点击确认返回";
+        s.popupText = "提交成功,3秒后自动返回,或点击确认返回";
         setTimeout(function () {
-          location.hash = '#/list';
+          location.hash = '/AppHome#/';
         }, 3000);
-        $(".modal_bg").fadeIn();
-        $(".modal_cont").fadeIn();
+         $(".modal_bg").fadeIn();
+         $(".modal_cont").fadeIn();
       } else {
         $(".modal_cont_button_conf").click(function () {
-          close();
+            
+           close();
+        
         });
-        $(".modal_bg").fadeIn();
-        $(".modal_cont").fadeIn();
+        // $(".modal_bg").fadeIn();
+        // $(".modal_cont").fadeIn();
         s.popupText = data.msg;
       }
     })

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -34,10 +35,13 @@
     {{each data as comment i}}
     <li class="cm-content" data-id="{{comment.id}}">
       {{if comment.logo == ""}}
-      <div class="cm-avatar"><a href="#"><img src="{{staticDomain}}/images/defult_logo.png" alt="{{comment.user}}"></a></div>
-      {{/if}}
-      {{if comment.logo != ""}}
-      <div class="cm-avatar"><a href="#"><img src="{{domain}}{{comment.logo}}" alt="{{comment.user}}"></a></div>
+      <div class="cm-avatar">
+        <a href="#"><img src="{{staticDomain}}/images/defult_logo.png" alt="{{comment.user}}"></a>
+      </div>
+      {{/if}} {{if comment.logo != ""}}
+      <div class="cm-avatar">
+        <a href="#"><img src="{{domain}}{{comment.logo}}" alt="{{comment.user}}"></a>
+      </div>
       {{/if}}
       <a class="cm-username" href="#">{{comment.user}}</a>
       <p class="cm-text">{{comment.comment}}</p>
@@ -47,7 +51,9 @@
           <textarea placeholder="，写点什么吧~"></textarea>
         </div>
         <div class="cm-btns">
-          <div class="cm-submit"><button type="button">发布</button></div>
+          <div class="cm-submit">
+            <button type="button">发布</button>
+          </div>
         </div>
       </div>
       {{if comment.child.length != 0}}
@@ -57,7 +63,10 @@
           {{each comment.child as subcomment i}}
           <li class="sub-comment clearfix" data-id="{{subcomment.id}}">
             <div class="clearfix">
-              <div class="sub-cm-content"><a class="cm-username" href="#">{{subcomment.ower.name}}</a> 回复了 <a class="cm-username" href="#">{{subcomment.to.name}}</a>：{{subcomment.comment}}<span class="cm-time">{{subcomment.date}}</span></div>
+              <div class="sub-cm-content"><a class="cm-username" href="#">{{subcomment.ower.name}}</a> 回复了 <a class="cm-username" href="#">{{subcomment.to.name}}</a>：{{subcomment.comment}}
+                <span
+                class="cm-time">{{subcomment.date}}</span>
+              </div>
               <span><a class="cm-reply sub-cm-replay" href="#">回复</a></span>
             </div>
             <div class="comment-box clearfix">
@@ -65,7 +74,9 @@
                 <textarea placeholder="，写点什么吧~"></textarea>
               </div>
               <div class="cm-btns">
-                <div class="cm-submit"><button>发布</button></div>
+                <div class="cm-submit">
+                  <button>发布</button>
+                </div>
               </div>
             </div>
           </li>
@@ -77,6 +88,7 @@
     {{/each}}
   </script>
 </head>
+
 <body>
   <!--通用顶栏 开始-->
   <div class="sitenav clearfix">
@@ -150,7 +162,8 @@
     <div class="content clearfix">
       <!--标题栏-->
       <div class="zc-title">
-        <i class="zc-status zc-underway"></i> <!--这里请生成正确的class以显示正确状态-->
+        <i class="zc-status zc-underway"></i>
+        <!--这里请生成正确的class以显示正确状态-->
         <h2>北京低价超值吉他入门课，等你来玩！</h2>
         <ul class="tags">
           <li class="category"><a class="category_link" data-type="4" href="#">艺术</a></li>
@@ -180,9 +193,12 @@
           </div>
           <div class="progress">
             <div class="bar-wrap">
-              <div class="bar"><div style="width:65%;"></div></div> <i>65%</i>
+              <div class="bar">
+                <div style="width:65%;"></div>
+              </div> <i>65%</i>
             </div>
-            <p class="target"><span class="t-eft"><span>剩余</span>4天</span> <span class="t-right"><span>目标筹资</span>¥2,000</span></p>
+            <p class="target"><span class="t-eft"><span>剩余</span>4天</span> <span class="t-right"><span>目标筹资</span>¥2,000</span>
+            </p>
           </div>
           <div class="support">
             <a class="support-btn" href="#">立即支持</a>
@@ -220,7 +236,9 @@
             <div class="angle"><i class="angle-t"></i> <i class="angle-b"></i></div>
           </blockquote>
           <div class="zc-user clearfix">
-            <div class="zc-user-avatar"><a href="#"><img src="images/default_5.png" alt=""></a></div>
+            <div class="zc-user-avatar">
+              <a href="#"><img src="images/default_5.png" alt=""></a>
+            </div>
             <div class="zc-user-info">
               <div><a class="zc-user-name" href="#">SKN18980</a> <a class="zc-mail" href="#">私信</a></div>
               <div class="zc-certificate">营业执照</div>
@@ -275,14 +293,18 @@
             </div>
             <div class="comments">
               <div class="cm-input">
-                <div class="cm-avatar"><a href="#"><img src="images/defult_sys_avatar_s.png" alt=""></a></div>
+                <div class="cm-avatar">
+                  <a href="#"><img src="images/defult_sys_avatar_s.png" alt=""></a>
+                </div>
                 <div class="cm-area">
                   <textarea class="fbBox"></textarea>
                 </div>
                 <div class="cm-btns clearfix">
                   <!--<div class="cm-select-img"><button>选择图片</button></div>
                   <div class="cm-img-number"><span>最多5张</span></div>-->
-                  <div class="cm-submit"><button type="button">发布</button></div>
+                  <div class="cm-submit">
+                    <button type="button">发布</button>
+                  </div>
                 </div>
               </div>
               <ul class="cm-contents">
@@ -301,10 +323,10 @@
             <table class="support-record">
               <colgroup>
                 <col width="80px">
-                <col width="220px">
-                <col width="80px">
-                <col width="140px">
-                <col width="auto">
+                  <col width="220px">
+                    <col width="80px">
+                      <col width="140px">
+                        <col width="auto">
               </colgroup>
               <thead>
                 <tr>
@@ -410,6 +432,56 @@
       </div>-->
     </div>
   </div>
+  <!--弹出框 开始-->
+  <div class="model_bg"></div>
+  <div class="model">
+    <h1 class="model_ttl">选择支持项<span class="model_cancel">×</span></h1>
+    <div class="model_cont">
+      <div class="support_items">
+        <p class="support_num">感谢您的支持 <span> <span class="number"> 0</span>人已支持</span>
+        </p>
+        <p>感谢您的支持,您将收到我们寄出去的信件或贺卡,这份支持将助我们的梦想飞的更高更远</p>
+        <ul class="support_pay clearfix">
+          <li class="support_pay_items support_pay_items-current">¥1</li>
+          <li class="support_pay_items">¥5</li>
+          <li class="support_pay_items">¥10</li>
+          <li class="support_pay_items support_pay_items-last">其他¥
+            <input type="text">
+          </li>
+        </ul>
+        <button class="support_btn">立即支持</button>
+      </div>
+      <div class="support_items">
+        <div class="support_items_t">
+          <h2><span class="support_items_pay">¥ 799</span><span>5</span>人已支持/限<span>50</span>人</h2>
+          <p class="support_items_t_ttl">神眼设备一台.赠送12个月流量,每月500M</p>
+          <p class="support_items_t_cont">恭喜您将远低于成本价获得神眼设备一台.赠送12个月流量.每月500M.成为我们梦想的投资人,拥有最先拿到神眼的资格,可全程参与神眼的后续优化</p>
+        </div>
+        <div>
+          <div class="support_items_b">
+            <p>配送费用 : <span>免运费</span></p>
+            <p>预计回报发送时间 : <span>项目成功结束后90天内</span></p>
+            <a class="support_but" href="#">支持 ¥ <span>799</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="support_items">
+        <div class="support_items_t">
+          <h2><span class="support_items_pay">¥ 799</span><span>5</span>人已支持/限<span>50</span>人</h2>
+          <p class="support_items_t_ttl">神眼设备一台.赠送12个月流量,每月500M</p>
+          <p class="support_items_t_cont">恭喜您将远低于成本价获得神眼设备一台.赠送12个月流量.每月500M.成为我们梦想的投资人,拥有最先拿到神眼的资格,可全程参与神眼的后续优化</p>
+        </div>
+        <div>
+          <div class="support_items_b">
+            <p>配送费用 : <span>免运费</span></p>
+            <p>预计回报发送时间 : <span>项目成功结束后90天内</span></p>
+            <a class="support_but" href="#">支持 ¥ <span>799</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--弹出框 结束-->
   <!--主内容区 结束-->
   <!--通用底栏 开始-->
   <div class="footer">
@@ -432,9 +504,9 @@
           <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a></li>
         </ul>
         <p>
-          创企科技有限公司 版权所有<br>
-          &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号<br>
-          地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+          创企科技有限公司 版权所有
+          <br> &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号
+          <br> 地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
         </p>
         <div class="icp"></div>
       </div>
@@ -466,12 +538,14 @@
           <dd><a href="#">iPhone版下载</a></dd>
           <dd><a href="#">Android版下载</a></dd>
           <dd><a href="#">微信公众号梦高速</a></dd>
-          <dd><a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a></dd>
+          <dd>
+            <a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a>
+          </dd>
         </dl>
       </div>
     </div>
   </div>
-  
+
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
   <script src="http://localhost:8070/lib/jquery.cookie.js"></script>
   <script src="http://localhost:8070/scripts/general.js"></script>
@@ -484,7 +558,9 @@
   <script>
     $('input, textarea').placeholder();
     
+    
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
   </script>
 </body>
+
 </html>

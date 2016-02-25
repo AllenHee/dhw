@@ -135,61 +135,32 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
 
         // 省、市、县数据
         vm.areaData = [];
-        $http.post('/Dict/city').success(function (data) {
-          vm.areaData = data.result;
-        });
         // 获取省
-        vm.provinces = (function () {
-          // vm.provinces = vm.areaData.filter(function (item) {
-          //   return item.type === 'province';
-          // });
-          var arr =[];
-          $http.post('/Dict/city').success(function (data) {
-            vm.areaData = data.result;
-            
-            for (var i = 0, len = vm.areaData.length; i < len; i++) {
-              if (vm.areaData[i].type === 'province') {
-                arr.push(vm.areaData[i])
-              }
-            }
-          });
-          return arr;
+        vm.province = (function () {
+            $http.post('/Dict/city').success(function(res) {
+              vm.areaData = res.result;
+              vm.provinces = vm.areaData.filter(function(item) {
+                return item.type === 'province';
+              })
+            })
         })();
 
         // 点击省获取市
         vm.getCities = function (province) {
-          // vm.cities = vm.areaData.filter(function (item) {
-          //   return item.type === 'city' && item.code.slice(0, 2) === province.code.slice(0, 2);
-          // });
-          var arr= [];
-          $http.post('/Dict/city').success(function (data) {
-            vm.areaData = data.result;
-            for (var i = 0, len = vm.areaData.length; i < len; i++) {
-              if (vm.areaData[i].type === 'city' && vm.areaData[i].code.slice(0, 2) === province.code.slice(0, 2)) {
-                arr.push(vm.areaData[i])
-                vm.cities = arr;
-              }
-            }
-          });
+                       
+         vm.cities = vm.areaData.filter(function(item) {
+           return item.type === 'city' && item.code.slice(0,2) === province.code.slice(0,2);
+         })
           vm.isShowCities = true; // 显示市
           vm.isShowDistricts = false; // 隐藏县
         };
 
         // 点击市获取县
         vm.getDistricts = function (city) {
-          // vm.districts = vm.areaData.filter(function (item) {
-          //   return item.type === 'district' && item.code.slice(0, 4) === city.code.slice(0, 4);
-          // });
-          var arr = [];
-          $http.post('/Dict/city').success(function (data) {
-            vm.areaData = data.result;
-            for (var i = 0, len = vm.areaData.length; i < len; i++) {
-              if (vm.areaData[i].type === 'district' && vm.areaData[i].code.slice(0, 2) === city.code.slice(0, 2)) {
-                arr.push(vm.areaData[i]);
-                vm.districts = arr;
-              }
-            }
-          });
+         vm.districts = vm.areaData.filter(function (item) {
+             return item.type === 'district' && item.code.slice(0, 4) === city.code.slice(0, 4);
+         });
+         
           vm.isShowDistricts = true; // 显示县
         };
 

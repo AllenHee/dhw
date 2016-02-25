@@ -279,7 +279,20 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       var para = $.extend({}, s.data);
       // para.dpid = s.thiPosition.id;
       // para.dpname = s.thiPosition.text;
-      h.post('/UserAccount/Edit', para).success(function () {
+      h.post('/UserAccount/Edit', para).success(function (date) {
+          if(date.success){
+              $(".modal_bg").fadeIn();
+              $(".modal_cont").fadeIn();
+              $(".modal_cont_button_conf").click(function () {
+                  $(".modal_bg").fadeOut();
+                  $(".modal_cont").fadeOut();
+              });
+              $(".modal_cont_t_close").click(function () {
+                  $(".modal_bg").fadeOut();
+                  $(".modal_cont").fadeOut();
+              });
+              s.popupText = "提交成功,点击确认关闭弹窗";
+          }
       })
     };
 

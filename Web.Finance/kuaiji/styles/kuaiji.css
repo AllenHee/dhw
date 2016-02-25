@@ -637,7 +637,8 @@
   -moz-opacity:0.5;
  -khtml-opacity: 0.5;
 }
-.pinggu-submit {
+.pinggu-submit,
+.complete-submit {
   display: none;
   position: fixed;
   left: 50%;
@@ -669,7 +670,8 @@
   line-height: 30px;
   cursor: pointer;
 }
-.ps-title i:hover {
+.ps-title i:hover,
+.complete-submit_cancel:hover {
   color: #ff6600;
 }
 .ps-content {
@@ -865,5 +867,45 @@
   width: 30px;
   height: 38px;
   background: transparent url("../images/kuaiji_search.png") no-repeat scroll 9px -66px;
+  cursor: pointer;
+}
+
+/*完成咨询弹出页面*/
+.complete_cont {
+  padding: 0 85px;
+  text-align: center;
+}
+.complete_cont_ttl {
+  padding-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 28px;
+  background: url(../images/wancheng.png) no-repeat;
+  font-size: 28px;
+  line-height: 52px;
+  font-weight: 600;
+}
+.complete_cont_wait {
+  margin-bottom: 45px;
+  font-size: 14px;
+}
+.complete_cont_wx {
+  margin-top: 20px;
+  font-size: 12px;
+}
+.confim_btn {
+  width: 140px;
+  height: 38px;
+  border: 0;
+  border-radius: 5px;
+  margin-top: 35px;
+  color: #fff;
+  background-color: #ff6501;
+  cursor: pointer;
+}
+.complete-submit_cancel {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 30px;
   cursor: pointer;
 }

@@ -1,38 +1,38 @@
-$(function() {
+$(function () {
 
-  if ( !$.cookie("accountType") ) {
+  if (!$.cookie("accountType")) {
     $(".fbBox").attr("placeholder", "您必须登录后才可发表评论，点此登录。")
     var mainurl = dhw.mainurl;
     var localurl = encodeURIComponent(window.location.href);
     var url = mainurl + "login?redirectURL=" + localurl;
-    $(".cm-area textarea").focus(function() {
+    $(".cm-area textarea").focus(function () {
       var conf = confirm("您还未登录，请先登录再进行评论，点击确定跳转到登录页面");
-      if(conf == true) {
+      if (conf == true) {
         location.href = url;
-      }else {
-        
+      } else {
+
       }
     });
   };
   // 显示评论框
-  $(".cm-contents").on("click", ".cm-reply", function() {
+  $(".cm-contents").on("click", ".cm-reply", function () {
     $(this).parent().parent().next().toggle();
     return false;
   });
   // 右侧资金选择
-  $(".zjzc-select-money a").click(function() {
+  $(".zjzc-select-money a").click(function () {
     $(this).siblings().removeClass("current")
-            .end().addClass("current");
+      .end().addClass("current");
     return false;
   });
   // 右侧框悬停
-  $(".zj-class").mouseenter(function() {
+  $(".zj-class").mouseenter(function () {
     $(this).find(".zj-c-border").show();
-  }).mouseleave(function() {
+  }).mouseleave(function () {
     $(this).find(".zj-c-border").hide();
   });
   // 悬浮工具栏
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 745) {
       $(".fixedbar-fixed").css({
         "position": "fixed",
@@ -54,7 +54,7 @@ $(function() {
       $(".fixedbar .support-btn").hide();
     }
   });
-  $(".fixedbar li").click(function() {
+  $(".fixedbar li").click(function () {
     $(".fixedbar li").removeClass("current");
     $(this).addClass("current");
   });
@@ -64,7 +64,7 @@ $(function() {
     pageIndex: 1,
     pageSize: 10
   };
-  
+
   para.fpid = project_id;
   // 评论请求数据
   loadData("/cpzcDetail/Comments", para, "zc-comment", ".cm-contents", false, ".comment-pagination");
@@ -74,45 +74,45 @@ $(function() {
   
   
   // 评论
-  $(".zc-comment").on("click", ".cm-submit button", function() {
+  $(".zc-comment").on("click", ".cm-submit button", function () {
     var comments = $(".cm-area textarea").val();
     var paragh = {
-            fpid: project_id,
-            type: 0,
-            comment: comments
-          }
+      fpid: project_id,
+      type: 0,
+      comment: comments
+    }
     var comment = $(this).parents(".sub-comment");
     var content = $(this).parents(".cm-content");
-    if ( comment.length > 0 ) {
+    if (comment.length > 0) {
       comments = comment.find("textarea").val();
       paragh.fid = comment.attr('data-id');
-    } else if ( content.length > 0 ) {
+    } else if (content.length > 0) {
       comments = content.find("textarea").val();
       paragh.fid = content.attr('data-id');
     } else {
       paragh.fid = 0;
     }
     paragh.comment = comments;
-    if (comments == ""){
+    if (comments == "") {
       alert("评论不能为空");
       return false;
     } else {
-      $.post("/cpzcDetail/FbComments", paragh).success(function(data) {
+      $.post("/cpzcDetail/FbComments", paragh).success(function (data) {
         if (data.success) {
           loadData("/cpzcDetail/Comments", para, "zc-comment", ".cm-contents", false, ".comment-pagination");
           $(".cm-area textarea").val("");
           return false;
-         } else {
+        } else {
           switch (data.msg.code) {
             case 1:
               alert("评论输入过少")
               break;
             case 2:
-             alert("评论输入过多")
-             break;
-             case 3:
-             alert("评论发送过于频繁")
-             break;
+              alert("评论输入过多")
+              break;
+            case 3:
+              alert("评论发送过于频繁")
+              break;
           }
         }
       });
@@ -120,7 +120,7 @@ $(function() {
   });
 });
 var cookieProp = "data-" + project_id;
-if($.cookie(cookieProp)) {
+if ($.cookie(cookieProp)) {
   var total = parseInt($(".zc-like").attr("data-like"));
   var but = "已赞" + "(" + '<span>' + total + '</span>' + ")";
   $(".zc-like").html(but);
@@ -128,14 +128,14 @@ if($.cookie(cookieProp)) {
 
 var attent = parseInt($(".zc-follow").attr("data-focus"));
 var plaud = parseInt($(".zc-like").attr("data-like"));
-if(attent >= 10000) {
-  attent = attent/10000;
+if (attent >= 10000) {
+  attent = attent / 10000;
   attent = Math.floor(attent);
   attent += "万";
   $(".zc-follow").find("span").text(attent);
 }
-if(plaud >= 10000) {
-  plaud = plaud/10000;
+if (plaud >= 10000) {
+  plaud = plaud / 10000;
   plaud = Math.floor(plaud);
   plaud += "万";
   $(".zc-like").find("span").text(plaud);
@@ -144,49 +144,49 @@ if(plaud >= 10000) {
 
 // 关注和赞
 function attention() {
-  if ( $(".zc-follow").hasClass("cancel")) {
+  if ($(".zc-follow").hasClass("cancel")) {
     return false;
   }
   else {
-  var total = parseInt($(".zc-follow").attr("data-focus"));
-  var para = {
-    id: project_id
-  }
-    $.post("/cpzcDetail/Attention", para).success(function() {
+    var total = parseInt($(".zc-follow").attr("data-focus"));
+    var para = {
+      id: project_id
+    }
+    $.post("/cpzcDetail/Attention", para).success(function () {
       total = total + 1;
       var round = total;
-      if(round >= 10000) {
-          round = round/10000;
-          round = Math.floor(round);
-          round += "万";
-        }
+      if (round >= 10000) {
+        round = round / 10000;
+        round = Math.floor(round);
+        round += "万";
+      }
       $(".zc-follow span").text(total);
       var but = "已关注" + "(" + '<span>' + round + '</span>' + ")";
       $(".zc-follow").html(but);
       $(".zc-follow").attr("data-focus", total);
       $(".zc-follow").addClass("cancel");
-  })
+    })
   }
 }
 function like() {
-  if ( $(".zc-like").hasClass("cancel")) {
+  if ($(".zc-like").hasClass("cancel")) {
     alert("已点赞");
     return false;
   }
-  
-  if(!$(".zc-like").attr("data-laud") && !$.cookie(cookieProp)) {
+
+  if (!$(".zc-like").attr("data-laud") && !$.cookie(cookieProp)) {
     var para = {
-    id: project_id
+      id: project_id
     }
-    $.post("/cpzcDetail/Laud", para).success(function() {
+    $.post("/cpzcDetail/Laud", para).success(function () {
       var total = parseInt($(".zc-like").attr("data-like"));
       total = total + 1;
       var round = total;
-      if(round >= 10000) {
-          round = round/10000;
-          round = Math.floor(round);
-          round += "万";
-        }
+      if (round >= 10000) {
+        round = round / 10000;
+        round = Math.floor(round);
+        round += "万";
+      }
       var but = "已赞" + "(" + '<span>' + round + '</span>' + ")";
       $(".zc-like").html(but);
       $(".zc-like").attr("data-like", total);
@@ -200,8 +200,22 @@ function like() {
   }
 }
 
-$(".category_link").click(function()　{
+$(".category_link").click(function () 　{
   var type = $(this).attr("data-type");
   $.cookie("zchou_type", type, { path: '/' });
   window.location.pathname = "/";
 });
+
+// 支持弹出框
+$('.model_cancel').click(function () {
+  $('.model').hide();
+  $('.model_bg').hide();
+})
+$('.support-btn').click(function () {
+  $('.model').show();
+  $('.model_bg').show();
+})
+$('.support_pay_items').click(function () {
+  var index = $(this).index();
+  $('.support_pay_items').removeClass('support_pay_items-current').eq(index).addClass('support_pay_items-current')
+})

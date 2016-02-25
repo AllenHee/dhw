@@ -75,6 +75,7 @@
         </div>
       </div>
     </form>
+    <div pup-pop data-text='{{popupText}}'></div>
   </div>
   <!--基本信息 结束-->
 
@@ -207,6 +208,15 @@
           <input class="formSet_input" name="cemail" type="email" ng-model="data.email" ng-focus="cemailTip=true" ng-blur="cemailTip=false">
           <label class="formSet-tip" ng-show="cemailTip">请填写邮箱地址</label>
           <label class="formSet-error" ng-show="!cemailTip && corporate.cemail.$invalid">邮箱地址格式不正确，请重新输入</label>
+        </div>
+      </div>
+      <!--新增加的一个字段-->
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label">企业福利：</label>
+          <input class="formSet_input" name="fuli" type="email" ng-model="data.fuli" ng-focus="fuliTip=true" ng-blur="fuliTip=false">
+          <label class="formSet-tip" ng-show="fuliTip">请填写企业福利</label>
+          <label class="formSet-error" ng-show="!fullTip && corporate.fuli.$invalid">请用逗号隔开，请重新输入</label>
         </div>
       </div>
       <div class="formSet clearfix">
@@ -428,4 +438,5 @@
     </form>
   </div>
   <!--工作经历 结束-->
+ 
 </div>
