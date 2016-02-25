@@ -4,12 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
   <link rel="stylesheet" href="styles/zhongchou.css">
 </head>
 
 <body>
-  <div class="pay">
+  <ul class="pay_progress clearfix">
+    <li class="pay_progress_items">
+      1.订单信息填写
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      2.订单信息确认
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      3.支付
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items complete">
+      4.完成
+    </li>
+  </ul>
+  <div class="content">
     <div class="pay_l">
       <img src="images/wancheng.png" alt="">
       <p class="text">支付完成！请耐心等待众筹项目结束！</p>

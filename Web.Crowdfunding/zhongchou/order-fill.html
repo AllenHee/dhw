@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="styles/zhongchou.css">
+</head>
+
+<body>
+  <ul class="pay_progress clearfix">
+    <li class="pay_progress_items complete">
+      1.订单信息填写
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      2.订单信息确认
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      3.支付
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      4.完成
+    </li>
+  </ul>
+  <div class="content">
+    <h1 class="order_ttl">腾讯神眼 守护您的驾驶安全</h1>
+    <div class="orderfill">
+      <div class="orderfill_not">
+        <span></span> 请在下单15分钟内付款,否则您的订单会被自动取消
+      </div>
+      <div class="orderfill_cont">
+        <h2 class="orderfill_ttl">收货地址</h2>
+        <div>
+          <div class="areaSelect selected_addr clearfix">
+            <label class="sendFor"><i></i>寄送至</label>
+            <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">文明</span><span class="orderfill_phone">11111111111</span>
+              <span
+              class="orderfill_addr">福建省 泉州市 石狮市 鸿山镇 国家高新区创新创业中心1-7</span>
+            </p>
+            <ul class="operate clearfix">
+              <li class="operate_items operate_items_grey">默认地址</li>
+              <li class="operate_items">修改</li>
+              <li class="operate_items">删除</li>
+            </ul>
+          </div>
+          <div class="areaSelect clearfix">
+            <label class="sendFor"><i></i>寄送至</label>
+            <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">文明</span><span class="orderfill_phone">11111111111</span>
+              <span
+              class="orderfill_addr">福建省 泉州市 石狮市 鸿山镇 国家高新区创新创业中心1-7</span>
+            </p>
+            <ul class="operate clearfix">
+              <li class="operate_items operate_items_grey">默认地址</li>
+              <li class="operate_items">修改</li>
+              <li class="operate_items">删除</li>
+            </ul>
+          </div>
+          <p class="newAddr">使用新地址</p>
+        </div>
+        <h2 class="orderfill_ttl">发票信息</h2>
+        <div>
+          <p class="invoice"><i class="select_icon"></i>无需发票</p>
+          <p class="invoice"><i class="select_icon"></i>需要发票</p>
+          <div class="invoice_div">
+            <label class="invoiceLabel"><span class="redStar">*</span>发票抬头 :</label>
+            <input class="invoiceInput" type="text" placeholder="个人">
+          </div>
+          <div class="invoice_div">
+            <label class="invoiceLabel">备注 :</label>
+            <input class="invoiceInput_long" type="text" placeholder="您可以填写关于回报或您希望发起人知道的信息,鼓励一下也好~~">
+          </div>
+        </div>
+        <div class="riskDetail">
+          <h2 class="riskDetail_ttl"><i></i>风险说明</h2>
+          <ul class="riskDetail_ul">
+            <li class="riskDetail_ul_items">1.梦高速众筹只提供平台服务,梦高速作为居间方,并不是发起人或支持者其中一人,所有交易仅存在与发起人与支持者之间,使用梦高速众筹平台产生的法律后果由发起人和支持者自行承担</li>
+            <li class="riskDetail_ul_items">2.众筹成功后,发起回报,开具发票及售后服务等事项均由项目方负责.如果发生项目无法发放回报、不提供售后服务等情况,您需要直接和项目发起人协商解决,梦高速对此不承担任何责任</li>
+            <li class="riskDetail_ul_items">3.由于发起人能力和经验不足、市场风险、法律风险等各种因素,众筹可能失败.如果众筹失败,您支持的款项会全部原路退换给您.</li>
+            <li class="riskDetail_ul_items">4.支持纯抽奖档位和无私支持档位,一旦支付成功将不予退款,项目募捐失败的除外</li>
+            <li class="riskDetail_ul_items">5.若您选择纯抽奖档位(未中奖)或无私支持档位,项目成功后发起人将不会给您任何回报.</li>
+          </ul>
+          <h2 class="riskDetail_ttl">特别说明:</h2>
+          <p class="redStar">系统会自动对超出限额的订单进行全额退款.对您造成的不便,深表歉意!</p>
+        </div>
+        <div class="nextBtn">
+          <button class="nextBtn_btn">下一步</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script>
+    $('.invoice').click(function() {
+      var index = $(this).index();
+      $('.invoice i').removeClass('selected_icon').eq(index).addClass('selected_icon');
+    })
+    $('.areaSelect').mouseover(function() {
+      $(this).addClass('selected_addr');
+    })
+    $('.areaSelect').mouseout(function() {
+      if($(this).hasClass('confirm')) {
+        return false;
+      }
+      $(this).removeClass('selected_addr');
+    })
+    $('.areaSelect').click(function() {
+      var index = $(this).index();
+      $('.areaSelect').removeClass('confirm selected_addr').eq(index).addClass('confirm selected_addr');
+    })
+  </script>
+</body>
+
+</html>
