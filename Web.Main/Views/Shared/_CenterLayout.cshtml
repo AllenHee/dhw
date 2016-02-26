@@ -74,7 +74,7 @@
     <!--通用底栏 开始-->
     <div class="footer">
         <div class="footer_content">
-            <span class="">©  2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</span>
+            <span class="">© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</span>
             <ul>
                 <li><a href="http://bbs.dreamhiway.com" class="footer_a">免责声明</a> </li>
                 <li><a href="http://bbs.dreamhiway.com" class="footer_a">帮助中心</a> </li>
@@ -83,7 +83,7 @@
             </ul>
         </div>
     </div>
-    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/general.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -92,8 +92,16 @@
                     dhw = dhw || {};
                     dhw.isLogined = true;
                     var app;
+                    var nickname = r.result.nickname;
+                    var name;
                     if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
-                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + app + '" target="_blank">' + r.result.Name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+                    if (nickname == "") {
+                        name = r.result.Name;
+                    }
+                    else {
+                        name = nickname + "(" + r.result.Name + ")";
+                    }
+                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + app + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
                 }
                 else {
                     dhw.isLogined = false;

@@ -8,15 +8,25 @@
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
     <script type="text/javascript">
         var dhw = {
-            imgurl: '@BaseConfigs.GetImgPath', imguploadurl: '@BaseConfigs.GetImgUploadPath', imgcuturl: '@BaseConfigs.GetImgCutPath',
-            mainurl: '@BaseConfigs.GetUrlMain', staticurl: '@BaseConfigs.GetStaticPath',
-            urlmain: '@BaseConfigs.GetUrlMain', urlcdn: '@BaseConfigs.GetUrlCdn', urlzc: '@BaseConfigs.GetUrlZc', urlkj: '@BaseConfigs.GetUrlKj', urlhr: '@BaseConfigs.GetUrlHr', urlzckj: '@BaseConfigs.GetUrlZckj',
-            urlzb: '@BaseConfigs.GetUrlZb', urldiy: '@BaseConfigs.GetUrlDiy', urlsrdz: '@BaseConfigs.GetUrlSrdz', urlcqbh: '@BaseConfigs.GetUrlCqbh', urlzxsj: '@BaseConfigs.GetUrlZxsj', urlgsss: '@BaseConfigs.GetUrlGsss'
+            imgurl: '@BaseConfigs.GetImgPath',
+            imguploadurl: '@BaseConfigs.GetImgUploadPath',
+            imgcuturl: '@BaseConfigs.GetImgCutPath',
+            mainurl: '@BaseConfigs.GetUrlMain',
+            staticurl: '@BaseConfigs.GetStaticPath',
+            urlmain: '@BaseConfigs.GetUrlMain',
+            urlcdn: '@BaseConfigs.GetUrlCdn',
+            urlzc: '@BaseConfigs.GetUrlZc',
+            urlkj: '@BaseConfigs.GetUrlKj',
+            urlhr: '@BaseConfigs.GetUrlHr',
+            urlzckj: '@BaseConfigs.GetUrlZckj',
+            urlzb: '@BaseConfigs.GetUrlZb',
+            urldiy: '@BaseConfigs.GetUrlDiy',
+            urlsrdz: '@BaseConfigs.GetUrlSrdz',
+            urlcqbh: '@BaseConfigs.GetUrlCqbh',
+            urlzxsj: '@BaseConfigs.GetUrlZxsj',
+            urlgsss: '@BaseConfigs.GetUrlGsss'
         };
     </script>
-    <script type="text/javascript">
-        var readCookie = function (a) { var b = a + "="; var c = document.cookie.split(";"); for (var d = 0; d < c.length; d++) { var e = c[d]; for (; " " == e.charAt(0); ) e = e.substring(1, e.length); if (0 == e.indexOf(b)) return e.substring(b.length, e.length) } return null }
-        var login = function () { return location.href = dhw.mainurl + "login?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 }; var regist = function () { return location.href = dhw.mainurl + "reg?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 };</script>
     @RenderSection("head", required: false)
 </head>
 <body>
@@ -28,8 +38,12 @@
                 <li><a href="#"><i class="iconfont">&#xe609;</i>手机梦高速</a></li>
             </ul>
             <ul class="sitenav-r">
-                <li class="log">您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">
-                    免费注册</a> </li>
+                <li class="log">您好，@{if (ViewBag.DUser.HasLogin)
+                                     {<a href="@{@BaseConfigs.GetUrlMain}AppHome" target="_blank">@ViewBag.DUser.UserName</a><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}&type=logout">退出</a>}
+                                     else
+                                     {<text>请</text><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">登陆</a>
+                    <a href="@{@BaseConfigs.GetUrlMain}reg?redirectURL=@Request.Url">免费注册</a>}}
+                </li>
                 <li><a href="http://bbs.dreamhiway.com" target="_blank">帮助中心</a></li>
                 <li class="nav-drop"><a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
                     <ul class="sn-dropdown menu-dropdown">
@@ -43,10 +57,6 @@
                         <li><a target="_blank" href="@BaseConfigs.GetUrlCqbh">产品保护</a></li>
                         <li><a target="_blank" href="@BaseConfigs.GetUrlZxsj">软件升级</a></li>
                         <li><a target="_blank" href="@BaseConfigs.GetUrlGsss">公司上市</a></li>
-<<<<<<< HEAD
-=======
-                        <li><a target="_blank" href="//bbs.dreamhiway.com/">社区论坛</a></li>
->>>>>>> 02c04467372f1e6df1776150db58660542e949ee
                     </ul>
                 </li>
                 <li class="icon-drop"><i class="sn-dropper iconfont">&#xe60c;</i>
@@ -170,23 +180,6 @@
     </div>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/general.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
-                if (r.success && r.result.IsAuthenticated) {
-                    dhw = dhw || {};
-                    dhw.isLogined = true;
-                    var app;
-                    if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
-                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + app + '" target="_blank">' + r.result.Name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
-                }
-                else {
-                    dhw.isLogined = false;
-                    $('li.log').html('您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">免费注册</a>');
-                }
-            });
-        })
-    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

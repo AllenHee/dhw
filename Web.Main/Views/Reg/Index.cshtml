@@ -37,9 +37,10 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             用户名：</label>
-                        <input class="formSet_input" name="username" id="user" type="text" ng-model="dataP.name" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,20}$/"
-                            ng-focus="usernameTipP=true" ng-blur="usernameTipP=false; validate(dataP.name, 'usernameP')"
-                            ng-change="isValid.usernameP=undefined" required>
+                        <input class="formSet_input" name="username" id="user" type="text" ng-model="dataP.name"
+                            ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,20}$/" ng-focus="usernameTipP=true"
+                            ng-blur="usernameTipP=false; validate(dataP.name, 'usernameP')" ng-change="isValid.usernameP=undefined"
+                            required>
                         <i class="formSet_icon user"></i><i class="formSet_icon success" ng-show="registerP.username.$dirty && registerP.username.$valid && isValid.usernameP==1">
                         </i>
                     </div>
@@ -74,8 +75,9 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             请确认密码：</label>
-                        <input class="formSet_input" name="confirm" id="usercon" type="password" ng-model="confirmP" ng-pattern="/^.{6,20}$/"
-                            ng-focus="confirmTipP=true" ng-blur="confirmTipP=false" required>
+                        <input class="formSet_input" name="confirm" id="usercon" type="password" ng-model="confirmP"
+                            ng-pattern="/^.{6,20}$/" ng-focus="confirmTipP=true" ng-blur="confirmTipP=false"
+                            required>
                         <i class="formSet_icon security"></i><i class="formSet_icon success" ng-show="registerP.confirm.$dirty && registerP.confirm.$valid">
                         </i>
                     </div>
@@ -171,9 +173,10 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             用户名：</label>
-                        <input class="formSet_input" name="username" id="company" type="text" ng-model="dataC.name" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,20}$/"
-                            ng-focus="usernameTipC=true" ng-blur="usernameTipC=false; validate(dataC.name, 'usernameC')"
-                            ng-change="isValid.usernameC=undefined" required>
+                        <input class="formSet_input" name="username" id="company" type="text" ng-model="data.name"
+                            ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,20}$/" ng-focus="usernameTipC=true"
+                            ng-blur="usernameTipC=false; validate(data.name, 'usernameC')" ng-change="isValid.usernameC=undefined"
+                            required>
                         <i class="formSet_icon user"></i><i class="formSet_icon success" ng-show="registerC.username.$dirty && registerC.username.$valid && isValid.usernameC==1">
                         </i>
                     </div>
@@ -191,7 +194,7 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             店铺名称：</label>
-                        <input class="formSet_input" name="storename" type="text" ng-model="dataC.gsname"
+                        <input class="formSet_input" name="storename" type="text" ng-model="data.gsname"
                             ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,30}$/" ng-focus="storenameTip=true"
                             ng-blur="storenameTip=false" required>
                         <i class="formSet_icon success" ng-show="registerC.storename.$dirty && registerC.storename.$valid">
@@ -209,7 +212,7 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             请设置密码：</label>
-                        <input class="formSet_input" name="password" id="compwd" type="password" ng-model="dataC.pwd"
+                        <input class="formSet_input" name="password" id="compwd" type="password" ng-model="data.pwd"
                             ng-pattern="/^.{6,20}$/" ng-focus="passwordTipC=true" ng-blur="passwordTipC=false"
                             required>
                         <i class="formSet_icon security"></i><i class="formSet_icon success" ng-show="registerC.password.$dirty && registerC.password.$valid">
@@ -226,14 +229,15 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             请确认密码：</label>
-                        <input class="formSet_input" name="confirm" id="comcon" type="password" ng-model="confirmC" ng-pattern="/^.{6,20}$/"
-                            ng-focus="confirmTipC=true" ng-blur="confirmTipC=false" required>
+                        <input class="formSet_input" name="confirm" id="comcon" type="password" ng-model="confirmC"
+                            ng-pattern="/^.{6,20}$/" ng-focus="confirmTipC=true" ng-blur="confirmTipC=false"
+                            required>
                         <i class="formSet_icon security"></i><i class="formSet_icon success" ng-show="registerC.confirm.$dirty && registerC.confirm.$valid">
                         </i>
                     </div>
                     <label class="formSet-tip" ng-show="confirmTipC">
                         请再次输入密码</label>
-                    <label class="formSet-error" ng-show="!confirmTipC && registerC.confirm.$dirty && (confirmC != dataC.pwd)">
+                    <label class="formSet-error" ng-show="!confirmTipC && registerC.confirm.$dirty && (confirmC != data.pwd)">
                         两次输入密码不一致</label>
                 </div>
                 <h4 class="reg_form_title">
@@ -242,49 +246,49 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             联系人姓名：</label>
-                        <input class="formSet_input" name="name" type="text" ng-model="dataC.lxrname" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
-                            ng-focus="nameTip=true" ng-blur="nameTip=false" required>
+                        <input class="formSet_input" name="name" type="text" ng-model="data.lxrname" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
+                            ng-focus="nameTip=true" ng-blur="nameTip=false; validate(data.name, 'nameC')"
+                            required ng-change="isValid.nameC=undefined">
                         <i class="formSet_icon success" ng-show="registerC.name.$dirty && registerC.name.$valid">
                         </i>
                     </div>
                     <label class="formSet-tip" ng-show="nameTip">
                         2-20位字符，可由中文或英文组成</label>
                     <label class="formSet-error formSet-error-long" ng-show="!nameTip && registerC.name.$invalid && !registerC.name.$error.required">
-                        联系人姓名长度只能在2-20位字符之间<br>
+                        联系人姓名长度只能在2-20位字符之间
+                        <br>
                         联系人姓名只能由中文或英文组成</label>
                     <label class="formSet-error" ng-show="!nameTip && registerC.name.$dirty && registerC.name.$error.required">
                         请输入联系人姓名</label>
+                    <label class="formSet-error" ng-show="!nameTip && isValid.nameC==0">
+                        该联系人已被注册，请重新输入</label>
                 </div>
                 <div class="formSet clearfix">
                     <div class="formSetWrap">
                         <label class="formSet_label">
-                            验证手机：</label>
-                        <input class="formSet_input" name="mobile" type="text" ng-model="dataC.cellphone"
+                            手机号码：</label>
+                        <input class="formSet_input" name="mobile" type="text" ng-model="data.cellphone"
                             ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
-                            ng-focus="mobileTipC=true" ng-blur="mobileTipC=false" required>
+                            ng-focus="mobileTipC=true" ng-blur="mobileTipC=false; validate(data.cellphone, 'mobileC')"
+                            ng-change="isValid.nameC=undefined" required>
                         <i class="formSet_icon phone"></i><i class="formSet_icon success" ng-show="registerC.mobile.$dirty && registerC.mobile.$valid">
                         </i>
                     </div>
                     <label class="formSet-tip" ng-show="mobileTipC">
                         请填写本人手机号，审核信息以短信通知</label>
-                    <label class="formSet-error" ng-show="!mobileTipC && registerC.mobile.$invalid && !registerC.mobile.$error.required">
-                        手机号码格式有误，请输入正确的手机号</label>
                     <label class="formSet-error" ng-show="!mobileTipC && registerC.mobile.$dirty && registerC.mobile.$error.required">
                         请输入手机号码</label>
+                    <label class="formSet-error" ng-show="!mobileTipC && registerC.mobile.$invalid && !registerC.mobile.$error.required">
+                        手机号码格式有误，请输入正确的手机号</label>
+                    <label class="formSet-error" ng-show="!mobileTipC && isValid.mobileC==0">
+                        该手机已被注册，请重新输入</label>
                 </div>
-                <!--<div class="formSet clearfix">
-            <div class="formSetWrap">
-              <label class="formSet_label">短信验证码：</label>
-              <input class="formSet_input formSet_input-short" name="phoneValiCode" type="text" ng-model="phoneValiCode" maxlength="6" required>
-              <input class="getPhoneValiCode" type="button" value="获取短信验证码">
-            </div>
-          </div>-->
                 <div class="formSet clearfix">
                     <div class="formSetWrap">
                         <label class="formSet_label">
-                            邮箱地址：</label>
-                        <input class="formSet_input" name="email" type="email" ng-model="dataC.email" ng-focus="emailTipC=true"
-                            ng-blur="emailTipC=false">
+                            邮箱地址：</label>-
+                        <input class="formSet_input" name="email" type="email" ng-model="data.email" ng-focus="emailTipC=true"
+                            ng-blur="emailTipC=false; validate(data.email, 'emailC')" ng-change="isValid.emailC=undefined">
                         <i class="formSet_icon success" ng-show="registerC.email.$dirty && registerC.email.$valid">
                         </i>
                     </div>
@@ -292,6 +296,8 @@
                         请填写本人邮箱，审核信息以邮件通知</label>
                     <label class="formSet-error" ng-show="!emailTipC && registerC.email.$invalid">
                         邮箱地址不正确，请重新输入</label>
+                    <label class="formSet-error" ng-show="!emailTipC && isValid.emailC==0">
+                        该邮箱已被注册，请重新输入</label>
                 </div>
                 <h4 class="reg_form_title">
                     公司信息</h4>
@@ -299,7 +305,7 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             公司名称：</label>
-                        <input class="formSet_input" name="companyname" type="text" ng-model="dataC.compay"
+                        <input class="formSet_input" name="companyname" type="text" ng-model="data.compay"
                             ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\(\)（）]{4,40}$/" ng-focus="companynameTip=true"
                             ng-blur="companynameTip=false" required>
                         <i class="formSet_icon success" ng-show="registerC.companyname.$dirty && registerC.companyname.$valid">
@@ -314,36 +320,13 @@
                     <label class="formSet-error" ng-show="!companynameTip && registerC.companyname.$dirty && registerC.companyname.$error.required">
                         请输入公司名称</label>
                 </div>
-                <div class="formSet clearfix">
-                    <div class="formSetWrap">
-                        <label class="formSet_label">
-                            公司所在地：</label>
-                        <select class="formSet_select formSet_select-small" name="province" ng-model="dataC.province"
-                            ng-change="getCitys(dataC.province)" required>
-                            <option class="formSet_option" value="">请选择</option>
-                            <option class="formSet_option" ng-repeat="province in list.provinces" value="{{province}}">
-                                {{province}}</option>
-                        </select>
-                        <select class="formSet_select formSet_select-small" name="city" ng-model="dataC.city"
-                            ng-change="getCounties(dataC.province+'-'+dataC.city)" required>
-                            <option class="formSet_option" value="">请选择</option>
-                            <option class="formSet_option" ng-repeat="city in list.citys" value="{{city}}">{{city}}</option>
-                        </select>
-                        <select class="formSet_select formSet_select-small" name="county" ng-model="dataC.county"
-                            required>
-                            <option class="formSet_option" value="">请选择</option>
-                            <option class="formSet_option" ng-repeat="county in list.counties" value="{{county}}">
-                                {{county}}</option>
-                        </select>
-                        <i class="formSet_icon success select" ng-show="registerC.county.$dirty && registerC.county.$valid">
-                        </i>
-                    </div>
+                <div select-area data-label="公司所在地:" data-required="true" data-name="area">
                 </div>
                 <div class="formSet clearfix">
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             公司地址：</label>
-                        <input class="formSet_input" name="addr" type="text" ng-model="dataC.addr" ng-pattern="/^.{4,40}$/"
+                        <input class="formSet_input" name="addr" type="text" ng-model="data.addr" ng-pattern="/^.{4,40}$/"
                             ng-focus="addrTip=true" ng-blur="addrTip=false" required>
                         <i class="formSet_icon success" ng-show="registerC.addr.$dirty && registerC.addr.$valid">
                         </i>
@@ -361,7 +344,7 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             企业人数：</label>
-                        <select class="formSet_select" class="formSet_input" name="scale" type="text" ng-model="dataC.scale">
+                        <select class="formSet_select" class="formSet_input" name="scale" type="text" ng-model="data.scale">
                             <option class="formSet_option" value="">请选择</option>
                             <option class="formSet_option" ng-repeat="scale in list.scales" value="{{scale}}">{{scale}}</option>
                         </select>
@@ -373,7 +356,7 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             公司行业：</label>
-                        <select class="formSet_select" class="formSet_input" name="trade" type="text" ng-model="dataC.trade">
+                        <select class="formSet_select" class="formSet_input" name="trade" type="text" ng-model="data.trade">
                             <option class="formSet_option" value="">请选择</option>
                             <option class="formSet_option" ng-repeat="trade in list.trades" value="{{trade.id}}">
                                 {{trade.text}}</option>
@@ -386,7 +369,7 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             公司性质：</label>
-                        <select class="formSet_select" class="formSet_input" name="nature" type="text" ng-model="dataC.nature">
+                        <select class="formSet_select" class="formSet_input" name="nature" type="text" ng-model="data.nature">
                             <option class="formSet_option" value="">请选择</option>
                             <option class="formSet_option" ng-repeat="nature in list.natures" value="{{nature}}">
                                 {{nature}}</option>
@@ -399,7 +382,7 @@
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             验证码：</label>
-                        <input class="formSet_input formSet_input-short" name="verify" type="text" ng-model="dataC.verify"
+                        <input class="formSet_input formSet_input-short" name="verify" type="text" ng-model="data.verify"
                             required>
                         <img class="verifyImg" src="/Login/VerifyCode?_=1450339330618" alt="验证码" ng-click="codeRefresh()">
                     </div>
@@ -453,7 +436,7 @@
         <p class="copyrightText">
             Copyright@2015-2016 梦高速dreamhiway.com 版权所有</p>
     </div>
-    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/tpl.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>

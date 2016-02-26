@@ -1176,3 +1176,48 @@
 .formSet_input_btn_link_del {
   left: 110%;
 }
+
+/*
+* 城市选择
+*/
+.formSet-doubleWrap {
+  display: inline-block;
+  vertical-align: top;
+}
+.SelectWrap {
+  float: left;
+  position: relative;
+}
+.SelectWrap-first {
+  margin-right: 20px;
+}
+.SelectWrap-second {
+  margin-right: 23px;
+}
+.SelectWrap input {
+  width: 123px;
+}
+.selectCont {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 11;
+  width: 100%;
+  max-height: 300px;
+  border: 1px solid #eee;
+  background-color: #fff;
+  overflow: auto;
+  box-shadow: 1px 1px 2px #ccc;
+}
+.selectCont li {
+  width: 116px;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 14px;;
+  line-height: 30px;
+  cursor: pointer;
+}
+.selectCont li:hover {
+  background-color: #f6f6f6;
+}
