@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="styles/zhongchou.css">
+</head>
+
+<body>
+  <ul class="pay_progress clearfix">
+    <li class="pay_progress_items">
+      1.订单信息填写
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      2.订单信息确认
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items complete">
+      3.支付
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      4.完成
+    </li>
+  </ul>
+  <div class="fukuan">
+    <h2 class="order_ttl"><i></i>请完成支付</h2>
+    <div class="orderPay">
+      <p class="orderfill_ttl">订单信息</p>
+      <div class="fukuan_way">
+        <p>应支付金额:<span>50.00</span>元</p>
+      </div>
+      <ul class="payWay clearfix">
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot fukuan_radiot-last">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+      </ul>
+      <div class="bottom">
+        <button class="paynow">立即付款</button>
+        <button class="return">返回</button>
+        <p>请您在<span>00时15分00秒</span>内完成付款，否则将自动取消订单</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script>
+    $(".fukuan_radiot").click(function(){
+        var index=$(this ).index();
+       $(".fukuan_radiot").removeClass("fukuan_radioo").eq(index).addClass("fukuan_radioo");
+     });
+  </script>
+</body>
+
+</html>

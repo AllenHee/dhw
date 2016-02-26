@@ -1435,40 +1435,47 @@ body .zc-mail:hover {
 }
 
 /*支付完成——李雅丽*/
-.pay {
-  width: 1156px;
-  height: 782px;
+.content {
+  width: 1160px;
   margin: 0 auto;
   overflow: hidden;
   border: 1px solid #ececec;
- 
 }
 .pay_l {
   float: left;
   width: 350px;
   margin-top: 70px;
   margin-left: 250px;
+  background: url(../images/wancheng.png) no-repeat;
 }
 .pay_l img {
   float: left;
 }
 .text {
+  margin-top: 20px;
+  margin-left: 60px;
   font-size: 16px;
   font-weight: bold;
   color: #333;
 }
 .number {
+  margin-top: 10px;
+  margin-left: 60px;
   font-size:10px;
   color: #ea544a;
 }
 .online {
+  margin-top: 30px;
+  margin-left: 30px;
   padding-left: 30px;
   margin-top: 30px;
   font-size: 10px;
   color: #333;
 } 
 .pay_l .details {
+  display: inline-block;
   padding-left: 30px;
+  margin-top: 10px;
   text-decoration: none;
   font-size: 10px;
   color: #333;
@@ -1506,7 +1513,12 @@ body .zc-mail:hover {
   font-size: 16px;
 }
 .important {
+  margin-bottom: 10px;
   font-weight: bold;
+}
+.pay_b {
+  margin-bottom: 20px;
+  line-height: 25px;
 }
 .pay_b span {
   color: #ea544a;
@@ -1551,6 +1563,97 @@ body .zc-mail:hover {
   color: red;
 }
 
+
+/*付款——李雅丽*/
+.fukuan {
+  width: 1160px;
+  height: 782px;
+  margin: 0 auto;
+  border: 1px solid #ececec;
+  font-family: 黑体;
+}
+.order_ttl i {
+  display: inline-block;
+  height: 28px;
+  width: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: url('../images/qingzhifu.png') no-repeat;
+}
+.orderPay {
+  padding: 0 20px;
+}
+.fukuan_way {
+  margin-bottom: 45px;
+  font-size: 18px;
+  color: #333;
+}
+.payWay {
+  display: inline-block;
+  width: 965px;
+  padding-bottom: 45px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ededed;
+}
+.fukuan span {
+  color: #ea544a;
+}
+
+.fukuan_radiot {
+  float: left;
+  margin-right: 30px;
+}
+.fukuan_radiot-last {
+  margin: 0;
+}
+.fukuan_radiot i {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-top: -45px;
+  margin-right: 5px;
+  background: url('../images/radio2.png') no-repeat 0 -1px;
+  vertical-align: middle;
+}
+.fukuan_pic {
+  border: 1px solid transparent;
+}
+.fukuan_radioo i {
+  background: url('../images/radio1.png') no-repeat;
+}
+.fukuan_radioo .fukuan_pic {
+  border: 1px solid red;
+}
+
+
+.bottom {
+  text-align: center;
+}
+.bottom p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.paynow,
+.return {
+  width: 110px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.paynow {
+  margin-right: 10px;
+  background-color: #ea544a;
+}
+.return {
+  background-color: #cbcbcb;
+}
+
+.bottom p {
+  text-align: center;
+}
 /*详情页支持弹出框*/
 .model_bg {
   display: none;
@@ -1693,4 +1796,240 @@ body .zc-mail:hover {
 }
 .support_but span {
   color: #fff;
+}
+
+/*头部进度条*/
+.pay_progress {
+  width: 1160px;
+  height: 37px;
+  border: 1px solid #ededed;
+  margin: 20px auto;
+}
+.pay_progress_items {
+  position: relative;
+  float: left;
+  width: 290px;
+  height: 37px;
+  line-height: 37px;
+  text-align: center;
+}
+.triangle {
+  position: absolute;
+  top: 0;
+  border-style: solid;
+  border-width: 19px 0 19px 19px;
+}
+.white_trian {
+  right: -19px;
+  border-color: transparent transparent transparent #fff;
+  z-index: 10;
+}
+.grey_trian {
+  right: -20px;
+  border-color: transparent transparent transparent #ededed;
+  z-index: 9;
+}
+.complete {
+  background-color: #fda6a3;
+  color: #fff;
+}
+.complete i {
+  border-color: transparent transparent transparent #fda6a3;
+}
+.complete .grey_trian {
+  right: 19px;
+}
+
+/*订单信息填写*/
+.order_ttl {
+  padding: 20px;
+  border-bottom: 1px solid #ededed;
+  font-size: 22px;
+  background-color: #fafafa;
+}
+.orderfill {
+  padding: 20px;
+}
+.orderfill_not {
+  height: 48px;
+  padding-left: 20px;
+  border: 1px solid #ffc38a;
+  background-color: #fffcf5;
+  font-size: 14px;
+  color: #ff7901;
+  line-height: 48px;
+}
+.orderfill_not span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  margin-top: -3px;
+  background: url(../images/002.png) -3px -2px no-repeat;
+ vertical-align: middle;
+}
+.orderfill_ttl {
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 55px;
+}
+.areaSelect {
+  position: relative;
+  height: 30px;
+  margin-bottom: 5px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  line-height: 30px;
+}
+.areaSelect i {
+  vertical-align: middle;
+}
+.selected_addr {
+  border: 1px solid #ffc38a;
+  background-color: #fffcf5;
+}
+.sendFor {
+  display: none;
+  float: left;
+  width: 100px;
+  margin-right: 10px;
+  color: #ff7901;
+  text-align: right;
+}
+.sendFor i {
+  display: inline-block;
+  width: 14px;
+  height: 19px;
+  margin-right: 5px;
+  background: url(../images/002.png) -5px -19px no-repeat;
+}
+.selected_addr .sendFor {
+  display: block;
+}
+.select_icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: -2px;
+  margin-right: 5px;
+  background: url(../images/002.png) -39px -2px no-repeat;
+  cursor: pointer;
+}
+.selected_addr .select_icon,
+.selected_icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url(../images/002.png) -22px -2px no-repeat;
+}
+.user_infor {
+  position: absolute;
+  left: 110px;
+  width: 800px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.operate {
+  display: none;
+  float: right;
+}
+.selected_addr .operate {
+  display: block;
+}
+.orderfill_name,
+.orderfill_phone {
+  margin-right: 10px;
+}
+.operate_items {
+  float: left;
+  height: 13px;
+  padding: 0 15px;
+  color: #0091e6;
+  cursor: pointer;
+}
+.operate_items_grey {
+  color: #999;
+}
+.newAddr {
+  margin-top: 25px;
+  margin-left: 110px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.selected_icon {
+  margin-top: -2px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.invoice {
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+}
+.invoice i {
+  vertical-align: middle;
+}
+.redStar {
+  color: red;
+}
+.invoice_div {
+  margin-bottom: 25px;
+}
+.invoiceLabel {
+  height: 35px;
+  margin-right: 10px;
+  line-height: 35px;
+  font-size: 14px;
+}
+.invoiceInput,
+.invoiceInput_long {
+  width: 240px;
+  height: 33px;
+  padding-left: 10px;
+  border: 1px solid #ededed;
+}
+.invoiceInput_long {
+  width: 480px;
+}
+.riskDetail {
+  padding: 12px 15px;
+  border: 1px solid #ffc38a;
+}
+.riskDetail_ttl {
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.riskDetail_ttl i {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  margin-top: -2px;
+  vertical-align: middle;
+  background: url(../images/002.png) -3px -2px no-repeat;
+}
+.riskDetail_ul {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.riskDetail_ul_items {
+  line-height: 20px;
+  font-size: 12px;
+}
+.nextBtn {
+  margin-top: 25px;
+  text-align: center;
+}
+.nextBtn_btn {
+  width: 110px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #ea544a;
+  cursor: pointer;
 }
