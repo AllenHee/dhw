@@ -365,6 +365,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
   .controller('corporateCtrl', ["$scope", "$http", function (s, h) {
     s.data = {};
     s.draft = {};
+    s.fuliT={}
     // 列表数据
     s.list = {
       natures: ['政府机关/事业单位', '国营', '私营', '中外合资', '外资', '其他'],
@@ -379,16 +380,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
           s.businessTemp = angular.fromJson(data.result.business);
         }
         if(data.result.fuli) {
-           s.data.fuli = data.result.fuli;
+           s.fuliTep = data.result.fuli.split(',');
+           console.log(s.fuliTep);
+           for(var i = 0 ,len=s.fuliTep.length; i<len;i++){
+             s.fuliTemp.push({value:s.fuliTep[i]});
+           }
         }
         $.extend(s.data,data.result)
       })
     }
     // 添加业务范围
     s.businessTemp = [];
+    s.fuliTemp = [];
     s.addBusiness = function () {
       s.businessTemp.push({});
     };
+    s.addFuli = function() {
+      s.fuliTemp.push({});
+    }
     //手机号码是否可见
     s.isVisible = function (elem) {
       if ($(elem).is(':checked')) {
@@ -401,20 +410,27 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     // 保存数据
     s.submit = function () {
      var content = s.draft.basic();
-     console.log("福利哦"+s.data.fuli);
-     var a = s.data.fuli;
-     var con = a.replace(/，/,',')
-     console.log("222  "+con);
+    //  var a = s.data.fuli;
+    //  var con = a.replace(/，/,',')
      var para = $.extend(s.data,content);
       para.business = [];
+      para.fuli = []
       for (var i = 0, len = s.businessTemp.length; i < len; i++) {
         para.business.push(s.businessTemp[i]);
       }
       para.business = angular.toJson(para.business);
+      for (var j = 0,len = s.fuliTemp.length; j < len; j++  ){
+         if(j<s.fuliTemp.length - 1) {
+           para.fuli += s.fuliTemp[j].value + "," 
+         }else {
+           para.fuli += s.fuliTemp[j].value
+         }
+      }
+      
+      
       //数据提交到后台
       h.post('/UserAccount/CompanyEdit', para).success(function (d) {
         if(d.success) {
-          console.log("我已经提交成功呢啊")
         }
       });
     }
