@@ -1572,79 +1572,83 @@ body .zc-mail:hover {
   border: 1px solid #ececec;
   font-family: 黑体;
 }
-
-.fukuan h2 {
-  height: 60px;
-  margin-left: 25px;
-  padding-left: 35px;
-  border-bottom: 1px solid #ececec;
-  color: #333;
+.order_ttl i {
+  display: inline-block;
+  height: 28px;
+  width: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
   background: url('../images/qingzhifu.png') no-repeat;
 }
-
-.fukuan_tt {
-  width: 1110px;
-  height: 55px;
-  margin: 0 auto;
-  font-size: 20px;
-  color: #333;
-  border-bottom: 1px solid #ececec;
+.orderPay {
+  padding: 0 20px;
 }
-
 .fukuan_way {
-  padding-left: 25px;
-  font-size: 20px;
+  margin-bottom: 45px;
+  font-size: 18px;
   color: #333;
 }
-
+.payWay {
+  display: inline-block;
+  width: 965px;
+  padding-bottom: 45px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ededed;
+}
 .fukuan span {
   color: #ea544a;
 }
 
-.fukuan ul {
-  height: 150px;
-  list-style-type: none;
-  padding-left: 15px;
-}
-
 .fukuan_radiot {
   float: left;
-  padding-left: 30px;
-  background: url('../images/radio2.png') no-repeat; 
+  margin-right: 30px;
 }
-.fukuan_radioo {
-  display: inline;
-  padding-left: 30px;
+.fukuan_radiot-last {
+  margin: 0;
+}
+.fukuan_radiot i {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  margin-top: -45px;
+  margin-right: 5px;
+  background: url('../images/radio2.png') no-repeat 0 -1px;
+  vertical-align: middle;
+}
+.fukuan_pic {
+  border: 1px solid transparent;
+}
+.fukuan_radioo i {
   background: url('../images/radio1.png') no-repeat;
 }
 .fukuan_radioo .fukuan_pic {
   border: 1px solid red;
 }
 
-.fukuan input
- {
-  overflow: hidden;
-  width: 105px;
-  height: 40px;
-  font-size: 20px;
-  color: #fff;
-  border-radius: 5px;
-}
 
 .bottom {
-  height: 130px;
+  text-align: center;
 }
-
-.fukuan .paynow {
-  margin-left: 470px;
+.bottom p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.paynow,
+.return {
+  width: 110px;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.paynow {
+  margin-right: 10px;
   background-color: #ea544a;
-  border: 2px solid #ea544a;
 }
-
-.fukuan .return {
-  margin-right: 470px;
+.return {
   background-color: #cbcbcb;
-  border: 2px solid #cbcbcb;
 }
 
 .bottom p {
