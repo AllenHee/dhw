@@ -10,6 +10,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
 app.controller("srdzFormCtrl", ['$scope', '$http', '$location', function (s, h, l) {
   s.data = {};
+  s.draft={}
   s.selectType = function (typeNum) {
     s.data.type = typeNum;
   };
@@ -78,9 +79,14 @@ app.controller("srdzFormCtrl", ['$scope', '$http', '$location', function (s, h, 
     });
   };
   // 获取数据
-  h.post("/Zbfb/Get").success(function (data) {
-    s.data.realnameauth = data.result.realnameauth;
+  s.getDraft = function(fn) {
+    h.post("/Zbfb/Get").success(function (data) {
+      s.data.realnameauth = data.result.realnameauth;
+      if(data.result.area){
+        fn(data.result.area)
+      }
   });
+  }
 }])
 
   .controller("srdzlistCtrl", ["$scope", "$http", function ($scope, $http) {/*私人订制列表*/

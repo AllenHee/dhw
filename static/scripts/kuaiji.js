@@ -67,12 +67,12 @@ $(function () {
       $('.post-pic').html(img)
     }
   });
-   //限制字符个数
-   $(".textOver").each(function(){
-        var maxwidth=20;
-        if($(this).text().length>maxwidth){
-            $(this).text($(this).text().substring(0,maxwidth));
-            $(this).html($(this).html()+'...');
-        }
-    });
+  //  //限制字符个数
+  //  $(".textOver").each(function(){
+  //       var maxwidth=20;
+  //       if($(this).text().length>maxwidth){
+  //           $(this).text($(this).text().substring(0,maxwidth));
+  //           $(this).html($(this).html()+'...');
+  //       }
+  //   });
 });

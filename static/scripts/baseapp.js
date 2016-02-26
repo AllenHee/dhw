@@ -141,8 +141,6 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
      
       //提交成功之后获取后台返回给我们的数据
      s.$parent.getDraft(function (draft) {
-      console.log("back" +draft.province.name)
-      //$.extend(s.area, draft);
       if (draft) {
         s.prov = draft.province.name;
         s.citym = draft.city.name;
@@ -160,8 +158,6 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
   
     //取得城市的数据
     s.getCitys = (provinces) => {
-     
-      console.log("省份  "+provinces.name);
       //获取城市的数据
         s.citys = s.areaData.filter((item) => { 
           return item.type === 'city' && item.code.slice(0, 2) === provinces.code.slice(0, 2); 
@@ -181,7 +177,7 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
           city: s.city,
           district:s.district
         }
-        
+        $('.selectCont').hide();
      };
     // 取得县区的信息
      s.setCity = function (citys) {

@@ -3,6 +3,7 @@ var app = angular.module('regApp', ['baseapp']);
 app.controller('regCtrl', ['$scope', '$http', function (s, h) {
   s.dataP = {};
   s.data = {};
+  s.draft={}
   var user = $('#user').val();
   var userpwd = $('#userpwd').val();
   // var usercon = $('#usercon').val();
@@ -31,9 +32,9 @@ app.controller('regCtrl', ['$scope', '$http', function (s, h) {
 
   s.list = {
     departments: ['办公室', '市场部', '采购部', '技术部', '人力资源', '其他'],
-    provinces: _areaselect_data.p,
-    citys: [],
-    counties: [],
+    // provinces: _areaselect_data.p,
+    // citys: [],
+    // counties: [],
     scales: ['5-10人', '10-50人', '50-100人', '100-200人', '200人以上'],
     trades: [],
     natures: ['政府机关/事业单位', '国营', '私营', '中外合资', '外资', '其他']
@@ -64,6 +65,10 @@ app.controller('regCtrl', ['$scope', '$http', function (s, h) {
   h.post('/HRZpxxFb/Tradeinfo').success(function (data) {
     s.list.trades = data.result;
   });
+  
+  s.getDraft = function(fn) {
+       
+  };
   
   
   // 验证用户名、手机、邮箱
