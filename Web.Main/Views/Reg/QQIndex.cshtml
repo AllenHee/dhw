@@ -24,15 +24,14 @@
             <h2 class="logo_text">
                 账户注册</h2>
         </div>
+        <div>
+            <a href="#">
+                <img src="@ViewBag.QQfigureurl_2" alt="#"></a><span style="font-size: 30px">
+                    @ViewBag.QQnickname</span>
+        </div>
         <div class="register" ng-app="regApp" ng-controller="regCtrl">
             <p class="register_text">
                 我已经注册，现在就 <a href="@{@BaseConfigs.GetUrlMain}login">登录</a></p>
-<<<<<<< HEAD
-=======
-            <ul class="reg_tabs clearfix">
-                <li class="reg_tab" ng-class="{current:isPersonal}" ng-click="isPersonal=true">个人用户</li>
-            </ul>
->>>>>>> 02c04467372f1e6df1776150db58660542e949ee
             <div class="reg_form reg_form-personal" ng-show="isPersonal" ng-cloak>
                 <form name="registerP">
                 <div class="formSet clearfix">
@@ -136,11 +135,7 @@
               <input class="getPhoneValiCode" type="button" value="获取短信验证码">
             </div>
           </div>-->
-<<<<<<< HEAD
-                @*<div class="formSet clearfix">
-=======
                 <div class="formSet clearfix">
->>>>>>> 02c04467372f1e6df1776150db58660542e949ee
                     <div class="formSetWrap">
                         <label class="formSet_label">
                             验证码：</label>
@@ -149,11 +144,7 @@
                         <img class="verifyImg" ng-click="codeRefresh()" src="/Login/VerifyCode?_=1450339330618"
                             alt="验证码">
                     </div>
-<<<<<<< HEAD
-                </div>*@
-=======
                 </div>
->>>>>>> 02c04467372f1e6df1776150db58660542e949ee
                 <div class="formSet formSet-agreement clearfix">
                     <div class="formSetWrap">
                         <label class="formSet_label">
@@ -174,7 +165,6 @@
                     </div>
                 </div>
                 </form>
-<<<<<<< HEAD
                 <!--绑定QQ帐号开始-->
                 <div class="login_form">
                     <div class="ttl_warp">
@@ -206,8 +196,6 @@
                     </div>
                 </div>
                 <!--绑定QQ帐号结束-->
-=======
->>>>>>> 02c04467372f1e6df1776150db58660542e949ee
             </div>
             <div class="errorPop_wrap">
             </div>
@@ -237,13 +225,12 @@
         <p class="copyrightText">
             Copyright@2015-2016 梦高速dreamhiway.com 版权所有</p>
     </div>
-    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/tpl.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/baseapp.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/regCtrl.js"></script>
-<<<<<<< HEAD
     <script src="@Html.Raw(BaseConfigs.GetUrlCdn)scripts/jquery.placeholder.js"></script>
     <script>
         $('input, textarea').placeholder();
@@ -306,7 +293,5 @@
             });
         })
     </script>
-=======
->>>>>>> 02c04467372f1e6df1776150db58660542e949ee
 </body>
 </html>

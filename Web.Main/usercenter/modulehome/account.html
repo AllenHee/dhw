@@ -98,7 +98,7 @@
       <div class="formSet clearfix">
         <div class="formSetWrap">
           <label class="formSet_label">公司宗旨：</label>
-          <input class="formSet_input" name="servertenet" type="text" ng-model="data.servertenet" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\(\)（）]{4,25}$/"
+          <input class="formSet_input" name="servertenet" type="text" ng-model="data.servertenet" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\?\。\,\.\(\)（）]{4,25}$/"
           ng-focus="servertenetTip=true" ng-blur="servertenetTip=false" required>
           <i class="formSet_icon success" ng-show="corporate.servertenet.$dirty && corporate.servertenet.$valid"></i>
         </div>
@@ -211,13 +211,26 @@
         </div>
       </div>
       <!--新增加的一个字段-->
-      <div class="formSet clearfix">
+      <!--<div class="formSet clearfix">
         <div class="formSetWrap">
           <label class="formSet_label">企业福利：</label>
-          <input class="formSet_input" name="fuli" type="email" ng-model="data.fuli" ng-focus="fuliTip=true" ng-blur="fuliTip=false">
+          <input class="formSet_input" name="fuli" type="text" ng-model="data.fuli" ng-focus="fuliTip=true" ng-blur="fuliTip=false" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\\,\，]{4,25}$/" 
+>
           <label class="formSet-tip" ng-show="fuliTip">请填写企业福利</label>
-          <label class="formSet-error" ng-show="!fullTip && corporate.fuli.$invalid">请用逗号隔开，请重新输入</label>
+          <label class="formSet-error" ng-show="!fuliTip && corporate.fuli.$invalid">请用逗号隔开，不能包含其他特殊字符，请重新输入</label>
         </div>
+      </div>-->
+      <!--企业福利-->
+       <div class="formSet clearfix">
+        <label class="formSet_label formSet_label-sku">企业福利：</label>
+        <span class="skuTip" ng-show="!abc">点击下方按钮添加业务范围</span>
+        <ul class="formSetWrap formSetWrap-sku clearfix">
+          <li class="skuItem clearfix" ng-repeat="fuli in fuliTemp track by $index">
+            <input class="formSet_input formSet_input-extrasmall" type="text" ng-model="fuli.value">
+            <button class="formSet_input_btn del" type="button" ng-click="fuliTemp.splice($index, 1)">删除</button>
+          </li>
+        </ul>
+        <button class="formSet_input_btn formSet_input_btn-sku" type="button" class="skuBtn" ng-click="addFuli()">添加福利范围</button>
       </div>
       <div class="formSet clearfix">
         <div class="formSetWrap">

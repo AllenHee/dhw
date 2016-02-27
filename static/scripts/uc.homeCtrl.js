@@ -364,41 +364,41 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 // 公司信息
   .controller('corporateCtrl', ["$scope", "$http", function (s, h) {
     s.data = {};
-    
+    s.draft = {};
+    s.fuliT={}
     // 列表数据
     s.list = {
       natures: ['政府机关/事业单位', '国营', '私营', '中外合资', '外资', '其他'],
       scales: ['5-10人', '10-50人', '50-100人', '100-200人', '200人以上']
     };
-
+    
     // 取得数据
-    h.post('/UserAccount/Company').success(function (data) {
-      var p = data.result.province;
-
-      if (p) {
-        var c = data.result.city;
-        s.area.province = p
-        s.areaList.cities = _areaselect_data.c[p];
-        s.areaShow.showCities = true;
-        if (!_areaselect_data.s[p]) {
-          s.areaList.counties = _areaselect_data.a[p + '-' + c];
-          s.areaShow.showCounties = true;
+    s.getDraft = function(fn){
+       h.post('/UserAccount/Company').success(function (data) { 
+        fn(data.result.area);
+        if(data.result.business) {
+          s.businessTemp = angular.fromJson(data.result.business);
         }
-
-        setTimeout(function () {
-          s.area.city = c;
-          s.area.county = data.result.addr;
-        });
-      }
-
-      $.extend(s.data, data.result);
-
-    });
+        if(data.result.fuli) {
+           s.fuliTep = data.result.fuli.split(',');
+           console.log(s.fuliTep);
+           for(var i = 0 ,len=s.fuliTep.length; i<len;i++){
+             s.fuliTemp.push({value:s.fuliTep[i]});
+           }
+        }
+        $.extend(s.data,data.result)
+      })
+    }
     // 添加业务范围
     s.businessTemp = [];
+    s.fuliTemp = [];
     s.addBusiness = function () {
       s.businessTemp.push({});
     };
+    s.addFuli = function() {
+      s.fuliTemp.push({});
+    }
+    //手机号码是否可见
     s.isVisible = function (elem) {
       if ($(elem).is(':checked')) {
         s.data.phonevisible = true;
@@ -409,15 +409,32 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     
     // 保存数据
     s.submit = function () {
-      var para = $.extend({}, s.data);
+     var content = s.draft.basic();
+    //  var a = s.data.fuli;
+    //  var con = a.replace(/，/,',')
+     var para = $.extend(s.data,content);
       para.business = [];
+      para.fuli = []
       for (var i = 0, len = s.businessTemp.length; i < len; i++) {
         para.business.push(s.businessTemp[i]);
       }
-      h.post('/UserAccount/CompanyEdit', para).success(function () {
+      para.business = angular.toJson(para.business);
+      for (var j = 0,len = s.fuliTemp.length; j < len; j++  ){
+         if(j<s.fuliTemp.length - 1) {
+           para.fuli += s.fuliTemp[j].value + "," 
+         }else {
+           para.fuli += s.fuliTemp[j].value
+         }
+      }
+      
+      
+      //数据提交到后台
+      h.post('/UserAccount/CompanyEdit', para).success(function (d) {
+        if(d.success) {
+        }
       });
-    };
-
+    }
+    
   }])
 // 教育经历
   .controller('educationCtrl', ["$scope", "$http", function (s, h) {

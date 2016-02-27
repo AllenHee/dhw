@@ -94,78 +94,136 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
       scope: true,
       template: function (elem, attrs) {
         return `
-        <div class="formSet clearfix">
-          <div class="formSetWrap">
-            <label class="formSet_label" for="${attrs.name}.province">
-              <span class="formRequired" ng-show="${attrs.required}"></span>${attrs.label}
-            </label>
-            <select class="formSet_select formSelect--multiple" id="${attrs.name}.province" name="${attrs.name}.province"
-              ng-model="data.${attrs.name}.province"
-              ng-options="item.name for item in ctrl.provinces"
-              ng-change="ctrl.getCities(data.${attrs.name}.province);data.${attrs.name}.city='';data.${attrs.name}.district=''"
-              ng-required="${attrs.required}"
-            >
-
-            </select>
-            <select class="formSet_select formSelect--multiple" id="${attrs.name}.city" name="${attrs.name}.city"
-              ng-model="data.${attrs.name}.city"
-              ng-options="item.name for item in ctrl.cities"
-              ng-change="ctrl.getDistricts(data.${attrs.name}.city);data.${attrs.name}.district=''"
-              ng-required="${attrs.required}"
-              ng-show="ctrl.isShowCities"
-            >
-            </select>
-            <select class="formSet_select formSelect--multiple" id="${attrs.name}.district" name="${attrs.name}.district"
-              ng-model="data.${attrs.name}.district"
-              ng-options="item.name for item in ctrl.districts"
-              ng-required="${attrs.required}"
-              ng-show="ctrl.isShowDistricts"
-            >
-            </select>
+        <div class="formSet">
+        <label class="formSet_label">${attrs.label}</label>
+        <div class="formSet-doubleWrap" class="clearfix">
+          <div class="SelectWrap SelectWrap-first">
+            <input class="formSet_input" type="text" ng-model="prov" ng-click="showSelectCont($event)" placeholder="省份" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="prov in provs" ng-click="getCitys(prov)">{{prov.name}}</li>
+            </ul>
           </div>
+          <div class="SelectWrap SelectWrap-second">
+            <input class="formSet_input" type="text" ng-model="citym" ng-click="showSelectCont($event)" placeholder="城市" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="citym in citys" ng-click="setCity(citym)">{{citym.name}}</li>
+            </ul>
+          </div>
+         
+          <div class="SelectWrap">
+            <input class="formSet_input" type="text" ng-model="country" ng-click="showSelectCont($event)" placeholder="区/县" readonly required>
+            <ul class="selectCont">
+              <li ng-repeat="country in countrys" ng-click="setCountry(country)">{{country.name}}</li>
+            </ul>
+          </div>
+        
         </div>
+      </div> 
       `;
       },
-      controller: ['$http', function ($http) {
-        var vm = this;
-      
-        // 市、县显示切换
-        vm.isShowCities = false;
-        vm.isShowDistricts = false;
-
-        // 省、市、县数据
-        vm.areaData = [];
-        // 获取省
-        vm.province = (function () {
-            $http.post('/Dict/city').success(function(res) {
-              vm.areaData = res.result;
-              vm.provinces = vm.areaData.filter(function(item) {
-                return item.type === 'province';
-              })
-            })
-        })();
-
-        // 点击省获取市
-        vm.getCities = function (province) {
-                       
-         vm.cities = vm.areaData.filter(function(item) {
-           return item.type === 'city' && item.code.slice(0,2) === province.code.slice(0,2);
-         })
-          vm.isShowCities = true; // 显示市
-          vm.isShowDistricts = false; // 隐藏县
-        };
-
-        // 点击市获取县
-        vm.getDistricts = function (city) {
-         vm.districts = vm.areaData.filter(function (item) {
-             return item.type === 'district' && item.code.slice(0, 4) === city.code.slice(0, 4);
-         });
+      controller: ['$scope','$http','$attrs', function (s,$http,$attrs) {
+        
+       s.dataP = {}
+       // 获取省份的数据
+        s.provs;
+     s.provinces = (() => {
+        $http.post('/Dict/city').success((res) => {
+           s.areaData = res.result;
+          
+          s.provs = s.areaData.filter((item) => {
+            return item.type === 'province';
+          });
+        });
+      })();
+        
+        
+    
+     
+      //提交成功之后获取后台返回给我们的数据
+     s.$parent.getDraft(function (draft) {
+      if (draft) {
+        s.prov = draft.province.name;
+        s.citym = draft.city.name;
+        s.country = draft.district.name
+ 
+      }
+    });
+    //将数据保存到跟作用域上
+    s.$parent.draft.basic = function () {
+      var draft = {};
+      draft.area = s.area;
+      return draft;
+      //return angular.toJson(draft);
+    };
+  
+    //取得城市的数据
+    s.getCitys = (provinces) => {
+      //获取城市的数据
+        s.citys = s.areaData.filter((item) => { 
+          return item.type === 'city' && item.code.slice(0, 2) === provinces.code.slice(0, 2); 
+        });
          
-          vm.isShowDistricts = true; // 显示县
-        };
-
-      }],
-      controllerAs: 'ctrl'
+        //初始化城市的第一个数据选择
+        s.citym = s.citys[0].name;
+        s.prov = provinces.name;
+        //清空县区的数据
+        s.country = '';
+        //此操作为用户只进行选择省份的操作
+        s.province = {code : provinces.code, name:provinces.name} ;
+        s.city = {code: s.citys[0].code, name: s.citym };
+        s.district = {code : '' ,name: ''};
+        s.data.area = {
+          province: s.province,
+          city: s.city,
+          district:s.district
+        }
+        $('.selectCont').hide();
+     };
+    // 取得县区的信息
+     s.setCity = function (citys) {
+        console.log("我选择的城市是" + citys.name);
+     //获取区县的数据
+      s.countrys = s.areaData.filter((item) => {
+        return item.type === 'district' && item.code.slice(0,4) === citys.code.slice(0,4);
+      });
+     
+      s.country = s.countrys[0].name;
+      s.citym = citys.name;
+      
+      s.city = {code : citys.code, name:citys.name}
+      s.district = {code : s.countrys[0].code, name:s.country}
+      
+      s.area = {
+        province: s.province,
+        city: s.city,
+        district:s.district
+      }
+       $('.selectCont').hide();
+    };
+    //设置县 区的model值
+    s.setCountry = function(countrys) {
+       console.log("我选择的乡村是" + countrys.name);
+      s.country = countrys.name
+      s.district = {code : countrys.code, name:s.country}
+      s.area = {
+        province: s.province,
+        city: s.city,
+        district:s.district
+      }
+       $('.selectCont').hide();
+    }
+         // 显示下拉框的行为
+    s.showSelectCont = function (event) {
+      event.stopPropagation();
+      $('.selectCont').hide();
+      $(event.target).next().show();
+    };
+    // 隐藏下拉框
+  //  s.hideSelectCont = function () {
+  //     $('.selectCont').hide();
+  //   };
+    }],
+       
     };
   })
   .directive('areaSelect', [function () {

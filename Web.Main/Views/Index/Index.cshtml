@@ -1,6 +1,6 @@
 ﻿@{
     Layout = null;
-    ViewBag.Title = "梦高速-中小微企业一站式服务平台";
+    ViewBag.Title = "梦高速—中小微企业—站式服务平台";
     ViewBag.Description = "梦高速平台通过会计服务、人才招聘、威客众包、众筹、互联网+等帮助中小微企业从0到1，从1到n高速发展的服务平台。";
     ViewBag.Keywords = "威客,互联网+,众包,需求定制,梦高速";
 }
@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>梦高速</title>
+    <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}fonts/iconfont.css">
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}/usercenter/styles/index.css">
@@ -34,6 +34,9 @@
         };
         if (dhw) dhw.gettplurl = function (name) { return function () { return '/moduledhw/' + name + '?_=' + (+new Date()) } }
     </script>
+    <script type="text/javascript">
+        var readCookie = function (a) { var b = a + "="; var c = document.cookie.split(";"); for (var d = 0; d < c.length; d++) { var e = c[d]; for (; " " == e.charAt(0); ) e = e.substring(1, e.length); if (0 == e.indexOf(b)) return e.substring(b.length, e.length) } return null }
+        var login = function () { return location.href = dhw.mainurl + "login?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 }; var regist = function () { return location.href = dhw.mainurl + "reg?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 };</script>
 </head>
 <body class="clearfix" ng-app="dhwApp" ng-controller="dhwCtrl">
     <!--左右箭头 开始-->
@@ -45,25 +48,10 @@
     </div>
     <!--左右箭头结束-->
     <div class="menuWrap">
-        <ul class="menu clearfix">
-            @{if (ViewBag.DUser.HasLogin)
-              {
-                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}@if (ViewBag.DUser.Type == 1)
-                                                                          {<text>apphome</text>}
-                                                                          else
-                                                                          {<text>apphome_company</text>}">
-                    @{@ViewBag.DUser.UserName}
-                    的个人中心</a></li>
-                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}&type=logout">
-                    退出</a></li>}
-              else
-              {  
-                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}reg?redirectURL=@Request.Url">
-                    注册</a></li>
-                <li class="menu_items"><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
-                    登录</a></li>
-              }}
-            <li class="menu_items"><a href="http://www.chuangqikeji.com/" target="_blank">创企官网</a></li>
+        <ul id="ll01" class="menu clearfix">
+            <li class="menu_items"><a href="javascript:regist();">注册</a></li><li class="menu_items">
+                <a href="javascript:login();">登录</a></li><li class="menu_items"><a href="http://www.chuangqikeji.com/"
+                    target="_blank">创企官网</a></li>
         </ul>
     </div>
     <div class="content">
@@ -109,7 +97,8 @@
     <div class="nav">
         <ul class="navItems clearfix">
             <li ng-repeat="module in modules" class="navItem" ng-if="module.show" ng-click="moduleSwitch(module.name, urlstate.current.name)">
-                <i class="module_icon {{module.name}}GreyIcon" ng-class="{ {{module.name}}Icon: urlstate.current.name === module.name}"></i>{{module.text}} </li>
+                <i class="module_icon {{module.name}}GreyIcon" ng-class="{ {{module.name}}Icon: urlstate.current.name === module.name}">
+                </i>{{module.text}} </li>
             <li class="navItem navItem-setting" ng-show="isLogin"><span class="navItem-setting_icon">
             </span></li>
         </ul>
@@ -135,7 +124,7 @@
     <!--[if lt IE 10]>
     <script type="text/javascript" src="@{@BaseConfigs.GetUrlCdn}lib/PIE.js"></script>
   <![endif]-->
-    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular-animate.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}lib/angular-ui-router/angular-ui-router.min.js"></script>
@@ -169,6 +158,27 @@
         $('.navPop_closeBtn, .navPop_confirm_btn').click(function () {
             $('.navPopWrap').hide();
         });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
+                if (r.success && r.result.IsAuthenticated) {
+                    dhw = dhw || {};
+                    dhw.isLogined = true;
+                    var app;
+                    var nickname = r.result.nickname;
+                    var name;
+                    if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
+                    if (nickname == "") {
+                        name = r.result.Name;
+                    }
+                    else {
+                        name = nickname + "(" + r.result.Name + ")";
+                    }
+                    $('#ll01').html('<li class="menu_items"><a href="' + dhw.urlmain + '' + app + '" target="_blank">' + name + '的个人中心</a></li><li class="menu_items"><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a></li><li class="menu_items"><a href="http://www.chuangqikeji.com/" target="_blank">创企官网</a></li>');
+                }
+            });
+        })
     </script>
 </body>
 </html>
