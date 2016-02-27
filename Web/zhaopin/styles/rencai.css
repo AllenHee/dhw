@@ -1011,3 +1011,71 @@
 .c-f-title span {
   cursor: pointer;
 }
+
+
+/*合伙人页面——李雅丽*/
+.partner {
+  overflow: hidden;
+  width: 1025px;
+  margin: 0 auto;
+}
+.partner_l {
+  float: left;
+}
+.partner_l .list {
+  overflow: hidden;
+  width: 780px;
+  height: 115px;
+  margin-bottom: 10px;
+  border: 1px solid #cdd7d7;
+}
+.partner_l img {
+  float: left;
+  margin-top: 18px;
+  margin-left: 25px;
+}
+.partner_l ul {
+  float: left;
+  margin-top: 30px;
+  margin-left: -20px;
+  list-style-type: none;
+}
+.partner_l .name {
+  padding-right: 10px;
+  font-size: 15px;
+  color: #3d9ccc;
+}
+.partner_l p {
+  font-size: 10px;
+  color: #8c8c8c;
+}
+.partner_l .vertical {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.partner_l button {
+  float: right;
+  width: 80px;
+  height: 30px;
+  margin-top: 45px;
+  margin-right: 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #fff;
+  background-color: #9ecde5;
+}
+.partner_r {
+  float: right;
+  width: 220px;
+}
+.partner_r img {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+.partner_r p {
+  margin-top: 50px;
+  line-height: 24px;
+  font-size: 15px;
+  color: #d0d0d0;
+}
