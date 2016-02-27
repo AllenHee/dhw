@@ -2156,6 +2156,10 @@ body .zc-mail:hover {
 .order_reduce {
   margin-right: 5px;
 }
+.disableReduce {
+  color: #c8c8c8;
+  background-color: #f2f2f2;
+}
 .order_add {
   margin-left: 5px;
 }
@@ -2166,4 +2170,14 @@ body .zc-mail:hover {
   border: 1px solid #ccc;
   text-align: center;
   vertical-align: middle;
+}
+.redWord {
+  color: red;
+}
+.order_detail {
+  padding: 10px 5px;
+  font-size: 13px; 
+}
+.order_company {
+  padding: 0 5px;
 }
