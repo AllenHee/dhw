@@ -10,31 +10,31 @@
                 <dt>工作地点：</dt>
                 <dd class="current">
                     全国</dd>
-                <dd data-citycode = "110000">
+                <dd data-citycode="110000">
                     北京</dd>
-                <dd data-citycode = "310000">
+                <dd data-citycode="310000">
                     上海</dd>
-                <dd data-citycode = "440300">
+                <dd data-citycode="440300">
                     深圳</dd>
-                <dd data-citycode = "440100">
+                <dd data-citycode="440100">
                     广州</dd>
-                <dd data-citycode = "330100">
+                <dd data-citycode="330100">
                     杭州</dd>
-                <dd data-citycode = "510100">
+                <dd data-citycode="510100">
                     成都</dd>
-                <dd data-citycode = "320100">
+                <dd data-citycode="320100">
                     南京</dd>
-                <dd data-citycode = "420100">
+                <dd data-citycode="420100">
                     武汉</dd>
-                <dd data-citycode = "210200">
+                <dd data-citycode="210200">
                     大连</dd>
-                <dd data-citycode = "350200">
+                <dd data-citycode="350200">
                     厦门</dd>
-                <dd data-citycode = "350100">
+                <dd data-citycode="350100">
                     福州</dd>
-                <dd data-citycode = "350500">
+                <dd data-citycode="350500">
                     泉州</dd>
-                <dd data-citycode = "120000">
+                <dd data-citycode="120000">
                     天津</dd>
                 <dd>
                 </dd>
@@ -43,32 +43,32 @@
                 </dd>
             </dl>
             <ul class="clearfix">
-                <li data-citycode = "500000">重庆</li>
-                <li data-citycode = "430100">长沙</li>
-                <li data-citycode = "370200">青岛</li>
-                <li data-citycode = "320200">无锡</li>
-                <li data-citycode = "440600">佛山</li>
-                <li data-citycode = "330200">宁波</li>
-                <li data-citycode = "410100">郑州</li>
-                <li data-citycode = "441900">东莞</li>
-                <li data-citycode = "320400">常州</li>
-                <li data-citycode = "210100">沈阳</li>
-                <li data-citycode = "130100">石家庄</li>
-                <li data-citycode = "530100">昆明</li>
-                <li data-citycode = "360100">南昌</li>
-                <li data-citycode = "450100">南宁 </li>
-                <li data-citycode = "230100">哈尔滨</li>
-                <li data-citycode = "460100">海口</li>
-                <li data-citycode = "442000">中山</li>
-                <li data-citycode = "441300">惠州</li>
-                <li data-citycode = "520100">贵阳</li>
-                <li data-citycode = "220100">长春</li>
-                <li data-citycode = "140100">太原</li>
-                <li data-citycode = "330400">嘉兴</li>
-                <li data-citycode = "370900">泰安</li>
-                <li data-citycode = "320583">昆山</li>
-                <li data-citycode = "370600">烟台</li>
-                <li data-citycode = "620100">兰州</li>
+                <li data-citycode="500000">重庆</li>
+                <li data-citycode="430100">长沙</li>
+                <li data-citycode="370200">青岛</li>
+                <li data-citycode="320200">无锡</li>
+                <li data-citycode="440600">佛山</li>
+                <li data-citycode="330200">宁波</li>
+                <li data-citycode="410100">郑州</li>
+                <li data-citycode="441900">东莞</li>
+                <li data-citycode="320400">常州</li>
+                <li data-citycode="210100">沈阳</li>
+                <li data-citycode="130100">石家庄</li>
+                <li data-citycode="530100">昆明</li>
+                <li data-citycode="360100">南昌</li>
+                <li data-citycode="450100">南宁 </li>
+                <li data-citycode="230100">哈尔滨</li>
+                <li data-citycode="460100">海口</li>
+                <li data-citycode="442000">中山</li>
+                <li data-citycode="441300">惠州</li>
+                <li data-citycode="520100">贵阳</li>
+                <li data-citycode="220100">长春</li>
+                <li data-citycode="140100">太原</li>
+                <li data-citycode="330400">嘉兴</li>
+                <li data-citycode="370900">泰安</li>
+                <li data-citycode="320583">昆山</li>
+                <li data-citycode="370600">烟台</li>
+                <li data-citycode="620100">兰州</li>
             </ul>
         </div>
         <div>
@@ -308,7 +308,7 @@
         </div>
         <div class="pos-apply"> 
         {{if job.delivery!="1"}}
-           <a class="applyPost" data-id="{{job.ID}}" target="_self" href="javascript:void(0);" rel="nofollow"> <button type="button">申请职位</button> </a>
+           <a class="applyPost" data-id="{{job.ID}}" target="_self" href="@{@BaseConfigs.GetUrlMain}apphr#/jlyl?JobID={{job.ID}}" rel="nofollow"> <button type="button">申请职位</button> </a>
         {{/if}}
         {{if job.delivery=="1"}}
         <button type="button">已申请</button> 

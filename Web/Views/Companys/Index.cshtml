@@ -158,7 +158,12 @@
     {{each data as company i}}
     <li>
       <div class="clearfix">
-        <div class="f-r-l"><a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/{{company.id}}"><img src="{{domain}}{{company.logo}}" alt="公司图标"></a></div>
+        {{if company.logo}}
+        <div class="f-r-l"><a href="#"><img src="{{domain}}{{company.logo}}" alt="公司图标"></a></div>
+        {{/if}}
+        {{if !company.logo}}
+        <div class="f-r-l"><a href="#"><img src="@BaseConfigs.GetStaticPath/images/default2.png" alt="公司图标"></a></div>
+        {{/if}}
         <div class="f-r-r">
           <h3><a href="@{@BaseConfigs.GetUrlMain}Company/Zhaopin/{{company.id}}">{{company.compay}}</a><small>{{company.trade}} / {{company.Nature}} / 规模：{{company.scale}}人</small></h3>
           <p><a href="#">{{company.numEvaluation}}</a>条面试评价</p>
