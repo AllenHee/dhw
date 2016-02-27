@@ -50,7 +50,6 @@ $(function () {
       elem.find("dd:last-child").prev().text(value).attr('data-citycode', citycode).trigger("click")
     });
   }
-  xxx
   // 职位列表页
   (function () {
     if ($(".pos-box").length) {

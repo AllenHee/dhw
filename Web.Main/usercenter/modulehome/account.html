@@ -5,6 +5,7 @@
     <li class="accTab" ng-class="{active:whichTab=='avatar'}" ng-click="whichTab='avatar'">个人头像</li>
     <li class="accTab" ng-class="{active:whichTab=='education'}" ng-click="whichTab='education'">教育经历</li>
     <li class="accTab" ng-class="{active:whichTab=='experience'}" ng-click="whichTab='experience'">工作经历</li>
+    <li class="accTab" ng-class="{active:whichTab=='fuwushang'}" ng-click="whichTab='fuwushang'">申请服务商</li>    <!--申请服务商-->
   </ul>
 </div>
 <div>
@@ -98,7 +99,7 @@
       <div class="formSet clearfix">
         <div class="formSetWrap">
           <label class="formSet_label">公司宗旨：</label>
-          <input class="formSet_input" name="servertenet" type="text" ng-model="data.servertenet" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\?\。\,\.\(\)（）]{4,25}$/"
+          <input class="formSet_input" name="servertenet" type="text" ng-model="data.servertenet" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_\?\。\，\、\,\.\(\)（）]{4,25}$/"
           ng-focus="servertenetTip=true" ng-blur="servertenetTip=false" required>
           <i class="formSet_icon success" ng-show="corporate.servertenet.$dirty && corporate.servertenet.$valid"></i>
         </div>
@@ -451,5 +452,34 @@
     </form>
   </div>
   <!--工作经历 结束-->
+  
+  <!--申请服务商开始-->
+ <div ng-show="whichTab=='fuwushang'" ng-controller="fuwushangCtrl">
+    <form name="fuwushang">
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label">联系人姓名：</label>
+          <input class="formSet_input" name="name" type="text" ng-model="data.lxrname" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
+          ng-focus="nameTip=true" ng-blur="nameTip=false" required>
+          <i class="formSet_icon success" ng-show="corporate.name.$dirty && corporate.name.$valid"></i>
+        </div>
+        <label class="formSet-tip" ng-show="nameTip">2-20位字符，可由中文或英文组成</label>
+        <label class="formSet-error formSet-error-long" ng-show="!nameTip && corporate.name.$invalid && !corporate.name.$error.required">
+              联系人姓名长度只能在2-20位字符之间
+          <br>联系人姓名只能由中文或英文组成
+        </label>
+        <label class="formSet-error" ng-show="!nameTip && corporate.name.$dirty && corporate.name.$error.required">请输入联系人姓名</label>
+      </div>
+      
+      <!--保存修改按钮-->
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label"></label>
+          <button class="submitBtn" type="button" ng-disabled="personal.$invalid" ng-click="submit()">保存修改</button>
+        </div>
+      </div>
+    </form>
+ </div>
+ <!--申请服务商结束-->
  
 </div>
