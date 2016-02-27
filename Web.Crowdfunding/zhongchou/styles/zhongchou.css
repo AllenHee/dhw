@@ -1437,7 +1437,7 @@ body .zc-mail:hover {
 /*支付完成——李雅丽*/
 .content {
   width: 1160px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   overflow: hidden;
   border: 1px solid #ececec;
 }
@@ -1595,7 +1595,7 @@ body .zc-mail:hover {
   margin-bottom: 25px;
   border-bottom: 1px solid #ededed;
 }
-.fukuan span {
+.fukuan_way span {
   color: #ea544a;
 }
 
@@ -2032,4 +2032,137 @@ body .zc-mail:hover {
   color: #fff;
   background-color: #ea544a;
   cursor: pointer;
+}
+
+/*支付弹出框*/
+.orderFinish_model_bg {
+  display: block;
+}
+.orderFinish_model {
+  display: block;
+  height: 310px;
+  padding-bottom: 20px;
+}
+.orderFinish_model .model_cont {
+  overflow-y: visible;
+}
+.model_cont_t {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.successPay,
+.failPay {
+  display: inline-block;
+  height: 18px;
+  padding: 0 15px 0 20px;
+  border-right: 1px solid #c6b79e;
+  font-weight: 700;
+}
+.successPay {
+  background: url(../images/44.png) no-repeat;
+}
+.choise {
+  margin-left: 15px;
+  margin-right: 5px;
+  color: #666;
+}
+.blueWord {
+  color: #00a9ed;
+}
+.failPay {
+  background: url(../images/44.png) 0 -18px no-repeat;
+}
+.model_cont_t_p {
+  margin-bottom: 15px;
+}
+.model_cont_t_p img {
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.model_cont_b h2 {
+  height: 18px;
+  line-height: 18px;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  background: url(../images/44.png) 0 -36px no-repeat;
+  font-weight: 700;
+}
+.moreHelp {
+  background-color: #dff2ff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.model_cont_b dt {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+}
+.model_cont_b dd {
+  margin-bottom: 15px;
+  font-size: 12px;
+  color: #666;
+}
+
+/*订单确认页面*/
+.inforLabel {
+  display: inline-block;
+  width: 120px;
+  margin-right: 5px;
+  line-height: 35px;
+  text-align: right;
+  font-size: 12px;
+  color: #444;
+}
+.buyerInfor {
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #ececec;
+  margin-bottom: 5px;
+}
+.order_table {
+  width: 100%;
+  border: 1px solid #e6e6e6;
+  border-collapse: collapse;
+}
+.order_table thead {
+  line-height: 40px;
+  background-color: #f4f4f4;
+}
+.order_table thead th {
+  font-weight: normal;
+}
+.order_table tbody {
+  text-align: center;
+  line-height: 25px;
+  font-size: 14px;
+}
+.order_table tbody td {
+  border: 1px solid #e6e6e6;
+}
+.order_reduce,
+.order_add {
+  display: inline-block;
+  height: 26px;
+  width: 26px;
+  border: 1px solid #ccc;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  font-size: 22px;
+  vertical-align: middle;
+}
+.order_reduce {
+  margin-right: 5px;
+}
+.order_add {
+  margin-left: 5px;
+}
+.order_count {
+  width: 35px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid #ccc;
+  text-align: center;
+  vertical-align: middle;
 }
