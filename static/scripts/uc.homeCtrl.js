@@ -653,9 +653,18 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
   }])
   // 申请服务商的控制器
   .controller('fuwushangCtrl',['$scope','$http',function($scope,$http){
-      //  $scope.submit = function(){
-        
-      //  }
+      $scope.data = {}
+      $scope.getDraft = function(){}
+      $scope.draft = {}
+      var para;
+      $scope.submit = function() {
+          para = $.extend($scope.draft,$scope.data);
+          $http.post('/ServiceInfo/ServiceAdd',para).success(function(d) {
+              if(d.success) {
+              }
+          })
+          
+      }
   }])
   .controller('servicesCtrl', ["$scope", "$http", function (s, h) {
 

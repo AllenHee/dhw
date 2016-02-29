@@ -5,7 +5,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
   $stateProvider.state('main', { url: "/", templateUrl: dhw.gettplurl('srdz-form.html'), controller: "srdzFormCtrl" })
     .state('list', { url: "/list", templateUrl: dhw.gettplurl('srdz-list.html'), controller: "srdzlistCtrl" })
     .state('detail', { url: "/detail/:id", templateUrl: dhw.gettplurl('srdz-detail.html'), controller: "srdzdetailCtrl" })
-    .state('gzlist', { url: "/gzlist", templateUrl: dhw.gettplurl('srdz-gzlist.html'), controller: 'srdzgzlistCtrl' });
+    .state('gzlist', { url: "/gzlist", templateUrl: dhw.gettplurl('srdz-gzlist.html'), controller: 'srdzgzlistCtrl' })
+    .state('fuwushang', { url: "/fuwushang", templateUrl: dhw.gettplurl('fuwushang.html'), controller: 'fuwushangCtrl' })
+    
 }]);
 
 app.controller("srdzFormCtrl", ['$scope', '$http', '$location', function (s, h, l) {
@@ -141,4 +143,19 @@ app.controller("srdzFormCtrl", ['$scope', '$http', '$location', function (s, h, 
       $.post('/SrdzGz/AttentionDel', { id: id });
       $scope.loaddata(1);
     }
+  }])
+   // 申请服务商的控制器
+  .controller('fuwushangCtrl',['$scope','$http',function($scope,$http){
+      $scope.data = {}
+      $scope.getDraft = function(){}
+      $scope.draft = {}
+      var para;
+      $scope.submit = function() {
+          para = $.extend($scope.draft,$scope.data);
+          $http.post('/ServiceInfo/ServiceAdd',para).success(function(d) {
+              if(d.success) {
+              }
+          })
+          
+      }
   }]);
