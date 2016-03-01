@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "该众筹已下架！";
+}
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>网页不存在</title>
+</head>
+
+<body>
+    <div class="notFound">
+      <img class="notFound_pic" src="@{@BaseConfigs.GetUrlCdn}zhongchou/images/01.png" alt="photo">
+      <div class="notFound_r">
+        <h2 class="notFound_ttl">抱歉. 该众筹不存在或已结束.</h2>
+        <a class="return" href="@{@BaseConfigs.GetUrlZc}">返回首页>></a>系统将在 <span class="notFound_time"></span> 秒后自动跳转
+      </div>
+
+    </div>
+
+  <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+  <script>
+      var i = 5;
+      setTimeout(function () {
+          location.href = '@{@BaseConfigs.GetUrlZc}';
+      }, 6000)
+      setInterval(function () {
+          if (i > 0) {
+              $('.notFound_time').html(i);
+              i = i - 1;
+          }
+      }, 1000)
+  </script>
+</body>
+
+</html>

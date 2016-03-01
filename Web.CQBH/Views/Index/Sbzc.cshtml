@@ -1,34 +1,82 @@
-﻿@{ViewBag.Title = "产权保护-商标注册";}
+﻿@{ViewBag.Title = "商标注册 - 梦高速";}
 <div class="sbzc_wrap">
-    <div class="sbzc_top"></div>
-  </div>
-  <div class="sbzc">
+    <div class="sbzc_top">
+    </div>
+</div>
+<div class="sbzc">
     <form>
-      <input class="sbzc_text" type="text">
-      <input class="sbzc_btn" type="button" value="免费查询能否注册">
-    </form> 
+    <input class="sbzc_text" type="text">
+    <input class="sbzc_btn" type="button" value="免费查询能否注册">
+    </form>
     <div class="sbzc_txt">
-      <p class="sbzc_p1">
-        降低注册成本</br>
-        经济便捷
-      </p>
-      <p class="sbzc_p2">选择梦高速商标注册服务</p>
-      <p class="sbzc_p3">节省财力和人力</p>
+        <p class="sbzc_p1">
+            降低注册成本</br> 经济便捷
+        </p>
+        <p class="sbzc_p2">
+            选择梦高速商标注册服务</p>
+        <p class="sbzc_p3">
+            节省财力和人力</p>
     </div>
     <div class="sbzc_imgs_wrap">
-      <ul class="sbzc_imgs">
-        <li class="sbzc_img"><img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_04.jpg" alt=""></li>
-        <li class="sbzc_img"><img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_04.jpg" alt=""></li>
-        <li class="sbzc_img"><img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_04.jpg" alt=""></li>
-        <li class="sbzc_img last"><img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_04.jpg" alt=""></li>
-      </ul>
-    </div>   
-  </div>
-  <div class="sbzc_b">
-    <p class="sbzc_b_p1">对客户、我们从来都是全心全意</p>
-    <p class="sbzc_b_p2">努力让客户放心满意 全心全意为客户服务</p>
-    <div><img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_03.png" alt=""></div>
-  </div>
- 
-
- 
+        <ul class="sbzc_imgs">
+            <li class="sbzc_img">
+                <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_01.jpg" alt=""></li>
+            <li class="sbzc_img">
+                <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_02.jpg" alt=""></li>
+            <li class="sbzc_img">
+                <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_03.jpg" alt=""></li>
+            <li class="sbzc_img last">
+                <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_04.jpg" alt=""></li>
+        </ul>
+    </div>
+</div>
+<div class="sbzc_b">
+    <p class="sbzc_b_p1">
+        对客户、我们从来都是全心全意</p>
+    <p class="sbzc_b_p2">
+        努力让客户放心满意 全心全意为客户服务</p>
+    <div>
+        <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/sbzc_03.png" alt=""></div>
+</div>
+<!--弹出层 开始-->
+<div class="query_bg">
+    <div class="query">
+        <div class="query_title">
+            商标免费查询</div>
+        <span class="query_close">×</span>
+        <div class="query_cont">
+            <form>
+            <h2>
+                专业顾问人工查询 , 结果分析更精确.</h2>
+            <div class="query_items">
+                <label>
+                    <span class="redstar">*</span>商标名称 :
+                </label>
+                <input type="text" id="name">
+                <span class="errorTip" id="name_err">商标名称不能为空</span>
+            </div>
+            <div class="query_items">
+                <label>
+                    <span class="redstar">*</span>联系电话 :
+                </label>
+                <input type="text" id="phone">
+                <span class="errorTip" id="phone_err">联系电话不能为空</span>
+            </div>
+            <div>
+                <label>
+                    联系人 :
+                </label>
+                <input type="text">
+            </div>
+            <div class="query_button">
+                <button class="sb" id="query_button" type="button">
+                    获取查询结果</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--弹出层 结束-->
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/cqbh.js"></script>
+}
