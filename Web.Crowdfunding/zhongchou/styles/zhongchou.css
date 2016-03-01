@@ -2181,3 +2181,90 @@ body .zc-mail:hover {
 .order_company {
   padding: 0 5px;
 }
+
+/*地址弹出框*/
+.newaddr_model {
+  width: 940px;
+  height: 550px;
+  margin-left: -470px;
+}
+.newaddr_model .model_cont {
+  overflow-y: visible;
+}
+.addrForm {
+  position: relative;
+}
+.newaddrForm {
+  margin-bottom: 15px;
+}
+.newaddr_ttl {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.newaddr_ttl span {
+  margin-right: 10px;
+  color: #fc6210;
+}
+.newaddrForm_label {
+  display: inline-block;
+  width: 90px;
+  margin-right: 5px;
+  text-align: right;
+}
+.newaddrForm_label_required {
+  color: #fc6210;
+}
+.newaddrForm_input {
+  width: 190px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #cdd7d7;
+  font-size: 12px;
+}
+.newaddrForm_textarea {
+  width: 380px;
+  height: 70px;
+  padding: 0 10px;
+  border: 1px solid #cdd7d7;
+  vertical-align: top;
+}
+.newaddrForm_input-short {
+  width: 50px;
+}
+.newaddrForm_btn {
+  width: 70px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  margin-left: 98px;
+  background-color: #ff4001;
+  color: #fff;
+  cursor: pointer;
+}
+.order_addr {
+  display: none;
+  position: absolute;
+  top: 30px;
+  max-height: 150px;
+  min-width: 70px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  overflow-y: scroll;
+}
+.addr_province {
+  left: 100px;
+}
+.addr_city {
+  left: 175px;
+}
+.addr_county {
+  left: 253px;
+}
+.addr_province li:hover,
+.addr_county li:hover,
+.addr_city li:hover {
+  color: #fff;
+  background-color: #fc6210;
+}
