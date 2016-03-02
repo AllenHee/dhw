@@ -4,136 +4,102 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="styles/rencai.css">
   <script type="text/html" id="hhrTem">
     {{each data as hhr}}
     <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">{{hhr.realname}}</span>{{hhr.province_name}}</p>
-          </li>
-          <li>
-            <p>{{hhr.dpname}}<span class="vertical">|</span>{{hhr.company}}</p>
-          </li>
-        </ul>
-        <button>+好友</button>
-      </div>
+      <img src="images/touxiang.png" alt="">
+      <ul>
+        <li>
+          <p><span class="name">{{hhr.realname}}</span>{{hhr.province_name}}</p>
+        </li>
+        <li>
+          <p>{{hhr.dpname}}<span class="vertical">|</span>{{hhr.company}}</p>
+        </li>
+      </ul>
+      <button>+好友</button>
+    </div>
     {{/each}}
   </script>
 </head>
 
 <body>
-  <div class="partner">
-    <div class="partner_l">
-      <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">陈锦清</span>福建省</p>
-          </li>
-          <li>
-            <p>软件工程师<span class="vertical">|</span>创企科技有限公司</p>
-          </li>
+  <div class="content">
+    <div class="filter-box">
+      <div class="has-more">
+        <dl class="clearfix">
+          <dt>行业领域：</dt>
+          <dd class="current">不限</dd>
+          <dd>移动互联网</dd>
+          <dd>电子商务</dd>
+          <dd>金融</dd>
+          <dd>企业服务</dd>
+          <dd>教育</dd>
+          <dd>O2O</dd>
+          <dd>硬件</dd>
+          <dd>社交网络</dd>
+          <dd></dd>
+          <dd class="more">更多 <i></i></dd>
+        </dl>
+        <ul class="clearfix">
+          <li>旅游</li>
+          <li>医疗健康</li>
+          <li>生活服务</li>
+          <li>信息安全</li>
+          <li>数据服务</li>
+          <li>广告营销</li>
+          <li>招聘</li>
+          <li>其他</li>
         </ul>
-        <button>+好友</button>
       </div>
-      <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">陈锦清</span>福建省</p>
-          </li>
-          <li>
-            <p>软件工程师<span class="vertical">|</span>创企科技有限公司</p>
-          </li>
-        </ul>
-        <button>+ 好友</button>
-      </div>
-      <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">陈锦清</span>福建省</p>
-          </li>
-          <li>
-            <p>软件工程师<span class="vertical">|</span>创企科技有限公司</p>
-          </li>
-        </ul>
-        <button>+ 好友</button>
-      </div>
-      <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">陈锦清</span>福建省</p>
-          </li>
-          <li>
-            <p>软件工程师<span class="vertical">|</span>创企科技有限公司</p>
-          </li>
-        </ul>
-        <button>+ 好友</button>
-      </div>
-      <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">陈锦清</span>福建省</p>
-          </li>
-          <li>
-            <p>软件工程师<span class="vertical">|</span>创企科技有限公司</p>
-          </li>
-        </ul>
-        <button>+ 好友</button>
-      </div>
-      <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">陈锦清</span>福建省</p>
-          </li>
-          <li>
-            <p>软件工程师<span class="vertical">|</span>创企科技有限公司</p>
-          </li>
-        </ul>
-        <button>+ 好友</button>
-      </div>
-      <div class="list">
-        <img src="images/touxiang.png" alt="">
-        <ul>
-          <li>
-            <p><span class="name">陈锦清</span>福建省</p>
-          </li>
-          <li>
-            <p>软件工程师<span class="vertical">|</span>创企科技有限公司</p>
-          </li>
-        </ul>
-        <button>+ 好友</button>
-      </div>
-
-
     </div>
-    <div class="partner_r">
-      <img src="images/partner.png" alt="">
-      <p>
-        创业是一条艰难的道路，在这个过程中会遇到各种意想不到的困难，其中最为艰难的，是选择正确的合伙人和员工。创业的成败有很多因素，市场、项目、销售、技术，但最为重要的人才，所有的事情都是人做出来的，特别是在创业期，待遇不高、工作艰苦、身兼数职，所有的这些因素都制约优秀人才引入。我的身边有很多创业的朋友，和我有着共同的困惑和对人才......
-      </p>
+
+    <div class="partner">
+      <div class="partner_l">
+      </div>
+      <div class="partner_r">
+        <img src="images/partner.png" alt="">
+        <p>
+          创业是一条艰难的道路，在这个过程中会遇到各种意想不到的困难，其中最为艰难的，是选择正确的合伙人和员工。创业的成败有很多因素，市场、项目、销售、技术，但最为重要的人才，所有的事情都是人做出来的，特别是在创业期，待遇不高、工作艰苦、身兼数职，所有的这些因素都制约优秀人才引入。我的身边有很多创业的朋友，和我有着共同的困惑和对人才......
+        </p>
+      </div>
     </div>
+    <div class="pagination"></div>
   </div>
+
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
   <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/general.js"></script>
   <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
-  
+
   <script>
     var para = {
       pageIndex: 1,
       pageSize: 10,
       industry: null
     }
-    // $.post('/Partne/PartneList', para).success(function(data) {
-    //   console.log(data);
-    // })
     loadData('/Partne/PartneList', para,'hhrTem','.partner_l')
+    $('.has-more dd').click(function() {
+      if($(this).hasClass('more')) {
+        return false;
+      }
+      
+      para.industry = $(this).text();
+      if($(this).text() === '不限') {
+        para.industry = null;
+      }
+      loadData('/Partne/PartneList', para,'hhrTem','.partner_l')
+    })
+    $('.has-more li').click(function() {
+      if($(this).hasClass('more')) {
+        return false;
+      }
+      para.industry = $(this).text();
+      loadData('/Partne/PartneList', para,'hhrTem','.partner_l')
+    })
   </script>
 </body>
 

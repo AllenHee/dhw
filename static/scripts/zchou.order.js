@@ -38,8 +38,18 @@ $('.model_cancel').click(function () {
 })
 
 
-$('.paynow').click(function() {
-  window,location.href = '/pay3' + '/' + orderno;
-  var url = '/CpzcOrder/Alipay?number=' + orderno
-  window.open(url, '_blank');
+$('.paynow').click(function () {
+  var payment = $('.fukuan_radiot').attr('data-payment');
+  var hbcount = $('.order_count').attr('value');
+  var para = {
+    number: orderno,
+    payment: payment,
+    hbcount: hbcount
+  }
+  $.post('/cpzcorder/edit', para).success(function () {
+    window, location.href = '/pay3' + '/' + orderno;
+    var url = '/CpzcOrder/Alipay?number=' + orderno
+    window.open(url, '_blank');
+  })
+
 })
