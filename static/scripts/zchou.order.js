@@ -46,10 +46,9 @@ $('.paynow').click(function () {
     payment: payment,
     hbcount: hbcount
   }
-  $.post('/cpzcorder/edit', para).success(function () {
-    window, location.href = '/pay3' + '/' + orderno;
-    var url = '/CpzcOrder/Alipay?number=' + orderno
+    var url = '/CpzcOrder/Alipay?number=' + orderno + '&payment=' + payment + '&hbcount=' + hbcount
     window.open(url, '_blank');
-  })
+    window, location.href = '/pay3' + '/' + orderno;
+
 
 })
