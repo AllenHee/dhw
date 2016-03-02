@@ -1437,7 +1437,6 @@ body .zc-mail:hover {
 /*支付完成——李雅丽*/
 .content {
   width: 1160px;
-  height: 780px;
   margin: 0 auto 30px;
   overflow: hidden;
   border: 1px solid #ececec;
@@ -2269,4 +2268,20 @@ body .zc-mail:hover {
 .addr_city li:hover {
   color: #fff;
   background-color: #fc6210;
+}
+
+/*订单详情*/
+.order_detail_set {
+  float: left;
+  width: 400px;
+}
+.order_detail_det {
+  padding-left: 90px;
+}
+.detail_table {
+  margin-top: 30px;
+}
+.orderDet_pic {
+  width: 125px;
+  height: 90px;
 }
