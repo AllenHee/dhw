@@ -41,11 +41,6 @@ $('.model_cancel').click(function () {
 $('.paynow').click(function () {
   var payment = $('.fukuan_radiot').attr('data-payment');
   var hbcount = $('.order_count').attr('value');
-  var para = {
-    number: orderno,
-    payment: payment,
-    hbcount: hbcount
-  }
     var url = '/CpzcOrder/Alipay?number=' + orderno + '&payment=' + payment + '&hbcount=' + hbcount
     window.open(url, '_blank');
     window, location.href = '/pay3' + '/' + orderno;

@@ -111,6 +111,15 @@
       </div>
     </div>
   </div>
+  <script>
+    // 点击立即付款
+    $('.paynow').click(function () {
+      var payment = $('.fukuan_radiot').attr('data-payment');
+        var url = '/SrdzOrder/Alipay?number=' + orderno + '&payment=' + payment;
+        window.open(url, '_blank');
+        window, location.href = '/pay3' + '/' + orderno;
+    })
+  </script>
 </body>
 
 </html>
