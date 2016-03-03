@@ -14,6 +14,7 @@
             urlmain: '//192.168.2.145:8085/', urlcdn: '//192.168.2.10:81/', urlzc: '//localhost:8088/', urlkj: '//localhost:8087/', urlhr: '//localhost:8086/', urlzckj: '//localhost:8091/',
             urlzb: '//localhost:8090/', urldiy: '//localhost:8092/', urlsrdz: '//localhost:8093/', urlcqbh: '//localhost:8094/', urlzxsj: '//localhost:8095/', urlgsss: '//localhost:8096/'
         };
+        var shoppingCartID = [5];
   </script>
 </head>
 
@@ -44,6 +45,17 @@
       <div class="orderfill_cont">
         <h2 class="order_secondTtl">收货地址</h2>
         <div class="address_tem">
+          <div class="areaSelect clearfix">
+            <label class="sendFor"><i></i>寄送至</label>
+            <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">黄文明</span><span class="orderfill_phone">12345678910</span>
+              <span class="orderfill_addr">福建省 泉州市 <span class="district_name" data-code="110000">鸿山镇</span> 创企信息科技有限公司</span>
+            </p>
+            <ul class="operate clearfix">
+              <li class="operate_items operate_items_grey">默认地址</li>
+              <li class="operate_items" id="modify" data-id="">修改</li>
+              <li class="operate_items" id="delete">删除</li>
+            </ul>
+          </div>
         </div>
         <p class="newAddr">使用新地址</p>
         <h2 class="order_secondTtl">发票信息</h2>
