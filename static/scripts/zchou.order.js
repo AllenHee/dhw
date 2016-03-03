@@ -37,7 +37,7 @@ $('.model_cancel').click(function () {
   $('.model_bg').hide();
 })
 
-
+// 点击立即付款
 $('.paynow').click(function () {
   var payment = $('.fukuan_radiot').attr('data-payment');
   var hbcount = $('.order_count').attr('value');
@@ -49,6 +49,4 @@ $('.paynow').click(function () {
     var url = '/CpzcOrder/Alipay?number=' + orderno + '&payment=' + payment + '&hbcount=' + hbcount
     window.open(url, '_blank');
     window, location.href = '/pay3' + '/' + orderno;
-
-
 })

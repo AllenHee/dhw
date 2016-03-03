@@ -16,6 +16,26 @@
         };
         var shoppingCartID = [5];
   </script>
+  <script type="text/html" id="addressTem">
+    {{each result as addr}} {{if addr.isDefault === false}}
+    <div class="areaSelect clearfix">
+      {{/if}} {{if addr.isDefault === true}}
+      <div class="areaSelect clearfix confirm selected_addr">
+        {{/if}}
+        <label class="sendFor"><i></i>寄送至</label>
+        <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">{{addr.name}}</span><span class="orderfill_phone">{{addr.mobile}}</span>
+          <span class="orderfill_addr">{{addr.province_name}} {{addr.city_name}} <span class="district_name" data-code="{{addr.district_code}}">{{addr.district_name}}</span>          {{addr.address}}</span>
+        </p>
+        <ul class="operate clearfix">
+          <li class="operate_items operate_items_grey">默认地址</li>
+          <li class="operate_items" id="modify" data-id="{{addr.id}}">修改</li>
+          <li class="operate_items" id="delete">删除</li>
+        </ul>
+      </div>
+      {{/each}}
+
+  </script>
+
 </head>
 
 <body>
@@ -137,6 +157,7 @@
     <!--弹出层 结束-->
   </div>
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
   <script src="http://localhost:8070/scripts/srdz.order.js"></script>
 </body>
 
