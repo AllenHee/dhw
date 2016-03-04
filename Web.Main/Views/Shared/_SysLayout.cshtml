@@ -93,7 +93,7 @@
                 <li class="ucNav_list_item ucNav_list_item--slider"></li>
                 <a href="@Helper2.AppUrl("/AppHome", ViewBag.LoginAsCompany)" target="_self">
                     <li class="ucNav_list_item ucNav_list_item--active">首页</li></a> <a href="@{@BaseConfigs.GetUrlMain}apphr#/">
-                        <li class="ucNav_list_item">人才招聘</li></a> <a href="@Helper1.AppUrl("/AppCF", ViewBag.LoginAsCompany)">
+                        <li class="ucNav_list_item">人才招聘</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzc#/">
                             <li class="ucNav_list_item">众筹</li></a> <a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
                                 <li class="ucNav_list_item">众创空间</li></a>
                 <li class="ucNav_list_item ucNav_list_item--all" show-all-modules>
@@ -106,7 +106,7 @@
                         <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}apphr#/">
                             <i class="ucNav_list_item--all_list_item_icon rczp"></i><span class="ucNav_list_item--all_list_item_text">
                                 人才招聘</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@Helper1.AppUrl("/AppCF", ViewBag.LoginAsCompany)">
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzc#/">
                             <i class="ucNav_list_item--all_list_item_icon zchou"></i><span class="ucNav_list_item--all_list_item_text">
                                 众筹</span> </a></li>
                         <li class="ucNav_list_item--all_list_item"><a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
@@ -179,6 +179,7 @@
     <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}static/lib/webuploader.nolog.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}static/js/angular.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/js/common.js"></script>
     <script type="text/javascript">
         $(function () {
             $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
