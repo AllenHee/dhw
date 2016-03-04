@@ -459,23 +459,78 @@
       <div class="formSet clearfix">
         <div class="formSetWrap">
           <label class="formSet_label">联系人姓名：</label>
-          <input class="formSet_input" name="name" type="text" ng-model="data.lxrname" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
+          <input class="formSet_input" name="name" type="text" ng-model="data.name" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
           ng-focus="nameTip=true" ng-blur="nameTip=false" required>
-          <i class="formSet_icon success" ng-show="corporate.name.$dirty && corporate.name.$valid"></i>
+          <i class="formSet_icon success" ng-show="fuwushang.name.$dirty && fuwushang.name.$valid"></i>
         </div>
         <label class="formSet-tip" ng-show="nameTip">2-20位字符，可由中文或英文组成</label>
-        <label class="formSet-error formSet-error-long" ng-show="!nameTip && corporate.name.$invalid && !corporate.name.$error.required">
+        <label class="formSet-error formSet-error-long" ng-show="!nameTip && fuwushang.name.$invalid && !fuwushang.name.$error.required">
               联系人姓名长度只能在2-20位字符之间
           <br>联系人姓名只能由中文或英文组成
         </label>
-        <label class="formSet-error" ng-show="!nameTip && corporate.name.$dirty && corporate.name.$error.required">请输入联系人姓名</label>
+        <label class="formSet-error" ng-show="!nameTip && fuwushang.name.$dirty && fuwushang.name.$error.required">请输入联系人姓名</label>
       </div>
-      
+      <div class="formSet clearfix">
+        <div class="formSetWrap">
+          <label class="formSet_label">图片LOGO：</label>
+          <input class="formSet_input" name="logo" type="text" ng-model="data.logo" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
+          ng-focus="logoTip=true" ng-blur="logoTip=false" required>
+          <i class="formSet_icon success" ng-show="fuwushang.logo.$dirty && fuwushang.logo.$valid"></i>
+        </div>
+        <label class="formSet-tip" ng-show="logoTip">2-20位字符，可由中文或英文组成</label>
+        <label class="formSet-error formSet-error-long" ng-show="!logoTip && fuwushang.logo.$invalid && !fuwushang.logo.$error.required">
+              联系人姓名长度只能在2-20位字符之间
+          <br>联系人姓名只能由中文或英文组成
+        </label>
+        <label class="formSet-error" ng-show="!logoTip && fuwushang.logo.$dirty && fuwushang.logo.$error.required">请输入联系人姓名</label>
+      </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+          <label class="formSet_label">手机号码：</label>
+          <input class="formSet_input" name="phone" type="text" ng-model="data.phone" ng-pattern="/^(([\d]\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/"
+          ng-focus="phoneTip=true" ng-blur="phoneTip=false" required>
+          <i class="formSet_icon success" ng-show="fuwushang.phone.$dirty && fuwushang.phone.$valid"></i>
+      </div>
+      <label class="formSet-tip" ng-show="phoneTip">请填写手机号码</label>
+      <label class="formSet-error formSet-error-long" ng-show="!phoneTip && fuwushang.phone.$invalid && !fuwushang.phone.$error.required">
+            号码格式不正确，请重新输入
+      </label>
+      <label class="formSet-error" ng-show="!phoneTip && fuwushang.phone.$dirty && fuwushang.phone.$error.required">请输入手机号码</label>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+          <label class="formSet_label">地址信息：</label>
+          <input class="formSet_input" name="address" type="text" ng-model="data.address" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
+          ng-focus="addressTip=true" ng-blur="addressTip=false" required>
+          <i class="formSet_icon success" ng-show="fuwushang.address.$dirty && fuwushang.address.$valid"></i>
+        </div>
+        <label class="formSet-tip" ng-show="addressTip">2-20位字符，可由中文或英文组成</label>
+        <label class="formSet-error formSet-error-long" ng-show="!addressTip && fuwushang.address.$invalid && !fuwushang.address.$error.required">
+              地址信息长度只能在2-20位字符之间
+          <br>地址信息只能由中文或英文组成
+        </label>
+        <label class="formSet-error" ng-show="!addressTip && fuwushang.address.$dirty && fuwushang.address.$error.required">请输入地址信息</label>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+          <label class="formSet_label">文本信息：</label>
+          <input class="formSet_input" name="text" type="text" ng-model="data.text" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z]{2,20}$/"
+          ng-focus="textTip=true" ng-blur="textTip=false" required>
+          <i class="formSet_icon success" ng-show="fuwushang.text.$dirty && fuwushang.text.$valid"></i>
+        </div>
+        <label class="formSet-tip" ng-show="textTip">2-20位字符，可由中文或英文组成</label>
+        <label class="formSet-error formSet-error-long" ng-show="!textTip && fuwushang.text.$invalid && !fuwushang.text.$error.required">
+              文本信息长度只能在2-20位字符之间
+          <br>文本信息只能由中文或英文组成
+        </label>
+        <label class="formSet-error" ng-show="!textTip && fuwushang.text.$dirty && fuwushang.text.$error.required">请输入文本信息</label>
+    </div>
+    <div select-area data-label="公司地址:" data-required="true" data-name="area"></div>
       <!--保存修改按钮-->
       <div class="formSet clearfix">
         <div class="formSetWrap">
           <label class="formSet_label"></label>
-          <button class="submitBtn" type="button" ng-disabled="personal.$invalid" ng-click="submit()">保存修改</button>
+          <button class="submitBtn" type="button" ng-disabled="fuwushang.$invalid" ng-click="submit()">保存修改</button>
         </div>
       </div>
     </form>
