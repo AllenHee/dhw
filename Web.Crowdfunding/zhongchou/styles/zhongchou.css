@@ -1434,102 +1434,6 @@ body .zc-mail:hover {
   overflow: hidden;
 }
 
-/*支付完成——李雅丽*/
-.content {
-  width: 1160px;
-  margin: 0 auto 30px;
-  overflow: hidden;
-  border: 1px solid #ececec;
-}
-.pay_l {
-  float: left;
-  width: 350px;
-  margin-top: 70px;
-  margin-left: 250px;
-  background: url(../images/wancheng.png) no-repeat;
-}
-.pay_l img {
-  float: left;
-}
-.text {
-  margin-top: 20px;
-  margin-left: 60px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-}
-.number {
-  margin-top: 10px;
-  margin-left: 60px;
-  font-size:10px;
-  color: #ea544a;
-}
-.online {
-  margin-top: 30px;
-  margin-left: 30px;
-  padding-left: 30px;
-  margin-top: 30px;
-  font-size: 10px;
-  color: #333;
-} 
-.pay_l .details {
-  display: inline-block;
-  padding-left: 30px;
-  margin-top: 10px;
-  text-decoration: none;
-  font-size: 10px;
-  color: #333;
-}
-.pay_l .going
- {
-  width: 150px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left: 30px;
-  font-size: 20px;
-  color: #fff;
-  background-color: #ea544a;
-  border: 1px solid #ea544a;
-  border-radius: 10px;
-}
-.pay_r {
- float: right;
- margin-top: 100px;
- margin-right: 240px;
-}
-.pay_r img {
-  margin-left: 55px;
-}
-.pay_r p { 
-  font-size: 15px;
-  font-weight: bold;
-  color: #666;
-}
-.pay_b {
-  float: left;
-  margin-left: 100px;
-  margin-top: 190px;
-  color: #333;
-  font-size: 16px;
-}
-.important {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-.pay_b {
-  margin-bottom: 20px;
-  line-height: 25px;
-}
-.pay_b span {
-  color: #ea544a;
-}
-.pay_b a {
-  text-decoration: none;
-}
-.notice {
-  color: #5c5fcd;
-}
-
 /*没找到众筹时显示的页面*/
 .notFound {
   width: 600px;
@@ -1563,6 +1467,103 @@ body .zc-mail:hover {
   color: red;
 }
 
+/*支付完成——李雅丽*/
+.content {
+  width: 1160px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+}
+.pay_l {
+  float: left;
+  width: 340px;
+  margin-top: 68px;
+  margin-left: 253px;
+  background: url(../images/wancheng.png) no-repeat;
+}
+
+.text {
+  margin-top: 26px;
+  margin-left: 60px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.number {
+  margin-left: 63px;
+  height: 30px;
+  line-height: 30px;
+  font-size:12px;
+  color: #ea544a;
+}
+.online {
+  margin-top: 23px;
+  margin-left: 32px;
+  font-size: 12px;
+  color: #333;
+} 
+.pay_l .details {
+  display: inline-block;
+  margin-top: 14px;
+  margin-left: 32px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #333;
+}
+.pay_l .going
+ {
+  width: 150px;
+  height: 40px;
+  margin-top: 15px;
+  margin-left: 33px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #ea544a;
+  border: 1px solid #ea544a;
+  border-radius: 10px;
+}
+.pay_r {
+ float: right;
+ margin-top: 112px;
+ margin-right: 238px;
+}
+.pay_r img {
+  margin-left: 60px;
+}
+.pay_r p { 
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333;
+}
+.pay_b {
+  float: left;
+  margin-left: 100px;
+  margin-top: 178px;
+  color: #333;
+  font-size: 16px;
+}
+.important {
+  height: 46px;
+  line-height: 46px;
+  font-weight: bold;
+}
+.pay_b p {
+  height: 32px;
+  line-height: 32px;
+}
+.pay_b span {
+  color: #ea544a;
+}
+
+.pay_b a {
+  text-decoration: none;
+}
+.notice {
+  color: #0054ff;
+}
+
 
 /*付款——李雅丽*/
 .fukuan {
@@ -1570,7 +1571,6 @@ body .zc-mail:hover {
   height: 782px;
   margin: 0 auto;
   border: 1px solid #ececec;
-  font-family: 黑体;
 }
 .order_ttl i {
   display: inline-block;
@@ -2180,4 +2180,107 @@ body .zc-mail:hover {
 }
 .order_company {
   padding: 0 5px;
+}
+
+/*地址弹出框*/
+.newaddr_model {
+  width: 940px;
+  height: 550px;
+  margin-left: -470px;
+}
+.newaddr_model .model_cont {
+  overflow-y: visible;
+}
+.addrForm {
+  position: relative;
+}
+.newaddrForm {
+  margin-bottom: 15px;
+}
+.newaddr_ttl {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.newaddr_ttl span {
+  margin-right: 10px;
+  color: #fc6210;
+}
+.newaddrForm_label {
+  display: inline-block;
+  width: 90px;
+  margin-right: 5px;
+  text-align: right;
+}
+.newaddrForm_label_required {
+  color: #fc6210;
+}
+.newaddrForm_input {
+  width: 190px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #cdd7d7;
+  font-size: 12px;
+}
+.newaddrForm_textarea {
+  width: 380px;
+  height: 70px;
+  padding: 0 10px;
+  border: 1px solid #cdd7d7;
+  vertical-align: top;
+}
+.newaddrForm_input-short {
+  width: 50px;
+}
+.newaddrForm_btn {
+  width: 70px;
+  height: 30px;
+  border: 0;
+  border-radius: 5px;
+  margin-left: 98px;
+  background-color: #ff4001;
+  color: #fff;
+  cursor: pointer;
+}
+.order_addr {
+  display: none;
+  position: absolute;
+  top: 30px;
+  max-height: 150px;
+  min-width: 70px;
+  background-color: #fff;
+  text-align: center;
+  cursor: pointer;
+  overflow-y: scroll;
+}
+.addr_province {
+  left: 100px;
+}
+.addr_city {
+  left: 175px;
+}
+.addr_county {
+  left: 253px;
+}
+.addr_province li:hover,
+.addr_county li:hover,
+.addr_city li:hover {
+  color: #fff;
+  background-color: #fc6210;
+}
+
+/*订单详情*/
+.order_detail_set {
+  float: left;
+  width: 400px;
+}
+.order_detail_det {
+  padding-left: 90px;
+}
+.detail_table {
+  margin-top: 30px;
+}
+.orderDet_pic {
+  width: 125px;
+  height: 90px;
 }

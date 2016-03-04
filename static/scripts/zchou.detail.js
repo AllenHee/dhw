@@ -200,7 +200,7 @@ function like() {
   }
 }
 
-$(".category_link").click(function () 　{
+$(".category_link").click(function () {
   var type = $(this).attr("data-type");
   $.cookie("zchou_type", type, { path: '/' });
   window.location.pathname = "/";
@@ -218,4 +218,12 @@ $('.support-btn').click(function () {
 $('.support_pay_items').click(function () {
   var index = $(this).index();
   $('.support_pay_items').removeClass('support_pay_items-current').eq(index).addClass('support_pay_items-current')
+})
+
+$('.support_btn').click(function () {
+  var money = parseInt($('.support_pay').find('.support_pay_items-current').attr('data-pay'));
+  if ($('.support_pay_items-last').hasClass('support_pay_items-current')) {
+    money = parseInt($('.support_pay_items-last input').val());
+  }
+  window.location.href = '/pay1/' + project_id + '/' + '0' + '/' + money;
 })

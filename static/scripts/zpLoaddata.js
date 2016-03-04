@@ -3,7 +3,10 @@ $(function () {
     pageIndex: 1,
     pageSize: 10
   }
-  
+  var originsu = location.search.substring(0).split("&")[0];
+  var sukey = originsu.split("=");
+  //console.log(decodeURIComponent(sukey[1]));
+  var su = sukey[1] = decodeURIComponent(sukey[1])
   // 设置列表右上角总页数
   function setTotalPages(data) {
     var total_pages = Math.ceil(data.result.total / 10);
@@ -95,7 +98,7 @@ $(function () {
       var para_extra = {}
       para_extra.citycode = ''
       // 搜索框字段
-      // para_extra.compay = su;
+       para_extra.compay = su;
       $.extend(para, para_extra);
 
       setProperty($(".filter-box div").eq(0), "dd", "city")

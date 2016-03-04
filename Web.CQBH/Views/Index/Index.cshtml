@@ -1,4 +1,4 @@
-﻿@{ViewBag.Title = "产权保护-首页";}
+﻿@{ViewBag.Title = "产权保护-梦高速";}
 <div class="cqbh_bgWrap">
     <div class="cqbh_bg">
     </div>
@@ -10,10 +10,52 @@
     </form>
     <ul class="cqbh_items">
         <li class="cqbh_item1 current"><a href="/sbzc">商标</br>注册</a> <i></i></li>
-        <li class="cqbh_item2"><a href="#">版权</br>登记</a> <i></i></li>
-        <li class="cqbh_item3"><a href="#">法律</br>服务</a> <i></i></li>
-        <li class="cqbh_item4"><a href="#">软件</br>著作权</a> <i></i></li>
+        <li class="cqbh_item2"><a href="/Bqdj">版权</br>登记</a> <i></i></li>
+        <li class="cqbh_item3"><a href="/Flfw">法律</br>服务</a> <i></i></li>
+        <li class="cqbh_item4"><a href="/Zhuzuoquan">软件</br>著作权</a> <i></i></li>
     </ul>
     <div class="cqbh_img">
         <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/cqbh_02.jpg" alt=""></div>
+    <!--弹出层 开始-->
+    <div class="query_bg">
+        <div class="query">
+            <div class="query_title">
+                产权免费查询</div>
+            <span class="query_close">×</span>
+            <div class="query_cont">
+                <form>
+                <h2>
+                    专业顾问人工查询 , 结果分析更精确.</h2>
+                <div class="query_items">
+                    <label>
+                        <span class="redstar">*</span>产权名称 :
+                    </label>
+                    <input type="text" id="name">
+                    <span class="errorTip" id="name_err">产权名称不能为空</span>
+                </div>
+                <div class="query_items">
+                    <label>
+                        <span class="redstar">*</span>联系电话 :
+                    </label>
+                    <input type="text" id="phone">
+                    <span class="errorTip" id="phone_err">联系电话不能为空</span>
+                </div>
+                <div>
+                    <label>
+                        联系人 :
+                    </label>
+                    <input id="contant" type="text">
+                </div>
+                <div class="query_button">
+                    <button class="cq" id="query_button" type="button">
+                        获取查询结果</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--弹出层 结束-->
 </div>
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/cqbh.js"></script>
+}

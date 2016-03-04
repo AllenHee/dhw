@@ -1,4 +1,8 @@
-﻿@{ViewBag.Title = "梦高速 - 私人定制";}
+﻿@{
+    ViewBag.Title = "私人定制-梦高速";
+    ViewBag.Keywords = "私人定制,梦高速";
+    ViewBag.Description = "个性化企业定制服务。";
+}
 <!--主内容区 开始-->
 <div class="content">
     <!--分类栏 开始-->
@@ -9,22 +13,18 @@
             @for (int i = 0; i < nav.Count; i++)
             {
                 var first = nav[i];
-                var number = i+1;        
+                var number = i + 1;        
                 <li class="classify_items classify_item@{@number}"><i></i><a href="/Srdzs?type=@first.id">@first.name</a></li>
             }
         </ul>
         <div class="slide">
             <ul class="slide-wrap">
-                <li><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide1.jpg" alt=""></a></li>
-                <li><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide2.jpg" alt=""></a></li>
-                <li><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide3.jpg" alt=""></a></li>
-                <li><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide4.jpg" alt=""></a></li>
-                <li><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_slide5.jpg" alt=""></a></li>
+                @for (int i = 0; i < @ViewBag.srdzxt.Count; i++)
+                {
+                    var imgs = @ViewBag.srdzxt[i]["img"] + ".jpg";
+                    <li><a href=@ViewBag.srdzxt[i]["url"] target="_blank">
+                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="私人定制首页大图"></a></li> 
+                }
             </ul>
             <div class="slider">
                 <ul>
@@ -63,12 +63,18 @@
                         @Html.Raw("                </ul>\r\n                <ul class=\"pic_show_ul\">")    
                         }
                         var item = ViewBag.li[i];
+                        string img = item.img;
                         <li class="pic_show_items @if (i % 4 == 3)
-                                                  {<text>pic_show_items-last</text>}"><a href="/Detail/@item.id">
-                            <img src="@BaseConfigs.GetImgPath@item.img" alt=""></a>
+                                                  {<text>pic_show_items-last</text>}"><a target="_blank"  href="/Detail/@item.id">
+                                                      <img src="@if (img == "")
+                                                                {<text>@{@BaseConfigs.GetStaticPath}/images/srdz_defult_logo.png</text>}
+                                                                else
+                                                                {<text>@{@BaseConfigs.GetImgPath@img}_310x310.jpg</text>}" alt="">
+                                                  </a>
                             <p class="rmb">
                                 <span>¥</span>@item.price</p>
-                            <a class="pic_show_intro" href="/Detail/@item.id">@item.title</a> </li>                      
+                            <a class="pic_show_intro" href="/Detail/@item.id" target="_blank">@item.title</a>
+                        </li>                      
                     }
                 </ul>
             </div>
@@ -105,15 +111,15 @@
             </div>
             <ul class="store_recom_pic">
                 <li class="store_recom_pic_items"><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_1.jpg" alt=""></a></li>
                 <li class="store_recom_pic_items"><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_2.jpg" alt=""></a></li>
                 <li class="store_recom_pic_items"><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_3.jpg" alt=""></a></li>
                 <li class="store_recom_pic_items"><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_4.jpg" alt=""></a></li>
                 <li class="store_recom_pic_items store_recom_pic_items-last"><a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_19.png" alt=""></a></li>
+                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_5.jpg" alt=""></a></li>
             </ul>
         </div>
     </div>

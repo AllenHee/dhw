@@ -42,18 +42,6 @@
         <!--<li class="fukuan_radiot">
           <i></i>
           <img class="fukuan_pic" src="images/zhifubao.png" alt="">
-        </li>
-        <li class="fukuan_radiot">
-          <i></i>
-          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
-        </li>
-        <li class="fukuan_radiot">
-          <i></i>
-          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
-        </li>
-        <li class="fukuan_radiot fukuan_radiot-last">
-          <i></i>
-          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
         </li>-->
       </ul>
       <div class="bottom">
@@ -92,17 +80,7 @@
   </div>
 
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
-  <script src="http://localhost:8070/scripts/zchou.detail.js"></script>
-  <script>
-    $(".fukuan_radiot").click(function(){
-        var index=$(this ).index();
-       $(".fukuan_radiot").removeClass("fukuan_radioo").eq(index).addClass("fukuan_radioo");
-     });
-     $('.model_cancel').click(function () {
-        $('.orderFinish_model').hide();
-        $('.orderFinish_model_bg').hide();
-      })
-  </script>
+  <script src="http://localhost:8070/scripts/zchou.order.js"></script>
 </body>
 
 </html>
