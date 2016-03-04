@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>梦高速-私人定制-订单确认</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/srdz.css">
+</head>
+
+<body>
+  <ul class="pay_progress clearfix">
+    <li class="pay_progress_items">
+      1.订单信息填写
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items complete">
+      2.订单信息确认
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      3.支付
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      4.完成
+    </li>
+  </ul>
+  <div class="order">
+    <h2 class="order_firstTtl"><i></i>订单提交成功 : 腾讯神眼 守护你的驾驶安全</h2>
+    <div class="order_content">
+      <p class="order_secondTtl">订单信息</p>
+      <div>
+        <div class="buyerInfor">
+          <p>
+            <label class="inforLabel">订单号 : </label><span>123456789</span></p>
+          <p>
+            <label class="inforLabel">联系人 : </label><span>黄文明</span></p>
+          <p>
+            <label class="inforLabel">联系方式 : </label><span>180*****103</span></p>
+          <p>
+            <label class="inforLabel">发票抬头 : </label><span>个人</span></p>
+          <p>
+            <label class="inforLabel">备注 : </label><span>文明是傻子</span></p>
+        </div>
+        <div class="buyerAddr">
+          <p>
+            <label class="inforLabel">收货人信息 : </label><span>黄文明</span><span>180*****103</span></p>
+          <p>
+            <label class="inforLabel"></label><span>福建泉州石狮市鸿山镇中科招商集团7楼创企信息科技有限公司</span></p>
+        </div>
+      </div>
+      <p class="order_secondTtl">项目信息</p>
+      <table class="order_table" cellspacing="0">
+        <colgroup>
+          <col width="285px">
+            <col width="145px">
+              <col width="365px">
+                <col width="125px">
+                  <col width="90px">
+                    <col width="90px">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>项目名称</th>
+            <th>发起人</th>
+            <th>回报内容</th>
+            <th>回报数量</th>
+            <th>支持单价</th>
+            <th>配送费用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>一把带风扇的创意雨伞</td>
+            <td class="order_company">广州完美选择贸易有限公司</td>
+            <td class="order_detail">雨中情感谢你的支持,在众筹结束后,没满100人将抽取1位幸运用户(不满100按100人算),幸运在可获得价值168元风扇伞一把,由雨中情有限公司同意发货.注:产品颜色随机发货不限额,</td>
+            <td>2</td>
+            <td class="redWord">¥1.00</td>
+            <td>免运费</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="order_secondTtl">选择支付方式</p>
+      <ul class="payWay clearfix">
+        <li class="fukuan_radiot fukuan_radioo">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot fukuan_radiot-last">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+      </ul>
+      <div class="bottom">
+        <button class="paynow">立即付款</button>
+        <button class="return">返回</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 点击立即付款
+    $('.paynow').click(function () {
+      var payment = $('.fukuan_radiot').attr('data-payment');
+        var url = '/SrdzOrder/Alipay?number=' + orderno + '&payment=' + payment;
+        window.open(url, '_blank');
+        window, location.href = '/pay3' + '/' + orderno;
+    })
+  </script>
+</body>
+
+</html>

@@ -36,7 +36,8 @@
             <div class="formSetWrap">
               <label class="formSet_label">用户名：</label>
               <input class="formSet_input" name="username" id="user" type="text" ng-model="dataP.name" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,20}$/"
-              ng-focus="usernameTipP=true" ng-blur="usernameTipP=false; validate(dataP.name, 'usernameP')" ng-change="isValid.usernameP=undefined"
+              ng-focus="usernameTipP=true" ng-blur="usernameTipP=false; validate(dataP.name, 'usernameP')" ng-change="isValid.usernameP=
+              undefined"
               required>
               <i class="formSet_icon user"></i>
               <i class="formSet_icon success" ng-show="registerP.username.$dirty && registerP.username.$valid && isValid.usernameP==1"></i>

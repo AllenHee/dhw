@@ -1,91 +1,107 @@
-﻿@{ViewBag.Title = "产权保护-软件著作权";}
+﻿@{ViewBag.Title = "软件著作权 - 梦高速";}
 <div class="bg">
-    <div class="bg_img"">
-      <div class="allCont">
-        <!--搜索栏-->
-        <div class="search">
-          <div class="search_down">
-            <span>APP</span><i></i>
-            <ul class="search_ul">
-              <li>APP</li>
-              <li>PPA</li>
-              <li>PAP</li>
-            </ul>
-          </div>
-          
-          <input class="search_inp" type="text">
-          <button class="search_btn">免费咨询</button>
+    <div class="bg_img">
+        <div class="allCont">
+            <!--搜索栏-->
+            <div class="search">
+                <div class="search_down">
+                    <span>APP</span><i></i>
+                    <ul class="search_ul">
+                        <li>APP</li>
+                        <li>PPA</li>
+                        <li>PAP</li>
+                    </ul>
+                </div>
+                <input class="search_inp" type="text">
+                <button class="search_btn">
+                    免费咨询</button>
+            </div>
+            <!--优势-->
+            <div class="advantage">
+                <div class="advantage_ttl">
+                    <h1>
+                        我们的优势</h1>
+                </div>
+                <ul class="advantage_ul">
+                    <li class="advantage_items">
+                        <img class="advantage_items_one" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-1.png" alt="">
+                        <h2>
+                            零成本</h2>
+                        <p>
+                            与腾全国首推:对微小企业自主研发的软件申请计算机软件著作权,在获得证书不花钱,真正实现零成本包获证</p>
+                    </li>
+                    <li class="advantage_items">
+                        <img class="advantage_items_two" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-2.png" alt="">
+                        <h2>
+                            高品质</h2>
+                        <p>
+                            与腾全国首推:国内首家承诺每一件国内商标注册都提供商标注册都是提供商标注册风险分析方案以提升商标注册成功率</p>
+                    </li>
+                    <li class="advantage_items advantage_items-last">
+                        <img class="advantage_items_three" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-3.png" alt="">
+                        <h2>
+                            极透明</h2>
+                        <p>
+                            知识产权顾问为客户一对一服务,服务流程全程透明,服务费用透明</p>
+                    </li>
+                </ul>
+            </div>
+            <!--流程-->
+            <div class="process">
+                <div class="advantage_ttl">
+                    <h1>
+                        申请流程</h1>
+                </div>
+                <div class="process_proc">
+                    <span>软件著作权流程</span>
+                    <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-lc.png" alt="">
+                </div>
+            </div>
         </div>
-        <!--优势-->
-        <div class="advantage">
-          <div class="advantage_ttl">
-            <h1>我们的优势</h1>
-          </div>
-          <ul class="advantage_ul">
-            <li class="advantage_items">
-              <img class="advantage_items_one" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-1.png" alt="">
-              <h2>零成本</h2>
-              <p>与腾全国首推:对微小企业自主研发的软件申请计算机软件著作权,在获得证书不花钱,真正实现零成本包获证</p>
-            </li>
-            <li class="advantage_items">
-              <img class="advantage_items_two" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-2.png" alt="">
-              <h2>高品质</h2>
-              <p>与腾全国首推:国内首家承诺每一件国内商标注册都提供商标注册都是提供商标注册风险分析方案以提升商标注册成功率</p>
-            </li>
-            <li class="advantage_items advantage_items-last">
-              <img class="advantage_items_three" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-3.png" alt="">
-              <h2>极透明</h2>
-              <p>知识产权顾问为客户一对一服务,服务流程全程透明,服务费用透明</p>
-            </li>
-          </ul>
+        <div>
+            <img class="bg_b" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bottom.png" alt="">
         </div>
-        <!--流程-->
-        <div class="process">
-          <div class="advantage_ttl">
-            <h1>申请流程</h1>
-          </div>
-          <div class="process_proc">
-            <span>软件著作权流程</span>
-            <img src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bq-lc.png" alt="">
-          </div>
-        </div>
-      </div>
-      <div>
-        <img class="bg_b" src="@{@BaseConfigs.GetUrlCdn}cqbh/images/bottom.png" alt="">
-      </div>
     </div>
-  </div>
-  
-  @section scripts{
-  <script>
-      $(".search_down").mouseenter(function () {
-          $(".search_ul").slideDown(200);
-          $(".search_down").css("border-bottom", "0");
-          $(".search_down").css("border-radius", "5px 0 0 0");
-          $(".search_ul").css("border-top", "0")
-          $(".search_down i").css("transform", "rotate(180deg)");
-      });
-
-      $(".search_down").mouseleave(function () {
-          $(".search_ul").slideUp(200);
-          $(".search_down").css("border-bottom", "2px solid #d30b5a");
-          $(".search_down").css("border-radius", "5px 0 0 5px");
-          $(".search_ul").css("border-top", "2px solid #d30b5a");
-          $(".search_down i").css("transform", "rotate(0)");
-      });
-
-      $(".search_ul li").click(function () {
-          $(".search_down span").html($(this).html());
-          $(".search_ul").slideUp(200);
-          $(".search_down").css("border-bottom", "2px solid #d30b5a");
-          $(".search_down").css("border-radius", "5px 0 0 5px");
-          $(".search_ul").css("border-top", "2px solid #d30b5a");
-          $(".search_down i").css("transform", "rotate(0)");
-      });
-
-      $(".advantage_items_three").mouseenter(function () {
-          $(".advantage_items_three").animate({ top: '-15px' }, 150).animate({ top: '0' }, "fast");
-      });
-    
-  </script>
-  }
+</div>
+<!--弹出层 开始-->
+<div class="query_bg">
+    <div class="query">
+        <div class="query_title">
+            著作权免费查询</div>
+        <span class="query_close">×</span>
+        <div class="query_cont">
+            <form>
+            <h2>
+                专业顾问人工查询 , 结果分析更精确.</h2>
+            <div class="query_items">
+                <label>
+                    <span class="redstar">*</span>著作权名称 :
+                </label>
+                <input type="text" id="name">
+                <span class="errorTip" id="name_err">著作权名称不能为空</span>
+            </div>
+            <div class="query_items">
+                <label>
+                    <span class="redstar">*</span>联系电话 :
+                </label>
+                <input type="text" id="phone">
+                <span class="errorTip" id="phone_err">联系电话不能为空</span>
+            </div>
+            <div>
+                <label>
+                    联系人 :
+                </label>
+                <input id="contant" type="text">
+            </div>
+            <div class="query_button">
+                <button class="zzq" id="query_button" type="button">
+                    获取查询结果</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--弹出层 结束-->
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/cqbh.js"></script>
+}

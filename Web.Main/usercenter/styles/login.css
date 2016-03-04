@@ -1221,3 +1221,203 @@
 .selectCont li:hover {
   background-color: #f6f6f6;
 }
+
+.tips {
+    border: solid thin #ccc;
+    padding: 0 4px;
+    font-size: 12px;
+    line-height: 33px;
+    position: absolute;
+    top: 37px;
+    left: 110px;
+    width: 260px;
+    height: 33px;
+    background-color: #f7f7f7;
+}
+.red {
+    color: red;
+}
+.confirm-link:hover {
+    color: red;
+    text-decoration: underline;
+}
+.confirm-link {
+    color: #005aa0;
+    text-decoration: none;
+    font-size: 12px;
+}
+.confirm-h2 {
+    color: #333333;
+    font-size: 28px;
+    line-height: 42px;
+    font-weight: normal;
+    font-family: "microsoft yahei";
+    margin: 0 0 20px 0;
+}
+.confirm-text {
+    color: #999;
+    margin: 0;
+    padding: 3px 0;
+    font-size: 16px;
+    font-family: "microsoft yahei";
+}
+.confirm-body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+.word-color {
+    color: #999999;
+    line-height: 34px;
+    margin-top: 0;
+}
+.confirm {
+    width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding: 30px 60px;
+    border: solid thin #d1d1d1;
+    background-color: white;
+}
+.confirm-item {
+    width: 500px;
+    overflow: hidden;
+    float: left;
+    padding: 20px;
+}
+.confirm-formSetWrap {
+    float: left;
+    position: relative;
+    margin-top: 35px;
+}
+.confirm-formSetWrap-2 {
+    position: relative;
+}
+.confirm-formSet_label {
+  width: 90px;
+  height: 38px;
+  margin-right: 20px;
+  line-height: 38px;
+  text-align: right;
+  color: #999;
+  float: left;
+  font-size: 14px;
+}
+.formSet_input-short {
+    width: 100px;
+
+}
+.confirm_yztp {
+    margin-left: 30px;
+    margin-top: 7px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.confirm_yztp_2 {
+    margin-left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.confirm-agreement {
+    margin-top: 15px;
+}
+.confirm-agreementWrap {
+    margin: 0;
+    padding: 0;
+    float: left;
+    font-size: 12px;
+    line-height: 38px; 
+}
+.confirm-form {
+    margin-top: 80px;
+    padding: 15px 30px;
+    height: 400px;
+    width: 252px;
+    border: solid thin #dddddd;
+    float: right;
+}
+.form_input {
+    border-radius: 3px;
+    width: 210px;
+    height: 36px;
+    padding: 0 25px 0 5px;
+    border: 1px solid #ccc;
+    line-height: 36px;
+}
+.form_input-short {
+    border-radius: 3px;
+    height: 36px;
+    padding: 0 25px 0 5px;
+    border: 1px solid #ccc;
+    line-height: 36px;
+    width: 110px;
+}
+.form_icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: 10px;
+}
+.form_icon.user {
+    width: 16px;
+    height: 16px;
+    background: url(../images/reg_user.jpg) no-repeat;
+}
+.form_icon.security {
+    width: 14px;
+    height: 19px;
+    background: url(../images/reg_security.jpg) no-repeat;
+}
+.submitBtn-2 {
+    margin-top: 30px;
+    margin-right: 10px;
+    width: 90px;
+    height: 30px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #027cff;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.submitBtn-2 span {
+    color: #fff;
+}
+.fc-gray {
+    margin-top: 10px;
+    color: #ccc;
+    font-size: 12px;
+}
+.getYZM {
+    border: solid thin #ddd;
+    background-color: #f4f4f4;
+    padding: 10px;
+    width: 110px;
+    height: 38px;
+    font-size: 12px;
+    margin-left: 20px
+}
+.confirm-formSet-error {
+    position: absolute;
+    margin-top: 36px;
+    border: solid thin #ffbdbe;
+    color: #f00;
+    padding: 0 4px;
+    font-size: 12px;
+    line-height: 33px;
+    height: 33px;
+    background-color: #ffebeb;
+}
+.confirm-formSet-error-long {
+    line-height: 16px;
+}
+.zc {
+    margin-top: 0;
+}
+.confirm-formSet-error {
+    width: 260px;
+    left: 110px;
+}

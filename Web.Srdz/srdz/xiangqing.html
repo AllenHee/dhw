@@ -360,6 +360,22 @@
   <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
   <script>
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    
+    $('.topDetail_r_btn').click(function () {
+      var text = $('.active').text();
+      var count = parseInt($('.topDetail_r_qua_input').val());
+      var para = {
+      productid: fpid,
+      count: count,
+      body: text
+    }
+    $.post('/ShoppingCart/ShoppingCartAdd', para).success(function (data)
+    {
+      var id = data.result;
+      window.location.href = '/pay1/' + id;
+    })
+    });
+    
   </script>
 </body>
 

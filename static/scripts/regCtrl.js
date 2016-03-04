@@ -1,4 +1,9 @@
 var app = angular.module('regApp', ['baseapp']);
+// var app = angular.module('regApp', ['baseapp']);
+// app.controller('regCtrl', ['$scope', '$http', function (s, h) {
+    
+// }])
+
 
 app.controller('regCtrl', ['$scope', '$http', function (s, h) {
   s.dataP = {};

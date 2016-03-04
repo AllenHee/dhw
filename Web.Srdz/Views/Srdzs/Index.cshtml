@@ -19,23 +19,11 @@
                 <li>
                     <input name="cate" type="radio" checked="checked">全部</li>
                 <li>
-                    <input name="cate" type="radio">时尚饰品</li>
+                    <input name="cate" type="radio" data-type="1">创意定制</li>
                 <li>
-                    <input name="cate" type="radio">围巾配饰</li>
+                    <input name="cate" type="radio" data-type="2">企业定制</li>
                 <li>
-                    <input name="cate" type="radio">家具日用</li>
-                <li>
-                    <input name="cate" type="radio">服装内衣</li>
-                <li>
-                    <input name="cate" type="radio">布衣甲方</li>
-                <li>
-                    <input name="cate" type="radio">创意报见</li>
-                <li>
-                    <input name="cate" type="radio">花翘课了</li>
-                <li>
-                    <input name="cate" type="radio">数码办公</li>
-                <li>
-                    <input name="cate" type="radio">照片印刷</li>
+                    <input name="cate" type="radio" data-type="3">找代加工</li>
             </ul>
         </div>
         <div class="cont_choose clearfix">
@@ -71,9 +59,15 @@
     <script type="text/html" id="List">
     {{each data as list i}}
       <li>
-        <a href="#"><img src="{{domain}}{{list.img}}" alt=""></a>           
+        <a  target="_blank" href="/Detail/{{list.id}}">
+          {{if list.img}}
+           <img src="{{domain}}{{list.img}}_310x310.jpg" alt=""></a>      
+          {{/if}}
+          {{if !list.img}}
+          <img src="@{@BaseConfigs.GetStaticPath}/images/srdz_defult_logo.png" alt="">
+          {{/if}}
         <div class="cont_main_text">
-          <a href="#">{{list.title}}</a>
+          <a target="_blank" href="/Detail/{{list.id}}">{{list.title}}</a>
           <!--<span>￥399.00</span></br>-->
           <span class="cont_main_red">￥{{list.price}}</span>
         </div>           

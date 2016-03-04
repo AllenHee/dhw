@@ -1,6 +1,11 @@
 ﻿@{
     ViewBag.Title = "梦高速 - 众筹";
+    ViewBag.Description = "梦高速旗下金融平台，着重创新创意产品众筹，股权众筹和公益众筹。";
+    ViewBag.Keywords = "产品众筹,公益众筹,股权众筹";
 }
+<title>众筹-梦高速</title>
+<meta name="description" content="梦高速旗下金融平台，着重创新创意产品众筹，股权众筹和公益众筹。">
+<meta name="keywords" content="产品众筹,公益众筹,股权众筹" />
 <!--主内容区 开始-->
 <div class="content-zc clearfix">
     <!--分类条 开始-->
@@ -19,7 +24,7 @@
             <div class="pop">
                 <a href="#"><span>全部</span> <i></i></a>
                 <ul class="zc-state-menu">
-                    <li><a href="#" data-zc-state="10000">全部</a></li>
+                    <li><a href="#" data-zc-state="">全部</a></li>
                     <li><a href="#" data-zc-state="1">筹款中</a></li>
                     @*<li><a href="#">预热中</a></li>*@
                     <li><a href="#" data-zc-state="2">筹款成功</a></li>
@@ -30,9 +35,9 @@
             <div class="pop">
                 <a href="#"><span>最新上线</span> <i></i></a>
                 <ul class="zc-sort-menu">
-                    <li><a href="#">最新上线</a></li>
-                    <li><a href="#">金额最高</a></li>
-                    <li><a href="#">最受欢迎</a></li>
+                    <li><a href="#" data-zc-sort="date">最新上线</a></li>
+                    <li><a href="#" data-zc-sort="moneyAll">金额最高</a></li>
+                    <li><a href="#" data-zc-sort="attention">最受欢迎</a></li>
                 </ul>
             </div>
         </div>
@@ -59,19 +64,20 @@
 </div>
 <!--主内容区 结束-->
 @section scripts{
-    
     <script type="text/html" id="fallbox">
     <li class="fall-box-item">
       <i class="status">{{ztmc}}</i>
-      <a class="pic" target="_blank" href="/cpzcDetail/p{{id}}"><img src="{{domain+frontpic}}" alt="{{title}}"></a>
+      <a class="pic" target="_blank" href="/cpzcDetail/p{{id}}"><img src="{{domain+frontpic}}_280x280.jpg" alt="{{title}}"></a>
       <div class="title">
         <h4><a target="_blank" href="/cpzcDetail/p{{id}}">{{title}}</a></h4>
-        <p><a href="#"><i class={{ptclass}}></i>{{name}}</a></p>
+        <p><a class="zctypeselect" data-type="{{ptid}}" href="#"><i class={{ptclass}}></i>{{name}}</a></p>
       </div>
       <div class="intro">
         <p><a target="_blank" href="/cpzcDetail/p{{id}}">{{purpose}}</a></p>
       </div>
+      <div class="progress-wrap">
       <div class="progress" style="width:{{percentage}}%"></div>
+      </div>
       <div class="info">
         <ul class="clearfix">
           <li class="info-1">

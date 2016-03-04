@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>梦高速-私人定制-订单填写</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/srdz.css">
+  <script>
+    var dhw = {
+            imgurl: 'http://192.168.2.10:82/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', imgcuturl: 'http://192.168.2.10:82/imagecut.ashx',
+            mainurl: '//localhost:8085/', staticurl: 'http://192.168.2.10:81',
+            urlmain: '//192.168.2.145:8085/', urlcdn: '//192.168.2.10:81/', urlzc: '//localhost:8088/', urlkj: '//localhost:8087/', urlhr: '//localhost:8086/', urlzckj: '//localhost:8091/',
+            urlzb: '//localhost:8090/', urldiy: '//localhost:8092/', urlsrdz: '//localhost:8093/', urlcqbh: '//localhost:8094/', urlzxsj: '//localhost:8095/', urlgsss: '//localhost:8096/'
+        };
+        var shoppingCartID = [5];
+  </script>
+  <script type="text/html" id="addressTem">
+    {{each result as addr}} {{if addr.isDefault === false}}
+    <div class="areaSelect clearfix">
+      {{/if}} {{if addr.isDefault === true}}
+      <div class="areaSelect clearfix confirm selected_addr">
+        {{/if}}
+        <label class="sendFor"><i></i>寄送至</label>
+        <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">{{addr.name}}</span><span class="orderfill_phone">{{addr.mobile}}</span>
+          <span class="orderfill_addr">{{addr.province_name}} {{addr.city_name}} <span class="district_name" data-code="{{addr.district_code}}">{{addr.district_name}}</span>          {{addr.address}}</span>
+        </p>
+        <ul class="operate clearfix">
+          <li class="operate_items operate_items_grey">默认地址</li>
+          <li class="operate_items" id="modify" data-id="{{addr.id}}">修改</li>
+          <li class="operate_items" id="delete">删除</li>
+        </ul>
+      </div>
+      {{/each}}
+
+  </script>
+
+</head>
+
+<body>
+  <ul class="pay_progress clearfix">
+    <li class="pay_progress_items complete">
+      1.订单信息填写
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      2.订单信息确认
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      3.支付
+      <i class="triangle white_trian"></i><i class="triangle grey_trian"></i>
+    </li>
+    <li class="pay_progress_items">
+      4.完成
+    </li>
+  </ul>
+  <div class="order">
+    <h1 class="order_firstTtl">腾讯神眼 守护您的驾驶安全</h1>
+    <div class="order_content">
+      <div class="orderfill_not">
+        <span></span> 请在下单15分钟内付款,否则您的订单会被自动取消
+      </div>
+      <div class="orderfill_cont">
+        <h2 class="order_secondTtl">收货地址</h2>
+        <div class="address_tem">
+          <div class="areaSelect clearfix">
+            <label class="sendFor"><i></i>寄送至</label>
+            <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">黄文明</span><span class="orderfill_phone">12345678910</span>
+              <span class="orderfill_addr">福建省 泉州市 <span class="district_name" data-code="110000">鸿山镇</span> 创企信息科技有限公司</span>
+            </p>
+            <ul class="operate clearfix">
+              <li class="operate_items operate_items_grey">默认地址</li>
+              <li class="operate_items" id="modify" data-id="">修改</li>
+              <li class="operate_items" id="delete">删除</li>
+            </ul>
+          </div>
+        </div>
+        <p class="newAddr">使用新地址</p>
+        <h2 class="order_secondTtl">发票信息</h2>
+        <div>
+          <p class="invoice"><i class="select_icon notNeed_invo"></i>无需发票</p>
+          <p class="invoice"><i class="select_icon need_invo"></i>需要发票</p>
+          <div class="invoice_div">
+            <label class="invoiceLabel"><span class="redStar">*</span>发票抬头 :</label>
+            <input class="invoiceInput" type="text" placeholder="个人">
+          </div>
+          <div class="invoice_div">
+            <label class="invoiceLabel">备注 :</label>
+            <input class="invoiceInput_long" type="text" placeholder="您可以填写关于回报或您希望发起人知道的信息,鼓励一下也好~~">
+          </div>
+        </div>
+        <div class="riskDetail">
+          <h2 class="riskDetail_ttl"><i></i>风险说明</h2>
+          <ul class="riskDetail_ul">
+            <li class="riskDetail_ul_items">1.梦高速众筹只提供平台服务,梦高速作为居间方,并不是发起人或支持者其中一人,所有交易仅存在与发起人与支持者之间,使用梦高速众筹平台产生的法律后果由发起人和支持者自行承担</li>
+            <li class="riskDetail_ul_items">2.众筹成功后,发起回报,开具发票及售后服务等事项均由项目方负责.如果发生项目无法发放回报、不提供售后服务等情况,您需要直接和项目发起人协商解决,梦高速对此不承担任何责任</li>
+            <li class="riskDetail_ul_items">3.由于发起人能力和经验不足、市场风险、法律风险等各种因素,众筹可能失败.如果众筹失败,您支持的款项会全部原路退换给您.</li>
+            <li class="riskDetail_ul_items">4.支持纯抽奖档位和无私支持档位,一旦支付成功将不予退款,项目募捐失败的除外</li>
+            <li class="riskDetail_ul_items">5.若您选择纯抽奖档位(未中奖)或无私支持档位,项目成功后发起人将不会给您任何回报.</li>
+          </ul>
+          <h2 class="riskDetail_ttl">特别说明:</h2>
+          <p class="redStar">系统会自动对超出限额的订单进行全额退款.对您造成的不便,深表歉意!</p>
+        </div>
+        <div class="nextBtn">
+          <button class="nextBtn_btn">下一步</button>
+        </div>
+      </div>
+    </div>
+    <!--弹出层 开始-->
+    <div class="model_bg"></div>
+    <div class="model newaddr_model">
+      <h1 class="model_ttl">添加收货地址<span class="model_cancel">×</span></h1>
+      <div class="model_cont">
+        <h2 class="newaddr_ttl"><span>新增收货地址</span>除电话号码外,其余均为必填项</h2>
+        <form id="addrForm">
+          <div class="newaddrForm addrForm">
+            <label class="newaddrForm_label">所在地区<span class="newaddrForm_label_required" class="newaddrForm_label_required">*</span></label>
+            <input class="newaddrForm_input newaddrForm_input-short" type="text" id="province" required>
+            <ul class="order_addr addr_province"></ul>
+            <input class="newaddrForm_input newaddrForm_input-short" type="text" id="city" required>
+            <ul class="order_addr addr_city"></ul>
+            <input class="newaddrForm_input newaddrForm_input-short" type="text" id="county" required>
+            <ul class="order_addr addr_county"></ul>
+          </div>
+          <div class="newaddrForm">
+            <label class="newaddrForm_label">详细地址<span class="newaddrForm_label_required">*</span></label>
+            <textarea class="newaddrForm_textarea" id="address" placeholder="建议您如实填写详细收货地址,例如街道名,名牌号码,楼层和房间号等信息" required></textarea>
+          </div>
+          <div class="newaddrForm">
+            <label class="newaddrForm_label">邮政编码<span class="newaddrForm_label_required">*</span></label>
+            <input class="newaddrForm_input" id="code" type="text" placeholder="如您不知道邮政编码,请填写000000" required>
+          </div>
+          <div class="newaddrForm">
+            <label class="newaddrForm_label">收货人姓名<span class="newaddrForm_label_required">*</span></label>
+            <input class="newaddrForm_input" id="name" type="text" placeholder="长度不超过20字符" required>
+          </div>
+          <div class="newaddrForm">
+            <label class="newaddrForm_label">手机号码<span class="newaddrForm_label_required">*</span></label>
+            <input class="newaddrForm_input" id="mobile" type="text" placeholder="请填写您的手机号码" required>
+          </div>
+          <div class="newaddrForm">
+            <label class="newaddrForm_label">电话号码</label>
+            <input class="newaddrForm_input newaddrForm_input-short" id="quhao" placeholder="区号" type="text">-
+            <input class="newaddrForm_input newaddrForm_input-short" id="phone" placeholder="电话号码" type="text">-
+            <input class="newaddrForm_input newaddrForm_input-short" id="fenji" placeholder="分机" type="text">
+          </div>
+          <div class="newaddrForm">
+            <label class="newaddrForm_label"></label>
+            <input type="checkbox" id="default">设置为默认地址
+          </div>
+          <button class="newaddrForm_btn" type="button">保存</button>
+        </form>
+      </div>
+    </div>
+    <!--弹出层 结束-->
+  </div>
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/srdz.order.js"></script>
+</body>
+
+</html>

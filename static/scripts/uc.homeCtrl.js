@@ -651,13 +651,32 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     };
 
   }])
+<<<<<<< HEAD
+=======
+  // 申请服务商的控制器
+  .controller('fuwushangCtrl',['$scope','$http',function($scope,$http){
+      $scope.data = {}
+      $scope.getDraft = function(){}
+      $scope.draft = {}
+      var para;
+      $scope.submit = function() {
+          para = $.extend($scope.draft,$scope.data);
+          $http.post('/ServiceInfo/ServiceAdd',para).success(function(d) {
+              if(d.success) {
+              }
+          })
+          
+      }
+  }])
+  
+>>>>>>> 298f2a1fe6c7b62cbbd724a9ea21a1958c28f1b0
   .controller('servicesCtrl', ["$scope", "$http", function (s, h) {
 
     s.data = {};
     s.submit = function () {
       // console.log(s.data);
     }
-
+ 
   }])
   .controller('serversListCtrl', ['$scope', '$http', function (s, h) {
     s.page = { pageSize: 10, pageIndex: 1, total: 0, typrid: '' };
@@ -680,7 +699,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       })
     }
 
-  }]).controller('casesListCtrl', ["$scope", "$http", function (s, h) {
+  }])
+  .controller('casesListCtrl', ["$scope", "$http", function (s, h) {
     s.para = {
       pageIndex: 1,
       pageSize: 5
