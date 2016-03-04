@@ -72,7 +72,12 @@ $(function () {
       }
       var para_extra = {}
       // 搜索框字段
-      para_extra.zwmc = su;
+      if(typeof(su) == "undefined"){
+        para_extra.zwmc = su;
+      }else{
+        para_extra.zwmc = "";
+      }
+    
       if($.cookie("gzdd")){
         para.gzdd = $.cookie("gzdd");
       }
@@ -98,7 +103,12 @@ $(function () {
       var para_extra = {}
       para_extra.citycode = ''
       // 搜索框字段
-       para_extra.compay = su;
+      if(typeof(su) == "undefined"){
+         para_extra.compay = su;
+      }else{
+        para_extra.compay = "";
+      }
+      
       $.extend(para, para_extra);
 
       setProperty($(".filter-box div").eq(0), "dd", "city")

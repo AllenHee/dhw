@@ -7,12 +7,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     .state('detail', { url: "/detail/:id", templateUrl: dhw.gettplurl('srdz-detail.html'), controller: "srdzdetailCtrl" })
     .state('gzlist', { url: "/gzlist", templateUrl: dhw.gettplurl('srdz-gzlist.html'), controller: 'srdzgzlistCtrl' })
     .state('fuwushang', { url: "/fuwushang", templateUrl: dhw.gettplurl('fuwushang.html'), controller: 'fuwushangCtrl' })
-    
+
 }]);
 
 app.controller("srdzFormCtrl", ['$scope', '$http', '$location', function (s, h, l) {
   s.data = {};
-  s.draft={}
+  s.draft = {}
   s.selectType = function (typeNum) {
     s.data.type = typeNum;
   };
@@ -81,13 +81,13 @@ app.controller("srdzFormCtrl", ['$scope', '$http', '$location', function (s, h, 
     });
   };
   // 获取数据
-  s.getDraft = function(fn) {
+  s.getDraft = function (fn) {
     h.post("/Zbfb/Get").success(function (data) {
       s.data.realnameauth = data.result.realnameauth;
-      if(data.result.area){
+      if (data.result.area) {
         fn(data.result.area)
       }
-  });
+    });
   }
 }])
 
@@ -144,18 +144,41 @@ app.controller("srdzFormCtrl", ['$scope', '$http', '$location', function (s, h, 
       $scope.loaddata(1);
     }
   }])
-   // 申请服务商的控制器
-  .controller('fuwushangCtrl',['$scope','$http',function($scope,$http){
-      $scope.data = {}
-      $scope.getDraft = function(){}
-      $scope.draft = {}
-      var para;
-      $scope.submit = function() {
-          para = $.extend($scope.draft,$scope.data);
-          $http.post('/ServiceInfo/ServiceAdd',para).success(function(d) {
-              if(d.success) {
-              }
-          })
-          
-      }
+// 申请服务商的控制器
+  .controller('fuwushangCtrl', ['$scope', '$http', function ($scope, $http) {
+    $scope.data = {}
+    $scope.getDraft = function () { }
+    $scope.draft = {}
+    var para;
+    function close() {
+      $(".modal_bg").fadeOut();
+      $(".modal_cont").fadeOut();
+    }
+    $(".modal_cont_t_close").click(function () {
+      close();
+    });
+    $scope.submit = function () {
+      para = $.extend($scope.draft, $scope.data);
+      $http.post('/ServiceInfo/ServiceAdd', para).success(function (d) {
+        if (d.success) {
+          $(".modal_cont_button_conf").click(function () {
+            location.hash = '#/';
+          });
+          $scope.popupText = "提交申请成功,3秒后自动返回,或点击确认返回";
+          setTimeout(function () {
+            location.hash = '#/';
+          }, 3000);
+          $(".modal_bg").fadeIn();
+          $(".modal_cont").fadeIn();
+        }else {
+          $(".modal_cont_button_conf").click(function () {
+            close();
+          });
+          $(".modal_bg").fadeIn();
+          $(".modal_cont").fadeIn();
+          $scope.popupText = "网络繁忙请稍后再试";
+        }
+      })
+
+    }
   }]);

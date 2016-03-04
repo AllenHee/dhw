@@ -55,11 +55,6 @@
                             <label for="">
                                 自动登录</label>
                         </div>
-                        <div class="cr_aqkjdl">
-                            <input type="checkbox">
-                            <label for="">
-                                安全控件登录</label>
-                        </div>
                         <span><a href="#">忘记密码？</a></span>
                     </div>
                     <div class="cr_btn">
@@ -69,8 +64,9 @@
                     <div class="cr_hzdl">
                         <p>
                             使用合作网站帐号登录梦高速：</p>
-                        <a href="/authorize/qqlogin?redirectURL=@Html.Raw(ViewBag.redirectURL)"><img alt="Connect_logo_1.png" src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_1.png">QQ登录</a> <span>
-                            |</span> <a href="#">微信</a>
+                        <a href="/authorize/qqlogin?redirectURL=@Html.Raw(ViewBag.redirectURL)">
+                            <img alt="Connect_logo_1.png" src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_1.png">QQ登录</a>
+                        @*<span>|</span> <a href="#">微信</a>*@
                     </div>
                 </div>
             </div>
