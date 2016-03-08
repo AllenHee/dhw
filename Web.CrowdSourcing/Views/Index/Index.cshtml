@@ -1,5 +1,7 @@
 ﻿@{
-    ViewBag.Title = "梦高速 - 众包";
+    ViewBag.Title = "梦高速众包";
+    ViewBag.Description = "主要提供软件开发、装饰装修、营销策划、电商等的分散式承包平台";
+    ViewBag.Keywords = "软件众包,装修众包,营销众包,电商众包";
 }
 @*杨辉 2015-11-13*@
 <!--主内容区 开始-->
@@ -32,12 +34,12 @@
                 <div class="header_r_b_l">
                     <div class="slide">
                         <ul class="slide-wrap clearfix">
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_slide1.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_slide2.jpg" alt=""></a></li>
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)zhongbao/images/zb_slide3.jpg" alt=""></a></li>
+                            @for (int i = 0; i < @ViewBag.zbxt.Count; i++)
+                            {
+                                var img = @ViewBag.zbxt[i]["img"] + ".jpg";
+                                <li><a href="@ViewBag.zbxt[i]["url"]"target="_blank">
+                                    <img src="@{@BaseConfigs.GetImgPath}@img"alt="众包首页大图"></a></li>
+                            }
                         </ul>
                         <div class="slider">
                             <ul>
