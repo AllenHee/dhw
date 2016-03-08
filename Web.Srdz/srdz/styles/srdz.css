@@ -1630,3 +1630,58 @@
   width: 125px;
   height: 90px;
 }
+
+/*物流信息*/
+.order_wuliu {
+  padding: 0 100px;
+}
+.process_item {
+  display: inline-block;
+  height: 97px;
+  width: 245px;
+  margin-right: 10px;
+}
+.order_wuliu_proc {
+  margin-top: 30px;
+}
+.step_one {
+  background: url(../images/liucheng.png) no-repeat 0 -388px;
+}
+.step_two {
+  background: url(../images/liucheng.png) no-repeat 0 -485px;
+}
+.step_three {
+  background: url(../images/liucheng.png) no-repeat 0 -582px;
+}
+.step_four {
+  width: 73px;
+  background: url(../images/liucheng.png) no-repeat 0 -679px;
+}
+.order_wuliu_state {
+  padding: 30px 0;
+  border-bottom: 2px #bcbcbc dashed;
+  margin-bottom: 25px;
+  font-size: 21px;
+}
+.order_wuliu_process_date,
+.order_wuliu_process_proc {
+  float: left;
+}
+.order_wuliu_process_date {
+  margin-right: 5px;
+}
+.order_wuliu_process {
+  margin-bottom: 30px;
+}
+.step_one_finish {
+  background: url(../images/liucheng.png) no-repeat 0 0;
+}
+.step_two_finish {
+  background: url(../images/liucheng.png) no-repeat 0 -97px;
+}
+.step_three_finish {
+  background: url(../images/liucheng.png) no-repeat 0 -194px;
+}
+.step_four_finish {
+  background: url(../images/liucheng.png) no-repeat 0 -291px;
+}
