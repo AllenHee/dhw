@@ -364,3 +364,58 @@ ul {
   line-height: 50px;
   color: #fff;
 }
+.Inbox {
+    width: 1000px;
+    border-bottom: 1px solid #e3e6eb;
+    margin-left: 20px;
+    line-height: 25px;
+}
+.InboxCheckbox {
+    vertical-align: middle;
+    float: right;
+}
+.tr {
+    border-bottom: 1px solid #e3e6eb;
+}
+.td0 {
+    width: 30px;
+}
+.td1 {
+    width: 100px;
+}
+.td2 {
+    width: 400px;
+}
+.td3,
+.td4,
+.td5 {
+    width: 120px;
+}
+.unread {
+    color: #68a3ff;
+}
+.delete {
+    color: black;
+    cursor: pointer;
+}
+.Inbox-bottom {
+    margin: 10px 0 0 30px;
+    overflow: hidden;
+}
+.del {
+    width: 45px;
+}
+.sign {
+    width: 65px;
+}
+.del,
+.sign {
+    float: left;
+    height: 22px;
+    margin-right: 10px;
+    color: white;
+    background: #007cff;
+    text-align: center;
+    line-height: 20px;
+    display: block;
+}

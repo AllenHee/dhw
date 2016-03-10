@@ -1,24 +1,65 @@
 <div class="accTabs_wrap">
-  <ul class="accTabs clearfix">
-    <li class="accTab" ng-class="{active:whichTab=='writeEmail'}" ng-click="whichTab='writeEmail'">写信</li>
-    <li class="accTab" ng-class="{active:whichTab=='Inbox'}" ng-click="whichTab='Inbox'">收件箱</li>
-    <li class="accTab" ng-class="{active:whichTab=='sendBox'}" ng-click="whichTab='sendBox'">发件箱</li>
-  </ul>
+    <ul class="accTabs clearfix">
+        <li class="accTab" ng-class="{active:whichTab=='writeEmail'}" ng-click="whichTab='writeEmail'">写信</li>
+        <li class="accTab" ng-class="{active:whichTab=='Inbox'}" ng-click="whichTab='Inbox'">收件箱</li>
+        <li class="accTab" ng-class="{active:whichTab=='sendBox'}" ng-click="whichTab='sendBox'">发件箱</li>
+    </ul>
 </div>
 <div>
-  <!--写信 开始-->
-  <div ng-show="whichTab=='writeEmail'" ng-controller="">
-    
-  </div>
-  <!--写信 结束-->
-  <!--收件箱 开始-->
-  <div ng-show="whichTab=='Inbox" ng-controller="">
-    
-  </div>
-  <!--收件箱 结束-->
-  <!--发件箱 开始-->
-  <div ng-show="whichTab=='sendBox" ng-controller="">
-    
-  </div>
-  <!--发件箱 结束-->
+    <!--写信 开始-->
+    <div ng-show="whichTab=='writeEmail'" ng-controller="">
+
+    </div>
+    <!--写信 结束-->
+    <!--收件箱 开始-->
+    <div ng-show="whichTab == 'Inbox" ng-controller="InboxCtrl">
+        <form name="Inbox">
+            <table class="Inbox">
+                <thead>
+                    <tr class="tr">
+                        <td class="td0">
+                            <input class="InboxCheckbox" type="checkbox">
+                        </td>
+                        <td class="td1">发件人</td>
+                        <td class="td2">标题</td>
+                        <td class="td3">时间</td>
+                        <td class="td4">状态</td>
+                        <td class="td5">回复</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+            </table>
+            <table class="Inbox">
+                <tbody>
+                    <tr>
+                        <td class="td0">
+                            <input class="InboxCheckbox" type="checkbox">
+                        </td>
+                        <td class="td1" ng-model="data.from">0</td>
+                        <td class="td2" ng-model="data.title">0</td>
+                        <td class="td3" ng-model="data.creationtime">0</td>
+                        <td class="td4" ng-model="data.state">
+                            <!--<span class="unread" ng-model="data.read">未读</span>-->
+                        </td>
+                        <td class="td5">
+                            <span class="unread">已回复</span>
+                        </td>
+                        <td>
+                            <a class="delete" ng-click="">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="Inbox-bottom">
+            <span class="del">删除</span>
+            <span class="sign">标记已读</span>
+        </div>
+    </div>
+    <!--收件箱 结束-->
+    <!--发件箱 开始-->
+    <div ng-show="whichTab=='sendBox" ng-controller="">
+
+    </div>
+    <!--发件箱 结束-->
 </div>
