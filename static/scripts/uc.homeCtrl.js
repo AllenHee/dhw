@@ -57,7 +57,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       url: '/bannerDiy',
       templateUrl: dhw.gettplurl('bannerDiy.html'),
       controller: "bannerDiyCtrl"
-    });
+    })
+    .state('email', {
+      url: '/email',
+      templateUrl: dhw.gettplurl('email.html'),
+      controller: "emailCtrl"
+    })
+}])
+.controller('emailCtrl', ['$scope', '$http', function (s, h) {
+  // 设置默认页面,收件箱页面
+  s.whichTab === 'Inbox';
 }])
   .controller('bannerDiyCtrl', ['$scope', '$http', function (s, h) {
     s.data = {
@@ -651,8 +660,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     };
 
   }])
-<<<<<<< HEAD
-=======
   // 申请服务商的控制器
   .controller('fuwushangCtrl',['$scope','$http',function($scope,$http){
       $scope.data = {}
@@ -668,8 +675,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
           
       }
   }])
-  
->>>>>>> 298f2a1fe6c7b62cbbd724a9ea21a1958c28f1b0
   .controller('servicesCtrl', ["$scope", "$http", function (s, h) {
 
     s.data = {};

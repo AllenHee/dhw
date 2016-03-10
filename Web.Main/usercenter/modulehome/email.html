@@ -1,0 +1,24 @@
+<div class="accTabs_wrap">
+  <ul class="accTabs clearfix">
+    <li class="accTab" ng-class="{active:whichTab=='writeEmail'}" ng-click="whichTab='writeEmail'">写信</li>
+    <li class="accTab" ng-class="{active:whichTab=='Inbox'}" ng-click="whichTab='Inbox'">收件箱</li>
+    <li class="accTab" ng-class="{active:whichTab=='sendBox'}" ng-click="whichTab='sendBox'">发件箱</li>
+  </ul>
+</div>
+<div>
+  <!--写信 开始-->
+  <div ng-show="whichTab=='writeEmail'" ng-controller="">
+    
+  </div>
+  <!--写信 结束-->
+  <!--收件箱 开始-->
+  <div ng-show="whichTab=='Inbox" ng-controller="">
+    
+  </div>
+  <!--收件箱 结束-->
+  <!--发件箱 开始-->
+  <div ng-show="whichTab=='sendBox" ng-controller="">
+    
+  </div>
+  <!--发件箱 结束-->
+</div>
