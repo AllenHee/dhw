@@ -62,17 +62,17 @@
             <li @if (ap == "/appzb")
                 { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
                 else
-                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppZb", ViewBag.LoginAsCompany)" target="_self">
+                {<text>class="title_nav_ul_items"</text>}><a href="@{@BaseConfigs.GetUrlMain}appzb#/" target="_self">
                     众包</a></li>
             <li @if (ap == "/appcy")
                 { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
                 else
-                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppCy", ViewBag.LoginAsCompany)" target="_self">
+                {<text>class="title_nav_ul_items"</text>}><a href="@{@BaseConfigs.GetUrlMain}appcy#/" target="_self">
                     创意设计</a></li>
             <li @if (ap == "/appsrdz")
                 { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
                 else
-                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppSrdz", ViewBag.LoginAsCompany)" target="_self">
+                {<text>class="title_nav_ul_items"</text>}><a href="@{@BaseConfigs.GetUrlMain}appsrdz#/" target="_self">
                     私人定制</a></li>
             <li @if (ap != "/apphome" && ap != "/appzby" && ap != "/appcy" && ap != "/appsrdz")
                 {<text> class="title_nav_ul_items title_nav_ul_items-server title_nav_ul_items-current"</text>}
@@ -89,11 +89,11 @@
                             <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-rczp.png" alt="">人才</a></li>
                         <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
                             <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-zchuang.png" alt="">众创空间</a></li>
-                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppZb", ViewBag.LoginAsCompany)">
+                        <li class="server_t_r_items"><a href="@{@BaseConfigs.GetUrlMain}appzb#/)">
                             <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-zbao.png" alt="">众包</a></li>
-                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppCy", ViewBag.LoginAsCompany)">
+                        <li class="server_t_r_items"><a href="@{@BaseConfigs.GetUrlMain}appcy#/">
                             <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-cysj.png" alt="">创意设计</a></li>
-                        <li class="server_t_r_items"><a href="@Helper1.AppUrl("/AppSrdz", ViewBag.LoginAsCompany)">
+                        <li class="server_t_r_items"><a href="@{@BaseConfigs.GetUrlMain}appsrdz#/">
                             <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-srdz.png" alt="">私人定制</a></li>
                         <li class="server_t_r_items"><a href="@BaseConfigs.GetUrlCqbh" target="_blank">
                             <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/icon-cqbh.png" alt="">产权保护</a></li>
