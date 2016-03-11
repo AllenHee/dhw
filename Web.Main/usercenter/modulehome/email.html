@@ -7,12 +7,12 @@
 </div>
 <div>
     <!--写信 开始-->
-    <div ng-show="whichTab=='writeEmail'" ng-controller="">
+    <div ng-show="whichTab=='writeEmail'">
 
     </div>
     <!--写信 结束-->
     <!--收件箱 开始-->
-    <div ng-show="whichTab == 'Inbox" ng-controller="InboxCtrl">
+    <div ng-show="whichTab == 'Inbox" ng-controller="inboxCtrl">
         <form name="Inbox">
             <table class="Inbox">
                 <thead>
@@ -28,17 +28,15 @@
                         <td>操作</td>
                     </tr>
                 </thead>
-            </table>
-            <table class="Inbox">
                 <tbody>
-                    <tr>
+                    <tr ng-repeat="item in data">
                         <td class="td0">
                             <input class="InboxCheckbox" type="checkbox">
                         </td>
-                        <td class="td1" ng-model="data.from">0</td>
-                        <td class="td2" ng-model="data.title">0</td>
-                        <td class="td3" ng-model="data.creationtime">0</td>
-                        <td class="td4" ng-model="data.state">
+                        <td class="td1" ng-model="item.from"></td>
+                        <td class="td2" ng-model="item.title"></td>
+                        <td class="td3" ng-model="item.creationtime"></td>
+                        <td class="td4" ng-model="item.state" ng-class="item.state == '未读'">
                             <!--<span class="unread" ng-model="data.read">未读</span>-->
                         </td>
                         <td class="td5">

@@ -64,12 +64,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             controller: "emailCtrl"
         })
 }])
-    .controller('InboxCtrl', ['$scope', '$http', function(s, h) {
-        console.log()
+    .controller('inboxCtrl', ['$scope', '$http', function(s, h) {
         s.data = {};
-        // var para = {};
-        // para = $.extend({}, s.data)
-        h.post("/CenterUserDx/List").success(function(d) {
+         var para = {
+              pageIndex: 1,
+              pageSize: 10
+         };
+        h.post("/CenterUserDx/List", para).success(function(d) {
             if (d.success) {
                 console.log(d);
             }
