@@ -37,6 +37,7 @@
 </div>
 <!--写信 结束-->
 <!--收件箱 开始-->
+
 <div ng-show="whichTab == 'Inbox'" ng-controller="inboxCtrl">
   <form name="Inbox">
     <table class="Inbox">
@@ -59,7 +60,7 @@
             <input class="InboxCheckbox" type="checkbox">
           </td>
           <td class="td1">{{item.from}}</td>
-          <td class="td2">{{item.title}}</td>
+          <td class="td2" ng-click="read({{item.id}})">{{item.title}}</td>
           <td class="td3">{{item.sendtime}}</td>
           <td class="td4" ng-class="{unread:item.state == '未读'}">
             {{item.state}}
