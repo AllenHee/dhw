@@ -1,6 +1,8 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = "会计服务 - 梦高速 ";
+    ViewBag.Description = "梦高速会计服务聚集优质会计公司提供注册公司、会计培训、代理记账等服务，给中小微企业一个快捷的财务通道。";
+    ViewBag.Keywords = "注册公司,会计公司,会计培训,财务服务,代理记账";
 }
 @model System.Data.DataTable
 <!--主内容区 开始-->
@@ -14,6 +16,9 @@
             {
                 var item = ViewBag.latest.Rows[i];
                 var str = i % 2 == 0 ? "" : "even";
+                var business = item["business"] as Newtonsoft.Json.Linq.JToken;
+                var logo = item["logo"].ToString();
+                var pro = item["pro"].ToString().Length > 105 ? item["pro"].ToString().Substring(0, 105) : item["pro"].ToString();
                 <li class="rcmd-item @str">
                     <div class="rcmd-title">
                         @item["servertenet"]</div>
@@ -23,7 +28,12 @@
                         <div class="clearfix">
                             <div class="avatar">
                                 <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@item["id"]" target="_blank">
-                                    <img src="@BaseConfigs.GetImgPath@item["logo"]" alt="@item["compay"]"></a>
+                                    @if (logo == "")
+                                    {
+                                        <img src="@{@BaseConfigs.GetStaticPath}/images/default2.png" alt="@item["compay"]">
+                                    }
+                                    else
+                                    { <img src="@BaseConfigs.GetImgPath@item["logo"]" alt="@item["compay"]">}</a>
                                 <div>
                                     <i></i>@item["phone"]</div>
                             </div>
@@ -44,9 +54,9 @@
                                     <li class="badges-4"></li>
                                 </ul>
                                 <ul class="tags clearfix">
-                                    @if (ViewBag.business != null)
+                                    @if (business != null)
                                     {
-                                        foreach (Newtonsoft.Json.Linq.JToken business1 in ViewBag.business)
+                                        foreach (Newtonsoft.Json.Linq.JToken business1 in business)
                                         {
                                         <li>@(business1.Value<string>("name"))</li>
                                         }
@@ -54,8 +64,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <p>
-                            @item["pro"]<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/@item["id"]" target="_blank">>></a></p>
+                        <p class="textOver" title="@item["pro"]">
+                            @pro<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/@item["id"]" target="_blank">>></a></p>
                         <div class="detail">
                             <a href="@{@BaseConfigs.GetUrlMain}Company/Index/@item["id"]" target="_blank">查看公司详情</a></div>
                     </div>
@@ -85,6 +95,13 @@
 <!--主内容区 结束-->
 @section scripts{
     <script src="@BaseConfigs.GetStaticPath/scripts/kuaiji.js"></script>
+    <script>
+        $('input, textarea').placeholder();
+        function search() {
+            var searchValue = $("#searchValue").val();
+            window.location.href = '@{@BaseConfigs.GetUrlKj}accounting?searchkey=' + searchValue;
+        }
+    </script>
 }
 <script type="text/html" id="posts">
     {{each posts as post}}

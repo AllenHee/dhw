@@ -1,4 +1,7 @@
-﻿@{ Layout = "~/Views/Shared/_Layout.cshtml";}
+﻿@{
+    var AdvertList = DHW.Web.Controllers.Advert.AdvertShowList(5, "kj", "会计首页横幅"); 
+}
+@{ Layout = "~/Views/Shared/_Layout.cshtml";}
 <!--头部 开始-->
 <div class="header">
     <!--头部主内容 开始-->
@@ -11,9 +14,10 @@
         </div>
         <div class="header-m-r">
             <div class="header-search clearfix">
-                <form action="#"><span></span>
-                <input type="text" placeholder="请输入关键词">
-                <button type="submit">
+                <form action="#">
+                <span></span>
+                <input type="text" id="searchValue" placeholder="请输入关键词">
+                <button type="button" onclick="search()">
                     搜索</button>
                 </form>
             </div>
@@ -24,21 +28,14 @@
     <div class="slide-bg">
         <div class="slide">
             <ul class="slide-wrap">
-                <a class="slide_bg1" href="#">
-                    <li>
-                        <img src="@Html.Raw(BaseConfigs.GetUrlCdn)kuaiji/images/slide_1.jpg" alt=""></li></a>
-                <a class="slide_bg2" href="#">
-                    <li>
-                        <img src="@Html.Raw(BaseConfigs.GetUrlCdn)kuaiji/images/slide_2.jpg" alt=""></li></a>
-                <a class="slide_bg3" href="#">
-                    <li>
-                        <img src="@Html.Raw(BaseConfigs.GetUrlCdn)kuaiji/images/slide_3.jpg" alt=""></li></a>
-                <a class="slide_bg4" href="#">
-                    <li>
-                        <img src="@Html.Raw(BaseConfigs.GetUrlCdn)kuaiji/images/slide_4.jpg" alt=""></li></a>
-                <a class="slide_bg5" href="#">
-                    <li>
-                        <img src="@Html.Raw(BaseConfigs.GetUrlCdn)kuaiji/images/slide_5.jpg" alt=""></li></a>
+                @for (int i = 0; i < @AdvertList.Rows.Count; i++)
+                {
+                    var clss = "slide_bg" + (i + 1);
+                    var imgs = @AdvertList.Rows[i]["img"] + ".jpg"; 
+                    <a class="@clss" href="@AdvertList.Rows[i]["url"]" target="_blank">
+                        <li>
+                            <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="会计首页横幅广告"></li></a>
+                }
             </ul>
             <a class="s-prev" href="#"></a><a class="s-next" href="#"></a>
             <div class="slider">

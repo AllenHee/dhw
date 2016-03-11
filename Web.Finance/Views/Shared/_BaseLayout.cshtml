@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>@ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.Keywords">
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}fonts/iconfont.css">
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
     <script type="text/javascript">
@@ -168,19 +170,30 @@
     </div>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/general.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
-                if (r.success && r.result.IsAuthenticated) {
-                    var app;
-                    if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
-                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + app + '" target="_blank">' + r.result.Name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
-                }
-                else {
-                    $('li.log').html('您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">免费注册</a>');
-                }
-            });
-        })
+     <script type="text/javascript">
+         $(function () {
+             $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
+                 if (r.success && r.result.IsAuthenticated) {
+                     dhw = dhw || {};
+                     dhw.isLogined = true;
+                     var app;
+                     var nickname = r.result.nickname;
+                     var name;
+                     if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
+                     if (nickname == "") {
+                         name = r.result.Name;
+                     }
+                     else {
+                         name = nickname + "(" + r.result.Name + ")";
+                     }
+                     $('li.log').html('您好，<a href="' + dhw.urlmain + '' + app + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+                 }
+                 else {
+                     dhw.isLogined = false;
+                     $('li.log').html('您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">免费注册</a>');
+                 }
+             });
+         })
     </script>
     @RenderSection("scripts", required: false)
 </body>
