@@ -104,6 +104,7 @@ $('.ps-button').find('button').click(function(){
   para.qq = $('#qq').val();
   para.name = $('#name').val();
   para.phone = $('#phone').val();
+  para.content = $('.pinggu-search-input').val();
   console.log(para);
   $.post('/Assessment/Add',para,function(data){
     if(data.success) {
