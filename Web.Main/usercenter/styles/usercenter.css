@@ -364,7 +364,6 @@ ul {
   line-height: 50px;
   color: #fff;
 }
-<<<<<<< HEAD
 
 
 /*站内信-写信——李雅丽*/
@@ -408,7 +407,7 @@ ul {
   height: 21px;
   line-height: 21px;
   font-size: 13px;
-=======
+}
 .Inbox {
     width: 1000px;
     border-bottom: 1px solid #e3e6eb;
@@ -463,5 +462,4 @@ ul {
     text-align: center;
     line-height: 20px;
     display: block;
->>>>>>> 5ff702b2c3974ed888bd794016df812ca4c61fc4
 }

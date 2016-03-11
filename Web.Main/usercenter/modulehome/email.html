@@ -5,106 +5,83 @@
     <li class="accTab" ng-class="{active:whichTab=='sendBox'}" ng-click="whichTab='sendBox'">发件箱</li>
   </ul>
 </div>
-<div>
-  <!--写信 开始-->
-<<<<<<< HEAD
-  <div ng-show="whichTab=='writeEmail'" ng-controller="writeEmailCtrl">
-   
-    <form name="writeEmail">
-      <div ng-show="whichTab=='writeEmail'" ng-controller="writeEmailCtrl">
-        <form name="corporate">
-          <div class="formSet clearfix">
-            <div class="formSetWrap">
-              <label class="formSet_label_name">收件人</label>
-              <input class="formSet_input_name" name="recipients" type="text" ng-model="data.to">
-            </div>
-          </div>
-          <div class="formSet clearfix">
-            <div class="formSetWrap">
-              <label class="formSet_label_name">标题</label>
-              <input class="formSet_input_name" name="tittle" type="text" ng-model="data.tittle">
-            </div>
-          </div>
-          <div class="formSet clearfix">
-            <div class="formSetWrap">
-              <label class="formSet_label_name">正文</label>
-              <textarea class="formSet_textarea_content" name="content" type="text" ng-model="data.message"></textarea>
-            </div>
-          </div>
-          <div class="formSet clearfix">
-            <div class="formSetWrap">
-              <label class="formSet_label"></label>
-              <button class="submitBtn sendBtn" type="button" ng-disabled="writeEmail.$invalid" ng-click="send()">发送</button>
-            </div>
-          </div>
-        </form>
-        
+<!--写信 开始-->
+<div ng-show="whichTab=='writeEmail'" ng-controller="writeEmailCtrl">
+  <form name="writeEmail">
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label_name">收件人</label>
+        <input class="formSet_input_name" name="recipients" type="text" ng-model="data.to">
       </div>
-      <!--写信 结束-->
-      <!--收件箱 开始-->
-      <div ng-show="whichTab=='Inbox" ng-controller="">
-
-      </div>
-      <!--收件箱 结束-->
-      <!--发件箱 开始-->
-      <div ng-show="whichTab=='sendBox" ng-controller="">
-
-      </div>
-      <!--发件箱 结束-->
-  </div>
-=======
-  <div ng-show="whichTab=='writeEmail'">
-
-  </div>
-  <!--写信 结束-->
-  <!--收件箱 开始-->
-  <div ng-show="whichTab == 'Inbox" ng-controller="inboxCtrl">
-    <form name="Inbox">
-      <table class="Inbox">
-        <thead>
-          <tr class="tr">
-            <td class="td0">
-              <input class="InboxCheckbox" type="checkbox">
-            </td>
-            <td class="td1">发件人</td>
-            <td class="td2">标题</td>
-            <td class="td3">时间</td>
-            <td class="td4">状态</td>
-            <td class="td5">回复</td>
-            <td>操作</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="item in data">
-            <td class="td0">
-              <input class="InboxCheckbox" type="checkbox">
-            </td>
-            <td class="td1">{{item.from}}</td>
-            <td class="td2">{{item.title}}</td>
-            <td class="td3">{{item.sendtime}}</td>
-            <td class="td4" ng-class="{unread:item.state == '未读'}">
-              {{item.state}}
-            </td>
-            <td class="td5">
-              <span class="unread">回复</span>
-            </td>
-            <td>
-              <a class="delete" ng-click="">删除</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </form>
-    <div class="Inbox-bottom">
-      <span class="del">删除</span>
-      <span class="sign">标记已读</span>
     </div>
-  </div>
-  <!--收件箱 结束-->
-  <!--发件箱 开始-->
-  <div ng-show="whichTab=='sendBox" ng-controller="">
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label_name">标题</label>
+        <input class="formSet_input_name" name="tittle" type="text" ng-model="data.tittle">
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label_name">正文</label>
+        <textarea class="formSet_textarea_content" name="content" type="text" ng-model="data.message"></textarea>
+      </div>
+    </div>
+    <div class="formSet clearfix">
+      <div class="formSetWrap">
+        <label class="formSet_label"></label>
+        <button class="submitBtn sendBtn" type="button" ng-disabled="writeEmail.$invalid" ng-click="send()">发送</button>
+      </div>
+    </div>
+  </form>
 
-  </div>
-  <!--发件箱 结束-->
 </div>
->>>>>>> 5ff702b2c3974ed888bd794016df812ca4c61fc4
+<!--写信 结束-->
+<!--收件箱 开始-->
+<div ng-show="whichTab == 'Inbox" ng-controller="inboxCtrl">
+  <form name="Inbox">
+    <table class="Inbox">
+      <thead>
+        <tr class="tr">
+          <td class="td0">
+            <input class="InboxCheckbox" type="checkbox">
+          </td>
+          <td class="td1">发件人</td>
+          <td class="td2">标题</td>
+          <td class="td3">时间</td>
+          <td class="td4">状态</td>
+          <td class="td5">回复</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in data">
+          <td class="td0">
+            <input class="InboxCheckbox" type="checkbox">
+          </td>
+          <td class="td1">{{item.from}}</td>
+          <td class="td2">{{item.title}}</td>
+          <td class="td3">{{item.sendtime}}</td>
+          <td class="td4" ng-class="{unread:item.state == '未读'}">
+            {{item.state}}
+          </td>
+          <td class="td5">
+            <span class="unread">回复</span>
+          </td>
+          <td>
+            <a class="delete" ng-click="">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <div class="Inbox-bottom">
+    <span class="del">删除</span>
+    <span class="sign">标记已读</span>
+  </div>
+</div>
+<!--收件箱 结束-->
+<!--发件箱 开始-->
+<div ng-show="whichTab=='sendBox" ng-controller="">
+
+</div>
+<!--发件箱 结束-->
