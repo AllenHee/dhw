@@ -9,8 +9,6 @@ $(function () {
       var conf = confirm("您还未登录，请先登录再进行评论，点击确定跳转到登录页面");
       if (conf == true) {
         location.href = url;
-      } else {
-
       }
     });
   };
@@ -221,6 +219,12 @@ $('.support_pay_items').click(function () {
 })
 
 $('.support_btn').click(function () {
+  var mainurl = dhw.mainurl;
+  var localurl = encodeURIComponent(window.location.href);
+  var url = mainurl + "login?redirectURL=" + localurl;
+  if (!$.cookie("accountType")) {
+      location.href = url;
+  }
   var money = parseInt($('.support_pay').find('.support_pay_items-current').attr('data-pay'));
   if ($('.support_pay_items-last').hasClass('support_pay_items-current')) {
     money = parseInt($('.support_pay_items-last input').val());
