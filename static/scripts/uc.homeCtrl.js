@@ -64,6 +64,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       controller: "emailCtrl"
     });
 }])
+.controller('emailCtrl', ['$scope', function (s) {
+  s.whichTab = 'sendBox'
+}])
   .controller('writeEmailCtrl', ['$scope', '$http', function(s, h) {
     s.data = {};
     var para;
@@ -81,6 +84,18 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       pageSize: 10
     };
     h.post("/CenterUserDx/List", para).success(function(d) {
+      if (d.success) {
+        s.data = d.result.data
+      }
+    })
+  }])
+  .controller('outboxCtrl',['$scope', '$http', function (s, h) {
+    s.data = {};
+    var para = {
+      pageIndex: 1,
+      pageSize: 10
+    };
+    h.post('/CenterUserDx/SelectListfb', para).success(function (d) {
       if (d.success) {
         s.data = d.result.data
       }

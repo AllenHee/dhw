@@ -408,13 +408,15 @@ ul {
   line-height: 21px;
   font-size: 13px;
 }
-.Inbox {
+.Inbox,
+.Outbox {
     width: 1000px;
     border-bottom: 1px solid #e3e6eb;
     margin-left: 20px;
     line-height: 25px;
 }
-.InboxCheckbox {
+.InboxCheckbox,
+.OutboxCheckbox {
     vertical-align: middle;
     float: right;
 }
@@ -432,8 +434,12 @@ ul {
 }
 .td3,
 .td4,
-.td5 {
+.td5,
+.td6 {
     width: 120px;
+}
+.td6 {
+  float: right;
 }
 .unread {
     color: #68a3ff;
@@ -442,7 +448,8 @@ ul {
     color: black;
     cursor: pointer;
 }
-.Inbox-bottom {
+.Inbox-bottom,
+.Outbox-bottom {
     margin: 10px 0 0 30px;
     overflow: hidden;
 }
