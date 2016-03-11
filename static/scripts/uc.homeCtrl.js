@@ -72,7 +72,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
          };
         h.post("/CenterUserDx/List", para).success(function(d) {
             if (d.success) {
-                console.log(d);
+              s.data = d.result.data
             }
         })
     }])
