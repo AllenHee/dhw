@@ -7,18 +7,47 @@
 </div>
 <div>
   <!--写信 开始-->
-  <div ng-show="whichTab=='writeEmail'" ng-controller="">
-    
+  <div ng-show="whichTab=='writeEmail'" ng-controller="writeEmailCtrl">
+   
+    <form name="writeEmail">
+      <div ng-show="whichTab=='writeEmail'" ng-controller="writeEmailCtrl">
+        <form name="corporate">
+          <div class="formSet clearfix">
+            <div class="formSetWrap">
+              <label class="formSet_label_name">收件人</label>
+              <input class="formSet_input_name" name="recipients" type="text" ng-model="data.to">
+            </div>
+          </div>
+          <div class="formSet clearfix">
+            <div class="formSetWrap">
+              <label class="formSet_label_name">标题</label>
+              <input class="formSet_input_name" name="tittle" type="text" ng-model="data.tittle">
+            </div>
+          </div>
+          <div class="formSet clearfix">
+            <div class="formSetWrap">
+              <label class="formSet_label_name">正文</label>
+              <textarea class="formSet_textarea_content" name="content" type="text" ng-model="data.message"></textarea>
+            </div>
+          </div>
+          <div class="formSet clearfix">
+            <div class="formSetWrap">
+              <label class="formSet_label"></label>
+              <button class="submitBtn sendBtn" type="button" ng-disabled="writeEmail.$invalid" ng-click="send()">发送</button>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+      <!--写信 结束-->
+      <!--收件箱 开始-->
+      <div ng-show="whichTab=='Inbox" ng-controller="">
+
+      </div>
+      <!--收件箱 结束-->
+      <!--发件箱 开始-->
+      <div ng-show="whichTab=='sendBox" ng-controller="">
+
+      </div>
+      <!--发件箱 结束-->
   </div>
-  <!--写信 结束-->
-  <!--收件箱 开始-->
-  <div ng-show="whichTab=='Inbox" ng-controller="">
-    
-  </div>
-  <!--收件箱 结束-->
-  <!--发件箱 开始-->
-  <div ng-show="whichTab=='sendBox" ng-controller="">
-    
-  </div>
-  <!--发件箱 结束-->
-</div>
