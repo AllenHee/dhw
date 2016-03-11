@@ -16,7 +16,7 @@
             {
                 var item = data[i];
                 <li><a target="_blank" href="@{@BaseConfigs.GetUrlSrdz}Detail/@item.id">
-                    <img src="@BaseConfigs.GetImgPath@item.productlmg" alt="">
+                    <img src="@{@BaseConfigs.GetImgPath@item.productlmg}_310x310.jpg" alt="">
                     <p>
                         @item.title</p>
                 </a></li>
@@ -30,7 +30,7 @@
             {
                 var item = data1[i];
                 <li><a target="_blank" href="@BaseConfigs.GetUrlSrdz/Detail/@item.id">
-                    <img src="@BaseConfigs.GetImgPath@item.productlmg" alt="">
+                    <img src="@{@BaseConfigs.GetImgPath@item.productlmg}_310x310.jp" alt="">
                     <p>
                         @item.title</p>
                 </a></li>
@@ -44,7 +44,7 @@
             {
                 var item = data2[i];
                 <li><a target="_blank" href="@BaseConfigs.GetUrlSrdz/Detail/@item.id">
-                    <img src="@BaseConfigs.GetImgPath@item.productlmg" alt="">
+                    <img src="@{@BaseConfigs.GetImgPath@item.productlmg}_310x310.jp" alt="">
                     <p>
                         @item.title</p>
                 </a></li>
