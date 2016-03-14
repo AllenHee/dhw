@@ -1,0 +1,43 @@
+﻿@model System.Data.DataRow
+@{
+    Layout = "~/Views/Shared/_CenterLayout.cshtml";
+    ViewBag.Title = "订单完成 - 梦高速";   
+}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/order.css">
+}
+<ul class="pay_progress clearfix">
+   
+    <li class="pay_progress_items">1.订单信息确认 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+    </i></li>
+    <li class="pay_progress_items">2.支付 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+    </i></li>
+    <li class="pay_progress_items complete">3.完成 </li>
+</ul>
+<div class="order">
+    <div class="pay_l">
+        <p class="text">
+            @Model["stateName"]！请耐心等待众筹项目结束！</p>
+        <p class="number">
+            订单号：@Model["number"]</p>
+        <p class="online">
+            在线支付：@Model["cost"]元</p>
+        <a class="details" href="#">查看订单详情</a>
+        <br>
+        <button class="going">
+            继续逛逛</button>
+    </div>
+    <div class="pay_r">
+        <img src="@{@BaseConfigs.GetUrlCdn}images/erweima.jpg" alt="">
+        <p>
+            安装手机客户端实时跟踪物流信息</p>
+    </div>
+    <div class="pay_b">
+        <p class="important">
+            重要提示：</p>
+        <p>
+            梦高速平台及销售商不会以<span>订单异常、系统升级</span>为由要求您点击任何连接进行退款。</p>
+        <p>
+            详情请关注<a class="notice" href="#">《谨防诈骗公告》</a></p>
+    </div>
+</div>

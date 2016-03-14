@@ -177,6 +177,9 @@
     </div>
     <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/general.js"></script>
+    <script>
+        var ddid = @ViewBag.ddid;
+    </script>
     <script type="text/javascript">
         $(function () {
             $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {

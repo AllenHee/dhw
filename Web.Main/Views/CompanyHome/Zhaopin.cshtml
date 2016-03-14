@@ -22,9 +22,22 @@
                 <table class="gsJob_welfare_table">
                     <tr>
                         <td>
-                            <span class="gsJob_pic"></span><a href="#">五险一金</a> <span class="gsJob_pic"></span>
-                            <a href="#">周末双休</a> <span class="gsJob_pic"></span><a href="#">年终奖金</a> <span class="gsJob_pic">
-                            </span><a href="#">住房津贴</a> <span class="gsJob_pic"></span><a href="#">工作午餐</a>
+                        @for (int i = 0; i < ViewBag.fuli.Rows.Count;i++ )
+                        {
+                            
+                            <span class="gsJob_pic"></span>
+                            <a href="#">五险一金</a>
+
+
+                             <span class="gsJob_pic"></span>
+                            <a href="#">周末双休</a> 
+                            <span class="gsJob_pic"></span>
+                            <a href="#">年终奖金</a> 
+                            <span class="gsJob_pic"></span>
+                            <a href="#">住房津贴</a> 
+                            <span class="gsJob_pic"></span>
+                            <a href="#">工作午餐</a>
+                        }
                         </td>
                     </tr>
                 </table>

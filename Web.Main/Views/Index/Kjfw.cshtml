@@ -14,6 +14,7 @@
                 {
                     var item = ViewBag.latest.Rows[i];
                     var str = i % 2 == 0 ? "" : "rcmd-content-second";
+                    var business = item["business"] as Newtonsoft.Json.Linq.JToken;
                     <li class="rcmd-content @str">
                         <h3>
                             <a target="_blank" href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@item["id"]">@item["compay"]</a></h3>
@@ -30,11 +31,13 @@
                                     <li class="badges-4"></li>
                                 </ul>
                                 <ul class="tags clearfix">
-                                    <li>注册公司</li>
-                                    <li>申报纳税</li>
-                                    <li>进出口税务申报</li>
-                                    <li>审计业务</li>
-                                    <li>进出口税务申报</li>
+                                    @if (business != null)
+                                    {
+                                        foreach (Newtonsoft.Json.Linq.JToken business1 in business)
+                                        {
+                                        <li>@(business1.Value<string>("name"))</li>
+                                        }
+                                    }
                                 </ul>
                             </div>
                         </div>

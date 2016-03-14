@@ -9,13 +9,18 @@ body {
   width: 100%;
   height: 750px;
   margin-top: -397px;
-  overflow: hidden;
   z-index: 9;
 }
+
 @media screen and (max-height: 800px) { 
   .content {
     top: 10px;
     margin-top: 0;
+  }
+}
+@media screen and (min-width: 1200px) { 
+  .content {
+    overflow: hidden;
   }
 }
 
@@ -73,7 +78,9 @@ body {
 .menu_items a {
   color: #65a1f5;
 }
-
+.menu_items a:hover {
+  color:rgb(224,135,10);
+}
 /*logo*/
 .logo {
   padding-bottom: 15px;
@@ -598,9 +605,11 @@ body {
 .rcmd-content {
   float: left;
   width: 354px;
+  height:112px;
   padding: 0 14px;
   border: 1px solid #d6d6d6;
   margin: 13px 30px 0 0;
+  overflow: hidden;
 }
 .rcmd-content-second {
   margin-right: 0;  
@@ -996,14 +1005,16 @@ body {
   padding: 10px 15px 0 0;
 }
 .module-zchuang_txt p {
-  float: right;
-  text-align: center;
-  color: #989898;
-  line-height: 25px;
-  font-size: 12px;
-  border-bottom: 1px dashed #989898;
-  width: 285px;
-  padding-bottom: 10px;
+    float: right;
+    text-align: left;
+    color: #989898;
+    line-height: 25px;
+    font-size: 12px;
+    border-bottom: 1px dashed #989898;
+    width: 285px;
+    padding: 9px;
+    overflow: hidden;
+    height: 196px;
 }
 .module-zchuang_imgR {
   margin-top: 60px;

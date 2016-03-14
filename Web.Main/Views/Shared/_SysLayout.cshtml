@@ -1,4 +1,5 @@
 ﻿@{Layout = null;}
+@{ string ap = Request.Url.AbsolutePath.ToLower(); ap = ap.Replace("_company", "");}
 <!DOCTYPE html>
 <html lang="zh" ng-app="userCenter" ng-controller="MainCtrl as mainVm">
 <head>
@@ -92,11 +93,26 @@
             <ul class="ucNav_list" nav-slide>
                 <li class="ucNav_list_item ucNav_list_item--slider"></li>
                 <a href="@Helper2.AppUrl("/AppHome", ViewBag.LoginAsCompany)" target="_self">
-                    <li class="ucNav_list_item ucNav_list_item--active">首页</li></a> <a href="@{@BaseConfigs.GetUrlMain}apphr#/">
-                        <li class="ucNav_list_item">人才招聘</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzc#/">
-                            <li class="ucNav_list_item">众筹</li></a> <a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
-                                <li class="ucNav_list_item">众创空间</li></a>
-                <li class="ucNav_list_item ucNav_list_item--all" show-all-modules>
+                    <li @if (ap == "/apphome")
+                        { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                        else
+                        {<text>class="ucNav_list_item"</text>} >首页</li></a> <a href="@{@BaseConfigs.GetUrlMain}apphr#/">
+                            <li  @if (ap == "/apphr")
+                                 { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                                 else
+                                 {<text>class="ucNav_list_item"</text>} >人才招聘</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzc#/">
+                                     <li  @if (ap == "/appzc")
+                                          { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                                          else
+                                          {<text>class="ucNav_list_item"</text>} >众筹</li></a> <a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
+                                              <li  @if (ap == "/appzckj")
+                                                   { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                                                   else
+                                                   {<text>class="ucNav_list_item"</text>} >众创空间</li></a>
+                <li  @if (ap != "/apphome" && ap != "/apphr" && ap != "/appzc" && ap != "/appzckj")
+                     { <text>class="ucNav_list_item ucNav_list_item--all ucNav_list_item--active"</text>}
+                     else
+                     {<text>class="ucNav_list_item ucNav_list_item--all"</text>} show-all-modules>
                     <div class="ucNav_list_item--all_text">
                         所有服务<i class="ucNav_list_item--all_arrow"></i></div>
                     <ul class="ucNav_list_item--all_list">
@@ -112,13 +128,13 @@
                         <li class="ucNav_list_item--all_list_item"><a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
                             <i class="ucNav_list_item--all_list_item_icon zckj"></i><span class="ucNav_list_item--all_list_item_text">
                                 众创空间</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@Helper1.AppUrl("/AppCy", ViewBag.LoginAsCompany)">
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appcy#/">
                             <i class="ucNav_list_item--all_list_item_icon cysj"></i><span class="ucNav_list_item--all_list_item_text">
                                 创意设计</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@Helper1.AppUrl("/AppSrdz", ViewBag.LoginAsCompany)">
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appsrdz#/">
                             <i class="ucNav_list_item--all_list_item_icon srdz"></i><span class="ucNav_list_item--all_list_item_text">
                                 私人定制</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@Helper1.AppUrl("/AppZb", ViewBag.LoginAsCompany)">
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzb#/">
                             <i class="ucNav_list_item--all_list_item_icon zbao"></i><span class="ucNav_list_item--all_list_item_text">
                                 众包</span> </a></li>
                         <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlCqbh" target="_blank">

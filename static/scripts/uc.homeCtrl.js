@@ -325,6 +325,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         s.data.y = coords.y;
         s.data.w = coords.h;
         s.data.h = coords.w;
+        
         var rx = 100 / coords.w;
         var ry = 100 / coords.h;
 
@@ -651,8 +652,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     };
 
   }])
-<<<<<<< HEAD
-=======
   // 申请服务商的控制器
   .controller('fuwushangCtrl',['$scope','$http',function($scope,$http){
       $scope.data = {}
@@ -668,8 +667,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
           
       }
   }])
-  
->>>>>>> 298f2a1fe6c7b62cbbd724a9ea21a1958c28f1b0
   .controller('servicesCtrl', ["$scope", "$http", function (s, h) {
 
     s.data = {};
