@@ -98,9 +98,9 @@
   </div>
   <!--通用顶栏 结束-->
   <!--头部 开始-->
-  <div class="header">
+  <!--<div class="header">
     <!--头部主内容 开始-->
-    <div class="header-main clearfix">
+    <!--<div class="header-main clearfix">
       <div class="header-m-l">
         <a href="#"><h1><img src="images/kuaiji_logo.jpg" alt="梦高速 - 会计"></h1></a>
       </div>
@@ -111,11 +111,11 @@
             <button onclick="search()">搜索</button>
           </form>
         </div>
-      </div>
-    </div>
+      </div>-->
+    <!--</div>-->
     <!--头部主内容 结束-->
     <!--头部轮播 开始-->
-    <div class="slide-bg">
+    <!--<div class="slide-bg">
       <div class="slide">
         <ul class="slide-wrap">
           <a class="slide_bg1" href="#">
@@ -146,7 +146,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div>-->
     <!--头部轮播 结束-->
   </div>
   <!--头部 结束-->
@@ -154,7 +154,64 @@
   <div class="content clearfix">
     <!--热门会计推荐列表 开始-->
     <div class="kj-box kj-box-w">
-      <h2>热门会计推荐列表</h2>
+
+      <div class="kj_filter_box"> 
+      <div class="has-more">
+        
+        <dl class="clearfix">
+            <dt>所在地点： </dt>
+            <dd class="current">全国</dd>
+            <dd data-citycode="350500">泉州</dd>
+            <dd data-citycode="310000">上海</dd>
+            <dd data-citycode="440300">深圳</dd>
+            <dd data-citycode="440100">广州</dd>
+            <dd data-citycode="330100">杭州</dd>
+            <dd data-citycode="510100">成都</dd>
+            <dd data-citycode="320100">南京</dd>
+            <dd data-citycode="420100">武汉</dd>
+            <dd data-citycode="210200">大连</dd>
+            <dd data-citycode="350200">厦门</dd>
+            <dd data-citycode="350100">福州</dd>
+            <dd data-citycode="110000">北京</dd>
+            <dd data-citycode="120000">天津</dd>
+            <dd></dd>
+            <dd class="more">更多
+              <i></i>
+            </dd>
+            
+        </dl>
+        <ul class="clearfix">
+            <li data-citycode="500000">重庆</li>
+            <li data-citycode="430100">长沙</li>
+            <li data-citycode="370200">青岛</li>
+            <li data-citycode="320200">无锡</li>
+            <li data-citycode="440600">佛山</li>
+        </ul>
+      </div>
+      <div>
+        <dl class="clearfix">
+          <dt>服务内容： </dt>
+          <dd class="current">全部</dd>
+          <dd>验资</dd>
+          <dd>审计</dd>
+          <dd>评估</dd>
+          <dd>会记服务</dd>
+          <dd>工程造价</dd>
+          <dd>税务咨询</dd>
+          <dd>纳税申报</dd>
+          <dd>财税疑难</dd>
+          <dd>其他</dd>
+        </dl>
+      </div>
+      <div class="">
+        <div class="clearfix">
+          <form action="#">
+            <input type="text" id="searchValue" class="kj_filter_box_search" placeholder="请输入关键词">
+            <button onclick="search()" class="kj_filter_box_search_btn">搜索</button>
+          </form>
+        </div>
+      </div>
+    </div>
       <ul class="rcmd clearfix">
         <!--<li class="rcmd-item">
           <div class="rcmd-content">
@@ -376,29 +433,52 @@
   <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
   <script src="http://localhost:8070/scripts/kuaiji.js"></script>
   <script>
-    function search() {
-      var searchValue = $("#searchValue").val();
-      window.location.href = 'http://localhost:8082/kuaiji/liebiao.html?searchkey='+ searchValue;
-    }
     // 数据交互
   $(function() {
     var para = {
       pageIndex: 1,
-      pageSize: 10
+      pageSize: 10,
+      keyword:"",
+      city_code: ""
     }
+   function search() {
+      var searchValue = $("#searchValue").val();
+      para.keyword = searchValue;
+   }
+    function setCommon(elem, children_elem, property) {
+        elem.find(children_elem).click(function () {
+          if ($(this).hasClass("more")) {
+            return false;
+          }
+        var value = $.trim($(this).text());
+      // 判断是否是所在地点
+       if (property === 'szdd') {
+          value = $(this).attr('data-citycode');
+          property = 'city_code';
+       }
+       if (value == "全国" || value == "全部") {
+          value = "";
+       }
+        para[property] = value;
+        loadData("/Accounting/List", para, "financeList", ".rcmd");
+        console.log(para);
+      })
+      // “更多”下的选项
+     elem.children("ul").find("li").click(function () {
+        var value = $(this).text();
+        var citycode = $(this).attr('data-citycode')
+        elem.find("dd:last-child").prev().text(value).attr('data-citycode', citycode).trigger("click");
+        console.log(para);
+    });
+    }
+    //获取搜索框中的值
     var  searchkey = location.search.split('=')[1];
     if(searchkey) {
       para.compay = searchkey
     }
+    setCommon($('.kj_filter_box div').eq(0),'dd','szdd');
+    setCommon($('.kj_filter_box div').eq(1),'dd','keyword');
     loadData("/Accounting/List", para, "financeList", ".rcmd");
-     //限制字符个数
-   $(".textOver").each(function(){
-        var maxwidth=20;
-        if($(this).text().length>maxwidth){
-            $(this).text($(this).text().substring(0,maxwidth));
-            $(this).html($(this).html()+'...');
-        }
-    });
   });
   </script>
 </body>

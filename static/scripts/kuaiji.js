@@ -75,4 +75,30 @@ $(function () {
   //           $(this).html($(this).html()+'...');
   //       }
   //   });
+  
+  // 热门会计列表筛选
+  $('.kj_filter_box div dd').click(function() {
+    if($(this).hasClass('more')) {
+      return false ;
+    }else {
+      $(this).siblings().css(
+        {
+          'background-color':'#fff',
+          'color':'#333'
+        }
+      ).end().css({
+        'background-color':'#ff6501',
+        'color' : '#fff'
+      })
+    }
+  })
+  
+  
+  $('.kj_filter_box .has-more .more').mouseenter(function() {
+    $(this).parent().next().show();
+  }).parents('.has-more').mouseleave(function() {
+    $(this).find('ul').hide();
+  }).find('li').click(function() {
+    $(this).parent().hide();
+  })
 });
