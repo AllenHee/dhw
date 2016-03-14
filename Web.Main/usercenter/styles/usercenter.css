@@ -364,3 +364,108 @@ ul {
   line-height: 50px;
   color: #fff;
 }
+
+
+.Inbox,
+.Outbox {
+    width: 1000px;
+    border-bottom: 1px solid #e3e6eb;
+    margin-left: 20px;
+    line-height: 25px;
+}
+.InboxCheckbox,
+.OutboxCheckbox {
+    vertical-align: middle;
+    float: right;
+}
+.tr {
+    border-bottom: 1px solid #e3e6eb;
+}
+.td0 {
+    width: 30px;
+}
+.td1 {
+    width: 100px;
+}
+.td2 {
+    width: 400px;
+}
+.td3,
+.td4,
+.td5,
+.td6 {
+    width: 120px;
+}
+.td6 {
+  float: right;
+}
+.unread {
+    color: #68a3ff;
+}
+.delete {
+    color: black;
+    cursor: pointer;
+}
+.Inbox-bottom,
+.Outbox-bottom {
+    margin: 10px 0 0 30px;
+    overflow: hidden;
+}
+.del {
+    width: 45px;
+}
+.sign {
+    width: 65px;
+}
+.del,
+.sign {
+    float: left;
+    height: 22px;
+    margin-right: 10px;
+    color: white;
+    background: #007cff;
+    text-align: center;
+    line-height: 20px;
+    display: block;
+}
+
+.emailDetail {
+  padding-left: 20px;
+}
+.emailDetail_ttl {
+  width: 800px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dcdcdc;
+  margin-bottom: 20px;
+}
+.emailDetail_ttl_ttl {
+  line-height: 30px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.emailDetail_ttl p {
+  font-size: 14px;
+  line-height: 25px;
+  color: #666;
+}
+.emailDetail_cont {
+  margin-bottom: 30px;
+}
+.emailDetail_cont_cont {
+  width: 740px;
+  height: 320px;
+  padding: 5px 10px;
+  border: 1px solid #dcdcdc;
+  overflow-y: scroll;
+  font-size: 14px;
+}
+.functionBtn button {
+  width: 70px;
+  height: 20px;
+  border: 0;
+  background-color: #007cff;
+  color: #fff;
+  margin-right: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}

@@ -2,7 +2,7 @@
 @{var zb = ViewBag.detail as System.Data.DataRow;}
 @{
     var title = @zb["title"];
-    ViewBag.Title = title + " - 梦高速 - 众包";
+    ViewBag.Title = title + " - 梦高速" + zb["typename"];
 }
 <!--主内容区 开始-->
 <div class="content">
@@ -12,14 +12,14 @@
             <div class="hd_cont_l">
                 <h2 class="hd_cont_l_title">
                     @zb["title"]</h2>
-                <ul class="hd_cont_l_icon">
+                @*<ul class="hd_cont_l_icon">
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
+                </ul>*@
                 <div class="hd_cont_l_xm">
                     <div class="hd_cont_l_xmzj">
                         <p class="hd_cont_l-red">
@@ -29,21 +29,23 @@
                     </div>
                     <div class="hd_cont_l_xmgq">
                         <p class="hd_cont_l-red">
-                            @zb["procycle"]天</p>
+                            @zb["procycle"]天
+                        </p>
                         <p>
                             项目工期</p>
                     </div>
                 </div>
                 <ul class="hd_cont_l_shouc">
-                    @if (ViewBag.HasLogin)
+                    @if (ViewBag.DUser.HasLogin)
                     {
-                        if (@zb["collection"] == "1")
+                        if (zb["collection"].ToString() == "1")
                         {
-                        <li><a href="#" class="hd_cont_l_keep">已收藏(<span>@zb["collect"]</span>)</a></li>
+                        <li><a href="#" class="hd_cont_l_keep cancel">已收藏(<span>@zb["collect"]</span>)</a></li>
                         }
                         else
                         {
-                        <li><a href="#" class="hd_cont_l_keep">收藏(<span>@zb["collect"]</span>)</a></li>
+                        <li><a href="#" class="hd_cont_l_keep" data-collection="@zb["collect"]" onclick="collection()">
+                            收藏(<span>@zb["collect"]</span>)</a></li>
                         }
                     }
                     else
@@ -152,6 +154,7 @@
                 </p>
             </div>
         </div>
+        <a href="@BaseConfigs.GetImgPath@zb["attachment_orgin"]">@zb["attachment"] 下载</a>
     </div>
     <!--界面设计-->
     @for (int i = 0; i < ViewBag.xmzb.Rows.Count; i++)
@@ -159,7 +162,7 @@
         var it = ViewBag.xmzb.Rows[i];
         string miaodian = "xm" + @it["id"].ToString();
         var mir = it["mirequire"];
-        <div class="subPrjt" id="@miaodian">
+        <div class="subPrjt" id="@miaodian" data-id="@it["id"]">
             <div class="container_title">
                 <p>
                 </p>
@@ -193,7 +196,7 @@
                     </div>
                 </div>
                 <div class="container_cont_r">
-                    <input type="hidden" value="@it["id"]"/>
+                    <input class="project" type="hidden" value="@it["id"]"/>
                     <table>
                         <colgroup>
                             <col width="120px">
@@ -221,6 +224,9 @@
 </div>
 <!--主内容区 结束-->
 @section scripts{
+    <script>
+        var subjectID= @zb["id"];
+    </script>
     <script type="text/html" id="zbRecord">
     {{each data as record i}}
     <tr>

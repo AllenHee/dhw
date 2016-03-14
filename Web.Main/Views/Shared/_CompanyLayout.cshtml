@@ -1,6 +1,6 @@
-﻿ @{ string ap = Request.Url.AbsolutePath.ToLower();
-       var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
-    }
+﻿@{ string ap = Request.Url.AbsolutePath.ToLower();
+   var CompanyTopInfo = DHW.Main.Controllers.CompanyHomeController.CompanyTopInfo(ViewBag.ddid, ViewBag.DUser.ID); 
+}
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -99,7 +99,6 @@
         </div>
     </div>
     <!--通用顶栏 结束-->
-   
     <div class="header">
         <div class="header_t clearfix">
             <div class="header_l">
@@ -121,7 +120,7 @@
                         }
                         else
                         {
-                        <a class="sc" href="javascript:void(0)">已收藏</a> 
+                        <a class="sc" href="javascript:void(0)" onclick="collect()">已收藏</a> 
                         }
                     }
                     else

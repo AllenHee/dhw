@@ -22,6 +22,7 @@
                 <table class="gsJob_welfare_table">
                     <tr>
                         <td>
+<<<<<<< HEAD
                         @for (int i = 0; i < ViewBag.fuli.Rows.Count;i++ )
                         {
                             
@@ -38,6 +39,23 @@
                             <span class="gsJob_pic"></span>
                             <a href="#">工作午餐</a>
                         }
+=======
+                            @for (int i = 0; i < ViewBag.fuli.Rows.Count; i++)
+                            {
+                                var fl = ViewBag.fuli.Rows[i];
+                                var fls = fl["fuli"].ToString();
+
+                                if (fls != "")
+                                {
+                                    var fls2 = fls.Split(',');
+                                    foreach (var welfare in fls2)
+                                    {
+                                <span class="gsJob_pic"></span>
+                                <a href="#">@welfare</a>
+                                    }
+                                }
+                            }
+>>>>>>> e7089fc972443279fd8dbaefdefb79b09c72d5c3
                         </td>
                     </tr>
                 </table>
@@ -65,23 +83,6 @@
                         </th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                前端工程师
-                            </td>
-                            <td>
-                                5k-8k
-                            </td>
-                            <td>
-                                本科
-                            </td>
-                            <td>
-                                泉州
-                            </td>
-                            <td>
-                                2016-02-3-2016-02-3
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -90,52 +91,9 @@
             <div class="gsJob_pj">
                 <dl>
                     <dt class="gsJob_dt"><span class="gsJob_span">面试评价</span></dt>
-                    <dd class="gsJob_dd">
-                        <label class="gsJob_label">
-                            <img  class=".gsJob_userimg"src="@{@BaseConfigs.GetUrlCdn}usercenter/images/tx.png">
-                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
-                                asdasdsadasddasd</span>
-                        </label>
-                        <p class="gsJob_pj_detail">
-                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf sdfsdfsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
-                        </p>
-                        <span class="gsJob_sum">有用( 7 )</span>
-                    </dd>
-                    <dd class="gsJob_dd">
-                        <label class="gsJob_label">
-                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/tx.png">
-                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
-                                asdasdsadasddasd</span>
-                        </label>
-                        <p class="gsJob_pj_detail">
-                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf sdfsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
-                        </p>
-                        <span class="gsJob_sum">有用( 7 )</span>
-                    </dd>
-                    <dd class="gsJob_dd">
-                        <label class="gsJob_label">
-                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/tx.png">
-                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
-                                asdasdsadasddasd</span>
-                        </label>
-                        <p class="gsJob_pj_detail">
-                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd fsdfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
-                        </p>
-                        <span class="gsJob_sum">有用( 7 )</span>
-                    </dd>
-                    <dd class="gsJob_dd">
-                        <label class="gsJob_label">
-                            <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/tx.png">
-                            <span class="gsJob_name">匿名</span> <span class="gsJob_zw">面试职位:</span> <span class="gsJob_zw_name">
-                                asdasdsadasddasd</span>
-                        </label>
-                        <p class="gsJob_pj_detail">
-                            fsdsdfsdfsdfsdfsdfsdfsdfsdsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfs dfsdfsdfsdfsdfsdffsdsfsdfsdfsdfdfsdffsdfsdfsdfsdfsdff
-                        </p>
-                        <span class="gsJob_sum">有用( 7 )</span>
-                    </dd>
                 </dl>
-                <span class="gsJob_bemore"><a href="#">更多></a></span>
+                <div class="pagination">
+                </div>
             </div>
         </div>
     </div>
@@ -153,8 +111,25 @@
         </tr>
     {{/each}}
     </script>
+    <script type="textml" id="interview">
+      {{each data as interview}}
+      <dd class="gsJob_dd">
+        <label class="gsJob_label">
+          <img class="gsJob_userimg" src="@BaseConfigs.GetImgPath{{interview.logo}}">
+          <span class="gsJob_name">{{interview.RealName}}</span >
+                  <span class="gsJob_zw">面试职位:</span>
+          <span class="gsJob_zw_name">{{interview.Position}}</span>
+        </label>
+        <p class="gsJob_pj_detail">
+          {{interview.about}}
+        </p>
+        <span class="gsJob_sum" data-id="{{interview.JobID}}" data-userid="{{interview.UserID}}">有用(<span class="gsJob_sum_add">{{interview.youyong}}</span>)</span>
+      </dd>
+      {{/each}}
+    </script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/jquery.cookie.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
     <script>
@@ -164,5 +139,46 @@
             pageSize: 10
         }
         loadData('/CompanyHome/ZhaopinList', para, 'jobList', ".gsJob_table tbody");
+    </script>
+    <script>
+
+        // 面试评价列表数据
+        var interviewpara = {
+            companyid: 51,
+            pageIndex: 1,
+            pageSize: 8
+        }
+        loadData('/CompanyHome/PingjiaList', interviewpara, 'interview', '.gsJob_pj dl');
+
+        $(".gsJob_pj").on("click", '.gsJob_sum', function () {
+            var that = $(this);
+            var jobid = that.attr("data-id");
+            var userid = that.attr("data-userid")
+            var cookieProp = "data-" + jobid + '-' + userid;
+
+            if (!that.hasClass("cancel") && !$.cookie(cookieProp)) {
+                var para = {
+                    JobID: jobid
+                }
+                $.post(" /CompanyHome/YouyongAdd", para).success(function () {
+
+                    var total = parseInt(that.find("span").html())
+                    total = total + 1;
+                    var round = total;
+                    if (round >= 10000) {
+                        round = round / 10000;
+                        round = Math.floor(round);
+                        round += "万";
+                    }
+                    that.addClass('cancel')
+                    that.find("span").html(round);
+                    $.cookie(cookieProp, "true");
+                })
+            }
+            else if (that.hasClass("cancel") || $.cookie(cookieProp)) {
+                alert("已支持");
+                return false;
+            }
+        })
     </script>
 }

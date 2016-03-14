@@ -1,6 +1,6 @@
 var app = angular.module("homeApp", ['ui.router', 'baseapp']);
 
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/account");
   $stateProvider
     .state('account', {
@@ -57,13 +57,96 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       url: '/bannerDiy',
       templateUrl: dhw.gettplurl('bannerDiy.html'),
       controller: "bannerDiyCtrl"
+    })
+    .state('email', {
+      url: '/email',
+      templateUrl: dhw.gettplurl('email.html'),
+      controller: "emailCtrl"
+    })
+    .state('emailDetail', {
+      url: '/emailDetail',
+      templateUrl: dhw.gettplurl('emailDetail.html'),
+      controller: "emailDetCtrl"
     });
 }])
-  .controller('bannerDiyCtrl', ['$scope', '$http', function (s, h) {
+  .controller('emailCtrl', ['$scope', function(s) {
+    s.whichTab = 'sendBox'
+  }])
+  .controller('writeEmailCtrl', ['$scope', '$http', function(s, h) {
+    s.data = {};
+    var para;
+    s.send = function() {
+      para = $.extend({}, s.data);
+      h.post('/CenterUserDx/Ksfs', para).success(function(d) {
+        console.log(1);
+      })
+    }
+  }])
+  .controller('emailDetCtrl', ['$scope', '$http', '$stateParams', '$location', function(s, h, $stateParams, l) {
+    s.data = {};
+    var id = parseInt($stateParams.id)
+    h.post('/CenterUserDx/Detail', { id: id }).success(function(data) {
+      s.data = data.result;
+    })
+    s.return = function() {
+      window.location.href = '#/email'
+    }
+    s.del = function() {
+      var para = {
+        state: 255,
+        arrid: [id]
+      }
+      var conf = confirm('是否确定删除');
+      if (conf === true) {
+        h.post('/CenterUserDx/Delete', para).success(function(data) {
+          if (data.success) {
+            window.location.href = '#/email'
+          }
+        })
+      }
+    }
+  }])
+  .controller('inboxCtrl', ['$scope', '$http', function(s, h) {
+    s.data = {};
+    var para = {
+      pageIndex: 1,
+      pageSize: 10
+    };
+    h.post("/CenterUserDx/List", para).success(function(d) {
+      if (d.success) {
+        s.data = d.result.data
+      }
+    })
+    s.read = function(id) {
+      var para = {
+        state: 23,
+        arrid: [id]
+      }
+      h.post('/CenterUserDx/Delete', para).success(function(data) {
+        if (data.success) {
+          window.location.href = '#/emailDetail/' + id
+        }
+      })
+    }
+  }])
+
+  .controller('outboxCtrl', ['$scope', '$http', function(s, h) {
+    s.data = {};
+    var para = {
+      pageIndex: 1,
+      pageSize: 10
+    };
+    h.post('/CenterUserDx/SelectListfb', para).success(function(d) {
+      if (d.success) {
+        s.data = d.result.data
+      }
+    })
+  }])
+  .controller('bannerDiyCtrl', ['$scope', '$http', function(s, h) {
     s.data = {
       themes: {}
     };
-    h.post('/CompanyHomeEdit/TitleDetail').success(function (data) {
+    h.post('/CompanyHomeEdit/TitleDetail').success(function(data) {
       s.data = data.result;
       if (s.data.themes === null) {
         s.data.themes = {}
@@ -79,7 +162,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
       colorScheme: 'dark',
 
-      onChange: function (hsb, hex, rgb, el, bySetColor) {
+      onChange: function(hsb, hex, rgb, el, bySetColor) {
 
         $(el).css('border-color', '#' + hex);
 
@@ -90,43 +173,43 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         s.$digest();
       }
 
-    }).keyup(function () {
+    }).keyup(function() {
 
       $(this).colpickSetColor(this.value);
     });
 
-    s.submit = function () {
+    s.submit = function() {
       var para = $.extend(true, {}, s.data);
       para.themes = angular.toJson(para.themes);
-      h.post('/CompanyHomeEdit/TitleSave', para).success(function () {
+      h.post('/CompanyHomeEdit/TitleSave', para).success(function() {
       })
     }
 
   }])
-  .controller('casesCtrl', ['$scope', '$http', '$compile', '$location', function (s, h, c, l) {
+  .controller('casesCtrl', ['$scope', '$http', '$compile', '$location', function(s, h, c, l) {
     s.data = {};
-    s.submit = function () {
+    s.submit = function() {
       var para = $.extend({}, s.data);
       function close() {
         $(".modal_bg").fadeOut();
         $(".modal_cont").fadeOut();
       }
-      $(".modal_cont_t_close").click(function () {
+      $(".modal_cont_t_close").click(function() {
         close();
       });
-      h.post('/CompanyHomeEdit/CaseAdd', para).success(function (data) {
+      h.post('/CompanyHomeEdit/CaseAdd', para).success(function(data) {
         if (data.success) {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             location.hash = '#/caseslist';
           });
           s.popupText = "3秒后自动返回,或点击确认返回";
-          setTimeout(function () {
+          setTimeout(function() {
             location.hash = '#/caseslist';
           }, 3000);
           $(".modal_bg").fadeIn();
           $(".modal_cont").fadeIn();
         } else {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             close();
           });
           $(".modal_bg").fadeIn();
@@ -136,7 +219,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       });
     }
   }])
-  .controller('serversCtrl', ['$scope', '$http', '$compile', function (s, h, c) {
+  .controller('serversCtrl', ['$scope', '$http', '$compile', function(s, h, c) {
     s.data = {};
     s.typeids = [
       { id: 1, text: '设计' },
@@ -148,28 +231,28 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       { id: 7, text: '生活' },
       { id: 8, text: '其他' }
     ]
-    s.submit = function () {
+    s.submit = function() {
       var para = $.extend({}, s.data);
       function close() {
         $(".modal_bg").fadeOut();
         $(".modal_cont").fadeOut();
       }
-      $(".modal_cont_t_close").click(function () {
+      $(".modal_cont_t_close").click(function() {
         close();
       });
-      h.post('/CompanyHomeEdit/ServiceAdd', para).success(function (data) {
+      h.post('/CompanyHomeEdit/ServiceAdd', para).success(function(data) {
         if (data.success) {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             location.hash = '#/serversList';
           });
           s.popupText = "3秒后自动返回,或点击确认返回";
-          setTimeout(function () {
+          setTimeout(function() {
             location.hash = '#/serversList';
           }, 3000);
           $(".modal_bg").fadeIn();
           $(".modal_cont").fadeIn();
         } else {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             close();
           });
           $(".modal_bg").fadeIn();
@@ -179,12 +262,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       })
     }
   }])
-// 主控制器
-  .controller("accountCtrl", ["$scope", "$http", '$compile', '$location', function (s, h, $compile, l) {
-    
+  // 主控制器
+  .controller("accountCtrl", ["$scope", "$http", '$compile', '$location', function(s, h, $compile, l) {
+
     // 当前显示哪个标签，默认为个人信息
     s.whichTab = 'personal';
-    
+
     // 是不是企业版
     s.isCoporate = dhwtempvar.isCoporate;
 
@@ -197,23 +280,23 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       startYears: [],
       startMonths: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
     };
-    
+
     // 取得公司行业
-    h.post('/HRZpxxFb/Tradeinfo').success(function (data) {
+    h.post('/HRZpxxFb/Tradeinfo').success(function(data) {
       s.list.trades = data.result;
     });
-    
+
     // 计算合法的起始年份
-    (function () {
+    (function() {
       var today = new Date();
       var thisYear = today.getFullYear();
       for (var i = thisYear - 50; i <= thisYear; i++) {
         s.list.startYears.push(i);
       }
     })();
-    
+
     // 计算合法结束年份
-    s.getEndYears = function (startYear) {
+    s.getEndYears = function(startYear) {
       var today = new Date();
       var thisYear = today.getFullYear();
       for (var arr = [], i = startYear; i <= thisYear; i++) {
@@ -222,7 +305,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       return arr;
     };
     // 计算合法结束月份
-    s.getEndMonth = function (startYear, endYear, endYearTemp) {
+    s.getEndMonth = function(startYear, endYear, endYearTemp) {
       if (startYear && (endYear || endYearTemp)) {
         if (startYear == endYear) {
           for (var arr = [], i = parseInt(s.startMonth); i <= 12; i++) {
@@ -236,7 +319,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     };
 
     // 根据省份计算城市
-    s.getCitys = function (prov) {
+    s.getCitys = function(prov) {
       if (prov.indexOf('市') > 0) {// 直辖市
         var arr = [];
         arr.push(prov);
@@ -247,70 +330,70 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       s.list.counties = [];
     };
     // 根据城市计算县
-    s.getCounties = function (city) {
+    s.getCounties = function(city) {
       if (city.split('-')[0] == city.split('-')[1]) {
         s.list.counties = _areaselect_data.c[city.split('-')[0]];
       } else {
         s.list.counties = _areaselect_data.a[city];
       }
     };
-    
+
     // 重置表单
-    s.resetForm = function (formName, pristineFormTemplate) {
+    s.resetForm = function(formName, pristineFormTemplate) {
       $(formName).empty().append($compile(pristineFormTemplate)(s));
     };
 
   }])
-// 个人信息
-  .controller('personalCtrl', ["$scope", "$http", function (s, h) {
+  // 个人信息
+  .controller('personalCtrl', ["$scope", "$http", function(s, h) {
     s.data = {};
 
     s.list = {
       educations: ['大专', '本科', '硕士', '博士']
     }
-    
+
     // 取得数据
-    h.post('/UserAccount/Detail').success(function (data) {
+    h.post('/UserAccount/Detail').success(function(data) {
       $.extend(s.data, data.result);
     });
 
 
-    s.submit = function () {
+    s.submit = function() {
       var para = $.extend({}, s.data);
       // para.dpid = s.thiPosition.id;
       // para.dpname = s.thiPosition.text;
-      h.post('/UserAccount/Edit', para).success(function (date) {
-          if(date.success){
-              $(".modal_bg").fadeIn();
-              $(".modal_cont").fadeIn();
-              $(".modal_cont_button_conf").click(function () {
-                  $(".modal_bg").fadeOut();
-                  $(".modal_cont").fadeOut();
-              });
-              $(".modal_cont_t_close").click(function () {
-                  $(".modal_bg").fadeOut();
-                  $(".modal_cont").fadeOut();
-              });
-              s.popupText = "提交成功,点击确认关闭弹窗";
-          }
+      h.post('/UserAccount/Edit', para).success(function(date) {
+        if (date.success) {
+          $(".modal_bg").fadeIn();
+          $(".modal_cont").fadeIn();
+          $(".modal_cont_button_conf").click(function() {
+            $(".modal_bg").fadeOut();
+            $(".modal_cont").fadeOut();
+          });
+          $(".modal_cont_t_close").click(function() {
+            $(".modal_bg").fadeOut();
+            $(".modal_cont").fadeOut();
+          });
+          s.popupText = "提交成功,点击确认关闭弹窗";
+        }
       })
     };
 
   }])
-  
-// 个人头像
-  .controller('avatarCtrl', ["$scope", '$http', function (s, h) {
+
+  // 个人头像
+  .controller('avatarCtrl', ["$scope", '$http', function(s, h) {
     s.data = {
       x: 0,
       y: 0,
       w: 192,
       h: 192
     };
-    h.post('/UserAccount/Img').success(function (data) {
+    h.post('/UserAccount/Img').success(function(data) {
       s.avatar = data.result.logo;
     })
 
-    $(function () {
+    $(function() {
       $('#avatarImg').Jcrop({
         allowSelect: true,
         allowMove: true,
@@ -338,7 +421,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       }
 
     });
-    
+
     s.$watch('data.logo', function(oldValue, newValue) {
       var url = dhw.imgurl + s.data.logo + '_600x600' + '.jpg'
       if (s.data.logo) {
@@ -347,132 +430,132 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       }
     })
 
-    s.submit = function () {
+    s.submit = function() {
       var params = $.extend({}, s.data);
       params.logo = params.logo + '_600x600';
       params.t = '100x100'
       params.action = 'cut';
-      $.post(dhw.imgcuturl, params, function (data) {
-        s.$apply(function () {
+      $.post(dhw.imgcuturl, params, function(data) {
+        s.$apply(function() {
           s.avatar = data.path + '100x100.jpg';
           s.data.logo = '';
         });
-        h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success(function () {
+        h.post('/UserAccount/ImgEdit', { logo: s.avatar }).success(function() {
         })
       }, 'json');
     }
   }])
-// 公司信息
-  .controller('corporateCtrl', ["$scope", "$http", function (s, h) {
+  // 公司信息
+  .controller('corporateCtrl', ["$scope", "$http", function(s, h) {
     s.data = {};
     s.draft = {};
-    s.fuliT={}
+    s.fuliT = {}
     // 列表数据
     s.list = {
       natures: ['政府机关/事业单位', '国营', '私营', '中外合资', '外资', '其他'],
       scales: ['5-10人', '10-50人', '50-100人', '100-200人', '200人以上']
     };
-    
+
     // 取得数据
-    s.getDraft = function(fn){
-       h.post('/UserAccount/Company').success(function (data) { 
+    s.getDraft = function(fn) {
+      h.post('/UserAccount/Company').success(function(data) {
         fn(data.result.area);
-        if(data.result.business) {
+        if (data.result.business) {
           s.businessTemp = angular.fromJson(data.result.business);
         }
-        if(data.result.fuli) {
-           s.fuliTep = data.result.fuli.split(',');
-           console.log(s.fuliTep);
-           for(var i = 0 ,len=s.fuliTep.length; i<len;i++){
-             s.fuliTemp.push({value:s.fuliTep[i]});
-           }
+        if (data.result.fuli) {
+          s.fuliTep = data.result.fuli.split(',');
+          console.log(s.fuliTep);
+          for (var i = 0, len = s.fuliTep.length; i < len; i++) {
+            s.fuliTemp.push({ value: s.fuliTep[i] });
+          }
         }
-        $.extend(s.data,data.result)
+        $.extend(s.data, data.result)
       })
     }
     // 添加业务范围
     s.businessTemp = [];
     s.fuliTemp = [];
-    s.addBusiness = function () {
+    s.addBusiness = function() {
       s.businessTemp.push({});
     };
     s.addFuli = function() {
       s.fuliTemp.push({});
     }
     //手机号码是否可见
-    s.isVisible = function (elem) {
+    s.isVisible = function(elem) {
       if ($(elem).is(':checked')) {
         s.data.phonevisible = true;
       } else {
         s.data.phonevisible = false;
       }
     }
-    
+
     // 保存数据
-    s.submit = function () {
-     var content = s.draft.basic();
-    //  var a = s.data.fuli;
-    //  var con = a.replace(/，/,',')
-     var para = $.extend(s.data,content);
+    s.submit = function() {
+      var content = s.draft.basic();
+      //  var a = s.data.fuli;
+      //  var con = a.replace(/，/,',')
+      var para = $.extend(s.data, content);
       para.business = [];
       para.fuli = []
       for (var i = 0, len = s.businessTemp.length; i < len; i++) {
         para.business.push(s.businessTemp[i]);
       }
       para.business = angular.toJson(para.business);
-      for (var j = 0,len = s.fuliTemp.length; j < len; j++  ){
-         if(j<s.fuliTemp.length - 1) {
-           para.fuli += s.fuliTemp[j].value + "," 
-         }else {
-           para.fuli += s.fuliTemp[j].value
-         }
+      for (var j = 0, len = s.fuliTemp.length; j < len; j++) {
+        if (j < s.fuliTemp.length - 1) {
+          para.fuli += s.fuliTemp[j].value + ","
+        } else {
+          para.fuli += s.fuliTemp[j].value
+        }
       }
-      
-      
+
+
       //数据提交到后台
-      h.post('/UserAccount/CompanyEdit', para).success(function (d) {
-        if(d.success) {
+      h.post('/UserAccount/CompanyEdit', para).success(function(d) {
+        if (d.success) {
         }
       });
     }
-    
+
   }])
-// 教育经历
-  .controller('educationCtrl', ["$scope", "$http", function (s, h) {
+  // 教育经历
+  .controller('educationCtrl', ["$scope", "$http", function(s, h) {
     s.data = [];
     s.temp = {};
-    
+
     //原始表单
     var pristineFormTemplate = $('#educationForm').html();
-    
+
     //开始与结束日期
     s.dateTemp = {};
-    
+
     //合法的结束年、月
     s.list = {
       endYears: [],
       endMonths: []
     };
-    s.setEndYears = function () {
+    s.setEndYears = function() {
       s.list.endYears = s.getEndYears(s.dateTemp.startYear);
     };
-    s.setEndMonths = function () {
+    s.setEndMonths = function() {
       s.list.endMonths = s.getEndMonth(s.dateTemp.startMonth, s.dateTemp.endYear, s.endYearTemp);
     };
-    
+
     // 修改的是哪一项
     s.index;
-    
+
     // 获取经历列表
-    h.post("/UserAccount/EduList").success(function (data) {
+    h.post("/UserAccount/EduList").success(function(data) {
       s.data = data.result;
     });
-    
+
     // 读取修改项
-    s.modify = function (id, index) {
+    s.modify = function(id, index) {
       s.index = index;
 
-      h.post("/UserAccount/Eduinfo", { id: id }).success(function (data) {
+      h.post("/UserAccount/Eduinfo", { id: id }).success(function(data) {
         s.temp = $.extend({}, data.result);
 
         var beginDate = data.result.begindate.split("-");
@@ -485,8 +568,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         s.setEndYears();
         s.setEndMonths();
 
-        setTimeout(function () {
-          s.$apply(function () {
+        setTimeout(function() {
+          s.$apply(function() {
             $.extend(s.dateTemp, { endYear: endDate[0], endMonth: endDate[1] })
           });
         });
@@ -494,16 +577,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         s.endYearTemp = undefined;
       });
     };
-    
+
     // 删除
-    s.del = function (index, id) {
-      h.post("/UserAccount/EduDel", { id: id }).success(function () {
+    s.del = function(index, id) {
+      h.post("/UserAccount/EduDel", { id: id }).success(function() {
         s.data.splice(index, 1);
       })
     };
-    
+
     // 新增或修改
-    s.save = function () {
+    s.save = function() {
       s.temp.begindate = s.dateTemp.startYear + "-" + s.dateTemp.startMonth;
       s.temp.enddate = s.dateTemp.endYear + "-" + s.dateTemp.endMonth;
       var para = $.extend({}, s.temp);
@@ -519,7 +602,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         api = '/UserAccount/EduAdd';
       }
 
-      h.post(api, para).success(function () {
+      h.post(api, para).success(function() {
         s.temp = {};
         s.dateTemp = {};
         s.resetForm('#educationForm', pristineFormTemplate);
@@ -528,7 +611,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     };
 
     // 至今
-    s.getToday = function (event) {
+    s.getToday = function(event) {
       var elem = event.target;
       if ($(elem).is(":checked")) {
         var today = new Date();
@@ -544,43 +627,43 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     };
 
   }])
-// 工作经历
-  .controller('experienceCtrl', ["$scope", "$http", function (s, h) {
+  // 工作经历
+  .controller('experienceCtrl', ["$scope", "$http", function(s, h) {
     s.data = [];
     s.temp = {};
-    
+
     //原始表单
     var pristineFormTemplate = $('#experienceForm').html();
-    
+
     //开始与结束日期
     s.dateTemp = {};
-    
+
     //合法的结束年、月
     s.list = {
       endYears: [],
       endMonths: []
     };
-    s.setEndYears = function () {
+    s.setEndYears = function() {
       s.list.endYears = s.getEndYears(s.dateTemp.startYear);
     };
-    s.setEndMonths = function () {
+    s.setEndMonths = function() {
       s.list.endMonths = s.getEndMonth(s.dateTemp.startMonth, s.dateTemp.endYear, s.endYearTemp);
     };
-    
+
     // 修改的是哪一项
     s.index;
-    
+
     // 获取经历列表
-    h.post("/UserAccount/GzjlList").success(function (data) {
+    h.post("/UserAccount/GzjlList").success(function(data) {
       s.data = data.result;
     });
-    
-    
+
+
     // 读取修改项
-    s.modify = function (id, index) {
+    s.modify = function(id, index) {
       s.index = index;
 
-      h.post("/UserAccount/Gzjl", { id: id }).success(function (data) {
+      h.post("/UserAccount/Gzjl", { id: id }).success(function(data) {
         s.temp = $.extend({}, data.result);
 
         var beginDate = data.result.begindate.split("-");
@@ -593,8 +676,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         s.setEndYears();
         s.setEndMonths();
 
-        setTimeout(function () {
-          s.$apply(function () {
+        setTimeout(function() {
+          s.$apply(function() {
             $.extend(s.dateTemp, { endYear: endDate[0], endMonth: endDate[1] })
           });
         });
@@ -602,16 +685,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         s.endYearTemp = undefined;
       });
     };
-    
+
     // 删除
-    s.del = function (id, index) {
-      h.post("/UserAccount/GzjlDel", { id: id }).success(function () {
+    s.del = function(id, index) {
+      h.post("/UserAccount/GzjlDel", { id: id }).success(function() {
         s.data.splice(index, 1);
       });
     };
-    
+
     // 新增或修改
-    s.save = function () {
+    s.save = function() {
       s.temp.begindate = s.dateTemp.startYear + "-" + s.dateTemp.startMonth;
       s.temp.enddate = s.dateTemp.endYear + "-" + s.dateTemp.endMonth;
       var para = $.extend({}, s.temp);
@@ -627,16 +710,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         api = '/UserAccount/GzjlAdd';
       }
 
-      h.post(api, para).success(function () {
+      h.post(api, para).success(function() {
         s.temp = {};
         s.dateTemp = {};
         s.resetForm('#experienceForm', pristineFormTemplate);
       });
 
     };
-    
+
     // 至今
-    s.getToday = function (event) {
+    s.getToday = function(event) {
       var elem = event.target;
       if ($(elem).is(":checked")) {
         var today = new Date();
@@ -653,34 +736,39 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
   }])
   // 申请服务商的控制器
-  .controller('fuwushangCtrl',['$scope','$http',function($scope,$http){
-      $scope.data = {}
-      $scope.getDraft = function(){}
-      $scope.draft = {}
-      var para;
-      $scope.submit = function() {
-          para = $.extend($scope.draft,$scope.data);
-          $http.post('/ServiceInfo/ServiceAdd',para).success(function(d) {
-              if(d.success) {
-              }
-          })
-          
-      }
+  .controller('fuwushangCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.data = {}
+    $scope.getDraft = function() { }
+    $scope.draft = {}
+    var para;
+    $scope.submit = function() {
+      para = $.extend($scope.draft, $scope.data);
+      $http.post('/ServiceInfo/ServiceAdd', para).success(function(d) {
+        if (d.success) {
+        }
+      })
+
+    }
   }])
+<<<<<<< HEAD
   .controller('servicesCtrl', ["$scope", "$http", function (s, h) {
+=======
+
+  .controller('servicesCtrl', ["$scope", "$http", function(s, h) {
+>>>>>>> e7089fc972443279fd8dbaefdefb79b09c72d5c3
 
     s.data = {};
-    s.submit = function () {
+    s.submit = function() {
       // console.log(s.data);
     }
- 
+
   }])
-  .controller('serversListCtrl', ['$scope', '$http', function (s, h) {
+  .controller('serversListCtrl', ['$scope', '$http', function(s, h) {
     s.page = { pageSize: 10, pageIndex: 1, total: 0, typrid: '' };
-    s.loaddata = function (i) {
+    s.loaddata = function(i) {
       if (!!i) s.page.pageIndex = i;
       //获取Json数据，根据参数设置值
-      h.post('/CompanyHomeEdit/ServicrList', $.extend({}, s.page, s.qrydata)).success(function (d) {
+      h.post('/CompanyHomeEdit/ServicrList', $.extend({}, s.page, s.qrydata)).success(function(d) {
         if (d.success) {
           s.list = d.result.data;
           s.page.total = d.result.total;
@@ -690,39 +778,39 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     //加载数据
     s.loaddata(1);
 
-    s.remove = function (id, index) {
-      h.post('/CompanyHomeEdit/ServiceDel', { id: id }).success(function () {
+    s.remove = function(id, index) {
+      h.post('/CompanyHomeEdit/ServiceDel', { id: id }).success(function() {
         s.list.splice(index, 1);
       })
     }
 
   }])
-  .controller('casesListCtrl', ["$scope", "$http", function (s, h) {
+  .controller('casesListCtrl', ["$scope", "$http", function(s, h) {
     s.para = {
       pageIndex: 1,
       pageSize: 5
     };
     s.list = [];
-    s.loaddata = function (i) {
+    s.loaddata = function(i) {
       if (!!i) s.para.pageIndex = i;
-      h.post("/CompanyHomeEdit/CaseList", s.para).success(function (d) {
+      h.post("/CompanyHomeEdit/CaseList", s.para).success(function(d) {
         s.list = d.result.data;
       });
     };
     s.loaddata(1);
-    s.del = function (id, index) {
-      h.post("/CompanyHomeEdit/CaseDel", { ccid: id }).success(function () {
+    s.del = function(id, index) {
+      h.post("/CompanyHomeEdit/CaseDel", { ccid: id }).success(function() {
         s.list.splice(index, 1);
       });
     }
   }])
-  .controller('casesCtrldetail', ['$scope', '$http', '$stateParams', "$location", function (s, h, $stateParams, l) {
+  .controller('casesCtrldetail', ['$scope', '$http', '$stateParams', "$location", function(s, h, $stateParams, l) {
     s.para = {
       ccid: $stateParams.ccid
     }
-    s.loaddata = function () {
+    s.loaddata = function() {
       //获取Json数据，根据参数设置值
-      h.post('/CompanyHomeEdit/CaseDetail', s.para).success(function (d) {
+      h.post('/CompanyHomeEdit/CaseDetail', s.para).success(function(d) {
         if (d.success) {
           s.data = d.result;
 
@@ -736,23 +824,23 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       $(".modal_bg").fadeOut();
       $(".modal_cont").fadeOut();
     }
-    $(".modal_cont_t_close").click(function () {
+    $(".modal_cont_t_close").click(function() {
       close();
     });
-    s.submit = function () {
-      h.post('/CompanyHomeEdit/CaseEdit', $.extend({}, s.data, s.para)).success(function (data) {
+    s.submit = function() {
+      h.post('/CompanyHomeEdit/CaseEdit', $.extend({}, s.data, s.para)).success(function(data) {
         if (data.success) {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             location.hash = '#/caseslist';
           });
           s.popupText = "3秒后自动返回,或点击确认返回";
-          setTimeout(function () {
+          setTimeout(function() {
             location.hash = '#/caseslist';
           }, 3000);
           $(".modal_bg").fadeIn();
           $(".modal_cont").fadeIn();
         } else {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             close();
           });
           $(".modal_bg").fadeIn();
@@ -762,7 +850,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       })
     };
   }])
-  .controller('serverDetailCtrl', ['$scope', '$http', "$stateParams", "$location", function (s, h, $stateParams, l) {
+  .controller('serverDetailCtrl', ['$scope', '$http', "$stateParams", "$location", function(s, h, $stateParams, l) {
     s.data = {};
     s.typeids = [
       { id: 1, text: '设计' },
@@ -776,32 +864,32 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     ]
     var ddid = $('.wdgz_main_cont_cz').attr('data-ddid')
     var id = $stateParams.id;
-    h.post('/CompanyHomeEdit/ServiceDetail', { id: id, ddid: ddid }).success(function (data) {
+    h.post('/CompanyHomeEdit/ServiceDetail', { id: id, ddid: ddid }).success(function(data) {
       s.data = data.result
     })
-    s.submit = function () {
+    s.submit = function() {
       var para = $.extend({}, s.data);
       function close() {
         $(".modal_bg").fadeOut();
         $(".modal_cont").fadeOut();
       }
-      $(".modal_cont_t_close").click(function () {
+      $(".modal_cont_t_close").click(function() {
         close();
       });
       var para = $.extend({}, s.data);
-      h.post('/CompanyHomeEdit/ServiceEdit', para).success(function (data) {
+      h.post('/CompanyHomeEdit/ServiceEdit', para).success(function(data) {
         if (data.success) {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             location.hash = '#/serversList';
           });
           s.popupText = "3秒后自动返回,或点击确认返回";
-          setTimeout(function () {
+          setTimeout(function() {
             location.hash = '#/serversList';
           }, 3000);
           $(".modal_bg").fadeIn();
           $(".modal_cont").fadeIn();
         } else {
-          $(".modal_cont_button_conf").click(function () {
+          $(".modal_cont_button_conf").click(function() {
             close();
           });
           $(".modal_bg").fadeIn();
@@ -811,10 +899,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       })
     }
   }])
-  .controller('albumCtrl', ['$scope', '$http', '$stateParams', function (s, h, $stateParams) {
+  .controller('albumCtrl', ['$scope', '$http', '$stateParams', function(s, h, $stateParams) {
     s.id = $stateParams.type;
     // var getAPI, setAPI;
-    
+
     // switch (id) {
     //   case 1:
     //     getAPI = ;
@@ -832,24 +920,24 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     s.photos = [{}]
     h.post('/CompanyHomeEdit/PhotoList', {
       type: s.id
-    }).success(function (data) {
+    }).success(function(data) {
       s.photos = data.result;
     })
 
 
 
-    s.addphoto = function () {
+    s.addphoto = function() {
       if (s.photos.length < 5) {
         s.photos.push({});
       } else {
         alert('最多只能上传5张图片!')
       }
     }
-    s.delphoto = function (index) {
+    s.delphoto = function(index) {
       s.photos.splice(index, 1);
     }
 
-    s.submit = function () {
+    s.submit = function() {
       var newArr = [];
       for (var i = 0, len = s.photos.length; i < len; i++) {
         if (s.photos[i].url) {
@@ -861,15 +949,15 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       h.post('/CompanyHomeEdit/PhotoSave', {
         type: s.id,
         imgs: newArr
-      }).success(function () {
+      }).success(function() {
       })
     }
   }])
-  .controller('linkCtrl', ['$scope', '$http', function (s, h) {
+  .controller('linkCtrl', ['$scope', '$http', function(s, h) {
     s.links = [{}];
 
 
-    s.addlink = function () {
+    s.addlink = function() {
       if (s.links.length < 10) {
         s.links.push({});
       } else {
@@ -877,16 +965,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         return;
       }
     }
-    s.dellink = function (index) {
+    s.dellink = function(index) {
       s.links.splice(index, 1);
     }
-    h.post('/CompanyHomeEdit/LinkList').success(function (d) {
+    h.post('/CompanyHomeEdit/LinkList').success(function(d) {
       if (d.result.links) {
         s.links = d.result.links;
       }
 
     });
-    s.submit = function () {
+    s.submit = function() {
       var newArr = [];
       for (var i = 0, len = s.links.length; i < len; i++) {
         newArr.push(s.links[i]);
@@ -896,7 +984,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
       h.post('/CompanyHomeEdit/LinkSave', {
         links: newArr
-      }).success(function (d) {
+      }).success(function(d) {
         if (d.success) {
           alert("提交成功");
         } else {
@@ -905,4 +993,3 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       });
     }
   }]);
-  

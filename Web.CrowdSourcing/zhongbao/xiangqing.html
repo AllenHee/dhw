@@ -4,6 +4,7 @@
   *2015.11.6
 -->
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -11,15 +12,22 @@
   <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
   <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/webuploader.css">
   <script type="text/html" id="zbRecord">
-    {{each data as record i}}
-    <tr>
-      <td>{{record.name}}</td>
-      <td>{{record.date}}</td>
-    </tr>
-    {{/each}}
+    {{each data as record i}} {{if record.state === 2}}
+    <li class="zhongbiao">
+      {{/if}} {{if record !== 2}}
+      <li>
+        {{/if}}
+        <img class="touxiang" src="{{record.logo}}_100x100.jpg" alt="">
+        <i></i>
+        <p>{{record.name}}</p>
+        <span>record.date</span>
+      </li>
+      {{/each}}
   </script>
 </head>
+
 <body class="zbxq">
   <!--通用顶栏 开始-->
   <div class="sitenav clearfix">
@@ -104,14 +112,15 @@
                 分享
               </a>
             </li>
-          </ul> 
-          <div class="hd_cont_l_tuog"><img src="images/zb_10.jpg" alt="已托管"></div>       
+          </ul>
+          <div class="hd_cont_l_tuog"><img src="images/zb_10.jpg" alt="已托管"></div>
         </div>
         <div class="hd_cont_r">
           <div class="hd_cont_r_head clearfix">
-            <a class="hd_cont_r_head_img" href="#"><img  class="hd_cont_r_head_toux" src="images/zb_03.jpg" alt="头像"></a>
+            <a class="hd_cont_r_head_img" href="#"><img class="hd_cont_r_head_toux" src="images/zb_03.jpg" alt="头像"></a>
             <div class="hd_cont_r_head_six">
-              <a href="#" class="hd_cont_r_head-size">oschina</a><button>私信</button>
+              <a href="#" class="hd_cont_r_head-size">oschina</a>
+              <button>私信</button>
             </div>
           </div>
           <ul class="hd_cont_r_haop">
@@ -181,13 +190,13 @@
           </p>
         </div>
       </div>
-    </div>  
+    </div>
     <!--界面设计-->
-    <div class="subPrjt" id="subPrjt1">
+    <div class="subPrjt" id="subPrjt1" data-id="11">
       <div class="container_title">
         <p></p>
         <div>
-          <h3>界面设计</h3>        
+          <h3>界面设计</h3>
         </div>
       </div>
       <div class="container_cont">
@@ -201,80 +210,64 @@
             </div>
           </div>
           <p>
-            1.用户通过扫描二维码，进入指定相册特辑，进行浏览（小图、大图）<br>
-            2.用户可以发布分享图片，其他进入该相册的用户可以评论此图片。（包含删除，举报等功能）<br>
-            3.用户可以通过微博+qq登陆，然后保存扫描过的相册，方便以后浏览。<br>
-            4.相册信息的文字介绍，创建者信息，等等。<br>
-            5.推送通知<br>
+            1.用户通过扫描二维码，进入指定相册特辑，进行浏览（小图、大图）
+            <br> 2.用户可以发布分享图片，其他进入该相册的用户可以评论此图片。（包含删除，举报等功能）
+            <br> 3.用户可以通过微博+qq登陆，然后保存扫描过的相册，方便以后浏览。
+            <br> 4.相册信息的文字介绍，创建者信息，等等。
+            <br> 5.推送通知
             <br>
-            具体面议洽谈！！！<br>
-            知识产权说明：</br>
+            <br> 具体面议洽谈！！！
+            <br> 知识产权说明：
+            </br>
             1、 所设计的作品为原创，为第一次发布。未侵犯他人的著作权。</br>
             如有侵犯他人著作权，由设计者承担所有法律责任。</br>
             2、 中标的设计作品，我方支付设计制作费。即拥有该作品的知识</br>
             产权，包括著作权、使用权和发布权等，并有权对设计作品进行修</br>
             改、组合和应用，设计者不得再向其他任何地方使用该设计作品。
-          </p>   
+          </p>
+
+
+          <div class="container_cont_l_toubiao">
+            <h2>我要投标</h2>
+            <div class="container_cont_l_toubiao_item overtime">
+              <i> </i>
+              <input class="toubiao_input" type="text" placeholder="完成的时间">
+            </div>
+            <div class="container_cont_l_toubiao_item qqnumber">
+              <i> </i>
+              <input class="toubiao_input" type="text" placeholder="输入QQ号">
+            </div>
+            <div class="container_cont_l_toubiao_item fujian">
+              <textarea placeholder="描述你的优势，上传服务过的类似案例，或花点时间根据需求出个初案，更容易打动客户"></textarea>
+              <div class="web_uploader clearfix">
+                <div id="uploader" class="wu-example">
+                  <div id="thelist" class="uploader-list"></div>
+                  <div class="btns">
+                    <div class="picker clearfix" id="picker">
+                      <div class="fujianPic"><img src="images/fujian1_03.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="container_but">
             <button>立即接单</button>
-          </div>      
+          </div>
+
         </div>
+
+
         <div class="container_cont_r">
-          <input class="project" type="hidden" value="11"/>
-          <table>
-            <colgroup>
-              <col width="120px">
-              <col width="auto">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>投稿人</th>
-                <th>投稿时间</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-              <tr>
-                <td>001</td>
-                <td>001</td>
-              </tr>
-            </tbody>
-          </table>
+          <input class="project" type="hidden" value="11" />
+          <div class="container_cont_rt">
+            <p>投稿人</p><span>投稿时间</span>
+          </div>
+          <ul class="container_cont_rlist">
+          </ul>
+
+
+
           <div class="pagination"></div>
         </div>
       </div>
@@ -284,7 +277,7 @@
       <div class="container_title">
         <p></p>
         <div>
-          <h3>数据库编写</h3>        
+          <h3>数据库编写</h3>
         </div>
       </div>
       <div class="container_cont">
@@ -298,20 +291,21 @@
             </div>
           </div>
           <p>
-            1.用户通过扫描二维码，进入指定相册特辑，进行浏览（小图、大图）<br>
-            2.用户可以发布分享图片，其他进入该相册的用户可以评论此图片。（包含删除，举报等功能）<br>
-            3.用户可以通过微博+qq登陆，然后保存扫描过的相册，方便以后浏览。<br>
-            4.相册信息的文字介绍，创建者信息，等等。<br>
-            5.推送通知<br>
+            1.用户通过扫描二维码，进入指定相册特辑，进行浏览（小图、大图）
+            <br> 2.用户可以发布分享图片，其他进入该相册的用户可以评论此图片。（包含删除，举报等功能）
+            <br> 3.用户可以通过微博+qq登陆，然后保存扫描过的相册，方便以后浏览。
+            <br> 4.相册信息的文字介绍，创建者信息，等等。
+            <br> 5.推送通知
             <br>
-            具体面议洽谈！！！<br>
-            知识产权说明：</br>
+            <br> 具体面议洽谈！！！
+            <br> 知识产权说明：
+            </br>
             1、 所设计的作品为原创，为第一次发布。未侵犯他人的著作权。</br>
             如有侵犯他人著作权，由设计者承担所有法律责任。</br>
             2、 中标的设计作品，我方支付设计制作费。即拥有该作品的知识</br>
             产权，包括著作权、使用权和发布权等，并有权对设计作品进行修</br>
             改、组合和应用，设计者不得再向其他任何地方使用该设计作品。
-          </p>       
+          </p>
           <div class="container_but">
             <button>立即接单</button>
           </div>
@@ -320,7 +314,7 @@
           <table>
             <colgroup>
               <col width="120px">
-              <col width="auto">
+                <col width="auto">
             </colgroup>
             <thead>
               <tr>
@@ -380,7 +374,7 @@
       <div class="container_title">
         <p></p>
         <div>
-          <h3>代码实现</h3>        
+          <h3>代码实现</h3>
         </div>
       </div>
       <div class="container_cont">
@@ -394,20 +388,21 @@
             </div>
           </div>
           <p>
-            1.用户通过扫描二维码，进入指定相册特辑，进行浏览（小图、大图）<br>
-            2.用户可以发布分享图片，其他进入该相册的用户可以评论此图片。（包含删除，举报等功能）<br>
-            3.用户可以通过微博+qq登陆，然后保存扫描过的相册，方便以后浏览。<br>
-            4.相册信息的文字介绍，创建者信息，等等。<br>
-            5.推送通知<br>
+            1.用户通过扫描二维码，进入指定相册特辑，进行浏览（小图、大图）
+            <br> 2.用户可以发布分享图片，其他进入该相册的用户可以评论此图片。（包含删除，举报等功能）
+            <br> 3.用户可以通过微博+qq登陆，然后保存扫描过的相册，方便以后浏览。
+            <br> 4.相册信息的文字介绍，创建者信息，等等。
+            <br> 5.推送通知
             <br>
-            具体面议洽谈！！！<br>
-            知识产权说明：</br>
+            <br> 具体面议洽谈！！！
+            <br> 知识产权说明：
+            </br>
             1、 所设计的作品为原创，为第一次发布。未侵犯他人的著作权。</br>
             如有侵犯他人著作权，由设计者承担所有法律责任。</br>
             2、 中标的设计作品，我方支付设计制作费。即拥有该作品的知识</br>
             产权，包括著作权、使用权和发布权等，并有权对设计作品进行修</br>
             改、组合和应用，设计者不得再向其他任何地方使用该设计作品。
-          </p>       
+          </p>
           <div class="container_but">
             <button>立即接单</button>
           </div>
@@ -416,7 +411,7 @@
           <table>
             <colgroup>
               <col width="120px">
-              <col width="auto">
+                <col width="auto">
             </colgroup>
             <thead>
               <tr>
@@ -494,9 +489,9 @@
           <li class="last"><a href="#"><i class="iconfont">&#xe60b;</i></a></li>
         </ul>
         <p>
-          创企科技有限公司 版权所有<br>
-          &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号<br>
-          地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
+          创企科技有限公司 版权所有
+          <br> &copy; 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号
+          <br> 地址：福建省泉州市石狮国家高新区创新创业中心1栋7楼
         </p>
         <div class="icp"></div>
       </div>
@@ -528,14 +523,17 @@
           <dd><a href="#">iPhone版下载</a></dd>
           <dd><a href="#">Android版下载</a></dd>
           <dd><a href="#">微信公众号梦高速</a></dd>
-          <dd><a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a></dd>
+          <dd>
+            <a href="#"><img src="http://localhost:8070/images/erweima.jpg" alt="微信二维码"></a>
+          </dd>
         </dl>
       </div>
     </div>
   </div>
   <!--通用底栏 结束-->
-  
+
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/webuploader.js"></script>
   <script src="http://localhost:8070/scripts/general.js"></script>
   <script src="http://localhost:8070/scripts/template.js"></script>
   <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
@@ -544,8 +542,7 @@
   <script src="http://localhost:8070/scripts/zb.detail.js"></script>
   <script>
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-    
-   
   </script>
 </body>
+
 </html>
