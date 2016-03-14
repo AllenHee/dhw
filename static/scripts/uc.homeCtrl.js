@@ -408,6 +408,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         s.data.y = coords.y;
         s.data.w = coords.h;
         s.data.h = coords.w;
+        
         var rx = 100 / coords.w;
         var ry = 100 / coords.h;
 
@@ -749,8 +750,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
     }
   }])
+<<<<<<< HEAD
+  .controller('servicesCtrl', ["$scope", "$http", function (s, h) {
+=======
 
   .controller('servicesCtrl', ["$scope", "$http", function(s, h) {
+>>>>>>> e7089fc972443279fd8dbaefdefb79b09c72d5c3
 
     s.data = {};
     s.submit = function() {
