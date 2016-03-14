@@ -8,7 +8,6 @@ $(function () {
   var sukey = originsu.split("=");
   //console.log(decodeURIComponent(sukey[1]));
   var su = decodeURIComponent(sukey[1])
-  console.log(su)
   // 设置列表右上角总页数
   function setTotalPages(data) {
     var total_pages = Math.ceil(data.result.total / 10);
@@ -74,7 +73,6 @@ $(function () {
       }
       var para_extra = {}
       // 搜索框字段
-      console.log(typeof(su));
       if(su === "undefined"){
         para_extra.zwmc = "";
       }else{
