@@ -10,26 +10,26 @@
   <form name="writeEmail">
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <label class="formSet_label_name">收件人</label>
-        <input class="formSet_input_name" name="recipients" type="text" ng-model="data.to">
+        <label class="formSet_label">收件人</label>
+        <input class="formSet_input" name="recipients" type="text" ng-model="data.to">
       </div>
     </div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <label class="formSet_label_name">标题</label>
-        <input class="formSet_input_name" name="tittle" type="text" ng-model="data.tittle">
+        <label class="formSet_label">标题</label>
+        <input class="formSet_input" name="tittle" type="text" ng-model="data.tittle">
       </div>
     </div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <label class="formSet_label_name">正文</label>
-        <textarea class="formSet_textarea_content" name="content" type="text" ng-model="data.message"></textarea>
+        <label class="formSet_label">正文</label>
+        <textarea class="formSet_textarea" name="content" type="text" ng-model="data.message"></textarea>
       </div>
     </div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
         <label class="formSet_label"></label>
-        <button class="submitBtn sendBtn" type="button" ng-disabled="writeEmail.$invalid" ng-click="send()">发送</button>
+        <button class="submitBtn" type="button" ng-disabled="writeEmail.$invalid" ng-click="send()">发送</button>
       </div>
     </div>
   </form>

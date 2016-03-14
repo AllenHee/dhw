@@ -78,7 +78,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     s.send = function() {
       para = $.extend({}, s.data);
       h.post('/CenterUserDx/Ksfs', para).success(function(d) {
-        console.log(1);
+        
       })
     }
   }])
