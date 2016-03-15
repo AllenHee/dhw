@@ -51,7 +51,7 @@
         <ul id="ll01" class="menu clearfix">
             <li class="menu_items"><a href="javascript:regist();">注册</a></li><li class="menu_items">
                 <a href="javascript:login();">登录</a></li><li class="menu_items"><a href="http://www.chuangqikeji.com/"
-                    target="_blank">创企官网</a></li>
+                    target="_blank">联系我们</a></li>
         </ul>
     </div>
     <div class="content">
@@ -175,7 +175,7 @@
                     else {
                         name = nickname + "(" + r.result.Name + ")";
                     }
-                    $('#ll01').html('<li class="menu_items"><a href="' + dhw.urlmain + '' + app + '" target="_blank">' + name + '的个人中心</a></li><li class="menu_items"><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a></li><li class="menu_items"><a href="http://www.chuangqikeji.com/" target="_blank">创企官网</a></li>');
+                    $('#ll01').html('<li class="menu_items"><a href="' + dhw.urlmain + '' + app + '" target="_blank">' + name + '的个人中心</a></li><li class="menu_items"><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a></li><li class="menu_items"><a href="http://www.chuangqikeji.com/" target="_blank">联系我们</a></li>');
                 }
             });
         })

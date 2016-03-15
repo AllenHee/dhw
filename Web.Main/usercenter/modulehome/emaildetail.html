@@ -1,0 +1,16 @@
+<div class="emailDetail" ng-controller="emailDetCtrl">
+  <div class="emailDetail_ttl">
+    <h2 class="emailDetail_ttl_ttl">{{data.title}}</h2>
+    <p>收件人 : <span>{{data.to}}</span></p>
+    <p>时间 : <span>{{data.creationtime}}</span></p>
+    <p>发件人 : <span>{{data.from}}</span></p>
+  </div>
+  <div class="emailDetail_cont">
+    <div class="emailDetail_cont_cont">{{data.message}}</div>
+  </div>
+  <div class="functionBtn">
+    <button type="button" ng-click="return()">返回</button>
+    <button type="button">回复</button>
+    <button type="button" ng-click="del()">删除</button>
+  </div>
+</div>

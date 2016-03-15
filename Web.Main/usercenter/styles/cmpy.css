@@ -871,6 +871,9 @@
   vertical-align: -3px;
   margin-right: 5px;
 }
+.pagination {
+  font-size:0.3em;
+}
 .pagination .current {
   color: #ea1515;
 }

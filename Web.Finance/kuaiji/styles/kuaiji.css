@@ -909,3 +909,98 @@
   font-size: 30px;
   cursor: pointer;
 }
+/*会计列表筛选*/
+.kj_filter_box {
+    padding: 16px 36px 6px 18px;
+    border: 1px solid #e7e7e7;
+    margin: 22px 0 30px;
+    font-size: 1.4em;
+    line-height: 1.7;
+}
+.kj_filter_box .current {
+  background-color: #ff6501;
+  color: #fff;
+}
+.kj_filter_box dt {
+    font-weight: 700;
+    margin-right: 10px;
+}
+.kj_filter_box dt, .kj_filter_box dd, .kj_filter_box li {
+    float: left;
+}
+.kj_filter_box div {
+  position: relative;
+  padding-bottom: 10px;
+}
+.kj_filter_box ul {
+    display: none;
+    position: absolute;
+    left: -19px;
+    top: 34px;
+    z-index: 101;
+    width: 968px;
+    padding-bottom: 10px;
+    border-top-style: dashed;
+    margin: 0;
+    background-color: #fff;
+    font-size: 1em;
+}
+.kj_filter_box ul {
+    padding: 16px 36px 6px 18px;
+    border: 1px solid #e7e7e7;
+    line-height: 1.7;
+}
+.kj_filter_box .more {
+    float: right;
+    position: relative;
+    padding-right: 20px;
+    margin-right: 0;
+    font-size: 1.1em;
+    line-height: 24px;
+}
+.kj_filter_box dd, .kj_filter_box li {
+    padding: 0 6px;
+    margin-right: 3px;
+    line-height: 24px;
+    transition: background-color 300ms ease-out, color 300ms ease-out;
+    cursor: pointer;
+}
+.kj_filter_box li {
+  line-height: 36px;
+}
+.kj_filter_box li:hover {
+  background-color: #3d9ccc;
+}
+.kj_filter_box dt, .kj_filter_box dd, .kj_filter_box li {
+    float: left;
+}
+.kj_filter_box .more i, .kj_filter_box_s span i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    border-width: 6px 6px 0;
+    border-style: solid;
+    border-color: #3d9ccc transparent transparent;
+    margin-top: -3px;
+    transition: transform .4s ease;
+}
+.kj_filter_box_search {
+  width: 135px;
+  height: 16px;
+  border-color: #ff6501;
+  padding: 10px 30px;
+  border-width: 1px;
+  border-style: solid;
+  float: left;
+}
+.kj_filter_box_search_btn {
+  width: 45px;
+  height: 38px;
+  background-color: #ff6501;
+  padding: 0;
+  border: 0;
+  line-height: 40px;
+  color: #fff;
+  cursor: pointer;
+  float: left;
+}

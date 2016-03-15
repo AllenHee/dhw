@@ -1,0 +1,180 @@
+﻿@{ViewBag.Title = "梦高速-欢迎绑定"; Layout = null;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号升级-梦高速</title>
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/general.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/login.css">
+</head>
+<body class="confirm-body">
+    <body class="confirm-body">
+        <div class="confirm-logo clearfix">
+            <div class="logo_img">
+                <a href="#">
+                    <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/dl_logo.jpg" alt="#"></a>
+            </div>
+            <h2 class="logo_text">
+                账户注册</h2>
+        </div>
+        <div class="confirm" ng-app="confirmApp" ng-controller="confirmCtrl">
+            <!--<form name="register">-->
+            <form name="register" class="confirm-item" ng-cloak="">
+            <h2 class="confirm-h2">
+                只差一步，即可完成登录设置</h2>
+            <p class="confirm-text">
+                快速完成梦高速账号创建</p>
+            <p class="confirm-text">
+                完成账号创建后，即可直接登录梦高速哦！</p>
+            <div class="confirm-formSetWrap">
+                <label class="confirm-formSet_label">
+                    用户名:</label>
+                <input class="formSet_input" name="username" ng-model="data.name" ng-pattern="/^[\u4e00-\u9fa5a-zA-Z0-9\-\_]{4,20}$/"
+                    ng-focus="usernameTip=true" ng-blur="usernameTip=false; validate(data.name, 'username')"
+                    type="text" ng-change="isValid.username=undefined" required>
+                <i class="formSet_icon user"></i><i class="formSet_icon success" ng-show="register.username.$dirty && register.username.$valid && isValid.username == 1">
+                </i>
+                <label class="tips" ng-show="usernameTip">
+                    4-20位字符，支持中英文、数字及"-"、"_"组合</label>
+                <label class="confirm-formSet-error confirm-formSet-error-long" ng-show="!usernameTip && register.username.$invalid && !register.username.$error.required">
+                    用户名长度只能在4-20位字符之间<br>
+                    用户名只能由中英文、数字及"-"、"_"组合</label>
+                <label class="confirm-formSet-error" ng-show="!usernameTip && register.username.$dirty && register.username.$error.required">
+                    请输入用户名</label>
+                <label class="confirm-formSet-error" ng-show="!usernameTip && isValid.username == 0">
+                    该用户名已被注册，请重新输入</label>
+            </div>
+            <div class="confirm-formSetWrap">
+                <label class="confirm-formSet_label">
+                    请设置密码:</label>
+                <input class="formSet_input" name="password" ng-model="data.pwd" id="userpwd" ng-pattern="/^.{6,20}$/"
+                    ng-focus="passwordTip=true" ng-blur="passwordTip=false" type="password" required>
+                <i class="formSet_icon security"></i><i class="formSet_icon success" ng-show="register.password.$dirty && register.password.$valid">
+                </i>
+                <label class="tips" ng-show="passwordTip">
+                    6-20位字符，建议由字母、数字和符号两种以上组合</label>
+                <label class="confirm-formSet-error" ng-show="!passwordTip && register.password.$invalid && !register.password.$error.required">
+                    密码长度只能在6-20位字符之间</label>
+                <label class="confirm-formSet-error" ng-show="!passwordTip && register.password.$dirty && register.password.$error.required">
+                    请输入密码</label>
+            </div>
+            <div class="confirm-formSetWrap">
+                <label class="confirm-formSet_label">
+                    请确认密码:</label>
+                <input class="formSet_input" name="confirm" ng-model="confirmpwd" id="userconf" ng-pattern="/^.{6,20}$/"
+                    ng-focus="confirmTip=true" ng-blur="confirmTip=false" type="password" required>
+                <i class="formSet_icon security"></i><i class="formSet_icon success" ng-show="register.confirm.$dirty && register.confirm.$valid && confirmpwd == data.pwd">
+                </i>
+                <label class="tips" ng-show="confirmTip">
+                    请再次输入密码</label>
+                <label class="confirm-formSet-error" ng-show="!confirmTip && register.confirm.$dirty && (confirmpwd != data.pwd)">
+                    两次输入密码不一致</label>
+            </div>
+            <div class="confirm-formSetWrap">
+                <label class="confirm-formSet_label">
+                    手机号:</label>
+                <input class="formSet_input" name="mobile" ng-model="data.phone" ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
+                    ng-focus="mobileTip=true" ng-blur="mobileTip=false; validate(data.phone, 'mobile')"
+                    type="text" ng-change="isValid.mobile = undefined" required>
+                <i class="formSet_icon phone"></i><i class="formSet_icon success" ng-show="register.mobile.$dirty && register.mobile.$valid && isValid.mobile == 1">
+                </i>
+                <label class="tips" ng-show="mobileTip">
+                    请输入手机号，直接可以登录梦高速</label>
+                <label class="confirm-formSet-error" ng-show="!mobileTip && register.mobile.$dirty && register.mobile.$error.required">
+                    请输入手机号码</label>
+                <label class="confirm-formSet-error" ng-show="!mobileTip && register.mobile.$invalid && !register.mobile.$error.required">
+                    手机号码格式有误，请输入正确的手机号</label>
+                <label class="confirm-formSet-error" ng-show="!mobileTip && isValid.mobile == 0">
+                    该手机已被注册，请重新输入</label>
+                <!--<label class="tips" ng-if="mobileTip">
+                    完成验证后，您可以用该手机号登录或找回密码</label>-->
+            </div>
+            <!--<div class="confirm-formSetWrap">
+                <label class="confirm-formSet_label">短信验证码:</label>
+                <input class="formSet_input formSet_input-short"  disabled="disabled" type="text" required>
+                <button class="getYZM">获取短信验证码</button>
+            </div>-->
+            <div class="confirm-formSetWrap">
+                <label class="confirm-formSet_label">
+                </label>
+                <p class="confirm-agreementWrap">
+                    <input class="agreement ng-pristine ng-valid" type="checkbox" ng-model="agreement">
+                    <label>
+                        我已经阅读并同意<a class="confirm-link" href="#">《梦高速用户注册协议》</a></label></p>
+            </div>
+            <div class="confirm-formSetWrap zc">
+                <label class="confirm-formSet_label">
+                </label>
+                <button class="submitBtn" ng-click="submit()" ng-disabled="register.$invalid || !agreement"
+                    type="button">
+                    立即注册</button>
+            </div>
+            </form>
+            <form class="confirm-form" name="binding">
+            <h3 class="word-color">
+                已有梦高速账号？直接绑定</h3>
+            <div class="confirm-formSetWrap-2">
+                <span class="word-color">邮箱/用户名/已验证手机：</span>
+                <input class="form_input" name="dhwid" type="text" ng-model="dataQQ.name" placeholder="邮箱/用户名/已验证手机"
+                    ng-blur="validate(dataQQ.name, 'dhwid')" ng-change="isValid.dhwid = undefined"
+                    required>
+                <i class="form_icon user"></i>
+            </div>
+            <div class="confirm-formSetWrap-2">
+                <span class="word-color">密码：</span>
+                <input class="form_input" ng-model="dataQQ.pwd" type="password">
+                <i class="form_icon security"></i>
+            </div>
+            <div class="confirm-formSetWrap-2">
+                <span class="word-color">验证码：</span>
+                <div>
+                    <input class="form_input-short" ng-model="dataQQ.verify" type="text">
+                    <img class="confirm_yztp_2" id="verifyImg" src="/Login/VerifyCode?_=1450339330618"
+                        alt="验证图片" ng-click="codeRefresh()">
+                </div>
+            </div>
+            <button class="submitBtn-2" ng-click="bin()">
+                绑定账号</button>
+            <a class="confirm-link" href="#">忘记密码?</a>
+            <p class="fc-gray">
+                绑定后，您的QQ和梦高速账户都可以登录梦高速</p>
+            </form>
+            <div class="errorPop_wrap">
+            </div>
+            <div class="successPop" id="confirm_reg">
+                <p class="verifyCodeError">
+                    恭喜您注册成功
+                    <br>
+                    系统正在转跳到登陆页面</p>
+            </div>
+            <div class="successPop" id="qq">
+                <p class="verifyCodeError">
+                    绑定成功
+                    <br>
+                    系统正在转跳到登陆页面</p>
+            </div>
+            <div class="errorPop">
+                <p class="verifyCodeError">
+                </p>
+                <button class="errorPop_btn" type="button" ng-click="closeErrorPop()">
+                    确定</button>
+            </div>
+        </div>
+        <div class="bottomNav">
+            <ul class="bottomNav_ul clearfix">
+                <li class="bottomNav_items"><a href="#">关于我们</a></li>
+                <li class="bottomNav_items"><a href="#">联系我们</a></li>
+                <li class="bottomNav_items"><a href="#">人才招聘</a></li>
+                <li class="bottomNav_items"><a href="#">商家入驻</a></li>
+                <li class="bottomNav_items"><a href="#">广告服务</a></li>
+                <li class="bottomNav_items"><a href="#">友情链接</a></li>
+                <li class="bottomNav_items bottomNav_items-last"><a href="#">English Site</a></li>
+            </ul>
+            <p class="copyrightText">
+                Copyright@2015-2016 梦高速dreamhiway.com 版权所有</p>
+        </div>
+        <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+        <script src="@{@BaseConfigs.GetUrlCdn}lib/angular/angular.min.js"></script>
+        <script src="@{@BaseConfigs.GetUrlCdn}scripts/confirmCtrl.js"></script>
+    </body>
+</html>

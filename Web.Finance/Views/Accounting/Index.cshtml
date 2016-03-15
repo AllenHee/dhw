@@ -1,6 +1,8 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = " 公司信息 - 会计服务 - 梦高速";
+    ViewBag.Description = "优质的财务公司列表，为您提供全面的会计财务服务。";
+    ViewBag.Keywords = "财务公司,会计服务,热门财务公司";
 }
 @model System.Data.DataTable
 <!--主内容区 开始-->
@@ -73,18 +75,16 @@
               <li class="badges-4"></li>
             </ul>
             <ul class="tags clearfix">
-              <li>注册公司</li>
-              <li>申报纳税</li>
-              <li>进出口税务申报</li>
-              <li>审计业务</li>
-              <li>进出口税务申报</li>
+              {{each finance.business as advantage}}
+              <li>{{advantage.name}}</li>
+              {{/each}}
             </ul>
           </div>
         </div>
       </div>
       <div class="rcmd-content-r">
         <div class="rcmd-title">{{finance.servertenet}}<button>我要雇佣</button></div>
-        <p>{{finance.prof}}<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/{{finance.id}}" target="_blank">>></a></p>
+        <p title="{{finance.pro}}">{{finance.prof}}<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/{{finance.id}}" target="_blank">>></a></p>
       </div>
     </li>
     {{/each}}
@@ -94,11 +94,20 @@
     <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loaddata.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/kuaiji.js"></script>
     <script>
+        function search() {
+            var searchValue = $("#searchValue").val();
+            console.log(searchValue);
+            window.location.href = '@{@BaseConfigs.GetUrlKj}accounting?earchkey=' + searchValue;
+        }
         // 数据交互
         $(function () {
             var para = {
                 pageIndex: 1,
                 pageSize: 10
+            }
+            var searchkey = decodeURIComponent(location.search).split('=')[1];
+            if (searchkey) {
+                para.compay = searchkey
             }
             loadData("/Accounting/List", para, "financeList", ".rcmd");
         });
