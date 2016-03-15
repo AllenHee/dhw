@@ -582,8 +582,9 @@ body.zbxq {
   background: url(../images/zb_19.jpg) no-repeat;
 }
 .bdsharebuttonbox {
-  display: inline-block;
-  margin-left: 50px;
+  float: right !important;
+  margin-left: 20px !important;
+  margin-right: 10px;
 }
 .hd_cont_l_shouc li{
   float: left;
@@ -1258,6 +1259,7 @@ body.zbxq {
 }
 .zbrw_t_l {
   float: left;
+  width: 510px;
 }
 .zbrw_t_l_ttl {
   float: left;
@@ -2023,6 +2025,29 @@ body.zbxq {
   line-height: 25px !important;
   padding-left: 30px !important;
   background: url(../images/zb_21.jpg) no-repeat !important;
+  text-decoration: none !important;
   margin: 0 !important;
   font-size: 15px !important;
+}
+
+/*关注按钮*/
+.zbrw_t_r_atte {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding-left: 30px;
+  font-size: 15px;
+  background: url(../images/attention.jpg) no-repeat;
+  text-decoration: none !important;
+  color: #333;
+}
+.zbrw_t_r_t {
+  min-width: 220px;
+}
+.zbrw_t_r-r {
+  float: right;
+  margin-right: 20px;
+}
+.zbrw_t_r-l {
+  margin-left: 50px;
 }
