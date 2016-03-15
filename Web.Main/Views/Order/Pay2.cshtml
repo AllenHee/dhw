@@ -1,0 +1,98 @@
+﻿@model System.Data.DataRow
+@{
+    Layout = "~/Views/Shared/_CenterLayout.cshtml";
+    ViewBag.Title = "订单信息确认 - 梦高速"; 
+}
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}usercenter/styles/order.css">
+}
+<!--主内容区 开始-->
+<ul class="pay_progress clearfix">
+    <li class="pay_progress_items complete">1.订单信息确认 <i class="triangle white_trian"></i>
+        <i class="triangle grey_trian"></i></li>
+    <li class="pay_progress_items">2.支付 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+    </i></li>
+    <li class="pay_progress_items">3.完成 </li>
+</ul>
+<div class="order">
+    <div class="order_content">
+        <p class="order_secondTtl">
+            项目信息</p>
+        <table class="order_table" cellspacing="0">
+            <colgroup>
+                <col width="285px">
+              
+                <col width="365px">
+                <col width="125px">
+               
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        项目名称
+                    </th>
+                    <th>
+                        描述
+                    </th>
+                    <th>
+                        金额
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model["subject"]
+                    </td>
+                    <td class="order_detail">
+                        @Model["body"]
+                    </td>
+                    <td class="redWord">
+                        ¥@Model["price"]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="order_secondTtl">
+            选择支付方式</p>
+        <ul class="payWay clearfix">
+            <li class="fukuan_radiot fukuan_radioo" data-payment="aplipay"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            @* <li class="fukuan_radiot"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            <li class="fukuan_radiot"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            <li class="fukuan_radiot"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            <li class="fukuan_radiot fukuan_radiot-last"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>*@
+        </ul>
+        <div class="bottom">
+            <button class="paynow">
+                立即付款</button>
+            <button class="return">
+                返回</button>
+        </div>
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script>
+        var orderno = '@Model["number"]';
+        var key = '@ViewBag.key';
+    </script>
+    <script>
+        // 点击立即付款
+        $('.paynow').click(function () {
+            var payment = $('.fukuan_radiot').attr('data-payment');
+            var url = '/order/' + key + '/Alipay?number=' + orderno + '&payment=' + payment;
+            window.open(url, '_blank');
+            window, location.href = '/order/' + key + '/pay3' + '/' + orderno;
+        })
+    </script>
+}

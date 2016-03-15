@@ -4,9 +4,10 @@ $(function () {
     pageSize: 10
   }
   var originsu = location.search.substring(0).split("&")[0];
+ 
   var sukey = originsu.split("=");
   //console.log(decodeURIComponent(sukey[1]));
-  var su = sukey[1] = decodeURIComponent(sukey[1])
+  var su = decodeURIComponent(sukey[1])
   // 设置列表右上角总页数
   function setTotalPages(data) {
     var total_pages = Math.ceil(data.result.total / 10);
@@ -72,10 +73,10 @@ $(function () {
       }
       var para_extra = {}
       // 搜索框字段
-      if(typeof(su) == "undefined"){
-        para_extra.zwmc = su;
-      }else{
+      if(su === "undefined"){
         para_extra.zwmc = "";
+      }else{
+        para_extra.zwmc = su;
       }
     
       if($.cookie("gzdd")){
@@ -103,10 +104,10 @@ $(function () {
       var para_extra = {}
       para_extra.citycode = ''
       // 搜索框字段
-      if(typeof(su) == "undefined"){
-         para_extra.compay = su;
+      if(su === "undefined"){
+         para_extra.compay = "";
       }else{
-        para_extra.compay = "";
+        para_extra.compay = su;
       }
       
       $.extend(para, para_extra);

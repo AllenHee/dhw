@@ -1,6 +1,6 @@
 <div class="accTabs_wrap">
   <ul class="accTabs clearfix">
-    <li class="accTab" ng-class="{active:whichTab=='personal'}" ng-click="whichTab='personal'">个人信息</li>
+    <li class="accTab" ng-class="{active:whichTab=='personal'}" ng-show="!isCoporate" ng-click="whichTab='personal'">个人信息</li>
     <li class="accTab" ng-class="{active:whichTab=='corporate'}" ng-show="isCoporate" ng-click="whichTab='corporate'">公司信息</li>
     <li class="accTab" ng-class="{active:whichTab=='avatar'}" ng-click="whichTab='avatar'">个人头像</li>
     <li class="accTab" ng-class="{active:whichTab=='education'}" ng-click="whichTab='education'">教育经历</li>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="formSet clearfix">
-        <div class="formSetWrap">
+        <div class="formSetWrap" style="z-index:1">
           <label class="formSet_label formSet_label-avatar">照片：</label>
           <span class="photo" id="photo" ng-model="data.img" data-keyname="uc" data-size="100x100" bindimg>
             <img ng-src="{{data.img ? dhw.imgurl + data.img + '_100x100' + '.jpg' : 'http://cdn.dreamhiway.com/usercenter/images/iconfont-touxiang.png'}}" alt="{{data.realname}}">

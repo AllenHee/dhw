@@ -10,26 +10,26 @@
   <form name="writeEmail">
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <label class="formSet_label_name">收件人</label>
-        <input class="formSet_input_name" name="recipients" type="text" ng-model="data.to">
+        <label class="formSet_label">收件人</label>
+        <input class="formSet_input" name="recipients" type="text" ng-model="data.to">
       </div>
     </div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <label class="formSet_label_name">标题</label>
-        <input class="formSet_input_name" name="tittle" type="text" ng-model="data.tittle">
+        <label class="formSet_label">标题</label>
+        <input class="formSet_input" name="tittle" type="text" ng-model="data.tittle">
       </div>
     </div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
-        <label class="formSet_label_name">正文</label>
-        <textarea class="formSet_textarea_content" name="content" type="text" ng-model="data.message"></textarea>
+        <label class="formSet_label">正文</label>
+        <textarea class="formSet_textarea" name="content" type="text" ng-model="data.message"></textarea>
       </div>
     </div>
     <div class="formSet clearfix">
       <div class="formSetWrap">
         <label class="formSet_label"></label>
-        <button class="submitBtn sendBtn" type="button" ng-disabled="writeEmail.$invalid" ng-click="send()">发送</button>
+        <button class="submitBtn" type="button" ng-disabled="writeEmail.$invalid" ng-click="send()">发送</button>
       </div>
     </div>
   </form>
@@ -37,7 +37,8 @@
 </div>
 <!--写信 结束-->
 <!--收件箱 开始-->
-<div ng-show="whichTab == 'Inbox" ng-controller="inboxCtrl">
+
+<div ng-show="whichTab == 'Inbox'" ng-controller="inboxCtrl">
   <form name="Inbox">
     <table class="Inbox">
       <thead>
@@ -59,7 +60,7 @@
             <input class="InboxCheckbox" type="checkbox">
           </td>
           <td class="td1">{{item.from}}</td>
-          <td class="td2">{{item.title}}</td>
+          <td class="td2" ng-click="read({{item.id}})">{{item.title}}</td>
           <td class="td3">{{item.sendtime}}</td>
           <td class="td4" ng-class="{unread:item.state == '未读'}">
             {{item.state}}
@@ -81,7 +82,39 @@
 </div>
 <!--收件箱 结束-->
 <!--发件箱 开始-->
-<div ng-show="whichTab=='sendBox" ng-controller="">
+<div ng-show="whichTab=='sendBox'" ng-controller="outboxCtrl">
+
+  <form name="Outbox">
+    <table class="Outbox">
+      <thead>
+        <tr class="tr">
+          <td class="td0">
+            <input class="OutboxCheckbox" type="checkbox">
+          </td>
+          <td class="td1">收件人</td>
+          <td class="td2">标题</td>
+          <td class="td3">时间</td>
+          <td class="td6">操作</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in data">
+          <td class="td0">
+            <input class="OutboxCheckbox" type="checkbox">
+          </td>
+          <td class="td1">{{item.to}}</td>
+          <td class="ta2">{{item.title}}</td>
+          <td class="td3">{{item.sendtime}}</td>
+          <td class="td6">
+            <a class="delete" ng-click="sanchu">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <div class="Outbox-bottom">
+    <span class="del">删除</span>
+  </div>
 
 </div>
 <!--发件箱 结束-->

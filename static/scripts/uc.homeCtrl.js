@@ -62,16 +62,48 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       url: '/email',
       templateUrl: dhw.gettplurl('email.html'),
       controller: "emailCtrl"
+    })
+    .state('emailDetail', {
+      url: '/emailDetail',
+      templateUrl: dhw.gettplurl('emailDetail.html'),
+      controller: "emailDetCtrl"
     });
 }])
+  .controller('emailCtrl', ['$scope', function(s) {
+    s.whichTab = 'sendBox'
+  }])
   .controller('writeEmailCtrl', ['$scope', '$http', function(s, h) {
     s.data = {};
     var para;
     s.send = function() {
       para = $.extend({}, s.data);
       h.post('/CenterUserDx/Ksfs', para).success(function(d) {
-        console.log(1);
+        
       })
+    }
+  }])
+  .controller('emailDetCtrl', ['$scope', '$http', '$stateParams', '$location', function(s, h, $stateParams, l) {
+    s.data = {};
+    var id = parseInt($stateParams.id)
+    h.post('/CenterUserDx/Detail', { id: id }).success(function(data) {
+      s.data = data.result;
+    })
+    s.return = function() {
+      window.location.href = '#/email'
+    }
+    s.del = function() {
+      var para = {
+        state: 255,
+        arrid: [id]
+      }
+      var conf = confirm('是否确定删除');
+      if (conf === true) {
+        h.post('/CenterUserDx/Delete', para).success(function(data) {
+          if (data.success) {
+            window.location.href = '#/email'
+          }
+        })
+      }
     }
   }])
   .controller('inboxCtrl', ['$scope', '$http', function(s, h) {
@@ -81,6 +113,30 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       pageSize: 10
     };
     h.post("/CenterUserDx/List", para).success(function(d) {
+      if (d.success) {
+        s.data = d.result.data
+      }
+    })
+    s.read = function(id) {
+      var para = {
+        state: 23,
+        arrid: [id]
+      }
+      h.post('/CenterUserDx/Delete', para).success(function(data) {
+        if (data.success) {
+          window.location.href = '#/emailDetail/' + id
+        }
+      })
+    }
+  }])
+
+  .controller('outboxCtrl', ['$scope', '$http', function(s, h) {
+    s.data = {};
+    var para = {
+      pageIndex: 1,
+      pageSize: 10
+    };
+    h.post('/CenterUserDx/SelectListfb', para).success(function(d) {
       if (d.success) {
         s.data = d.result.data
       }
@@ -352,6 +408,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         s.data.y = coords.y;
         s.data.w = coords.h;
         s.data.h = coords.w;
+        
         var rx = 100 / coords.w;
         var ry = 100 / coords.h;
 
@@ -693,8 +750,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
     }
   }])
+<<<<<<< HEAD
+  .controller('servicesCtrl', ["$scope", "$http", function (s, h) {
+=======
 
   .controller('servicesCtrl', ["$scope", "$http", function(s, h) {
+>>>>>>> e7089fc972443279fd8dbaefdefb79b09c72d5c3
 
     s.data = {};
     s.submit = function() {
