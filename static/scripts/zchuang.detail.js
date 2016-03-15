@@ -2,7 +2,7 @@ $(function() {
   // 基地图片循环滚动
   var wrapper = $(".main_picture_wrap");
   var ul = $(".main_picture");
-  ul.html(ul.html() + ul.html());
+  ul.html(ul.html());
   function scroll() {
     wrapper.scrollLeft(wrapper.scrollLeft()+1);
     if (wrapper.scrollLeft() == (ul.width()/2)) {

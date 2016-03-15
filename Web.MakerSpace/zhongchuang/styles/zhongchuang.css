@@ -324,13 +324,14 @@
 .main {
   float: right;
   width: 854px;
-  margin-top: 30px;
+  /*margin-top: 30px;*/
 }
 .main_box {
   display: none;
 }
 .main_box.current {
   display: block;
+  overflow: hidden; 
 }
 .main h2 {
   font-size: 20px;
@@ -344,7 +345,7 @@
   border-bottom: 1px solid #ddd;  
 }
 .main img {
-  padding: 15px 0;
+  padding: 20px 50px;
 }
 
 .mian_address h2,
@@ -419,7 +420,7 @@
 }
 .main_cont {
   display: block;
-  border-top: 1px solid #ccc;
+  /*border-top: 1px solid #ccc;*/
   overflow-y: auto;
 }
 .firtable {
@@ -514,13 +515,15 @@ tbody td {
   margin-bottom: 15px;
 }
 .main_box_gnqjs_group h4,
-.main_box_rztj_lc h4 {
+.main_box_rztj_lc h2,
+.main_box_rztj_tj h2 {
   height: 23px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e2e2e2;
   font-size: 20px;
   line-height: 23px;
 }
+
 .main_box_gnqjs_group p {
   margin-top: 20px;
   font-size: 15px;
