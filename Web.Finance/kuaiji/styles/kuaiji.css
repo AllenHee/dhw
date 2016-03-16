@@ -256,12 +256,23 @@
   height: 77px;
   border: 1px solid #eee;
 }
+.rcmd-content-icon .avatar div {
+  text-align: left;
+  margin-left:5px; 
+}
 .rcmd-content .avatar i {
   display: inline-block;
   width: 15px;
   height: 12px;
   margin-right: 5px;
   background: url(../images/kuaiji.png) no-repeat -40px -324px;
+}
+.rcmd-content .avatar .address_icon i {
+    display: inline-block;
+    width: 15px;
+    height: 12px;
+    margin-right: 5px;
+    background: url(../images/kuaiji.png) no-repeat -64px -324px;
 }
 .badges-tags {
   float: right;
@@ -309,6 +320,7 @@
   background-color: #fdf6e4;
   line-height: 18px;
   color: #ff6501;
+  cursor: pointer;
 }
 .rcmd-content p,
 .rcmd-content-r p {
@@ -738,6 +750,7 @@
   overflow: hidden;
 }
 .kj-box-w .avatar div {
+  text-align: left;
   margin-top: 14px;
 }
 .kj-box-w .rcmd-content h3 {
