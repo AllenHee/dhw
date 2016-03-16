@@ -5,6 +5,31 @@
 .header-main {
   padding-top: 0;
 }
+.header-main-nav {
+    /*border-bottom: 1px solid #D9A1BD;*/
+    background-color: #fff;
+    float: left;
+    margin-top: 19px;
+    margin-right: 18px;
+    margin-left: 33px;
+}
+.header-main-nav li {
+  float: left;
+  margin-right: 5px;
+}
+.header-main-nav .current a,
+.header-main-nav  a:hover {
+  background-color: #ff6501;
+  color: #fff;
+}
+.header-main-nav a { 
+   display: block;
+    width: 101px;
+    font-size: 1.6em;
+    line-height: 2.5;
+    color: #333;
+    text-align: center
+}
 .header-m-l {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -17,7 +42,7 @@
   position: relative;
 }
 .header-search input {
-  width: 500px;
+  width: 120px;
   border-color: #ff6501; 
 }
 .header-search button {
