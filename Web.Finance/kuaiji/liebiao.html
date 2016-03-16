@@ -52,7 +52,7 @@
       </div>
       <div class="rcmd-content-r">
         <div class="rcmd-title">专业的顾问，专业的咨询，竭诚为您服务
-          <button>我要雇佣</button>
+          <button data-to="{{finance.to}}">我要雇佣</button>
         </div>
         <p class="textOver">{{finance.Prof}}<a href="#"> >> </a></p>
       </div>
@@ -113,7 +113,7 @@
           </form>
         </div>
       </div>
-  </div>
+    </div>
     <!--头部主内容 结束-->
     <!--头部轮播 开始-->
     <!--<div class="slide-bg">
@@ -156,10 +156,10 @@
     <!--热门会计推荐列表 开始-->
     <div class="kj-box kj-box-w">
 
-      <div class="kj_filter_box"> 
-      <div class="has-more">
-        
-        <dl class="clearfix">
+      <div class="kj_filter_box">
+        <div class="has-more">
+
+          <dl class="clearfix">
             <dt>所在地点： </dt>
             <dd class="current">全国</dd>
             <dd data-citycode="350500">泉州</dd>
@@ -179,32 +179,32 @@
             <dd class="more">更多
               <i></i>
             </dd>
-            
-        </dl>
-        <ul class="clearfix">
+
+          </dl>
+          <ul class="clearfix">
             <li data-citycode="500000">重庆</li>
             <li data-citycode="430100">长沙</li>
             <li data-citycode="370200">青岛</li>
             <li data-citycode="320200">无锡</li>
             <li data-citycode="440600">佛山</li>
-        </ul>
-      </div>
-      <div>
-        <dl class="clearfix">
-          <dt>服务内容： </dt>
-          <dd class="current">全部</dd>
-          <dd>验资</dd>
-          <dd>审计</dd>
-          <dd>评估</dd>
-          <dd>会记服务</dd>
-          <dd>工程造价</dd>
-          <dd>税务咨询</dd>
-          <dd>纳税申报</dd>
-          <dd>财税疑难</dd>
-          <dd>其他</dd>
-        </dl>
-      </div>
-      <!--<div class="">
+          </ul>
+        </div>
+        <div>
+          <dl class="clearfix">
+            <dt>服务内容： </dt>
+            <dd class="current">全部</dd>
+            <dd>验资</dd>
+            <dd>审计</dd>
+            <dd>评估</dd>
+            <dd>会记服务</dd>
+            <dd>工程造价</dd>
+            <dd>税务咨询</dd>
+            <dd>纳税申报</dd>
+            <dd>财税疑难</dd>
+            <dd>其他</dd>
+          </dl>
+        </div>
+        <!--<div class="">
         <div class="clearfix">
           <form action="#">
             <input type="text" id="searchValue" class="kj_filter_box_search" placeholder="请输入关键词">
@@ -212,7 +212,7 @@
           </form>
         </div>
       </div>-->
-    </div>
+      </div>
       <ul class="rcmd clearfix">
         <!--<li class="rcmd-item">
           <div class="rcmd-content">
@@ -436,70 +436,6 @@
   <script src="http://localhost:8070/scripts/kuaiji.js"></script>
   <script>
     // 数据交互
-    var para = {
-      pageIndex: 1,
-      pageSize: 10,
-      keyword:"",
-      city_code: ""
-    }
-     function search() {
-       var searchValue = $("#searchValue").val();
-       para.keyword = searchValue;
-       loadData("/Accounting/List", para, "financeList", ".rcmd");
-   }
-       
-  $(function() {
-    var keynameValue = $.cookie('keyname');
-    if(keynameValue) {
-       para.keyword = keynameValue;
-    }
-    //搜索
-    function setCommon(elem, children_elem, property) {
-        elem.find(children_elem).click(function () {
-          if ($(this).hasClass("more")) {
-            return false;
-          }
-      var value;
-      // 判断是否是所在地点
-       if (property === 'szdd' || property === 'city_code') {
-          value = $(this).attr('data-citycode');
-          property = 'city_code';
-       }else {
-          value = $.trim($(this).text());
-       }
-       if (value == "全国" || value == "全部") {
-          value = '';
-       }
-        para[property] = value;
-        loadData("/Accounting/List", para, "financeList", ".rcmd");
-        console.log(para);
-      })
-      // “更多”下的选项
-     elem.children("ul").find("li").click(function () {
-        var value = $(this).text();
-        var citycode = $(this).attr('data-citycode')
-        elem.find("dd:last-child").prev().text(value).attr('data-citycode', citycode).trigger("click");
-        console.log(para);
-    });
-    }
-
-  var searchkey = decodeURIComponent(location.search).split('=')[1];
-    if (searchkey) { 
-     para.keyword = searchkey
-  } 
-     
-    setCommon($('.kj_filter_box div').eq(0),'dd','szdd');
-    setCommon($('.kj_filter_box div').eq(1),'dd','keyword');
-    loadData("/Accounting/List", para, "financeList", ".rcmd");
-    
-     $(".rcmd").on("click", ".tags li", function() {
-      console.log(1);
-      var tagsli = $(this).text();
-      para.keyword = tagsli;
-      loadData("/Accounting/List", para, "financeList", ".rcmd");
-    });
-    
-  });
   </script>
 </body>
 
