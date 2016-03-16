@@ -164,6 +164,7 @@
   font-size: 18px;
   color: #fff;
   background-color: #4bc1fc;
+  cursor: pointer;
 }
 .sbcs_search_hot {
   margin-top: 10px;
@@ -177,6 +178,7 @@
   float: left;
   padding: 0 3px;
   color: #999;
+  cursor: pointer;
 }
 
 
@@ -270,7 +272,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 6055px;
+  width: 7785px;
   height: 69px;
   z-index: 10;
 }
