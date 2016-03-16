@@ -344,8 +344,12 @@
 .main_address_text_warp {
   border-bottom: 1px solid #ddd;  
 }
-.main img {
+/*.main img {
   padding: 20px 50px;
+}*/
+.main_box .area,
+.main_box .guihua {
+  margin: 15px 25px;
 }
 
 .mian_address h2,
@@ -512,20 +516,20 @@ tbody td {
 */
 /*功能区介绍*/
 .main_box_gnqjs_group {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 .main_box_gnqjs_group h4,
 .main_box_rztj_lc h2,
 .main_box_rztj_tj h2 {
   height: 23px;
-  padding-bottom: 10px;
+  /*padding-bottom: 5px;*/
   border-bottom: 1px solid #e2e2e2;
   font-size: 20px;
   line-height: 23px;
 }
 
 .main_box_gnqjs_group p {
-  margin-top: 20px;
+  margin-top: 15px;
   font-size: 15px;
 }
 .main_box_gnqjs_pitGroup li {
