@@ -861,6 +861,10 @@
   margin-bottom: 20px;
   box-shadow: 1px 1px 3px #bbb;
 }
+.cont_main ul li img {
+  width: 280px;
+  height: 280px;
+}
 .cont_main .last {
   margin-right: 0;
 }

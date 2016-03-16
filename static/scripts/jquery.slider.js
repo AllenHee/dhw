@@ -202,7 +202,7 @@
           // 停止
           clearInterval(defaults[anima]);
           // 调用外部函数重新调整滑动区相关数值
-          prepareSlide();
+          //prepareSlide();
           // 重新调整脚本内部相关数值
           width_all = elem.width(),  // 图片总宽度
           height_all = elem.height();  // 图片总高度

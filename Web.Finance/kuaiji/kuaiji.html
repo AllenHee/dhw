@@ -153,12 +153,13 @@
       <ul class="rcmd clearfix">
         <li class="rcmd-item">
           <div class="rcmd-title">专业的顾问，专业的咨询，竭诚为您服务</div>
-          <div class="rcmd-content">
+          <div class="rcmd-content rcmd-content-icon">
             <h3><a href="#">福州市圣鹏财务顾问有限公司</a></h3>
             <div class="clearfix">
               <div class="avatar">
                 <a href="#"><img src="images/rcmd_1.png" alt="福州市圣鹏财务顾问有限公司"></a>
                 <div><i></i>0595-36892699</div>
+                <div class="address_icon"><i></i>福建 · 泉州</div>
               </div>
               <div class="badges-tags">
                 <ul class="badges clearfix">
@@ -374,6 +375,7 @@
   </div>
 
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/jquery.cookie.js"></script>
   <script src="http://localhost:8070/scripts/general.js"></script>
   <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
   <script src="http://localhost:8070/scripts/jquery.slider.js"></script>
@@ -381,7 +383,11 @@
   <script src="http://localhost:8070/scripts/kuaiji.js"></script>
   <script>
     $('input, textarea').placeholder();
-    
+    $(".tags li").on("click",function() {
+      var keyname = $(this).text();
+      $.cookie('keyname', keyname);
+      window.location.href = '//kj.dreamhiway.com/accounting'
+    })
     function search() {
       var searchValue = $("#searchValue").val();
       window.location.href = 'http://localhost:8082/kuaiji/liebiao.html?searchkey='+ searchValue;
