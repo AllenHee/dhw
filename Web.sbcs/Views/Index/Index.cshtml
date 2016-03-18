@@ -1,12 +1,78 @@
 ﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
     ViewBag.Title = "梦高速 - 商标超市";
 }
+@section head{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}sbcs/styles/sbcs.css">
+}
+<!--头部 开始-->
+<div class="sbcs">
+    <div class="sbcs_head">
+        <div class="index_logo">
+            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/logo.png" alt="">
+        </div>
+        @Helper1.display_head()
+    </div>
+</div>
+<!--头部 结束-->
 <div class="sbcs_content sbcs_index">
     <div class="index_search">
         <div>
             <input class="index_search_input" type="text">
             <button class="index_search_button">
                 商标搜索</button>
+            <a class="index_search_a" href="javascript:">快速发布</a>
+            <div class="index_search_span">
+                <span>第03类</span>
+                <ul class="index_search_type clearfix">
+                    <li>全部分类</li>
+                    <li>第01类</li>
+                    <li>第02类</li>
+                    <li>第03类</li>
+                    <li>第04类</li>
+                    <li>第05类</li>
+                    <li>第06类</li>
+                    <li>第07类</li>
+                    <li>第08类</li>
+                    <li>第09类</li>
+                    <li>第10类</li>
+                    <li>第11类</li>
+                    <li>第12类</li>
+                    <li>第13类</li>
+                    <li>第14类</li>
+                    <li>第15类</li>
+                    <li>第16类</li>
+                    <li>第17类</li>
+                    <li>第18类</li>
+                    <li>第19类</li>
+                    <li>第20类</li>
+                    <li>第21类</li>
+                    <li>第22类</li>
+                    <li>第23类</li>
+                    <li>第24类</li>
+                    <li>第25类</li>
+                    <li>第26类</li>
+                    <li>第27类</li>
+                    <li>第28类</li>
+                    <li>第29类</li>
+                    <li>第30类</li>
+                    <li>第31类</li>
+                    <li>第32类</li>
+                    <li>第33类</li>
+                    <li>第34类</li>
+                    <li>第35类</li>
+                    <li>第36类</li>
+                    <li>第37类</li>
+                    <li>第38类</li>
+                    <li>第39类</li>
+                    <li>第40类</li>
+                    <li>第41类</li>
+                    <li>第42类</li>
+                    <li>第43类</li>
+                    <li>第44类</li>
+                    <li>第45类</li>
+                </ul>
+            </div>
         </div>
         <dl class="index_search_hot clearfix">
             <dt>热门搜索 :</dt>
@@ -83,19 +149,16 @@
         <div class="index_type">
             <div class="index_type_wrap">
                 <ul class="index_type_show clearfix">
-                @{var ParentKind = ViewBag.ParentKind as System.Data.DataTable;}
-                @for (int i = 0; i < ParentKind.Rows.Count; i++)
-                {
-                    var row = ParentKind.Rows[i];
-                     <li class="index_type_show_item" data-pcode="@row["code"]">
-                        <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/30.png" alt="">
-                        <p>
-                            @row["code"]类 @row["name"]</p>
-                    </li>
-                }
-              
-                   
-                   
+                    @{var ParentKind = ViewBag.ParentKind as System.Data.DataTable;}
+                    @for (int i = 0; i < ParentKind.Rows.Count; i++)
+                    {
+                        var row = ParentKind.Rows[i];
+                        <li class="index_type_show_item" data-pcode="@row["code"]">
+                            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/category/min2/@(row["code"]).png" alt="">
+                            <p>
+                                @row["code"]类 @row["name"]</p>
+                        </li>
+                    }
                 </ul>
                 <div class="index_type_mask">
                 </div>
@@ -106,166 +169,27 @@
             <div class="index_slider_wrap">
                 <ul class="index_slider clearfix">
                     <li class="index_slider_item">
-                        <ul class="index_trademark_show clearfix">
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
+                        <ul class="index_trademark_show firPic clearfix">
                         </ul>
                     </li>
                     <li class="index_slider_item">
-                        <ul class="index_trademark_show">
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
+                        <ul class="index_trademark_show secPic clearfix">
                         </ul>
                     </li>
                     <li class="index_slider_item">
-                        <ul class="index_trademark_show">
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
-                            <li class="index_trademark_show_item">
-                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
-                                <div class="index_trademark_mask">
-                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
-                                        时尚主题</span>
-                                </div>
-                            </li>
+                        <ul class="index_trademark_show thiPic clearfix">
+                        </ul>
+                    </li>
+                    <li class="index_slider_item">
+                        <ul class="index_trademark_show fouPic clearfix">
                         </ul>
                     </li>
                 </ul>
             </div>
             <div class="slide_little">
                 <i class="slide_little-current"></i><i></i><i></i>
-                <!--<i></i>-->
             </div>
             <div class="index_trademark_text">
-                <span>纸巾</span> <span>印刷品</span> <span>期刊</span> <span>保鲜膜</span> <span>订书机</span>
-                <span>文具</span> <span>墨水</span> <span>绘画材料</span> <span>复写纸</span> <span>桌用布</span>
             </div>
         </div>
     </div>
@@ -303,5 +227,55 @@
         友情链接 : <a href="">中华商标协会</a><a href="">中华商标协会</a><a href="">中华商标协会</a><a href="">中华商标协会</a></p>
 </div>
 @section scripts{
+    <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/shangbiao.js"></script>
+    <script type="text/html" id="firTem">
+  {{each firPic as fir}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{fir.img}}" alt="">
+      <div class="index_trademark_mask">
+        <span class="index_trademark_mask_pri"><span>￥</span>{{fir.price}}</span>
+        <span class="index_trademark_mask_ttl">{{fir.name}}</span>
+      </div>
+    </li>
+  {{/each}}
+    </script>
+    <script type="text/html" id="secTem">
+  {{each secPic as sec}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{sec.img}}" alt="">
+      <div class="index_trademark_mask">
+        <span class="index_trademark_mask_pri"><span>￥</span>{{sec.price}}</span>
+        <span class="index_trademark_mask_ttl">{{sec.name}}</span>
+      </div>
+    </li>
+  {{/each}}
+    </script>
+    <script type="text/html" id="thiTem">
+  {{each thiPic as thi}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{thi.img}}" alt="">
+      <div class="index_trademark_mask">
+        <span class="index_trademark_mask_pri"><span>￥</span>{{thi.price}}</span>
+        <span class="index_trademark_mask_ttl">{{thi.name}}</span>
+      </div>
+    </li>
+  {{/each}}
+    </script>
+    <script type="text/html" id="fouTem">
+  {{each fouHtml as fou}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{fou.img}}" alt="">
+      <div class="index_trademark_mask">
+        <span class="index_trademark_mask_pri"><span>￥</span>{{fou.price}}</span>
+        <span class="index_trademark_mask_ttl">{{fou.name}}</span>
+      </div>
+    </li>
+  {{/each}}
+    </script>
+    <script type="text/html" id="typeName">
+  {{each types as type}}
+  <span>{{type.name}}</span>
+  {{/each}}
+    </script>
 }

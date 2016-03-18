@@ -576,6 +576,7 @@ body {
   background-color: #3d9ccc;
   border: solid thin #3d9ccc;
 }
+
 .rank_item_pop i,
 .rank_item_price i {
   position: absolute;
@@ -585,6 +586,9 @@ body {
   height: 15px;
   display: block;
   background-image: url(../images/jiantou1.png)
+}
+.selected i{
+  background-image: url(../images/jiantou.png)
 }
 .rank_pages {
   float: right;
@@ -636,7 +640,6 @@ body {
 .second_sort {
   color: #a8a8a8;
   line-height: 20px;
-  display: block;
 }
 .liebiao_recommend {
   float: right;
