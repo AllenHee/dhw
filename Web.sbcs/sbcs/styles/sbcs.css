@@ -490,7 +490,6 @@
   color: #333;
   font-size: 14px;
 }
-<<<<<<< HEAD
 /*商标超市——详情页*/
 /*李雅丽*/
 
@@ -764,7 +763,7 @@
 .sb_detailb_lis .det_cont {
   font-size: 12px;
   color: #666;
-=======
+}
 
 /*分类表*/
 .fenlei_title {
@@ -833,5 +832,4 @@
   color: #999;
   font-size: 12px;
   line-height: 20px;
->>>>>>> ccd7bc05ae5ad24144d3b0ad864a95bd35fdb7fe
 }
