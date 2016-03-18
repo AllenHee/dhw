@@ -438,3 +438,277 @@
   color: #333;
   font-size: 14px;
 }
+/*商标超市——详情页*/
+/*李雅丽*/
+
+/*左侧内容*/
+.sbcs_cont_left {
+  float: left;
+  width: 198px;
+  border: 1px solid #ccc;
+}
+.sbcs_cont_left h2 {
+  margin: 8px 10px;
+  font-size: 14px;
+  color: #333;
+}
+.sbcs_cont_left .find {
+  width: 118px;
+  height: 20px;
+  line-height: 20px;
+  margin: 0 2px 0 22px;
+  padding-left: 10px;
+  font-size: 12px;
+  color: #d8d8d8;
+  border: 1px solid #ccc;
+}
+.sbcs_cont_left .findbtn {
+  width: 30px;
+  height: 23px;
+  padding: 0;
+  font-size: 12px;
+  color: #fff;
+  border: 0;
+  border-radius: 2px;
+  background-color: #3d9ccc;
+}
+.sbcs_cont_left .sort {
+  margin: 10px 15px 30px;
+  font-size: 12px;
+  color: #666;
+}
+.sbcs_cont_left .sort dt,
+.sbcs_cont_left .sort dd {
+  overflow: hidden;
+ }
+.sbcs_cont_left .sort dd {
+  margin-top: 10px;
+}
+.sbcs_cont_left .sort_add {
+  float: left;
+  display: block;
+  width: 8px;
+  height: 8px;
+  line-height: 8px;
+  margin-top: 3px;
+  margin-right: 10px;
+  font-size: 10px;
+  color: #ccc;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+/*右侧内容*/
+.sbcs_cont_right {
+  float: left;
+  margin-left: 10px;
+}
+.sbcs_cont_right .shangbiao,
+.sbcs_cont_right .liucheng_buzou,
+.sbcs_cont_right .sb_detailt,
+.sbcs_cont_right .sb_detailb {
+  width: 970px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+.shangbiao_tl {
+  float: left;
+  margin: 20px 10px;
+}
+.shangbiao_tl .photo {
+  border: 1px solid #ccc;
+}
+.shangbiao_tl .operate {
+  position: relative;
+}
+.shangbiao_tl .shoucang_pic {
+  position: absolute;
+  width: 18px;
+  height: 16px;
+  margin-left: 10px;
+  background: url('../images/shoucang_01.png') no-repeat;
+}
+.shangbiao_tl .shoucang {
+  margin-top: 7px;
+  margin-left: 30px;
+  font-size: 11px;
+}
+.shangbiao_tl .jubao_pic {
+  position: absolute;
+  width: 18px;
+  height: 20px;
+  margin-left: 150px;
+  background: url('../images/jubao.png') no-repeat;
+}
+.shangbiao_tl .jubao {
+  margin-top: 7px;
+  margin-left: 175px;
+  font-size: 10px;
+  color: #3d9ccc;
+}
+.shangbiao_tl .price {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+.shangbiao_tl .money {
+  font-size: 24px;
+  color: #ff6600;
+}
+.shangbiao_tl .jiaoyi {
+  float: left;
+  margin-top: 8px;
+  margin-left: 60px;
+   height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  color: #666;
+}
+.shangbiao_tl .type {
+  position: relative;
+  display: block;
+  float: right;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+.shangbiao_tl .sjx {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  border-width: 8px 8px 0 8px;
+  border-style: solid;
+  border-color: transparent red transparent transparent ;
+}
+.shangbiao_tr {
+  float: left;
+  margin-left: 40px;
+}
+.shangbiao_trt {
+  height: 56px;
+  line-height: 56px;
+  border-bottom: 1px dashed #ccc;
+}
+.shangbiao_trt h2 {
+  float: left;
+  font-size: 18px;
+  color: #000;
+}
+.shangbiao_trt .name {
+  color: #4bc1fc;
+}
+.shangbiao_trt img {
+  margin: 6px 35px;
+}
+.shangbiao_tr_detail {
+  font-size: 14px;
+  word-spacing: 2px;
+  color: #333;
+}
+.shangbiao_tr_detail p {
+  margin-bottom: 10px;
+}
+.shangbiao_tr_detail .buy {
+  width: 140px;
+  height: 32px;
+  margin-top: 30px;
+  color: #fff;
+  background-color: #3d9ccc;
+  border: 0;
+  border-radius: 2px;
+}
+.shangbiao_b {
+  position: relative;
+  margin: 28px 40px 15px 20px;
+}
+.shangbiao_b i {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  top: 10px;
+  background: url('../images/xiangqing_02.png') no-repeat;
+}
+.shangbiao_b p {
+  line-height: 24px;
+  margin-left: 105px;
+  font-size: 14px;
+}
+.shangbiao_b .parto,
+.shangbiao_b .partt span {
+  color: #ff0000;
+}
+.shangbiao_b .partt {
+  color: #333;
+}
+
+.liucheng h2 {
+  height: 45px;
+  line-height: 45px;
+  padding-left: 20px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #3d9ccc;
+  border: 1px solid #3d9ccc;
+}
+.liucheng_buzou {
+  padding-top: 20px;
+  border-top: 0;
+}
+.liucheng_buzou p {
+  margin: 0 45px 25px 30px;
+  font-size: 12px;
+}
+.liucheng_buzou span {
+  float: left;
+  font-size: 15px;
+  color: #3d9ccc;
+}
+.sb_detailt h2 {
+  width: 108px;
+  height: 46px;
+  line-height: 46px;
+  margin: -1px 0 0 -1px;
+  text-align: center;
+  font-size: 18px;
+  border-top: 2px solid #3d9ccc;
+  border-right: 1px solid #ccc;
+}
+.sb_detailt .pic {
+  padding:  10px 10px;
+  border-top: 1px solid #ccc;
+}
+.sb_detailb h2 {
+  height: 42px;
+  line-height: 45px;
+  margin-left: -1px;
+  padding-left: 22px;
+  font-size: 18px;
+  color: #666;
+  border-bottom: 2px solid #3d9ccc;
+}
+.sb_detailb_lis li {
+  float: left;
+  width: 186px;
+  margin: 10px 3px;
+  border: 1px solid #ccc; 
+}
+.sb_detailb_lis .det_pri {
+  margin-left: 115px;
+  font-size: 11px;
+  color: #ff6600;
+}
+.sb_detailb_lis .det_til {
+  margin-left: 12px;
+  font-size: 14px;
+  color: #333;
+}
+.sb_detailb_lis .det_cont {
+  font-size: 12px;
+  color: #666;
+}
