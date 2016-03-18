@@ -164,6 +164,7 @@
   font-size: 18px;
   color: #fff;
   background-color: #4bc1fc;
+  cursor: pointer;
 }
 .sbcs_search_hot {
   margin-top: 10px;
@@ -177,6 +178,7 @@
   float: left;
   padding: 0 3px;
   color: #999;
+  cursor: pointer;
 }
 
 
@@ -189,12 +191,14 @@
   margin: 0 auto;
 }
 .index_search {
+  position: relative;
   margin-bottom: 30px;
+  font-size: 16px;
 }
 .index_search_input {
-  width: 855px;
+  width: 645px;
   height: 45px;
-  padding: 0 10px;
+  padding: 0 85px 0 10px;
   border: 0;
   background-color: #e1e1e1;
   line-height: 45px;
@@ -206,8 +210,55 @@
   color: #fff;
   background-color: #3d9ccc;
   cursor: pointer;
+  font-size: 16px;
+}
+.index_search_a {
+  display: inline-block;
+  width: 100px;
+  height: 45px;
+  margin-left: 25px;
+  color: #fff;
+  line-height: 45px;
+  font-size: 16px;
+  text-align: center;
+  background-color: #3d9ccc;
+}
+.index_search_span {
+  position: absolute;
+  top: 0;
+  left: 670px;
+  width: 70px;
+  height: 45px;
+  line-height: 45px;
+  color: #999;
+}
+.index_search_type {
+  display: none;
+  position: absolute;
+  left: -670px;
+  top: 46px;
+  width: 718px;
+  padding: 10px;
+  border: 1px solid #3d9ccc;
+  text-align: center;
+  background-color: #fff;
+  border-top: 0;
+}
+.index_search_type li {
+  float: left;
+  width: 71px;
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  cursor: pointer;
+  transition: .5s;
+}
+.index_search_type li:hover {
+  color: #fff;
+  background-color: #3d9ccc;
 }
 .index_search_hot {
+  margin-top: 20px;
   margin-left: 50px;
   margin-bottom: 35px;
   font-size: 12px;
@@ -224,7 +275,7 @@
 }
 .sbcs_filterbox {
   padding-left: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 55px;
 }
 .sbcs_filterbox_items {
   margin-bottom: 5px;
@@ -270,7 +321,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 6055px;
+  width: 7785px;
   height: 69px;
   z-index: 10;
 }
@@ -286,13 +337,13 @@
 .index_type_show_item-current {
   background-color: #388fbb;
 }
-.index_type_show::before,
+/*.index_type_show::before,
 .index_type_show_item::after {
   display: inline-block;
   height: 20px;
   width: 1px;
   background-color: #ccc;
-}
+}*/
 .index_type_show_item {
   float: left;
   width: 133px;
@@ -350,12 +401,13 @@
 .index_trademark_show_item {
   position: relative;
   float: left;
+  height: 121px;
   border: 1px solid #ccc;
   margin: 0 43px 35px 0;
 }
 .index_trademark_show_item img {
   width: 158px;
-  height: 118px;
+  height: 121px;
 }
 .index_trademark_mask {
   display: none;
@@ -438,6 +490,7 @@
   color: #333;
   font-size: 14px;
 }
+<<<<<<< HEAD
 /*商标超市——详情页*/
 /*李雅丽*/
 
@@ -711,4 +764,74 @@
 .sb_detailb_lis .det_cont {
   font-size: 12px;
   color: #666;
+=======
+
+/*分类表*/
+.fenlei_title {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  text-align: center;
+  line-height: 40px;
+}
+.fenlei_cont_ul {
+  width: 1110px;
+}
+.fenlei_cont {
+  padding: 20px 40px;
+}
+.fenlei_items {
+  float: left;
+  width: 230px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-right: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.fenlei_items img {
+  width: 100px;
+  height: 80px;
+}
+.fenlei_items_ttl {
+  font-size: 16px;
+  line-height: 30px;
+}
+.fenlei_items_cont {
+  height: 51px;
+  color: #999;
+  font-size: 12px;
+}
+.fenlei_item_type {
+  padding-right: 3px;
+  border-right: 1px solid #999;
+  margin-right: 3px;
+  line-height: 17px;
+}
+.fenlei_item_type-last {
+  border: 0;
+}
+.fenlei_advantage {
+  margin-top: 65px;
+  margin-bottom: 30px;
+}
+.fenlei_advantage_item {
+  float: left;
+  width: 112px;
+  padding: 0 55px;
+  text-align: center;
+}
+.fenlei_advantage_item img {
+  margin-bottom: 50px;
+}
+.fenlei_advantage_item h2 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+}
+.fenlei_advantage_item p {
+  color: #999;
+  font-size: 12px;
+  line-height: 20px;
+>>>>>>> ccd7bc05ae5ad24144d3b0ad864a95bd35fdb7fe
 }
