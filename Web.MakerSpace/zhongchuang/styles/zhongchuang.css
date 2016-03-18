@@ -586,3 +586,7 @@ tbody td {
 .main_box_rztj_lc-r {
   font-weight: normal;
 }
+/*分享按钮样式*/
+.zc_share {
+  margin: 20px !important
+}

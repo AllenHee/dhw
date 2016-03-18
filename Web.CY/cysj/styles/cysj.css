@@ -1569,6 +1569,13 @@ body.zbxq {
   height: 17px;
   background: url(../images/rwxq.png) no-repeat 0 -72px;
 }
+.icon_homepage { 
+    display: inline-block;
+    width: 68px;
+    height: 30px;
+    float: right;
+    background: url(../images/icon-homepage.png) no-repeat;
+}
 .icon_phone {
   display: inline-block;
   margin: 0 13px -5px 0;
