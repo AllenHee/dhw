@@ -1,0 +1,307 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 商标超市";
+}
+<div class="sbcs_content sbcs_index">
+    <div class="index_search">
+        <div>
+            <input class="index_search_input" type="text">
+            <button class="index_search_button">
+                商标搜索</button>
+        </div>
+        <dl class="index_search_hot clearfix">
+            <dt>热门搜索 :</dt>
+            <dd>
+                服装</dd>
+            <dd>
+                童装</dd>
+            <dd>
+                内衣</dd>
+            <dd>
+                化妆品</dd>
+            <dd>
+                手机</dd>
+            <dd>
+                珠宝首饰</dd>
+            <dd>
+                家具</dd>
+            <dd>
+                纺织品</dd>
+        </dl>
+    </div>
+    <div class="sbcs_filterbox">
+        <dl class="sbcs_filterbox_items clearfix">
+            <dt>注册年限 : </dt>
+            <dd class="sbcs_filterbox_current">
+                不限</dd>
+            <dd>
+                1年一下</dd>
+            <dd>
+                1年以上</dd>
+            <dd>
+                2年以上</dd>
+            <dd>
+                3年以上</dd>
+            <dd>
+                4年以上</dd>
+            <dd>
+                5年以上</dd>
+        </dl>
+        <dl class="sbcs_filterbox_items clearfix">
+            <dt>价格区间 : </dt>
+            <dd class="sbcs_filterbox_current">
+                不限</dd>
+            <dd>
+                1万以下</dd>
+            <dd>
+                1-3万</dd>
+            <dd>
+                3-5万</dd>
+            <dd>
+                5-10万</dd>
+            <dd>
+                10-20万</dd>
+            <dd>
+                20-50万</dd>
+            <dd>
+                50万以上</dd>
+        </dl>
+        <dl class="sbcs_filterbox_items clearfix">
+            <dt>类型 : </dt>
+            <dd class="sbcs_filterbox_current">
+                不限</dd>
+            <dd>
+                纯中文</dd>
+            <dd>
+                纯英文</dd>
+            <dd>
+                纯数字</dd>
+            <dd>
+                纯图形</dd>
+        </dl>
+    </div>
+    <div class="index_content">
+        <div class="index_type">
+            <div class="index_type_wrap">
+                <ul class="index_type_show clearfix">
+                @{var ParentKind = ViewBag.ParentKind as System.Data.DataTable;}
+                @for (int i = 0; i < ParentKind.Rows.Count; i++)
+                {
+                    var row = ParentKind.Rows[i];
+                     <li class="index_type_show_item" data-pcode="@row["code"]">
+                        <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/30.png" alt="">
+                        <p>
+                            @row["code"]类 @row["name"]</p>
+                    </li>
+                }
+              
+                   
+                   
+                </ul>
+                <div class="index_type_mask">
+                </div>
+            </div>
+            <span class="cqbh_prov"></span><span class="cqbh_next"></span>
+        </div>
+        <div class="index_trademark">
+            <div class="index_slider_wrap">
+                <ul class="index_slider clearfix">
+                    <li class="index_slider_item">
+                        <ul class="index_trademark_show clearfix">
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="index_slider_item">
+                        <ul class="index_trademark_show">
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="index_slider_item">
+                        <ul class="index_trademark_show">
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                            <li class="index_trademark_show_item">
+                                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/6.png" alt="">
+                                <div class="index_trademark_mask">
+                                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span> <span class="index_trademark_mask_ttl">
+                                        时尚主题</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="slide_little">
+                <i class="slide_little-current"></i><i></i><i></i>
+                <!--<i></i>-->
+            </div>
+            <div class="index_trademark_text">
+                <span>纸巾</span> <span>印刷品</span> <span>期刊</span> <span>保鲜膜</span> <span>订书机</span>
+                <span>文具</span> <span>墨水</span> <span>绘画材料</span> <span>复写纸</span> <span>桌用布</span>
+            </div>
+        </div>
+    </div>
+    <ul class="sbcs_advantage clearfix">
+        <li class="sbcs_advantage_item">
+            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/01.png" alt="">
+            <h2>
+                无忧选购</h2>
+            <p>
+                大平台有保障,放心更省心</p>
+        </li>
+        <li class="sbcs_advantage_item">
+            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/02.png" alt="">
+            <h2>
+                商标优质</h2>
+            <p>
+                海量精品商标,顾问把关</p>
+        </li>
+        <li class="sbcs_advantage_item">
+            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/03.png" alt="">
+            <h2>
+                快捷交易</h2>
+            <p>
+                一站式服务,快捷省心</p>
+        </li>
+        <li class="sbcs_advantage_item">
+            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/04.png" alt="">
+            <h2>
+                专业顾问</h2>
+            <p>
+                一对一优质服务,安心</p>
+        </li>
+    </ul>
+    <p class="friendlyLink">
+        友情链接 : <a href="">中华商标协会</a><a href="">中华商标协会</a><a href="">中华商标协会</a><a href="">中华商标协会</a></p>
+</div>
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/shangbiao.js"></script>
+}
