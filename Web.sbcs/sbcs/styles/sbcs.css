@@ -438,3 +438,156 @@
   color: #333;
   font-size: 14px;
 }
+/*
+  2016.3.15
+  严国城
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #fafafa;
+}
+.content {
+  width: 1200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+.liebiao_rank {
+  float: left;
+  width: 915px;
+  height: 50px;
+  padding: 0 10px 0 45px;
+  border: solid thin #cccccc;
+  margin-bottom: 3px;
+  color: #333333;
+  font-size: 14px;
+  background: #fff;
+}
+.rank {
+  float: left;
+  line-height: 45px;
+}
+.rank_item {
+  width: 70px;
+  text-align: center;
+}
+.rank_item_pop,
+.rank_item_price {
+  position: relative;
+  width: 60px;
+  padding-left: 10px;
+}
+.rank_item,
+.rank_item_pop,
+.rank_item_price {
+  float: left;
+  height: 30px;
+  border: solid thin #cccccc;
+  margin: 7px 11px 11px 0;
+  color: #333333;
+  line-height: 30px;
+  display: block;
+}
+.selected {
+  color: #fff;
+  background-color: #3d9ccc;
+  border: solid thin #3d9ccc;
+}
+.rank_item_pop i,
+.rank_item_price i {
+  position: absolute;
+  top: 8px;
+  left: 47px;
+  width: 11px;
+  height: 15px;
+  display: block;
+  background-image: url(../images/jiantou1.png)
+}
+.rank_pages {
+  float: right;
+  line-height: 45px;
+  display: block;
+}
+.rank_current {
+  color: #ea0606;
+}
+.items {
+  float: left;
+  width: 972px;
+  overflow: hidden;
+}
+.item {
+  margin-right: 10px;
+}
+.item img{
+  width: 235px;
+  height: 175px;
+}
+.item,
+.item_last {
+  float: left;
+  width: 235px;
+  height: 284px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+.item img:hover,
+.item_last img:hover,
+.recommend_item  img:hover{
+  cursor:pointer;
+}
+.item_detail {
+  padding: 0 10px 10px;
+  font-size: 12px;
+}
+.price {
+  margin-bottom: 10px;
+  color: #bc0000;
+  font-size: 17px;
+  font-weight: bold;
+  display: block;
+}
+.sign {
+  font-size: 12px;
+}
+.first_sort {
+  color: #666666;
+  line-height: 20px;
+  display: block;
+}
+.second_sort {
+  color: #a8a8a8;
+  line-height: 20px;
+  display: block;
+}
+.liebiao_recommend {
+  float: right;
+  width: 206px;
+  height: 1410px;
+  padding-left: 2px;
+  border: solid #3a9ccc;
+  border-width: 2px 0 0 0;
+}
+.liebiao_recommend img {
+  width: 208px;
+  height: 300px;
+}
+.recommend_title {
+  margin: 15px 0 35px;
+  font-size: 15px;
+  color: #3a9ccc;
+  display: block;
+}
+.recommend_item {
+  margin-top: 15px;
+  height: 325px;
+}
+.recommend_price {
+  color: #bc0000;
+  font-size: 12px;
+  font-weight: bold;
+}
