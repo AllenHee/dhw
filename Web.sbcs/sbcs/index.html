@@ -6,6 +6,66 @@
   <title>梦高速 - 商标超市</title>
   <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="styles/sbcs.css">
+  <script type="text/javascript">
+    var dhw = { imgurl: 'http://192.168.2.10:82/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', mainurl: 'http://localhost:8085/' };
+    var su = "";
+  </script>
+  <script type="text/html" id="firTem">
+    {{each firPic as fir}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{fir.img}}" alt="">
+      <a href="/trademark/{{fir.id}}">
+        <div class="index_trademark_mask">
+          <span class="index_trademark_mask_pri"><span>¥</span>{{fir.price}}</span>
+          <span class="index_trademark_mask_ttl">{{fir.name}}</span>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </script>
+  <script type="text/html" id="secTem">
+    {{each secPic as sec}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{sec.img}}" alt="">
+      <a href="/trademark/{{sec.id}}">
+        <div class="index_trademark_mask">
+          <span class="index_trademark_mask_pri"><span>¥</span>{{sec.price}}</span>
+          <span class="index_trademark_mask_ttl">{{sec.name}}</span>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </script>
+  <script type="text/html" id="thiTem">
+    {{each thiPic as thi}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{thi.img}}" alt="">
+      <a href="/trademark/{{thi.id}}">
+        <div class="index_trademark_mask">
+          <span class="index_trademark_mask_pri"><span>¥</span>{{thi.price}}</span>
+          <span class="index_trademark_mask_ttl">{{thi.name}}</span>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </script>
+  <script type="text/html" id="fouTem">
+    {{each fouPic as fou}}
+    <li class="index_trademark_show_item">
+      <img src="{{imgurl}}{{fou.img}}" alt="">
+      <a href="/trademark/{{fou.id}}">
+        <div class="index_trademark_mask">
+          <span class="index_trademark_mask_pri"><span>¥</span>{{fou.price}}</span>
+          <span class="index_trademark_mask_ttl">{{fou.name}}</span>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </script>
+  <script type="text/html" id="typeName">
+    {{each types as type}}
+    <span>{{type.name}}</span> {{/each}}
+  </script>
 </head>
 
 <body>
@@ -18,6 +78,7 @@
       <ul class="sbcs_nav clearfix">
         <li class="sbcs_nav_item sbcs_nav_item-current">首页</li>
         <li class="sbcs_nav_item">商标精选</li>
+        <li class="sbcs_nav_item">商标超市</li>
         <li class="sbcs_nav_item">商标分类</li>
         <li class="sbcs_nav_item">快速发布</li>
       </ul>
@@ -29,7 +90,59 @@
       <div>
         <input class="index_search_input" type="text">
         <button class="index_search_button">商标搜索</button>
+        <a class="index_search_a" href="javascript:">快速发布</a>
+        <div class="index_search_span"><span>第03类</span>
+          <ul class="index_search_type clearfix">
+            <li>全部分类</li>
+            <li>第01类</li>
+            <li>第02类</li>
+            <li>第03类</li>
+            <li>第04类</li>
+            <li>第05类</li>
+            <li>第06类</li>
+            <li>第07类</li>
+            <li>第08类</li>
+            <li>第09类</li>
+            <li>第10类</li>
+            <li>第11类</li>
+            <li>第12类</li>
+            <li>第13类</li>
+            <li>第14类</li>
+            <li>第15类</li>
+            <li>第16类</li>
+            <li>第17类</li>
+            <li>第18类</li>
+            <li>第19类</li>
+            <li>第20类</li>
+            <li>第21类</li>
+            <li>第22类</li>
+            <li>第23类</li>
+            <li>第24类</li>
+            <li>第25类</li>
+            <li>第26类</li>
+            <li>第27类</li>
+            <li>第28类</li>
+            <li>第29类</li>
+            <li>第30类</li>
+            <li>第31类</li>
+            <li>第32类</li>
+            <li>第33类</li>
+            <li>第34类</li>
+            <li>第35类</li>
+            <li>第36类</li>
+            <li>第37类</li>
+            <li>第38类</li>
+            <li>第39类</li>
+            <li>第40类</li>
+            <li>第41类</li>
+            <li>第42类</li>
+            <li>第43类</li>
+            <li>第44类</li>
+            <li>第45类</li>
+          </ul>
+        </div>
       </div>
+
       <dl class="index_search_hot clearfix">
         <dt>热门搜索 :</dt>
         <dd>服装</dd>
@@ -77,34 +190,232 @@
       <div class="index_type">
         <div class="index_type_wrap">
           <ul class="index_type_show clearfix">
-            <li class="index_type_show_item">
-              <img src="images/30.png" alt="">
-              <p>30类 茶糖糕点蜂蜜</p>
+            <li class="index_type_show_item" data-pcode="01">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                01类 化学原料肥料</p>
             </li>
-            <li class="index_type_show_item">
-              <img src="images/30.png" alt="">
-              <p>30类 茶糖糕点蜂蜜</p>
+            <li class="index_type_show_item" data-pcode="02">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                02类 颜料油漆油墨</p>
             </li>
-            <li class="index_type_show_item">
-              <img src="images/30.png" alt="">
-              <p>30类 茶糖糕点蜂蜜</p>
+            <li class="index_type_show_item" data-pcode="03">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                03类 化妆品日用类</p>
             </li>
-            <li class="index_type_show_item">
-              <img src="images/30.png" alt="">
-              <p>30类 茶糖糕点蜂蜜</p>
+            <li class="index_type_show_item" data-pcode="04">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                04类 润滑油润滑剂</p>
             </li>
-            <li class="index_type_show_item">
-              <img src="images/30.png" alt="">
-              <p>30类 茶糖糕点蜂蜜</p>
+            <li class="index_type_show_item" data-pcode="05">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                05类 人用药保健品</p>
             </li>
-            <li class="index_type_show_item">
-              <img src="images/30.png" alt="">
-              <p>30类 茶糖糕点蜂蜜</p>
+            <li class="index_type_show_item" data-pcode="06">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                06类 金属小五金具</p>
             </li>
-            <li class="index_type_show_item">
-              <img src="images/30.png" alt="">
-              <p>30类 茶糖糕点蜂蜜</p>
+            <li class="index_type_show_item" data-pcode="07">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                07类 洗衣机吸尘器</p>
             </li>
+            <li class="index_type_show_item" data-pcode="08">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                08类 手工具刀叉勺</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="09">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                09类 电子产品电池</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="10">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                10类 医疗器械设备</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="11">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                11类 家用电器龙头</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="12">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                12类 运输工具用品</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="13">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                13类 烟花爆竹军火</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="14">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                14类 珠宝玉器手表</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="15">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                15类 乐器钢琴萧鼓</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="16">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                16类 文具办公用品</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="17">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                17类 橡胶包装材料</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="18">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                18类 箱包雨伞手杖</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="19">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                19类 地板地砖涂层</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="20">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                20类 家用竹工艺品</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="21">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                21类 厨房炊具用具</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="22">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                22类 缆绳帐篷吊床</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="23">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                23类 纺织用纱和线</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="24">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                24类 床上用品毛巾</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="25">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                25类 服装鞋帽围巾</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="26">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                26类 饰品纽扣假发</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="27">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                27类 地毯地垫墙纸</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="28">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                28类 运动用品玩具</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="29">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                29类 食用油坚果肉</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="30">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                30类 茶糖糕点蜂蜜</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="31">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                31类 蔬菜水果鲜花</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="32">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                32类 啤酒矿泉水饮料</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="33">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                33类 白酒果酒黄酒</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="34">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                34类 香烟雪茄烟类</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="35">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                35类 广告特许经营</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="36">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                36类 保险金融股价</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="37">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                37类 维修室内装潢</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="38">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                38类 通讯服务传送</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="39">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                39类 运输旅行安排</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="40">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                40类 服装定制加工</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="41">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                41类 培训教育文娱</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="42">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                42类 软件编程设计</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="43">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                43类 餐饮酒店茶馆</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="44">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                44类 美容院理发店</p>
+            </li>
+            <li class="index_type_show_item" data-pcode="45">
+              <img src="//192.168.2.10:81/sbcs/images/30.png" alt="">
+              <p>
+                45类 法律咨询服务</p>
+            </li>
+
           </ul>
           <div class="index_type_mask"></div>
         </div>
@@ -115,176 +426,30 @@
         <div class="index_slider_wrap">
           <ul class="index_slider clearfix">
             <li class="index_slider_item">
-              <ul class="index_trademark_show clearfix">
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
+              <ul class="index_trademark_show firPic clearfix">
               </ul>
             </li>
             <li class="index_slider_item">
-              <ul class="index_trademark_show">
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
+              <ul class="index_trademark_show secPic clearfix">
               </ul>
             </li>
             <li class="index_slider_item">
-              <ul class="index_trademark_show">
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
-                <li class="index_trademark_show_item">
-                  <img src="images/6.png" alt="">
-                  <div class="index_trademark_mask">
-                    <span class="index_trademark_mask_pri"><span>¥</span>65000.00</span>
-                    <span class="index_trademark_mask_ttl">时尚主题</span>
-                  </div>
-                </li>
+              <ul class="index_trademark_show thiPic clearfix">
+              </ul>
+            </li>
+            <li class="index_slider_item">
+              <ul class="index_trademark_show fouPic clearfix">
               </ul>
             </li>
           </ul>
         </div>
         <div class="slide_little">
-          <i class="slide_little-current"></i>
-          <i></i>
-          <i></i>
-          <!--<i></i>-->
+          <i class="slide_little-current first_icon"></i>
+          <i class="second_icon"></i>
+          <i class="third_icon"></i>
+          <i class="fourth_icon"></i>
         </div>
         <div class="index_trademark_text">
-          <span>纸巾</span>
-          <span>印刷品</span>
-          <span>期刊</span>
-          <span>保鲜膜</span>
-          <span>订书机</span>
-          <span>文具</span>
-          <span>墨水</span>
-          <span>绘画材料</span>
-          <span>复写纸</span>
-          <span>桌用布</span>
         </div>
       </div>
     </div>
@@ -313,6 +478,7 @@
     <p class="friendlyLink">友情链接 : <a href="">中华商标协会</a><a href="">中华商标协会</a><a href="">中华商标协会</a><a href="">中华商标协会</a></p>
   </div>
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
   <script src="http://localhost:8070/scripts/shangbiao.js"></script>
 </body>
 
