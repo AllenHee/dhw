@@ -493,10 +493,7 @@
   color: #333;
   font-size: 14px;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> b4af49f32010b6f7153988dc4cded41c087938c5
 /*
   2016.3.15
   严国城
@@ -1023,4 +1020,61 @@ body {
   color: #999;
   font-size: 12px;
   line-height: 20px;
+}
+
+/*商标超市--精品*/
+/*李雅丽*/
+.sbcs_jingpin {
+  width: 1150px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+.sbcs_jingpin_list {
+  margin: 20px 20px;
+  border: 1px solid #ccc;
+}
+.sbcs_jingpin_listl {
+  float: left;
+  margin-top: 30px;
+  margin-left: 35px;
+}
+
+.sbcs_jingpin_listl_til {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sbcs_jingpin_listl_leibie {
+  margin-left: 20px;
+  font-size: 12px;
+}
+.sbcs_jingpin_listl_price {
+  display: block;
+  float: left;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #e34d4d;
+}
+.sbcs_jingpin_listl_detail {
+  display: block;
+  float: right;
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  margin-top: 25px;
+  margin-right: 13px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  color: #e34d4d;
+  border: 1px solid #e34d4d;
+}
+.sbcs_jingpin_listr {
+  float: left;
+  margin-top: 25px;
+  margin-left: 35px;
+  cursor: pointer;
 }
