@@ -383,11 +383,13 @@
   <script src="http://localhost:8070/scripts/kuaiji.js"></script>
   <script>
     $('input, textarea').placeholder();
+    // 点击标签功能
     $(".tags li").on("click",function() {
       var keyname = $(this).text();
       $.cookie('keyname', keyname);
       window.location.href = '//kj.dreamhiway.com/accounting'
     })
+    //搜索功能
     function search() {
       var searchValue = $("#searchValue").val();
       window.location.href = 'http://localhost:8082/kuaiji/liebiao.html?searchkey='+ searchValue;

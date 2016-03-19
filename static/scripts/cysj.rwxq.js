@@ -1,3 +1,25 @@
+function CysjSc() {
+  if ($(".zbrw_t_r_atte").hasClass("cancel")) {
+    alert("已收藏")
+    return false;
+  }
+  var para = {
+    fpid: cpid
+  }
+  $.post("/CysjPub/CysjSc", para).success(function() {
+    var total = parseInt($(".zbrw_t_r_atte").attr("data-collection"));
+    total = total + 1;
+    if (total >= 1000) {
+    total = total / 1000;
+    total = Math.floor(total);
+    total += "+";
+    var but = "已收藏" + "(" + '<span>' + total + '</span>' + ")";
+    $(".zbrw_t_r_atte").html(but);
+    $(".zbrw_t_r_atte").attr("data-collection", total);
+    $(".zbrw_t_r_atte").addClass("cancel");
+    }
+  })
+}
 $(function () {
   
   // 地址选择

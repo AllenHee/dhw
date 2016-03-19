@@ -1,16 +1,136 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = " 公司信息 - 会计服务 - 梦高速";
     ViewBag.Description = "优质的财务公司列表，为您提供全面的会计财务服务。";
     ViewBag.Keywords = "财务公司,会计服务,热门财务公司";
 }
 @model System.Data.DataTable
+<!--头部 开始-->
+<div class="header">
+    <!--头部主内容 开始-->
+    <div class="header-main clearfix">
+        <div class="header-m-l">
+            <a href="#">
+                <h1>
+                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)kuaiji/images/kuaiji_logo.jpg" alt="梦高速 - 会计"></h1>
+            </a>
+        </div>
+        <!--移动导航栏-->
+        <div class="header-main-nav">
+            <ul>
+                <li><a href="/">首页</a><i></i></li>
+                <li class="current"><a href="/accounting">财务公司</a><i></i></li>
+                <li><a href="/assessment" target="_blank">评估服务</a><i></i></li>
+                <li><a target="_blank" href="http://bbs.dreamhiway.com/forum.php?mod=forumdisplay&fid=49">
+                    会计百事通</a><i></i></li>
+            </ul>
+        </div>
+        <!--移动导航栏结束-->
+        <div class="header-m-r">
+            <div class="header-search list-header-search clearfix">
+                <form action="#">
+                <span></span>
+                <input type="text" id="searchValue" placeholder="请输入关键词">
+                <button onclick="search()">
+                    搜索</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--头部主内容 结束-->
+</div>
 <!--主内容区 开始-->
 <div class="content clearfix">
-    <!--热门会计推荐列表 开始-->
     <div class="kj-box kj-box-w">
-        <h2>
-            热门会计推荐列表</h2>
+        <div class="kj_filter_box">
+            <div class="has-more">
+                <dl class="clearfix">
+                    <dt>所在地点： </dt>
+                    <dd class="current">
+                        全国</dd>
+                    <dd data-citycode="350500">
+                        泉州</dd>
+                    <dd data-citycode="310000">
+                        上海</dd>
+                    <dd data-citycode="440300">
+                        深圳</dd>
+                    <dd data-citycode="440100">
+                        广州</dd>
+                    <dd data-citycode="330100">
+                        杭州</dd>
+                    <dd data-citycode="510100">
+                        成都</dd>
+                    <dd data-citycode="320100">
+                        南京</dd>
+                    <dd data-citycode="420100">
+                        武汉</dd>
+                    <dd data-citycode="210200">
+                        大连</dd>
+                    <dd data-citycode="350200">
+                        厦门</dd>
+                    <dd data-citycode="350100">
+                        福州</dd>
+                    <dd data-citycode="110000">
+                        北京</dd>
+                    <dd data-citycode="120000">
+                        天津</dd>
+                    <dd>
+                    </dd>
+                    <dd class="more">
+                        更多 <i></i>
+                    </dd>
+                </dl>
+                <ul class="clearfix">
+                    <li data-citycode="500000">重庆</li>
+                    <li data-citycode="430100">长沙</li>
+                    <li data-citycode="370200">青岛</li>
+                    <li data-citycode="320200">无锡</li>
+                    <li data-citycode="440600">佛山</li>
+                </ul>
+            </div>
+            <div>
+                <dl class="clearfix">
+                    <dt>服务内容： </dt>
+                    <dd class="current">
+                        全部</dd>
+                    <dd>
+                        验资</dd>
+                    <dd>
+                        审计</dd>
+                    <dd>
+                        评估</dd>
+                    <dd>
+                        会记服务</dd>
+                    <dd>
+                        工程造价</dd>
+                    <dd>
+                        税务咨询</dd>
+                    <dd>
+                        纳税申报</dd>
+                    <dd>
+                        财税疑难</dd>
+                    <dd>
+                        其他</dd>
+                </dl>
+            </div>
+            <div>
+                <dl class="clearfix">
+                    <dt>认证体系： </dt>
+                    <dd class="current">
+                        全部</dd>
+                    <dd>
+                        梦高速企业认证</dd>
+                    <dd>
+                        代理记账许可证书</dd>
+                    <dd>
+                        税务师事务所执业证</dd>
+                    <dd>
+                        会计师事务所执业证书</dd>
+                    <dd>
+                        资产评估资格证书</dd>
+                </dl>
+            </div>
+        </div>
         <ul class="rcmd clearfix">
         </ul>
     </div>
@@ -52,6 +172,7 @@
             {{if !finance.logo}}
             <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/{{finance.id}}" target="_blank"><img src="@BaseConfigs.GetStaticPath/images/kj_default.png" alt="{{finance.compay}}"></a>
             {{/if}}
+            <div class="address_icon"><i></i>{{finance.province_name}} · {{finance.city_name}}</div>
             <div><i></i>{{finance.phone}}</div></div>
           <div class="badges-tags">
             <h3><a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/{{finance.id}}" target="_blank">{{finance.compay}}</a></h3>
@@ -83,33 +204,31 @@
         </div>
       </div>
       <div class="rcmd-content-r">
-        <div class="rcmd-title">{{finance.servertenet}}<button>我要雇佣</button></div>
-        <p title="{{finance.pro}}">{{finance.prof}}<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/{{finance.id}}" target="_blank">>></a></p>
+        <div class="rcmd-title">{{finance.servertenet}}<button data-to="{{finance.to}}">我要雇佣</button></div>
+        <p title="{{finance.pro}}">{{finance.prof}} ...<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/{{finance.id}}" target="_blank"> >> </a></p>
       </div>
     </li>
     {{/each}}
     </script>
-    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery-1.11.3.min.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/lib/jquery.cookie.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/general.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.slider.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loaddata.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/kuaiji.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/kj_list.js"></script>
     <script>
-        function search() {
-            var searchValue = $("#searchValue").val();
-            console.log(searchValue);
-            window.location.href = '@{@BaseConfigs.GetUrlKj}accounting?earchkey=' + searchValue;
-        }
-        // 数据交互
-        $(function () {
-            var para = {
-                pageIndex: 1,
-                pageSize: 10
+        $('.rcmd').on('click', '.rcmd-title button', function () {
+            if (!$.cookie("accountType")) {
+                var mainurl = dhw.mainurl;
+                var localurl = encodeURIComponent(window.location.href);
+                var url = mainurl + "login?redirectURL=" + localurl;
+                location.href = url
+            } else {
+                var id = $(this).attr('data-to');
+                window.open('@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=' + id, '_blank');
             }
-            var searchkey = decodeURIComponent(location.search).split('=')[1];
-            if (searchkey) {
-                para.compay = searchkey
-            }
-            loadData("/Accounting/List", para, "financeList", ".rcmd");
-        });
-    </script>
-}
+        })
+    </script>}
