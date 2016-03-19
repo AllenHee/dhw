@@ -39,7 +39,7 @@
     </div>
     <div class="register" ng-app="rzCorApp" ng-controller="rzCorCtrl">
       <form name="gsrz">
-        <div class="reg_form reg_form-personal" ng-show="isFirst" ng-cloak>
+        <div class="reg_form reg_form-personal" ng-if="isFirst" ng-cloak>
           <h4 class="reg_form_title reg_form_title-first">企业实名认证</h4>
           <div class="requireTip">
             <h2>这是一项身份识别服务,请注意一下几点</h2>
@@ -154,7 +154,7 @@
             </div>
           </div>
         </div>
-        <div class="reg_form reg_form-personal" ng-show="isSecond" ng-cloak>
+        <div class="reg_form reg_form-personal" ng-if="isSecond" ng-cloak>
           <h4 class="reg_form_title reg_form_title-first">企业法人信息</h4>
           <div class="formSet clearfix">
             <div class="formSetWrap">

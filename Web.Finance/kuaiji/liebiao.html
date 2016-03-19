@@ -28,19 +28,17 @@
           <div class="badges-tags">
             <h3><a href="#">{{finance.compay}}</a></h3>
             <ul class="badges clearfix">
-              {{if finance.auth === true}}
-              <li class="trueAuth"></li>
-              {{/if}} {{if finance.auth === false}}
-              <li class="falseAuth"></li>
-              {{/if}} {{if finance.level === 1}}
-              <li class="finance_level1"></li>
-              {{/if}} {{if finance.level === 2}}
-              <li class="finance_level2"></li>
-              {{/if}} {{if finance.level === 3}}
-              <li class="finance_level3"></li>
+              {{if finance.obj === ''}}
+               <li></li>
               {{/if}}
-              <li class="badges-3"></li>
-              <li class="badges-4"></li>
+              {{if finance.obj !== ''}}
+                {{each finance.obj.root.item as rz}}
+                    <li>
+                    
+                      <img src="http://localhost:8070{{rz.img}}" alt="{{rz.title}}">
+                    </li>
+                {{/each}}
+              {{/if}}
             </ul>
             <ul class="tags clearfix">
               {{each finance.business as advantage}}

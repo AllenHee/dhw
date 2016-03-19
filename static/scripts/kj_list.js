@@ -52,6 +52,7 @@ $(function() {
 
   setCommon($('.kj_filter_box div').eq(0), 'dd', 'szdd');
   setCommon($('.kj_filter_box div').eq(1), 'dd', 'keyword');
+  setCommon($('.kj_filter_box div').eq(2), 'dd', 'rztx');
   loadData("/Accounting/List", para, "financeList", ".rcmd");
 
   $(".rcmd").on("click", ".tags li", function() {
