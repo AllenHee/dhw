@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--李雅丽-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>创意设计搜索</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/cysj.css">
+
+  <script type="text/html" id="cysearchTem">
+    {{each data as cysearch}}
+    <li class="cysearch_result_list">
+      <div class="cysearch_result_listl">
+        {{if cysearch.img}}
+        <img class="photo" src="{{cysearch.img}}" alt="">
+        {{/if}}
+        {{if !cysearch.img}}
+        <img class="photo" src="{{}}" alt="">
+        {{/if}}
+      </div>
+      <div class="cysearch_result_listr">
+        <div>
+          <a class="tittle" href="">{{cysearch.}}</a>
+          <span class="price">￥{{cysearch.}}/套</span>
+          <span class="time">截稿日期：{{cysearch.}}</span>
+          <span class="number">浏览人数：{{cysearch.}}</span>
+        </div>
+        <div>
+          <i class="vip"></i>
+          <i class="mingpian"></i>
+          <i class="phone"></i>
+          <i class="tubiao"></i>
+        </div>
+        <div class="foot">
+          <a class="name" href="">{{cysearch.}}</a>
+          <span class="dingwei">{{cysearch.}}</span>
+          <span class="call">联系我</span>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+  </script>
+  
+</head>
+
+<body>
+  <!--主内容区开始-->
+  <div class="content">
+    <!--内容区上部分开始-->
+    <div class="cysearch_head">
+      <ul class="daohang">
+        <li><a href="">首页</a></li>
+        <li><span>></span> <a href="">创意设计</a></li>
+        <li><span>></span><a href="">品牌设计</a></li>
+        <li><span>></span><a href="">logo设计</a></li>
+        <li>
+          <span>></span>
+          <input class="find" type="text" placeholder="在当前条件下搜索">
+          <i class="fangdajing"></i>
+        </li>
+      </ul>
+      <dl class="cysearch_head_sort">
+        <dt class="cysearch_head_sortt">分类：</dt>
+        <dd class="cysearch_head_sortd">
+          <a class="sortdetail" href="">品牌设计</a>
+          <a class="sortdetail" href="">取名设计</a>
+          <a class="sortdetail" href="">宣传品/宣传册</a>
+          <a class="sortdetail" href="">广告设计</a>
+          <a class="sortdetail" href="">网店/营销</a>
+        </dd>
+      </dl>
+      <div class="cysearch_choose">
+        <ul class="cysearch_chooset">
+          <li>
+            <a class="sever" href=""></a>
+          </li>
+        </ul>
+        <div class="cysearch_chooseb">
+          <span class="moren">默认<i class="paixu"></i></span>
+          <span class="xiaoliang">销量<i class="paixu"></i></span>
+          <span class="fanwei">￥<input class="inbox" type="text"> 至 <input class="inbox" type="text"></span>
+          <input class="checkbox" type="checkbox"><span class="geren">个人认证</span>
+          <input class="checkbox" type="checkbox">
+          <spasn class="qiye">企业认证</spasn>
+        </div>
+      </div>
+    </div>
+    <!--内容区上部分结束-->
+    <!--内容区下部分开始-->
+    <ul class="cysearch_result">
+      <li class="cysearch_result_list">
+        <div class="cysearch_result_listl">
+          <img class="photo" src="images/6.png" alt="">
+        </div>
+        <div class="cysearch_result_listr">
+          <div>
+            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
+            <span class="price">￥258/套</span>
+            <span class="time">截稿日期：2016/04/30</span>
+            <span class="number">浏览人数：520</span>
+          </div>
+          <div>
+            <i class="vip"></i>
+            <i class="mingpian"></i>
+            <i class="phone"></i>
+            <i class="tubiao"></i>
+          </div>
+          <div class="foot">
+            <a class="name" href="">兰灵创意</a>
+            <span class="dingwei">福建泉州</span>
+            <span class="call">联系我</span>
+          </div>
+        </div>
+      </li>
+      <li class="cysearch_result_list">
+        <div class="cysearch_result_listl">
+          <img class="photo" src="images/6.png" alt="">
+        </div>
+        <div class="cysearch_result_listr">
+          <div>
+            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
+            <span class="price">￥258/套</span>
+            <span class="time">截稿日期：2016/04/30</span>
+            <span class="number">浏览人数：520</span>
+          </div>
+          <div>
+            <i class="vip"></i>
+            <i class="mingpian"></i>
+            <i class="phone"></i>
+            <i class="tubiao"></i>
+          </div>
+          <div class="foot">
+            <a class="name" href="">兰灵创意</a>
+            <span class="dingwei">福建泉州</span>
+            <span class="call">联系我</span>
+          </div>
+        </div>
+      </li>
+      <li class="cysearch_result_list">
+        <div class="cysearch_result_listl">
+          <img class="photo" src="images/6.png" alt="">
+        </div>
+        <div class="cysearch_result_listr">
+          <div>
+            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
+            <span class="price">￥258/套</span>
+            <span class="time">截稿日期：2016/04/30</span>
+            <span class="number">浏览人数：520</span>
+          </div>
+          <div>
+            <i class="vip"></i>
+            <i class="mingpian"></i>
+            <i class="phone"></i>
+            <i class="tubiao"></i>
+          </div>
+          <div class="foot">
+            <a class="name" href="">兰灵创意</a>
+            <span class="dingwei">福建泉州</span>
+            <span class="call">联系我</span>
+          </div>
+        </div>
+      </li>
+      <li class="cysearch_result_list">
+        <div class="cysearch_result_listl">
+          <img class="photo" src="images/6.png" alt="">
+        </div>
+        <div class="cysearch_result_listr">
+          <div>
+            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
+            <span class="price">￥258/套</span>
+            <span class="time">截稿日期：2016/04/30</span>
+            <span class="number">浏览人数：520</span>
+          </div>
+          <div>
+            <i class="vip"></i>
+            <i class="mingpian"></i>
+            <i class="phone"></i>
+            <i class="tubiao"></i>
+          </div>
+          <div class="foot">
+            <a class="name" href="">兰灵创意</a>
+            <span class="dingwei">福建泉州</span>
+            <span class="call">联系我</span>
+          </div>
+        </div>
+      </li>
+      <li class="cysearch_result_list">
+        <div class="cysearch_result_listl">
+          <img class="photo" src="images/6.png" alt="">
+        </div>
+        <div class="cysearch_result_listr">
+          <div>
+            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
+            <span class="price">￥258/套</span>
+            <span class="time">截稿日期：2016/04/30</span>
+            <span class="number">浏览人数：520</span>
+          </div>
+          <div>
+            <i class="vip"></i>
+            <i class="mingpian"></i>
+            <i class="phone"></i>
+            <i class="tubiao"></i>
+          </div>
+          <div class="foot">
+            <a class="name" href="">兰灵创意</a>
+            <span class="dingwei">福建泉州</span>
+            <span class="call">联系我</span>
+          </div>
+        </div>
+      </li>
+      <li class="cysearch_result_list cysearch_result_list-last ">
+        <div class="cysearch_result_listl">
+          <img class="photo" src="images/6.png" alt="">
+        </div>
+        <div class="cysearch_result_listr">
+          <div>
+            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
+            <span class="price">￥258/套</span>
+            <span class="time">截稿日期：2016/04/30</span>
+            <span class="number">浏览人数：520</span>
+          </div>
+          <div>
+            <i class="vip"></i>
+            <i class="mingpian"></i>
+            <i class="phone"></i>
+            <i class="tubiao"></i>
+          </div>
+          <div class="foot">
+            <a class="name" href="">兰灵创意</a>
+            <span class="dingwei">福建泉州</span>
+            <span class="call">联系我</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!--主内容区下部分结束-->
+  </div>
+  <!--主内容区结束-->
+
+</body>
+
+</html>

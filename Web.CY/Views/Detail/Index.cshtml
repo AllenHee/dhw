@@ -1,5 +1,8 @@
-﻿@{ViewBag.Title = "创意设计-任务详情";}
-@{var cy = ViewBag.detailHead as System.Data.DataRow;}
+﻿@{var cy = ViewBag.detailHead as System.Data.DataRow;}
+@{
+    var title = @cy["title"];
+    ViewBag.Title = title + " - 梦高速创意设计";   
+}
 @*陈树阳 2015.11.24*@
 <div class="content">
     <div class="cont_l">
@@ -8,12 +11,12 @@
         <div class="zbrw clearfix">
             <div class="zbrw_t_l">
                 <div class="clearfix">
-                    <span class="zbrw_t_l_ttl">招标任务</span> <span class="zbrw_t_l_mny">￥500-￥1000</span>
+                    <span class="zbrw_t_l_ttl">招标任务</span> <span class="zbrw_t_l_mny">￥@cy["money"]</span>
                 </div>
                 <h2>
                     @cy["title"]</h2>
                 <ul class="clearfix">
-                    <li class="zbrw_t_l_time"><i></i>距交稿截至还有：<span>@ViewBag.endtime</span></li>
+                    <li class="zbrw_t_l_time"><i></i>稿截日期：<span>@ViewBag.endtime</span></li>
                     <li class="zbrw_t_l_sjfp"><span class="zbrw_t_l_sjfp-icon"></span>赏金分配：一人独享赏金 <i></i>
                         <div class="pos_tip">
                             解释说明文字解释说明文字解释说明文字解解释说明文字解释说明文字解释说明文字解释说明文字释说明文字解释说明文字</div>
@@ -21,19 +24,21 @@
                 </ul>
             </div>
             <div class="zbrw_t_r clearfix">
-                <div>
+                <div class="zbrw_t_r-div">
                     <p>
                         浏览人数</p>
                     <p class="zbrw_t_r_black">
                         @cy["browse"]</p>
                 </div>
-                <div>
+                <div class="zbrw_t_r-div">
                     <p>
                         交稿数量</p>
                     <p class="zbrw_t_r_red">
                         @cy["manuscript"]</p>
                 </div>
-                <a class="zbrw_t_r_share" href="#"><i></i>分享（<span>@cy["share"]</span>）</a>
+                <div class="bdsharebuttonbox">
+                    <a href="#" class="hd_cont_l_share bds_more" data-cmd="more">分享 </a>
+                </div>
             </div>
             <!--进度块-->
             <div class="zbrw_jind">
@@ -60,7 +65,7 @@
             <h4>
                 项目附件</h4>
             <ul>
-                <li class="rwxq_doc"><a href="#"><i></i>任务需求.docx</a>（15.00k） <a href="#">下载</a>
+                <li class="rwxq_doc"><a href="@BaseConfigs.GetImgPath@cy["attachment"]"><i></i>@cy["attachment_orgin"]</a><a href="@BaseConfigs.GetImgPath@cy["attachment"]">下载</a>
                 </li>
                 <li class="rwxq_dl"><a href="#"><i></i>apple.jpg</a>（15.00k） </li>
             </ul>
@@ -115,20 +120,32 @@
         <!--参与投稿-->
         <div class="cytg">
             <ul class="cytg_ttl clearfix">
-                <li class="current">参与投稿（<span>58</span>）</li>
-                <li>任务留言（<span>8</span>）</li>
+                <li class="current">参与投稿（<span class="tgCount">58</span>）</li>
+                <li>任务留言（<span class="commentCount">8</span>）</li>
             </ul>
-            <ul class="cytg_cont" id="cytg_cont">
-            </ul>
+            <div class="cytg_cont">
+                <ul id="cytg_cont">
+                </ul>
+                <div class="pagination pagination_tg">
+                </div>
+            </div>
             <!--发布留言-->
             <div class="cytg_cont hidden">
-                <div class="fbly">
-                    <textarea class="fbly_ta" cols="30" rows="10"></textarea>
-                    <button class="fbly_btn">
-                        发表留言</button>
+                <div class="fbly clearfix">
+                    <div class="fbly_img">
+                        <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/rwxq_05.jpg" alt=""></div>
+                    <div class="fbly_cont">
+                        <textarea class="fbly_ta" cols="30" rows="10"></textarea>
+                        <button class="fbly_btn">
+                            发表留言</button>
+                        <p class="errorTip">
+                            留言不能为空</p>
+                    </div>
                 </div>
                 <ul class="commentCont">
                 </ul>
+                <div class="pagination pagination_comment">
+                </div>
             </div>
         </div>
     </div>
@@ -172,21 +189,11 @@
         </div>
         <div class="cont_r_b">
             <h4>
-                发布记录</h4>
-            <!--<li class="cont_r_b_line"></li>-->
+                参与需求,开始赚钱</h4>
             <ul>
-                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
-                    class="cont_r_b_text">LOGO设计</span> </li>
-                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
-                    class="cont_r_b_text">LOGO设计</span> </li>
-                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
-                    class="cont_r_b_text">LOGO设计</span> </li>
-                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
-                    class="cont_r_b_text">LOGO设计</span> </li>
-                <li><span class="cont_r_b_time">2015.6.6</span> <i class="cont_r_b_icon"></i><span
-                    class="cont_r_b_text">LOGO设计</span> </li>
-                <li><span class="cont_r_b_time cont_r_b_time-last">2015.6.6</span> <i class="cont_r_b_icon">
-                </i><span class="cont_r_b_text">LOGO设计</span> </li>
+                <li><span class="cont_r_b_time">第一步:提交您的稿件</span> </li>
+                <li><span class="cont_r_b_time">第二步:中标后交付作品</span> </li>
+                <li><span class="cont_r_b_time">第三步:获得赏金</span> </li>
             </ul>
         </div>
     </div>
@@ -202,6 +209,9 @@
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxq.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxqCtrl.js"></script>
+    <script>
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
     <script>
         $('input, textarea').placeholder();
 
@@ -221,18 +231,12 @@
         })
     </script>
     <script type="text/javascript">
-        var dhw = {
-            imgurl: 'http://192.168.2.10:81/img/',
-            imguploadurl: 'http://192.168.2.10:82/uploadimg',
-            mainurl: 'http://localhost:8085/',
-            staticurl: 'http://localhost:8070'
-        };
         var cpid = @cy["id"];
     </script>
     <script type="text/html" id="commentTpl">
     {{each data as comment}}
     <li class="fbly_items">
-      <img src="{{imgurl+comment.userimage}}" alt="{{comment.username}}">
+      <img src="{{domain+comment.userimage}}_100x100.jpg" alt="{{comment.username}}">
       <p class="fbly_items_time"><a href="{{comment.id}}">{{comment.username}} </a>留言于 {{comment.time}}</p>
       <p>{{comment.commemt}}</p>
     </li>
@@ -242,7 +246,7 @@
     {{each data as tg}}
     <li class="cytg_group clearfix">
       <div class="cytg_l">
-        <div class="cytg_l_img"><img src="{{tg.img}}" alt="#"></div>
+        <div class="cytg_l_img"><img src="{{domain+tg.img}}" alt="#"></div>
         <div class="cytg_l_text">
           <div><a href="{{tg.id}}">{{tg.username}}</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
           <p class="cytg_l_gray">{{tg.usertype}}<span>|</span>{{tg.address}}</p>

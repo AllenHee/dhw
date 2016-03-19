@@ -1,0 +1,14 @@
+﻿@helper display_head()
+    {
+        string ap = Request.Url.AbsolutePath.ToLower();
+        <ul class="sbcs_nav clearfix">
+            <li class="sbcs_nav_item @if (ap == "/")
+                                     {<text>sbcs_nav_item-current</text>}"><a href="/">首页</a></li>
+            <li class="sbcs_nav_item @if (ap == "/trademark")
+                                     {<text>sbcs_nav_item-current</text>}"><a href="/trademark">商标超市</a></li>
+            <li class="sbcs_nav_item"><a href="/">商标精选</a></li>
+            <li class="sbcs_nav_item @if (ap == "/category")
+                                     {<text>sbcs_nav_item-current</text>}"><a href="/category">商标分类</a></li>
+            <li class="sbcs_nav_item"><a href="/">求购专区</a></li>
+        </ul>
+}

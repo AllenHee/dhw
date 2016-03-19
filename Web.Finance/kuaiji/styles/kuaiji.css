@@ -42,6 +42,11 @@
   position: relative;
 }
 .header-search input {
+  width: 512px;
+  border-color: #ff6501; 
+}
+/*列表页搜索框样式*/
+.list-header-search input {
   width: 120px;
   border-color: #ff6501; 
 }
@@ -353,7 +358,9 @@
   margin: 6px 0;
   background-color: #f2f0f1;
   font-size: 1.2em;
-  line-height: 1.5;
+  line-height: 2.3;
+  height: 44px;
+  overflow: hidden;
 }
 .rcmd-content p a,
 .rcmd-content-r p a {

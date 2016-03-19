@@ -131,6 +131,9 @@
   font-size: 18px;
   cursor: pointer;
 }
+.sbcs_nav_item a {
+  color: #fff;
+}
 .sbcs_nav_item-current {
   background-color: #3d9ccc;
 }
@@ -278,7 +281,7 @@
   margin-bottom: 55px;
 }
 .sbcs_filterbox_items {
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   line-height: 30px;
 }
 .sbcs_filterbox_items dt {
@@ -490,28 +493,47 @@
   color: #333;
   font-size: 14px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 /*
   2016.3.15
   严国城
 */
-
-* {
-  padding: 0;
-  margin: 0;
-}
 body {
   background-color: #fafafa;
 }
-.content {
-  width: 1200px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  overflow: hidden;
+.sbcs_type {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.sbcs_type_ttl {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.sbcs_type_cont_item {
+  float: left;
+  width: 125px;
+  border-radius: 5px;
+  margin: 0 2px 10px 0;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+.sbcs_type_cont_item:hover {
+  color: #fff;
+  background-color: #3d9ccc;
+  transition: 0.5s;
+}
+.sbcs_type_cont_item-current {
+  color: #fff;
+  background-color: #3d9ccc;
+}
+.liaobiao_cont_l {
+  float: left;
+  width: 972px;
 }
 .liebiao_rank {
-  float: left;
   width: 915px;
   height: 50px;
   padding: 0 10px 0 45px;
@@ -551,6 +573,7 @@ body {
   background-color: #3d9ccc;
   border: solid thin #3d9ccc;
 }
+
 .rank_item_pop i,
 .rank_item_price i {
   position: absolute;
@@ -561,6 +584,9 @@ body {
   display: block;
   background-image: url(../images/jiantou1.png)
 }
+.selected i{
+  background-image: url(../images/jiantou.png)
+}
 .rank_pages {
   float: right;
   line-height: 45px;
@@ -570,28 +596,23 @@ body {
   color: #ea0606;
 }
 .items {
-  float: left;
-  width: 972px;
-  overflow: hidden;
-}
-.item {
-  margin-right: 10px;
+  margin-right: -10px;
 }
 .item img{
   width: 235px;
   height: 175px;
 }
-.item,
-.item_last {
+.item {
   float: left;
   width: 235px;
   height: 284px;
+  margin-right: 10px;
   margin-top: 10px;
   background-color: #fff;
 }
-.item img:hover,
-.item_last img:hover,
-.recommend_item  img:hover{
+.item img,
+.item_last img,
+.recommend_item  img{
   cursor:pointer;
 }
 .item_detail {
@@ -616,7 +637,6 @@ body {
 .second_sort {
   color: #a8a8a8;
   line-height: 20px;
-  display: block;
 }
 .liebiao_recommend {
   float: right;
@@ -644,25 +664,22 @@ body {
   color: #bc0000;
   font-size: 12px;
   font-weight: bold;
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 202d3d7a28dfc1edb6072a5e7c116bd751fb64e6
+}
 /*商标超市——详情页*/
 /*李雅丽*/
 
 /*左侧内容*/
-.sbcs_cont_left {
+.sbcs_contl {
   float: left;
   width: 198px;
   border: 1px solid #ccc;
 }
-.sbcs_cont_left h2 {
+.sbcs_contl h2 {
   margin: 8px 10px;
   font-size: 14px;
   color: #333;
 }
-.sbcs_cont_left .find {
+.sbcs_contl_find {
   width: 118px;
   height: 20px;
   line-height: 20px;
@@ -672,29 +689,30 @@ body {
   color: #d8d8d8;
   border: 1px solid #ccc;
 }
-.sbcs_cont_left .findbtn {
+.sbcs_contl_findbtn {
   width: 30px;
   height: 23px;
   padding: 0;
+  cursor: pointer;
   font-size: 12px;
   color: #fff;
   border: 0;
   border-radius: 2px;
   background-color: #3d9ccc;
 }
-.sbcs_cont_left .sort {
+.sbcs_contl_sort {
   margin: 10px 15px 30px;
   font-size: 12px;
   color: #666;
 }
-.sbcs_cont_left .sort dt,
-.sbcs_cont_left .sort dd {
+.sbcs_contl_sort  dt,
+.sbcs_contl_sort  dd {
   overflow: hidden;
  }
-.sbcs_cont_left .sort dd {
+.sbcs_contl_sort  dd {
   margin-top: 10px;
 }
-.sbcs_cont_left .sort_add {
+.sbcs_contl_sort-add {
   float: left;
   display: block;
   width: 8px;
@@ -702,6 +720,7 @@ body {
   line-height: 8px;
   margin-top: 3px;
   margin-right: 10px;
+  cursor: pointer;
   font-size: 10px;
   color: #ccc;
   border-top: 1px solid #ccc;
@@ -736,11 +755,13 @@ body {
   width: 18px;
   height: 16px;
   margin-left: 10px;
+  cursor: pointer;
   background: url('../images/shoucang_01.png') no-repeat;
 }
 .shangbiao_tl .shoucang {
   margin-top: 7px;
   margin-left: 30px;
+  cursor: pointer;
   font-size: 11px;
 }
 .shangbiao_tl .jubao_pic {
@@ -748,11 +769,13 @@ body {
   width: 18px;
   height: 20px;
   margin-left: 150px;
+  cursor: pointer;
   background: url('../images/jubao.png') no-repeat;
 }
 .shangbiao_tl .jubao {
   margin-top: 7px;
   margin-left: 175px;
+  cursor: pointer;
   font-size: 10px;
   color: #3d9ccc;
 }
@@ -776,13 +799,14 @@ body {
   font-size: 14px;
   color: #666;
 }
-.shangbiao_tl .type {
+.shangbiao_tl .leixing {
   position: relative;
   display: block;
   float: right;
   width: 80px;
   height: 25px;
   line-height: 25px;
+  cursor: pointer;
   font-size: 14px;
   text-align: center;
   border: 1px solid #ccc;
@@ -828,25 +852,25 @@ body {
   width: 140px;
   height: 32px;
   margin-top: 30px;
+  cursor: pointer;
   color: #fff;
   background-color: #3d9ccc;
   border: 0;
   border-radius: 2px;
 }
 .shangbiao_b {
-  position: relative;
   margin: 28px 40px 15px 20px;
 }
-.shangbiao_b i {
-  position: absolute;
-  width: 76px;
-  height: 76px;
-  top: 10px;
-  background: url('../images/xiangqing_02.png') no-repeat;
+
+.shangbiao_b .jingshi {
+  float: left;
+  margin-top: 5px;
 }
-.shangbiao_b p {
+.shangbiao_b .text {
+  float: left;
+  width: 800px;
   line-height: 24px;
-  margin-left: 105px;
+  margin-left: 20px;
   font-size: 14px;
 }
 .shangbiao_b .parto,
@@ -880,16 +904,20 @@ body {
   color: #3d9ccc;
 }
 .sb_detailt h2 {
+  float: left;
   width: 108px;
   height: 46px;
   line-height: 46px;
   margin: -1px 0 0 -1px;
+  cursor: pointer;
   text-align: center;
   font-size: 18px;
   border-top: 2px solid #3d9ccc;
   border-right: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
 }
 .sb_detailt .pic {
+  margin-top: 47px;
   padding:  10px 10px;
   border-top: 1px solid #ccc;
 }
@@ -919,6 +947,8 @@ body {
   color: #333;
 }
 .sb_detailb_lis .det_cont {
+  display: block;
+  margin: 5px 10px;
   font-size: 12px;
   color: #666;
 }
@@ -990,9 +1020,61 @@ body {
   color: #999;
   font-size: 12px;
   line-height: 20px;
-<<<<<<< HEAD
->>>>>>> ccd7bc05ae5ad24144d3b0ad864a95bd35fdb7fe
->>>>>>> 608cce3f737c4c16d2e59cd2a32635022a524820
-=======
->>>>>>> 202d3d7a28dfc1edb6072a5e7c116bd751fb64e6
+}
+
+/*商标超市--精品*/
+/*李雅丽*/
+.sbcs_jingpin {
+  width: 1150px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+.sbcs_jingpin_list {
+  margin: 20px 20px;
+  border: 1px solid #ccc;
+}
+.sbcs_jingpin_listl {
+  float: left;
+  margin-top: 30px;
+  margin-left: 35px;
+}
+
+.sbcs_jingpin_listl_til {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sbcs_jingpin_listl_leibie {
+  margin-left: 20px;
+  font-size: 12px;
+}
+.sbcs_jingpin_listl_price {
+  display: block;
+  float: left;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #e34d4d;
+}
+.sbcs_jingpin_listl_detail {
+  display: block;
+  float: right;
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  margin-top: 25px;
+  margin-right: 13px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  color: #e34d4d;
+  border: 1px solid #e34d4d;
+}
+.sbcs_jingpin_listr {
+  float: left;
+  margin-top: 25px;
+  margin-left: 35px;
+  cursor: pointer;
 }

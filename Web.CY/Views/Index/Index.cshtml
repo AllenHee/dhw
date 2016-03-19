@@ -1,4 +1,9 @@
-﻿<!--主内容区开始-->
+﻿@{
+    ViewBag.Title = "创意设计-梦高速";
+    ViewBag.Keywords = "品牌设计,广告设计,网店营销设计";
+    ViewBag.Description = "企业通过对接威客提供品牌设计,广告设计，网店营销设计等创意设计服务。";
+}
+<!--主内容区开始-->
 <div class="content">
     <!--内容区上部分开始-->
     <div class="main clearfix">
@@ -35,17 +40,23 @@
                 <div class="main_c">
                     <div class="slide">
                         <ul class="slide-wrap clearfix">
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
-                            <li><a href="#">
-                                <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_lb.jpg" alt="#"></a></li>
+                            @for (int i = 0; i < @ViewBag.cysydt.Count; i++)
+                            {
+                                var imgs = @ViewBag.cysydt[i]["img"] + ".jpg"; 
+                                <li><a href="@ViewBag.cysydt[i]["url"]" target="_blank">
+                                    <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="创意设计首页大图广告"></a></li>
+
+                            }
                         </ul>
+                        <div class="slider">
+                            <ul>
+                                <li class="slider_items current"></li>
+                                <li class="slider_items"></li>
+                                <li class="slider_items"></li>
+                                <li class="slider_items"></li>
+                                <li class="slider_items"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!--需求块-->
@@ -63,8 +74,9 @@
                         <dd class="main_r_num5 main_r-last">
                             <a href="#">验收方案后付款给服务商</a><span></span></dd>
                     </dl>
-                    <button>
-                        发布需求</button>
+                    <a href="@{@BaseConfigs.GetMainPath<text>appcy#/</text>}">
+                        <button>
+                            发布需求</button></a>
                 </div>
             </div>
             <!--底块-->
@@ -110,7 +122,7 @@
                     <th>
                         编号
                     </th>
-                    <th>
+                    <th class="xqxx_width">
                         需求信息
                     </th>
                     <th>
@@ -135,7 +147,7 @@
                         <td>@item.id
                         </td>
                         <td>
-                            <a href="detail/@item.id">@item.info</a>
+                            <a target="_blank" href="detail/@item.id">@item.info</a>
                         </td>
                         <td class="zxxm-red">
                             ￥@item.money
@@ -154,115 +166,41 @@
         <h2>
             案例赏析<a class="content_more" href="#">查看更多>></a></h2>
         <ul id="alsx" class="clearfix">
-            <li>
-                <button class="alsx_btn alsx_btn_current">
-                    logo专场案例赏析<i></i></button>
-            </li>
-            <li>
-                <button class="alsx_btn">
-                    logo专场案例赏析<i></i></button>
-            </li>
-            <li>
-                <button class="alsx_btn">
-                    logo专场案例赏析<i></i></button>
-            </li>
+            @for (int i = 0; i < ViewBag.cases.Count; i++)
+            {
+                var case_types = ViewBag.cases[i];
+                <li>
+                    <button class="alsx_btn @if (i == 0)
+                                            {<text>alsx_btn_current</text>}">
+                        @case_types.case_type<i></i></button>
+                </li>
+            }
         </ul>
-        <ul class="alsx_picture_group alsx_picture_group_current">
-            <li class="alsx_picture"><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-            <li class="alsx_picture"><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-            <li class="alsx_picture alsx-last "><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-        </ul>
-        <ul class="alsx_picture_group">
-            <li class="alsx_picture"><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-            <li class="alsx_picture"><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-            <li class="alsx_picture alsx-last "><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-        </ul>
-        <ul class="alsx_picture_group">
-            <li class="alsx_picture"><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-            <li class="alsx_picture"><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_71.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-            <li class="alsx_picture alsx-last "><a href="#">
-                <div class="alsx_logo">
-                    <img src="@Html.Raw(BaseConfigs.GetUrlCdn)cysj/images/cysj_72.jpg">
-                    <div class="alsx_logo_text_wrap">
-                        <p>
-                            梦高速精致款LOGO设计</br> 梦高速dreamhiway.com是一个服务于创业者的互联网品牌，需要征集LOGO设计，期望的LOGO是经过设计后的字体为主的标志
-                        </p>
-                    </div>
-                </div>
-            </a></li>
-        </ul>
+        @for (int i = 0; i < ViewBag.cases.Count; i++)
+        {
+            var case_types = ViewBag.cases[i];
+            
+            <ul class="alsx_picture_group @if (i == 0)
+                                          {<text> alsx_picture_group_current</text>}
+                                          else { }">
+                @for (int j = 0; j < case_types.CYCases.Count; j++)
+                {
+                    var content = case_types.CYCases[j];
+                    <li class="alsx_picture @if ((j + 1) % 3 == 0)
+                                            {<text>alsx-last</text>}
+                                            else { }"><a href="@content.url">
+                                                <div class="alsx_logo">
+                                                    <img src="@Html.Raw(BaseConfigs.GetImgPath)@{@content.img}.jpg">
+                                                    <div class="alsx_logo_text_wrap">
+                                                        <p>
+                                                            @content.title
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a></li>
+                }
+            </ul>
+        }
     </div>
 </div>
 <!--主内容区结束-->

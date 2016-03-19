@@ -319,8 +319,8 @@
         <div>服务时间：工作日 9:00 - 18:00</div>
         <div class="tel">0595-32892299</div>
         <ul class="contact clearfix">
-          <li><a href="#"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
-          <li><a href="#"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
+          <li><a href="javascript:;"><i class="iconfont">&#xe607;</i> 在线客服</a></li>
+          <li><a href="mailto:chuangqikeji@foxmail.com"><i class="iconfont">&#xe606;</i> 客服邮箱</a></li>
           <li>
             <a href="#"><i class="iconfont">&#xe60d;</i></a>
             <!--微信弹出-->
@@ -383,11 +383,13 @@
   <script src="http://localhost:8070/scripts/kuaiji.js"></script>
   <script>
     $('input, textarea').placeholder();
+    // 点击标签功能
     $(".tags li").on("click",function() {
       var keyname = $(this).text();
       $.cookie('keyname', keyname);
       window.location.href = '//kj.dreamhiway.com/accounting'
     })
+    //搜索功能
     function search() {
       var searchValue = $("#searchValue").val();
       window.location.href = 'http://localhost:8082/kuaiji/liebiao.html?searchkey='+ searchValue;

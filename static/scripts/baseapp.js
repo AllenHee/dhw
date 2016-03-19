@@ -16,61 +16,6 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
     }
   }
 }])
-// 职位选择
-// .directive('positionSelect', function () {
-//   return {
-//     template: function (elem, attr) {
-//       return '<div class="clearfix">' +
-//         '<select  class="formSet_select formSet_select-area " ng-model="firPosition" ng-change="setSecPosition()">' +
-//         '<option value="">请选择</option>' +
-//         '<option value="{{firPosition.id}}" ng-repeat="firPosition in positionList.firPositions">{{firPosition.text}}</option>' +
-//         '</select>' +
-//         '<select  class="formSet_select formSet_select-area " ng-model="secPosition" ng-change="setThiPosition()">' +
-//         '<option value="">请选择</option>' +
-//         '<option value="{{secPosition.id}}" ng-repeat="secPosition in positionList.secPositions">{{secPosition.text}}</option>' +
-//         '</select>' +
-//         '<select  class="formSet_select formSet_select-area" ng-model="thiPosition" ng-options="thiPosition as thiPosition.text for thiPosition in positionList.thiPositions">' +
-//         '<option value="">请选择</option>' +
-//       // '<option ng-click="setPosition($event)" value="{{thiPosition.id}}" ng-repeat="thiPosition in positionList.thiPositions">{{thiPosition.text}}</option>' +
-//         '</select>' +
-//         '</div>'
-//     },
-//     controller: function ($scope, $http) {
-//       $scope.$parent.positionList = {
-//         firPositions: [],
-//         secPositions: [],
-//         thiPositions: []
-//       };
-
-//       $scope.$parent.thiPosition = {};
-
-//       $scope.$parent.position = {};
-
-//       $http.post("/UserAccount/JobType", { pid: '' }).success(function (data) {
-//         $scope.positionList.firPositions = data.result;
-//       });
-
-//       $scope.setSecPosition = function () {
-//         var p = $scope.firPosition;
-//         $http.post("/UserAccount/JobType", { pid: p }).success(function (data) {
-//           $scope.positionList.secPositions = data.result;
-//         });
-//       }
-//       $scope.setThiPosition = function () {
-//         var p = $scope.secPosition;
-//         $http.post("/UserAccount/JobType", { pid: p }).success(function (data) {
-//           $scope.positionList.thiPositions = data.result;
-//         });
-//       }
-//       // $scope.setPosition = function(event) {
-//       //   $scope.$parent.position.dpname = $(event.target).text();
-//       //   $scope.$parent.position.dpid = $scope.thiPosition;
-//       //   console.log($scope.$parent.position.dpname)
-//       // }
-      
-//     }
-//   }
-// })
 //提交弹出框
   .directive('pupPop', [function () {
     return {
@@ -461,50 +406,49 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
     };
   }).directive('bindimg', function () {
     return {
-      restrict: 'A',
+   
       require: 'ngModel',
-      link: function (scope, element, attr, ctrl) {
-        function bindImg() {
-          var uploader = new plupload.Uploader({
-            runtimes: 'flash',
-            browse_button: element[0],
-            container: element[0].id,
-            url: dhw.imguploadurl + "?key=" + attr.keyname + "&t=" + attr.size,
-            flash_swf_url: '/plupload.flash.swf',
+      scope: true,
+     // replace: true,
+      link: function (scope, element, attr, ngModel) {
 
-            init: {
-              FilesAdded: function (up, files) {
-                uploader.start();
-              },
-
-              FileUploaded: function (up, file, info) {
-                if (info.response != null) {
-                  var jsonstr = eval("(" + info.response + ")");
-
-                  var imgUrl = jsonstr.path + jsonstr.name;
-                  scope.$apply(function () {
-                    ctrl.$setViewValue(imgUrl);
-                  });
-                }
-              },
-
-              // Error: function (up, args) {
-              //   if (args.file) {
-              //     alert('[error] File:' + args.file);
-              //   } else {
-              //     alert('[error]' + args);
-              //   }
-              // }
+        // let $pick = element;
+        var uploader = WebUploader.create({
+          auto: true,
+          swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
+          server: dhw.imguploadurl + '?key=' + attr.keyname + '&t=' + attr.size,
+          pick: element[0],
+          accept: {
+              title: 'Images',
+              extensions: 'gif,jpg,jpeg,bmp,png',
+              mimeTypes: 'image/*'
             }
-          });
-          uploader.init();
-        }
-        setTimeout(function () {
-          bindImg();
         });
-
-      }
-    };
+    //添加图片
+    uploader.on('fileQueued', function (file) {
+      uploader.makeThumb(file, function (error, src) {
+        if(error) {
+          return;
+        }
+      },100,100)
+    });
+    
+    // 上传成功
+    uploader.on('uploadSuccess', (file, res) => {
+        // $result.text('上传成功');
+        scope.$apply(function () {
+          ngModel.$setViewValue(res.path + res.name);
+        });
+      });
+      
+        
+      // 上传失败
+      uploader.on('uploadError', function (file) {
+      });
+      
+  }
+  
+ }
   })
   .directive('bindfile', function () {
     return {

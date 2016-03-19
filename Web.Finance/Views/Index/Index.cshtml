@@ -18,11 +18,14 @@
                 var str = i % 2 == 0 ? "" : "even";
                 var business = item["business"] as Newtonsoft.Json.Linq.JToken;
                 var logo = item["logo"].ToString();
-                var pro = item["pro"].ToString().Length > 105 ? item["pro"].ToString().Substring(0, 105) : item["pro"].ToString();
+                var pro = item["pro"].ToString().Length > 65 ? item["pro"].ToString().Substring(0, 65) : item["pro"].ToString();
+
+                System.Data.DataView rz = ViewBag.renz as System.Data.DataView;
+                rz.RowFilter = "id =" + item["id"];
                 <li class="rcmd-item @str">
                     <div class="rcmd-title">
                         @item["servertenet"]</div>
-                    <div class="rcmd-content">
+                    <div class="rcmd-content rcmd-content-icon">
                         <h3>
                             <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@item["id"]" target="_blank">@item["compay"]</a></h3>
                         <div class="clearfix">
@@ -34,6 +37,8 @@
                                     }
                                     else
                                     { <img src="@BaseConfigs.GetImgPath@item["logo"]" alt="@item["compay"]">}</a>
+                                <div class="address_icon">
+                                    <i></i>@item["province_name"] · @item["city_name"]</div>
                                 <div>
                                     <i></i>@item["phone"]</div>
                             </div>
@@ -50,8 +55,9 @@
                                     else if (item["level"].ToString() == "3")
                                     {<li class="finance_level3"></li>}
                                     else { }
-                                    <li class="badges-3"></li>
-                                    <li class="badges-4"></li>
+                                    @for (int k = 0; k < rz.Count; k++)
+                                    {
+                                        <img src="@BaseConfigs.GetStaticPath@rz[k]["img"]" title="@rz[k]["title"]"/>}
                                 </ul>
                                 <ul class="tags clearfix">
                                     @if (business != null)
@@ -65,7 +71,7 @@
                             </div>
                         </div>
                         <p class="textOver" title="@item["pro"]">
-                            @pro<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/@item["id"]" target="_blank">>></a></p>
+                            @pro ...<a href="@{@BaseConfigs.GetUrlMain}Company/Aboutus/@item["id"]" target="_blank">>></a></p>
                         <div class="detail">
                             <a href="@{@BaseConfigs.GetUrlMain}Company/Index/@item["id"]" target="_blank">查看公司详情</a></div>
                     </div>
@@ -97,6 +103,11 @@
     <script src="@BaseConfigs.GetStaticPath/scripts/kuaiji.js"></script>
     <script>
         $('input, textarea').placeholder();
+        $(".tags li").on("click", function () {
+            var keyname = $(this).text();
+            $.cookie('keyname', keyname);
+            window.location.href = '//kj.dreamhiway.com/accounting'
+        })
         function search() {
             var searchValue = $("#searchValue").val();
             window.location.href = '@{@BaseConfigs.GetUrlKj}accounting?searchkey=' + searchValue;

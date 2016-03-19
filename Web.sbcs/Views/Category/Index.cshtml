@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "梦高速 - 商标超市";
+}
+<!--主内容 开始-->
+<div class="sbcs_content">
+    <h1 class="fenlei_title">
+        商标转让分类表</h1>
+    <div class="fenlei_cont">
+        <ul class="fenlei_cont_ul clearfix">
+            @{var Category = ViewBag.Category as IEnumerable<DHW.Rshop.Data.TrademarkCategoryEntity>;}
+            @foreach (var item in Category)
+            {
+                     
+              
+                <li class="fenlei_items">
+                    <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/category/@(item.code).png" alt="">
+                    <p class="fenlei_items_ttl">
+                        第@{@item.code}
+                        类 @item.name</p>
+                    <p class="fenlei_items_cont" title="@{@(string.Join("\r\n", item.Child.Select(it=>it.name+" "+it.code)))}">
+                        @{
+                var child = item.Child.ToArray(); int count = child.Length; if (count > 6) { count = 6; }
+                        }
+                        @for (int i = 0; i < count; i++)
+                        {
+                            var childitem = child[i];                                 
+                            <span class="fenlei_item_type @if (i == count - 1)
+                                                          { <text>fenlei_item_type-last</text>}">@childitem.name
+                                @childitem.code</span>
+                        }
+                    </p>
+                </li> 
+                    
+            }
+           
+        </ul>
+        <ul class="fenlei_advantage clearfix">
+            <li class="fenlei_advantage_item">
+                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/icon_bulter.png" alt="">
+                <h2>
+                    价格公开透明</h2>
+                <p>
+                    卖家直连化繁为简</p>
+                <p>
+                    无缝对接</p>
+            </li>
+            <li class="fenlei_advantage_item">
+                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/icon_expert.png" alt="">
+                <h2>
+                    一站式服务</h2>
+                <p>
+                    全国各地实例雄厚的</p>
+                <p>
+                    服务机构加盟</p>
+            </li>
+            <li class="fenlei_advantage_item">
+                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/icon_safe.png" alt="">
+                <h2>
+                    交易安全保障</h2>
+                <p>
+                    梦高速资金代管</p>
+                <p>
+                    交易安全零风险</p>
+            </li>
+            <li class="fenlei_advantage_item">
+                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/icon_service.png" alt="">
+                <h2>
+                    资深专家智囊团</h2>
+                <p>
+                    经验丰富的</p>
+                <p>
+                    律师专家团</p>
+            </li>
+            <li class="fenlei_advantage_item">
+                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/icon_fair.png" alt="">
+                <h2>
+                    互联网商标管家</h2>
+                <p>
+                    实时监控</p>
+                <p>
+                    名下商标动态</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--主内容 结束-->
