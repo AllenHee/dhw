@@ -1,14 +1,88 @@
 ﻿@helper display_head()
     {
         string ap = Request.Url.AbsolutePath.ToLower();
-        <ul class="sbcs_nav clearfix">
-            <li class="sbcs_nav_item @if (ap == "/")
-                                     {<text>sbcs_nav_item-current</text>}"><a href="/">首页</a></li>
-            <li class="sbcs_nav_item @if (ap == "/trademark")
-                                     {<text>sbcs_nav_item-current</text>}"><a href="/trademark">商标超市</a></li>
-            <li class="sbcs_nav_item"><a href="/">商标精选</a></li>
-            <li class="sbcs_nav_item @if (ap == "/category")
-                                     {<text>sbcs_nav_item-current</text>}"><a href="/category">商标分类</a></li>
-            <li class="sbcs_nav_item"><a href="/">求购专区</a></li>
+    <ul class="sbcs_nav clearfix">
+        <li class="sbcs_nav_item @if (ap == "/")
+                                 {<text>sbcs_nav_item-current</text>}"><a href="/">首页</a></li>
+        <li class="sbcs_nav_item @if (ap == "/trademark")
+                                 {<text>sbcs_nav_item-current</text>}"><a href="/trademark">商标超市</a></li>
+        <li class="sbcs_nav_item @if (ap == "/boutique")
+                                 {<text>sbcs_nav_item-current</text>}"><a href="/boutique">商标精选</a></li>
+        <li class="sbcs_nav_item @if (ap == "/category")
+                                 {<text>sbcs_nav_item-current</text>}"><a href="/category">商标分类</a></li>
+        <li class="sbcs_nav_item"><a href="/">求购专区</a></li>
+    </ul>
+}
+@helper display_query_cagetory(IEnumerable<DHW.Rshop.Data.TrademarkCategoryEntity> Category)
+    {
+    <div class="sbcs_type">
+        <h1 class="sbcs_type_ttl">
+            商标转让分类</h1>
+        <ul class="sbcs_type_cont clearfix">
+            @foreach (var item in Category)
+            {               
+                <li class="sbcs_type_cont_item"  data-pcode="@item.code" title="@{@(string.Join("\r\n", item.Child.Select(it => it.name + " " + it.code)))}">
+                    @item.code-@item.name
+                </li>
+            }
         </ul>
+    </div>
+        
+}
+@helper display_query_price(){
+    <dl class="sbcs_filterbox_items clearfix">
+            <dt>价格区间 : </dt>
+            <dd data-min="" data-max="" class="sbcs_filterbox_current">
+                不限</dd>
+            <dd data-min="" data-max="1">
+                1万以下</dd>
+            <dd data-min="1" data-max="3">
+                1-3万</dd>
+            <dd data-min="3" data-max="5">
+                3-5万</dd>
+            <dd data-min="5" data-max="10">
+                5-10万</dd>
+            <dd data-min="10" data-max="20">
+                10-20万</dd>
+            <dd data-min="20" data-max="50">
+                20-50万</dd>
+            <dd data-min="50" data-max="">
+                50万以上</dd>
+        </dl>
+        }
+@helper display_query_para()
+    {
+    <div class="sbcs_filterbox">
+        <dl class="sbcs_filterbox_items clearfix">
+            <dt>注册年限 : </dt>
+            <dd data-min="" data-max="" class="sbcs_filterbox_current">
+                不限</dd>
+            <dd data-min="" data-max="1">
+                1年一下</dd>
+            <dd data-min="1" data-max="">
+                1年以上</dd>
+            <dd data-min="2" data-max="">
+                2年以上</dd>
+            <dd data-min="3" data-max="">
+                3年以上</dd>
+            <dd data-min="4" data-max="">
+                4年以上</dd>
+            <dd data-min="5" data-max="">
+                5年以上</dd>
+        </dl>
+        @display_query_price()
+        <dl class="sbcs_filterbox_items clearfix">
+            <dt>类型 : </dt>
+            <dd class="sbcs_filterbox_current">
+                不限</dd>
+            <dd>
+                纯中文</dd>
+            <dd>
+                纯英文</dd>
+            <dd>
+                纯数字</dd>
+            <dd>
+                纯图形</dd>
+        </dl>
+    </div>
 }

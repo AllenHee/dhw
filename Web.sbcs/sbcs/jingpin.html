@@ -6,6 +6,26 @@
   <title>梦高速 - 商标注册</title>
   <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="styles/sbcs.css">
+  <script type="text/html" id="jpTem">
+  {{each data as jp}}
+  <li class="sbcs_jingpin_list clearfix">
+    <div class="sbcs_jingpin_listl">
+      <img class="sbcs_jingpin_listl_img" src="{{domain}}{{jp.img}}" alt="图标">
+      <h4 class="sbcs_jingpin_listl_til">{{jp.name}}</h4>
+      <p class="sbcs_jingpin_listl_leibie">
+        {{each jp.type as type}}
+        <span>{{type}}</span>
+        {{/each}}
+      </p>
+      <span class="sbcs_jingpin_listl_price">￥{{jp.price}}</span>
+      <span class="sbcs_jingpin_listl_detail">了解详情</span>
+    </div>
+    <div class="sbcs_jingpin_listr">
+      <img src="{{domain}}{{jp.boutiqueLogo}}" alt="主图">
+    </div>
+  </li>
+  {{/each}}
+  </script>
 </head>
 
 <body>
@@ -79,7 +99,7 @@
       </dl>
     </div>
     <ul class="sbcs_jingpin">
-      <li class="sbcs_jingpin_list clearfix">
+      <!--<li class="sbcs_jingpin_list clearfix">
         <div class="sbcs_jingpin_listl">
           <img src="images/logo_01.png" alt="图标">
           <h4 class="sbcs_jingpin_listl_til">海蓝E柜</h4>
@@ -90,69 +110,16 @@
         <div class="sbcs_jingpin_listr">
           <img src="images/zhutu.png" alt="主图">
         </div>
-      </li>
-       <li class="sbcs_jingpin_list clearfix">
-        <div class="sbcs_jingpin_listl">
-          <img src="images/logo_01.png" alt="图标">
-          <h4 class="sbcs_jingpin_listl_til">海蓝E柜</h4>
-          <p class="sbcs_jingpin_listl_leibie">服装 鞋类 第25类精品商标 一手商标转让</p>
-          <span class="sbcs_jingpin_listl_price">￥198000.00</span>
-          <span class="sbcs_jingpin_listl_detail">了解详情</span>
-        </div>
-        <div class="sbcs_jingpin_listr">
-          <img src="images/zhutu.png" alt="主图">
-        </div>
-      </li>
-       <li class="sbcs_jingpin_list clearfix">
-        <div class="sbcs_jingpin_listl">
-          <img src="images/logo_01.png" alt="图标">
-          <h4 class="sbcs_jingpin_listl_til">海蓝E柜</h4>
-          <p class="sbcs_jingpin_listl_leibie">服装 鞋类 第25类精品商标 一手商标转让</p>
-          <span class="sbcs_jingpin_listl_price">￥198000.00</span>
-          <span class="sbcs_jingpin_listl_detail">了解详情</span>
-        </div>
-        <div class="sbcs_jingpin_listr">
-          <img src="images/zhutu.png" alt="主图">
-        </div>
-      </li>
-       <li class="sbcs_jingpin_list clearfix">
-        <div class="sbcs_jingpin_listl">
-          <img src="images/logo_01.png" alt="图标">
-          <h4 class="sbcs_jingpin_listl_til">海蓝E柜</h4>
-          <p class="sbcs_jingpin_listl_leibie">服装 鞋类 第25类精品商标 一手商标转让</p>
-          <span class="sbcs_jingpin_listl_price">￥198000.00</span>
-          <span class="sbcs_jingpin_listl_detail">了解详情</span>
-        </div>
-        <div class="sbcs_jingpin_listr">
-          <img src="images/zhutu.png" alt="主图">
-        </div>
-      </li>
-       <li class="sbcs_jingpin_list clearfix">
-        <div class="sbcs_jingpin_listl">
-          <img src="images/logo_01.png" alt="图标">
-          <h4 class="sbcs_jingpin_listl_til">海蓝E柜</h4>
-          <p class="sbcs_jingpin_listl_leibie">服装 鞋类 第25类精品商标 一手商标转让</p>
-          <span class="sbcs_jingpin_listl_price">￥198000.00</span>
-          <span class="sbcs_jingpin_listl_detail">了解详情</span>
-        </div>
-        <div class="sbcs_jingpin_listr">
-          <img src="images/zhutu.png" alt="主图">
-        </div>
-      </li>
-       <li class="sbcs_jingpin_list clearfix">
-        <div class="sbcs_jingpin_listl">
-          <img src="images/logo_01.png" alt="图标">
-          <h4 class="sbcs_jingpin_listl_til">海蓝E柜</h4>
-          <p class="sbcs_jingpin_listl_leibie">服装 鞋类 第25类精品商标 一手商标转让</p>
-          <span class="sbcs_jingpin_listl_price">￥198000.00</span>
-          <span class="sbcs_jingpin_listl_detail">了解详情</span>
-        </div>
-        <div class="sbcs_jingpin_listr">
-          <img src="images/zhutu.png" alt="主图">
-        </div>
-      </li>
+      </li>-->
     </ul>
+    <div class="pagination"></div>
   </div>
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/sb_jingpin.js"></script>
 </body>
 
 </html>

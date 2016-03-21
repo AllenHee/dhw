@@ -14,11 +14,8 @@
     <li class="cysearch_result_list">
       <div class="cysearch_result_listl">
         {{if cysearch.img}}
-        <img class="photo" src="{{cysearch.img}}" alt="">
-        {{/if}}
-        {{if !cysearch.img}}
-        <img class="photo" src="{{}}" alt="">
-        {{/if}}
+        <img class="photo" src="{{cysearch.img}}" alt=""> {{/if}} {{if !cysearch.img}}
+        <img class="photo" src="{{}}" alt=""> {{/if}}
       </div>
       <div class="cysearch_result_listr">
         <div>
@@ -42,7 +39,7 @@
     </li>
     {{/each}}
   </script>
-  
+
 </head>
 
 <body>
@@ -61,16 +58,69 @@
           <i class="fangdajing"></i>
         </li>
       </ul>
-      <dl class="cysearch_head_sort">
-        <dt class="cysearch_head_sortt">分类：</dt>
-        <dd class="cysearch_head_sortd">
-          <a class="sortdetail" href="">品牌设计</a>
-          <a class="sortdetail" href="">取名设计</a>
-          <a class="sortdetail" href="">宣传品/宣传册</a>
-          <a class="sortdetail" href="">广告设计</a>
-          <a class="sortdetail" href="">网店/营销</a>
-        </dd>
-      </dl>
+      <div class="filter_box">
+        <dl class="cysearch_head_sort clearfix">
+          <dt class="cysearch_head_sortt">分类：</dt>
+          <dd class="cysearch_head_sortd cysearch_head_sortd-curent">品牌设计</dd>
+          <dd class="cysearch_head_sortd">取名设计</dd>
+          <dd class="cysearch_head_sortd">宣传品/宣传册</dd>
+          <dd class="cysearch_head_sortd">广告设计</dd>
+          <dd class="cysearch_head_sortd">网店/营销</dd>
+        </dl>
+        <dl class="cysearch_head_sort clearfix">
+          <dt class="cysearch_head_sortt">所在地：</dt>
+          <dd class="cysearch_head_sortd cysearch_head_sortd-curent">全国</dd>
+          <dd class="cysearch_head_sortd">北京</dd>
+          <dd class="cysearch_head_sortd">天津</dd>
+          <dd class="cysearch_head_sortd">上海</dd>
+          <dd class="cysearch_head_sortd">深圳</dd>
+          <dd class="cysearch_head_sortd">广州</dd>
+          <dd class="cysearch_head_sortd">杭州</dd>
+          <dd class="cysearch_head_sortd">成都</dd>
+          <dd class="cysearch_head_sortd">南京</dd>
+          <dd class="cysearch_head_sortd">武汉</dd>
+          <dd class="cysearch_head_sortd">大连</dd>
+          <dd class="cysearch_head_sortd">厦门</dd>
+          <dd class="cysearch_head_sortd">福州</dd>
+          <dd class="cysearch_head_sortd">泉州</dd>
+          <dd class="cysearch_head_sortd"></dd>
+          <dd class="more">更多<i></i>
+            <ul class="moreAddr clearfix">
+              <li>重庆</li>
+              <li>郑州</li>
+              <li>青岛</li>
+              <li>合肥</li>
+              <li>福州</li>
+              <li>济南</li>
+              <li>大连</li>
+              <li>珠海</li>
+              <li>无锡</li>
+              <li>佛山</li>
+              <li>东莞</li>
+              <li>宁波</li>
+              <li>常州</li>
+              <li>沈阳</li>
+              <li>石家庄</li>
+              <li>昆明</li>
+              <li>南昌</li>
+              <li>南宁</li>
+              <li>哈尔滨</li>
+              <li>海口</li>
+              <li>中山</li>
+              <li>惠州</li>
+              <li>贵阳</li>
+              <li>长春</li>
+              <li>太原</li>
+              <li>嘉兴</li>
+              <li>泰安</li>
+              <li>昆山</li>
+              <li>烟台</li>
+              <li>兰州</li>
+              <li>泉州</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
       <div class="cysearch_choose">
         <ul class="cysearch_chooset">
           <li>
@@ -91,153 +141,39 @@
     <!--内容区下部分开始-->
     <ul class="cysearch_result">
       <li class="cysearch_result_list">
-        <div class="cysearch_result_listl">
+        <div class="cysearch_result_list_img">
           <img class="photo" src="images/6.png" alt="">
         </div>
-        <div class="cysearch_result_listr">
-          <div>
-            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
-            <span class="price">￥258/套</span>
-            <span class="time">截稿日期：2016/04/30</span>
-            <span class="number">浏览人数：520</span>
-          </div>
-          <div>
+        <div class="cysearch_result_list_cont">
+          <p><a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a></p>
+          <p class="cysearch_result_rz">
             <i class="vip"></i>
             <i class="mingpian"></i>
             <i class="phone"></i>
             <i class="tubiao"></i>
-          </div>
-          <div class="foot">
-            <a class="name" href="">兰灵创意</a>
-            <span class="dingwei">福建泉州</span>
-            <span class="call">联系我</span>
-          </div>
+          </p>
+          <p>
+            <a class="cysearch_result_name" href="javascript:">兰灵创意</a>
+            <span class="cysearch_result_dingwei">福建泉州</span>
+            <span class="cysearch_result_call">联系我</span>
+          </p>
         </div>
-      </li>
-      <li class="cysearch_result_list">
-        <div class="cysearch_result_listl">
-          <img class="photo" src="images/6.png" alt="">
-        </div>
-        <div class="cysearch_result_listr">
-          <div>
-            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
-            <span class="price">￥258/套</span>
-            <span class="time">截稿日期：2016/04/30</span>
-            <span class="number">浏览人数：520</span>
-          </div>
-          <div>
-            <i class="vip"></i>
-            <i class="mingpian"></i>
-            <i class="phone"></i>
-            <i class="tubiao"></i>
-          </div>
-          <div class="foot">
-            <a class="name" href="">兰灵创意</a>
-            <span class="dingwei">福建泉州</span>
-            <span class="call">联系我</span>
-          </div>
-        </div>
-      </li>
-      <li class="cysearch_result_list">
-        <div class="cysearch_result_listl">
-          <img class="photo" src="images/6.png" alt="">
-        </div>
-        <div class="cysearch_result_listr">
-          <div>
-            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
-            <span class="price">￥258/套</span>
-            <span class="time">截稿日期：2016/04/30</span>
-            <span class="number">浏览人数：520</span>
-          </div>
-          <div>
-            <i class="vip"></i>
-            <i class="mingpian"></i>
-            <i class="phone"></i>
-            <i class="tubiao"></i>
-          </div>
-          <div class="foot">
-            <a class="name" href="">兰灵创意</a>
-            <span class="dingwei">福建泉州</span>
-            <span class="call">联系我</span>
-          </div>
-        </div>
-      </li>
-      <li class="cysearch_result_list">
-        <div class="cysearch_result_listl">
-          <img class="photo" src="images/6.png" alt="">
-        </div>
-        <div class="cysearch_result_listr">
-          <div>
-            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
-            <span class="price">￥258/套</span>
-            <span class="time">截稿日期：2016/04/30</span>
-            <span class="number">浏览人数：520</span>
-          </div>
-          <div>
-            <i class="vip"></i>
-            <i class="mingpian"></i>
-            <i class="phone"></i>
-            <i class="tubiao"></i>
-          </div>
-          <div class="foot">
-            <a class="name" href="">兰灵创意</a>
-            <span class="dingwei">福建泉州</span>
-            <span class="call">联系我</span>
-          </div>
-        </div>
-      </li>
-      <li class="cysearch_result_list">
-        <div class="cysearch_result_listl">
-          <img class="photo" src="images/6.png" alt="">
-        </div>
-        <div class="cysearch_result_listr">
-          <div>
-            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
-            <span class="price">￥258/套</span>
-            <span class="time">截稿日期：2016/04/30</span>
-            <span class="number">浏览人数：520</span>
-          </div>
-          <div>
-            <i class="vip"></i>
-            <i class="mingpian"></i>
-            <i class="phone"></i>
-            <i class="tubiao"></i>
-          </div>
-          <div class="foot">
-            <a class="name" href="">兰灵创意</a>
-            <span class="dingwei">福建泉州</span>
-            <span class="call">联系我</span>
-          </div>
-        </div>
-      </li>
-      <li class="cysearch_result_list cysearch_result_list-last ">
-        <div class="cysearch_result_listl">
-          <img class="photo" src="images/6.png" alt="">
-        </div>
-        <div class="cysearch_result_listr">
-          <div>
-            <a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a>
-            <span class="price">￥258/套</span>
-            <span class="time">截稿日期：2016/04/30</span>
-            <span class="number">浏览人数：520</span>
-          </div>
-          <div>
-            <i class="vip"></i>
-            <i class="mingpian"></i>
-            <i class="phone"></i>
-            <i class="tubiao"></i>
-          </div>
-          <div class="foot">
-            <a class="name" href="">兰灵创意</a>
-            <span class="dingwei">福建泉州</span>
-            <span class="call">联系我</span>
-          </div>
-        </div>
+        <span class="cysearch_result_price">￥<span>258</span>/套</span>
+        <span class="cysearch_result_time">截稿日期：<span>2016/04/30</span></span>
+        <span class="cysearch_result_number">浏览人数：<span>520</span></span>
       </li>
     </ul>
     <!--主内容区下部分结束-->
   </div>
   <!--主内容区结束-->
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script>
+    $('.more').mouseenter(function () {
+      $('.moreAddr').show();
+    }).mouseleave(function () {
+      $('.moreAddr').hide();
+    })
+  </script>
 
 </body>
 
