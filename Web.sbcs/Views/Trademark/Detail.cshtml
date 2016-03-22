@@ -1,202 +1,158 @@
-﻿@{
+﻿@model System.Data.DataRow
+@{
     ViewBag.Title = "梦高速 - 商标超市";
 }
 <!--主内容 开始-->
-  <div class="sbcs_content clearfix">
+<div class="sbcs_content clearfix">
     <!--左侧内容开始-->
     <div class="sbcs_contl">
-      <h2>商标分类</h2>
-      <input class="sbcs_contl_find" type="text" placeholder="店铺搜索">
-      <button class="sbcs_contl_findbtn">搜索</button>
-      <dl class="sbcs_contl_sort">
-        <dt><span class="sbcs_contl_sort-add">+</span>全部商标</dt>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-        <dd><span class="sbcs_contl_sort-add">+</span>第01类-化学原料肥料</dd>
-      </dl>
+        <h2>
+            商标分类</h2>
+        @*<input class="sbcs_contl_find" type="text" placeholder="店铺搜索">*@ @* <button class="sbcs_contl_findbtn">
+            搜索</button>*@
+        <dl class="sbcs_contl_sort">
+            <dt><span class="sbcs_contl_sort-add">+</span>全部商标</dt>
+            @{var ParentKind = ViewBag.ParentKind as System.Data.DataTable;}
+            @for (int i = 0; i < ParentKind.Rows.Count; i++)
+            {
+                var row = ParentKind.Rows[i];
+                       
+                <dd>
+                    <span class="sbcs_contl_sort-add">+</span><a href="/trademark?pcode=@row["code"]" style=" color:Black;">@row["code"]类-@row["name"]</a></dd>
+            }
+        </dl>
     </div>
     <!--左侧内容结束-->
     <!--右侧内容开始-->
     <div class="sbcs_cont_right">
-      <div class="shangbiao">
-        <div class="shangbiao_t clearfix">
-          <div class="shangbiao_tl">
-            <img class="photo" src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_01.png" alt="商标">
-            <div class="operate clearfix">
-              <i class="shoucang_pic"></i>
-              <span class="shoucang">收藏(32)</span>
-              <i class="jubao_pic"></i>
-              <span class="jubao">举报</span>
-              <p class="price">价格：<span class="money">￥100000.00</span></p>
-              <p class="jiaoyi">交易类型：<span class="leixing">直接交易<i class="sjx"></i></span></p>
+        <div class="shangbiao">
+            <div class="shangbiao_t clearfix">
+                <div class="shangbiao_tl">
+                    <img class="photo" src="@{@BaseConfigs.GetImgPath}@Model["img"]" alt="@Model["name"]">
+                    <div class="operate clearfix">
+                        <i class="shoucang_pic"></i><span class="shoucang">收藏(@Model["collect"])</span>
+                        <i class="jubao_pic"></i><span class="jubao">举报</span>
+                        <p class="price">
+                            价格：<span class="money">￥@Model["price"]</span></p>
+                        <p class="jiaoyi">
+                            交易类型：<span class="leixing" data-tradetype="@Model["tradetype"]">@Model["tradetypeName"]<i
+                                class="sjx"></i></span></p>
+                    </div>
+                </div>
+                <div class="shangbiao_tr">
+                    <div class="shangbiao_trt clearfix">
+                        <h2>
+                            商标名称：<span class="name">@Model["name"]</span></h2>
+                        <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_03.png" alt="交易担保">
+                    </div>
+                    <div class="shangbiao_tr_detail">
+                        <p>
+                            商标分类：<span>第@{@Model["pcode"]}
+                                类-@Model["pcodeName"]</span></p>
+                        <p>
+                            注册号：<span>@Model["regNo"]</span></p>
+                        <p>
+                            所属区域：<span>@Model["area"]</span></p>
+                        <p>
+                            商标状态：<span>@Model["stateName"]</span></p>
+                        <p>
+                            专用期限：<span>@Model["date1"]</span>至<span>@Model["date2"]</span></p>
+                        <p>
+                            类似群组：<span>@ViewBag.typecodes</span></p>
+                        <p>
+                            核定使用范围：<span>@ViewBag.typenames</span></p>
+                        <button class="buy">
+                            立即购买</button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="shangbiao_tr">
-            <div class="shangbiao_trt clearfix">
-              <h2>商标名称：<span class="name">天上人间</span></h2>
-              <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_03.png" alt="交易担保">
+            <div class="shangbiao_b clearfix">
+                <img class="jingshi" src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_02.png" alt="安全警示">
+                <div class="text">
+                    <p class="parto">
+                        梦高速提供在线支付功能，商户不管以任何形式要求线下交易，都存在诈骗的风险，由此产生的一切损失梦高速不承担任何责任，请提高警惕！</p>
+                    <p class="partt">
+                        为保证订单顺利完成，下单前请联系店家确认<span>商标法定状态及最终成交价格！</span>商标转让过户手续由店家全权负责办理，买方另有要求，双方自行协商。</p>
+                </div>
             </div>
-            <div class="shangbiao_tr_detail">
-              <p>商标分类：<span>第30类-茶糖糕点蜂蜜</span></p>
-              <p>注册号：<span>11102993</span></p>
-              <p>所属区域：<span>中国内地</span></p>
-              <p>商标状态：<span>有效</span></p>
-              <p>专用期限：<span>2013-12-28</span>至<span>2023-12-22</span></p>
-              <p>类似群组：<span>3001,3002,3004,3006,3007,3009,3010,3010</span></p>
-              <p>核定使用范围：<span>咖啡,茶,糖果,蜂蜜</span></p>
-              <button class="buy">立即购买</button>
-            </div>
-          </div>
         </div>
-        <div class="shangbiao_b clearfix">
-          <img class="jingshi" src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_02.png" alt="安全警示">
-          <div class="text">
-            <p class="parto">梦高速提供在线支付功能，商户不管以任何形式要求线下交易，都存在诈骗的风险，由此产生的一切损失梦高速不承担任何责任，请提高警惕！</p>
-            <p class="partt">为保证订单顺利完成，下单前请联系店家确认<span>商标法定状态及最终成交价格！</span>商标转让过户手续由店家全权负责办理，买方另有要求，双方自行协商。</p>
-          </div>
+        <div class="liucheng">
+            <h2>
+                交易流程</h2>
+            <div class="liucheng_buzou clearfix">
+                <p>
+                    <span>第一步：</span> 购买方挑选好中意的商标，由客服查询确定好商标法律状态，与买卖双方沟通好成交价格；
+                </p>
+                <p>
+                    <span>第二步：</span> 鉴定《委托购买商标协议书》预付转让费50%梦高速商标转让网指定账户，此时购买方提供商标受让人主体资格证明（个人提供身份证复印件附加年检有效的个体户执照复印件；公司提供年检有效的营业执照副本复印件）；
+                </p>
+                <p>
+                    <span>第三步：</span> 我司与商标注册人签定《商标转让协议书》，持有人收到转让费定金即时办理《商标转让声明公证》，并在转让申请书以及过户所需要的全套文件上签字盖章；
+                </p>
+                <p>
+                    <span>第四步：</span> 我司垫付全款付清转让费给持有人，取得《商标注册证》、《商标转让声明公证书》原件，以及转让过户所需的全套材料；
+                </p>
+                <p>
+                    <span>第五步：</span> 我司将《商标注册证》、《商标转让声明公证书》传真或扫苗给买方确认无误后，买方2日内付清余款，我司将《商标注册证》、《商标转让声明公证书》、《商标使用授权书》原件及转让过户所需文件快递给买方盖章或签字，购买方收到前述文件时即拥有所购商标“独占使用权；”
+                </p>
+                <p>
+                    <span>第六步：</span> 我司收到受让方盖章或签字的转让过户文件，即时向国家商标局上报转让过户申请材料；
+                </p>
+                <p>
+                    <span>第七步：</span> 国家商标局收文后在40-60天左右同时向转、受双方下发《转让申请受理通知书》，此时自己就可以在《中国商标网》上查询到商标转让流程；
+                </p>
+                <p>
+                    <span>第八步：</span> 10个月左右商标局进入实质审查，发布核准转让公告，公告完1个月内下发《核准商标转让证明》，核准转让后与我司签定的《委托购买商标协议书》终止。
+                </p>
+            </div>
         </div>
-      </div>
-
-      <div class="liucheng">
-        <h2>交易流程</h2>
-        <div class="liucheng_buzou clearfix">
-          <p>
-            <span>第一步：</span> 购买方挑选好中意的商标，由客服查询确定好商标法律状态，与买卖双方沟通好成交价格；
-          </p>
-          <p>
-            <span>第二步：</span> 鉴定《委托购买商标协议书》预付转让费50%梦高速商标转让网指定账户，此时购买方提供商标受让人主体资格证明（个人提供身份证复印件附加年检有效的个体户执照复印件；公司提供年检有效的营业执照副本复印件）；
-          </p>
-          <p>
-            <span>第三步：</span> 我司与商标注册人签定《商标转让协议书》，持有人收到转让费定金即时办理《商标转让声明公证》，并在转让申请书以及过户所需要的全套文件上签字盖章；
-          </p>
-          <p>
-            <span>第四步：</span> 我司垫付全款付清转让费给持有人，取得《商标注册证》、《商标转让声明公证书》原件，以及转让过户所需的全套材料；
-          </p>
-          <p>
-            <span>第五步：</span> 我司将《商标注册证》、《商标转让声明公证书》传真或扫苗给买方确认无误后，买方2日内付清余款，我司将《商标注册证》、《商标转让声明公证书》、《商标使用授权书》原件及转让过户所需文件快递给买方盖章或签字，购买方收到前述文件时即拥有所购商标“独占使用权；”
-          </p>
-          <p>
-            <span>第六步：</span> 我司收到受让方盖章或签字的转让过户文件，即时向国家商标局上报转让过户申请材料；
-          </p>
-          <p>
-            <span>第七步：</span> 国家商标局收文后在40-60天左右同时向转、受双方下发《转让申请受理通知书》，此时自己就可以在《中国商标网》上查询到商标转让流程；
-          </p>
-          <p>
-            <span>第八步：</span> 10个月左右商标局进入实质审查，发布核准转让公告，公告完1个月内下发《核准商标转让证明》，核准转让后与我司签定的《委托购买商标协议书》终止。
-          </p>
+        <div class="sb_detailt">
+            <h2>
+                商标详情</h2>
+            <div class="pic">
+                @{var ar = @Model["content"] as Newtonsoft.Json.Linq.JArray;}
+                @foreach (var item in ar)
+                {             
+                    <a href="">
+                        <img src="@BaseConfigs.GetImgPath@item" alt="image"></a>
+                }
+            </div>
         </div>
-      </div>
-
-      <div class="sb_detailt">
-        <h2>商标详情</h2>
-        <div class="pic">
-          <a href=""><img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_04.png" alt="商标详情1"></a>
-          <a href=""><img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_04.png" alt="商标详情2"></a>
-        </div>
-      </div>
-      <div class="sb_detailb">
-        <h2>商标推荐</h2>
-        <ul class="sb_detailb_lis clearfix">
-          <li>
-            <a href=""><img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_05.png" alt=""></a>
-            <div class="det clearfix">
-              <span class="det_pri">￥41800.00</span>
-              <a class="det_til" href="#">瓦伦菲格 WALNFEEG</a>
-              <span class="det_cont">瓦伦菲格 WALNFEEG成品衣,服装,皮衣,内衣,鞋,帽,袜,手套（服装）.</span>
+        @if (ViewBag.Recommended.Count > 0)
+        {
+            <div class="sb_detailb">
+                <h2>
+                    商标推荐</h2>
+                <ul class="sb_detailb_lis clearfix">
+                    @foreach (var item in ViewBag.Recommended)
+                    {
+                        <li><a href="/trademark/@item["id"]">
+                            <img src="@{@BaseConfigs.GetImgPath}@{@item["img"]}" alt=""></a>
+                            <div class="det clearfix">
+                                <span class="det_pri">￥@item["price"]</span> <a class="det_til" href="#">@item["name"]</a>
+                                <span class="det_cont">@item["type"] </span>
+                            </div>
+                        </li>
+                    }
+                </ul>
             </div>
-          </li>
-          <li>
-            <a href=""><img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_05.png" alt=""></a>
-            <div class="det clearfix">
-              <span class="det_pri">￥41800.00</span>
-              <a class="det_til" href="#">瓦伦菲格 WALNFEEG</a>
-              <span class="det_cont">瓦伦菲格 WALNFEEG成品衣,服装,皮衣,内衣,鞋,帽,袜,手套（服装）.</span>
-            </div>
-          </li>
-          <li>
-            <a href=""><img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_05.png" alt=""></a>
-            <div class="det clearfix">
-              <span class="det_pri">￥41800.00</span>
-              <a class="det_til" href="#">瓦伦菲格 WALNFEEG</a>
-              <span class="det_cont">瓦伦菲格 WALNFEEG成品衣,服装,皮衣,内衣,鞋,帽,袜,手套（服装）.</span>
-            </div>
-          </li>
-          <li>
-            <a href=""><img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_05.png" alt=""></a>
-            <div class="det clearfix">
-              <span class="det_pri">￥41800.00</span>
-              <a class="det_til" href="#">瓦伦菲格 WALNFEEG</a>
-              <span class="det_cont">瓦伦菲格 WALNFEEG成品衣,服装,皮衣,内衣,鞋,帽,袜,手套（服装）.</span>
-            </div>
-          </li>
-          <li>
-            <a href=""><img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/xiangqing_05.png" alt=""></a>
-            <div class="det clearfix">
-              <span class="det_pri">￥41800.00</span>
-              <a class="det_til" href="#">瓦伦菲格 WALNFEEG</a>
-              <span class="det_cont">瓦伦菲格 WALNFEEG成品衣,服装,皮衣,内衣,鞋,帽,袜,手套（服装）.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+        }
     </div>
     <!--右侧内容结束-->
-  </div>
-  <!--主内容 结束-->
-  @section scripts{
-  <script>
-      $('.sbcs_contl_sort-add').click(function () {
-          $(this).next().slideToggle(400)
-          if ($(this).hasClass('moreType')) {
-              $(this).text('+').removeClass('moreType');
-          } else {
-              $(this).text('-').addClass('moreType');
-          }
-      })
-  </script>
-  }
+</div>
+<!--主内容 结束-->
+@section scripts{
+    <script>
+        var id = '@ViewBag.id';
+    </script>
+    <script>
+        $('.sbcs_contl_sort-add').click(function () {
+            $(this).next().slideToggle(400)
+            if ($(this).hasClass('moreType')) {
+                $(this).text('+').removeClass('moreType');
+            } else {
+                $(this).text('-').addClass('moreType');
+            }
+        })
+    </script>
+}
