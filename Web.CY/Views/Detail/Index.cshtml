@@ -1,4 +1,8 @@
-﻿@{var cy = ViewBag.detailHead as System.Data.DataRow;}
+﻿@{
+    var cy = ViewBag.detailHead as System.Data.DataRow;
+    var status = ViewBag.detaiStatus as System.Data.DataRow;
+    int st = (int)status["statusmc"];
+}
 @{
     var title = @cy["title"];
     ViewBag.Title = title + " - 梦高速创意设计";   
@@ -24,34 +28,61 @@
                 </ul>
             </div>
             <div class="zbrw_t_r clearfix">
-                <div class="zbrw_t_r-div">
-                    <p>
-                        浏览人数</p>
-                    <p class="zbrw_t_r_black">
-                        @cy["browse"]</p>
+                <div class="zbrw_t_r_t clearfix">
+                    <div class="zbrw_t_r-div zbrw_t_r-l">
+                        <p>
+                            浏览人数</p>
+                        <p class="zbrw_t_r_black">@cy["browse"]</p>
+                    </div>
+                    <div class="zbrw_t_r-div zbrw_t_r-r">
+                        <p>
+                            交稿数量</p>
+                        <p class="zbrw_t_r_red">@cy["manuscript"]</p>
+                    </div>
                 </div>
-                <div class="zbrw_t_r-div">
-                    <p>
-                        交稿数量</p>
-                    <p class="zbrw_t_r_red">
-                        @cy["manuscript"]</p>
-                </div>
-                <div class="bdsharebuttonbox">
-                    <a href="#" class="hd_cont_l_share bds_more" data-cmd="more">分享 </a>
+                <div class="zbrw_t_r_t clearfix">
+                    <div class="zbrw_t_r-div">
+                        @if (ViewBag.DUser.HasLogin)
+                        {
+                            if (cy["isCollect"].ToString() == "1")
+                            {
+                            <a href="javascript:" class="zbrw_t_r_atte cancel">已收藏(<span>@cy["collect"]</span>)</a>
+                            }
+                            else
+                            {
+                            <a href="javascript:" class="zbrw_t_r_atte" data-collection="@cy["collect"]" onclick="CysjSc()">
+                                收藏(<span>@cy["collect"]</span>)</a>
+                            }
+                        }
+                        else
+                        {
+                            <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}" class="zbrw_t_r_atte">
+                                收藏(<span>@cy["collect"]</span>)</a>
+                        }
+                    </div>
+                    <div class="bdsharebuttonbox">
+                        <a href="#" class="hd_cont_l_share bds_more" data-cmd="more">分享 </a>
+                    </div>
                 </div>
             </div>
             <!--进度块-->
             <div class="zbrw_jind">
                 <div class="zbrw_jd">
                     <ul class="clearfix">
-                        <li class="zbrw_jd_item zbrw_jd_item-first success"><i></i><span>发布需求<br>
-                            2015.1.1</span></li>
-                        <li class="zbrw_jd_item success"><i></i><span>威客投标<br>
-                            2014.11.10</span></li>
-                        <li class="zbrw_jd_item success"><i></i><span>雇主选标</span></li>
-                        <li class="zbrw_jd_item success"><i></i><span>托管赏金</span></li>
-                        <li class="zbrw_jd_item"><i></i><span>威客工作</span></li>
-                        <li class="zbrw_jd_item zbrw_jd_item-last"><i></i><span>验收付款</span></li>
+                        <li class="zbrw_jd_item zbrw_jd_item-first @if (st == 2)
+                                                                   {<text>success</text>}"><i></i><span>发布需求<br>
+                                                                       2015.1.1</span></li>
+                        <li class="zbrw_jd_item  @if (st == 2)
+                                                 {<text>success</text>}"><i></i><span>托管赏金</span></li>
+                        <li class="zbrw_jd_item  @if (st == 2)
+                                                 {<text>success</text>}"><i></i><span>威客投标<br>
+                                                                       2014.11.10</span></li>
+                        <li class="zbrw_jd_item  @if (st == 2)
+                                                 {<text>success</text>}"><i></i><span>雇主选标</span></li>
+                        <li class="zbrw_jd_item" @if (st == 2)
+                                                 {<text>success</text>}><i></i><span>威客工作</span></li>
+                        <li class="zbrw_jd_item zbrw_jd_item-last"  @if (st == 2)
+                                                                    {<text>success</text>}><i></i><span>验收付款</span></li>
                     </ul>
                 </div>
             </div>
@@ -161,9 +192,9 @@
                 <div class="cont_r_t_head_text">
                     <div>
                         <a href="#">@cy["name"]</a></div>
-                    <i class="icon_rz"></i><i class="icon_phone"></i>
-                    <button>
-                        私信</button>
+                    <i class="icon_rz"></i><i class="icon_phone"></i><a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=xxx" target="_blank">
+                        <button>
+                            私信</button></a>
                 </div>
             </div>
             <ul class="cont_r_t_haop">
@@ -246,7 +277,7 @@
     {{each data as tg}}
     <li class="cytg_group clearfix">
       <div class="cytg_l">
-        <div class="cytg_l_img"><img src="{{domain+tg.img}}" alt="#"></div>
+        <div class="cytg_l_img"><img src="{{domain+tg.img}}_100x100.jpg" alt="#"></div>
         <div class="cytg_l_text">
           <div><a href="{{tg.id}}">{{tg.username}}</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
           <p class="cytg_l_gray">{{tg.usertype}}<span>|</span>{{tg.address}}</p>

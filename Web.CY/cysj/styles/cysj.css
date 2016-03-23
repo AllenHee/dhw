@@ -623,7 +623,6 @@ body.zbxq {
   background: -webkit-linear-gradient(top, #fff,  #eee);
   line-height: 24px;
   color: #bbb;
-  color: #333\9;
   cursor: pointer;
 }
 .hd_cont_r_head-size {
@@ -1593,7 +1592,6 @@ body.zbxq {
   background: -webkit-linear-gradient(top, #fff,  #eee);
   line-height: 24px;
   color: #bbb;
-  color: #333\9;
   cursor: pointer;
 }
 .cont_r_t_haop li{
@@ -2088,8 +2086,10 @@ body.zbxq {
 }
 .cysearch_head_sortt {
   float: left;
+  width: 70px;
   margin-left: 20px;
   font-size: 15px;
+  text-align: right;
 }
 .cysearch_head_sortd {
   float: left;
@@ -2195,8 +2195,7 @@ body.zbxq {
 .cysearch_chooseb .fanwei {
   display: block;
   float: left;
-  margin-left: 20px;
-  margin-right: 70px;
+  margin: 0 20px 0 20px;
 }
 .cysearch_chooseb .inbox {
   width: 45px;
@@ -2364,4 +2363,10 @@ body.zbxq {
 }
 .zbrw_t_r-l {
   margin-left: 50px;
+}
+/*搜索按钮*/
+.search {
+  float: left;
+  height: 24px;
+  margin-right: 50px;
 }
