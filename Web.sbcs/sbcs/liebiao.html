@@ -6,21 +6,23 @@
   <title>梦高速 - 商标超市</title>
   <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="styles/sbcs.css">
+  <script type="text/javascript">
+    var dhw = { imgurl: 'http://192.168.2.10:82/img/', imguploadurl: 'http://192.168.2.10:82/uploadimg', mainurl: 'http://localhost:8085/' };
+  </script>
   <script type="text/html" id="sbTemplate">
-  {{each data as sb}}
-  <li class="item">
-    <img src="{{domain}}{{sb.img}}">
-    <div class="item_detail">
-      <span class="price">
+    {{each data as sb}}
+    <li class="item">
+      <img src="{{domain}}{{sb.img}}">
+      <div class="item_detail">
+        <span class="price">
       <span class="sign">￥
       </span>{{sb.price}}</span>
-      <span class="first_sort"><span>{{sb.pcodeName}}</span> {{sb.name}}</span>
-      {{each sb.type as t}}
-      <span class="second_sort">{{t}}</span>
-      {{/each}}
-    </div>
-  </li>
-  {{/each}}
+        <span class="first_sort"><span>{{sb.pcodeName}}</span> {{sb.name}}</span>
+        {{each sb.type as t}}
+        <span class="second_sort">{{t}}</span> {{/each}}
+      </div>
+    </li>
+    {{/each}}
   </script>
 </head>
 
@@ -65,19 +67,556 @@
     <div class="sbcs_type">
       <h1 class="sbcs_type_ttl">商标转让分类</h1>
       <ul class="sbcs_type_cont clearfix">
-        <li class="sbcs_type_cont_item sbcs_type_cont_item-current">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
-        <li class="sbcs_type_cont_item">01-服装鞋帽围巾</li>
+        <li class="sbcs_type_cont_item" data-pcode="01" title="肥料 0109
+化学肥料 0109
+活性炭 0104
+化学试纸 0106
+纸浆 0116
+气体净化剂 0106
+除水垢剂 0106
+杀虫剂 0105
+相纸 0107
+漂洗剂 0106">
+          01-化学原料肥料
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="02" title="防污涂料 0205
+油漆 0205
+染料 0201
+颜料 0202
+防腐蚀剂 0206
+印刷油墨 0204
+天然树脂 0207
+食用色素 0203
+激光打印机墨盒 0204">
+          02-颜料油漆油墨
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="03" title="香皂 0301
+洗面奶 0301
+护发素 0301
+化妆品 0306
+口红 0306
+唇膏 0306
+面膜 0306
+香水 0305
+香精油 0305
+牙膏 0307">
+          03-化妆品日用类
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="04" title="工业用油脂 0401
+润滑油 0401
+润滑剂 0401
+汽油 0402
+酒精（燃料) 0402
+工业用蜡 0404
+蜡烛 0405
+除尘制剂 0406">
+          04-润滑油润滑剂
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="05" title="人用药 0501
+消毒剂 0501
+中药药材 0501
+药酒 0501
+婴儿食品 0502
+婴儿奶粉 0502
+医用营养品 0502
+杀虫剂（和第一类昵称重复） 0505
+卫生巾 0506
+婴儿尿布 0506">
+          05-人用药保健品
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="06" title="金属水管 0602
+金属门 0601
+金属建筑材料 0603
+五金器具 0609
+金属锁 0610
+保险柜 0611
+金属标志牌 0614
+钥匙 0609
+金属包装容器 0613
+普通金属艺术品 0622">
+          06-金属小五金具
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="07" title="榨油机 0709
+洗碗机 0709
+家用豆浆机 0718
+洗衣机 0724
+非手动的手持工具 0743
+发电机 0748
+清洁用洗尘装置 0752
+种子发芽器 0701
+制氧、制氮设备 0729
+印刷机 0707">
+          07-洗衣机吸尘器
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="08" title="农业器具（手动的） 0802
+园艺工具（手动的 0803
+剃须刀 0806
+手工操作的手工具 0807
+剪刀 0810
+刀叉餐具 0812
+修指甲刀 0806">
+          08-手工具刀叉勺
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="09" title="计算机 0901
+衡器 0904
+手机 0901
+导航仪器 0907
+电话机套 0924
+扬声器音箱 0908
+照相机（摄影） 0909
+眼镜 0921
+开关插座 0914
+智能手机壳 0924
+手机贴膜 0924
+自拍杆 0925
+电池 0912">
+          09-电子产品电池
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="10" title="按摩器械 1001
+医疗器械和仪器 1001
+口罩 1001
+奶瓶 1005
+性玩具 1004
+矫形用物品 1008
+静脉曲张用长袜 1008
+避孕用品 1006">
+          10-医疗器械设备
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="11" title="灯 1101
+电炊具 1104
+冰箱 1105
+空气净化设备 1110
+龙头 1108
+浴室装置 1109
+太阳能热水器 1107
+浴霸 1111
+抽水马桶 1109
+水净化装置 1110
+电暖器 1111">
+          11-家用电器龙头
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="12" title="汽车 1202
+自行车 1204
+电动自行车 1204
+轮椅 1206
+运载工具内装饰品 1208
+儿童安全座 1206
+轮胎 1208
+游艇 1210
+婴儿车 1206">
+          12-运输工具用品
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="13" title="火器 1301
+火药 1302
+烟火 1303
+爆竹 1303
+个人防护用喷雾 1304
+弹药 1301
+鞭炮 1303
+火药棉 1302">
+          13-烟花爆竹军火
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="14" title="首饰盒 1403
+翡翠 1403
+珠宝首饰 1403
+宝石 1403
+护身符（首饰） 1403
+银制工艺品 1403
+手表 1404
+钟表 1404
+K金饰品 1403
+戒指（首饰） 1403
+珍珠（珠宝） 1403
+钥匙圈 1402">
+          14-珠宝玉器手表
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="15" title="乐器 1501
+电子琴 1501
+吉他 1501
+钢琴 1501
+乐器键盘 1502
+笛膜 1502
+小提琴 1501
+口琴 1501
+鼓 1501
+号 1501
+唢呐 1501
+琵琶 1501">
+          15-乐器钢琴萧鼓
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="16" title="纸 1603
+纸巾 1603
+请帖 1605
+印刷品 1606
+保鲜膜 1609
+期刊 1606
+订书机 1618
+文具 1616
+墨水 1612
+笔 1614
+绘画材料 1617
+复写纸 1602
+纸质餐桌用布 1603">
+          16-文具办公用品
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="17" title="农业用塑料膜 1707
+非金属软管 1704
+保温用非导热材料 1705
+隔音材料 1705
+绝缘材料 1706
+包装用橡胶（信封、小袋） 1707
+橡胶 1703">
+          17-橡胶包装材料
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="18" title="书包 1802
+包 1802
+手提包 1802
+旅行包 1802
+行李箱 1802
+钱包 1801
+婴儿背带 1802
+伞 1804
+手杖 1805
+马鞍 1806
+皮凉席 1801
+皮垫 1801
+帆布箱 1802">
+          18-箱包雨伞手杖
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="19" title="木地板 1909
+木材 1901
+大理石 1909
+瓷砖 1909
+非金属门 1909
+非金属水管 1909
+非金属楼梯 1909
+建筑玻璃 1911
+非金属纪念标牌 1914">
+          19-地板地砖涂层
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="20" title="家具 2001
+床垫 2013
+沙发 2001
+非金属桶 2002
+软木工艺品 2006
+竹头工艺品 2005
+枕头 2013
+野营睡袋 2013
+室内百叶帘 2012
+婴儿学步车 2005
+家居收纳盒 2002">
+          20-家用竹工艺品
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="21" title="铁锅 2101
+厨房用具 2101
+日用玻璃器皿 2104
+瓷器 2103
+陶器 2103
+茶具（餐具） 2105
+酒具 2105
+衣架 2106
+垃圾桶 2101
+电动牙刷 2108
+化妆用品 2106
+保温杯 2105
+拖把 2106
+梳 2107
+除蚊器 2115">
+          21-厨房炊具用具
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="22" title="绳索 2201
+网 2202
+帐篷 2202
+编织袋 2203
+防水帆布 2202
+羽绒 2204
+纤维纺织原料 2205
+大麻 2205
+茧 2205
+羊毛 2205">
+          22-缆绳帐篷吊床
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="23" title="纱 2301
+线 2302
+尼龙线 2302
+弹力丝（纺织用） 2301
+毛线 2303
+开司米 2301
+绒线 2302
+精纺羊毛 2303
+人造毛线 2303
+蜡线 2302">
+          23-纺织用纱和线
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="24" title="布 2401
+帘子布 2407
+纺织品制壁挂 2403
+纺织品毛巾 2405
+卸妆用布 2409
+被子 2406
+床上用覆盖物 2406
+家具遮盖物 2407
+网状窗帘 2407
+丝绸 2401
+浴巾 2405">
+          24-床上用品毛巾
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="25" title="服装 2501
+成品衣 2501
+童装 2501
+内衣 2501
+皮衣 2501
+婴儿全套衣 2501
+游泳衣 2504
+防水服 2504
+戏服 2505
+鞋 2507
+帽 2508
+袜 2509
+手套 2510
+围巾 2511
+腰带 2512
+婚纱 2513">
+          25-服装鞋帽围巾
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="26" title="绣花饰品 2601
+胸针 2602
+花边 2601
+发夹 2601
+纽扣 2603
+拉链 2603
+假发 2604
+针 2602
+假花 2606
+发带 2601
+毛衣针 2605
+缝纫针 2605">
+          26-饰品纽扣假发
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="27" title="地毯 2701
+席 2702
+汽车用垫毯 2703
+防滑垫 2703
+橡胶地垫 2703
+墙纸 2704
+体操垫 2703
+非纺织品制墙上挂毯 2704">
+          27-地毯地垫墙纸
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="28" title="游戏器具 2801
+游戏机 2801
+玩具 2802
+棋 2803
+运动用球 2804
+锻炼身体器械 2805
+护腰 2809
+滑板 2807
+钓鱼用具 2811
+羽毛球 2804
+电子靶 2806">
+          28-运动用品玩具
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="29" title="肉 2901
+食用燕窝 2913
+鱼制食品 2902
+水果罐头 2903
+腌制蔬菜 2905
+干枣 2904
+蛋 2906
+牛奶 2907
+食用油 2908
+加工过的坚果 2911
+干食用菌 2912
+韩式烤牛肉 2901">
+          29-食用油坚果肉
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="30" title="咖啡 3001
+茶 3002
+糖 3003
+蜂蜜 3005
+糕点 3006
+米 3008
+谷粉质食品 3008
+冰淇淋 3013
+调味品 3016
+包子 3012
+饺子 3012
+日式拉面 3009
+韩式紫菜包饭 3009">
+          30-茶糖糕点蜂蜜
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="31" title="装饰用干花 3103
+自然花 3103
+活家禽 3104
+新鲜水果 3105
+新鲜蔬菜 3106
+动物食品 3108
+圣诞树 3103
+谷（谷类） 3102
+狗粮 3108
+酿酒麦芽 3109">
+          31-蔬菜水果鲜花
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="32" title="啤酒 3201
+水（饮料） 3202
+矿泉水（饮料） 3202
+植物饮料 3202
+可乐 3202
+汽水 3202
+杏仁糖浆 3203
+奶茶（以奶为主） 3203
+饮用蒸馏水 3202">
+          32-啤酒矿泉水饮料
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="33" title="酒 3301
+葡萄酒 3301
+黄酒 3301
+开胃酒 3301
+烧酒 3301
+白兰地 3301
+威士忌 3301
+清酒 3301
+鸡尾酒 3301
+米酒 3301
+白酒 3301">
+          33-白酒果酒黄酒
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="34" title="烟草 3401
+雪茄烟 3401
+电子香烟 3401
+烟斗 3402
+香烟盒 3402
+烟灰缸 3402
+火柴 3403
+吸烟用打火机 3404
+香烟过滤嘴 3405
+烟斗 3402">
+          34-香烟雪茄烟类
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="35" title="广告 3501
+计算机网络上的在线广告 3501
+商业中介服务 3502
+特许经营的商业管理 3502
+替他人推销 3503
+职业介绍所 3504
+复印服务 3506
+会计 3507">
+          35-广告特许经营
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="36" title="保险经纪 3601
+银行 3602
+金融服务 3602
+艺术品估价 3603
+经纪 3605
+不动产代理 3604
+担保 3606
+信托 3608
+典当 3609
+会员卡打折服务 3602">
+          36-保险金融股价
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="37" title="建筑 3701
+室内装潢 3704
+电器的安装和维修 3706
+汽车保养和维修 3707
+钟表维修 3711
+家具保养 3715
+干洗 3716
+车辆服务站 3707
+办公设备安装维护 3718">
+          37-维修室内装潢
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="38" title="无线广播 3801
+信息传达 3802
+电话通讯 3802
+电话会议服务 3802
+提供互联网聊天室 3802
+无线电通讯 3802
+电视播放 3801
+电子邮件 3802">
+          38-通讯服务传送
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="39" title="运输 3901
+搬迁 3903
+汽车出租 3903
+快递服务（信件或商品） 3905
+观光旅游 3911
+旅行社（不包括预定旅馆） 3911
+物流运输 3901
+船舶经纪 3902">
+          39-运输旅行安排
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="40" title="纺织品精加工 4003
+服装制作 4003
+服装修改 4003
+照片冲印 4011
+空气净化 4013
+艺术品装框 4001
+研磨抛光 4001
+镀银 4002
+配钥匙 4002">
+          40-服装定制加工
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="41" title="培训 4101
+幼儿园 4101
+家庭服务 4107
+组织表演（演出） 4102
+摄影 4107
+娱乐 4105
+健身俱乐部（健身和体能训练） 4105
+游乐园 4105
+经营彩票 4107
+导游服务 4105
+剧本编写 4102">
+          41-培训教育文娱
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="42" title="质量检测 4214
+替他人提供和开发新产品 4209
+包装设计 4216
+室内装饰设计 4216
+服装设计 4218
+计算机编程 4220
+无形资产评估 4227
+平面美术设计 4216">
+          42-软件编程设计
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="43" title="饭店 4301
+快餐馆 4301
+咖啡厅 4301
+茶馆 4301
+餐厅 4301
+旅馆预定 4302
+养老院 4303
+托儿所 4304
+动物寄养 4305
+自助餐馆 4301
+提供野营场地设施 4306">
+          43-餐饮酒店茶馆
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="44" title="医院 4401
+牙科 4401
+整形外科 4402
+美容院 4402
+理发店 4402
+化妆师服务 4402
+公共卫生浴 4402
+园艺 4404
+眼镜行 4402
+疗养院 4401
+水产养殖服务 4405">
+          44-美容院理发店
+        </li>
+        <li class="sbcs_type_cont_item" data-pcode="45" title="私人保镖 4501
+家务服务 4502
+服装出租 4503
+计划和安排婚礼服务 4505
+婚姻介绍 4505
+知识产权咨询 4506
+诉讼服务 4506
+版权管理 4506">
+          45-法律咨询服务
+        </li>
+
       </ul>
     </div>
     <div class="sbcs_filterbox">

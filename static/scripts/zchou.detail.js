@@ -159,7 +159,7 @@ function attention() {
         round += "万";
       }
       $(".zc-follow span").text(total);
-      var but = "已关注" + "(" + '<span>' + round + '</span>' + ")";
+      var but = "已关注" + '(<span>' + round + '</span>)';
       $(".zc-follow").html(but);
       $(".zc-follow").attr("data-focus", total);
       $(".zc-follow").addClass("cancel");

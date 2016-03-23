@@ -12,12 +12,13 @@
             {
                      
               
-                <li class="fenlei_items">
-                    <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/category/@(item.code).png" alt="">
+                <li class="fenlei_items"><a href="/trademark?pcode=@item.code">
+                    <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/category/@(item.code).png" alt="@item.name">
                     <p class="fenlei_items_ttl">
                         第@{@item.code}
                         类 @item.name</p>
-                    <p class="fenlei_items_cont" title="@{@(string.Join("\r\n", item.Child.Select(it=>it.name+" "+it.code)))}">
+                </a>
+                    <p class="fenlei_items_cont" title="@{@(string.Join("\r\n", item.Child.Select(it => it.name + " " + it.code)))}">
                         @{
                 var child = item.Child.ToArray(); int count = child.Length; if (count > 6) { count = 6; }
                         }
@@ -32,7 +33,6 @@
                 </li> 
                     
             }
-           
         </ul>
         <ul class="fenlei_advantage clearfix">
             <li class="fenlei_advantage_item">

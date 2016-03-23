@@ -1,8 +1,13 @@
 ﻿@{
     var cy = ViewBag.detailHead as System.Data.DataRow;
+<<<<<<< HEAD
     byte st = (byte)cy["statusmc"];
     string time = cy["time"] == "" ? "" : ((DateTime)cy["time"]).ToString("yyyy-MM-dd");
     string logo = cy["logo"] == null ? "" : cy["logo"].ToString();
+=======
+    var status = ViewBag.detaiStatus as System.Data.DataRow;
+    int st = (int)status["statusmc"];
+>>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
 }
 @{
     var title = @cy["title"];
@@ -38,7 +43,11 @@
                     <div class="zbrw_t_r-div zbrw_t_r-r">
                         <p>
                             交稿数量</p>
+<<<<<<< HEAD
                         <p class="zbrw_t_r_red">@cy["counts"]</p>
+=======
+                        <p class="zbrw_t_r_red">@cy["manuscript"]</p>
+>>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
                     </div>
                 </div>
                 <div class="zbrw_t_r_t clearfix">
@@ -70,6 +79,7 @@
             <div class="zbrw_jind">
                 <div class="zbrw_jd">
                     <ul class="clearfix">
+<<<<<<< HEAD
                         <li class="zbrw_jd_item zbrw_jd_item-first @if (st >= 2)
                                                                    {<text>success</text>}"><i></i><span>发布需求<br>
                                                                        @time</span></li>
@@ -83,6 +93,22 @@
                                                  {<text>success</text>}><i></i><span>威客工作</span></li>
                         <li class="zbrw_jd_item zbrw_jd_item-last"  @if (st >= 7)
                                                                     { <text>success</text> }><i></i><span>验收付款</span></li>
+=======
+                        <li class="zbrw_jd_item zbrw_jd_item-first @if (st == 2)
+                                                                   {<text>success</text>}"><i></i><span>发布需求<br>
+                                                                       2015.1.1</span></li>
+                        <li class="zbrw_jd_item  @if (st == 2)
+                                                 {<text>success</text>}"><i></i><span>托管赏金</span></li>
+                        <li class="zbrw_jd_item  @if (st == 2)
+                                                 {<text>success</text>}"><i></i><span>威客投标<br>
+                                                                       2014.11.10</span></li>
+                        <li class="zbrw_jd_item  @if (st == 2)
+                                                 {<text>success</text>}"><i></i><span>雇主选标</span></li>
+                        <li class="zbrw_jd_item" @if (st == 2)
+                                                 {<text>success</text>}><i></i><span>威客工作</span></li>
+                        <li class="zbrw_jd_item zbrw_jd_item-last"  @if (st == 2)
+                                                                    {<text>success</text>}><i></i><span>验收付款</span></li>
+>>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
                     </ul>
                 </div>
             </div>
@@ -194,7 +220,11 @@
                 <div class="cont_r_t_head_text">
                     <div>
                         <a href="#">@cy["name"]</a></div>
+<<<<<<< HEAD
                     <i class="icon_rz"></i><i class="icon_phone"></i><a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=@ViewBag.to" target="_blank">
+=======
+                    <i class="icon_rz"></i><i class="icon_phone"></i><a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=xxx" target="_blank">
+>>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
                         <button>
                             私信</button></a>
                 </div>

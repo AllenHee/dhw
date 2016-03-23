@@ -3,138 +3,52 @@
 }
 <!--主内容 开始-->
 <div class="sbcs_content clearfix">
-    <div class="sbcs_type">
-        <h1 class="sbcs_type_ttl">
-            商标转让分类</h1>
-        <ul class="sbcs_type_cont clearfix">
-            @{var Category = ViewBag.Category as IEnumerable<DHW.Rshop.Data.TrademarkCategoryEntity>;}
-            @foreach (var item in Category)
-            {               
-                <li class="sbcs_type_cont_item"  data-pcode="@item.code" title="@{@(string.Join("\r\n", item.Child.Select(it => it.name + " " + it.code)))}">
-                    @item.code-@item.name
-                </li>
-            }
-        </ul>
-    </div>
-    <div class="sbcs_filterbox">
-        <dl class="sbcs_filterbox_items clearfix">
-            <dt>注册年限 : </dt>
-            <dd class="sbcs_filterbox_current">
-                不限</dd>
-            <dd>
-                1年一下</dd>
-            <dd>
-                1年以上</dd>
-            <dd>
-                2年以上</dd>
-            <dd>
-                3年以上</dd>
-            <dd>
-                4年以上</dd>
-            <dd>
-                5年以上</dd>
-        </dl>
-        <dl class="sbcs_filterbox_items clearfix">
-            <dt>价格区间 : </dt>
-            <dd class="sbcs_filterbox_current">
-                不限</dd>
-            <dd>
-                1万以下</dd>
-            <dd>
-                1-3万</dd>
-            <dd>
-                3-5万</dd>
-            <dd>
-                5-10万</dd>
-            <dd>
-                10-20万</dd>
-            <dd>
-                20-50万</dd>
-            <dd>
-                50万以上</dd>
-        </dl>
-        <dl class="sbcs_filterbox_items clearfix">
-            <dt>类型 : </dt>
-            <dd class="sbcs_filterbox_current">
-                不限</dd>
-            <dd>
-                纯中文</dd>
-            <dd>
-                纯英文</dd>
-            <dd>
-                纯数字</dd>
-            <dd>
-                纯图形</dd>
-        </dl>
-    </div>
+    @Helper1.display_query_cagetory(ViewBag.Category)
+    @Helper1.display_query_para()
     <div class="liaobiao_cont_l">
         <div class="liebiao_rank">
             <span class="rank">排序：</span> <span class="rank_item selected">综合排序</span> <span
                 class="rank_item_pop"><i></i>人气</span> <span class="rank_item_price"><i></i>价格</span>
         </div>
         <ul class="items clearfix">
-            <li class="item">
-                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-01.png">
-                <div class="item_detail">
-                    <span class="price"><span class="sign">￥ </span>123</span> <span class="first_sort">
-                        第25类 古迪森</span> <span class="second_sort">大声道是的发生地阿芳居民私服那里卡萨发</span>
-                </div>
-            </li>
-            <li class="item">
-                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-01.png">
-                <div class="item_detail">
-                    <span class="price"><span class="sign">￥ </span>123</span> <span class="first_sort">
-                        第25类 古迪森</span> <span class="second_sort">大声道是的发生地阿芳居民私服那里卡萨发</span>
-                </div>
-            </li>
-            <li class="item">
-                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-01.png">
-                <div class="item_detail">
-                    <span class="price"><span class="sign">￥ </span>123</span> <span class="first_sort">
-                        第25类 古迪森</span> <span class="second_sort">大声道是的发生地阿芳居民私服那里卡萨发</span>
-                </div>
-            </li>
-            <li class="item">
-                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-01.png">
-                <div class="item_detail">
-                    <span class="price"><span class="sign">￥ </span>123</span> <span class="first_sort">
-                        第25类 古迪森</span> <span class="second_sort">大声道是的发生地阿芳居民私服那里卡萨发</span>
-                </div>
-            </li>
-            <li class="item">
-                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-01.png">
-                <div class="item_detail">
-                    <span class="price"><span class="sign">￥ </span>123</span> <span class="first_sort">
-                        第25类 古迪森</span> <span class="second_sort">大声道是的发生地阿芳居民私服那里卡萨发</span>
-                </div>
-            </li>
-            <li class="item">
-                <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-01.png">
-                <div class="item_detail">
-                    <span class="price"><span class="sign">￥ </span>123</span> <span class="first_sort">
-                        第25类 古迪森</span> <span class="second_sort">大声道是的发生地阿芳居民私服那里卡萨发</span>
-                </div>
-            </li>
         </ul>
+        <div class="pagination">
+        </div>
     </div>
     <div class="liebiao_recommend">
         <span class="recommend_title">精品推荐</span>
-        <div class="recommend_item">
-            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-02.png">
-            <span class="recommend_price">￥ <span>38888888888.88</span> </span>
-        </div>
-        <div class="recommend_item">
-            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-02.png">
-            <span class="recommend_price">￥ <span>38888888888.88</span> </span>
-        </div>
-        <div class="recommend_item">
-            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-02.png">
-            <span class="recommend_price">￥ <span>38888888888.88</span> </span>
-        </div>
-        <div class="recommend_item">
-            <img src="@{@BaseConfigs.GetUrlCdn}sbcs/images/liebiao-02.png">
-            <span class="recommend_price">￥ <span>38888888888.88</span> </span>
-        </div>
+        @{var ad = ViewBag.Ad as System.Data.DataTable;}
+        @for (int i = 0; i < ad.Rows.Count; i++)
+        {
+            var row = ad.Rows[i];
+            <div class="recommend_item">
+                <img src="@row["img"]" alt="@row["alt"]">
+                <span class="recommend_price">￥ <span>@row["price"]</span> </span>
+            </div>
+        }
+       
     </div>
 </div>
 <!--主内容 结束-->
+@section scripts{
+    <script type="text/html" id="sbTemplate">
+  {{each data as sb}}
+  <li class="item">
+    <a href="/trademark/{{sb.id}}"><img src="{{domain}}{{sb.img}}"></a>
+    <div class="item_detail">
+      <span class="price">
+      <span class="sign">￥
+      </span>{{sb.price}}</span>
+      <span class="first_sort"><span>{{sb.pcodeName}}</span> {{sb.name}}</span>
+      {{each sb.type as t}}
+      <span class="second_sort">{{t}}</span>
+      {{/each}}
+    </div>
+  </li>
+  {{/each}}
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/sb_liebiao.js"></script>
+}

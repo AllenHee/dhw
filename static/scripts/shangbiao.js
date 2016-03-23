@@ -11,6 +11,10 @@ $('.index_trademark_show').on('mouseleave', '.index_trademark_show_item', functi
   $(this).find('.index_trademark_mask').hide();
 })
 
+
+
+
+// 取数据
 var s_firPic = {};
 var s_fouPic = {};
 var s_secPic = {};
@@ -19,9 +23,6 @@ var firPic = [];
 var secPic = [];
 var thiPic = [];
 var fouPic = [];
-
-
-// 取数据
 function getData(pcode) {
   $.post('/index/list', { pcode: pcode }).success(function(data) {
     var typeHtml = template('typeName', data.result)
@@ -168,7 +169,29 @@ $('.index_search_span').mouseenter(function () {
 $('.index_search_span').mouseleave(function () {
   $('.index_search_type').hide();
 })
-$('.index_search_type li').click(function () {
+$('.index_search_type dd, .index_search_type dt').click(function () {
   $('.index_search_type').hide();
-  $('.index_search_span span').text($(this).text())
+  $('.index_search_span_s').text($(this).text())
+})
+
+// 点击搜索跳转页面
+var price1, price2, year1, year2, type, pcode = '01', keyword;
+$('.sbcs_filterbox_items').eq(0).find('dd').click(function () {
+  year1 = $(this).attr('data-min');
+  year2 = $(this).attr('data-max');
+})
+$('.sbcs_filterbox_items').eq(1).find('dd').click(function () {
+  price1 = $(this).attr('data-min');
+  price2 = $(this).attr('data-max');
+})
+$('.sbcs_filterbox_items').eq(2).find('dd').click(function () {
+  type = $(this).text();
+})
+$('.index_search_type dd').click(function () {
+  pcode = $(this).find('span').text();
+})
+$('.index_search_button').click(function () {
+  keyword = $('.index_search_input').val()
+  var url = '/trademark?keyword=' + keyword + '&&year1=' + year1 + '&&price2=' + price2 + '&&price1=' + price1 + '&&price2=' + price2 + '&&type=' + type + '&&pcode=' + pcode;
+  window.location.href = encodeURI(url)
 })
