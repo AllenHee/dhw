@@ -217,31 +217,28 @@
       $(this).addClass("cysearch_head_sortd-curent");
       para.type = $(this).index();
       loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-      console.log(para.type);
+      // console.log(para.type);
     })
     $(".cysearch_head_sort").eq(1).children("dd").click(function() {
+      if($(this).hasClass("more")) {
+        return false;
+      }
       $(this).parent().children().removeClass("cysearch_head_sortd-curent");
       $(this).addClass("cysearch_head_sortd-curent");
       para.city_code = $(this).attr('data-citycode');
       loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-      console.log(para.city_code)
+      // console.log(para.city_code)
     })
     
-    // $(".cysearch_head_sortd").click(function() {
-    //   $(this).parent().children().removeClass("cysearch_head_sortd-curent")
-    //   $(this).addClass("cysearch_head_sortd-curent")
-    //   para.city_code = $(this).attr('data-citycode');
-    //   loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-    //   console.log(para.city_code);
-    // })
-    
-    $(".moreAddr li").click(function() {
+    $(".moreAddr li").click(function(event) {
+      event.stopPropagation();
       $(".cysearch_head_sort").eq(1).children('dd').removeClass("cysearch_head_sortd-curent")
       $(".cysearch_head_sort dd:last").prev().addClass("cysearch_head_sortd-curent");
       $(".cysearch_head_sort dd:last").prev().text($(this).text());
       para.city_code = $(this).attr('data-citycode');
       loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
       console.log(para.city_code)
+      // console.log(1)
     })
     $('.search').click(function() {
       para.minmoney = $('#minmoney').val();
