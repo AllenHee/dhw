@@ -10,6 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <title>创意设计-任务详情</title>
   <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/webuploader.css">
   <!--<link rel="stylesheet" href="http://localhost:8084/zhongbao/styles/style.css">-->
   <link rel="stylesheet" href="styles/cysj.css">
   <script type="text/javascript">
@@ -17,7 +18,8 @@
       imgurl: 'http://192.168.2.10:81/img/',
       imguploadurl: 'http://192.168.2.10:82/uploadimg',
       mainurl: 'http://localhost:8085/',
-      staticurl: 'http://localhost:8070'
+      staticurl: 'http://localhost:8070',
+      fileuploadurl: 'http://192.168.2.10:82/uploadfj',
     };
     var cpid = 1;
   </script>
@@ -124,48 +126,57 @@
         </ul>
       </div>
       <!--投标-->
-      <div class="toubiao" ng-app="toubiao" ng-controller="tbCtrl">
-        <form name="toubiao">
+    <div class="toubiao">
+        <form id="toubiao" method="post" action="">
           <div class="price">
             <label>任务报价：</label>
-            <input class="toubiao_input" type="text" id="price" name="price" ng-model="data.quote" ng-pattern="/^[1-9]{1}\d*$/" required>元（雇佣预期价格为￥500-1000）
-            <span class="wrongTip" ng-show="toubiao.price.$dirty && toubiao.price.$invalid">* 请输入正确报价</span>
+            <input class="toubiao_input" type="text" id="price" name="price">
+            <!--<span class="wrongTip" ng-show="toubiao.price.$dirty && toubiao.price.$invalid">* 请输入正确报价</span>-->
           </div>
           <div class="cycle">
             <label>工作周期：</label>
-            <input class="toubiao_input" type="text" id="cycle" name="worktime" ng-model="data.worktime" ng-pattern="/^[1-9]{1}\d*$/"
-            required>天
-            <span class="wrongTip" ng-show="toubiao.worktime.$dirty && toubiao.worktime.$invalid">* 请输入正确工作周期</span>
+            <input class="toubiao_input" type="text" id="cycle" name="cycle">
+            <!--<span class="wrongTip" ng-show="toubiao.worktime.$dirty && toubiao.worktime.$invalid">* 请输入正确工作周期</span>-->
           </div>
           <div class="areaselect">
             <label>所在地区：</label>
-            <input type="text" id="address" name="address" ng-model="data.address" required>
-            <span class="wrongTip" ng-show="toubiao.address.$dirty && toubiao.address.$invalid">* 请选择地址</span>
+            <input type="text" id="address" name="address" readonly>
+            <!--<span class="wrongTip" ng-show="toubiao.address.$dirty && toubiao.address.$invalid">* 请选择地址</span>-->
             <ul class="provUl">
 
             </ul>
             <ul class="cityUl">
 
             </ul>
-            <ul class="countyUl">
+            <!--<ul class="countyUl">
 
-            </ul>
+            </ul>-->
           </div>
           <div class="explain">
             <label>报价说明：</label>
             </br>
-            <textarea class="toubiao_textarea" name="intro" ng-model="data.intro" required></textarea>
-            <span class="wrongTip" ng-show="toubiao.intro.$dirty && toubiao.intro.$invalid">* 请输入报价说明</span>
+            <textarea class="toubiao_textarea" name="intro" id="intro"></textarea>
+            <!--<span class="wrongTip" ng-show="toubiao.intro.$dirty && toubiao.intro.$invalid">* 请输入报价说明</span>-->
           </div>
           <div class="toubiao_yzm">
             <label>验证码：</label>
-            <input type="text">
+            <input type="text" id="yzm_input">
+            <img  id="yzm" src="/Detail/VerifyCode?_=1450339330618" alt="验证图片" onclick=aa()>
           </div>
+          <p class="fileUp_tooltip"><i>*     </i>只能上传单个文件，如需要上传多个文件请先压缩为 .zip 或者 .rar的形式在上传</p>
+          <div id="fileUp">
+          <div class="wu-example formUploadImg clearfix">
+              <div class="btns">
+                  <div id="picker">选择文件</div>
+              </div>
+              <div class="uploader-list" ></div>
+          </div>
+          </div>  
           <p>请遵守<a href="#">投标/投稿规则</a>，否则将隐藏稿件并酌情予以惩罚。</p>
-          <button id="toubiao" class="tb" ng-click="submit()">投标</button>
+          <input id="toubiao" type="submit" class="tb tb_btn" value="投标">
         </form>
-      </div>
-
+ </div>
+ <!--投标结束-->
 
       <!--参与投稿-->
       <div class="cytg">
@@ -346,6 +357,8 @@
   </div>
 
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/jquery.validate.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/webuploader.nolog.min.js"></script>
   <script src="http://localhost:8070/lib/angular/angular.min.js"></script>
   <script src="http://localhost:8070/scripts/data.js"></script>
   <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
@@ -357,6 +370,11 @@
   <script src="http://localhost:8070/scripts/cysj.rwxqCtrl.js"></script>
   <script>
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+  </script>
+  <script>
+    function aa() {
+      $("#yzm").attr('src', '/Detail/VerifyCode?_=' + (+new Date()));
+    }
   </script>
 </body>
 

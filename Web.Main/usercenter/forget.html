@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>梦高速-找回密码</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+  <div class="content_bottom">
+    <div class="content">
+      <div class="logo clearfix">
+        <div class="logo_img">
+          <a href="#"><img src="images/dl_logo.jpg" alt="#"></a>
+        </div>
+        <h2 class="logo_text">重置登录密码</h2>
+      </div>
+    </div>
+  </div>
+  <div class="forget_form">
+     <div class="forget_tip">
+       <i class="forget_icon"></i>
+       <span>请输入您需要重置密码的用户名</span>
+     </div>
+  <form id="signupForm" method="post" action="">
+     <div class="forget_form_input clearfix">
+       <div class="forget_form_input_text">
+            <label for=""><i class="forget_form_need_icon">*   </i>用户名 : </label>
+       </div>
+       <div class="forget_form_input_write">      
+            <input type="text" placeholder="邮箱/用户名/手机号码" id="username" name="username">
+       </div>     
+     </div>
+     <div class="forget_form_input clearfix">
+       <div class="forget_form_input_text">
+          <label for=""><i class="forget_form_need_icon">*   </i>用户名 : </label>
+       </div>
+       <div class="forget_form_input_radio">   
+          <input type="radio" name="confirm" data-type="2" id="phone" class="{required:true}" disabled="">手机验证
+          <input type="radio" name="confirm" data-type="1" id="mail">邮箱验证
+       </div>
+     </div>
+     <div class="forget_form_input clearfix">
+       <div class="forget_form_input_text">
+          <label for=""><i class="forget_form_need_icon">* </i>验证码 : </label>
+       </div>
+       <div class="forget_form_input_confirm">   
+          <input type="text" id="confirm_number" name="confirm_number">
+       </div>
+       <div class="forget_form_send_btn">
+           <button type="button" class="forget_form_btn confirm_send_btn">发送验证码</button>
+       </div>   
+     </div>
+     <div class="forget_form_input clearfix">
+       <div class="forget_form_input_text">
+            <label for=""><i class="forget_form_need_icon">* </i>新密码 : </label>
+       </div>
+       <div class="forget_form_input_write">      
+            <input type="password" id="new_pass" name="new_pass" >
+       </div>     
+     </div>
+     <div class="forget_form_input clearfix">
+       <div class="forget_form_input_text">
+            <label for=""><i class="forget_form_need_icon">* </i>确认新密码 : </label>
+       </div>
+       <div class="forget_form_input_write">      
+            <input type="password" id="confirm_pass" name="confirm_pass" >
+       </div>     
+     </div> 
+     <div class="forget_form_input">
+       <input type="submit" class="forget_form_btn" id="submit_btn" value="提交">
+     </div>
+  </form>
+  </div>
+  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/jquery.validate.min.js"></script>
+  <script src="http://localhost:8070/scripts/forgetpass.js"></script>
+</body>
+</html>

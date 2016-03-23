@@ -158,7 +158,6 @@
     $(".ban_btns a").click(function() {
       $(this).addClass("current").siblings().removeClass("current");
       para.type = $(this).attr('data-index');
-      console.log(para.type)
       var i = $(this).index();
       $(".gsdt").children("div").eq(i+1).addClass("show").siblings().removeClass("show");
       loadData("/CompanyHome/DTList", para, "dongtai", ".gongsi", false);

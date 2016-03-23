@@ -57,7 +57,7 @@
             <li @if (ap == "/apphome")
                 { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}
                 else
-                {<text>class="title_nav_ul_items"</text>}><a href="@Helper1.AppUrl("/AppHome", ViewBag.LoginAsCompany)" target="_self">
+                {<text>class="title_nav_ul_items"</text>}><a href="@{@BaseConfigs.GetUrlMain}apphome#/" target="_self">
                     首页</a></li>
             <li @if (ap == "/appzb")
                 { <text>class="title_nav_ul_items title_nav_ul_items-current"</text>}

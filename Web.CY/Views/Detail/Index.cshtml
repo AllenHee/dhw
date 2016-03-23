@@ -1,4 +1,9 @@
-﻿@{var cy = ViewBag.detailHead as System.Data.DataRow;}
+﻿@{
+    var cy = ViewBag.detailHead as System.Data.DataRow;
+    byte st = (byte)cy["statusmc"];
+    string time = cy["time"] == "" ? "" : ((DateTime)cy["time"]).ToString("yyyy-MM-dd");
+    string logo = cy["logo"] == null ? "" : cy["logo"].ToString();
+}
 @{
     var title = @cy["title"];
     ViewBag.Title = title + " - 梦高速创意设计";   
@@ -19,39 +24,65 @@
                     <li class="zbrw_t_l_time"><i></i>稿截日期：<span>@ViewBag.endtime</span></li>
                     <li class="zbrw_t_l_sjfp"><span class="zbrw_t_l_sjfp-icon"></span>赏金分配：一人独享赏金 <i></i>
                         <div class="pos_tip">
-                            解释说明文字解释说明文字解释说明文字解解释说明文字解释说明文字解释说明文字解释说明文字释说明文字解释说明文字</div>
+                            赏金由最终选中者拥有！</div>
                     </li>
                 </ul>
             </div>
             <div class="zbrw_t_r clearfix">
-                <div class="zbrw_t_r-div">
-                    <p>
-                        浏览人数</p>
-                    <p class="zbrw_t_r_black">
-                        @cy["browse"]</p>
+                <div class="zbrw_t_r_t clearfix">
+                    <div class="zbrw_t_r-div zbrw_t_r-l">
+                        <p>
+                            浏览人数</p>
+                        <p class="zbrw_t_r_black">@cy["browse"]</p>
+                    </div>
+                    <div class="zbrw_t_r-div zbrw_t_r-r">
+                        <p>
+                            交稿数量</p>
+                        <p class="zbrw_t_r_red">@cy["counts"]</p>
+                    </div>
                 </div>
-                <div class="zbrw_t_r-div">
-                    <p>
-                        交稿数量</p>
-                    <p class="zbrw_t_r_red">
-                        @cy["manuscript"]</p>
-                </div>
-                <div class="bdsharebuttonbox">
-                    <a href="#" class="hd_cont_l_share bds_more" data-cmd="more">分享 </a>
+                <div class="zbrw_t_r_t clearfix">
+                    <div class="zbrw_t_r-div">
+                        @if (ViewBag.DUser.HasLogin)
+                        {
+                            if (cy["isCollect"].ToString() == "1")
+                            {
+                            <a href="javascript:" class="zbrw_t_r_atte cancel">已收藏(<span>@cy["collect"]</span>)</a>
+                            }
+                            else
+                            {
+                            <a href="javascript:" class="zbrw_t_r_atte" data-collection="@cy["collect"]" onclick="CysjSc()">
+                                收藏(<span>@cy["collect"]</span>)</a>
+                            }
+                        }
+                        else
+                        {
+                            <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}" class="zbrw_t_r_atte">
+                                收藏(<span>@cy["collect"]</span>)</a>
+                        }
+                    </div>
+                    <div class="bdsharebuttonbox">
+                        <a href="#" class="hd_cont_l_share bds_more" data-cmd="more">分享 </a>
+                    </div>
                 </div>
             </div>
             <!--进度块-->
             <div class="zbrw_jind">
                 <div class="zbrw_jd">
                     <ul class="clearfix">
-                        <li class="zbrw_jd_item zbrw_jd_item-first success"><i></i><span>发布需求<br>
-                            2015.1.1</span></li>
-                        <li class="zbrw_jd_item success"><i></i><span>威客投标<br>
-                            2014.11.10</span></li>
-                        <li class="zbrw_jd_item success"><i></i><span>雇主选标</span></li>
-                        <li class="zbrw_jd_item success"><i></i><span>托管赏金</span></li>
-                        <li class="zbrw_jd_item"><i></i><span>威客工作</span></li>
-                        <li class="zbrw_jd_item zbrw_jd_item-last"><i></i><span>验收付款</span></li>
+                        <li class="zbrw_jd_item zbrw_jd_item-first @if (st >= 2)
+                                                                   {<text>success</text>}"><i></i><span>发布需求<br>
+                                                                       @time</span></li>
+                        <li class="zbrw_jd_item  @if (st >= 3)
+                                                 {<text>success</text>}"><i></i><span>托管赏金</span></li>
+                        <li class="zbrw_jd_item  @if (st >= 4)
+                                                 {<text>success</text>}"><i></i><span>威客投标</span></li>
+                        <li class="zbrw_jd_item  @if (st >= 5)
+                                                 {<text>success</text>}"><i></i><span>雇主选标</span></li>
+                        <li class="zbrw_jd_item" @if (st >= 6)
+                                                 {<text>success</text>}><i></i><span>威客工作</span></li>
+                        <li class="zbrw_jd_item zbrw_jd_item-last"  @if (st >= 7)
+                                                                    { <text>success</text> }><i></i><span>验收付款</span></li>
                     </ul>
                 </div>
             </div>
@@ -67,7 +98,7 @@
             <ul>
                 <li class="rwxq_doc"><a href="@BaseConfigs.GetImgPath@cy["attachment"]"><i></i>@cy["attachment_orgin"]</a><a href="@BaseConfigs.GetImgPath@cy["attachment"]">下载</a>
                 </li>
-                <li class="rwxq_dl"><a href="#"><i></i>apple.jpg</a>（15.00k） </li>
+                @*<li class="rwxq_dl"><a href="#"><i></i>apple.jpg</a>（15.00k） </li>*@
             </ul>
         </div>
         <!--投标-->
@@ -106,10 +137,9 @@
                 <textarea class="toubiao_textarea" name="intro" ng-model="data.intro" required></textarea>
                 <span class="wrongTip" ng-show="toubiao.intro.$dirty && toubiao.intro.$invalid">* 请输入报价说明</span>
             </div>
-            <div class="toubiao_yzm">
-                <label>
-                    验证码：</label>
-                <input type="text">
+            <div id="divyzm" class="toubiao_yzm">
+                <input id="txt1" type="text" name="verify" placeholder="请输入验证码">
+                <img  id="yzm" src="/Detail/VerifyCode?_=@{@DateTime.Now.Ticks}" alt="验证图片" onclick=aa()>
             </div>
             <p>
                 请遵守<a href="#">投标/投稿规则</a>，否则将隐藏稿件并酌情予以惩罚。</p>
@@ -155,15 +185,18 @@
             <div class="cont_r_t_head clearfix">
                 <div class="cont_r_t_head_img">
                     <div>
-                        <a href="#">
-                            <img src="@cy["logo"]" alt="头像"></a></div>
+                        @if (logo != "")
+                        {
+                            <img src="@logo" alt="头像">}
+                        else
+                        {<img src="@logo" alt="头像">}</div>
                 </div>
                 <div class="cont_r_t_head_text">
                     <div>
                         <a href="#">@cy["name"]</a></div>
-                    <i class="icon_rz"></i><i class="icon_phone"></i>
-                    <button>
-                        私信</button>
+                    <i class="icon_rz"></i><i class="icon_phone"></i><a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=@ViewBag.to" target="_blank">
+                        <button>
+                            私信</button></a>
                 </div>
             </div>
             <ul class="cont_r_t_haop">
@@ -185,6 +218,9 @@
                     <p>
                         等级</p>
                 </li>
+                @if (cy["type"].ToString() == "2")
+                {
+                    <li>公司主页：<a href="@{@BaseConfigs.GetUrlMain}Company/Index/@cy["ddid"]" target="_blank"><span>点击进入</span></a></li>}
             </ul>
         </div>
         <div class="cont_r_b">
@@ -209,6 +245,12 @@
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxq.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxqCtrl.js"></script>
+    <script type="text/javascript">
+
+        function aa() {
+            $("#yzm").attr('src', '/Detail/VerifyCode?_=' + (+new Date()));
+        }
+    </script>
     <script>
         with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
     </script>
@@ -237,7 +279,7 @@
     {{each data as comment}}
     <li class="fbly_items">
       <img src="{{domain+comment.userimage}}_100x100.jpg" alt="{{comment.username}}">
-      <p class="fbly_items_time"><a href="{{comment.id}}">{{comment.username}} </a>留言于 {{comment.time}}</p>
+   <p class="fbly_items_time"> @*<a href="{{comment.id}}"></a>*@{{comment.username}} 留言于 {{comment.time}}</p>
       <p>{{comment.commemt}}</p>
     </li>
     {{/each}}
@@ -246,15 +288,15 @@
     {{each data as tg}}
     <li class="cytg_group clearfix">
       <div class="cytg_l">
-        <div class="cytg_l_img"><img src="{{domain+tg.img}}" alt="#"></div>
+        <div class="cytg_l_img"><img src="{{domain+tg.img}}_100x100.jpg" alt="#"></div>
         <div class="cytg_l_text">
-          <div><a href="{{tg.id}}">{{tg.username}}</a><i class="icon_rz"></i><i class="icon_phone"></i></div>
+          <div>@*<a href="{{tg.id}}"></a>*@{{tg.username}}&nbsp &nbsp<i class="icon_rz"></i><i class="icon_phone"></i></div>
           <p class="cytg_l_gray">{{tg.usertype}}<span>|</span>{{tg.address}}</p>
         </div>
       </div>
       <div class="cytg_r">
-        <button>快速沟通</button>
-        <button>雇佣TA</button>
+        <a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to={{tg.to}}" target="_blank"><button>快速沟通</button></a>
+      @*<button>雇佣TA</button>*@
       </div>
     </li>
     {{/each}}

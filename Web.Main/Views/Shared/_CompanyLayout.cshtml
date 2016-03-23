@@ -185,9 +185,7 @@
                 if (r.success && r.result.IsAuthenticated) {
                     dhw = dhw || {};
                     dhw.isLogined = true;
-                    var app;
-                    if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
-                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + app + '" target="_blank">' + r.result.Name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + r.result.Name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
                 }
                 else {
                     dhw.isLogined = false;
