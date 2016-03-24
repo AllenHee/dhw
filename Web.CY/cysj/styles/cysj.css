@@ -1465,6 +1465,9 @@ body.zbxq {
   height: 21px;
   width: 80px;
 }
+.toubiao_yzm img {
+  vertical-align: bottom;
+}
 .toubiao button {
   margin-top: 10px;
   height: 35px;
@@ -1703,6 +1706,22 @@ body.zbxq {
   background: #f5f4df;
   font-size: 12px;
 }
+/*附件上传按钮样式 zhuang*/
+.webuploader-pick {
+  background: #ca4742;
+  padding: 5px 10px;
+}
+.btns {
+    float: left;
+}
+.item {
+    float: left;
+    margin-left: 33px;
+    line-height: 19px;
+}
+.fileUp_tooltip i {
+  color: red;
+}
 /*
 * 发布留言
 * 何伟
@@ -1819,6 +1838,20 @@ body.zbxq {
 .areaselect input {
   height: 30px;
   width: 400px;
+}
+.tb_btn {
+    margin-top: 10px;
+    height: 35px;
+    width: 120px;
+    color: #fff;
+    background: #ca4742;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+label.error {
+  display: block;
+  color: #EF5050
 }
 /*
  * 何伟

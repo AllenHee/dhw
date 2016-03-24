@@ -1427,3 +1427,75 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+/*忘记密码页面样式*/
+.content_bottom {
+  border-bottom: 1px solid #ccc
+}
+.forget_form {
+  width: 761px;
+  padding: 23px 93px 38px 93px;
+  border:1px solid #ccc;
+  margin: 42px auto;
+}
+.forget_tip {
+  padding: 14px 0px 14px 0px;
+  font-size: 18px;
+  border-bottom:1px solid #ccc; 
+}
+.forget_icon {
+  width: 17px;
+  height: 16px;
+  display: inline-block;
+  background: url('../images/gth.png') no-repeat
+}
+.forget_form_input {
+  margin-top: 40px;
+  line-height: 32px;
+  text-align: left;
+}
+.forget_form_input label {
+  font-size: 16px;
+}
+.forget_form_need_icon {
+  color: red
+}
+.forget_form_input_write input {
+  width: 259px;
+  height: 26px;
+  border: 1px solid #ccc;
+  padding: 5px 5px 5px 10px;
+}
+.forget_form_input_text {
+  width: 163px;
+  height: 38px;
+  line-height: 38px;
+  margin-right: 28px;
+  text-align: right
+}
+.forget_form_send_btn {
+  float: left;
+  margin-left: 10px;
+}
+.forget_form_input_confirm input {
+  /*width: 90px;*/
+  height: 28px;
+  border: 1px solid #ccc;
+}
+.forget_form_input_text,
+.forget_form_input_write,
+.forget_form_input_radio,
+.forget_form_input_confirm {
+  float:left
+}
+.forget_form_btn {
+  width: 98px;
+  height: 32px;
+  border: 1px solid #ccc;
+  background-color: #f3f5f7;
+  cursor: pointer;
+}
+label.error {
+  display: block;
+  color: #EF5050
+}

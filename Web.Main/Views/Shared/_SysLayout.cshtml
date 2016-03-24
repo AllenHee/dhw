@@ -92,7 +92,7 @@
             </div>
             <ul class="ucNav_list" nav-slide>
                 <li class="ucNav_list_item ucNav_list_item--slider"></li>
-                <a href="@Helper2.AppUrl("/AppHome", ViewBag.LoginAsCompany)" target="_self">
+                <a href="@{@BaseConfigs.GetUrlMain}apphome#/" target="_self">
                     <li @if (ap == "/apphome")
                         { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
                         else
@@ -163,9 +163,11 @@
                 <label class="ucNav_search_btn">
                 </label>
             </div>
-            <div switch-type>
+            <div switch-type @if (ap == "/apphome")
+                             {<text> data-curl="zhxx/company" data-purl="pzhxx/person"</text>}>
             </div>
         </div>
+    </div>
     </div>
     <!--个人中心导航栏 结束-->
     <!--个人中心主内容 开始-->
@@ -202,17 +204,15 @@
                 if (r.success && r.result.IsAuthenticated) {
                     dhw = dhw || {};
                     dhw.isLogined = true;
-                    var app;
                     var nickname = r.result.nickname;
                     var name;
-                    if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
                     if (nickname == "") {
                         name = r.result.Name;
                     }
                     else {
                         name = nickname + "(" + r.result.Name + ")";
                     }
-                    $('#bb01').html('您好，<a class="nav_right_list_item_login" href="' + dhw.urlmain + '' + app + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+                    $('#bb01').html('您好，<a class="nav_right_list_item_login" href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
                 }
                 else {
                     dhw.isLogined = false;
