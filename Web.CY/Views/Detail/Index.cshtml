@@ -1,17 +1,16 @@
 ﻿@{
     var cy = ViewBag.detailHead as System.Data.DataRow;
-<<<<<<< HEAD
     byte st = (byte)cy["statusmc"];
     string time = cy["time"] == "" ? "" : ((DateTime)cy["time"]).ToString("yyyy-MM-dd");
     string logo = cy["logo"] == null ? "" : cy["logo"].ToString();
-=======
-    var status = ViewBag.detaiStatus as System.Data.DataRow;
-    int st = (int)status["statusmc"];
->>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
 }
 @{
     var title = @cy["title"];
     ViewBag.Title = title + " - 梦高速创意设计";   
+    
+}
+@section headpre{
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}styles/webuploader.css">
 }
 @*陈树阳 2015.11.24*@
 <div class="content">
@@ -43,11 +42,7 @@
                     <div class="zbrw_t_r-div zbrw_t_r-r">
                         <p>
                             交稿数量</p>
-<<<<<<< HEAD
                         <p class="zbrw_t_r_red">@cy["counts"]</p>
-=======
-                        <p class="zbrw_t_r_red">@cy["manuscript"]</p>
->>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
                     </div>
                 </div>
                 <div class="zbrw_t_r_t clearfix">
@@ -56,7 +51,8 @@
                         {
                             if (cy["isCollect"].ToString() == "1")
                             {
-                            <a href="javascript:" class="zbrw_t_r_atte cancel">已收藏(<span>@cy["collect"]</span>)</a>
+                            <a href="javascript:" data-collection="@cy["collect"]" class="zbrw_t_r_atte cancel">
+                                已收藏(<span>@cy["collect"]</span>)</a>
                             }
                             else
                             {
@@ -66,7 +62,7 @@
                         }
                         else
                         {
-                            <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}" class="zbrw_t_r_atte">
+                            <a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}" data-collection="@cy["collect"]" class="zbrw_t_r_atte">
                                 收藏(<span>@cy["collect"]</span>)</a>
                         }
                     </div>
@@ -79,36 +75,19 @@
             <div class="zbrw_jind">
                 <div class="zbrw_jd">
                     <ul class="clearfix">
-<<<<<<< HEAD
-                        <li class="zbrw_jd_item zbrw_jd_item-first @if (st >= 2)
+                        <li class="zbrw_jd_item zbrw_jd_item-first @if (st >= 2 && st <= 7)
                                                                    {<text>success</text>}"><i></i><span>发布需求<br>
                                                                        @time</span></li>
-                        <li class="zbrw_jd_item  @if (st >= 3)
+                        <li class="zbrw_jd_item  @if (st >= 3 && st <= 7)
                                                  {<text>success</text>}"><i></i><span>托管赏金</span></li>
-                        <li class="zbrw_jd_item  @if (st >= 4)
+                        <li class="zbrw_jd_item  @if (st >= 3 && st <= 7)
                                                  {<text>success</text>}"><i></i><span>威客投标</span></li>
-                        <li class="zbrw_jd_item  @if (st >= 5)
+                        <li class="zbrw_jd_item  @if (st >= 4 && st <= 7)
                                                  {<text>success</text>}"><i></i><span>雇主选标</span></li>
-                        <li class="zbrw_jd_item" @if (st >= 6)
+                        <li class="zbrw_jd_item" @if (st >= 6 && st <= 7)
                                                  {<text>success</text>}><i></i><span>威客工作</span></li>
-                        <li class="zbrw_jd_item zbrw_jd_item-last"  @if (st >= 7)
+                        <li class="zbrw_jd_item zbrw_jd_item-last"  @if (st == 7)
                                                                     { <text>success</text> }><i></i><span>验收付款</span></li>
-=======
-                        <li class="zbrw_jd_item zbrw_jd_item-first @if (st == 2)
-                                                                   {<text>success</text>}"><i></i><span>发布需求<br>
-                                                                       2015.1.1</span></li>
-                        <li class="zbrw_jd_item  @if (st == 2)
-                                                 {<text>success</text>}"><i></i><span>托管赏金</span></li>
-                        <li class="zbrw_jd_item  @if (st == 2)
-                                                 {<text>success</text>}"><i></i><span>威客投标<br>
-                                                                       2014.11.10</span></li>
-                        <li class="zbrw_jd_item  @if (st == 2)
-                                                 {<text>success</text>}"><i></i><span>雇主选标</span></li>
-                        <li class="zbrw_jd_item" @if (st == 2)
-                                                 {<text>success</text>}><i></i><span>威客工作</span></li>
-                        <li class="zbrw_jd_item zbrw_jd_item-last"  @if (st == 2)
-                                                                    {<text>success</text>}><i></i><span>验收付款</span></li>
->>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
                     </ul>
                 </div>
             </div>
@@ -122,62 +101,75 @@
             <h4>
                 项目附件</h4>
             <ul>
-                <li class="rwxq_doc"><a href="@BaseConfigs.GetImgPath@cy["attachment"]"><i></i>@cy["attachment_orgin"]</a><a href="@BaseConfigs.GetImgPath@cy["attachment"]">下载</a>
+                <li class="rwxq_doc"><a href="@BaseConfigs.GetUrlFj@cy["attachment"]"><i></i>@cy["attachment_orgin"]</a><a href="@BaseConfigs.GetUrlFj@cy["attachment"]">下载</a>
                 </li>
                 @*<li class="rwxq_dl"><a href="#"><i></i>apple.jpg</a>（15.00k） </li>*@
             </ul>
         </div>
         <!--投标-->
-        <div class="toubiao" ng-app="toubiao" ng-controller="tbCtrl">
-            <form name="toubiao">
+        <div class="toubiao">
+            <form id="toubiao" method="post" action="">
             <div class="price">
                 <label>
                     任务报价：</label>
-                <input class="toubiao_input" type="text" id="price" name="price" ng-model="data.quote"
-                    ng-pattern="/^[1-9]{1}\d*$/" required>元（雇佣预期价格为￥500-1000） <span class="wrongTip"
-                        ng-show="toubiao.price.$dirty && toubiao.price.$invalid">* 请输入正确报价</span>
+                <input class="toubiao_input" type="text" id="price" name="price">
+                <!--<span class="wrongTip" ng-show="toubiao.price.$dirty && toubiao.price.$invalid">* 请输入正确报价</span>-->
             </div>
             <div class="cycle">
                 <label>
                     工作周期：</label>
-                <input class="toubiao_input" type="text" id="cycle" name="worktime" ng-model="data.worktime"
-                    ng-pattern="/^[1-9]{1}\d*$/" required>天 <span class="wrongTip" ng-show="toubiao.worktime.$dirty && toubiao.worktime.$invalid">
-                        * 请输入正确工作周期</span>
+                <input class="toubiao_input" type="text" id="cycle" name="cycle">
+                <!--<span class="wrongTip" ng-show="toubiao.worktime.$dirty && toubiao.worktime.$invalid">* 请输入正确工作周期</span>-->
             </div>
             <div class="areaselect">
                 <label>
                     所在地区：</label>
-                <input type="text" id="address" name="address" ng-model="data.address" required>
-                <span class="wrongTip" ng-show="toubiao.address.$dirty && toubiao.address.$invalid">
-                    * 请选择地址</span>
+                <input type="text" id="address" name="address" readonly>
+                <!--<span class="wrongTip" ng-show="toubiao.address.$dirty && toubiao.address.$invalid">* 请选择地址</span>-->
                 <ul class="provUl">
                 </ul>
                 <ul class="cityUl">
                 </ul>
-                <ul class="countyUl">
-                </ul>
+                <!--<ul class="countyUl">
+
+            </ul>-->
             </div>
             <div class="explain">
                 <label>
-                    报价说明：</label></br>
-                <textarea class="toubiao_textarea" name="intro" ng-model="data.intro" required></textarea>
-                <span class="wrongTip" ng-show="toubiao.intro.$dirty && toubiao.intro.$invalid">* 请输入报价说明</span>
+                    报价说明：</label>
+                </br>
+                <textarea class="toubiao_textarea" name="intro" id="intro"></textarea>
+                <!--<span class="wrongTip" ng-show="toubiao.intro.$dirty && toubiao.intro.$invalid">* 请输入报价说明</span>-->
             </div>
-            <div id="divyzm" class="toubiao_yzm">
-                <input id="txt1" type="text" name="verify" placeholder="请输入验证码">
-                <img  id="yzm" src="/Detail/VerifyCode?_=@{@DateTime.Now.Ticks}" alt="验证图片" onclick=aa()>
+            <div class="toubiao_yzm">
+                <label>
+                    验证码：</label>
+                <input type="text" id="yzm_input">
+                <img id="yzm" src="/Detail/VerifyCode?_=1450339330618" alt="验证图片" onclick="aa()">
+            </div>
+            <p class="fileUp_tooltip">
+                <i>* </i>只能上传单个文件，如需要上传多个文件请先压缩为 .zip 或者 .rar的形式在上传</p>
+            <div id="fileUp">
+                <div class="wu-example formUploadImg clearfix">
+                    <div class="btns">
+                        <div id="picker">
+                            选择文件</div>
+                    </div>
+                    <div class="uploader-list">
+                    </div>
+                </div>
             </div>
             <p>
                 请遵守<a href="#">投标/投稿规则</a>，否则将隐藏稿件并酌情予以惩罚。</p>
-            <button id="toubiao" class="tb" ng-click="submit()">
-                投标</button>
+            <input id="toubiao" type="submit" class="tb tb_btn" value="投标">
             </form>
         </div>
+        <!--投标结束-->
         <!--参与投稿-->
         <div class="cytg">
             <ul class="cytg_ttl clearfix">
-                <li class="current">参与投稿（<span class="tgCount">58</span>）</li>
-                <li>任务留言（<span class="commentCount">8</span>）</li>
+                <li class="current">参与投稿（<span class="tgCount">0</span>）</li>
+                <li>任务留言（<span class="commentCount">0</span>）</li>
             </ul>
             <div class="cytg_cont">
                 <ul id="cytg_cont">
@@ -220,13 +212,14 @@
                 <div class="cont_r_t_head_text">
                     <div>
                         <a href="#">@cy["name"]</a></div>
-<<<<<<< HEAD
                     <i class="icon_rz"></i><i class="icon_phone"></i><a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=@ViewBag.to" target="_blank">
-=======
-                    <i class="icon_rz"></i><i class="icon_phone"></i><a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=xxx" target="_blank">
->>>>>>> e9c1fc136e28168e4d48b789d959c55cddbf1709
                         <button>
                             私信</button></a>
+                    @if (cy["type"].ToString() == "2")
+                    {
+                        <a class="icon_homepage" href="@{@BaseConfigs.GetUrlMain}Company/Index/@cy["ddid"]" target="_blank" title="公司主页">
+                        </a>
+                    }
                 </div>
             </div>
             <ul class="cont_r_t_haop">
@@ -248,9 +241,6 @@
                     <p>
                         等级</p>
                 </li>
-                @if (cy["type"].ToString() == "2")
-                {
-                    <li>公司主页：<a href="@{@BaseConfigs.GetUrlMain}Company/Index/@cy["ddid"]" target="_blank"><span>点击进入</span></a></li>}
             </ul>
         </div>
         <div class="cont_r_b">
@@ -269,14 +259,15 @@
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/data.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/areaselect.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
-    <script src="@{@BaseConfigs.GetUrlCdn}scripts/baseapp.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxq.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/cysj.rwxqCtrl.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/jquery.validate.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/lib/webuploader.nolog.min.js"></script>
     <script type="text/javascript">
-
+        dhw.fileuploadurl = dhw.urlfjupload;
         function aa() {
             $("#yzm").attr('src', '/Detail/VerifyCode?_=' + (+new Date()));
         }

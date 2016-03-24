@@ -28,6 +28,10 @@ function CysjSc() {
     }
   })
 }
+ function aa() {
+      $("#yzm").attr('src', '/Detail/VerifyCode?_=' + (+new Date()));
+ }
+ $('#yzm').click(aa);
 $(function () {
   // 地址选择
   var provUl = $('.provUl');
@@ -207,10 +211,10 @@ $(function () {
         $.post('/Detail/AddTb',data).success(function(d) {
         if(d.success) {
           alert('提交成功');
-          location.reload();
+         // location.reload();
         }else {
           alert(d.msg);
-          
+          aa();
         }
         })
     }
@@ -242,9 +246,13 @@ $(function () {
       $.post("/Detail/AddLyfb", {
         cpid: cpid,
         commemt: cont
-      }).success(function () {
+      }).success(function (d) {
+        if(d.success) {
         $(".errorTip").css("display", "none");
         loadData("/Detail/ListLy", para, "commentTpl", ".commentCont", false);
+        }else {
+          alert(d.msg)
+        }
       })
     }
   });

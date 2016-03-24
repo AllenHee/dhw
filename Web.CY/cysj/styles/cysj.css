@@ -1563,6 +1563,8 @@ body.zbxq {
 .cont_r_t_head_text a {
   font-size: 20px;
   color: #333;
+  margin-left: 2px;
+  margin-top: 3px;
 }
 .icon_rz {
   display: inline-block;

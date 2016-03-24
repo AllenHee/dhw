@@ -23,9 +23,10 @@
                                 {
                                     var seconds111 = first.CY_Nav_Items[j * 2];                                                          
                                 <dd>
-                                    <a class="@if (j == 0)
-                                              {<text>main_l-current</text>}" href="#">@seconds111.Name</a>@if (j * 2 + 1 < first.CY_Nav_Items.Count)
-                                                                                                          {<a class="" href="#">@first.CY_Nav_Items[j * 2 + 1].Name</a>}</dd>
+                                    <a data-id="@seconds111.ID" class="@if (j == 0)
+                                                                       {<text>main_l-current</text>}" href="#">@seconds111.Name</a>
+                                    @if (j * 2 + 1 < first.CY_Nav_Items.Count)
+                                    {<a data-id="@seconds111.ID" class="" href="#">@first.CY_Nav_Items[j * 2 + 1].Name</a>}</dd>
                                 }
                             }
                         </dl>
@@ -115,7 +116,7 @@
     <!--最新项目-->
     <div class="content_box content_zxxm">
         <h2>
-            最新项目<a class="content_more" href="#">查看更多>></a></h2>
+            最新项目<a class="content_more" href="CyList/List">查看更多>></a></h2>
         <table>
             <thead>
                 <tr>
@@ -229,5 +230,11 @@
                 pct.eq(i).show();
             });
         });
+        $('.main_l a').click(function () {
+            var id = $(this).attr('data-id');
+            var txt = $(this).text();
+            var url = 'CyList/List?id=' + id + '&&txt=' + txt;
+            window.location.href = encodeURI(url)
+        })
     </script>
 }
