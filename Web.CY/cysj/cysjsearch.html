@@ -47,7 +47,7 @@
   <div class="content">
     <!--内容区上部分开始-->
     <div class="cysearch_head">
-      <ul class="daohang">
+      <!--<ul class="daohang">
         <li><a href="">首页</a></li>
         <li><span>></span> <a href="">创意设计</a></li>
         <li><span>></span><a href="">品牌设计</a></li>
@@ -57,15 +57,34 @@
           <input class="find" type="text" placeholder="在当前条件下搜索">
           <i class="fangdajing"></i>
         </li>
-      </ul>
+      </ul>-->
       <div class="filter_box">
         <dl class="cysearch_head_sort clearfix">
           <dt class="cysearch_head_sortt">分类：</dt>
-          <dd class="cysearch_head_sortd cysearch_head_sortd-curent">品牌设计</dd>
-          <dd class="cysearch_head_sortd">取名设计</dd>
-          <dd class="cysearch_head_sortd">宣传品/宣传册</dd>
-          <dd class="cysearch_head_sortd">广告设计</dd>
-          <dd class="cysearch_head_sortd">网店/营销</dd>
+          <dd class="cysearch_head_sortd cysearch_head_sortd-curent" data-id="">全部</dd>
+          <dd class="cysearch_head_sortd" data-id="2">logo设计</dd>
+          <dd class="cysearch_head_sortd" data-id="3">名片设计</dd>
+          <dd class="cysearch_head_sortd" data-id="5">品牌设计</dd>
+          <dd class="cysearch_head_sortd" data-id="6">卡通形象设计</dd>
+          <dd class="cysearch_head_sortd" data-id="8">海报设计</dd>
+          <dd class="cysearch_head_sortd" data-id="9">宣传册设计</dd>
+          <dd class="cysearch_head_sortd"></dd>
+          <dd class="more">更多<i></i>
+            <ul class="moreType clearfix">
+              <li data-id="11">广告牌设计</li>
+              <li data-id="12">横幅设计</li>
+              <li data-id="14">网店设计</li>
+              <li data-id="15">封面设计</li>
+              <li data-id="16">包装设计</li>
+              <li data-id="17">卡通形象设计</li>
+              <li data-id="18">DM设计</li>
+              <li data-id="19">其它宣传品设计</li>
+              <li data-id="20">标签设计</li>
+              <li data-id="21">易拉宝品设计</li>
+              <li data-id="22">户外广告设计</li>
+              <li data-id="23">其它</li>
+            </ul>
+          </dd>
         </dl>
         <dl class="cysearch_head_sort clearfix">
           <dt class="cysearch_head_sortt">所在地：</dt>
@@ -162,28 +181,6 @@
     <!--内容区上部分结束-->
     <!--内容区下部分开始-->
     <ul class="cysearch_result">
-      <!--<li class="cysearch_result_list">
-        <div class="cysearch_result_list_img">
-          <img class="photo" src="images/6.png" alt="">
-        </div>
-        <div class="cysearch_result_list_cont">
-          <p><a class="tittle" href="">资深LOGO设计企业、地产、餐饮、娱乐</a></p>
-          <p class="cysearch_result_rz">
-            <i class="vip"></i>
-            <i class="mingpian"></i>
-            <i class="phone"></i>
-            <i class="tubiao"></i>
-          </p>
-          <p>
-            <a class="cysearch_result_name" href="javascript:">兰灵创意</a>
-            <span class="cysearch_result_dingwei">福建泉州</span>
-            <span class="cysearch_result_call">联系我</span>
-          </p>
-        </div>
-        <span class="cysearch_result_price">￥<span>258</span>/套</span>
-        <span class="cysearch_result_time">截稿日期：<span>2016/04/30</span></span>
-        <span class="cysearch_result_number">浏览人数：<span>520</span></span>
-      </li>-->
     </ul>
     <div class="pagination"></div>
     <!--主内容区下部分结束-->
@@ -193,62 +190,7 @@
   <script src="http://localhost:8070/scripts/template.js"></script>
   <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
   <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
-  <script>
-    $('.more').mouseenter(function () {
-      $('.moreAddr').show();
-    }).mouseleave(function () {
-      $('.moreAddr').hide();
-    })
-    
-    var para = {
-      pageSize: 10,
-      pageIndex: 1
-    }
-    loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-    $(".checkbox").click(function() {
-      $(this).parent().children().removeClass("cysearch_head_sortd-curent")
-      $(this).addClass("cysearch_head_sortd-curent")
-      para.du_type = $(this).val();
-      loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-      // console.log(para.type)
-    })
-    $(".cysearch_head_sort").eq(0).find("dd").click(function() {
-      $(this).parent().children().removeClass("cysearch_head_sortd-curent");
-      $(this).addClass("cysearch_head_sortd-curent");
-      para.type = $(this).index();
-      loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-      // console.log(para.type);
-    })
-    $(".cysearch_head_sort").eq(1).children("dd").click(function() {
-      if($(this).hasClass("more")) {
-        return false;
-      }
-      $(this).parent().children().removeClass("cysearch_head_sortd-curent");
-      $(this).addClass("cysearch_head_sortd-curent");
-      para.city_code = $(this).attr('data-citycode');
-      loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-      // console.log(para.city_code)
-    })
-    
-    $(".moreAddr li").click(function(event) {
-      event.stopPropagation();
-      $(".cysearch_head_sort").eq(1).children('dd').removeClass("cysearch_head_sortd-curent")
-      $(".cysearch_head_sort dd:last").prev().addClass("cysearch_head_sortd-curent");
-      $(".cysearch_head_sort dd:last").prev().text($(this).text());
-      para.city_code = $(this).attr('data-citycode');
-      loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-      console.log(para.city_code)
-      // console.log(1)
-    })
-    $('.search').click(function() {
-      para.minmoney = $('#minmoney').val();
-      para.maxmoney = $('#maxmoney').val();
-      loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-    })
-    $('.cysearch_head_sortd').click(function() {
-      para.type = $(this).index();
-      loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
-    })
-  </script>
+  <script src="http://localhost:8070/scripts/cysjList.js"></script>
+ 
 </body>
 </html>

@@ -2160,16 +2160,18 @@ label.error {
   background-color: #ff4947;
 }
 .more {
+  position: relative;
   float: right;
   padding-bottom: 10px;
   margin-right: 40px;
   font-size: 14px;
   line-height: 30px;
+  cursor: pointer;
 }
 .more i {
   position: absolute;
-  right: 22px;
-  top: 57px;
+  right: -15px;
+  top: 11px;
   border-width: 6px 6px 0;
   border-style: solid;
   border-color: #ff4947 transparent transparent;
@@ -2178,16 +2180,22 @@ label.error {
 .more:hover i {
   transform: rotateZ(180deg);
 }
-.moreAddr {
+.moreAddr,
+.moreType {
   display: none;
   position: absolute;
-  left: -1px;
+  width: 1022px;
+  left: -955px;
   bottom: -60px;
   border: 1px solid #e7e7e7;
   border-top-style: dashed;
   background-color: #fff;
 }
-.moreAddr li {
+.moreType {
+  bottom: -15px;
+}
+.moreAddr li,
+.moreType li {
   float: left;
   padding: 0 10px;
   line-height: 30px;
@@ -2195,7 +2203,8 @@ label.error {
   font-size: 14px;
 }
 .moreAddr li:hover,
-.cysearch_head_sortd:hover {
+.cysearch_head_sortd:hover,
+.moreType li:hover {
   color: #fff;
   background-color: #ff4947;
 }
