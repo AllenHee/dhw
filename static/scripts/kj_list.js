@@ -34,14 +34,12 @@ $(function() {
       }
       para[property] = value;
       loadData("/Accounting/List", para, "financeList", ".rcmd");
-      console.log(para);
     })
     // “更多”下的选项
     elem.children("ul").find("li").click(function() {
       var value = $(this).text();
       var citycode = $(this).attr('data-citycode')
       elem.find("dd:last-child").prev().text(value).attr('data-citycode', citycode).trigger("click");
-      console.log(para);
     });
   }
 
