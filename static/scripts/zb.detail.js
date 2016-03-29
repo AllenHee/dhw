@@ -51,14 +51,14 @@ $(function() {
 });
 
 // 收藏
-var pro_id = parseInt($(".project").attr("value"));
+// var pro_id = parseInt($(".project").attr("value"));
 function collection() {
   if ($(".hd_cont_l_keep").hasClass("cancel")) {
     alert("已收藏")
     return false;
   }
   var para = {
-    id: pro_id
+    id: subjectID
   }
   $.post("/Detail/Collect", para).success(function() {
     var total = parseInt($(".hd_cont_l_keep").attr("data-collection"));

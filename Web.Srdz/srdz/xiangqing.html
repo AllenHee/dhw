@@ -377,8 +377,12 @@
     }
     $.post('/ShoppingCart/ShoppingCartAdd', para).success(function (data)
     {
-      var id = data.result;
-      window.location.href = '/pay1/' + id;
+      if (d.success) {
+        var id = data.result;
+        window.location.href = '/pay1/' + id;
+      } else {
+        alert('您需要先登录')
+      }
     })
     });
   </script>

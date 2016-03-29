@@ -45,27 +45,27 @@ app.controller('regCtrl', ['$scope', '$http', function (s, h) {
     natures: ['政府机关/事业单位', '国营', '私营', '中外合资', '外资', '其他']
   };
   
-  h.post('/UserAccount/Company').success(function (data) {
-    var p = data.result.province;
+  // h.post('/UserAccount/Company').success(function (data) {
+  //   var p = data.result.province;
 
-    if (p) {
-      var c = data.result.city;
-      s.area.province = p
-      s.areaList.cities = _areaselect_data.c[p];
-      s.areaShow.showCities = true;
-      if (!_areaselect_data.s[p]) {
-        s.areaList.counties = _areaselect_data.a[p + '-' + c];
-        s.areaShow.showCounties = true;
-      }
+  //   if (p) {
+  //     var c = data.result.city;
+  //     s.area.province = p
+  //     s.areaList.cities = _areaselect_data.c[p];
+  //     s.areaShow.showCities = true;
+  //     if (!_areaselect_data.s[p]) {
+  //       s.areaList.counties = _areaselect_data.a[p + '-' + c];
+  //       s.areaShow.showCounties = true;
+  //     }
 
-      setTimeout(function () {
-        s.area.city = c;
-        s.area.county = data.result.addr;
-      });
-    }
+  //     setTimeout(function () {
+  //       s.area.city = c;
+  //       s.area.county = data.result.addr;
+  //     });
+  //   }
 
-    $.extend(s.data, data.result);
-  });
+  //   $.extend(s.data, data.result);
+  // });
 
   h.post('/HRZpxxFb/Tradeinfo').success(function (data) {
     s.list.trades = data.result;

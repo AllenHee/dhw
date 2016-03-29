@@ -211,7 +211,7 @@ $(function () {
         $.post('/Detail/AddTb',data).success(function(d) {
         if(d.success) {
           alert('提交成功');
-         // location.reload();
+          location.reload();
         }else {
           alert(d.msg);
           aa();

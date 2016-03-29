@@ -213,9 +213,11 @@
 }
 .appr_show_items_img {
   width: 285px;
+  height: 189px;
 }
 .appr_show_items_pic {
   width: 220px;
+  height: 146px;
 }
 .appr_show_items-top {
   margin-top: 0;
@@ -595,6 +597,8 @@
   float: left;
   margin-right: 20px;
   width: 285px;
+  height: 192px;
+  margin-bottom: 20px;
 }
 .cont_show_items-last {
   margin-right: 0;
