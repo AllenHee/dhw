@@ -41,6 +41,8 @@ $('input, textarea').placeholder();
     
     
     $(".modal_cont_button_conf").click(function() {
+      
+      $(".jubao").hasClass()
       var t_reason = $("#reason").val();
       var t_detail = $("#detail").val();
       var para = {
@@ -49,7 +51,12 @@ $('input, textarea').placeholder();
         jobid: jobid
       }
       
-      $.post("/Jobs/Jb",para).success(function() {
+      h.post("/Jobs/Jb",para).success(function(data) {
+        
+        if (data.success) {
+        console.log(1)
+        
+      }
         $(".report").html("<span>" + "已举报" + "</span>");
         $(".modal_bg").fadeOut();
         $(".modal_cont").fadeOut();
