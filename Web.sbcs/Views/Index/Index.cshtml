@@ -227,11 +227,11 @@
     <script type="text/html" id="firTem">
   {{each firPic as fir}}
     <li class="index_trademark_show_item">
-      <img src="{{imgurl}}{{fir.img}}" alt="">
+     <a href="/trademark/{{fir.id}}"> <img src="{{imgurl}}{{fir.img}}" alt="">
       <div class="index_trademark_mask">
         <span class="index_trademark_mask_pri"><span>￥</span>{{fir.price}}</span>
         <span class="index_trademark_mask_ttl">{{fir.name}}</span>
-      </div>
+      </div></a>
     </li>
   {{/each}}
     </script>

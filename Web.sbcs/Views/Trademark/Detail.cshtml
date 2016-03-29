@@ -111,10 +111,13 @@
                 商标详情</h2>
             <div class="pic">
                 @{var ar = @Model["content"] as Newtonsoft.Json.Linq.JArray;}
-                @foreach (var item in ar)
-                {             
+                @if (ar != null)
+                {
+                    foreach (var item in ar)
+                    {             
                     <a href="">
                         <img src="@BaseConfigs.GetImgPath@item" alt="image"></a>
+                    }
                 }
             </div>
         </div>
