@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "梦高速-众筹-订单详情"; 
+}
+@model System.Data.DataRow
+@using System.Linq;
+<div class="content">
+    @HelperWL.display_wl(ViewBag.wlmodel)
+    <h1 class="order_ttl order_detail">
+        订单详情</h1>
+    <div class="orderfill">
+        <h2 class="orderfill_ttl">
+            卖家信息</h2>
+        <div class="order_detail_det clearfix">
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    昵称 :
+                </label>
+                <span>@Model["name"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    真实姓名 :
+                </label>
+                <span>@Model["realname"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    城市 :
+                </label>
+                <span>@Model["city_name"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    联系电话 :
+                </label>
+                <span>@Model["phone"]</span></div>
+        </div>
+        <h2 class="orderfill_ttl">
+            订单信息</h2>
+        <div class="order_detail_det clearfix">
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    订单编号 :
+                </label>
+                <span>@Model["number"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    支付宝交易号 :
+                </label>
+                <span>@Model["trade_no"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    创建时间 :
+                </label>
+                <span>@Model["date"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    付款时间 :
+                </label>
+                <span>@Model["otify_time"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    收货地址 :
+                </label>
+                <span>@Model["receiveAddress"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    备注 :
+                </label>
+                <span>@Model["remark"]</span></div>
+        </div>
+        <table class="detail_table order_table" cellspacing="0">
+            <colgroup>
+                <col width="140px">
+                <col width="175px">
+                <col width="240px">
+                <col width="135px">
+                <col width="135px">
+                <col width="125px">
+                <col width="140px">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        项目图片
+                    </th>
+                    <th>
+                        项目标题
+                    </th>
+                    <th>
+                        回报内容
+                    </th>
+                    <th>
+                        状态
+                    </th>
+                    <th>
+                        单价
+                    </th>
+                    <th>
+                        数量
+                    </th>
+                    <th>
+                        商品总价
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img class="orderDet_pic" src="@{@BaseConfigs.GetImgPath@Model["frontpic"]}_280x280.jpg" alt="">
+                    </td>
+                    <td>
+                        @Model["projectname"]
+                    </td>
+                    <td class="order_detail">
+                        @Model["hbcontent"]
+                    </td>
+                    <td class="blueWord">
+                        @Model["state"]
+                    </td>
+                    <td class="redWord">
+                        @Model["zcdj"]
+                    </td>
+                    <td>
+                        @Model["hbcount"]
+                    </td>
+                    <td class="redWord">
+                        @Model["cost"]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

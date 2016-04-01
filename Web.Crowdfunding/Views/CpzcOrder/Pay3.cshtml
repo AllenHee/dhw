@@ -1,13 +1,95 @@
-﻿@{
+﻿@model System.Data.DataRow
+@{
     ViewBag.Title = "订单信息填写 - 梦高速"; 
+   
 }
 <!--主内容区 开始-->
 <div class="content-zc clearfix">
-     @ViewBag.projectid = projectid;
-            @ViewBag.hbid = hbid;
-            @ViewBag.money = money;
+    <ul class="pay_progress clearfix">
+        <li class="pay_progress_items">1.订单信息填写 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+        </i></li>
+        <li class="pay_progress_items">2.订单信息确认 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+        </i></li>
+        <li class="pay_progress_items complete">3.支付 <i class="triangle white_trian"></i><i
+            class="triangle grey_trian"></i></li>
+        <li class="pay_progress_items">4.完成 </li>
+    </ul>
+    <div class="fukuan">
+        <h2 class="order_ttl">
+            <i></i>请完成支付</h2>
+        <div class="orderPay">
+            <p class="orderfill_ttl">
+                订单信息</p>
+            <div class="fukuan_way">
+                <p>
+                    应支付金额:<span>@Model["cost"]</span>元</p>
+            </div>
+            <ul class="payWay clearfix">
+                <li class="fukuan_radiot fukuan_radioo" data-payment="aplipay"><i></i>
+                    <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}zhongchou/images/zhifubao.png" alt="">
+                </li>
+                <!--<li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>
+        <li class="fukuan_radiot fukuan_radiot-last">
+          <i></i>
+          <img class="fukuan_pic" src="images/zhifubao.png" alt="">
+        </li>-->
+            </ul>
+            <div class="bottom">
+                <button class="paynow">
+                    立即付款</button>
+                <button class="return">
+                    返回</button>
+                <p>
+                    请您在<span>00时15分00秒</span>内完成付款，否则将自动取消订单</p>
+            </div>
+        </div>
+        <!--弹出层 开始-->
+        <div class="model_bg orderFinish_model_bg">
+        </div>
+        <div class="model orderFinish_model">
+            <h1 class="model_ttl">
+                请在新打开的页面完成支付<span class="model_cancel">×</span></h1>
+            <div class="model_cont">
+                <div class="model_cont_t">
+                    <p class="model_cont_t_p">
+                        <span class="successPay">成功付款</span><span class="choise">您可以选择 :</span><a class="blueWord"
+                            href="">查看我的订单</a></p>
+                    <p class="model_cont_t_p">
+                        <span class="failPay">成功付款</span><span class="choise">建议您选择 :</span> @*<img src="@{@BaseConfigs.GetUrlCdn}zhongchou/images/weixin.png" alt="">*@
+                        <img src="@{@BaseConfigs.GetUrlCdn}zhongchou/images/zhifu.png" alt="">
+                        <a class="blueWord" href="">选择其他付款方式 >></a> <a class="blueWord" href="">查看支付帮助 >></a>
+                    </p>
+                </div>
+                <div class="model_cont_b">
+                    <h2>
+                        您付款遇到问题了?看看是不是下面的原因: <a class="blueWord moreHelp" href="">更多帮助</a></h2>
+                    <dl>
+                        <dt>支付出现问题怎么办?</dt>
+                        <dd>
+                            答: 您可以更换其他支付方式,重新支付,或<a class="blueWord" href="">直接联系梦高速客服></a></dd>
+                        <dt>选择农业银行网上银行付款提示银行证书错误怎么办?</dt>
+                        <dd>
+                            答: 点击"网上银行"后提示证书错误,是由于农行证书错误导致,请拨打农业银行客服热线:95599</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <!--弹出层 结束-->
+    </div>
 </div>
 <!--主内容区 结束-->
 @section scripts{
- 
+<script>    var orderno = '@Model["number"]'</script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/zchou.order.js"></script>
 }

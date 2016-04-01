@@ -14,7 +14,8 @@
             imgurl: '@BaseConfigs.GetImgPath', imguploadurl: '@BaseConfigs.GetImgUploadPath', imgcuturl: '@BaseConfigs.GetImgCutPath',
             mainurl: '@BaseConfigs.GetUrlMain', staticurl: '@BaseConfigs.GetStaticPath',
             urlmain: '@BaseConfigs.GetUrlMain', urlcdn: '@BaseConfigs.GetUrlCdn', urlzc: '@BaseConfigs.GetUrlZc', urlkj: '@BaseConfigs.GetUrlKj', urlhr: '@BaseConfigs.GetUrlHr', urlzckj: '@BaseConfigs.GetUrlZckj',
-            urlzb: '@BaseConfigs.GetUrlZb', urldiy: '@BaseConfigs.GetUrlDiy', urlsrdz: '@BaseConfigs.GetUrlSrdz', urlcqbh: '@BaseConfigs.GetUrlCqbh', urlzxsj: '@BaseConfigs.GetUrlZxsj', urlgsss: '@BaseConfigs.GetUrlGsss'
+            urlzb: '@BaseConfigs.GetUrlZb', urldiy: '@BaseConfigs.GetUrlDiy', urlsrdz: '@BaseConfigs.GetUrlSrdz', urlcqbh: '@BaseConfigs.GetUrlCqbh', urlzxsj: '@BaseConfigs.GetUrlZxsj', urlgsss: '@BaseConfigs.GetUrlGsss',
+            urlfj: '@BaseConfigs.GetUrlFj', urlimg: '@BaseConfigs.GetUrlImg', urlfjupload: '@BaseConfigs.GetUrlFjUpload'
         };
     </script>
     <script type="text/javascript">
@@ -33,7 +34,7 @@
             <ul class="sitenav-r">
                 <li class="log">您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">
                     免费注册</a> </li>
-                <li><a href="http://bbs.dreamhiway.com" target="_blank">帮助中心</a></li>
+                <li><a href="@BaseConfigs.GetUrlBbs" target="_blank">帮助中心</a></li>
                 <li class="nav-drop"><a class="sn-dropper" href="#">网站导航 <i class="iconfont">&#xe60f;</i></a>
                     <ul class="sn-dropdown menu-dropdown">
                         <li><a target="_blank" href="@BaseConfigs.GetUrlKj">会计服务</a></li>
@@ -44,10 +45,10 @@
                         <li><a target="_blank" href="@BaseConfigs.GetUrlZb">众包</a></li>
                         <li><a target="_blank" href="@BaseConfigs.GetUrlCqbh">产权保护</a></li>
                         <li><a target="_blank" href="@BaseConfigs.GetUrlSrdz">私人定制</a></li>
-                        <li><a target="_blank" href="//cygc.dreamhiway.com/">创意工厂</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlCygc">创意工厂</a></li>
                         <li><a target="_blank" href="@BaseConfigs.GetUrlZxsj">转型升级</a></li>
                         <li><a target="_blank" href="@BaseConfigs.GetUrlGsss">公司上市</a></li>
-                        <li><a target="_blank" href="//bbs.dreamhiway.com/">社区论坛</a></li>
+                        <li><a target="_blank" href="@BaseConfigs.GetUrlBbs">社区论坛</a></li>
                     </ul>
                 </li>
                 <li class="icon-drop"><i class="sn-dropper iconfont">&#xe60c;</i>
@@ -76,10 +77,10 @@
         <div class="footer_content">
             <span class="">© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</span>
             <ul>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">免责声明</a> </li>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">帮助中心</a> </li>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">项目规范</a> </li>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">服务协议</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">免责声明</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">帮助中心</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">项目规范</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">服务协议</a> </li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,49 @@
+﻿@helper display_wl(KdGoldAPI.KdGoldEntity wlmodel)
+    {
+        if (wlmodel!=null){
+        var traces = wlmodel.Traces.GroupBy(it => it.AcceptTime.Date)
+                    .Select(it => new
+                    {
+                        Key = it.Key,
+                        Value = it.Select(dd => new { Key2 = dd.AcceptTime.ToString("HH:mm:ss"), AcceptStation = dd.AcceptStation })
+                    });
+        var state = int.Parse(wlmodel.State);
+    
+    <h1 class="order_ttl">
+        物流信息</h1>
+    <div class="order_wuliu">
+        <div class="order_wuliu_proc">
+            <span class="process_item step_one step_one_finish"></span><span class="process_item step_two @if (state == 3)
+                                                                                                          {<text>step_two_finish</text>}">
+            </span><span class="process_item step_three @if (state == 3)
+                                                        {<text>step_three_finish</text>}">
+            </span><span class="process_item step_four @if (state == 3)
+                                                       {<text>step_four_finish</text>}">
+            </span>
+        </div>
+        <h2 class="order_wuliu_state">
+            @if (wlmodel.State == "3")
+            {<text>您的包裹已被签收</text>}</h2>
+        @foreach (var trace in traces)
+        {
+            <div class="order_wuliu_process clearfix">
+                <div class="order_wuliu_process_date">
+                    <p>
+                        <span>@trace.Key.ToString("yyyy-mm-dd")</span>
+                        @{<text>·······················</text>}
+                    </p>
+                </div>
+                <div class="order_wuliu_process_proc">
+                    @foreach (var log in trace.Value)
+                    {               
+           
+                        <p>
+                            <span>@log.Key2</span>@log.AcceptStation</p>
+                
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    }
+}

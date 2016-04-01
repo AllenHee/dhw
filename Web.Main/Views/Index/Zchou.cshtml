@@ -1,0 +1,212 @@
+﻿@{Layout = null;}
+<div class="module module-zc">
+    <div class="lt module-zc-lt">
+        <!--<h1 class="module-zc_ttl">我想和你一起为青年人建一个地标</h1>
+    <ul class="tags">
+      <li class="category"><a href="#">科技</a></li>
+      <li class="location">福建 泉州</li>
+      <li class="labels"><a href="#">众筹中</a></li>
+    </ul>
+    <div class="zc_detail">
+      <div class="zc_detail_l">
+        <img src="images/zchou_03.png" alt="">
+      </div>
+      <div class="zc_detail_r">
+        <div class="number">
+          <p class="digital">263</p>
+          <p>支持数</p>
+        </div>
+        <div class="number">
+          <p class="digital">¥292,706</p>
+          <p>已筹款</p>
+        </div>
+        <div class="process">
+          <div class="target">
+            <div class="finish" style="width:75%"></div>
+          </div>
+          <p class="percent">74%</p>
+          <p class="days">剩余<span> 54</span>天</p>
+          <p class="tarMoney">目标筹款<span> ¥400,000</span></p>
+        </div>
+        <div class="support_btn">
+          <button>立即支持</button>
+        </div>
+      </div>
+    </div>-->
+    </div>
+    <div class="rt module-zc-rt">
+        <div class="classify classify-first">
+            <h2 class="classify_ttl">
+                产品</h2>
+            <ul class="classify_ul clearfix">
+                <li class="classify_items underline"><span data-type="4">科技</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="5">工业</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="6">农业</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="7">家电</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="8">设计</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="9">娱乐</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="10">出版</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="classify">
+            <h2 class="classify_ttl">
+                股权</h2>
+            <ul class="classify_ul clearfix">
+                <li class="classify_items"><span data-type="21">科技</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="22">工业</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="23">农业</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="24">家电</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="25">设计</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="26">娱乐</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="27">出版</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="28">房产</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+                <li class="classify_items"><span data-type="29">其他</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="classify">
+            <h2 class="classify_ttl">
+                公益</h2>
+            <ul class="classify_ul clearfix">
+                <li class="classify_items"><span data-type="41">公益</span>
+                    <p class="bottomLine">
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="zchou">
+
+  <div class="lt module-zc-lt">
+    <h1 class="module-zc_ttl" title="{{result.title}}">{{result.title}}</h1>
+    <ul class="tags">
+      <li class="category"><a href="#">{{result.name}}</a></li>
+      <li class="location">{{result.provine}} {{result.city}}</li>
+      <li class="labels"><a href="#">{{result.state}}</a></li>
+    </ul>
+    <div class="zc_detail">
+      <div class="zc_detail_l">
+        <img src="{{result.domain}}{{result.frontpic + '_534x534.jpg'}}" alt="">
+      </div>
+      <div class="zc_detail_r">
+        <div class="number">
+          <p class="digital">{{result.numzc}}</p>
+          <p>支持数</p>
+        </div>
+        <div class="number">
+          <p class="digital">¥{{result.moneySum}}</p>
+          <p>已筹款</p>
+        </div>
+        <div class="process">
+          <div class="target">
+            <div class="finish" style="width:{{result.Progress}}%"></div>
+          </div>
+          <p class="percent">{{result.Progress}}%</p>
+          <p class="days">剩余<span> {{result.numSy}}</span>天</p>
+          <p class="tarMoney">目标筹款<span> ¥{{result.money}}</span></p>
+        </div>
+        <div class="support_btn">
+          <button>立即支持</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script>
+
+    $(function () {
+        if (window.PIE) {
+            $('.desinerItem_img').each(function () {
+                PIE.attach(this);
+            });
+        }
+    });
+
+    var loaddata = function (pttype) {
+        var para = {
+            ptid: pttype
+        }
+        $.post("/Home/HomeCpzc", para).success(function (data) {
+            data.result.domain = dhw.imgurl;
+            var html = template("zchou", data);
+            $(".module-zc-lt").html(html);
+        })
+    }
+    loaddata(4);
+
+    $(".classify_items").click(function () {
+        var type = $(this).find("span").attr("data-type");
+        $(".classify_items").removeClass("underline")
+        $(this).addClass("underline").find('p').css("width", "");
+        loaddata(type);
+    });
+
+    $(".classify_items").mouseenter(function () {
+        var bottomLine = $(this).find("p")
+        bottomLine.stop(true, false);
+        if ($(this).hasClass("underline")) {
+            return false;
+        }
+        bottomLine.animate({ width: "100%" }, 300);
+    });
+    $(".classify_items").mouseleave(function () {
+        var bottomLine = $(this).find("p")
+        bottomLine.stop(true, false);
+        if ($(this).hasClass("underline")) {
+            bottomLine.css("width", "");
+            return false;
+        }
+        bottomLine.animate({ width: "0" }, 300);
+    });
+  
+  
+  
+</script>

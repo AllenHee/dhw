@@ -15,20 +15,27 @@
                     var item = ViewBag.latest.Rows[i];
                     var str = i % 2 == 0 ? "" : "rcmd-content-second";
                     var business = item["business"] as Newtonsoft.Json.Linq.JToken;
+                    var logo = item["logo"].ToString();
+                    System.Data.DataView rz = ViewBag.renz as System.Data.DataView;
+                    rz.RowFilter = "id =" + item["id"];
                     <li class="rcmd-content @str">
                         <h3>
                             <a target="_blank" href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@item["id"]">@item["compay"]</a></h3>
                         <div class="clearfix">
                             <div class="avatar">
-                                <a href="#">
-                                    <img src="@BaseConfigs.GetImgPath@item["logo"]" alt="@item["compay"]"></a>
+                                <a href="@{@BaseConfigs.GetUrlMain}Company/Fwzx/@item["id"]">
+                                    @if (logo == "")
+                                    {
+                                        <img src="@{@BaseConfigs.GetStaticPath}/images/default2.png" alt="@item["compay"]">
+                                    }
+                                    else
+                                    { <img src="@BaseConfigs.GetImgPath@item["logo"]" alt="@item["compay"]">}</a>
                             </div>
                             <div class="badges-tags">
                                 <ul class="badges clearfix">
-                                    <li class="badges-1"></li>
-                                    <li class="badges-2"></li>
-                                    <li class="badges-3"></li>
-                                    <li class="badges-4"></li>
+                                    @for (int k = 0; k < rz.Count; k++)
+                                    {
+                                        <img src="@BaseConfigs.GetStaticPath@rz[k]["img"]" title="@rz[k]["title"]"/>}
                                 </ul>
                                 <ul class="tags clearfix">
                                     @if (business != null)

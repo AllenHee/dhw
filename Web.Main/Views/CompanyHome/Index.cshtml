@@ -19,14 +19,22 @@
             var wid = 1920 * @ViewBag.syphoto.Count + "px";
         }
         <ul class="slide-wrap" style = "width:@wid">
-            @for (int i = 0; i < @ViewBag.syphoto.Count; i++)
+            @if (@ViewBag.syphoto.Count == 0)
             {
+                <a class="slide_bg1" href="#">
+                    <li>
+                        <img src="@{@BaseConfigs.GetImgPath}uc/companyhome_index_head_default.jpg" alt=""></li></a>}
+            else
+            {
+                for (int i = 0; i < @ViewBag.syphoto.Count; i++)
+                {
 
-                var imgs = @ViewBag.syphoto[i]["img"] + ".jpg";
-                var side = "slide_bg" + (i + 1);
+                    var imgs = @ViewBag.syphoto[i]["img"] + "_1920x295.jpg";
+                    var side = "slide_bg" + (i + 1);
                 <a class="@side" href="#">
                     <li>
-                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt=""></li></a>               
+                        <img src="@BaseConfigs.GetImgPath@imgs" alt=""></li></a>               
+                }
             }
         </ul>
         @if (@ViewBag.syphoto.Count > 1)
@@ -104,12 +112,13 @@
                         @for (int i = 0; i < ViewBag.companyservice.Count; i++)
                         {
                             var vservice = ViewBag.companyservice[i];
+                            string money = vservice["fwje"].ToString() == "" ? "价格面谈" : vservice["fwje"].ToString();
                             <li class="@if (i == 0 || i % 3 != 0)
                                        {<text>comp_position</text>}
                                        else
                                        {<text>comp_position comp_position-last</text>}">
                                 <img src="@{@BaseConfigs.GetImgPath}@vservice["fwtp"]_282x284.jpg" alt="">
-                                <p class="comp_position_par">@vservice["fwje"]<p>
+                                <p class="comp_position_par">@money<p>
                                     <p class="comp_position_ttl">
                                         <a href="@vservice["fwlj"]" target=_blank  rel="nofollow">@vservice["fwmc"]</a><p>
                             </li>
