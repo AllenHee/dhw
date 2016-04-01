@@ -17,7 +17,7 @@
         <div class="gsJob_left">
             <div class="gsJob_welfare">
                 <div class="gsJob_head_box">
-                    <span class="gsJob_span">招聘列表</span>
+                    <span class="gsJob_span">公司福利</span>
                 </div>
                 <table class="gsJob_welfare_table">
                     <tr>
@@ -69,12 +69,14 @@
             </div>
         </div>
         <div class="gsJob_right">
+            <p class="gsJob_dt">
+                <span class="gsJob_span">面试评价</span></p>
             <div class="gsJob_pj">
                 <dl>
-                    <dt class="gsJob_dt"><span class="gsJob_span">面试评价</span></dt>
                 </dl>
                 <div class="pagination">
                 </div>
+                <!--<span class="gsJob_bemore"><a href="#">更多></a></span>-->
             </div>
         </div>
     </div>
@@ -125,7 +127,7 @@
 
         // 面试评价列表数据
         var interviewpara = {
-            companyid: 51,
+            companyid: @ViewBag.ddid,
             pageIndex: 1,
             pageSize: 8
         }

@@ -1,3 +1,10 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (ViewContext.RouteData.Values["controller"].ToString().ToLower() == "c")
+    {
+        Layout = "~/Views/Shared/_CenterLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }

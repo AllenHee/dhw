@@ -35,7 +35,6 @@ if (txt) {
 }
 
 if (id) {
-  console.log(2)
   para.type = id;
 }
 

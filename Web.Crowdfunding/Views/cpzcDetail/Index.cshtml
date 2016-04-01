@@ -154,7 +154,8 @@
                             <img src="@cpqk["logo"]" alt=""></a></div>
                     <div class="zc-user-info">
                         <div>
-                            <a class="zc-user-name" href="#">@cpqk["username"]</a> <a class="zc-mail" href="#">私信</a></div>
+                            <a class="zc-user-name" href="javascript:0">@cpqk["username"]</a> <a class="zc-mail" target="_blank" href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=@ViewBag.to">
+                                私信</a></div>
                         <div class="zc-certificate">
                             营业执照</div>
                     </div>
@@ -447,9 +448,9 @@
                 <p>
                     感谢您的支持,您将收到我们寄出去的信件或贺卡,这份支持将助我们的梦想飞的更高更远</p>
                 <ul class="support_pay clearfix">
-                    <li class="support_pay_items support_pay_items-current">￥1</li>
-                    <li class="support_pay_items">￥5</li>
-                    <li class="support_pay_items">￥10</li>
+                    <li class="support_pay_items support_pay_items-current" data-pay="1">￥1</li>
+                    <li class="support_pay_items" data-pay="5">￥5</li>
+                    <li class="support_pay_items" data-pay="10">￥10</li>
                     <li class="support_pay_items support_pay_items-last">其他￥
                         <input type="text">
                     </li>
@@ -480,7 +481,8 @@
                                 配送费用 : <span>@stryf</span></p>
                             <p>
                                 预计回报发送时间 : <span>@strhb</span></p>
-                            <a class="support_but" href="/pay1/@ViewBag.id/@item["hbid"]/@(((decimal)item["zcje"]).ToString("f0"))">支持 ￥ <span>@(((decimal)item["zcje"]).ToString("f0"))</span></a>
+                            <a class="support_but" href="/pay1/@ViewBag.id/@item["hbid"]/@(((decimal)item["zcje"]).ToString("f0"))">
+                                支持 ￥ <span>@(((decimal)item["zcje"]).ToString("f0"))</span></a>
                         </div>
                     </div>
                 </div>

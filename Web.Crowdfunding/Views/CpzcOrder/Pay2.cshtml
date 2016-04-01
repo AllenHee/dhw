@@ -1,13 +1,140 @@
 ﻿@{
-    ViewBag.Title = "订单信息填写 - 梦高速"; 
+    ViewBag.Title = "订单信息确认 - 梦高速"; 
 }
+@model System.Data.DataRow
 <!--主内容区 开始-->
 <div class="content-zc clearfix">
-     @ViewBag.projectid = projectid;
-            @ViewBag.hbid = hbid;
-            @ViewBag.money = money;
+    <ul class="pay_progress clearfix">
+        <li class="pay_progress_items">1.订单信息填写 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+        </i></li>
+        <li class="pay_progress_items complete">2.订单信息确认 <i class="triangle white_trian"></i>
+            <i class="triangle grey_trian"></i></li>
+        <li class="pay_progress_items">3.支付 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+        </i></li>
+        <li class="pay_progress_items">4.完成 </li>
+    </ul>
+    <div class="content">
+        <h2 class="order_ttl">
+            <i></i>订单提交成功 : @Model["projectname"]</h2>
+        <div class="orderPay">
+            <p class="orderfill_ttl">
+                订单信息</p>
+            <div>
+                <div class="buyerInfor">
+                    <p>
+                        <label class="inforLabel">
+                            订单号 :
+                        </label>
+                        <span>@Model["number"]</span></p>
+                    <p>
+                        <label class="inforLabel">
+                            联系人 :
+                        </label>
+                        <span>@Model["receiveName"]</span></p>
+                    <p>
+                        <label class="inforLabel">
+                            联系方式 :
+                        </label>
+                        <span>@Model["receivePhone"]</span></p>
+                    <p>
+                        <label class="inforLabel">
+                            发票抬头 :
+                        </label>
+                        <span>@Model["invoicehead"]</span></p>
+                    <p>
+                        <label class="inforLabel">
+                            备注 :
+                        </label>
+                        <span>@Model["remark"]</span></p>
+                </div>
+                <div class="buyerAddr">
+                    <p>
+                        <label class="inforLabel">
+                            收货人信息 :
+                        </label>
+                        <span>@Model["receiveName"]</span> <span>@Model["receivePhone"]</span></p>
+                    <p>
+                        <label class="inforLabel">
+                        </label>
+                        <span>@Model["receiveAddress"]</span></p>
+                </div>
+            </div>
+            <p class="orderfill_ttl">
+                项目信息</p>
+            <table class="order_table" cellspacing="0">
+                <colgroup>
+                    <col width="285px">
+                    <col width="145px">
+                    <col width="365px">
+                    <col width="125px">
+                    <col width="90px">
+                    <col width="90px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>
+                            项目名称
+                        </th>
+                        <th>
+                            发起人
+                        </th>
+                        <th>
+                            回报内容
+                        </th>
+                        <th>
+                            回报数量
+                        </th>
+                        <th>
+                            支持单价
+                        </th>
+                        <th>
+                            配送费用
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Model["projectname"]
+                        </td>
+                        <td class="order_company">
+                            @Model["name"]
+                        </td>
+                        <td class="order_detail">
+                            @Model["hbcontent"]
+                        </td>
+                        <td>
+                            <span class="order_reduce disableReduce">-</span><input class="order_count" type="text"
+                                value="1"><span class="order_add">+</span>
+                        </td>
+                        <td class="redWord">
+                            @Model["zcdj"]
+                        </td>
+                        <td>
+                            @Model["deliveryPrice"]
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="orderfill_ttl">
+                选择支付方式</p>
+            <ul class="payWay clearfix">
+                <li class="fukuan_radiot fukuan_radioo" data-payment="aplipay"><i></i>
+                    <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}zhongchou/images/zhifubao.png" alt="">
+                </li>
+                
+            </ul>
+            <div class="bottom">
+                <button class="paynow">
+                    立即付款</button>
+                <button class="return">
+                    返回</button>
+            </div>
+        </div>
+    </div>
 </div>
 <!--主内容区 结束-->
 @section scripts{
- 
+<script>var orderno='@Model["number"]'</script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/zchou.order.js"></script>
 }

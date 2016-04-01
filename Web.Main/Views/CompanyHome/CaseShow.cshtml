@@ -14,24 +14,22 @@
     <div class="cont">
         @{var datas = ViewBag.companycase as System.Data.DataRowCollection; }
         <ul class="clearfix">
-            @for (int index = 0; index < 4; index++)
+            @for (int index = 0; index < datas.Count; index++)
             {
-                <li class="cont_show_items @if (index == 3)
+                var item = datas[index];
+                var i = index + 1;
+                <li class="cont_show_items @if (i % 4 == 0)
                                            {<text>cont_show_items-last</text>}">
-                    @for (int j = index; j < datas.Count; j = j + 4)
-                    {
-                        var item = datas[j];
-                        <div class="appr_show_items appr_show_items-top">
-                            <img class="appr_show_items_img" src="@{@(BaseConfigs.GetImgPath + item["img"] + ".jpg")}" alt="">
-                            <div class="popup">
-                                <div class="popup_bg">
-                                </div>
-                                <a href="@item["url"]" target="_blank" rel="nofollow">
-                                    <img class="popup_more" src="@{@BaseConfigs.GetUrlCdn}usercenter/images/iconfont-icon05.png" alt=""></a>
-                                <span class="popup_ttl">@item["title"]</span>
+                    <div class="appr_show_items appr_show_items-top">
+                        <img class="appr_show_items_img" src="@{@(BaseConfigs.GetImgPath + item["img"] + ".jpg")}" alt="">
+                        <div class="popup">
+                            <div class="popup_bg">
                             </div>
+                            <a href="@item["url"]" target="_blank" rel="nofollow">
+                                <img class="popup_more" src="@{@BaseConfigs.GetUrlCdn}usercenter/images/iconfont-icon05.png" alt=""></a>
+                            <span class="popup_ttl">@item["title"]</span>
                         </div>
-                    }
+                    </div>
                 </li>
             }
         </ul>

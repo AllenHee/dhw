@@ -15,7 +15,8 @@
             imgurl: '@BaseConfigs.GetImgPath', imguploadurl: '@BaseConfigs.GetImgUploadPath', imgcuturl: '@BaseConfigs.GetImgCutPath',
             mainurl: '@BaseConfigs.GetUrlMain', staticurl: '@BaseConfigs.GetStaticPath',
             urlmain: '@BaseConfigs.GetUrlMain', urlcdn: '@BaseConfigs.GetUrlCdn', urlzc: '@BaseConfigs.GetUrlZc', urlkj: '@BaseConfigs.GetUrlKj', urlhr: '@BaseConfigs.GetUrlHr', urlzckj: '@BaseConfigs.GetUrlZckj',
-            urlzb: '@BaseConfigs.GetUrlZb', urldiy: '@BaseConfigs.GetUrlDiy', urlsrdz: '@BaseConfigs.GetUrlSrdz', urlcqbh: '@BaseConfigs.GetUrlCqbh', urlzxsj: '@BaseConfigs.GetUrlZxsj', urlgsss: '@BaseConfigs.GetUrlGsss'
+            urlzb: '@BaseConfigs.GetUrlZb', urldiy: '@BaseConfigs.GetUrlDiy', urlsrdz: '@BaseConfigs.GetUrlSrdz', urlcqbh: '@BaseConfigs.GetUrlCqbh', urlzxsj: '@BaseConfigs.GetUrlZxsj', urlgsss: '@BaseConfigs.GetUrlGsss',
+            urlfj: '@BaseConfigs.GetUrlFj', urlimg: '@BaseConfigs.GetUrlImg', urlfjupload: '@BaseConfigs.GetUrlFjUpload'
         };
         var dhwtempvar = {
             isCoporate: true
@@ -41,7 +42,7 @@
                 <ul class="nav_right_list">
                     <li id="bb01" class="nav_right_list_item">您好，请<a class="nav_right_list_item_login"
                         href="javascript:login();">登录</a> <a href="javascript:login();">免费注册</a> </li>
-                    <li class="nav_right_list_item nav_right_list_item--help"><a href="http://bbs.dreamhiway.com">
+                    <li class="nav_right_list_item nav_right_list_item--help"><a href="@BaseConfigs.GetUrlBbs">
                         帮助中心</a> </li>
                     <!--导航菜单 开始-->
                     <li class="nav_right_list_item nav_right_list_item--navigation"><a href="javascript:;"
@@ -55,10 +56,10 @@
                             <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlZb">众包</a></li>
                             <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlCqbh">产权保护</a></li>
                             <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlSrdz">私人订制</a></li>
-                            <li class="nav_navigation_item"><a target="_blank" href="//cygc.dreamhiway.com/">创意工厂</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlCygc">创意工厂</a></li>
                             <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlZxsj">转型升级</a></li>
                             <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlGsss">公司上市</a></li>
-                            <li class="nav_navigation_item"><a target="_blank" href="//bbs.dreamhiway.com/">社区论坛</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlBbs">社区论坛</a></li>
                         </ul>
                     </li>
                     <!--导航菜单 结束-->
@@ -104,7 +105,7 @@
                                      <li  @if (ap == "/appzc")
                                           { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
                                           else
-                                          {<text>class="ucNav_list_item"</text>} >众筹</li></a> <a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
+                                          {<text>class="ucNav_list_item"</text>} >众筹</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzckj#/">
                                               <li  @if (ap == "/appzckj")
                                                    { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
                                                    else
@@ -125,7 +126,7 @@
                         <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzc#/">
                             <i class="ucNav_list_item--all_list_item_icon zchou"></i><span class="ucNav_list_item--all_list_item_text">
                                 众筹</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@Helper1.AppUrl("/AppZckj", ViewBag.LoginAsCompany)">
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzckj#/">
                             <i class="ucNav_list_item--all_list_item_icon zckj"></i><span class="ucNav_list_item--all_list_item_text">
                                 众创空间</span> </a></li>
                         <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appcy#/">
@@ -187,17 +188,17 @@
         <div class="footer_content">
             <span class="">© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</span>
             <ul>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">免责声明</a> </li>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">帮助中心</a> </li>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">项目规范</a> </li>
-                <li><a href="http://bbs.dreamhiway.com" class="footer_a">服务协议</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">免责声明</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">帮助中心</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">项目规范</a> </li>
+                <li><a href="@BaseConfigs.GetUrlBbs" class="footer_a">服务协议</a> </li>
             </ul>
         </div>
     </div>
     <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}static/lib/webuploader.nolog.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}static/js/angular.js"></script>
-    <script src="@{@BaseConfigs.GetUrlCdn}static/js/common.js"></script>
+    @*<script src="@{@BaseConfigs.GetUrlCdn}static/js/common.js"></script>*@
     <script type="text/javascript">
         $(function () {
             $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
