@@ -34,7 +34,54 @@
     <p class="gsJob_pj_detail">
       {{interview.about}}
     </p>
-    <span class="gsJob_sum" data-id="{{interview.JobID}}" data-userid="{{interview.UserID}}">有用(<span class="gsJob_sum_add">{{interview.youyong}}</span>)</span>
+    <div class="comment-area clearfix">
+      <div class="stars">
+        综合评价
+        {{if interview.Star1 === 0}}
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        {{/if}}
+        {{if interview.Star1 === 1}}
+        <i class="star star-5"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        {{/if}}
+        {{if interview.Star1 === 2}}
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        {{/if}}
+        {{if interview.Star1 === 3}}
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star"></i>
+        <i class="star"></i>
+        {{/if}}
+        {{if interview.Star1 === 4}}
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star"></i>
+        {{/if}}
+        {{if interview.Star1 === 5}}
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        <i class="star star-5"></i>
+        {{/if}}
+      </div>
+      <span class="gsJob_sum" data-id="{{interview.JobID}}" data-userid="{{interview.UserID}}">有用(<span class="gsJob_sum_add">{{interview.youyong}}</span>)</span>
+    </div>  
   </dd>
   {{/each}}
 </script>
