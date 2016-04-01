@@ -27,7 +27,7 @@ body {
 }
 .intro-bg {
   position: relative;
-  top: -3px;
+  top: -4px;
   background-color: #3f5064; 
 }
 .intro {
@@ -45,6 +45,7 @@ body {
   color: white;
   font-size: 35px;
   background-color: #009899;
+  line-height: 40px;
 }
 .intro-content {
   float: left;
@@ -56,43 +57,58 @@ body {
 }
 .intro-text {
   width: 810px;
-  font-size: 9px;
+  font-size: 12px;
   margin: 14px 0 0 0;
   line-height: 24px;
   color: #becfe3;
   text-indent: 2em;
 }
 .content { 
-    width:90%;
-    max-width: 1600px; 
+    width:95%;
+    max-width: 1400px; 
     margin: 10px auto;
 }
 .nav {
-  /*position: fixed;*/
+  /*position: absolute;*/
+  float: left;
   width: 200px;
-  height: 1055px;
-  top: 30px;
-  left: 10px;
-  padding: 8px 5px;
-  margin-right: 80px;
+  height: 600px;
+  padding: 0 5px 8px;
   background-color: #ffffff;
   border-width: 5px 0 0 0;
   border-color: #009997;
   border-style: solid;
+  overflow: auto;
+  z-index: 10;
+}
+.nav a {
+  text-decoration: none;
+}
+.nav a:hover {
+  color: #fff;
+  background: #00999b;
 }
 .nav-title {
+  float: left;
+  width: 180px;
   padding: 0;
-  margin: 0 0 3px 0;;
+  margin-top: 10px;
   color: #00999b;
   font-size: 17px;
-  line-height: 35px;
+  line-height: 30px;
   font-weight: bold;
 }
 .nav-item {
-  margin: 0 0 0 14px;
+  float: left;
+  width: 165px;
+  padding-left: 15px;
   line-height: 26px;
   font-size: 12px;
   color: #333333;
+}
+.nav_curent {
+  color: #fff;
+  background: #00999b;
 }
 .details {
   float: right;
@@ -129,6 +145,9 @@ body {
  color: #333333;
  margin-right: 30px;
 }
+.about-content span {
+  cursor: pointer;
+}
 .about-img {
   float: left;
   max-width: 50%;
@@ -146,66 +165,93 @@ body {
   width: 120px;
   height: 36px;
   border: solid thin #333333;
+  color:#333333;
   font-size: 18px;
   line-height: 36px;
   font-weight: bold;
   text-align: center;
   display: block;
+  text-decoration: none;
+}
+.majoring {
+  overflow: hidden;
+  margin-bottom: 120px;
 }
 .major-content {
   position: relative;
-  padding: 65px 25px 0;
+  padding: 65px 25px 30px;;
   border-style: solid;
   border-width: 5px 2px;
   border-color: #d1d1d1; 
   margin-bottom: 40px;
 }
-.marjor-shadow {
-  position: absolute;
-  top: -13px;
-  left: 17px;
-  width: 6px;
-  height: 9px;
-  background: url(../images/shadow.png);
-  display: block;
-}
-.marjor-tag {
+.marjor-tag,
+.marjor-tag-sec {
   position: absolute;
   top: -14px;
-  left: 23px;
   font-size: 25px;
-  line-height: 65px;
   text-align: center;
   color: white;
+}
+.marjor-tag {
+  left:50%;
+  width: 300px;
+  height:65px;
+  margin-left: -175px;
+  line-height: 65px;
   background-color: #66cdcc;
 }
-.tag-1 {
-  width:320px;
-  height:65px;
+.marjor-tag-sec {
+  left: 23px;
+  height: 50px;
+  padding: 0 50px;
+  line-height: 50px;
+  background-color: #ff6666;
 }
-.tag-2 {
-  width:px;
-  height:px;
+.marjor-tag-shadow {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 9px 6px;
+  border-color:  transparent #346667 #346667 transparent ;
+  display: block;
+}
+.marjor-tag-sec-shadow {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 9px 6px;
+  border-color: transparent #993232 #993232 transparent ;
+  display: block;
 }
 .marjor-title {
   padding-left: 6px;
   border: solid #00989b;
   border-width: 0 0 0 6px;
-  margin-top: 10px; 
+  margin: 10px 0 5px; 
   font-size: 16px;
   color: #989898;
 }
 .margin-subhead {
-  padding-left: 12px;
-  margin-top: 12px;
+  text-indent: 1em;
   font-size: 12px;
+  line-height: 25px;
   font-weight: bold;
   color: #666666;
 }
 .margin-text {
+  padding-left: 12px;
   color: #999999;
+  font-size: 12px;
   line-height: 20px;
-  text-indent: 12px;
+  font-weight: 100;
+  text-indent: 2em;
 }
 .major_area ul li {
   list-style: none;
@@ -213,17 +259,16 @@ body {
 }
 .major_icon {
   height: 24px;
-  padding-left: 30px;
-  padding-right:5px ;
+  padding: 0 5px 0 30px;
   background-color: #33cbcc;
   font-size: 14px;
   line-height: 24px;
-  background-image: url('../images/iconfont-zhaopin.png') ;
+  background-image: url('../images/iconfont-tuijie.png') ;
   background-position: 10px center;
   background-repeat: no-repeat;
   color:#fff;
   border-radius: 3px;
-  margin: 0 10px
+  margin: 5px 10px;
 }
 .major_area {
   margin-top:15px; 
@@ -231,9 +276,13 @@ body {
 .hidden {
   overflow: hidden;
 }
-.margin-more {
-  margin: 22px 30px 15px 0;
-  color: #999999;
-  text-align: right;
-  font-size: 12px;
+.hidden li {
+  cursor: pointer;
+}
+.aaa {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 9px 6px;
+  border-color:  transparent #993232 #993232 transparent ;
 }
