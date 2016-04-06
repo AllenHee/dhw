@@ -197,24 +197,13 @@
                 </div>
                 <div class="container_cont_r">
                     <input class="project" type="hidden" value="@it["id"]"/>
-                    <table>
-                        <colgroup>
-                            <col width="120px">
-                            <col width="auto">
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th>
-                                    投稿人
-                                </th>
-                                <th>
-                                    投稿时间
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
+                    <div class="container_cont_rt">
+                        <p>
+                            投稿人</p>
+                        <span>投稿时间</span>
+                    </div>
+                    <ul class="container_cont_rlist">
+                    </ul>
                     <div class="pagination">
                     </div>
                 </div>
@@ -228,12 +217,17 @@
         var subjectID= @zb["id"];
     </script>
     <script type="text/html" id="zbRecord">
-    {{each data as record i}}
-    <tr>
-      <td>{{record.name}}</td>
-      <td>{{record.date}}</td>
-    </tr>
-    {{/each}}
+    {{each data as record i}} {{if record.state === 2}}
+    <li class="zhongbiao">
+      {{/if}} {{if record !== 2}}
+      <li>
+        {{/if}}
+        <img class="touxiang" src="{{record.logo}}_100x100.jpg" alt="">
+        <i></i>
+        <p>{{record.name}}</p>
+        <span>record.date</span>
+      </li>
+      {{/each}}
     </script>
     <script>
         with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
@@ -241,6 +235,7 @@
     <script src="@BaseConfigs.GetStaticPath/scripts/template.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/jquery.paging.min.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/jquery.loadData.js"></script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/webuploader.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/jquery.circliful.min.js"></script>
     <script src="@BaseConfigs.GetStaticPath/scripts/zb.detail.js"></script>
 }
