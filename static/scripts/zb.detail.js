@@ -131,7 +131,11 @@ $('.container_but').click(function() {
   para.misid = misid;
   para.workCycle = workCycle;
   para.contact = contact;
-  $.post('/Detail/Delivery', para).success(function () {
-
+  $.post('/Detail/Delivery', para).success(function (d) {
+     if (d.success) {
+       alert('接单成功，可到个人中心进行查看')
+     } else {
+       alert('因网络原因接单失败,请稍后重试');
+     }
   })
 })
