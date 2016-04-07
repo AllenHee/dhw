@@ -1,8 +1,12 @@
 $(document).ready(function() {
   var h = [],
-    nav_h = $('.banner').height() + $('.intro-bg').height(),
-    l = $('.nav').offset().left;
-
+    banner_h = $('.banner').height() + $('.intro-bg').height(),
+    tools_h = window.screen.height - $('.tools').offset().top + $(window).scrollTop(),
+    // window.screen.height 
+    nav_l = $('.nav').offset().left;
+    tools_l = $('.tools').offset().left;
+  console.log(tools_h)
+  
   //导航栏选中高亮
   $(".nav a").click(function() {
     $(".nav a").removeClass("nav_curent");
@@ -11,10 +15,13 @@ $(document).ready(function() {
 
   // 滚动事件
   $(window).scroll(function() {
-    if ($(window).scrollTop() > nav_h) {
+    // if (tools_h > 300) {
+    //   console.log(1)
+    // }
+    if ($(window).scrollTop() > banner_h) {
 
       // 导航栏fix定位
-      $('.nav').css({ 'position': 'fixed', 'top': '20px', 'left': 'l' })
+      $('.shortcut').css({ 'position': 'fixed', 'top': '20px', 'left': 'nav_l' })
 
       //导航栏滚动选中
       for (i = 0; i < $(".nav").children().length; i++) {
@@ -38,17 +45,14 @@ $(document).ready(function() {
           $(".nav").scrollTop($(".nav").scrollTop() + 20);
         }
       }
-      
     } else {
-      $('.nav').css({ 'position': '', 'top': '', 'left': '' })
+      $('.shortcut').css({ 'position': '', 'top': '', 'left': '' })
     }
-
   });
 
   //跳转至人才招聘
   $(".major_icon").click(function() {
     var position = $(this).text()
     window.location.href = "http://hr.dreamhiway.com/jobs?su=" + position;
-
   });
 });

@@ -68,6 +68,13 @@ body {
     max-width: 1400px; 
     margin: 10px auto;
 }
+.content a:hover {
+  text-decoration: none;
+}
+.shortcut {
+  float: left;
+  position: absolute;
+}
 .nav {
   /*position: absolute;*/
   float: left;
@@ -87,6 +94,7 @@ body {
 .nav a:hover {
   color: #fff;
   background: #00999b;
+  text-decoration: none;
 }
 .nav-title {
   float: left;
@@ -174,8 +182,9 @@ body {
   text-decoration: none;
 }
 .majoring {
-  overflow: hidden;
+  width: 1000px;
   margin-bottom: 120px;
+  overflow: hidden;
 }
 .major-content {
   position: relative;
@@ -285,4 +294,34 @@ body {
   border-style: solid;
   border-width: 0 0 9px 6px;
   border-color:  transparent #993232 #993232 transparent ;
+}
+.tools {
+  position: absolute;
+  top: 450px;
+  left: 1265px;
+  width: 40px;
+  /*height: 150px;*/
+  background-color: #fff;
+  vertical-align: middle;
+}
+.tool {
+  height: 30px;
+  padding: 5px 0;
+  text-align: center;
+  display: block;
+
+}
+.tool1 {
+  height: 40px;
+  line-height: 40px;
+}
+.tool-line {
+  position: absolute;
+  left: 6px;
+  width: 28px;
+  border-top: solid thin #009899;
+  display: block;
+}
+.tools a {
+  color: #333333;
 }
