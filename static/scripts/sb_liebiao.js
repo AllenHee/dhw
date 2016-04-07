@@ -117,7 +117,20 @@ load($('.sbcs_filterbox_items').eq(0), 'dd', 'zcnx')
 load($('.sbcs_filterbox_items').eq(1), 'dd', 'jgqj')
 load($('.sbcs_filterbox_items').eq(2), 'dd', 'type')
 
+// 大类的悬浮事件
+$('.sbcs_type_all').mouseenter(function () {
+  $('.sbcs_type_cont').show();
+  $('.sbcs_type_text i').css('transform', 'rotateZ(180deg)')
+})
+$('.sbcs_type_all').mouseleave(function () {
+  $('.sbcs_type_cont').hide();
+  $('.sbcs_type_text i').css('transform', 'rotateZ(0)')
+})
+
 $('.sbcs_type_cont_item').click(function() {
+  var text = $(this).text();
+  $('.sbcs_type_text span').text(text);
+  $('.sbcs_type_cont').hide();
   para.pcode = $(this).attr('data-pcode')
   loadData("/Trademark/list", para, "sbTemplate", ".items", false);
 })

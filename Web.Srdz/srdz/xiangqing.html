@@ -375,10 +375,10 @@
       count: count,
       body: text
     }
-    $.post('/ShoppingCart/ShoppingCartAdd', para).success(function (data)
+    $.post('/ShoppingCart/ShoppingCartAdd', para).success(function (d)
     {
       if (d.success) {
-        var id = data.result;
+        var id = d.result;
         window.location.href = '/pay1/' + id;
       } else {
         alert('您需要先登录')
