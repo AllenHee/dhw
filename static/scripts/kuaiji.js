@@ -36,37 +36,37 @@ $(function() {
       .eq(index).fadeIn("fast");
   });
 
-  $.ajax({
-    url: 'http://bbs.dreamhiway.com/getposts.php',
-    dataType: "jsonp",
-    jsonp: "callback",
-    success: function(data) {
-      var posts = data;
-      var images = [];
+  // $.ajax({
+  //   url: 'http://bbs.dreamhiway.com/getposts.php',
+  //   dataType: "jsonp",
+  //   jsonp: "callback",
+  //   success: function(data) {
+  //     var posts = data;
+  //     var images = [];
 
-      for (var i = 0, len = posts.length; i < len; i++) {
-        var message = posts[i].message;
-        var textEnd = message.indexOf('\n');
-        var urlstart = message.indexOf('http');
-        var urlend = message.indexOf('[/img]');
+  //     for (var i = 0, len = posts.length; i < len; i++) {
+  //       var message = posts[i].message;
+  //       var textEnd = message.indexOf('\n');
+  //       var urlstart = message.indexOf('http');
+  //       var urlend = message.indexOf('[/img]');
 
-        var text = message.slice(0, textEnd);
-        var img = message.slice(urlstart, urlend);
+  //       var text = message.slice(0, textEnd);
+  //       var img = message.slice(urlstart, urlend);
 
-        posts[i].message = text;
+  //       posts[i].message = text;
 
-        images.push({
-          tid: posts[i].tid,
-          url: img
-        });
-      }
+  //       images.push({
+  //         tid: posts[i].tid,
+  //         url: img
+  //       });
+  //     }
 
-      var post = template('posts', { posts: posts });
-      var img = template('images', { images: images })
-      $('.post').html(post);
-      $('.post-pic').html(img)
-    }
-  });
+  //     var post = template('posts', { posts: posts });
+  //     var img = template('images', { images: images })
+  //     $('.post').html(post);
+  //     $('.post-pic').html(img)
+  //   }
+  // });
   //  //限制字符个数
   //  $(".textOver").each(function(){
   //       var maxwidth=20;

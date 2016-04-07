@@ -85,7 +85,7 @@
       <div class="header_r clearfix">
         <div class="header_r_search">
           <input type="text" class="header_r_inp">
-          <a class="header_r_a"><img src="images/众包首页改3_07.png" alt=""></a>
+          <a href="javascript:;" class="header_r_a"><img src="images/众包首页改3_07.png" alt=""></a>
         </div>
         <div class="header_r_b">
           <div class="slide">
@@ -275,6 +275,11 @@
     },function() {
       $(this).siblings("i").removeClass("current");
     });
+   // 众包新增搜索功能 
+    $('.header_r_a').click(function() {
+      var keyword = $('.header_r_inp').val();
+      window.location.href = 'http://localhost:8084/zhongbao/liebiao.html?keyword=' + keyword;
+    }) 
   </script>
 </body>
 

@@ -589,6 +589,102 @@
   text-indent: 2em;
   line-height: 2;
 }
+/*新增职位评价内容显示*/
+.interview-container {
+   border-top: 1px solid #e8e8e8;
+   min-height: 20px;
+   margin-top: 40px;
+   position: relative;
+}
+.interview-title {
+   position: absolute;
+   left: 0;
+   top: -11px;
+   color: #000;
+   font-size: 18px;
+   padding-right: 16px;
+   background-color: #fff;
+}
+.interview-all {
+   position: absolute;
+   right: 0;
+   top: -12px;
+   color: #3d9ccc;
+   font-size: 14px;
+   background-color: #fff;
+   padding-left: 10px;
+}
+.interview-area {
+   font-size: 14px;
+   color: #555;
+}
+.review-area {
+   padding: 26px 0;
+   border-bottom: 1px dashed #dce4e6;
+}
+.interview-l {
+   width: 50px;
+   float: left;
+   margin-right: 14px;
+   text-align: center;
+}
+.interview-l img {
+   height: 50px;
+   width: 50px;
+   border-radius: 50px;
+   margin-bottom: 10px;
+}
+.interview-r {
+   width: 615px;
+   float: left;
+}
+.interviw-stars {
+   margin-bottom: 10px;
+}
+.stars {
+   float: left;
+}
+.interviw-stars li {
+   float: left;
+   margin-right: 8px;
+}
+.interviw-stars li span {
+   float: left;
+   color: #999;
+   margin-top: 2px;
+   margin-right: 6px;
+   line-height: 20px;
+}
+.star {
+   display: inline-block;
+   width: 19px;
+   height: 19px;
+   float: left;
+   margin-right: 3px;
+   background: url('../images/start.png') no-repeat 0px -19px;
+   vertical-align: sub;
+}
+.star-5 {
+   background-position: 0px 0px;
+}
+.interview-date {
+   float: right;
+   font-size: 12px;
+   color: #999;
+   line-height: 20px;
+   margin-top: 3px;
+}
+.interview-content {
+   margin-bottom: 6px;
+}
+.review-title {
+   display: inline-block;
+   color: #999;
+}
+.interview-process {
+   display: inline;
+}
+
 /*右侧*/
 .pos-detail-r {
   width: 266px;

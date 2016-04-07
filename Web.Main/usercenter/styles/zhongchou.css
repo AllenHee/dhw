@@ -770,6 +770,7 @@
   position: relative;
   height: 60px;
   background: #e7ebef;
+  z-index: 102
 }
 .fixedbar-fixed {
   position: absolute;

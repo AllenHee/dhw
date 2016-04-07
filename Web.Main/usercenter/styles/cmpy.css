@@ -78,8 +78,9 @@
 .maincont_t_r {
   float: right;
   width: 590px;
-  height: 520px;
+  /*height: 520px;*/
   background-color: #fff;
+  padding-bottom: 20px;
 }
 .maincont_t_l h1 {
   border-bottom: 1px solid #f0f0f0;
@@ -141,8 +142,11 @@
   color: #000;
 }
 .honor img {
-  max-width: 100%;
+  width: 280px;
+  height: 88px;
   margin-top: 25px;
+  margin-right: 6px;
+  margin-left: 5px;
 }
 .comp_intro .detail,
 .maincont_ttl .detail {
@@ -582,7 +586,7 @@
 }
 
 /*
-<<<<<<< HEAD
+
 * 何伟
 * 案例展示
 */
@@ -1073,6 +1077,9 @@ select {
   width: 770px;
   float: left;
 }
+.gsry {
+  font-size: 20px; 
+}
 /*.gsJob_welfare dl {
   width: 770px;
   list-style: none;
@@ -1212,6 +1219,23 @@ select {
   text-overflow: ellipsis; 
   white-space: nowrap;
 }
+/*星星*/
+.comment-area {
+  margin-top: 14px;
+}
+.stars {
+  float: left;
+}
+.star {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background: url('../images/start.png') no-repeat 0px -19px;
+  vertical-align: sub;
+}
+.star-5 {
+  background-position: 0px 0px;
+}
 .gsJob_sum {
   float: right;
   color: #2c92ff;
@@ -1250,4 +1274,10 @@ select {
   height: 44px;
   line-height: 44px;
   font-size: 14px;
+}
+/*分页样式*/
+.pagination .current, 
+.pagination a:hover {
+  border-color: #3d9ccc;
+  background-color: #3d9ccc;
 }
