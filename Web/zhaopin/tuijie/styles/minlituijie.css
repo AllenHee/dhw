@@ -293,14 +293,14 @@ body {
 }
 .tools {
   position: absolute;
-  top: 450px;
+  /*top: 450px;*/
   right: 20px;
   width: 40px;
   background-color: #fff;
   display: none;
 }
 .tool {
-  height: 30px;
+  /*height: 30px;*/
   padding: 5px 0;
   text-align: center;
   display: block;
