@@ -21,7 +21,10 @@ $(document).ready(function() {
     if ($(window).scrollTop() > banner_h) {
 
       // 导航栏fix定位
-      $('.shortcut').css({ 'position': 'fixed', 'top': '20px', 'left': 'nav_l' })
+      $('.nav').css({ 'position': 'fixed', 'top': '20px', 'left': 'nav_l' })
+      
+      //工具栏fix定位
+      $('.tools').css({ 'position': 'fixed', 'top': '500px', 'right': '15px', 'display': 'block' })
 
       //导航栏滚动选中
       for (i = 0; i < $(".nav").children().length; i++) {
@@ -46,7 +49,8 @@ $(document).ready(function() {
         }
       }
     } else {
-      $('.shortcut').css({ 'position': '', 'top': '', 'left': '' })
+      $('.nav').css({ 'position': '', 'top': '', 'left': '' })
+      $('.tools').css({ 'position': '', 'top': '', 'left': '', 'display': 'none' })
     }
   });
 

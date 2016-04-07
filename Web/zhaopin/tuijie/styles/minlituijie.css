@@ -71,10 +71,6 @@ body {
 .content a:hover {
   text-decoration: none;
 }
-.shortcut {
-  float: left;
-  position: absolute;
-}
 .nav {
   /*position: absolute;*/
   float: left;
@@ -298,11 +294,10 @@ body {
 .tools {
   position: absolute;
   top: 450px;
-  left: 1265px;
+  right: 20px;
   width: 40px;
-  /*height: 150px;*/
   background-color: #fff;
-  vertical-align: middle;
+  display: none;
 }
 .tool {
   height: 30px;
