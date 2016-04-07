@@ -1275,3 +1275,9 @@ select {
   line-height: 44px;
   font-size: 14px;
 }
+/*分页样式*/
+.pagination .current, 
+.pagination a:hover {
+  border-color: #3d9ccc;
+  background-color: #3d9ccc;
+}
