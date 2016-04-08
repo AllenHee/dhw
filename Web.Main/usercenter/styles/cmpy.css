@@ -695,15 +695,17 @@
 }
 .au_fzlc .year {
   float: left;
-  height: 335px;
+  /*height: 335px;*/
   margin-right: 25px;
   font-size: 25px;
   font-weight: bold;
   padding: 0 15px;
-  border-right: 3px solid #ededed;
+  /*border-right: 3px solid #ededed;*/
 }
 .au_fzlc_r {
   float: left;
+  border-left: 3px solid #ededed;
+  padding-left: 26px;
 }
 .au_fzlc_r li {
   padding-bottom: 30px;
