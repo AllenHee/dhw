@@ -1,11 +1,11 @@
 $(document).ready(function() {
   var h = [],
     banner_h = $('.banner').height() + $('.intro-bg').height(),
-    tools_h = window.screen.height - $('.tools').offset().top + $(window).scrollTop(),
-    // window.screen.height 
+    tools_h = window.screen.height - 280;
     nav_l = $('.nav').offset().left;
-    tools_l = $('.tools').offset().left;
-  console.log(tools_h)
+  // console.log(window.screen.height)
+  // console.log($('.tools').height())
+   console.log(tools_h)
   
   //导航栏选中高亮
   $(".nav a").click(function() {
@@ -15,16 +15,13 @@ $(document).ready(function() {
 
   // 滚动事件
   $(window).scroll(function() {
-    // if (tools_h > 300) {
-    //   console.log(1)
-    // }
     if ($(window).scrollTop() > banner_h) {
 
       // 导航栏fix定位
-      $('.nav').css({ 'position': 'fixed', 'top': '20px', 'left': 'nav_l' })
+      $('.nav').css({ 'position': 'fixed', 'top': '20px' })
       
       //工具栏fix定位
-      $('.tools').css({ 'position': 'fixed', 'top': '500px', 'right': '15px', 'display': 'block' })
+      $('.tools').css({ 'position': 'fixed', 'top': tools_h + 'px', 'right': '15px', 'display': 'block' })
 
       //导航栏滚动选中
       for (i = 0; i < $(".nav").children().length; i++) {
@@ -50,7 +47,7 @@ $(document).ready(function() {
       }
     } else {
       $('.nav').css({ 'position': '', 'top': '', 'left': '' })
-      $('.tools').css({ 'position': '', 'top': '', 'left': '', 'display': 'none' })
+      $('.tools').css({ 'position': '', 'top': '', 'right': '', 'display': 'none' })
     }
   });
 
