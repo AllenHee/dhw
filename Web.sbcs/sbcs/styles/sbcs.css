@@ -271,9 +271,9 @@
   font-size: 16px;
 }
 .index_search_input {
-  width: 505px;
+  width: 480px;
   height: 45px;
-  padding: 0 85px 0 10px;
+  padding: 0 85px 0 35px;
   border: 0;
   background-color: #e1e1e1;
   line-height: 45px;
