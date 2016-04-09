@@ -1,0 +1,222 @@
+.header_nav {
+  width: 100%;
+  height: 38px;
+  background-color: #fff;
+}
+.header_btn li {
+  float: left;
+}
+.banner_area {
+  position: relative;
+  width: 100%;
+  height: 637px;
+  /*background-color: red;*/
+  /*background-image:url('../images/banner.jpg');
+  background-repeat: no-repeat;
+  background-size: 637px 100%;*/
+}
+.banner_area_img {
+  width: 100%;
+  height: 637px;
+}
+.banner_nav {
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid #12171a; 
+  bottom: 0;
+}
+.banner_nav_li {
+  width: 135px;
+  height: 63px;
+  display: border-box;
+  padding-top: 25px;
+  /*line-height: 38px;*/
+  float: left;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+/*当前选中状态*/
+.current {
+  color: #142d27;
+}
+.banner_nav_lifirst {
+  margin-left: 39px;
+  background-color:  #12171a;
+}
+.banner_nav_li span {
+  font-size: 14px;
+}
+.banner_nav_lilaster {
+  position: absolute;
+  right: 59px;
+  top: -8px;
+  width: 263px;
+  height: 110px;
+  background: url('../images/lilast.png') no-repeat -89px -46px;
+}
+/*大赛日程*/
+.bs_date {
+  width: 1204px;
+  margin: 61px auto;
+}
+.bs_date_l {
+  margin-right: 61px;
+  float: left;
+}
+.bs_date_r {
+  float: left
+}
+.title {
+  position: relative;
+  border-left: 13px solid #cd9c3f;
+    font-size: 18px;
+    padding-left: 5px;
+}
+.title_arrow {
+  border: 6px solid #cd9c3f;
+    border-color: transparent transparent transparent #cd9c3f;
+    width: 0;
+    height: 0;
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: -1px;
+}
+.small {
+  font-size: 12px;
+  color: #969696;
+}
+.bs_tubiao {
+  margin-top: 67px;
+  margin-left: 15px;
+}
+
+/*.bs_bm {
+  background:url('../images/bm_dark.png') no-repeat 0px 0px;
+} */
+.bs_logo {
+  width: 80px;
+  height: 112px;
+  font-size: 16px;
+  text-align: center;
+  float: left;
+  margin-right: 92px;
+}
+.bs_latest {
+  margin-right: 0px;
+}
+.bs_logo img {
+  width: 80px;
+  height: 78px;
+}
+/*浮动框*/
+.tip {
+  position: relative;
+  width: 638px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 5px;  
+  padding: 11px 18px 20px 14px;
+}
+.tip h2 {
+  width: 628px;
+  height: 32px;
+  padding-left: 10px;
+  text-align: left;
+  color: #fff;
+  background: #cd9934;
+}
+.text_area {
+  line-height: 30px;
+  margin-top: 10px;
+  margin-left: 5px;
+  text-align: left;
+  font-size: 14px;
+}
+.text_content {
+  line-height: 20px;
+  padding-left: 17px;
+  text-align: left;
+  font-size: 14px;
+}
+.tip_cs {
+  left: -265px;
+  top: 20px;
+}
+.title_arrow_tip {
+    border: 14px solid #cd9c3f;
+    width: 0;
+    height: 0;
+    display: block;
+    position: absolute;
+}
+.title_arrow_tip_first {
+   border-color: transparent transparent #ccc transparent;
+   top: -28px;
+    left: 290px;
+}
+.title_arrow_tip_two {
+    border-color: transparent transparent #fff transparent;
+        top: -27px;
+    left: 290px;
+}
+.trends {
+  width: 347px;
+  height: 220px;
+  border-top: 1px solid #ccc;
+  margin-top: 15px;
+  overflow: hidden; 
+}
+.trends li {
+  padding: 13px 34px 13px 7px;
+  font-size: 14px;
+}
+/*箭头*/
+.jt {
+  margin-top: 42px;
+}
+.jt img {
+  width: 100%;
+} 
+/*圆圈图片区域*/
+.intro {
+  width: 1080px;
+  margin: 82px auto;
+}
+.intro_pic {
+  position: relative;
+  width: 100%;
+  height: 224px;
+  margin-bottom: 50px;
+}
+.intro_text {
+ position: absolute;
+    width: 702px;
+    /*height: 138px;*/
+    font-size: 16px;
+    text-indent: 32px;
+    line-height: 30px;
+}
+.intro_1 {
+  background: url('../images/intro_1.png') no-repeat -73px -53px;
+}
+.intro_1 .intro_text {
+  top: 44px;
+    left: 328px;
+}
+.intro_2 {
+  background: url('../images/intro_2.png') no-repeat -73px -53px;
+}
+.intro_3 {
+  background: url('../images/intro_3.png') no-repeat -73px -11px;
+}
+.intro_4 {
+  background: url('../images/intro_4.png') no-repeat -73px -11px;
+}
+.intro_5 {
+  background: url('../images/intro_5.png') no-repeat -73px -11px;
+}
+.cysj_bs img {
+  width: 100%;
+}
