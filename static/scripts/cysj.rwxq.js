@@ -174,7 +174,7 @@ $(function () {
    $.validator.addMethod('isprice', function(value) {
      var price = /^[1-9]{1}\d*$/;
      return price.test(value);     
-  },"请输入正确报价,雇佣预期价格为￥500-1000");
+  },"请输入正确报价,雇佣预期价格为￥100-20000");
   
   $.validator.addMethod('iscycle', function(value) {
      var cycle = /^[1-9]{1}\d*$/;

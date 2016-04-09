@@ -1488,6 +1488,9 @@
 .forget_form_input_confirm {
   float:left
 }
+.forget_form_submit_btn {
+  text-align: center;
+}
 .forget_form_btn {
   width: 98px;
   height: 32px;
