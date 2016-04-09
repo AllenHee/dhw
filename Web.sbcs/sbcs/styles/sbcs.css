@@ -608,13 +608,8 @@ body {
   margin-bottom: 20px;
 }
 .sbcs_type_cont {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 55px;
   width: 1150px;
   padding: 0;
-  background-color: #e6e6e6;
 }
 .sbcs_type_cont_item {
   float: left;
@@ -1322,4 +1317,11 @@ body {
   border-style: solid;
   border-color: #fff transparent transparent;
   transition: all 0.5s;
+}
+.sbcs_type_all .sbcs_type_cont {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 55px;
+  background-color: #e6e6e6;
 }
