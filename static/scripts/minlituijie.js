@@ -5,7 +5,6 @@ $(document).ready(function() {
     nav_l = $('.nav').offset().left;
   // console.log(window.screen.height)
   // console.log($('.tools').height())
-   console.log(tools_h)
   
   //导航栏选中高亮
   $(".nav a").click(function() {

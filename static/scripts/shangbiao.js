@@ -174,7 +174,7 @@ $('.index_type_show').on('mousewheel DOMMouseScroll', function(e) {
       var pcode = $('.index_type_show_item-current').attr('data-pcode')
       getData(pcode)
       $('.index_trademark_ttl').text($('.index_type_show_item-current').find('p').text())
-    }, 600)
+    }, 510)
   }
   // 滚轮向下,大类向上
   else {
@@ -188,6 +188,6 @@ $('.index_type_show').on('mousewheel DOMMouseScroll', function(e) {
       var pcode = $('.index_type_show_item-current').attr('data-pcode')
       getData(pcode)
       $('.index_trademark_ttl').text($('.index_type_show_item-current').find('p').text())
-    }, 600)
+    }, 510)
   }
 })
