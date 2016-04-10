@@ -1,85 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>闽南理工学院创意设计页面</title>
-  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
-  <link rel="stylesheet" href="http://localhost:8086/cysj/mincysj/styles/mincysj.css">
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/mincysj.css">
 </head>
+
 <body>
   <!--头部区-->
   <div class="header_nav">
+    <div class="header_center">
       <ul class="header_btn">
-        <li>
+        <li class="header_btn_list">
           <i></i>
-          <span>梦高速首页</span>
+          <span><a href="#">梦高速首页</a></span>
         </li>
-        <li>
+        <li class="header_btn_list">
           <i></i>
-          <span>登录</span>
+          <span><a href="#">登录</a></span>
           <span>|</span>
-          <span>注册</span>
+          <span><a href="#">注册</a></span>
+        </li>
+        <li class="header_btn_list header_btn_name">
+          <i></i>
+          <span class="username">蔡清波</span>
+          <ul class="login_state">
+            <a href="#"><li class="login_state_list">
+              <i class="msg"></i>
+              消息中心</li>
+              </a>
+            <a href="#"><li class="login_state_list">
+              <i class="home"></i>
+              个人主页</li>
+            </a>  
+            <a href="#"><li class="login_state_list">
+              <i class="zp"></i>
+              我的作品</li>
+            </a>  
+            <a href="#"><li class="login_state_list">
+              <i class="loginout"></i>
+              退出登录</li>
+            </a>  
+          </ul>
         </li>
       </ul>
+     </div> 
   </div>
   <div class="banner_area">
     <img src="images/banner.jpg" alt="" class="banner_area_img">
-    <ul class="banner_nav clearfix">
-      <li class="banner_nav_li banner_nav_lifirst current">
-        首&nbsp&nbsp&nbsp&nbsp页<br>
-        <span>HOME</span>
-      </li>
-      <li class="banner_nav_li">
-        大赛介绍<br>
-        <span>INTRO</span>
-      </li>
-      <li class="banner_nav_li">
-        大赛动态<br>
-        <span>DYNAMIC</span>
-      </li>
-      <li class="banner_nav_li">
-        合作伙伴<br>
-        <span>PARTNER</span>
-      </li>
-      <li class="banner_nav_li">
-        讨论社区<br>
-        <span>BBS</span>
-      </li>
-      <li class="banner_nav_li banner_nav_lilaster">
-        马上报名<br>
-        <b>ENTRANCE</b>
-      </li>
-    </ul>
+    <div class="banner_nav_area">
+      <ul class="banner_nav clearfix">
+        <li class="banner_nav_li banner_nav_lifirst current">
+          首&nbsp&nbsp&nbsp&nbsp页
+          <br>
+          <span>HOME</span>
+        </li>
+        <li class="banner_nav_li">
+          大赛介绍
+          <br>
+          <span>INTRO</span>
+        </li>
+        <li class="banner_nav_li">
+          大赛动态
+          <br>
+          <span>DYNAMIC</span>
+        </li>
+        <li class="banner_nav_li">
+          合作伙伴
+          <br>
+          <span>PARTNER</span>
+        </li>
+        <li class="banner_nav_li">
+          讨论社区
+          <br>
+          <span>BBS</span>
+        </li>
+        <li class="banner_nav_li banner_nav_lilaster">
+          马上报名
+          <br>
+          <b>ENTRANCE</b>
+        </li>
+      </ul>
+    </div>
   </div>
   <!--大赛日程-->
   <div class="bs_date clearfix">
     <div class="bs_date_l">
       <div class="title">
-        <span class="title_arrow"></span>
-        大赛日程
+        <span class="title_arrow"></span> 大赛日程
         <b class="small">SCHEDULE</b>
       </div>
       <div class="bs_tubiao">
         <ul class="clearfix">
           <li class="bs_bm bs_logo">
-            <img src="images/bm_dark.png" alt="">
-            活动报名
+            <img src="images/bm_dark.png" alt="" class="dark">
+            <img src="images/bm_light.png" alt="" class="light">活动报名
           </li>
           <li class="bs_cs bs_logo">
-            <img src="images/cs_dark.png" alt="">
-            网络初审
+            <img src="images/cs_dark.png" alt="" class="dark"> 
+            <img src="images/cs_light.png" alt="" class="light">网络初审
+             <div class="tip tip_cs">
+              <h2>网络初审</h2>
+              <p class="text_area">
+                按照赛制分为五大组：
+                <p class="text_content">
+                  1.通过评委评选，每组产生20个创意设计作品进入决赛
+                  <br> 2.进入决赛的参赛选手/队伍可通过闽南理工学院创客园的准备，实现创意作品
+                  <br> 3.创意作品准备时间：2016年5月1日 - 5月10日
+                </p>
+              </p>
+              <span class="title_arrow_tip title_arrow_tip_first"></span>
+              <span class="title_arrow_tip title_arrow_tip_two"></span>
+            </div>
           </li>
           <li class="bs_db bs_logo">
-            <img src="images/db_dark.png" alt="">
-            决赛答辩
-            <div class="tip tip_cs">
+            <img src="images/db_dark.png" alt="" class="dark"> 
+            <img src="images/db_light.png" alt="" class="light"> 决赛答辩
+            <div class="tip tip_db">
               <h2>决赛答辩</h2>
               <p class="text_area">
                 决赛以答辩的形式进行，答辩环节包括了：
                 <p class="text_content">
-                  1.自我介绍/团队展示<br>
-                  2.结合PPT、视屏等方式，现场介绍创意作品<br>
-                  3.评委问答
+                  1.自我介绍/团队展示
+                  <br> 2.结合PPT、视屏等方式，现场介绍创意作品
+                  <br> 3.评委问答
                 </p>
               </p>
               <span class="title_arrow_tip title_arrow_tip_first"></span>
@@ -87,20 +133,45 @@
             </div>
           </li>
           <li class="bs_gs bs_logo">
-            <img src="images/gs_light.png" alt="">
-            结果公示
+            <img src="images/gs_light.png" alt="" class="dark">
+            <!--<img src="images/gs_dark.png" alt="" class="light">-->结果公示
+            <div class="tip tip_gs">
+              <h2>结果公示</h2>
+              <p class="text_area">
+                根据评委评分，决出每个类别的一、二、三等奖：
+                <p class="text_content">
+                  公示时间为： 2016年 5 月 15 日
+                  <br> 公示地址为：闽南理工学院各院宣传栏
+                  <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp创企创意征集活动页面
+                </p>
+              </p>
+              <span class="title_arrow_tip title_arrow_tip_first"></span>
+              <span class="title_arrow_tip title_arrow_tip_two"></span>
+            </div>
           </li>
           <li class="bs_fh bs_logo bs_latest">
-            <img src="images/fh_dark.png" alt="">
-            创意孵化
+            <img src="images/fh_dark.png" alt="" class="dark">
+            <img src="images/fh_light.png" alt="" class="light"> 创意孵化
+            <div class="tip tip_fh">
+              <h2>创意孵化</h2>
+              <p class="text_area">
+                对可行性高，具有市场价值的创意进行孵化：
+                <p class="text_content">
+                  可选择通过闽南理工学院创客园，梦高速重创空间进行创业孵化
+                  <br> 创企科技将对接名企，最大化将创意孵化
+                  <br> 平面设计类中的商标logo可选择于梦高速商标超市出售
+                </p>
+              </p>
+              <span class="title_arrow_tip title_arrow_tip_first"></span>
+              <span class="title_arrow_tip title_arrow_tip_two"></span>
+            </div>
           </li>
         </ul>
       </div>
     </div>
     <div class="bs_date_r">
       <div class="title">
-        <span class="title_arrow"></span>
-          报名动态
+        <span class="title_arrow"></span> 报名动态
         <b class="small">DYNAMIC</b>
       </div>
       <div class="trends">
@@ -122,23 +193,218 @@
   <!--箭头-->
   <div class="jt">
     <img src="images/jt.png" alt="">
+    <div class="jt_text">
+      <p>别<span class="qd">浪费</span>灵光一闪的创意</p>
+      <p>发到<span class="qd">创企</span></p>
+      <p>万一<span class="qd">实现</span>了呢></p>
+    </div>
   </div>
   <div class="intro">
     <div class="intro_1 intro_pic">
       <div class="intro_text">
-        科技创新实践活动中设计产生的科技发明创造，工程设计作品，机器人创意
-        设计作品等能够代表青年科技创新水平和奇思妙想创意的作品或其方案（注：可使用主办方提供的3D打印机）
+        科技创新实践活动中设计产生的科技发明创造，工程设计作品，机器人创意 设计作品等能够代表青年科技创新水平和奇思妙想创意的作品或其方案（注：可使用主办方提供的3D打印机）
       </div>
     </div>
-    <div class="intro_2 intro_pic"></div>
-    <div class="intro_3 intro_pic"></div>
-    <div class="intro_4 intro_pic"></div>
-    <div class="intro_5 intro_pic"></div>
+    <div class="intro_2 intro_pic">
+      <div class="intro_text">
+        科技创新实践活动中设计产生的科技发明创造，工程设计作品，机器人创意 设计作品等能够代表青年科技创新水平和奇思妙想创意的作品或其方案（注：可使用主办方提供的3D打印机）
+      </div>
+    </div>
+    <div class="intro_3 intro_pic">
+      <div class="intro_text">
+        科技创新实践活动中设计产生的科技发明创造，工程设计作品，机器人创意 设计作品等能够代表青年科技创新水平和奇思妙想创意的作品或其方案（注：可使用主办方提供的3D打印机）
+      </div>
+    </div>
+    <div class="intro_4 intro_pic">
+      <div class="intro_text">
+        科技创新实践活动中设计产生的科技发明创造，工程设计作品，机器人创意 设计作品等能够代表青年科技创新水平和奇思妙想创意的作品或其方案（注：可使用主办方提供的3D打印机）
+      </div>
+    </div>
+    <div class="intro_5 intro_pic">
+      <div class="intro_text">
+        科技创新实践活动中设计产生的科技发明创造，工程设计作品，机器人创意 设计作品等能够代表青年科技创新水平和奇思妙想创意的作品或其方案（注：可使用主办方提供的3D打印机）
+      </div>
+    </div>
   </div>
   <!--创意设计大赛-->
   <div class="cysj_bs">
-    <img src="images/cysjds.png" alt="">
-    <div class="cysj_bs_text"></div>
+    <div class="cysj_bs_pic"></div>
+    <div class="cysj_bs_text">
+      <div class="about">
+        <div class="cysj_bs_title">
+          关于
+          <span class="bs_title_b">创企杯创意征集大赛</span>
+          <br>
+          <span class="bs_title_f">INFORMATION</span>
+        </div>
+        <p class="bs_title_txt">
+          为繁荣闽南理工校园文化，调动全校学生积极性，展现学生个人风采，让同学们在此次 活动中提高自身的创新能力。闽南理工学院与闽南理工创客园特联合福建省创企信息科技有限 公司、石狮国家高新区以及众多地方企业举办此次创企杯创意征集大赛。
+        </p>
+        <a href="#" class="about_more">了解更多</a>
+      </div>
+    </div>
   </div>
+  <!--作品展示-->
+  <div class="xhibition">
+    <div class="title">
+      <span class="title_arrow"></span>作品展示
+      <b class="small">SCHEDULE</b>
+    </div>
+    <div class="pic_show">
+      <div class="pic_show_interval">
+        <div class="pic_show_slide">
+          <ul class="pic_show_ul">
+            <li class="pic_ul_list">1<img src="" alt=""></li>
+            <li class="pic_ul_list"><img src="" alt=""></li>
+            <li class="pic_ul_list pic_ul_list_last"><img src="" alt=""></li>
+          </ul>
+          <ul class="pic_show_ul">
+            <li class="pic_ul_list">2<img src="" alt=""></li>
+            <li class="pic_ul_list"><img src="" alt=""></li>
+            <li class="pic_ul_list pic_ul_list_last"><img src="" alt=""></li>
+          </ul>
+          <ul class="pic_show_ul">
+            <li class="pic_ul_list">3<img src="" alt=""></li>
+            <li class="pic_ul_list"><img src="" alt=""></li>
+            <li class="pic_ul_list pic_ul_list_last"><img src="" alt=""></li>
+          </ul>
+        </div>
+      </div>
+      <span class="left_arrow" id="picleft_btn"></span>
+      <span class="right_arrow" id="picright_btn"></span>
+    </div>
+  </div>
+  <div class="news">
+    <div class="news_pic">
+      <!--<img src="images/ssdt.png" alt="">-->
+    </div>
+    <div class="news_area">
+      <div class="news_text">
+        <div class="title">
+          <span class="title_arrow"></span> 赛事动态
+          <b class="small">NEWS</b>
+        </div>      
+      </div>
+      <div class="news_list_area">
+        <ul>
+          <li class="news_list">
+            <i class="news_radius"></i>
+            <span class="news_intro">大赛官方 - 创企杯创意征集比赛即将开始！·············</span>
+            <span class="news_date">2016/04/09</span>
+          </li>
+          <li class="news_list">
+            <i class="news_radius"></i>
+            <span class="news_intro">大赛官方 - 创企杯创意征集比赛即将开始！·············</span>
+            <span class="news_date">2016/04/09</span>
+          </li>
+          <li class="news_list">
+            <i class="news_radius"></i>
+            <span class="news_intro">大赛官方 - 创企杯创意征集比赛即将开始！·············</span>
+            <span class="news_date">2016/04/09</span>
+          </li>
+          <li class="news_list">
+            <i class="news_radius"></i>
+            <span class="news_intro">大赛官方 - 创企杯创意征集比赛即将开始！·············</span>
+            <span class="news_date">2016/04/09</span>
+          </li>
+          <li class="news_list">
+            <i class="news_radius"></i>
+            <span class="news_intro">大赛官方 - 创企杯创意征集比赛即将开始！·············</span>
+            <span class="news_date">2016/04/09</span>
+          </li>
+        </ul>
+      </div>
+    </div>    
+  </div>
+  <!--合作伙伴-->
+  <div class="hzhb">
+    <div class="title">
+      <span class="title_arrow"></span> 合作伙伴
+      <b class="small">NEWS</b>
+    </div>
+    <div class="hzhb_area">
+      <div class="pic_show_slide_hzhb">
+        <ul class="hzhb">
+          <li class="hzhb_list"></li>
+          <li class="hzhb_list"></li>
+          <li class="hzhb_list"></li>
+          <li class="hzhb_list hzhb_list_last"></li>
+        </ul>
+        <ul class="hzhb">
+          <li class="hzhb_list"></li>
+          <li class="hzhb_list"></li>
+          <li class="hzhb_list"></li>
+          <li class="hzhb_list hzhb_list_last"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_center">
+      <div class="footer_logo clearfix">
+        <img src="" alt="">
+        <div class="help_info">
+          <ul class="clearfix">
+            <li class="item_list">帮助中心</li>
+            <li class="item_list">联系我们</li>
+            <li class="item_list item_list_last">服务热线：0595-36892299</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mz">© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</div>
+    </div>
+  </div>
+  <script src="jquery-1.11.3.min.js"></script>
+  <script>
+    $('#picleft_btn').click(function() {
+      if($('.pic_show_slide').is(':animated')) {
+        return false;
+      } else {
+        $('.pic_show_slide').stop(false, true);
+        var s_left = parseInt($('.pic_show_slide').css('left'));
+        if (s_left < 0) {
+          $('.pic_show_slide').animate({left: s_left + 1018 + 'px'});
+        } else {
+          $('.pic_show_slide').animate({ left: -2036 + 'px'});
+        }
+      }
+    });
+    $('#picright_btn').click(function() {
+      if($('.pic_show_slide').is(':animated')) {
+        return false;
+      } else {
+        $('.pic_show_slide').stop(false, true);
+        var s_left = parseInt($('.pic_show_slide').css('left'));
+        if (-s_left >= 2036) {
+          $('.pic_show_slide').animate({left: 0});
+        } else {
+          $('.pic_show_slide').animate({ left: s_left - 1018 + 'px'});
+        }
+      }
+    });
+    // 无限滚动
+    var trends_wrap = $('.trends');
+    var trends_1 = $('.trends ul');
+    var trends_2 = $('<ul></ul>');
+    trends_2.html(trends_1.html());
+    trends_wrap.append(trends_2);
+    function marquee() {
+      if (trends_wrap.scrollTop() >= trends_1.height()) {
+        trends_wrap.scrollTop(0);
+        console.log(1);
+      } else {
+        trends_wrap.scrollTop(trends_wrap.scrollTop() + 1);
+      }
+    }
+    var mq = setInterval(marquee, 50);
+    $('.bs_logo').mouseover(function() {
+      $(this).find('.light').css({display: 'block'});
+      $(this).find('.dark').css({display: 'none'});
+    })
+    $('.bs_logo').mouseout(function() {
+      $(this).find('.light').css({display: 'none'});
+      $(this).find('.dark').css({display: 'block'});
+    })
+  </script>
 </body>
 </html>
