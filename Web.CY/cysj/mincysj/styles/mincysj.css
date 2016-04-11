@@ -95,8 +95,8 @@
 }
 .banner_area_img {
   width: 100%;
-  min-width: 1283px;
-  height: 637px;
+    min-width: 1920px;
+    height: 637px;
 }
 .banner_nav_area {
   position: absolute;
@@ -105,6 +105,7 @@
   bottom: 0px;
 }
 .banner_nav {
+  position: relative;
   width: 1214px;
   margin: 0 auto;
 }
@@ -131,7 +132,7 @@
 }
 .banner_nav_lilaster {
   position: absolute;
-  left: 1018px;
+  left: 930px;
   top: -8px;
   width: 263px;
   height: 110px;
@@ -357,14 +358,22 @@
 .cysj_bs {
   position: relative;
   width: 100%;
-  height: 561px;
+  height: 800px;
 }
 .cysj_bs_pic {
-    height: 599px;
-    background: url('../images/cysjds.png') no-repeat 0px 0px;
+    height: 800px;
+    background: url('../images/cysjds.png') no-repeat -31px -6px;
     background-size: cover;
     width: 100%;
-    min-width: 1283px;
+    min-width: 1920px;
+}
+.cysj_bs_text_area {
+  position: absolute;
+    width: 1283px;
+    margin: 0 auto;
+    top: 107px;
+    height: 600px;
+    left: 376px;
 }
 .cysj_bs_text {
   position: absolute;
@@ -466,14 +475,15 @@
 }
 .news {
   position: relative;
+  height: 769px;
 }
 .news_pic {
-  height: 599px;
-  /*background-color: #353535;*/
-  background: url('../images/ssdt.png') no-repeat 0px 0px;
-  background-size:cover;
-  width: 100%;
-  min-width: 1283px; 
+ height: 769px;
+    /* background-color: #353535; */
+    background: url('../images/ssdt.png') no-repeat 0px 0px;
+    background-size: cover;
+    width: 100%;
+    min-width: 1920px;
 }
 .news_pic img {
   display: block;
@@ -483,7 +493,7 @@
 .news_area {
    width: 577px;
    position: absolute;
-   top: 98px;
+   top: 167px;
    left: 30px;
    color:#fff;
 }
@@ -522,6 +532,7 @@
 /*合作伙伴*/
 .hzhb {
   width: 1189px;
+  margin-top: 20px;
   margin: 0 auto;
 }
 .hzhb_area {
@@ -561,10 +572,10 @@
   margin: 0 auto;
 }
 .footer_logo img {
-  width: 337px;
-  height: 23px;
-  padding-top: 19px;
-  float: left;
+  width: 134px;
+    height: 39px;
+    padding-top: 8px;
+    float: left;
 }
 .help_info {
   float: left;
@@ -588,6 +599,7 @@
 .more_text {
   width: 1185px;
   margin: 0 auto;
+  line-height: 30px;
   padding-top: 61px; 
 }
 .how_to_text {
