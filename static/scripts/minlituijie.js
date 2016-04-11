@@ -3,8 +3,9 @@ $(document).ready(function() {
     banner_h = $('.banner').height() + $('.intro-bg').height(),
     tools_h = window.screen.height - 230;
   nav_l = $('.nav').offset().left;
-  // x = tools_h + 100;
 
+    tools_h = window.screen.height - 280;
+    nav_l = $('.nav').offset().left;
   //导航栏选中高亮
   $(".nav a").click(function() {
     $(".nav a").removeClass("nav_curent");

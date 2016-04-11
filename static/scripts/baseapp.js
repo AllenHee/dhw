@@ -434,7 +434,7 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
     });
     
     // 上传成功
-    uploader.on('uploadSuccess', (file, res) => {
+    uploader.on('uploadSuccess', function(file, res) {
         // $result.text('上传成功');
         scope.$apply(function () {
           ngModel.$setViewValue(res.path + res.name);

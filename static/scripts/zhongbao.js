@@ -5,9 +5,12 @@ $(function() {
   };
   // 根据用户的搜索条件获取数据
   var originsu = location.search.substring(1).split('=')[1];
-  var su = decodeURIComponent(originsu);
+  var keyname = location.search.substring(1).split('=')[0];
+  if (keyname === 'keyword') {
+     var su = decodeURIComponent(originsu);
+     para.keyword = su;
+  }
   var state = $('.content_r_ttl-current').attr("v");
-  para.keyword = su;
   para.typeid = type;
   para.state = state;
   loadData('/List/List', para, "zbItem", ".zbList");

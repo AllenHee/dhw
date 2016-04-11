@@ -271,9 +271,9 @@
   font-size: 16px;
 }
 .index_search_input {
-  width: 505px;
+  width: 480px;
   height: 45px;
-  padding: 0 85px 0 10px;
+  padding: 0 85px 0 35px;
   border: 0;
   background-color: #e1e1e1;
   line-height: 45px;
@@ -608,13 +608,8 @@ body {
   margin-bottom: 20px;
 }
 .sbcs_type_cont {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 55px;
   width: 1150px;
   padding: 0;
-  background-color: #e6e6e6;
 }
 .sbcs_type_cont_item {
   float: left;
@@ -1322,4 +1317,11 @@ body {
   border-style: solid;
   border-color: #fff transparent transparent;
   transition: all 0.5s;
+}
+.sbcs_type_all .sbcs_type_cont {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 55px;
+  background-color: #e6e6e6;
 }
