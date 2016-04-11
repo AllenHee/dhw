@@ -95,8 +95,8 @@
 }
 .banner_area_img {
   width: 100%;
-    min-width: 1920px;
-    height: 637px;
+  /*min-width: 1920px;*/
+  height: 637px;
 }
 .banner_nav_area {
   position: absolute;
@@ -361,11 +361,15 @@
   height: 800px;
 }
 .cysj_bs_pic {
+   position: absolute;
+   width: 1920px;
+   left: 50%;
     height: 800px;
+    margin-left: -920px;
     background: url('../images/cysjds.png') no-repeat -31px -6px;
-    background-size: cover;
-    width: 100%;
-    min-width: 1920px;
+    /*background-size: cover;*/
+    /*width: 100%;*/
+    /*min-width: 1920px;*/
 }
 .cysj_bs_text_area {
   position: absolute;
@@ -478,12 +482,15 @@
   height: 769px;
 }
 .news_pic {
+  position: absolute;
+  left: 50%;
+  margin-left:-960px;
  height: 769px;
     /* background-color: #353535; */
     background: url('../images/ssdt.png') no-repeat 0px 0px;
-    background-size: cover;
-    width: 100%;
-    min-width: 1920px;
+    /*background-size: cover;*/
+    /*width: 100%;*/
+    width: 1920px;
 }
 .news_pic img {
   display: block;
