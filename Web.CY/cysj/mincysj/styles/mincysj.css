@@ -95,6 +95,7 @@
 }
 .banner_area_img {
   width: 100%;
+  min-width: 1280px;
   /*min-width: 1920px;*/
   height: 637px;
 }
@@ -361,15 +362,19 @@
   height: 800px;
 }
 .cysj_bs_pic {
-   position: absolute;
+   /*position: absolute;
    width: 1920px;
    left: 50%;
     height: 800px;
     margin-left: -920px;
-    background: url('../images/cysjds.png') no-repeat -31px -6px;
+    background: url('../images/cysjds.png') no-repeat -31px -6px;*/
     /*background-size: cover;*/
     /*width: 100%;*/
     /*min-width: 1920px;*/
+}
+.cysj_bs_pic img {
+  width: 100%;
+  min-width: 1280px;
 }
 .cysj_bs_text_area {
   position: absolute;
@@ -380,13 +385,18 @@
     left: 376px;
 }
 .cysj_bs_text {
-  position: absolute;
+ position: absolute;
+    width: 1280px;
+    top: 167px;
+    left: 50%;
+    color: #fff;
+    font-size: 14px;
+    /* float: right; */
+    margin-left: -620px;
+}
+.about {
   width: 500px;
-  top: 167px;
-  left:  752px;
-  color: #fff;
-  font-size: 14px;
-  float: left;
+  float: right;
 }
 .cysj_bs_title {
   padding-left: 5px;
@@ -482,25 +492,26 @@
   height: 769px;
 }
 .news_pic {
-  position: absolute;
+  /*position: absolute;
   left: 50%;
   margin-left:-960px;
- height: 769px;
+ height: 769px;*/
     /* background-color: #353535; */
-    background: url('../images/ssdt.png') no-repeat 0px 0px;
+    /*background: url('../images/ssdt.png') no-repeat 0px 0px;*/
     /*background-size: cover;*/
     /*width: 100%;*/
-    width: 1920px;
+    /*width: 1920px;*/
 }
 .news_pic img {
   display: block;
   margin: 0 auto;
-  width: 1283px;
+  width: 100%;
+  min-width: 1280px;
 }
 .news_area {
    width: 577px;
    position: absolute;
-   top: 167px;
+   top: 104px;
    left: 30px;
    color:#fff;
 }
