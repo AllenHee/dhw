@@ -87,7 +87,7 @@
 .banner_area {
   position: relative;
   width: 100%;
-  height: 637px;
+  /*height: 637px;*/
   /*background-color: red;*/
   /*background-image:url('../images/banner.jpg');
   background-repeat: no-repeat;
@@ -97,13 +97,13 @@
   width: 100%;
   min-width: 1280px;
   /*min-width: 1920px;*/
-  height: 637px;
+  /*height: 637px;*/
 }
 .banner_nav_area {
   position: absolute;
   width: 100%;
   border-top: 1px solid #12171a;
-  bottom: 0px;
+  bottom: 2px;
 }
 .banner_nav {
   position: relative;
@@ -196,6 +196,9 @@
 .bs_logo img {
   width: 80px;
   height: 78px;
+}
+.bs_bm:hover .tip_bm {
+  display: block;
 }
 .bs_cs:hover .tip_cs {
   display: block;
@@ -359,22 +362,12 @@
 .cysj_bs {
   position: relative;
   width: 100%;
-  height: 800px;
-}
-.cysj_bs_pic {
-   /*position: absolute;
-   width: 1920px;
-   left: 50%;
-    height: 800px;
-    margin-left: -920px;
-    background: url('../images/cysjds.png') no-repeat -31px -6px;*/
-    /*background-size: cover;*/
-    /*width: 100%;*/
-    /*min-width: 1920px;*/
+  /*height: 800px;*/
 }
 .cysj_bs_pic img {
   width: 100%;
   min-width: 1280px;
+  height: 515px;
 }
 .cysj_bs_text_area {
   position: absolute;
@@ -430,7 +423,7 @@
 /*作品展示*/
 .xhibition {
   width: 1205px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .pic_show {
   position: relative;
@@ -489,7 +482,7 @@
 }
 .news {
   position: relative;
-  height: 769px;
+  /*height: 769px;*/
 }
 .news_pic {
   /*position: absolute;
@@ -507,6 +500,7 @@
   margin: 0 auto;
   width: 100%;
   min-width: 1280px;
+  min-height: 515px;
 }
 .news_area {
    width: 577px;
@@ -550,8 +544,7 @@
 /*合作伙伴*/
 .hzhb {
   width: 1189px;
-  margin-top: 20px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 .hzhb_area {
   /*width: 1084px;
