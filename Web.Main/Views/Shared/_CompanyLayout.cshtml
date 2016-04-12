@@ -104,7 +104,14 @@
         <div class="header_t clearfix">
             <div class="header_l">
                 <a class="header_logo" href="">
-                    <img src="@{@BaseConfigs.GetImgPath}@CompanyTopInfo.logo" alt=""></a>
+                    @if ((CompanyTopInfo.logo).ToString() == "")
+                    {
+                        <img class="comp_logo" src="@{@BaseConfigs.GetUrlCdn}srdz/images/avatar.jpg" alt="">
+                    }
+                    else
+                    {
+                        <img src="@{@BaseConfigs.GetImgPath}@CompanyTopInfo.logo" alt="">
+                    }</a>
                 <div class="header_ttl">
                     <h2>
                         @CompanyTopInfo.compay
@@ -182,17 +189,26 @@
     </script>
     <script type="text/javascript">
         $(function () {
-            $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
-                if (r.success && r.result.IsAuthenticated) {
-                    dhw = dhw || {};
-                    dhw.isLogined = true;
-                    $('li.log').html('您好，<a href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + r.result.Name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+            var accountType = readCookie("accountType");
+            if (accountType != null) {
+                dhw = dhw || {};
+                dhw.isLogined = true;
+                var username = readCookie("name");
+                var nickname = readCookie("nickname");
+                var name;
+                if (nickname == null) {
+                    name = username;
                 }
                 else {
-                    dhw.isLogined = false;
-                    $('li.log').html('您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">免费注册</a>');
+                    name = nickname + "(" + username + ")";
                 }
-            });
+                $('li.log').html('您好，<a href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+            }
+            else {
+                dhw.isLogined = false;
+                $('li.log').html('您好，请<a href="javascript:login();">登陆</a><a href="javascript:regist();">免费注册</a>');
+            }
+
         })
     </script>
     @RenderSection("scripts", required: false)
