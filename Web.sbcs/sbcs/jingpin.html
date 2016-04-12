@@ -10,8 +10,8 @@
   {{each data as jp}}
   <li class="sbcs_jingpin_list clearfix">
     <div class="sbcs_jingpin_listl">
-      <img class="sbcs_jingpin_listl_img" src="{{domain}}{{jp.img}}" alt="图标">
-      <h4 class="sbcs_jingpin_listl_til">{{jp.name}}</h4>
+      <a target="_blank" href="/trademark/{{jp.id}}"><img class="sbcs_jingpin_listl_img" src="{{domain}}{{jp.img}}" alt="图标"></a>
+      <a target="_blank" href="/trademark/{{jp.id}}"><h4 class="sbcs_jingpin_listl_til">{{jp.name}}</h4></a>
       <p class="sbcs_jingpin_listl_leibie">
         {{each jp.type as type}}
         <span>{{type}}</span>

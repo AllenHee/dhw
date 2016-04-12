@@ -14,11 +14,15 @@
 .cqbh_logo {
   width: 370px;
   margin: -70px auto 45px;
+  text-align: center;
 }
-.cqbh_logo p {
+/*.cqbh_logo p {
   margin-left: 90px;
   font-size: 16px;
 }
+.cqbh_logo img {
+  margin-left: 90px;
+}*/
 .content {
   width: 1024px;
   margin: 0 auto;
@@ -141,7 +145,16 @@
   float: left;
 }
 .sbcs_search {
+  position: relative;
   float: right;
+}
+.sbcs_search_icon {
+  position: absolute;
+  top: 13px;
+  left: 11px;
+  width: 19px;
+  height: 19px;
+  background: url(../images/icon_edi.png) no-repeat 0 -59px;
 }
 .sbcs_head_search {
   margin-top: 20px;
@@ -149,9 +162,9 @@
 }
 .sbcs_search_input {
   float: left;
-  width: 510px;
+  width: 485px;
   height: 40px;
-  padding: 0 10px;
+  padding: 0 10px 0 35px;
   border: 0;
   border-radius: 3px;
   margin-right: 5px;
@@ -1146,6 +1159,7 @@ body {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  color: #000;
 }
 .sbcs_jingpin_listl_leibie {
   margin-top: 10px;

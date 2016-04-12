@@ -12,7 +12,7 @@
   <script type="text/html" id="sbTemplate">
     {{each data as sb}}
     <li class="item">
-      <img src="{{domain}}{{sb.img}}">
+      <a href="/trademark/{{sb.id}}"><img src="{{domain}}{{sb.img}}"></a>
       <div class="item_detail">
         <span class="price">
       <span class="sign">￥
@@ -40,6 +40,7 @@
         <div class="sbcs_search">
           <div class="clearfix">
             <input class="sbcs_search_input" type="text">
+            <i class="sbcs_search_icon"></i>
             <button class="sbcs_search_button">商标搜索</button>
           </div>
           <dl class="sbcs_search_hot clearfix">

@@ -23,7 +23,7 @@ var pcode = getQueryString('pcode');
 var price1 = getQueryString('price1')
 var price2 = getQueryString('price2')
 var keyword = getQueryString('keyword')
-var type = decodeURI(escape(getQueryString('type')))
+var type = getQueryString('type')
 var year1 = getQueryString('year1')
 var year2 = getQueryString('year2')
 var para = {
@@ -41,7 +41,7 @@ if (pcode) {
   para.pcode = pcode;
   for (var i = 0, len = $('.sbcs_type_cont_item').length; i < len; i++) {
     if ($('.sbcs_type_cont_item').eq(i).attr('data-pcode') === pcode) {
-      $('.sbcs_type_cont_item').removeClass('sbcs_type_cont_item-current').eq(i).addClass('sbcs_type_cont_item-current')
+      $('.sbcs_type_text').text($('.sbcs_type_cont_item').eq(i).text());
     }
   }
 }
@@ -52,9 +52,10 @@ if (price2) {
   para.price2 = price2;
 }
 if (type) {
-  para.type = type;
+  para.type = decodeURI(escape(type));
 }
 if (keyword) {
+  $('.sbcs_search_input').val(decodeURI(escape(keyword)))
   para.keyword = keyword;
 }
 if (year1) {
