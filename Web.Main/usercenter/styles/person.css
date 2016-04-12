@@ -116,17 +116,24 @@
 .intro_nav_ul {
   float: left;
   padding: 0;
-  margin: 0 0 0 285px;
+  margin-left: 50px;
+  margin-bottom: -1px;
   overflow: hidden;
 }
 .intro_nav_ul_item {
   float: left;
   padding: 0 30px;
-  border-bottom: 3px solid #fff;
   margin-right: 35px;
   color: #fff;
   font-size: 24px;
   text-align: center;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.intro_nav_ul_item-current,
+.intro_nav_ul_item:hover {
+  opacity: 1;
+  border-bottom: 3px solid #fff;
 }
 .intro_nav_contact {
   float: right;
