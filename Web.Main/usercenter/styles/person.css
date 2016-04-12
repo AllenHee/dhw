@@ -285,6 +285,7 @@
 .person_content {
   width: 1000px;
   margin: 0 auto 30px;
+  overflow: hidden;
 }
 .person_message_ttl {
   height: 60px;
@@ -447,4 +448,113 @@ table {
   width: 30px;
   background: url(../images/jiantou.png) no-repeat 0 -108px;
   cursor: pointer;
+}
+
+
+.article-nav {
+  float: left;
+  width: 250px;
+  margin-top: 50px;
+}
+.classify,
+.search {
+  border: solid thin #e5e5e5;
+  margin-bottom: 50px;
+}
+.classify {
+  padding: 0 15px;
+}
+.article_title {
+  position: relative;
+  height: 50px;
+  padding-left: 45px;
+  line-height: 50px;
+  font-size: 20px;
+  color: #333;
+  background-color: #e5e5e5;
+  display: block;
+}
+.classify_icon {
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  width: 22px;
+  height: 16px;
+  background: url(../images/person-icon.png) 0 -28px;
+  display: block;
+}
+.article_list,
+.article_list-last {
+  height: 45px;
+  width: 190px;
+  padding-left: 30px;
+  font-size: 17px;
+  line-height: 45px;
+}
+.article_list:hover,
+.article_list-last:hover {
+  cursor: pointer;
+}
+.article_list {
+    border-bottom: solid thin #e5e5e5;
+}
+.article_list_link {
+  color: #666;
+}
+.search_icon {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  width: 21px;
+  height: 23px;
+  background: url(../images/person-icon.png) 0 -49px;
+  display: block;
+}
+.search_input {
+  width: 210px;
+  height: 25px;
+  padding-left: 5px;
+  margin: 19px 15px 16px;
+}
+.search {
+  position: relative;
+}
+.input_icon {
+  position: absolute;
+  top: 76px;
+  left: 205px;
+  width: 16px;
+  height: 16px;
+  background: url(../images/person-icon.png) 0 16px;
+  display: block;
+}
+.article-contace {
+  float: right;
+  width: 725px;
+  
+  margin-top: 50px;
+}
+.article-contace_icon {
+  position: absolute;
+  top: 14px;
+  left: 9px;
+  width: 23px;
+  height: 23px;
+  background: url(../images/person-icon.png);
+  display: block;
+}
+.article_border {
+  height: 47px;
+  border-bottom: solid thin #e6e6e6;
+  margin: 0 16px;
+}
+.article_link {
+  color: #666;
+  line-height: 47px;
+  font-size: 17px;
+}
+.article_time {
+  float: right;
+  font-size: 12px;
+  line-height: 47px;
 }
