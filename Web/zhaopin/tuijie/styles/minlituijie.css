@@ -31,10 +31,26 @@ body {
   background-color: #3f5064; 
 }
 .intro {
+  position: relative;
   width: 960px;
   height: 110px;
   padding: 10px 0;
   margin: 0 auto;
+}
+.share {
+  position: absolute;
+  top: 99px;
+  left: 910px;
+}
+.bds_more {
+  width: 25px;
+  color: #fff !important;
+  height: 25px !important;
+  line-height: 25px !important;
+  padding-left: 30px !important;
+  background: url(../images/zb_21.jpg) no-repeat !important;
+  text-decoration: none !important;
+  margin: 0 !important;
 }
 .introduction {
   float: left;
@@ -292,9 +308,6 @@ body {
   border-color:  transparent #993232 #993232 transparent ;
 }
 .tools {
-  position: absolute;
-  /*top: 450px;*/
-  right: 20px;
   width: 40px;
   background-color: #fff;
   display: none;
@@ -304,14 +317,15 @@ body {
   padding: 5px 0;
   text-align: center;
   display: block;
-
 }
 .tool1 {
+  /*position: relative;*/
   height: 40px;
   line-height: 40px;
 }
 .tool-line {
-  position: absolute;
+  position: relative;
+  top: 5px;
   left: 6px;
   width: 28px;
   border-top: solid thin #009899;
@@ -319,4 +333,9 @@ body {
 }
 .tools a {
   color: #333333;
+}
+.bdshare_popup_box {
+  position: absolute !important;
+  /*top: 796px !important;
+  left: 1065px !important;*/
 }

@@ -1,16 +1,22 @@
 $(document).ready(function() {
   var h = [],
     banner_h = $('.banner').height() + $('.intro-bg').height(),
+    tools_h = window.screen.height - 230;
+  nav_l = $('.nav').offset().left;
+
     tools_h = window.screen.height - 280;
     nav_l = $('.nav').offset().left;
-  // console.log(window.screen.height)
-  // console.log($('.tools').height())
-  
   //导航栏选中高亮
   $(".nav a").click(function() {
     $(".nav a").removeClass("nav_curent");
     $(this).addClass("nav_curent")
   })
+
+  //分享控件fix定位
+  // $(".bdshare_popup_box").css({ 'position': 'fixed', 'top': x + 'px' })
+  $(".bdshare_popup_box").css('color', 'red')
+
+
 
   // 滚动事件
   $(window).scroll(function() {
@@ -18,9 +24,10 @@ $(document).ready(function() {
 
       // 导航栏fix定位
       $('.nav').css({ 'position': 'fixed', 'top': '20px' })
-      
+
       //工具栏fix定位
       $('.tools').css({ 'position': 'fixed', 'top': tools_h + 'px', 'right': '15px', 'display': 'block' })
+      // console.log($('.tool').top())
 
       //导航栏滚动选中
       for (i = 0; i < $(".nav").children().length; i++) {
