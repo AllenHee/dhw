@@ -30,8 +30,24 @@
                 <div class="shangbiao_tl">
                     <img class="photo" src="@{@BaseConfigs.GetImgPath}@Model["img"]" alt="@Model["name"]">
                     <div class="operate clearfix">
-                        <i class="shoucang_pic"></i><span class="shoucang">收藏(@Model["collect"])</span>
-                        <i class="jubao_pic"></i><span class="jubao">举报</span>
+                        <i class="shoucang_pic"></i>
+                        @if (!ViewBag.DUser.HasLogin)
+                        {<a class="shoucang" href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">收藏(@Model["collect"])</a>}
+                        else
+                        {
+                            if (ViewBag.sc == "1")
+                            {
+                            <a class="shoucang cancel">已收藏(@Model["collect"])</a>
+                            }
+                            else if (ViewBag.sc == "0")
+                            {
+                            <a class="shoucang">收藏(@Model["collect"])</a>
+                            }
+                        }
+                        <i class="jubao_pic"></i>@if (!ViewBag.DUser.HasLogin)
+                                                 {<span class="jubao" onclick="login()">举报</span> }
+                                                 else
+                                                 {<span class="jubao">举报</span>}
                         <p class="price">
                             价格：<span class="money">￥@Model["price"]</span></p>
                         <p class="jiaoyi">
@@ -61,7 +77,7 @@
                             类似群组：<span>@ViewBag.typecodes</span></p>
                         <p>
                             核定使用范围：<span>@ViewBag.typenames</span></p>
-                        <button class="buy">
+                        <button class="buy" type="button" onclick="buy()">
                             立即购买</button>
                     </div>
                 </div>
@@ -148,6 +164,7 @@
     <script>
         var id = '@ViewBag.id';
     </script>
+    <script src="@BaseConfigs.GetStaticPath/scripts/sbDetail.js"></script>
     <script>
         $('.sbcs_contl_sort-add').click(function () {
             $(this).next().slideToggle(400)
@@ -157,5 +174,11 @@
                 $(this).text('-').addClass('moreType');
             }
         })
+        function buy() {
+            if (dhw.isLogined) {
+                window.location.href = dhw.mainurl + 'sys/rshop/orderbuyer/pay1/' + id;
+            }
+            else login();
+        }
     </script>
 }
