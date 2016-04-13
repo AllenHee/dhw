@@ -205,17 +205,16 @@
   margin: 0 auto;
 }
 .sbcs_index_head {
+  position: relative;
   padding: 0 15px;
   border: 1px solid #ccc;
   margin-bottom: 25px;
 }
 .sbcs_index_head_middle,
-.sbcs_index_head_left,
-.sbcs_index_head_right {
+.sbcs_index_head_left {
   float: left;
 }
-.sbcs_index_head_left,
-.sbcs_index_head_right {
+.sbcs_index_head_left {
   position: relative;
   width: 180px;
   margin-top: 25px;
@@ -223,7 +222,14 @@
 }
 .sbcs_index_head_middle {
   margin-left: 25px;
-  margin-right: 20px;
+}
+.funnyMonkey {
+  position: absolute;
+  bottom: -42px;
+  right: 0;
+  width: 265px;
+  height: 125px;
+  background: url(../images/30d156b4b8f1b4ff2aa62dbab239af9b.png) no-repeat;
 }
 .sbcs_index_btn {
   width: 160px;
@@ -279,7 +285,7 @@
 }
 .index_search {
   position: relative;
-  width: 710px;
+  /*width: 710px;*/
   margin-top: 10px;
   font-size: 16px;
 }
@@ -295,6 +301,7 @@
   height: 45px;
   width: 100px;
   border: 0;
+  margin-left: 15px;
   color: #fff;
   background-color: #3d9ccc;
   cursor: pointer;
@@ -681,14 +688,14 @@ body {
   margin: 7px 11px 11px 0;
   color: #333333;
   line-height: 30px;
-  display: block;
+  cursor: pointer;
 }
-.selected {
+.down,
+.up {
   color: #fff;
   background-color: #3d9ccc;
   border: solid thin #3d9ccc;
 }
-
 .rank_item_pop i,
 .rank_item_price i {
   position: absolute;
@@ -697,10 +704,13 @@ body {
   width: 11px;
   height: 15px;
   display: block;
-  background-image: url(../images/jiantou1.png)
+  background: url(../images/jiantou.png) no-repeat 0 -40px;
 }
-.selected i{
-  background-image: url(../images/jiantou.png)
+.down i{
+  background: url(../images/jiantou.png) no-repeat 0 0;
+}
+.up i {
+  background: url(../images/jiantou.png) no-repeat 0 -21px;
 }
 .rank_pages {
   float: right;

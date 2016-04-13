@@ -193,5 +193,5 @@ $('.index_type_show').on('mousewheel DOMMouseScroll', function(e) {
 })
 $('.index_type_show_item').click(function () {
   var pcode = $(this).attr('data-pcode');
-  window.location.href = '/trademark?pcode' + pcode;
+  window.open('/trademark?pcode=' + pcode);
 })
