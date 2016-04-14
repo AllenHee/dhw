@@ -3,7 +3,7 @@
 }
 <!--主内容 开始-->
 <div class="sbcs_content clearfix">
-    @Helper1.display_query_cagetory(ViewBag.Category)
+    @display_query_cagetory(ViewBag.Category)
     @Helper1.display_query_para()
     <div class="liaobiao_cont_l">
         <div class="liebiao_rank">
@@ -22,33 +22,66 @@
         {
             var row = ad.Rows[i];
             <div class="recommend_item">
-                <img src="@row["img"]" alt="@row["alt"]">
-                <span class="recommend_price">￥ <span>@row["price"]</span> </span>
+                <a href="@row["url"]" target="_blank">
+                    <img src="@row["img"]" alt="@row["alt"]"></a> <span class="recommend_price">￥ <span>@row["price"]</span>
+                    </span>
             </div>
         }
-       
     </div>
 </div>
+@helper display_query_cagetory(IEnumerable<DHW.Rshop.Data.TrademarkCategoryEntity> Category)
+    {
+    <div class="sbcs_type">
+        <h1 class="sbcs_type_ttl">
+            商标转让分类</h1>
+        <div class="sbcs_type_all">
+            <span class="sbcs_type_text"><span>01-化学原料肥料</span><i></i>
+                <ul class="sbcs_type_cont clearfix">
+                    @foreach (var item in Category)
+                    {               
+                        <li class="sbcs_type_cont_item"  data-pcode="@item.code" title="@{@(string.Join("\r\n", item.Child.Select(it => it.name + " " + it.code)))}">
+                            @item.code-@item.name
+                        </li>
+                    }
+                </ul>
+            </span>
+        </div>
+    </div>
+        
+}
 <!--主内容 结束-->
 @section scripts{
     <script type="text/html" id="sbTemplate">
-  {{each data as sb}}
-  <li class="item">
-    <a href="/trademark/{{sb.id}}"><img src="{{domain}}{{sb.img}}"></a>
-    <div class="item_detail">
-      <span class="price">
+    {{each data as sb}}
+    <li class="item">
+      <a target="_blank" href="/trademark/{{sb.id}}"><img src="{{domain}}{{sb.img}}"></a>
+      <div class="item_detail">
+        <span class="price">
       <span class="sign">￥
       </span>{{sb.price}}</span>
-      <span class="first_sort"><span>{{sb.pcodeName}}</span> {{sb.name}}</span>
-      {{each sb.type as t}}
-      <span class="second_sort">{{t}}</span>
-      {{/each}}
-    </div>
-  </li>
-  {{/each}}
+        <span class="first_sort"><span>{{sb.pcodeName}}</span> {{sb.name}}</span>
+        {{each sb.type as t}}
+        <span class="second_sort">{{t}}</span> {{/each}}
+      </div>
+      <!--<div>
+        <span>收藏</span><span>加入购物车</span>
+      </div>-->
+    </li>
+    {{/each}}
     </script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script>
+        function getQueryString1(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURIComponent(r[2]); return null;
+        }
+        $(function () {
+            var keyword = getQueryString1('keyword');
+            if (keyword) $('.sbcs_search_input').val(keyword);
+        });
+    </script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/sb_liebiao.js"></script>
 }

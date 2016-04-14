@@ -161,23 +161,21 @@
     </script>
     <script type="text/javascript">
         $(function () {
-            $.getJSON(dhw.urlmain + 'loginservice/Login?callback=?', function (r) {
-                if (r.success && r.result.IsAuthenticated) {
-                    dhw = dhw || {};
-                    dhw.isLogined = true;
-                    var app;
-                    var nickname = r.result.nickname;
-                    var name;
-                    if (r.result.type == 1) { app = "AppHome" } else { app = "AppHome_company" }
-                    if (nickname == "") {
-                        name = r.result.Name;
-                    }
-                    else {
-                        name = nickname + "(" + r.result.Name + ")";
-                    }
-                    $('#ll01').html('<li class="menu_items"><a href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + name + '的个人中心</a></li><li class="menu_items"><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a></li><li class="menu_items"><a href="http://www.chuangqikeji.com/" target="_blank">联系我们</a></li>');
+            var accountType = readCookie("accountType");
+            if (accountType != null) {
+                dhw = dhw || {};
+                dhw.isLogined = true;
+                var username = readCookie("name");
+                var nickname = readCookie("nickname");
+                var name;
+                if (nickname == null) {
+                    name = username;
                 }
-            });
+                else {
+                    name = nickname + "(" + username + ")";
+                }
+                $('#ll01').html('<li class="menu_items"><a href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + name + '的个人中心</a></li><li class="menu_items"><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a></li><li class="menu_items"><a href="http://www.chuangqikeji.com/" target="_blank">联系我们</a></li>');
+            }
         })
     </script>
 </body>

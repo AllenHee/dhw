@@ -52,7 +52,14 @@
                 <h1>
                     公司简介</h1>
                 <div class="comp_intro clearfix">
-                    <img class="comp_logo" src="@{@BaseConfigs.GetImgPath}/@ViewBag.companyinfo["gstp"]" alt="">
+                    @if (ViewBag.companyinfo["gstp"].ToString() == "")
+                    {
+                        <img class="comp_logo" src="@{@BaseConfigs.GetUrlCdn}srdz/images/avatar.jpg" alt="">
+                    }
+                    else
+                    {  
+                        <img class="comp_logo" src="@{@BaseConfigs.GetImgPath}@ViewBag.companyinfo["gstp"]" alt="">
+                    }
                     <div class="comp_intro_r">
                         <p>
                             地点 :<span>@ViewBag.companyinfo["gsdd"]</span>
@@ -79,24 +86,20 @@
                         @*                    <a href="#">[查看详细]</a>*@
                     </p>
                 </div>
-                @if (@ViewBag.ryphoto.Count != 0)
-                {
-                    <div class="honor">
-                        <span class="introduce_line"></span><span class="comp_intro_ttl">公司荣誉</span> <span
-                            class="introduce_line"></span>
-                        @for (int i = 0; i < @ViewBag.ryphoto.Count; i++)
-                        {
-                            var imgs = @ViewBag.ryphoto[i]["img"] + ".jpg";
-                            <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="公司荣誉"> 
-                            if (i + 1 != @ViewBag.ryphoto.Count)
-                            {
-                            <br>
-                            }
-                        }
-                    </div>
-                }
             </div>
             <div class="maincont_t_r">
+                <div class="honor">
+                    <span class="introduce_line"></span><span class="comp_intro_ttl gsry">公司荣誉</span>
+                    <span class="introduce_line"></span>
+                    @if (ViewBag.ryphoto.Count != 0)
+                    {
+                        for (int i = 0; i < ViewBag.ryphoto.Count; i++)
+                        {
+                            var imgs = ViewBag.ryphoto[i]["img"] + "_250x250.jpg";
+                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="公司荣誉"> 
+                        }
+                    }
+                </div>
             </div>
         </div>
         <!--内容上部 结束-->
@@ -164,9 +167,16 @@
                         {
                             var visit = ViewBag.visit.Rows[i];
                         
-                            <li class="visitor_items clearfix"><a href="#">
-                                <img class="visitor_logo" src="@{@BaseConfigs.GetImgPath}@visit["logo"]" alt=""></a>
-                                <a class="visitor_name" href="#">@visit["name"]</a>
+                            <li class="visitor_items clearfix"><a href="javascript:0">
+                                @if (visit["logo"].ToString() == "")
+                                {
+                                    <img class="visitor_logo" src="@{@BaseConfigs.GetUrlCdn}srdz/images/avatar.jpg" alt="">
+                                }
+                                else
+                                {
+                                    <img class="visitor_logo" src="@{@BaseConfigs.GetImgPath}@visit["logo"]" alt=""> 
+                                }
+                            </a><a class="visitor_name" href="javascript:0">@visit["name"]</a>
                                 <p class="visit_time">
                                     @(((DateTime)visit["date"]).ToString("yyyy-MM-dd"))<p>
                             </li>

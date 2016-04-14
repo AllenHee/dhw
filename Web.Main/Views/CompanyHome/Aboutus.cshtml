@@ -21,7 +21,15 @@
         <div class="au_top clearfix">
             <div class="au_logo">
                 <a href="#">
-                    <img src="@{@BaseConfigs.GetImgPath}@item["logo"]" alt=""></a>
+                    @if (item["logo"].ToString() == "")
+                    {
+                        <img src="@{@BaseConfigs.GetUrlCdn}srdz/images/avatar.jpg" alt="">
+                    }
+                    else
+                    { 
+                        <img src="@{@BaseConfigs.GetImgPath}@item["logo"]" alt="">
+                    }
+                </a>
             </div>
             <div class="au_top_intro">
                 <div class="au_top_intro_ttl">
@@ -31,8 +39,7 @@
                     <span>@item["homepage"]</span> <a class="@if (item["auth"])
                                                              {<text>trueAuth</text>}
                                                              else
-                                                             {<text>falseAuth</text>}" href="" >
-                    </a>
+                                                             {<text>falseAuth</text>}" href="" ></a>
                 </div>
                 <p>
                     <span>地点：</span>@item["city"]</p>
@@ -84,8 +91,7 @@
             <div class="au_address">
                 <h3 class="au_ttl emColorBorder">
                     公司位置</h3>
-                <div>
-                    <img src="@{@BaseConfigs.GetUrlCdn}usercenter/images/au_map.jpg" alt="">
+                <div id="allmap" style="width: 100%; height: 500px;">
                 </div>
             </div>
         </div>
@@ -152,6 +158,18 @@
 @section scripts{
     <script type="text/javascript">
     var ddid = @ViewBag.ddid;
+    </script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=9A2GrD5gEXfF7gFXASYcBI0TQb1D8jSZ"></script>
+    <script type="text/javascript">
+        // 百度地图API功能
+     var x = @ViewBag.x;
+     var y = @ViewBag.y;
+	 var map = new BMap.Map("allmap");
+	 var point = new BMap.Point(x,y);
+     map.centerAndZoom(point, 16);
+     map.addOverlay(new BMap.Marker(point))
+     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    </script>
     </script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.slider.js"></script>
     <script>

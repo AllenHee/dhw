@@ -23,7 +23,7 @@ var pcode = getQueryString('pcode');
 var price1 = getQueryString('price1')
 var price2 = getQueryString('price2')
 var keyword = getQueryString('keyword')
-var type = decodeURI(escape(getQueryString('type')))
+var type = getQueryString('type')
 var year1 = getQueryString('year1')
 var year2 = getQueryString('year2')
 var para = {
@@ -41,7 +41,7 @@ if (pcode) {
   para.pcode = pcode;
   for (var i = 0, len = $('.sbcs_type_cont_item').length; i < len; i++) {
     if ($('.sbcs_type_cont_item').eq(i).attr('data-pcode') === pcode) {
-      $('.sbcs_type_cont_item').removeClass('sbcs_type_cont_item-current').eq(i).addClass('sbcs_type_cont_item-current')
+      $('.sbcs_type_text').text($('.sbcs_type_cont_item').eq(i).text());
     }
   }
 }
@@ -52,9 +52,10 @@ if (price2) {
   para.price2 = price2;
 }
 if (type) {
-  para.type = type;
+  para.type = decodeURI(escape(type));
 }
 if (keyword) {
+  $('.sbcs_search_input').val(decodeURI(escape(keyword)))
   para.keyword = keyword;
 }
 if (year1) {
@@ -118,11 +119,11 @@ load($('.sbcs_filterbox_items').eq(1), 'dd', 'jgqj')
 load($('.sbcs_filterbox_items').eq(2), 'dd', 'type')
 
 // 大类的悬浮事件
-$('.sbcs_type_all').mouseenter(function () {
+$('.sbcs_type_all').mouseenter(function() {
   $('.sbcs_type_cont').show();
   $('.sbcs_type_text i').css('transform', 'rotateZ(180deg)')
 })
-$('.sbcs_type_all').mouseleave(function () {
+$('.sbcs_type_all').mouseleave(function() {
   $('.sbcs_type_cont').hide();
   $('.sbcs_type_text i').css('transform', 'rotateZ(0)')
 })
@@ -136,26 +137,37 @@ $('.sbcs_type_cont_item').click(function() {
 })
 
 $('.rank_item_pop').click(function() {
-  if ($(this).hasClass('selected')) {
-    $(this).removeClass('selected')
+  if ($(this).hasClass('down')) {
+    console.log(1);
+    $(this).removeClass('down').addClass('up');
+    para.orderby = '人气';
+    para.asc = 1;
+    loadData("/Trademark/list", para, "sbTemplate", ".items", false);
+  } else {
+    $('.liebiao_rank span').removeClass('down up')
+    $(this).addClass('down').removeClass('up');
+    para.orderby = '人气';
+    para.asc = 0;
+    loadData("/Trademark/list", para, "sbTemplate", ".items", false);
   }
-  $('.liebiao_rank span').removeClass('selected')
-  $(this).addClass('selected')
-  para.orderby = '人气';
-  loadData("/Trademark/list", para, "sbTemplate", ".items", false);
 })
 $('.rank_item_price').click(function() {
-  if ($(this).hasClass('selected')) {
-    $(this).removeClass('selected')
+  if ($(this).hasClass('down')) {
+    $(this).removeClass('down').addClass('up');
+    para.orderby = '价格';
+    para.asc = 1;
+    loadData("/Trademark/list", para, "sbTemplate", ".items", false);
+  } else {
+    $('.liebiao_rank span').removeClass('down up')
+    $(this).addClass('down').removeClass('up');
+    para.orderby = '价格';
+    para.asc = 0;
+    loadData("/Trademark/list", para, "sbTemplate", ".items", false);
   }
-  $('.liebiao_rank span').removeClass('selected')
-  $(this).addClass('selected')
-  para.orderby = '价格';
-  loadData("/Trademark/list", para, "sbTemplate", ".items", false);
 })
 $('.rank_item').click(function() {
-  $('.liebiao_rank span').removeClass('selected')
-  $(this).addClass('selected')
+  $('.liebiao_rank span').removeClass('down')
+  $(this).addClass('down')
   para.orderby = '综合';
   loadData("/Trademark/list", para, "sbTemplate", ".items", false);
 })

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>个人首页</title>
+  <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/person.css">
+  <script type="text/html" id="albumTem">
+    {{each data as album}}
+    <li class="album_show_item">
+      <img src="{{album.img}}_180x150.jpg" alt="">
+      <p>{{album.title}}</p>
+    </li>
+    {{/each}}
+  </script>
+  <script type="text/html" id="showTem">
+    {{each data as album}}
+    <li><img src="{{album.img}}_180x150.jpg" alt=""></li>
+    {{/each}}
+  </script>
+</head>
+
+<body>
+  <!--头部简介 开始-->
+  <div class="nav_imgWrap nav_imgWrap-hlwplus">
+    <div class="nav_imgCont">
+      <img src="images/bg-12.png">
+    </div>
+    <div class="intro">
+      <img class="intro_logo" src="images/xieyameiyinglefulan.jpg" alt="">
+      <div class="intro_cont">
+        <h1 class="intro_cont_name">胡博宇</h1>
+        <p>博予有近10年的创业经验。他参与创办了信贷管理软件公司安 硕科技最终在创业板上市（股票代码 SHE:300380）。在创办Blue lake capital之前,博宇在著名的风险投资基金DCM工作.另外博宇还曾就职于摩根士丹利</p>
+        <a class="intro_cont_focus" href="#" onclick="attention()">关 注</a>
+        <span class="fir_label">蓝湖资本·合作人</span>
+        <span class="sec_label">天使汇认证投资人</span>
+      </div>
+    </div>
+    <div class="intro_nav_bg">
+      <div class="intro_nav">
+        <ul class="intro_nav_ul">
+          <li class="intro_nav_ul_item">基本信息</li>
+          <li class="intro_nav_ul_item">创意文章</li>
+          <li class="intro_nav_ul_item">个人相册</li>
+        </ul>
+        <div class="intro_nav_contact">
+          <a class="intro_nav_contact_in" href="#"><img src="images/in.png" alt=""></a>
+          <a href="#"><img src="images/weibo.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--头部简介 结束-->
+  <div class="person_content person_album">
+    <h1 class="person_message_ttl"><i class="person_message_ttl-jbxx"></i>个人相册(作品)</h1>
+    <ul class="album_show clearfix">
+    </ul>
+    <div class="pagination"></div>
+  </div>
+  <!--弹出层 开始-->
+  <div class="model_bg">
+    <div class="slide">
+      <ul class="slider clearfix">
+      </ul>
+    </div>
+    <span class="model_prev"></span>
+    <span class="model_next"></span>
+    <span class="model_close"></span>
+  </div>
+  <!--弹出层 结束-->
+
+
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script src="http://localhost:8070/scripts/personAlbum.js"></script>
+</body>
+
+</html>
