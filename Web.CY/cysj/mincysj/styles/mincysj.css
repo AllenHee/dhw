@@ -24,6 +24,7 @@
 }
 /*登录之后的状态*/
 .header_btn_name {
+  position: relative;
   width: 131px;
   height: 38px;
   text-align: center;
@@ -33,9 +34,11 @@
 }
 .login_state {
   position: absolute;
+  top: 38px;
+  left: 0;
   background-color: #fff;
   display: none; 
-  z-index: 100;
+  /*z-index: 100;*/
 }
 .header_btn_list:hover .login_state {
   display: block;
@@ -49,21 +52,21 @@
   color: #7e7e7e;
 }
 .msg {
-  display: inline-block;
+    display: inline-block;
     width: 22px;
     height: 22px;
     vertical-align: middle;
-    background: url('../images/11.png') no-repeat 1px;
-    background-size: 22px;
+    /*background: url('../images/11.png') no-repeat center center;
+    background-size: 22px;*/
     margin-right: 11px;
 }
 .home {
-  display: inline-block;
+   display: inline-block;
     width: 22px;
     height: 22px;
     vertical-align: middle;
-    background: url('../images/12.png') no-repeat 1px;
-    background-size: 22px;
+    /*background: url('../images/12.png') no-repeat 1px;
+    background-size: 22px;*/
     margin-right: 11px;
 }
 .zp {
@@ -71,8 +74,8 @@
     width: 22px;
     height: 22px;
     vertical-align: middle;
-    background: url('../images/13.png') no-repeat 1px;
-    background-size: 22px;
+    /*background: url('../images/13.png') no-repeat 1px;
+    background-size: 22px;*/
     margin-right: 11px;
 }
 .loginout {
@@ -80,8 +83,8 @@
     width: 22px;
     height: 22px;
     vertical-align: middle;
-    background: url('../images/14.png') no-repeat 1px;
-    background-size: 22px;
+    /*background: url('../images/14.png') no-repeat 1px;
+    background-size: 22px;*/
     margin-right: 11px;
 }
 .banner_area {
@@ -103,6 +106,7 @@
   position: absolute;
   width: 100%;
   border-top: 1px solid #12171a;
+  left: 0;
   bottom: 2px;
 }
 .banner_nav {
@@ -112,10 +116,8 @@
 }
 .banner_nav_li {
   width: 135px;
-  height: 63px;
-  /*display: border-box;*/
+  height: 58px;
   padding-top: 25px;
-  /*line-height: 38px;*/
   float: left;
   color: #fff;
   text-align: center;
@@ -123,10 +125,11 @@
 }
 /*当前选中状态*/
 .current {
-  color: #142d27;
+  color: #2a9ecd;
+  border-bottom: 5px solid #63B6D7;
 }
 .banner_nav_lifirst {
-  background-color:  #12171a;
+  /*background-color:  #12171a;*/
 }
 .banner_nav_li span {
   font-size: 14px;
@@ -137,15 +140,23 @@
   top: -8px;
   width: 263px;
   height: 110px;
+  color: #023524;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
   background: url('../images/lilast.png') no-repeat -89px -46px;
+}
+.banner_nav_lilaster b {
+  font-size: 15px;
+  font-weight: normal;
 }
 /*大赛日程*/
 .bs_date {
-  width: 1204px;
+  width: 1185px;
   margin: 61px auto;
 }
 .bs_date_l {
-  margin-right: 61px;
+  margin-right: 54px;
   float: left;
 }
 .bs_date_r {
@@ -496,16 +507,14 @@
     /*width: 1920px;*/
 }
 .news_pic img {
-  display: block;
-  margin: 0 auto;
   width: 100%;
   min-width: 1280px;
-  min-height: 515px;
+  height: 515px;
 }
 .news_area {
    width: 577px;
    position: absolute;
-   top: 104px;
+   top: 63px;
    left: 127px;
    color:#fff;
 }
@@ -525,11 +534,11 @@
 }
 .news_radius {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background-color: #cafffc;
   border-radius: 50%;
-  vertical-align: top;
+  vertical-align: text-top;
 }
 .news_intro {
   display: inline-block;
@@ -574,28 +583,53 @@
   margin-right: 0px;
 }
 .footer {
-  height: 77px;
+  height: 140px;
   background-color: #333333;
 }
 .footer_center {
-  width: 700px;
-  height: 77px;
-  margin: 0 auto;
+  width: 1041px;
+  margin: 20px auto;
+}
+.footer_logo {
+  text-align: center;
 }
 .footer_logo img {
-  width: 134px;
-    height: 39px;
-    padding-top: 8px;
-    float: left;
+  /*width: 350px;*/
+  height: 20px;
 }
 .help_info {
   float: left;
-  padding-top: 19px;
-  margin-left: 43px;
+  padding-top: 9px;
+}
+.help_infol {
+  width: 412px;
+  margin-right: 58px;
+}
+.help_infoc {
+  width: 426px;
+}
+.help_common ul,
+.help_common p {
+  margin-bottom: 16px;
+}
+.help_infor,
+.help_infoc,
+.help_infol {
+  float: left;
+}
+.help_infor span {
+  vertical-align: top;
+  margin-right: 13px;
+}
+.help_infor img {
+  width: 77px;
+  height: 77px;
+}
+p.help_last {
+  margin-bottom: 0px;
 }
 .item_list{
   float: left;
-  font-size: 14px;
   margin-right: 16px;
   color: #d0d0d0;
 }
@@ -620,4 +654,28 @@
 .how_to_text .text_title {
   display: block;
   margin-bottom: 25px; 
+}
+/*返回顶部*/
+.tools {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  background-color: #fff;
+  display: none;
+}
+.tool {
+  text-align: center;
+  display: block;
+  padding: 10px 5px;
+  border-top: solid thin #009899;
+}
+.tool-line {
+  position: relative;
+  top: 5px;
+  left: 6px;
+  width: 28px;
+  display: block;
+}
+.tools a {
+  color: #333333;
 }
