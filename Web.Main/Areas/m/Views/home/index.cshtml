@@ -1,0 +1,166 @@
+﻿@{
+
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0,  minimum-scale=1, maximum-scale=1">
+    <title>首页 - 梦高速</title>
+    <link rel="stylesheet" href="@BaseConfigs.GetStaticPath/mstatic/css/home.css">
+</head>
+<body>
+    <div class="page">
+        <!--头部  开始-->
+        <header class="header indexColor">
+      <div class="backImg">
+        <div class="srch srch-join">
+          <input class="srch_input" id="search" type="text" placeholder="在这里输入关键字进行搜索">
+          <label class="srch_label" for="search"><i class="fa fa-search"></i></label>
+        </div>
+      </div>
+    </header>
+        <!--头部  结束-->
+        <!--轮播图开始-->
+        <div class="sliderBox" style="visibility: hidden;">
+            <ul class="slider">
+                <li>
+                    <img src="@BaseConfigs.GetStaticPath/mstatic/img/lunbolqt.png"></li>
+                <li>
+                    <img src="@BaseConfigs.GetStaticPath/mstatic/img/lunbolqt.png"></li>
+                <li>
+                    <img src="@BaseConfigs.GetStaticPath/mstatic/img/lunbolqt.png"></li>
+                <li>
+                    <img src="@BaseConfigs.GetStaticPath/mstatic/img/lunbolqt.png"></li>
+                <li>
+                    <img src="@BaseConfigs.GetStaticPath/mstatic/img/lunbolqt.png"></li>
+            </ul>
+            <ul class="dots">
+            </ul>
+        </div>
+        <!--轮播图结束-->
+        <!--列表  开始-->
+        <div>
+            <ul class="grid">
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlHr}m/hr">
+                    <div class="grid_item_icon rczp">
+                        <i class="fa fa-user-plus"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        人才招聘</div>
+                </a></li>
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlDiy}m/diy">
+                    <div class="grid_item_icon cysj">
+                        <i class="fa fa-slideshare"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        创意设计</div>
+                </a></li>
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlKj}m/kj">
+                    <div class="grid_item_icon kjfw">
+                        <i class="fa fa-calculator"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        会计服务</div>
+                </a></li>
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZc}m/zc">
+                    <div class="grid_item_icon zc">
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        众筹</div>
+                </a></li>
+            </ul>
+            <ul class="grid">
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlSrdz}m/srdz">
+                    <div class="grid_item_icon zxsj">
+                        <i class="fa fa-diamond"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        私人定制</div>
+                </a></li>
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/zb">
+                    <div class="grid_item_icon srdz">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        众包</div>
+                </a></li>
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlCqbh}m/cqbh">
+                    <div class="grid_item_icon gsss">
+                        <i class="fa fa-expeditedssl"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        产权保护</div>
+                </a></li>
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZckj}m/zckj">
+                    <div class="grid_item_icon cygc">
+                        <i class="fa fa-hourglass-start"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        众创空间</div>
+                </a></li>
+            </ul>
+            <ul class="grid">
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZxsj}m/zxsj">
+                    <div class="grid_item_icon zxsj">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        转型升级</div>
+                </a></li>
+                <li class="grid_item"><a href="@{@BaseConfigs.GetUrlGsss}m/gsss">
+                    <div class="grid_item_icon gsss">
+                        <i class="fa fa-skyatlas"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        公司上市</div>
+                </a></li>
+                <li class="grid_item"><a href="#">
+                    <div class="grid_item_icon srdz">
+                        <i class="fa fa-codiepie"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        创意工厂</div>
+                </a></li>
+                <li class="grid_item"><a href="#">
+                    <div class="grid_item_icon cygc">
+                        <i class="fa fa-thumbs-up"></i>
+                    </div>
+                    <div class="grid_item_text">
+                        社区论坛</div>
+                </a></li>
+            </ul>
+        </div>
+        <!--列表  结束-->
+        <!--创企头条  开始-->
+        <div class="topLine">
+            <a class="topLine_link" href="#">
+                <p class="topLine_link_p">
+                    <span class="topLine_link_p_span">|</span> <i class="fa fa-circle"></i><span class="topLine_title">
+                        创企科技为您创业保驾护航！</span>
+                </p>
+            </a>
+        </div>
+        <!--创企头条  结束-->
+        <!--导航 开始-->
+        <nav class="nav nav-wrap">
+      <a class="nav_link nav_link-active" href="@{@BaseConfigs.GetMainPath}m/home">
+        <i class="fa fa-home"></i>
+        <p>首页</p>
+      </a>
+      <a class="nav_link" href="#">
+        <i class="fa fa-cc-mastercard"></i>
+        <p>专辑</p>
+      </a>
+      <a class="nav_link" href="#">
+        <i class="fa fa-map-o"></i>
+        <p>发现</p>
+      </a>
+      <a class="nav_link" href="#">
+        <i class="fa fa-qrcode"></i>
+        <p>更多</p>
+      </a>
+    </nav>
+        <!--导航 结束-->
+    </div>
+    <script src="@BaseConfigs.GetStaticPath/mstatic/js/home.js"></script>
+</body>

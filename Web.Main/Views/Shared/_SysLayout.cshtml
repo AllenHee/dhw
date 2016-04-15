@@ -9,6 +9,9 @@
     <script src="//cdn.bootcss.com/babel-polyfill/6.3.14/polyfill.min.js"></script>
   <![endif]-->
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}static/css/general.css">
+
+    @RenderSection("stylemid", required: false)
+
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}static/css/usercenter.css">
     <script type="text/javascript">
         var dhw = {
@@ -148,7 +151,7 @@
                             <i class="ucNav_list_item--all_list_item_icon gsss"></i><span class="ucNav_list_item--all_list_item_text">
                                 公司上市</span> </a></li>
                         <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}apprshop#/" target="_blank">
-                            <i class="ucNav_list_item--all_list_item_icon gsss"></i><span class="ucNav_list_item--all_list_item_text">
+                            <i class="ucNav_list_item--all_list_item_icon sbcs"></i><span class="ucNav_list_item--all_list_item_text">
                                 商标超市</span> </a></li>
                     </ul>
                 </li>
@@ -171,7 +174,6 @@
                              {<text> data-curl="zhxx/company" data-purl="pzhxx/person"</text>}>
             </div>
         </div>
-    </div>
     </div>
     <!--个人中心导航栏 结束-->
     <!--个人中心主内容 开始-->
@@ -199,6 +201,7 @@
         </div>
     </div>
     <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/lib/wangEditor.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}static/lib/webuploader.nolog.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}static/js/angular.js"></script>
     <script type="text/javascript">

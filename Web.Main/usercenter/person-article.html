@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="http://localhost:8070/fonts/iconfont.css">
   <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="styles/person.css">
+  <script type="text/html" id="articleTem">
+    {{each data as article}}
+      <li class="article_border">
+          <a class="article_link" href="#">{{ article.title }}<span class="article_time">{{ article.date }}</span></a></li>
+    {{/each}}
+  </script>
+  <script>
+    personid = 4;
+  </script>
 </head>
 
 <body>
@@ -44,11 +53,11 @@
     <div class="article-nav">
       <h2 class="article_title"><i class="classify_icon"></i>文章分类</h2>
       <ul class="classify">
+        <li class="article_list" data-type="">创意设计(<span>10</span>)</li>
         <li class="article_list">创意设计(<span>10</span>)</li>
         <li class="article_list">创意设计(<span>10</span>)</li>
         <li class="article_list">创意设计(<span>10</span>)</li>
         <li class="article_list">创意设计(<span>10</span>)</li>
-        <li class="article_list-last">创意设计(<span>10</span>)</li>
       </ul>
       <div class="search">
         <span class="article_title"><i class="search_icon"></i>文章搜索</span>
@@ -57,41 +66,44 @@
     </div>
     <div class="article-contace">
       <h2 class="article_title"><i class="article-contace_icon"></i>全部文章</h2>
-      <ul>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
-        <li class="article_border">
-          <a class="article_link" href="#">花王玫瑰哈啊哈哈哈哈哈哈哈<span class="article_time">2016-04-11 09:03</span></a></li>
+      <ul class="articleList">
       </ul>
+      <div class="pagination"></div>
     </div>
   </div>
-  
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/scripts/template.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
+  <script>
+    
+    //解析URL
+    function getQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) return unescape(r[2]); return null;
+    }
+    var personid = parseInt(getQueryString('personid'));
+    var para = {
+      duid: personid,
+      pageIndex: 1,
+      pageSize: 10
+    }
+    loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+    
+    $('.article_list').click(function () {
+      var type = parseInt($(this).attr('data-type'))
+      para.type = type;
+      loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+    })
+    $(document).keypress(function (event) {
+      if (event.keyCode === 13) {
+        var title = $('.search_input').val();
+        para.title = title;
+        loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+      }
+    })
+  </script>
 </body>
 
 </html>

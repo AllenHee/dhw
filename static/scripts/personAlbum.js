@@ -1,11 +1,3 @@
-// 解析URL
-function getQueryString(name) {
-  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-  var r = window.location.search.substr(1).match(reg);
-  if (r != null) return unescape(r[2]); return null;
-}
-// 取数据
-var personid = getQueryString('personid');
 para = {
   pageSize: 20,
   pageIndex: 1,

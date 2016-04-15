@@ -1,0 +1,468 @@
+﻿@{Layout = null;}
+@{ string ap = Request.Url.AbsolutePath.ToLower(); ap = ap.Replace("_company", "");
+   var count = ViewBag.count;
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="userCenter">
+<head>
+    <meta charset="UTF-8">
+    <title>用户中心 - 梦高速</title>
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}static/css/general.css">
+    <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}static/css/usercenter.css">
+    <script type="text/javascript">
+        var dhw = {
+            imgurl: '@BaseConfigs.GetImgPath', imguploadurl: '@BaseConfigs.GetImgUploadPath', imgcuturl: '@BaseConfigs.GetImgCutPath',
+            mainurl: '@BaseConfigs.GetUrlMain', staticurl: '@BaseConfigs.GetStaticPath',
+            urlmain: '@BaseConfigs.GetUrlMain', urlcdn: '@BaseConfigs.GetUrlCdn', urlzc: '@BaseConfigs.GetUrlZc', urlkj: '@BaseConfigs.GetUrlKj', urlhr: '@BaseConfigs.GetUrlHr', urlzckj: '@BaseConfigs.GetUrlZckj',
+            urlzb: '@BaseConfigs.GetUrlZb', urldiy: '@BaseConfigs.GetUrlDiy', urlsrdz: '@BaseConfigs.GetUrlSrdz', urlcqbh: '@BaseConfigs.GetUrlCqbh', urlzxsj: '@BaseConfigs.GetUrlZxsj', urlgsss: '@BaseConfigs.GetUrlGsss',
+            urlfj: '@BaseConfigs.GetUrlFj', urlimg: '@BaseConfigs.GetUrlImg', urlfjupload: '@BaseConfigs.GetUrlFjUpload'
+        };
+        var dhwtempvar = {
+            isCoporate: true
+        };
+    </script>
+    <script type="text/javascript">
+        var readCookie = function (a) { var b = a + "="; var c = document.cookie.split(";"); for (var d = 0; d < c.length; d++) { var e = c[d]; for (; " " == e.charAt(0); ) e = e.substring(1, e.length); if (0 == e.indexOf(b)) return e.substring(b.length, e.length) } return null }
+        var login = function () { return location.href = dhw.mainurl + "login?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 }; var regist = function () { return location.href = dhw.mainurl + "reg?redirectURL=" + escape(location.href).replace(/\//g, "%2F"), !1 };</script>
+</head>
+<body>
+    <!--通用顶栏 开始-->
+    <!--全站导航栏 开始-->
+    <div class="nav">
+        <div class="nav_wrap">
+            <!--左侧 开始-->
+            <div class="nav_left">
+                <a href="@BaseConfigs.GetUrlMain"><i class="fa fa-home"></i>梦高速首页</a> <a href="#"><i
+                    class="fa fa-mobile"></i>手机梦高速</a>
+            </div>
+            <!--左侧 结束-->
+            <!--右侧 开始-->
+            <div class="nav_right">
+                <ul class="nav_right_list">
+                    <li id="bb01" class="nav_right_list_item">您好，请<a class="nav_right_list_item_login"
+                        href="javascript:login();">登录</a> <a href="javascript:login();">免费注册</a> </li>
+                    <li class="nav_right_list_item nav_right_list_item--help"><a href="@BaseConfigs.GetUrlBbs">
+                        帮助中心</a> </li>
+                    <!--导航菜单 开始-->
+                    <li class="nav_right_list_item nav_right_list_item--navigation"><a href="javascript:;"
+                        class="nav_site_navigation_drop">网站导航<i class="fa fa-angle-down"></i></a>
+                        <ul class="nav_navigation">
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlKj">会计服务</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlHr">人才招聘</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlDiy">创意设计</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlZckj">众创空间</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlZc">众筹</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlZb">众包</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlCqbh">产权保护</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlSrdz">私人订制</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlCygc">创意工厂</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlZxsj">转型升级</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlGsss">公司上市</a></li>
+                            <li class="nav_navigation_item"><a target="_blank" href="@BaseConfigs.GetUrlBbs">社区论坛</a></li>
+                        </ul>
+                    </li>
+                    <!--导航菜单 结束-->
+                    <!--社交按钮 开始-->
+                    <li class="nav_right_list_item">
+                        <div class="nav_social nav_social--weixin">
+                            <a href="javascript:;"><i class="fa fa-weixin"></i></a>
+                            <div class="nav_social_code">
+                                <img src="@{@BaseConfigs.GetUrlCdn}static/img/weixin_temp.png" alt="">
+                            </div>
+                        </div>
+                        <div class="nav_social nav_social--weibo">
+                            <a href="javascript:"><i class="fa fa-weibo"></i></a>
+                            <div class="nav_social_code">
+                                <img src="@{@BaseConfigs.GetUrlCdn}static/img/erweima.jpg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                    <!--社交按钮 结束-->
+                </ul>
+            </div>
+            <!--右侧 结束-->
+        </div>
+    </div>
+    <!--全站导航栏 结束-->
+    <!--通用顶栏 结束-->
+    <!--个人中心导航栏 开始-->
+    <div class="ucNav">
+        <div class="ucNav_wrap clearfix">
+            <div class="ucNav_logo">
+            </div>
+            <ul class="ucNav_list" nav-slide>
+                <li class="ucNav_list_item ucNav_list_item--slider"></li>
+                <a href="@{@BaseConfigs.GetUrlMain}apphome#/" target="_self">
+                    <li @if (ap == "/apphome")
+                        { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                        else
+                        {<text>class="ucNav_list_item"</text>} >首页</li></a> <a href="@{@BaseConfigs.GetUrlMain}apphr#/">
+                            <li  @if (ap == "/apphr")
+                                 { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                                 else
+                                 {<text>class="ucNav_list_item"</text>} >人才招聘</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzc#/">
+                                     <li  @if (ap == "/appzc")
+                                          { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                                          else
+                                          {<text>class="ucNav_list_item"</text>} >众筹</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzckj#/">
+                                              <li  @if (ap == "/appzckj")
+                                                   { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                                                   else
+                                                   {<text>class="ucNav_list_item"</text>} >众创空间</li></a>
+                <li  @if (ap != "/apphome" && ap != "/apphr" && ap != "/appzc" && ap != "/appzckj")
+                     { <text>class="ucNav_list_item ucNav_list_item--all ucNav_list_item--active"</text>}
+                     else
+                     {<text>class="ucNav_list_item ucNav_list_item--all"</text>} show-all-modules>
+                    <div class="ucNav_list_item--all_text">
+                        所有服务<i class="ucNav_list_item--all_arrow"></i></div>
+                    <ul class="ucNav_list_item--all_list">
+                        <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlKj" target="_blank">
+                            <i class="ucNav_list_item--all_list_item_icon kjfw"></i><span class="ucNav_list_item--all_list_item_text">
+                                会计服务</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}apphr#/">
+                            <i class="ucNav_list_item--all_list_item_icon rczp"></i><span class="ucNav_list_item--all_list_item_text">
+                                人才招聘</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzc#/">
+                            <i class="ucNav_list_item--all_list_item_icon zchou"></i><span class="ucNav_list_item--all_list_item_text">
+                                众筹</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzckj#/">
+                            <i class="ucNav_list_item--all_list_item_icon zckj"></i><span class="ucNav_list_item--all_list_item_text">
+                                众创空间</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appcy#/">
+                            <i class="ucNav_list_item--all_list_item_icon cysj"></i><span class="ucNav_list_item--all_list_item_text">
+                                创意设计</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appsrdz#/">
+                            <i class="ucNav_list_item--all_list_item_icon srdz"></i><span class="ucNav_list_item--all_list_item_text">
+                                私人定制</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzb#/">
+                            <i class="ucNav_list_item--all_list_item_icon zbao"></i><span class="ucNav_list_item--all_list_item_text">
+                                众包</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlCqbh" target="_blank">
+                            <i class="ucNav_list_item--all_list_item_icon cqbh"></i><span class="ucNav_list_item--all_list_item_text">
+                                产权保护</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlZxsj" target="_blank">
+                            <i class="ucNav_list_item--all_list_item_icon zxsj"></i><span class="ucNav_list_item--all_list_item_text">
+                                转型升级</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlGsss" target="_blank">
+                            <i class="ucNav_list_item--all_list_item_icon gsss"></i><span class="ucNav_list_item--all_list_item_text">
+                                公司上市</span> </a></li>
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}apprshop#/" target="_blank">
+                            <i class="ucNav_list_item--all_list_item_icon sbcs"></i><span class="ucNav_list_item--all_list_item_text">
+                                商标超市</span> </a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="ucNav_search">
+                <label class="ucNav_search_select">
+                    搜索
+                    <!--<ul class="ucNav_search_select_list">
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li>
+            <li class="ucNav_search_select_list_item"></li\
+            <li class="ucNav_search_select_list_item"></li>
+          </ul>-->
+                </label>
+                <input class="ucNav_search_input" id="ucSearch" name="ucSearch" type="text">
+                <label class="ucNav_search_btn">
+                </label>
+            </div>
+            <div switch-type @if (ap == "/apphome")
+                             {<text> data-curl="zhxx/company" data-purl="pzhxx/person"</text>}>
+            </div>
+        </div>
+    </div>
+    <!--个人中心导航栏 结束-->
+    <!--内容区开始-->
+    <div class="person_content clearfix">
+        <!--左侧栏开始-->
+        <div class="person_left">
+            <div class="person_left_xinxi clearfix">
+                @if (count["logo"].ToString() == "")
+                {
+                    <img class="person_left_xinxi-pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/avatar.jpg" alt="头像">
+                }
+                else
+                {
+                    <img class="person_left_xinxi-pic" src="@BaseConfigs.GetImgPath@count["logo"]" alt="头像">
+                }
+                <div class="person_left_xinxi-detail">
+                    <p class="person_name">
+                        @count["name"]
+                    </p>
+                    @*<p class="person_name">
+                        详情 >></p>*@
+                </div>
+                <div class="person_phone">
+                    @if (count["phone"].ToString() == "")
+                    {
+                        <p>
+                            手机号码：
+                        </p>
+                        <p class="person_change">
+                            <a href="#">立即绑定 </a>
+                        </p>
+                    }
+                    else
+                    {
+                        <p>
+                            手机号码： <span class="person_phonenumber">@count["phone"]</span></p>
+                        <p class="person_change">
+                            <a href="#">更换绑定</a></p>   
+                    }
+                </div>
+            </div>
+            <ul class="person_left_zhuangtai clearfix">
+                <li class="person_left_zhuangtai-item"><span class="guanzhu_number">1560</span>关注
+                </li>
+                <li class="person_left_zhuangtai-item"><span class="shoucang_number">158</span>收藏
+                </li>
+                <li class="person_left_zhuangtai-item"><span class="dongtai_number">50</span>动态
+                </li>
+            </ul>
+            <div class="person_left_gongneng">
+                <h2>
+                    常用功能</h2>
+                <ul>
+                    <li class="person_left_gongneng_item gongneng_current">账户信息</li>
+                    <li class="person_left_gongneng_item"><a href="@{@BaseConfigs.GetUrlMain}apphome#/email/inbox">
+                        站内信</a></li>
+                    @if (ViewBag.DUser.IsCompany)
+                    {
+                        <li class="person_left_gongneng_item"><a href="@{@BaseConfigs.GetUrlMain}person/@{@ViewBag.DUser.ID}/index" target="_blank">
+                            个人主页</a></li>
+                        
+                        <li class="person_left_gongneng_item"><a href="@{@BaseConfigs.GetUrlMain}Company/Index/@ViewBag.DUser.CompanyID"  target="_blank">
+                            公司主页</a> </li>
+                    }
+                    else
+                    { 
+                        <li class="person_left_gongneng_item"><a href="@{@BaseConfigs.GetUrlMain}person/@{@ViewBag.DUser.ID}/index"  target="_blank">
+                            个人主页</a></li> 
+                    }
+                </ul>
+            </div>
+            <div class="person_left_fuwu">
+                <h2>
+                    我的服务</h2>
+                <ul>
+                    <li class="fuwu_kuaiji"><a target="_blank" href="@BaseConfigs.GetUrlKj"><i></i>会计服务</a>
+                    </li>
+                    <li class="fuwu_rencai"><a href="@{@BaseConfigs.GetUrlMain}apphr#/"><i></i>人才招聘</a>
+                    </li>
+                    <li class="fuwu_zckj"><a href="@{@BaseConfigs.GetUrlMain}appzckj#/"><i></i>众创空间</a>
+                    </li>
+                    <li class="fuwu_zhongbao"><a href="@{@BaseConfigs.GetUrlMain}appzb#/"><i></i>威客众包</a>
+                    </li>
+                    <li class="fuwu_zhongchou"><a href="@{@BaseConfigs.GetUrlMain}appzc#/"><i></i>产品众筹</a>
+                    </li>
+                    <li class="fuwu_srdz"><a href="@{@BaseConfigs.GetUrlMain}appsrdz#/"><i></i>私人订制</a>
+                    </li>
+                    <li class="fuwu_cysj"><a href="@{@BaseConfigs.GetUrlMain}appcy#/"><i></i>创意设计</a>
+                    </li>
+                    <li class="fuwu_cqbh"><a target="_blank" href="@BaseConfigs.GetUrlCqbh"><i></i>产权保护</a>
+                    </li>
+                    <li class="fuwu_shangshi"><a target="_blank" href="@BaseConfigs.GetUrlGsss"><i></i>公司上市</a>
+                    </li>
+                    <li class="fuwu_zxsj"><a target="_blank" href="@BaseConfigs.GetUrlZxsj"><i></i>转型设计</a>
+                    </li>
+                    <li class="fuwu_sbcs"><a href="@{@BaseConfigs.GetUrlMain}aapprshop#/buyer/all"><i></i>
+                        商标超市</a> </li>
+                </ul>
+            </div>
+        </div>
+        <!--左侧栏结束-->
+        <!--中间部分开始-->
+        <div class="person_middle">
+            <div class="person_middle_project clearfix">
+                <div class="person_middle_project-l">
+                    <h3>
+                        我的项目</h3>
+                    <ul class="clearfix">
+                        <li><a href="@{@BaseConfigs.GetUrlMain}apphr#/zplb/published">人才招聘(<span>@count["rczp"]</span>)</a>
+                        </li>
+                        <li><a href="@{@BaseConfigs.GetUrlMain}appzc#/hasfb">众筹(<span>@count["zc"]</span>)</a>
+                        </li>
+                        <li><a href="@{@BaseConfigs.GetUrlMain}appzb#/yfb">众包(<span>@count["zb"]</span>)</a>
+                        </li>
+                        <li><a href="@{@BaseConfigs.GetUrlMain}appcy#/cyfb">创意设计(<span>@count["diy"]</span>)</a>
+                        </li>
+                        <li><a href="@{@BaseConfigs.GetUrlMain}appsrdz#/pyfb">私人订制(<span>@count["srdz"]</span>)</a>
+                        </li>
+                    </ul>
+                    <button class="project_changebtn">
+                        修改账号设置</button>
+                    <ul class="person_middle_project_jincheng">
+                        <i></i>
+                        <li>发布需求</li>
+                        <li>服务商匹配</li>
+                        <li>选择满意的服务</li>
+                        <li>验收工作并付款</li>
+                    </ul>
+                </div>
+                <div class="person_middle_project-r">
+                    <ul class="clearfix">
+                        <li class="project_shouru">收入<span class="project_income">￥0.00</span></li>
+                        <li class="project_zhichu">支出<span class="project_spending">￥0.00</span></li>
+                    </ul>
+                    <p>
+                        梦高速网上交易由支付宝提供支付担保！资金安全有保障！</p>
+                    <img src="@{@BaseConfigs.GetUrlCdn}static/img/ZHIFUBAO.png" alt="支付宝">
+                </div>
+            </div>
+            <div class="person_middle_guess clearfix">
+                <div class="person_middle_guess-detail">
+                    <div class="clearfix">
+                        <h3>
+                            猜你喜欢</h3>
+                        <span class="person_middle_guess_change"><i></i>换一换</span>
+                    </div>
+                    <ul class="newid clearfix">
+                    </ul>
+                </div>
+            </div>
+            <div class="person_middle_more clearfix">
+                <div class="person_middle_help">
+                    <h3>
+                        <a href="http://bbs.dreamhiway.com/" target="_blank">帮助<span>></span> </a>
+                    </h3>
+                    <ul class="moreMessage">
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=14"
+                            target="_blank">什么是人才招聘？</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=2"
+                            target="_blank">什么是梦高速会计服务？</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=7"
+                            target="_blank">什么是梦高速创意设计？</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=10"
+                            target="_blank">什么是梦高速私人订制服务？</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=12"
+                            target="_blank">什么是梦高速众包？</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=5"
+                            target="_blank">什么是梦高速转型升级服务？</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=8"
+                            target="_blank">什么是梦高速众创空间？</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=4"
+                            target="_blank">什么是梦高速公司上市服务？</a><span>2016/03/17</span></li>
+                    </ul>
+                </div>
+                <div class="person_middle_news">
+                    <h3>
+                        <a href="http://www.chuangqikeji.com/" target="_blank">官方新闻<span>></span></a></h3>
+                    <ul class="moreMessage">
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/a/xinwenzhongxin/meitib/21.html"
+                            target="_blank">石狮首批10家市级众创空间授牌</a><span>2016/03/17</span></li>
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/gongsiyaowen/18.html"
+                            target="_blank">梦高速众创空间获批石狮市级众创空间</a><span>2016/02/19</span></li>
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/a/xinwenzhongxin/meitib/20.html"
+                            target="_blank">“梦高速”在石举行见面会</a><span>2016/01/29</span></li>
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/gongsiyaowen/19.html"
+                            target="_blank">创企科技“梦高速”见面会暨迎新春2016年年会</a><span>2016/01/27</span></li>
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/a/xinwenzhongxin/meitib/16.html"
+                            target="_blank">石狮高新区创新创业中心“创企杯”篮球友谊赛落幕</a><span>2015/12/25</span></li>
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/gongsiyaowen/13.html"
+                            target="_blank">相约理工，双十一虐Dog三部曲</a><span>2015/11/30</span></li>
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/a/xinwenzhongxin/meitib/14.htmll"
+                            target="_blank">石狮国家高新区创新创业中心成员“扩容”</a><span>2015/11/28</span></li>
+                        <li class="moreMessage_item"><a href="http://www.chuangqikeji.com/a/xinwenzhongxin/a/xinwenzhongxin/meitib/15.html"
+                            target="_blank">高新区创新创业中心配套设施日臻完善</a> <span>2015/11/28</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--中间部分结束-->
+        <!--右侧栏开始-->
+        <div class="person_right">
+            <div class="person_right_gonggao">
+                <div class="gonggao_head clearfix">
+                    <h3>
+                        公告</h3>
+                    <span id="currentTime"></span>
+                </div>
+                <ul class="clearfix">
+                    <li><a href="http://www.dreamhiway.com" target="_blank">- 热烈祝贺梦高速上市成功！</a> </li>
+                    <li><a href="@{@BaseConfigs.GetUrlDiy}mincysj/cysjbs.html" target="_blank">- 创企杯创意征集比赛活动链接！</a>
+                    </li>
+                    <li><a class="gonggao_first" href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=379"
+                        target="_blank">- 创企杯创意征集比赛即将开始！</a></li>
+                    <li><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=380" target="_blank">
+                        - 关于创企杯创意征集大赛你想说什么？</a> </li>
+                    <li><a href="http://bbs.dreamhiway.com/forum.php?mod=viewthread&tid=382" target="_blank">
+                        - 创企杯创意征集大赛日程安排（暂定）！</a> </li>
+                    <li><a href="@{@BaseConfigs.GetUrlHr}tuijian/minlituijie.html" target="_blank">- 闽南理工“梦高速”人才专题推荐开始！</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="person_right_huodong">
+                <h3>
+                    热门活动</h3>
+                <ul class="clearfix">
+                    <li><a href="@{@BaseConfigs.GetUrlDiy}mincysj/cysjbs.html#hzhb" target="_blank">
+                        <img src="@{@BaseConfigs.GetUrlCdn}static/img/chuangyi_minli.jpg" alt=""></a>
+                    </li>
+                    <li><a href="@{@BaseConfigs.GetUrlHr}tuijian/minlituijie.html" target="_blank">
+                        <img src="@{@BaseConfigs.GetUrlCdn}static/img/rencai_minli.jpg" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--右侧栏结束-->
+    </div>
+    <!--内容区结束-->
+    <script type="text/JavaScript">
+        function timer() {
+            var time = new Date().toLocaleString() + ' 星期' + '日一二三四五六'.charAt(new Date().getDay());
+            document.getElementById("currentTime").innerHTML = time;
+        }
+        setInterval("timer()", 1000);  
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/lib/jquery.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/js/angular.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}static/js/home.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/template.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var accountType = readCookie("accountType");
+            if (accountType != null) {
+                dhw = dhw || {};
+                dhw.isLogined = true;
+                var username = readCookie("name");
+                var nickname = readCookie("nickname");
+                var name;
+                if (nickname == null) {
+                    name = username;
+                }
+                else {
+                    name = nickname + "(" + username + ")";
+                }
+                $('#bb01').html('您好，<a class="nav_right_list_item_login" href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+            }
+            else {
+                dhw.isLogined = false;
+                $('#bb01').html('您好，请<a class="nav_right_list_item_login" href="javascript:login();">登陆</a><a href="javascript:regist();">免费注册</a>');
+            }
+        })
+    </script>
+    <script type="text/html" id="srdznewid">
+    {{each result as rom}}
+      <li><a href="@{@BaseConfigs.GetUrlSrdz}Detail/{{rom.id}}" target="_blank">
+            <img class="person_middle_guess-pic" src="@BaseConfigs.GetImgPath{{rom.productlmg}}_310x310.jpg" alt="photo">
+            <span class="person_middle_guess-price">￥{{rom.price}}元</span> 
+            <p class="person_middle_guess-ttl">
+                {{rom.title}}
+            </p>
+        </a></li>
+     {{/each}}
+    </script>
+    <script>
+        var load = function () {
+            $.post('/MainHome/SrdzNewid').success(function (data) {
+                var html = template('srdznewid', data);
+                $('.newid').html(html);
+            })
+        }
+        load();
+        $('.person_middle_guess_change').click(function () {
+            load();
+        })
+    </script>
+</body>
+</html>

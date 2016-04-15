@@ -1,0 +1,85 @@
+﻿@{
+    
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0,  minimum-scale=1, maximum-scale=1">
+    <title>注册页 - 梦高速</title>
+    <link rel="stylesheet" href="@BaseConfigs.GetStaticPath/mstatic/css/home.css">
+</head>
+<body>
+    <div class="page">
+        <!--头部 开始-->
+        <header class="header header-reverse">
+      <div class="header_sect">
+        <button class="header_btn" type="button"><i class="fa fa-angle-left"></i></button>
+      </div>
+      <img src="@{@BaseConfigs.GetStaticPath}/usercenter/images/index_logo.png" alt="">
+      <div class="header_sect">
+        <button class="header_btn" type="button"><i class="fa fa-ellipsis-h"></i></button>
+      </div>
+    </header>
+        <!--头部 结束-->
+        <!--输入信息  开始-->
+        <form class="acc">
+        <div class="acc_group">
+            <input class="acc_input acc_input-hasLabel" name="verify" type="text" placeholder="请输入验证码"
+                required>
+            <label class="acc_label acc_label-hasBorder">
+                <div class="acc_label_code">
+                    <img class="codeImg" src="/m/main/VerifyCode?_=@{@DateTime.Now.Ticks}" alt="验证码">
+                </div>
+            </label>
+        </div>
+        <div class="acc_group">
+            <div class="acc_tip is-hidden">
+                <p class="acc_tip_content">
+                    <i class="fa fa-hand-o-right"></i><span class="acc_tip_content_text"></span>
+                </p>
+                <i class="arrow arrow-down"></i>
+            </div>
+            <input class="acc_input" name="phone" type="text" placeholder="请输入手机号" required>
+        </div>
+        <!--<div class="acc_group">
+        <input class="acc_input acc_input-short" type="text" placeholder="请输入手机号">
+        <button class="acc_getCode" type="button">获取短信验证码</button>
+      </div>
+      <div class="acc_group">
+        <input class="acc_input" type="text" placeholder="请输入短信验证码">
+      </div>-->
+        <!--<div class="acc_group">
+        <div class="acc_tip is-hidden">
+          <p class="acc_tip_content"><i class="fa fa-hand-o-right"></i>4-20位字符，支持汉字、字母、数字及“-”、"_"组合</p>
+          <i class="arrow arrow-down"></i>
+        </div>
+        <input class="acc_input attention" type="text" placeholder="请输入用户名">
+      </div>-->
+        <div class="acc_group">
+            <input class="acc_input acc_input-hasLabel" name="pwd" type="password" placeholder="请设置6-20位的登录密码"
+                required>
+            <input class="acc_input acc_input-hasLabel showPassword" type="text">
+            <label class="acc_label">
+                <div class="acc_switcher">
+                    <div class="acc_switcher_btn">
+                    </div>
+                </div>
+            </label>
+        </div>
+        <p class="acc_text">
+            注册即视为同意<a class="acc_link" href="#">《梦高速用户注册协议》</a></p>
+        <button class="acc_btn register" type="button" disabled>
+            注册</button>
+        </form>
+        <!--报错  开始-->
+        <div class="modal">
+            <p class="modal_content">
+                <i class="fa fa-exclamation-triangle"></i><span class="modal_content_text">账号或密码错误，请重新输入。</span>
+            </p>
+            <!--<div class="modal_btn">
+        <button type="button">确定</button>
+      </div>-->
+        </div>
+        <!--报错  开始-->
+    </div>
+    <script src="@BaseConfigs.GetStaticPath/mstatic/js/home.js"></script>
+</body>
