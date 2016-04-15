@@ -12,6 +12,7 @@
     var su = "";
   </script>
   <script type="text/html" id="comTemplate">
+   
     {{each data as company i}}
     <li>
       <div class="clearfix">
@@ -19,19 +20,16 @@
         <div class="f-r-l"><a href="#"><img src="{{domain}}{{company.logo}}" alt="公司图标"></a></div>
         {{/if}}
         {{if !company.logo}}
-        <div class="f-r-l"><a href="#"><img src="http://localhost:8070/images/default2.png" alt="公司图标"></a></div>
+        <div class="f-r-l"><a href="#"><img src="http://cdn.dreamhiway.com/images/default2.png" alt="公司图标"></a></div>
         {{/if}}
         <div class="f-r-r">
-          <h3><a href="#">{{company.compay}}</a><small>{{company.trade}} / {{company.Nature}} / 规模：{{company.scale}}人</small></h3>
-          <p><a href="#">{{company.numEvaluation}}</a>条面试评价</p>
-          <p><a href="#">{{company.jobs.length}}</a>个在招职位
+          <h3><a href="//www.dreamhiway.com/Company/Zhaopin/{{company.id}}">{{company.compay}}</a><small>{{company.trade}} / {{company.Nature}} / 规模：{{company.scale}}人</small></h3>
+          <p>{{if company.numEvaluation !== 0}}<a href="#">{{company.numEvaluation}}</a>条面试评价{{/if}}</p>
+          <p>{{if company.jobs.length != 0}}<a href="//www.dreamhiway.com/Company/Zhaopin/{{company.id}}">{{company.jobs.length}}</a>个在招职位{{/if}}
             <span class="job-pos">
-              {{each company.jobs as job i}}
-              {{if (i + 1) < 3}}
-              <a href="http://hr.dreamhiway.com/jobs/detail/{{job.id}}">{{job.name}}</a>/
-              {{/if}}
-              {{if (i + 1) == 3}}
-              <a href="http://hr.dreamhiway.com/jobs/detail/{{job.id}}">{{job.name}}</a>
+              {{each company.jobs as job i}}  
+              {{if i <3}}
+              |<a href="/jobs/{{job.id}}">{{job.name}}</a>| 
               {{/if}}
               {{/each}}
             </span>

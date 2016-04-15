@@ -29,19 +29,19 @@
           <span class="username">蔡清波</span>
           <ul class="login_state">
             <a href="#"><li class="login_state_list">
-              <i class="msg"></i>
+              <img src="images/11.png" alt="" class="msg">
               消息中心</li>
               </a>
             <a href="#"><li class="login_state_list">
-              <i class="home"></i>
+              <img src="images/12.png" alt="" class="home">
               个人主页</li>
             </a>  
             <a href="#"><li class="login_state_list">
-              <i class="zp"></i>
+              <img src="images/13.png" alt="" class="zp">
               我的作品</li>
             </a>  
             <a href="#"><li class="login_state_list">
-              <i class="loginout"></i>
+              <img src="images/14.png" alt="" class="loginout">
               退出登录</li>
             </a>  
           </ul>
@@ -98,7 +98,7 @@
           <li class="bs_bm bs_logo">
             <img src="images/bm_dark.png" alt="" class="dark">
             <img src="images/bm_light.png" alt="" class="light">活动报名
-            <div class="tip tip_bm">
+            <div class="tip tip_bm" style="left:0;">
               <h2>活动报名</h2>
               <p class="text_area">
                 官方注册
@@ -108,14 +108,14 @@
                   <br> 报名截止时间：4月28日 24：00
                 </p>
               </p>
-              <span class="title_arrow_tip title_arrow_tip_first"></span>
-              <span class="title_arrow_tip title_arrow_tip_two"></span>
+              <span class="title_arrow_tip title_arrow_tip_first" style="left:15px;"></span>
+              <span class="title_arrow_tip title_arrow_tip_two" style="left:15px;"></span>
             </div>
           </li>
           <li class="bs_cs bs_logo">
             <img src="images/cs_dark.png" alt="" class="dark"> 
             <img src="images/cs_light.png" alt="" class="light">网络初审
-             <div class="tip tip_cs">
+             <div class="tip tip_cs" style="left:10px;">
               <h2>网络初审</h2>
               <p class="text_area">
                 按照赛制分为五大组：
@@ -125,8 +125,8 @@
                   <br> 3.创意作品准备时间：2016年5月1日 - 5月10日
                 </p>
               </p>
-              <span class="title_arrow_tip title_arrow_tip_first"></span>
-              <span class="title_arrow_tip title_arrow_tip_two"></span>
+              <span class="title_arrow_tip title_arrow_tip_first" style="left:10px"></span>
+              <span class="title_arrow_tip title_arrow_tip_two" style="left:10px;"></span>
             </div>
           </li>
           <li class="bs_db bs_logo">
@@ -359,19 +359,41 @@
       </div>
     </div>
   </div>
+  <div class="tools">
+    <span class="tool">
+        <a href="#">返回<br/>顶部</a>
+        <i class="tool-line"></i></span>
+    <span class="tool">
+        <a href="http://www.dreamhiway.com">梦高速<br>首页</a>
+     </span>
+  </div>
   <div class="footer">
-    <div class="footer_center">
+    <div class="footer_center clearfix">
       <div class="footer_logo clearfix">
-        <img src="images/megs.png" alt="">
-        <div class="help_info">
-          <ul class="clearfix">
-            <li class="item_list">帮助中心</li>
-            <li class="item_list">联系我们</li>
-            <li class="item_list item_list_last">服务热线：0595-36892299</li>
-          </ul>
-        </div>
+        <img src="images/mgs.png" alt="">
       </div>
-      <div class="mz">© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</div>
+      <div class="help_info clearfix">
+          <div class="help_infol help_common">
+            <ul class="clearfix">
+              <li class="item_list">关于我们</li>
+              <li class="item_list">帮助中心</li>
+              <li class="item_list">联系我们</li>
+              <li class="item_list">友情链接</li>
+              <li class="item_list item_list_last">服务热线：0595-36892299</li>
+            </ul>
+            <p>主办单位： 福建省创企信息科技有限公司、闽南理工创客园、梦高速众创空间</p>
+            <p class="help_last">协助单位： 闽南理工学院各院系</p>
+          </div>
+          <div class="help_infoc help_common">
+            <p>地址： 石狮国家高新区创新创业中心办公楼7楼</p>
+            <p>福建省创企信息科技有限公司版权所有</p>
+            <p>© 2015-2016 dreamhiway.com, All Rights Reserved 闽ICP备15011711号</p>
+          </div>
+          <div class="help_infor">
+            <span> 官方微信:</span>
+            <img src="images/erm.jpg" alt="">
+          </div>
+      </div>
     </div>
   </div>
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
@@ -424,6 +446,14 @@
     $('.bs_logo').mouseout(function() {
       $(this).find('.light').css({display: 'none'});
       $(this).find('.dark').css({display: 'block'});
+    })
+    // 返回顶部
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > 500) {
+        $('.tools').css({display: 'block'});
+      } else {
+        $('.tools').css({display: 'none'});
+      }
     })
   </script>
 </body>
