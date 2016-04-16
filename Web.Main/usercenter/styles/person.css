@@ -511,8 +511,9 @@ table {
   display: block;
 }
 .search_input {
-  width: 210px;
+  width: 180px;
   height: 25px;
+  padding-right: 30px;
   padding-left: 5px;
   margin: 19px 15px 16px;
 }
@@ -557,4 +558,177 @@ table {
   float: right;
   font-size: 12px;
   line-height: 47px;
+}
+.margin_top {
+  margin-top: 50px;
+}
+.person_nav {
+  float: left;
+  width: 220px;
+  border: solid thin #e5e5e5;
+  margin: 5px 5px;
+}
+.person_nav_title {
+  position: relative;
+  height: 50px;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  line-height: 50px;
+  font-size: 19px;
+  color: #333;
+  background: #e5e5e5;
+}
+.person_nav_title i {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 55px;
+  height: 55px;
+  background: url(../images/tuijian.png);
+  display: block;
+}
+.person_nav_list {
+  height: 50px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  list-style-position: inside;
+  list-style-type: square;
+}
+.person_nav_list a {
+  color: #017efe;
+  line-height: 30px;
+}
+.person_nav_list a:hover {
+  text-decoration: underline;
+}
+.person_nav_list p {
+  padding-left: 15px;
+  font-size: 14px;
+  color: #666;
+}
+.article_content {
+  float: right;
+  width: 735px;
+  border: solid thin #e5e5e5;
+  margin-top: 5px;
+}
+.article_content_top {
+  height: 50px;
+  padding: 0 15px;
+  line-height: 50px;
+  font-size: 19px;
+  color: #333;
+  background: #e5e5e5;
+}
+.article_content_top a {
+  float: right;
+  font-size: 14px;
+  color: #676767;
+}
+.article_content_boeder {
+  padding: 23px 15px;
+}
+.article_content_title {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+}
+.article_content_time {
+  float: right;
+  padding-top: 12px;
+  font-size: 12px;
+}
+.article_classify {
+  padding-left: 20px;
+  font-size: 17px;
+  color: #676767;
+}
+.article_classify a {
+  color: #007eff;
+  font-size: 16px;
+}
+.article_matter {
+  margin: 30px 20px;
+  line-height: 30px;
+  font-size: 16px;
+  color: #656565;
+  text-indent: 2em;
+}
+.person_function {
+  padding: 20px;
+}
+.person_function a {
+  color: #0064fe;
+}
+.praise {
+  position: relative;
+  margin-left: 30px;
+}
+.collect,
+.read,
+.share {
+  position: relative;
+  margin-left: 60px;
+}
+.praise i,
+.collect i,
+.read i,
+.share i {
+  position: absolute;
+  top: -3px;
+  left: -27px;
+  width: 18px;
+  height: 18px;
+  background: url(../images/tuijian_icon.png);
+  display: block;
+}
+.collect i {
+  top: -2px;
+  background-position: 0 -23px;
+}
+.read i {
+  top: 2px;
+  height: 14px;
+  width: 20px;
+  background-position: 0 -45px;
+}
+.share i {
+  top: -1px;
+  background-position: 0 18px;
+}
+.article_jump {
+  margin: 0 20px;
+  font-size: 16px;
+  line-height: 40px;
+  color: #656565;
+}
+.article_jump a {
+  color: #007ffe;
+}
+.bottom {
+  height: 70px;
+  background-color: #656565;
+}
+.bottom_contact {
+  width: 900px;
+  margin: 0 auto;
+}
+.bottom_contact span {
+  position: relative;
+  padding-left:230px;
+  line-height: 70px;
+  color: #e9e9e9;
+}
+.bottom_contact i {
+  position: absolute;
+  top: -2px;
+  left: 100px;
+  width: 100px;
+  height: 25px;
+  background: url(../images/dreamhiway.png);
+}
+.bottom_contact a {
+  float: right;
+  color: #e9e9e9;
 }
