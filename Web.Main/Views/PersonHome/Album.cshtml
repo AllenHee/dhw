@@ -1,0 +1,44 @@
+﻿@{
+    Layout = Layout = "~/Views/Shared/_PersonLayout.cshtml";
+    ViewBag.Title = "个人相册 - 个人黄页 - 梦高速";
+}
+<div class="person_content person_album">
+    <h1 class="person_message_ttl">
+        <i class="person_message_ttl-jbxx"></i>个人相册(作品)</h1>
+    <ul class="album_show clearfix">
+    </ul>
+    <div class="pagination">
+    </div>
+</div>
+<!--弹出层 开始-->
+<div class="model_bg">
+    <div class="slide">
+        <ul class="slider clearfix">
+        </ul>
+    </div>
+    <span class="model_prev"></span><span class="model_next"></span><span class="model_close">
+    </span>
+</div>
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script>
+     var personid =@ViewBag.personid ;
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/personAlbum.js"></script>
+    <script type="text/html" id="albumTem">
+        {{each data as album}}
+        <li class="album_show_item">
+          <img src="@{@BaseConfigs.GetImgPath}{{album.img}}_180x150.jpg" alt="">
+          <p>{{album.title}}</p>
+        </li>
+        {{/each}}
+    </script>
+    <script type="text/html" id="showTem">
+        {{each data as album}}
+        <li><img src="@{@BaseConfigs.GetImgPath}{{album.img}}_180x150.jpg" alt=""></li>
+        {{/each}}
+    </script>
+}

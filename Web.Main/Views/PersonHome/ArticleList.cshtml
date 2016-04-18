@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_PersonLayout.cshtml";
+    ViewBag.Title = "文章列表 - 个人黄页 - 梦高速";
+}
+<div class="person_content">
+    <div class="article-nav">
+        <h2 class="article_title">
+            <i class="classify_icon"></i>文章分类</h2>
+        <ul class="classify">
+            @for (int i = 0; i < ViewBag.type.Rows.Count; i++)
+            {
+                var nav = ViewBag.type.Rows[i];
+                <li class="article_list" data-type="@nav["id"]">
+                    @{@nav["type"]}
+                    (<span>@nav["number"]</span>)</li>
+            }
+        </ul>
+        <div class="search">
+            <span class="article_title"><i class="search_icon"></i>文章搜索</span>
+            <input class="search_input" type="text" placeholder="请输入关键词搜索"><i class="input_icon"></i>
+        </div>
+    </div>
+    <div class="article-contace">
+        <h2 class="article_title">
+            <i class="article-contace_icon"></i>全部文章</h2>
+        <ul class="articleList">
+        </ul>
+        <div class="pagination">
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.paging.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.loaddata.js"></script>
+    <script type="text/html" id="articleTem">
+    {{each data as article}}
+      <li class="article_border">
+          <a class="article_link" href="http://localhost:8085/person/@ViewBag.personid/ArticleDetail/{{article.id}}">{{ article.title }}<span class="article_time">{{ article.date }}</span></a></li>
+    {{/each}}
+    </script>
+    <script>
+         var personid =@ViewBag.personid ;
+    </script>
+    <script>
+        var para = {
+            duid: @ViewBag.personid,
+            pageIndex: 1,
+            pageSize: 10
+        }
+        loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+
+        $('.article_list').click(function () {
+            var type = parseInt($(this).attr('data-type'))
+            para.type = type;
+            loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+        })
+        $(document).keypress(function (event) {
+            if (event.keyCode === 13) {
+                var title = $('.search_input').val();
+                para.title = title;
+                loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+            }
+        })
+    </script>
+}

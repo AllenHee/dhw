@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/Views/Shared/_PersonLayout.cshtml";
+    ViewBag.Title = "文章详情 - 个人黄页 - 梦高速";
+}
+<!--主要内容 开始-->
+<div class="person_content margin_top">
+    <div class="person_nav">
+        <h2 class="person_nav_title">
+            <i></i>文章推荐</h2>
+        <ul>
+            @for (int i = 0; i < ViewBag.dt1.Rows.Count; i++)
+            {
+                var item = ViewBag.dt1.Rows[i];
+                <li class="person_nav_list"><a href="@{@BaseConfigs.GetUrlMain}person/@ViewBag.personid/ArticleDetail/@item["id"]">@item["title"]</a>
+                    <p class="article_author">@item["name"]</p>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="article_content">
+        <h2 class="article_content_top">
+            正文<a href="@{@BaseConfigs.GetUrlMain}person/@ViewBag.personid/ArticleList">返回文章列表</a></h2>
+        <div class="article_content_boeder">
+            @{ var items = ViewBag.dt.Rows[0];}
+            <div class="article_content_title">
+                @items["title"]<span class="article_content_time">(<span>@items["date"]</span>)</span>
+            </div>
+            <span class="article_classify" data-type="@items["typeid"]">分类：<a href="@{@BaseConfigs.GetUrlMain}person/@ViewBag.personid/ArticleList">@items["type"]</a></span>
+            <div class="article_matter">
+                @Html.Raw(items["txt"])
+            </div>
+            <div class="person_function">
+                <span class="praise" data-praise="@items["praise"]"><i></i><a href="javascript:;"
+                    click>赞</a> (<span>@items["praise"]</span>)</span>
+                @if (!ViewBag.DUser.HasLogin)
+                { <span class="collect"> <i></i><a href="@{@BaseConfigs.GetUrlMain}login?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
+                    收藏</a> (<span>@items["collection"]</span>)</span>}
+                else
+                {
+                    if (items["iscollect"].ToString() != "1")
+                    {
+                    <span class="collect" data-collect="@items["collection"]"><i></i><a href="javascript:;">
+                        收藏</a> (<span>@items["collection"]</span>)</span>
+                    }
+                    else
+                    {
+                    <span class="collect" data-collect="@items["collection"]"><i></i><a href="javascript:;">
+                        已收藏</a> (<span>@items["collection"]</span>)</span>
+                    }
+                }
+                <span class="read"><i></i>阅读 (<span>@items["visitors"]</span>)</span> <span class="share">
+                    <i></i><a href="javascript:;">分享</a> </span>
+            </div>
+            <div class="article_jump">
+                @if (ViewBag.dtup.Rows.Count > 0)
+                {
+                    var up = ViewBag.dtup.Rows[0];   
+                    <p class="jump">
+                        上一篇：<a href="@{@BaseConfigs.GetUrlMain}person/@ViewBag.personid/ArticleDetail/@up["id"]">@up["titleu"]</a></p>
+                }
+                @if (ViewBag.dtlower.Rows.Count > 0)
+                {
+                    var lower = ViewBag.dtlower.Rows[0];   
+                    <p class="jump">
+                        下一篇：<a href="@{@BaseConfigs.GetUrlMain}@ViewBag.personid/ArticleDetail/@lower["id"]">@lower["titled"]</a></p>
+                
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+         var personid =@ViewBag.personid ;
+         var id=@items["id"];
+    </script>
+    <script type="text/javascript">
+         !function () {
+             $.post('/PersonHome/PersonArticleReadAdd', { id: @items["id"] })
+             }()
+    </script>
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
+    <script src="@{@BaseConfigs.GetUrlCdn}lib/jquery.cookie.js"></script>
+    <script>
+        $('.praise').click(function () {
+            var cookie = 'data-' + id;
+            if ($.cookie(cookie) === 'true') {
+                alert('已点赞');
+                return false;
+            }
+            $.post('/PersonHome/PersonArticleLaudAdd', { id: id }).success(function () {
+                var total = parseInt($('.praise span').text())
+                total = total + 1;
+                $('.praise span').text(total);
+                $.cookie(cookie, "true")
+            })
+        })
+    </script>
+}
+<!--主要内容 结束-->

@@ -219,7 +219,7 @@
                 <ul class="clearfix">
                     @for (int i = 0; i < @ViewBag.zzphoto.Count; i++)
                     {
-                        var imgs = @ViewBag.zzphoto[i]["img"] + ".jpg";
+                        var imgs = @ViewBag.zzphoto[i]["img"] + "_250x250.jpg";
                         <li class="aptitude_show @if (i == 0)
                                                  {<text>aptitude_show-first</text>}">
                             <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="企业资质">
