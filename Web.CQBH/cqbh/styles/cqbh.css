@@ -716,9 +716,9 @@ body {
 
 /*何伟*/
 .footer-l .logo {
-  height: 50px;
-  background: url(../images/cqbh_logo.png) no-repeat 0 -50px;
+  height: 58px;
+  background: url(../images/cqbh_logo.png) no-repeat -8px -1px;
 }
 .footer-l .logo:hover {
-  background: url(../images/cqbh_logo.png) no-repeat;
+  background: url(../images/cqbh_logo.png) no-repeat -8px -61px;
 }

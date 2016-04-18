@@ -590,3 +590,10 @@ tbody td {
 .zc_share {
   margin: 20px !important
 }
+.footer-l .logo {
+  height: 59px;
+  background: url('../images/zckj_flogo.png') no-repeat -2px -61px;
+}
+.footer-l .logo:hover {
+  background: url('../images/zckj_flogo.png') no-repeat -2px -1px;
+}

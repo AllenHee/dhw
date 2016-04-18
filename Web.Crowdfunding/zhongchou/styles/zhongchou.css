@@ -1405,11 +1405,11 @@ body .zc-mail:hover {
 
 /*何伟*/
 .footer-l .logo {
-  height: 52px;
-  background: url(../images/jinrongzhongchou.png) no-repeat;
+  height: 45px;
+  background: url(../images/jinrongzhongchou.png) no-repeat  0 -55px;
 }
 .footer-l .logo:hover {
-  background: url(../images/jinrongzhongchou.png) no-repeat 0 -52px;
+  background: url(../images/jinrongzhongchou.png) no-repeat 0 -8px;
 }
 /*
  * 何伟

@@ -304,6 +304,9 @@
     margin-right: 5px;
     background: url(../images/kuaiji.png) no-repeat -64px -324px;
 }
+.badges img {
+  margin-right: 10px;
+}
 .badges-tags {
   float: right;
   width: 337px;
