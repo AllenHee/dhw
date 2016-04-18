@@ -124,11 +124,13 @@
   float: left;
   padding: 0 30px;
   margin-right: 35px;
-  color: #fff;
   font-size: 24px;
   text-align: center;
   opacity: 0.6;
   cursor: pointer;
+}
+.intro_nav_ul_item a {
+  color: #fff;
 }
 .intro_nav_ul_item-current,
 .intro_nav_ul_item:hover {
@@ -153,6 +155,7 @@
   line-height: 50px;
   font-size: 16px;
   background-color: #f0f0f0;
+  cursor: pointer;
 }
 .message_r_fans_items-current {
   background-color: #fff;
@@ -168,6 +171,10 @@
 }
 .pic_show_items-last {
   margin-right: 0;
+}
+.pic_show_items img {
+  width: 65px;
+  height: 65px;
 }
 .hide {
   display: none;
@@ -196,7 +203,9 @@
   line-height: 40px;
 }
 .person_article_item a {
+  display: inline-block;
   width: 415px;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: #000;
@@ -267,8 +276,15 @@
   background: url(../images/icon-1460180574151.png) no-repeat 0 -35px;
 }
 .person_bottom {
+  position: relative;
   width: 1000px;
   margin: 0 auto;
+}
+.morePhoto {
+  position: absolute;
+  top: 32px;
+  right: 35px;
+  color: #000;
 }
 .person_show {
   width: 1000px;
@@ -522,12 +538,13 @@ table {
 }
 .input_icon {
   position: absolute;
+  display: block;
   top: 76px;
   left: 205px;
   width: 16px;
   height: 16px;
   background: url(../images/person-icon.png) 0 16px;
-  display: block;
+  cursor: pointer;
 }
 .article-contace {
   float: right;
@@ -596,6 +613,11 @@ table {
   list-style-type: square;
 }
 .person_nav_list a {
+  display: inline-block;
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: #017efe;
   line-height: 30px;
 }

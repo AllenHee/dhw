@@ -307,6 +307,9 @@
   cursor: pointer;
   font-size: 16px;
 }
+.index_search_button-fbqg {
+  background-color: #058B2C;
+}
 .index_search_icon {
   position: absolute;
   top: 15px;

@@ -202,7 +202,7 @@
                 else {
                     name = nickname + "(" + username + ")";
                 }
-                $('li.log').html('您好，<a href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+                $('li.log').html('您好，<a href="' + dhw.urlmain + '' + "mainhome/index" + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
             }
             else {
                 dhw.isLogined = false;

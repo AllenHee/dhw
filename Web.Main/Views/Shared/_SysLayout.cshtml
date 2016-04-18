@@ -9,9 +9,7 @@
     <script src="//cdn.bootcss.com/babel-polyfill/6.3.14/polyfill.min.js"></script>
   <![endif]-->
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}static/css/general.css">
-
     @RenderSection("stylemid", required: false)
-
     <link rel="stylesheet" href="@{@BaseConfigs.GetUrlCdn}static/css/usercenter.css">
     <script type="text/javascript">
         var dhw = {
@@ -96,8 +94,8 @@
             </div>
             <ul class="ucNav_list" nav-slide>
                 <li class="ucNav_list_item ucNav_list_item--slider"></li>
-                <a href="@{@BaseConfigs.GetUrlMain}apphome#/" target="_self">
-                    <li @if (ap == "/apphome")
+                <a href="@{@BaseConfigs.GetUrlMain}mainhome/index" target="_self">
+                    <li @if (ap.IndexOf("main") != -1)
                         { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
                         else
                         {<text>class="ucNav_list_item"</text>} >首页</li></a> <a href="@{@BaseConfigs.GetUrlMain}apphr#/">
@@ -108,39 +106,33 @@
                                      <li  @if (ap == "/appzc")
                                           { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
                                           else
-                                          {<text>class="ucNav_list_item"</text>} >众筹</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzckj#/">
-                                              <li  @if (ap == "/appzckj")
+                                          {<text>class="ucNav_list_item"</text>} >众筹</li></a> <a href="@{@BaseConfigs.GetUrlMain}appcy#/">
+                                              <li  @if (ap == "/appcy")
                                                    { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
                                                    else
-                                                   {<text>class="ucNav_list_item"</text>} >众创空间</li></a>
-                <li  @if (ap != "/apphome" && ap != "/apphr" && ap != "/appzc" && ap != "/appzckj")
+                                                   {<text>class="ucNav_list_item"</text>} >创意设计</li></a>
+                <a href="@{@BaseConfigs.GetUrlMain}appsrdz#/">
+                    <li  @if (ap == "/appsrdz")
+                         { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                         else
+                         {<text>class="ucNav_list_item"</text>} >私人定制</li></a> <a href="@{@BaseConfigs.GetUrlMain}appzb#/">
+                             <li  @if (ap == "/appzb")
+                                  { <text>class="ucNav_list_item ucNav_list_item--active"</text>}
+                                  else
+                                  {<text>class="ucNav_list_item"</text>} >众包</li></a>
+                <li  @if (ap != "/apphome" && ap != "/apphr" && ap != "/appzc" && ap != "/appcy" && ap != "/appsrdz" && ap != "/appzb" && ap.IndexOf("mainhome") == -1)
                      { <text>class="ucNav_list_item ucNav_list_item--all ucNav_list_item--active"</text>}
                      else
                      {<text>class="ucNav_list_item ucNav_list_item--all"</text>} show-all-modules>
                     <div class="ucNav_list_item--all_text">
-                        所有服务<i class="ucNav_list_item--all_arrow"></i></div>
+                        更多服务<i class="ucNav_list_item--all_arrow"></i></div>
                     <ul class="ucNav_list_item--all_list">
                         <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlKj" target="_blank">
                             <i class="ucNav_list_item--all_list_item_icon kjfw"></i><span class="ucNav_list_item--all_list_item_text">
                                 会计服务</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}apphr#/">
-                            <i class="ucNav_list_item--all_list_item_icon rczp"></i><span class="ucNav_list_item--all_list_item_text">
-                                人才招聘</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzc#/">
-                            <i class="ucNav_list_item--all_list_item_icon zchou"></i><span class="ucNav_list_item--all_list_item_text">
-                                众筹</span> </a></li>
                         <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzckj#/">
                             <i class="ucNav_list_item--all_list_item_icon zckj"></i><span class="ucNav_list_item--all_list_item_text">
                                 众创空间</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appcy#/">
-                            <i class="ucNav_list_item--all_list_item_icon cysj"></i><span class="ucNav_list_item--all_list_item_text">
-                                创意设计</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appsrdz#/">
-                            <i class="ucNav_list_item--all_list_item_icon srdz"></i><span class="ucNav_list_item--all_list_item_text">
-                                私人定制</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}appzb#/">
-                            <i class="ucNav_list_item--all_list_item_icon zbao"></i><span class="ucNav_list_item--all_list_item_text">
-                                众包</span> </a></li>
                         <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlCqbh" target="_blank">
                             <i class="ucNav_list_item--all_list_item_icon cqbh"></i><span class="ucNav_list_item--all_list_item_text">
                                 产权保护</span> </a></li>
@@ -150,7 +142,7 @@
                         <li class="ucNav_list_item--all_list_item"><a href="@BaseConfigs.GetUrlGsss" target="_blank">
                             <i class="ucNav_list_item--all_list_item_icon gsss"></i><span class="ucNav_list_item--all_list_item_text">
                                 公司上市</span> </a></li>
-                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}apprshop#/" target="_blank">
+                        <li class="ucNav_list_item--all_list_item"><a href="@{@BaseConfigs.GetUrlMain}apprshop#/">
                             <i class="ucNav_list_item--all_list_item_icon sbcs"></i><span class="ucNav_list_item--all_list_item_text">
                                 商标超市</span> </a></li>
                     </ul>
@@ -170,8 +162,8 @@
                 <label class="ucNav_search_btn">
                 </label>
             </div>
-            <div switch-type @if (ap == "/apphome")
-                             {<text> data-curl="zhxx/company" data-purl="pzhxx/person"</text>}>
+            <div switch-type  @if (ap == "/apphome")
+                              {<text> data-curl="zhxx/company" data-purl="pzhxx/person"</text>}>
             </div>
         </div>
     </div>
@@ -219,7 +211,7 @@
                 else {
                     name = nickname + "(" + username + ")";
                 }
-                $('#bb01').html('您好，<a class="nav_right_list_item_login" href="' + dhw.urlmain + '' + "apphome" + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
+                $('#bb01').html('您好，<a class="nav_right_list_item_login" href="' + dhw.urlmain + '' + "mainhome/index" + '" target="_blank">' + name + '</a><a href="' + dhw.urlmain + 'login?redirectURL=' + escape(location.href).replace(/\//g, "%2F") + '&type=logout">退出</a>');
             }
             else {
                 dhw.isLogined = false;

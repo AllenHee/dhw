@@ -20,7 +20,7 @@
       <div class="intro_cont">
         <h1 class="intro_cont_name">胡博宇</h1>
         <p>博予有近10年的创业经验。他参与创办了信贷管理软件公司安 硕科技最终在创业板上市（股票代码 SHE:300380）。在创办Blue lake capital之前,博宇在著名的风险投资基金DCM工作.另外博宇还曾就职于摩根士丹利</p>
-        <a class="intro_cont_focus" href="#" onclick="attention()">关 注</a>
+        <a class="intro_cont_focus" href="#">关 注</a>
         <span class="fir_label">蓝湖资本·合作人</span>
         <span class="sec_label">天使汇认证投资人</span>
       </div>
@@ -65,15 +65,10 @@
         </div>
         <span class="article_classify">分类：<a herf="javascript:;">动漫</a></span>
         <div class="article_matter">
-          <p>《在下坂本，有何贵干？》原是佐野菜见发表在2011年8月发售的《Fellows!》vol.18上的短篇漫画，
-          因为受到读者的欢迎而被连载化，于2012年4月14日发售《Fellows!》 Vol.22正式连载。
-          <p>2013年2月发售的《Fellows!》因更名为《ハルタ》（Harta）而移籍并继续连载。
-          <p>2015年3月份，在日本媒体调查的“希望动画化的漫画作品排行榜”中，《在下坂本，有何贵干？》得票率超过总投票的25%，名列第1位。
-          <p>2016年01月15日，该作正式宣布TV动画化的消息，并确定于同年4月开始播放，由绿川光主演。
         </div>
         <div class="person_function">
-          <span class="praise"><i></i><a href="javascript:;">赞</a> (<span>999+</span>)</span>
-          <span class="collect"><i></i><a href="javascript:;">收藏</a> (<span>999+</span>)</span>
+          <span class="praise" data-praise=""><i></i><a href="javascript:;">赞</a> (<span>999+</span>)</span>
+          <span class="collect" data-collect=""><i></i><a href="javascript:;">收藏</a> (<span>999+</span>)</span>
           <span class="read"><i></i>阅读 (<span>999+</span>)</span>
           <span class="share"><i></i><a href="javascript:;">分享</a> (<span>999+</span>)</span>
         </div>
@@ -92,6 +87,54 @@
     </div>
   </div>
   <!--底部 结束-->
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="http://localhost:8070/lib/jquery.cookie.js"></script>
+  <script>
+    var id = 2;
+    var pid = 2;
+    // 点赞
+    
+    function like() {
+      var cookie = 'data-' + id;
+      if($.cookie(cookie) === 'true') {
+        alert('已点赞');
+        return false;
+      }
+      $.post('/PersonHome/PersonArticleLaudAdd', { id: id }).success(function () {
+        var total = parseInt($('.praise').attr('data-praise'))
+        total = total + 1;
+        $('.praise span').text(total);
+        $('.praise a').text('已赞')
+        $('.praise').attr('data-praise', total)
+        $.cookie(cookie, "true")
+      })
+    }
+    // 收藏
+    function collect() {
+      var cookie = 'data-' + id;
+      $.post('/PersonHome/PersonArticleCollectAdd', { scid: id }).success(function () {
+        var total = parseInt($('.collect').attr('data-collect'))
+        total = total + 1;
+        $('.collect a').text('已收藏');
+        $('.collect span').text(total);
+        $('.collect').attr('data-collect', total);
+        $('.collect').addClass('cancel');
+      })
+    }
+    
+    function attention() {
+      $.post('/PersonHome/PersonAttentionAdd', { personid: pid }).success(function () {
+        $('.intro_cont_focus').text('已关注');
+        $('.intro_cont_focus').addClass('cancel');
+      })
+    }
+    
+    $('.article_classify a').on('click', function () {
+      var type = $('.article_classify').attr('data-type')
+      window.location.href = 'person/' + personid + '/ArticleList?data-type=' + type;
+    })
+    
+  </script>
 </body>
 
 </html>

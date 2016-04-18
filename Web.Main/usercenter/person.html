@@ -142,6 +142,7 @@
   </div>
   <div class="person_bottom">
     <h1 class="person_ttl">相册(作品)</h1>
+    <a class="morePhoto" href="">查看更多>></a>
     <ul class="person_show clearfix">
       <li class="person_show_item">
         <img src="images/photo.jpg" alt="">
@@ -180,6 +181,11 @@
       var html = template('albumTem', data.result);
       $('.person_show').html(html);
     })
+    $('.message_r_fans_items').click(function () {
+      var index = $(this).index();
+      $('.message_r_fans_items').removeClass('message_r_fans_items-current').eq(index).addClass('message_r_fans_items-current')
+      $('.focus_show').removeClass('hide').eq(index - 1).addClass('hide');
+    });
   </script>
 </body>
 

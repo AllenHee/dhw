@@ -103,6 +103,17 @@
         loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
       }
     })
+    $('.input_icon').on('click', function () {
+      var title = $('.search_input').val();
+      para.title = title;
+      loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+    })
+    var type = getQueryString('data-type');
+    if (type) {
+      type = parseInt(type);
+      para.type = type;
+      loadData('/PersonHome/PersonArticleList', para, 'articleTem', '.articleList');
+    }
   </script>
 </body>
 
