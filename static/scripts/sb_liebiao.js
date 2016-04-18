@@ -166,7 +166,7 @@ $('.rank_item_price').click(function() {
   }
 })
 $('.rank_item').click(function() {
-  $('.liebiao_rank span').removeClass('down')
+  $('.liebiao_rank span').removeClass('down up')
   $(this).addClass('down')
   para.orderby = '综合';
   loadData("/Trademark/list", para, "sbTemplate", ".items", false);
