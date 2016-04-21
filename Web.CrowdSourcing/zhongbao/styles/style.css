@@ -1021,7 +1021,7 @@ body.zbxq {
 }
 .fujianPic {
   float: left;
-  width: 300px;
+  width: 200px;
 }
 
 .container_cont_rt {
@@ -1105,4 +1105,85 @@ body.zbxq {
 }
 .footer-l .logo:hover {
   background: url(../images/zhongbao.png) no-repeat;
+}
+
+/*我要投标--弹窗*/
+.toubiao_pupop {
+  display: none;
+  position: relative;
+  width: 860px;
+  height: 330px;
+  margin-top: -800px;
+  margin-left: 500px;
+  background-color: #fff;
+}
+.toubiao_pupop_head h1 {
+  float: left;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+.close_toubiao_pupop {
+  float: right;
+  margin-top: 10px;
+  margin-right: 8px;
+  font-size: 12px;
+  color:#999;
+  cursor: pointer;
+}
+.toubiao_pupop_content {
+  margin-top: 10px;
+}
+.toubiao_pupop_content textarea {
+  width: 826px;
+  height: 188px;
+  margin-left: 14px;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+}
+.toubiao_pupop_other {
+  width: 830px;
+  height: 48px;
+  margin-top: -3px;
+  margin-left: 14px;
+  background-color: #e7e7e7;
+  border: 1px solid #ccc;
+  border-top: 0;
+}
+.pupop_wu-example {
+  float: left;
+}
+.pupop_fujianPic {
+  float: left;
+  margin-top: 12px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.toubiao_pupop_contact {
+  float: right;
+  margin-top: 12px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+.toubiao_pupop_footer p {
+  float: left;
+  margin-top: 20px;
+  margin-left: 18px;
+  font-size: 12px;
+  color: #333;
+}
+.toubiao_submit {
+  float: right;
+  width: 88px;
+  height: 34px;
+  margin-top: 12px;
+  margin-right: 80px;
+  color: #fff;
+  background-color: #c04741;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
 }

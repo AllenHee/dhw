@@ -26,6 +26,15 @@
       </li>
       {{/each}}
   </script>
+    <script type="text/javascript">
+    var dhw = {
+      imgurl: 'http://192.168.2.10:81/img/',
+      imguploadurl: 'http://192.168.2.10:82/uploadimg',
+      mainurl: 'http://localhost:8085/',
+      staticurl: 'http://localhost:8070',
+      fileuploadurl: 'http://192.168.2.10:82/uploadfj',
+    };
+  </script>
 </head>
 
 <body class="zbxq">
@@ -200,7 +209,7 @@
             <a href="#"><i></i>apple.jpg</a>（15.00k）
           </li>
         </ul>
-        
+
         <!-- 新增附件下载结束 -->
       </div>
     </div>
@@ -238,9 +247,7 @@
             产权，包括著作权、使用权和发布权等，并有权对设计作品进行修</br>
             改、组合和应用，设计者不得再向其他任何地方使用该设计作品。
           </p>
-
-
-          <div class="container_cont_l_toubiao">
+          <!--<div class="container_cont_l_toubiao">
             <h2>我要投标</h2>
             <div class="container_cont_l_toubiao_item overtime">
               <i> </i>
@@ -263,14 +270,11 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
           <div class="container_but">
-            <button>立即接单</button>
+            <button class="btn_order">立即接单</button>
           </div>
-
         </div>
-
-
         <div class="container_cont_r">
           <input class="project" type="hidden" value="11" />
           <div class="container_cont_rt">
@@ -283,7 +287,7 @@
       </div>
     </div>
     <!--数据库编写-->
-    <div class="subPrjt" id="subPrjt2">
+    <!--<div class="subPrjt" id="subPrjt2">
       <div class="container_title">
         <p></p>
         <div>
@@ -324,7 +328,7 @@
           <table>
             <colgroup>
               <col width="120px">
-                <col width="auto">
+              <col width="auto">
             </colgroup>
             <thead>
               <tr>
@@ -380,7 +384,7 @@
       </div>
     </div>
     <!--代码实现-->
-    <div class="subPrjt" id="subPrjt3">
+    <!--<div class="subPrjt" id="subPrjt3">
       <div class="container_title">
         <p></p>
         <div>
@@ -421,7 +425,7 @@
           <table>
             <colgroup>
               <col width="120px">
-                <col width="auto">
+              <col width="auto">
             </colgroup>
             <thead>
               <tr>
@@ -475,9 +479,10 @@
           <div class="pagination"></div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
   <!--主内容区 结束-->
+
   <!--通用底栏 开始-->
   <div class="footer">
     <div class="footer-wrap clearfix">
@@ -542,7 +547,37 @@
   </div>
   <!--通用底栏 结束-->
 
+
+  <!--弹窗开始-->
+  <div class="toubiao_pupop">
+    <div class="toubiao_pupop_head clearfix">
+      <h1>我要交稿</h1>
+      <span class="close_toubiao_pupop">×</span>
+    </div>
+    <div class="toubiao_pupop_content">
+      <textarea placeholder="根据需求针对性的准备方案，一份含金量的投标，，更容易打动卖家，中标率远高于千篇一律的投标。"></textarea>
+      <div class="toubiao_pupop_other clearfix">
+        <div class="pupop_wu-example">
+          <div class="pupop_uploader-list"></div>
+          <div class="btns" id="pupop_picker">
+              <div class="pupop_fujianPic"><img src="images/fujian1_03.png" alt=""></div>
+          </div>
+        </div>
+        <div class="toubiao_pupop_contact">
+          <label>联系方式：</label>
+          <input type="text" id="toubiao_phone">
+        </div>
+      </div>
+    </div>
+    <div class="toubiao_pupop_footer clearfix">
+      <p>请遵守投标规范，若稿件被认定为无效稿件，系统将屏蔽盖稿件并扣除。</p>
+      <button class="toubiao_submit">提交</button>
+    </div>
+  </div>
+  <!--弹窗结束-->
+
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script src="//cdn.dreamhiway.com/static/lib/webuploader.nolog.min.js"></script>
   <script src="http://localhost:8070/scripts/webuploader.js"></script>
   <script src="http://localhost:8070/scripts/general.js"></script>
   <script src="http://localhost:8070/scripts/template.js"></script>
@@ -553,6 +588,7 @@
   <script>
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
   </script>
+
 </body>
 
 </html>

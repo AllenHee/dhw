@@ -1,12 +1,12 @@
-$(function() {
+$(function () {
   // 详情导航
   // 各个子项目距离文档顶部的距离
   var subPrjt = [];
-  $(".subPrjt").each(function() {
+  $(".subPrjt").each(function () {
     subPrjt.push($(this).offset().top - 50);
   });
   // 滚动后悬浮
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     var scroll_top = $(document).scrollTop();
     if (scroll_top > 500) {
       $(".zbxq_nav_bg").addClass("fixed");
@@ -26,7 +26,7 @@ $(function() {
     }
   });
   // 点击
-  $(".zbxq_nav_item").click(function() {
+  $(".zbxq_nav_item").click(function () {
     $(".zbxq_nav_item").removeClass("current");
     $(this).addClass("current");
   });
@@ -36,7 +36,7 @@ $(function() {
     pageIndex: 1,
     pageSize: 10
   }
-  $(".subPrjt").each(function() {
+  $(".subPrjt").each(function () {
     var id = $(this).find(".container_cont_r").find("input").val();
     para.misid = id;
     var targetElemID = $(this).attr("id");
@@ -60,7 +60,7 @@ function collection() {
   var para = {
     id: subjectID
   }
-  $.post("/Detail/Collect", para).success(function() {
+  $.post("/Detail/Collect", para).success(function () {
     var total = parseInt($(".hd_cont_l_keep").attr("data-collection"));
     total = total + 1;
     $(".hd_cont_l_keep span").text(total);
@@ -81,14 +81,14 @@ var uploader = WebUploader.create({
   resize: false,
   auto: true
 });
-uploader.on('fileQueued', function(file) {
+uploader.on('fileQueued', function (file) {
   $('.web_uploader').append('<div id="' + file.id + '" class="item">' +
     '<h4 class="info">' + file.name + '</h4>' +
     '<p class="state">等待上传...</p>' +
     '</div>');
 });
 
-uploader.on('uploadProgress', function(file, percentage) {
+uploader.on('uploadProgress', function (file, percentage) {
   var $li = $('#' + file.id),
     $percent = $li.find('.progress .progress-bar');
 
@@ -104,38 +104,115 @@ uploader.on('uploadProgress', function(file, percentage) {
 
   $percent.css('width', percentage * 100 + '%');
 });
-uploader.on('uploadSuccess', function(file, res) {
+uploader.on('uploadSuccess', function (file, res) {
   $('#' + file.id).find('p.state').text('已上传');
   para.attachment_orgin = file.name
   para.attachment = res._raw;
   console.log(para.attachment_orgin, para.attachment)
 });
 
-uploader.on('uploadError', function(file) {
+uploader.on('uploadError', function (file) {
   $('#' + file.id).find('p.state').text('上传出错');
 });
 
-uploader.on('uploadComplete', function(file) {
+uploader.on('uploadComplete', function (file) {
   $('#' + file.id).find('.progress').fadeOut();
 });
 
 
 
 // 数据传输
-$('.container_but').click(function() {
-  var contact = $('.qqnumber').find('input').val();
-  var workCycle = $('.overtime').find('input').val();
-  var misid = $(this).parents('.subPrjt').attr('data-id');
-  var fpid = subjectID;
-  para.fpid = fpid;
-  para.misid = misid;
-  para.workCycle = workCycle;
-  para.contact = contact;
-  $.post('/Detail/Delivery', para).success(function (d) {
-     if (d.success) {
-       alert('接单成功，可到个人中心进行查看')
-     } else {
-       alert('因网络原因接单失败,请稍后重试');
-     }
-  })
+// $('.container_but').click(function() {
+//   var contact = $('.qqnumber').find('input').val();
+//   var workCycle = $('.overtime').find('input').val();
+//   var misid = $(this).parents('.subPrjt').attr('data-id');
+//   var fpid = subjectID;
+//   para.fpid = fpid;
+//   para.misid = misid;
+//   para.workCycle = workCycle;
+//   para.contact = contact;
+//   $.post('/Detail/Delivery', para).success(function (d) {
+//      if (d.success) {
+//        alert('接单成功，可到个人中心进行查看')
+//      } else {
+//        alert('因网络原因接单失败,请稍后重试');
+//      }
+//   })
+// })
+
+
+//弹出弹窗
+$('.btn_order').click(function () {
+  $('.toubiao_pupop').css("display", "block");
+});
+//关闭弹窗
+$('.close_toubiao_pupop').click(function () {
+  $('.toubiao_pupop').css("display", "none");
 })
+//附件上传
+var uploader = WebUploader.create({
+  auto: true,
+  swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
+  server: dhw.fileuploadurl + '?key=diy',
+  pick: '#pupop_picker',
+  resize: false
+});
+uploader.on('fileQueued', function (file) {
+  $('#fileUp').find('.uploader-list').html('<div id="' + file.id + '" class="item">' +
+    '<h4 class="info">' + file.name + '</h4>' +
+    '<p class="state">等待上传...</p>' +
+    '</div>');
+});
+uploader.on('uploadProgress', function (file, percentage) {
+  var $li = $('#fileUp').find('#' + file.id),
+    $percent = $li.find('.progress .progress-bar');
+
+  // 避免重复创建
+  if (!$percent.length) {
+    $percent = $('<div class="progress progress-striped active">' +
+      '<div class="progress-bar" role="progressbar" style="width: 0%">' +
+      '</div>' +
+      '</div>').appendTo($li).find('.progress-bar');
+  }
+
+  $li.find('p.state').text('上传中');
+
+  $percent.css('width', percentage * 100 + '%');
+});
+
+uploader.on('uploadSuccess', function (file, res) {
+  $('#fileUp').find('#' + file.id).find('p.state').text('已上传');
+  data.saveaddr = res.path + res.name
+});
+
+uploader.on('uploadError', function (file) {
+  $('#fileUp').find('#' + file.id).find('p.state').text('上传出错');
+});
+
+uploader.on('uploadComplete', function (file) {
+  $('#fileUp').find('#' + file.id).find('.progress').fadeOut();
+});
+//稿件提交
+$('.toubiao_submit').click(function () {
+  var project_id = project_id;
+  var id = $(this).find('.container_cont_r').find('input').val();
+  var phone = $('#toubiao_phone').val();
+  var txt = $('textarea').val();
+  var fujian = data.saveaddr;
+  var fujian_name = res.name;
+  var para = {
+    fpid: project_id,
+    misid: id,
+    contact: phone,
+    content: txt,
+    attachment: fujian,
+    attachmentname: fujian_name
+  }
+  $.post("/detail/zbadd", para).success(function (data) {
+    if (data.success) {
+      alert('接单成功，可到个人中心进行查看')
+    } else {
+      alert('因网络原因接单失败,请稍后重试');
+    }
+  })
+});
