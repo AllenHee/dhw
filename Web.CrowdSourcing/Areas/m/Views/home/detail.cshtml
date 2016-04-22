@@ -1,0 +1,125 @@
+﻿@{
+    var det = ViewBag.dteail;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>众包 - 详情页 - 梦高速</title>
+    <link rel="stylesheet" href="@BaseConfigs.GetStaticPath/mstatic/css/zb.css" />
+    <script src="@BaseConfigs.GetStaticPath/mstatic/cdn.dreamhiway.com/mstatic/lib/flexible.js"></script>
+</head>
+<body>
+    <div class="page">
+        <!--头部 开始-->
+        <header class="header header-reverse header-logo">
+      <div class="header_sect">
+        <a class="header_link" onclick="window.history.back()"><i class="fa fa-angle-left"></i></a>
+      </div>
+      <div class="header_sect">
+        <div class="header_sect header_sect-menu">
+            <span class="header_menu"><i></i><i></i><i></i></span>
+            <div class="header_menu_wrap">
+                <div class="arrow-wrap"><i class="arrow"></i></div>
+                <ul class="header_menu_list">
+                    <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetMainPath}m">梦高速首页</a></li>
+                    @if (!ViewBag.DUser.HasLogin)
+                    {
+                        <li class="header_menu_list_item"><a rel="nofollow" href="@{@BaseConfigs.GetUrlMain}m/main/denglu?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">登录</a></li>
+                    }
+                    else
+                    {
+                        <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetMainPath}m/user">个人中心</a></li>
+                        <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetUrlMain}m/main/logout?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">退出</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+      </div>
+    </header>
+        <!--头部 结束-->
+        <!--项目信息开始-->
+        <section class="base" data-id="1">
+      <div class="base_title">
+        <div class="base_title_wrap">
+          <h2 class="base_title_text">@det["title"]</h2>
+          <span class="base_title_tag">@det["typename"]</span>
+        </div>
+        <div class="base_title_label"><i class="arrow arrow-right"></i>@det["statemc"]</div>
+      </div>
+      <div class="base_content">
+        <div class="base_content_l">
+          <p class="base_content_para"><span class="base_content_label">发布者：</span>@det["name"]</p>
+          <p class="base_content_para"><span class="base_content_label">发布时间：</span>@det["time"]</p>
+          <p class="base_content_para">预计 @det["endtime"].ToString("yyyy-MM-hh") 之前交付</p>
+        </div>
+        <div class="base_content_r">
+          <p class="base_content_label">悬赏金额</p>
+          <p class="base_content_em">￥@Convert.ToInt32(det["totalfin"])</p>
+        </div>
+      </div>
+    </section>
+        <!--项目信息结束-->
+        <!--项目详情开始-->
+        <div class="intro">
+            <h3 class="intro_title">
+                项目详情</h3>
+            <div class="userInput">
+                <p>
+                    @det["intro"]
+                </p>
+            </div>
+        </div>
+        <!--项目详情结束-->
+        <!--底部开始-->
+        <footer class="ftCtrl">
+         @if (!ViewBag.DUser.HasLogin)
+         {
+             <a class="ftCtrl_item ftCtrl_item-link" rel="nofollow" href="@{@BaseConfigs.GetUrlMain}m/main/denglu?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">
+                    <i class="fa fa-star"></i>
+                    <br>收藏(<span>@det["collect"]</span>)
+                </a>
+         }
+         else
+         {
+             if (det["isCollect"] == 0)
+             {  
+                <a class="ftCtrl_item ftCtrl_item-link" href="javascript:;">
+                    <i class="fa fa-star fa-star-o"></i>
+                    <br>收藏(<span>@det["collect"]</span>)
+                </a>
+             }
+             else
+             {
+                <a class="ftCtrl_item ftCtrl_item-link" href="javascript:;">
+                    <i class="fa fa-star"></i>
+                    <br>取消收藏(<span>@det["collect"]</span>)
+                </a>
+             }
+
+         }
+        <span class="ftCtrl_item">
+        <button class="ftCtrl_item_btn">立即报名</button>
+      </span>
+      <a class="ftCtrl_item ftCtrl_item-link" href="javascript:;">
+        <i class="fa fa fa-share-alt"></i>
+        <br>分享
+      </a>
+    </footer>
+        <!--底部结束-->
+        <!-- 分享选择滑出-->
+        <div class="sliderShare">
+            <div class="sliderShare_box">
+                <p class="sliderShare_box_text">
+                    <span>微信</span> <span>QQ</span> <span>微博</span>
+                </p>
+                <p class="sliderShare_box_text">
+                    <button class="sliderShare_box_sure">
+                        确定</button>
+                    <button class="sliderShare_box_cancel">
+                        取消</button>
+                </p>
+            </div>
+        </div>
+        <!--分享选择滑出结束-->
+        <script src="@BaseConfigs.GetStaticPath/mstatic/js/zb.js"></script>
+</body>

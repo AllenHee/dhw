@@ -1,0 +1,167 @@
+﻿@{
+    var list = ViewBag.list;
+    var query = Request.Url.Query;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0,  minimum-scale=1, maximum-scale=1">
+    <title>众包 - 搜索页 - 梦高速</title>
+    <link rel="stylesheet" href="@BaseConfigs.GetStaticPath/mstatic/css/zb.css">
+    <script src="@BaseConfigs.GetStaticPath/mstatic/cdn.dreamhiway.com/mstatic/lib/flexible.js"></script>
+</head>
+<body>
+    <div class="page page-noMb">
+        <!--头部 开始-->
+        <header class="header header-reverse header-logo">
+      <div class="header_sect">
+        <a class="header_link" onclick="window.history.back()"><i class="fa fa-angle-left"></i></a>
+      </div>
+      <div class="header_sect">
+        <div class="header_sect header_sect-menu">
+            <span class="header_menu"><i></i><i></i><i></i></span>
+            <div class="header_menu_wrap">
+                <div class="arrow-wrap"><i class="arrow"></i></div>
+                <ul class="header_menu_list">
+                    <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetMainPath}m">梦高速首页</a></li>
+                    @if (!ViewBag.DUser.HasLogin)
+                    {
+                        <li class="header_menu_list_item"><a rel="nofollow" href="@{@BaseConfigs.GetUrlMain}m/main/denglu?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">登录</a></li>
+                    }
+                    else
+                    {
+                        <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetMainPath}m/user">个人中心</a></li>
+                        <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetUrlMain}m/main/logout?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">退出</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+      </div>
+    </header>
+        <!--头部 结束-->
+        <!--过滤栏 开始-->
+        <section class="filter @if (query == "")
+                               {<text>is-hidden</text>}">
+      <div class="filter_item">
+        <div class="filter_title filter_title-line">
+          <span class="filter_title_text">
+            <span class="filter_active">分类</span>
+          <i class="fa fa-angle-up"></i>
+          </span>
+        </div>
+        <div class="filter_content">
+          <ul class="filter_content_list filter_content_list-type" data-filter="typeid">
+          </ul>
+        </div>
+      </div>
+
+      <div class="filter_item">
+        <div class="filter_title filter_title-line">
+          <span class="filter_title_text">
+            <span class="filter_active">赏金状态</span>
+          <i class="fa fa-angle-up"></i>
+          </span>
+        </div>
+        <div class="filter_content">
+          <ul class="filter_content_list" data-filter="state">
+            <li class="filter_content_list_item" data-code="">不限</li>
+            <li class="filter_content_list_item" data-code="0">发布<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="1">审核通过<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="2">资金已托管<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="3">项目进行中<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="4">已结赏<i class="fa fa-check-circle"></i></li>
+          </ul>
+        </div>
+      </div>
+      <div class="filter_item">
+        <div class="filter_title">
+          <span class="filter_title_text">
+            <span class="filter_active">筛选</span>
+          <i class="fa fa-angle-up"></i>
+          </span>
+        </div>
+        <div class="filter_content">
+          <ul class="filter_content_list" data-filter="sort">
+            <li class="filter_content_list_item" data-code="">不限<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="endtime">截稿最迟<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="totalfin">价格最高<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="num">参与人数最多<i class="fa fa-check-circle"></i></li>
+            <li class="filter_content_list_item" data-code="collect">最热门<i class="fa fa-check-circle"></i></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+        <!--过滤栏 结束-->
+        <!--搜索框 开始-->
+        <div class="srch">
+            <div class="srch_wrap">
+                <label class="srch_label" for="search">
+                    <i class="fa fa-search"></i>
+                </label>
+                <input class="srch_input" id="search" type="search" value="@ViewBag.kw" placeholder="请输入关键词">
+            </div>
+            <button class="srch_btn srch_btn-color" type="button">
+                搜索</button>
+        </div>
+        <!--搜索框 结束-->
+        <!--热门搜索 开始-->
+        <div class="cate @if (query != "")
+                         {<text>is-hidden</text>}">
+            <div class="cate_item cate_item-search">
+                <div class="cate_item_title cate_item-search_title">
+                    热门搜索</div>
+                <ul class="cate_item_list cate_item-search_list zbSearch_hot">
+                    <li>后端开发</li>
+                    <li>移动开发</li>
+                    <li>前端测试</li>
+                </ul>
+                <ul class="cate_item_list cate_item-search_list zbSearch_hot">
+                    <li>运维</li>
+                    <li>DBA</li>
+                    <li>测试</li>
+                </ul>
+                <ul class="cate_item_list cate_item-search_list zbSearch_hot">
+                    <li>项目管理</li>
+                    <li>硬件开发</li>
+                </ul>
+            </div>
+        </div>
+        <!--热门搜索 结束-->
+        <!--列表  开始-->
+        <ul class="hostlist">
+            @if (query != "")
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                <li class="hostlist_item"><a class="hostlist_item_a" href="@{@BaseConfigs.GetUrlZb}m/home/detail/@{@list[i]["id"]}">
+                    <div class="hostlist_content">
+                        <div class="base_title_wrap">
+                            <h2 class="base_title_text base_title_text-small">
+                                <span class="base_title_wrap_label">[@list[i]["statemc"]]</span>@list[i]["title"]</h2>
+                            <span class="base_title_tag">@list[i]["typename"]</span>
+                        </div>
+                        <div class="hostlist_item_info">
+                            <div class="hostlist_item_info_item hostlist_item_info_item-em">
+                                ￥<strong>@Convert.ToInt32(list[i]["totalfin"])</strong>
+                            </div>
+                            <div class="hostlist_item_info_item">
+                                @list[i]["num"]<span class="hostlist_item_info_item_label">人参与</span> | <span class="hostlist_item_info_item_label">
+                                    交付周期：</span>@list[i]["procycle"]天
+                            </div>
+                            <div class="hostlist_item_info_item">
+                                <span class="hostlist_item_info_item_label">发布者：</span>@list[i]["fbzname"]
+                            </div>
+                        </div>
+                    </div>
+                </a></li>
+                }
+            }
+        </ul>
+        <!--列表  结束-->
+        <!--加载栏 开始-->
+        <div class="list_load">
+            <i class="fa fa-spinner fa-pulse"></i><span class="list_load_text"></span>
+        </div>
+        <!--加载栏 结束-->
+    </div>
+    <script src="@BaseConfigs.GetStaticPath/mstatic/js/zb.js"></script>
+</body>
