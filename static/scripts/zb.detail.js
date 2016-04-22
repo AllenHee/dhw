@@ -142,56 +142,15 @@ uploader.on('uploadComplete', function (file) {
 
 
 //弹出弹窗
-$('.btn_order').click(function () {
-  $('.toubiao_pupop').css("display", "block");
-});
-//关闭弹窗
-$('.close_toubiao_pupop').click(function () {
-  $('.toubiao_pupop').css("display", "none");
-})
+// $('.btn_order').click(function () {
+//   $('.toubiao_pupop').css("display", "block");
+// });
+// //关闭弹窗
+// $('.close_toubiao_pupop').click(function () {
+//   $('.toubiao_pupop').css("display", "none");
+// })
 //附件上传
-var uploader = WebUploader.create({
-  auto: true,
-  swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
-  server: dhw.fileuploadurl + '?key=diy',
-  pick: '#pupop_picker',
-  resize: false
-});
-uploader.on('fileQueued', function (file) {
-  $('#fileUp').find('.uploader-list').html('<div id="' + file.id + '" class="item">' +
-    '<h4 class="info">' + file.name + '</h4>' +
-    '<p class="state">等待上传...</p>' +
-    '</div>');
-});
-uploader.on('uploadProgress', function (file, percentage) {
-  var $li = $('#fileUp').find('#' + file.id),
-    $percent = $li.find('.progress .progress-bar');
 
-  // 避免重复创建
-  if (!$percent.length) {
-    $percent = $('<div class="progress progress-striped active">' +
-      '<div class="progress-bar" role="progressbar" style="width: 0%">' +
-      '</div>' +
-      '</div>').appendTo($li).find('.progress-bar');
-  }
-
-  $li.find('p.state').text('上传中');
-
-  $percent.css('width', percentage * 100 + '%');
-});
-
-uploader.on('uploadSuccess', function (file, res) {
-  $('#fileUp').find('#' + file.id).find('p.state').text('已上传');
-  data.saveaddr = res.path + res.name
-});
-
-uploader.on('uploadError', function (file) {
-  $('#fileUp').find('#' + file.id).find('p.state').text('上传出错');
-});
-
-uploader.on('uploadComplete', function (file) {
-  $('#fileUp').find('#' + file.id).find('.progress').fadeOut();
-});
 //稿件提交
 $('.toubiao_submit').click(function () {
   var project_id = project_id;
