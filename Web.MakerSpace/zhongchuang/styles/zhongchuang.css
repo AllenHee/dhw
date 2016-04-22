@@ -650,9 +650,6 @@ tbody td {
   font-size: 24px;
   color: #d5d5d5;
 }
-.zc_rank_box {
-  /*width: 940px;*/
-}
 .zc_rank {
   position: relative;
   overflow: hidden;
@@ -685,7 +682,6 @@ tbody td {
   left: 0;
   width: 2020px;
   margin-top: 40px;
-  /*margin-right: -71px;*/
   overflow: hidden;
 }
 .zc_rank_item {

@@ -134,24 +134,9 @@
               <li class="zc_rank_item"><img src="images/zc_3.png" alt="柴火创客空间">
                 <p>深圳柴火创客空间8</p>
               </li>
-              
-              
-              
               <li class="zc_rank_item"><img src="images/zc_4.png" alt="柴火创客空间">
                 <p>深圳柴火创客空间9</p>
               </li>
-              <!--<li class="zc_rank_item"><img src="images/zc_5.png" alt="柴火创客空间">
-                <p>深圳柴火创客空间10</p>
-              </li>-->
-              <!--<li class="zc_rank_item"><img src="images/zc_1.png" alt="柴火创客空间">
-                <p>深圳柴火创客空间11</p>
-              </li>-->
-              <!--<li class="zc_rank_item"><img src="images/zc_2.png" alt="柴火创客空间">
-                <p>深圳柴火创客空间12</p>
-              </li>-->
-              <!--<li class="zc_rank_item"><img src="images/zc_3.png" alt="柴火创客空间">
-                <p>深圳柴火创客空间13</p>
-              </li>-->
             </ul>
           </div>
           <i class="zc_rank_right"></i>
@@ -180,84 +165,6 @@
   <script src="http://localhost:8070/scripts/zhongchuang.js"></script>
   <script>
     $('input, textarea').placeholder();
-  </script>
-  <script>
-    //定义ul宽度
-    var li_num = $(".zc_rank_item").length;
-    var width = parseInt($(".zc_rank_item").length) * 202;
-    $(".zc_rank_items").css({'width': width + 'px'});
-    
-    //轮播图
-    $(".zc_rank_left").click(function() {
-      var left = parseInt($(".zc_rank_items").css('left'));
-      var num = li_num - 5;
-      var length = num * 202;
-      var a = length + left;
-      console.log(left);
-      console.log(length);
-      console.log(a);
-      if($(".zc_rank_items").is(":animated")) {
-        return false;
-      } else {
-          if(a >= 606){
-            var l = left - 606;
-            $(".zc_rank_items").animate({left: l + "px"});
-          } else {
-            if(a >= 404) {
-              var l = left -404;
-              $(".zc_rank_items").animate({left: l + "px"});
-            } else {
-              if(a >= 202) {
-                var l = left -202;
-                $(".zc_rank_items").animate({left: l + "px"});
-              }
-            }
-          }
-        
-      }
-    })
-    $(".zc_rank_right").click(function() {
-      var left = parseInt($(".zc_rank_items").css('left'));
-      if (left <= -606) {
-        var l = left + 606;
-        $(".zc_rank_items").animate({left: l + "px"});
-      } else {
-        if(left <= -404) {
-          var l = left + 404;
-          $(".zc_rank_items").animate({left: l + "px"});
-        } else {
-          if (left <= -202) {
-            var l = left + 202;
-            $(".zc_rank_items").animate({left: l + "px"});
-          }
-        }
-      }
-      
-      
-      
-      
-      
-      
-      // var left = parseInt($(".zc_rank_items").css('left'));
-      // if($(".zc_rank_items").is(":animated")) {
-      //   return false;
-      // } else {
-      //   if(left <= -606) {
-      //     var l = left + 606;
-      //     $(".zc_rank_items").animate({left: l + "px"});
-      //   } else {
-      //     if (left <= -202 && left > -606) {
-      //       var l = left + 404;
-      //       $(".zc_rank_items").animate({left: l + "px"});
-      //     } else {
-      //       if (left < 0 && left > -202) {
-      //         var l = left + 202;
-      //         $(".zc_rank_items").animate({left: l + "px"});
-      //       }
-      //     }
-      //   }
-      // }
-    })
   </script>
 </body>
 
