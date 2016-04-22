@@ -4,6 +4,7 @@
   * 2015-11-13
 -->
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -12,6 +13,7 @@
   <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
   <link rel="stylesheet" href="styles/zhongchuang.css">
 </head>
+
 <body>
   <!--头部 开始-->
   <div class="nav_wrap">
@@ -30,75 +32,140 @@
       </div>
     </div>
   </div>
-  <div class="header_picture"><img src="images/zckj_07.jpg" alt="#"></div>
   <!--头部 结束-->
-  
-  <!--主内容区 开始-->
-  <div class="content">
-    <!--城市选择 开始-->
-    <div class="slct clearfix">
-      <label class="slct_label">按条件查询：</label>
-      <div class="slct_cnt_wrap">
-        <div class="slct_cnt_input_wrap">
-          <input class="slct_cnt_input" type="text" placeholder="请选择省市区" readonly="readonly"><i class="iconfont">&#xe60f;</i>
-        </div>
-        <div class="slct_cnt">
-          <h3 class="slct_cnt_ttl">请选择省市区 <i class="slct_cnt_close">×</i></h3>
-          <div class="slct_cnt_list">
-            <ul class="slct_cnt_list_tabs clearfix">
-              <li class="slct_cnt_list_tab current">热门</li>
-              <li class="slct_cnt_list_tab">省份</li>
-              <li class="slct_cnt_list_tab slct_cnt_list_tab-citys">市区</li>
-            </ul>
-            <ul class="slct_cnt_list_items">
-              <li class="slct_cnt_list_item_wrap current">
-                <ul class="slct_cnt_list_item slct_cnt_list_item-hot clearfix">
-                  <li>北京</li>
-                  <li>上海</li>
-                  <li>浙江</li>
-                  <li>江苏</li>
-                  <li>天津</li>
-                  <li>广东</li>
-                </ul>
-              </li>
-              <li class="slct_cnt_list_item_wrap">
-                <ul class="slct_cnt_list_item slct_cnt_list_item-provs clearfix"></ul>
-              </li>
-              <li class="slct_cnt_list_item_wrap">
-                <ul class="slct_cnt_list_item slct_cnt_list_item-citys clearfix"></ul>
-              </li>
-            </ul>
+
+  <!--背景 开始-->
+  <div class="zc_bg">
+    <div class="header_picture"><img src="images/zckj_07.jpg" alt="#"></div>
+
+    <!--主内容区 开始-->
+    <div class="content">
+      <!--城市选择 开始-->
+      <div class="slct clearfix">
+        <label class="slct_label">按条件查询：</label>
+        <div class="slct_cnt_wrap">
+          <div class="slct_cnt_input_wrap">
+            <input class="slct_cnt_input" type="text" placeholder="请选择省市区" readonly="readonly"><i class="iconfont">&#xe60f;</i>
+          </div>
+          <div class="slct_cnt">
+            <h3 class="slct_cnt_ttl">请选择省市区 <i class="slct_cnt_close">×</i></h3>
+            <div class="slct_cnt_list">
+              <ul class="slct_cnt_list_tabs clearfix">
+                <li class="slct_cnt_list_tab current">热门</li>
+                <li class="slct_cnt_list_tab">省份</li>
+                <li class="slct_cnt_list_tab slct_cnt_list_tab-citys">市区</li>
+              </ul>
+              <ul class="slct_cnt_list_items">
+                <li class="slct_cnt_list_item_wrap current">
+                  <ul class="slct_cnt_list_item slct_cnt_list_item-hot clearfix">
+                    <li>北京</li>
+                    <li>上海</li>
+                    <li>浙江</li>
+                    <li>江苏</li>
+                    <li>天津</li>
+                    <li>广东</li>
+                  </ul>
+                </li>
+                <li class="slct_cnt_list_item_wrap">
+                  <ul class="slct_cnt_list_item slct_cnt_list_item-provs clearfix"></ul>
+                </li>
+                <li class="slct_cnt_list_item_wrap">
+                  <ul class="slct_cnt_list_item slct_cnt_list_item-citys clearfix"></ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+        <button class="slct_btn">查询</button>
       </div>
-      <button class="slct_btn">查询</button>
-    </div>
-    <!--城市选择 结束-->
-    
-    <!--地图容器 开始-->
-    <div class="map">
-      <div id="mapContent"></div>
-      <a class="map_back" href="#">返回全国地图</a>
-    </div>
-    <!--地图容器 结束-->
-    
-    <!--弹出层 开始-->
-    <div class="mapPop_grey"></div>
-    <div class="mapPop">
-      <div class="mapPop_ttl">
-        <h2></h2><i class="mapPop_closeBtn">×</i>
+      <!--城市选择 结束-->
+
+      <!--滚动新闻 开始-->
+      <span class="zc_news"><i class="zc_news_icon"></i>星河互联再推创业福利 面向全社会招募"梦想合伙人"... <i class="zc_top"></i> <i class="zc_down"></i></span>
+      <!--滚动新闻 结束-->
+
+      <!--地图容器 开始-->
+      <div class="map">
+        <div id="mapContent"></div>
+        <a class="map_back" href="#">返回全国地图</a>
       </div>
-      <ul class="mapPop_list">
-        <!--<li class="mapPop_list_items"><a href="#"></a></li>-->
-      </ul>
+      <!--地图容器 结束-->
+
+      <!--弹出层 开始-->
+      <div class="mapPop_grey"></div>
+      <div class="mapPop">
+        <div class="mapPop_ttl">
+          <h2></h2><i class="mapPop_closeBtn">×</i>
+        </div>
+        <ul class="mapPop_list">
+          <!--<li class="mapPop_list_items"><a href="#"></a></li>-->
+        </ul>
+      </div>
+      <!--弹出层 结束-->
+
+      <!--排名栏 开始-->
+      <div class="zc_rank_box">
+        <p class="zc_rank_titl">众创空间排名</p>
+        <div class="zc_rank">
+          <i class="zc_rank_left"></i>
+          <div class="zc_rank_wheel">
+            <ul class="zc_rank_items">
+              <li class="zc_rank_item"><img src="images/zc_1.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间1</p>
+              </li>
+              <li class="zc_rank_item"><img src="images/zc_2.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间2</p>
+              </li>
+              <li class="zc_rank_item"><img src="images/zc_3.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间3</p>
+              </li>
+              <li class="zc_rank_item"><img src="images/zc_4.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间4</p>
+              </li>
+              <li class="zc_rank_item"><img src="images/zc_5.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间5</p>
+              </li>
+              <li class="zc_rank_item"><img src="images/zc_1.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间6</p>
+              </li>
+              <li class="zc_rank_item"><img src="images/zc_2.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间7</p>
+              </li>
+              <li class="zc_rank_item"><img src="images/zc_3.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间8</p>
+              </li>
+              
+              
+              
+              <li class="zc_rank_item"><img src="images/zc_4.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间9</p>
+              </li>
+              <!--<li class="zc_rank_item"><img src="images/zc_5.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间10</p>
+              </li>-->
+              <!--<li class="zc_rank_item"><img src="images/zc_1.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间11</p>
+              </li>-->
+              <!--<li class="zc_rank_item"><img src="images/zc_2.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间12</p>
+              </li>-->
+              <!--<li class="zc_rank_item"><img src="images/zc_3.png" alt="柴火创客空间">
+                <p>深圳柴火创客空间13</p>
+              </li>-->
+            </ul>
+          </div>
+          <i class="zc_rank_right"></i>
+        </div>
+      </div>
+      <!--排名栏 结束-->
+
     </div>
-    <!--弹出层 结束-->
-    
   </div>
+  <!--背景 结束-->
   <!--主内容区 结束-->
-  
+
   <!--底部 开始-->
-  <div class="footer"> 
+  <div class="footer">
     <div class="footer-wrap">
       <p><a href="#">联系我们</a> | <a href="#">投诉举报</a> | <a href="#">Dreamhiway | <a href="#">创企科技</a> | <a href="#">免责声明</a></p>
       <p>Copyright &copy 1998-2015 dreamhiway. All Rights Reserved.</p>
@@ -106,7 +173,7 @@
     </div>
   </div>
   <!--底部 结束-->
-  
+
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
   <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
   <script src="http://localhost:8070/scripts/echarts.js"></script>
@@ -114,5 +181,84 @@
   <script>
     $('input, textarea').placeholder();
   </script>
+  <script>
+    //定义ul宽度
+    var li_num = $(".zc_rank_item").length;
+    var width = parseInt($(".zc_rank_item").length) * 202;
+    $(".zc_rank_items").css({'width': width + 'px'});
+    
+    //轮播图
+    $(".zc_rank_left").click(function() {
+      var left = parseInt($(".zc_rank_items").css('left'));
+      var num = li_num - 5;
+      var length = num * 202;
+      var a = length + left;
+      console.log(left);
+      console.log(length);
+      console.log(a);
+      if($(".zc_rank_items").is(":animated")) {
+        return false;
+      } else {
+          if(a >= 606){
+            var l = left - 606;
+            $(".zc_rank_items").animate({left: l + "px"});
+          } else {
+            if(a >= 404) {
+              var l = left -404;
+              $(".zc_rank_items").animate({left: l + "px"});
+            } else {
+              if(a >= 202) {
+                var l = left -202;
+                $(".zc_rank_items").animate({left: l + "px"});
+              }
+            }
+          }
+        
+      }
+    })
+    $(".zc_rank_right").click(function() {
+      var left = parseInt($(".zc_rank_items").css('left'));
+      if (left <= -606) {
+        var l = left + 606;
+        $(".zc_rank_items").animate({left: l + "px"});
+      } else {
+        if(left <= -404) {
+          var l = left + 404;
+          $(".zc_rank_items").animate({left: l + "px"});
+        } else {
+          if (left <= -202) {
+            var l = left + 202;
+            $(".zc_rank_items").animate({left: l + "px"});
+          }
+        }
+      }
+      
+      
+      
+      
+      
+      
+      // var left = parseInt($(".zc_rank_items").css('left'));
+      // if($(".zc_rank_items").is(":animated")) {
+      //   return false;
+      // } else {
+      //   if(left <= -606) {
+      //     var l = left + 606;
+      //     $(".zc_rank_items").animate({left: l + "px"});
+      //   } else {
+      //     if (left <= -202 && left > -606) {
+      //       var l = left + 404;
+      //       $(".zc_rank_items").animate({left: l + "px"});
+      //     } else {
+      //       if (left < 0 && left > -202) {
+      //         var l = left + 202;
+      //         $(".zc_rank_items").animate({left: l + "px"});
+      //       }
+      //     }
+      //   }
+      // }
+    })
+  </script>
 </body>
+
 </html>
