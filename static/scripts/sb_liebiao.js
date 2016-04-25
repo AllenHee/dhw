@@ -56,7 +56,7 @@ if (type) {
 }
 if (keyword) {
   $('.sbcs_search_input').val(decodeURI(escape(keyword)))
-  para.keyword = keyword;
+  para.keyword = decodeURI(escape(keyword));
 }
 if (year1) {
   para.year1 = year1;

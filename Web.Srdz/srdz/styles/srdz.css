@@ -1689,3 +1689,33 @@
 .step_four_finish {
   background: url(../images/liucheng.png) no-repeat 0 -291px;
 }
+
+/*头部分类栏样式修改*/
+.cysearch_head_sort {
+  width: 1022px;
+  margin-top: 10px;
+}
+.cysearch_head_sortt {
+  float: left;
+  width: 70px;
+  margin-left: 20px;
+  font-size: 15px;
+  text-align: right;
+}
+.cysearch_head_sortd {
+  float: left;
+  padding: 0 10px;
+  margin-right: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 25px;
+  transition: all 0.5s;
+}
+.cysearch_head_sortd-curent {
+  color: #fff;
+  background-color: #ff4947;
+}
+.cysearch_head_sortd:hover{
+  color: #fff;
+  background-color: #ff4947;
+}

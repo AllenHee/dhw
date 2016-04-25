@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -9,7 +10,7 @@
   <link rel="stylesheet" href="http://localhost:8084/zhongbao/styles/style.css">
   <link rel="stylesheet" href="styles/srdz.css">
   <script type="text/javascript">
-   var dhwtempvar = {
+    var dhwtempvar = {
      type: 2
    }
     var dhw = { 
@@ -20,17 +21,18 @@
   </script>
   <script type="text/html" id="List">
     {{each data as list i}}
-      <li>
-        <a href="#"><img src="{{domain}}{{list.img}}.jpg" alt=""></a>           
-        <div class="cont_main_text">
-          <a href="#">{{list.title}}</a>
-          <!--<span>￥399.00</span></br>-->
-          <span class="cont_main_red">￥{{list.price}}</span>
-        </div>           
-      </li>
+    <li>
+      <a href="#"><img src="{{domain}}{{list.img}}.jpg" alt=""></a>
+      <div class="cont_main_text">
+        <a href="#">{{list.title}}</a>
+        <!--<span>￥399.00</span></br>-->
+        <span class="cont_main_red">￥{{list.price}}</span>
+      </div>
+    </li>
     {{/each}}
   </script>
 </head>
+
 <body>
   <!--通用顶栏 开始-->
   <div class="sitenav clearfix">
@@ -86,8 +88,8 @@
   </div>
   <!--标题栏 结束-->
   <!--主内容区 开始-->
-  
-  <div class="content">   
+
+  <div class="content">
     <div class="liebiao_top clearfix">
       <div class="lb_text"><a href="#">首页</a> > <a href="#">所有分类</a> ></div>
       <div class="lb_input">
@@ -96,21 +98,32 @@
       </div>
       <div class="lb_r">共848款</div>
     </div>
-    <div class="main">        
+    <div class="main">
       <div class="cont_fl clearfix">
-        <h4>分类</h4>
-        <ul>
-          <li><input name="cate" type="radio" checked="checked">全部</li>
-          <li><input name="cate" type="radio" data-type="1">创意定制</li>
-          <li><input name="cate" type="radio" data-type="2">企业定制</li>
-          <li><input name="cate" type="radio" data-type="3">找代加工</li>
-          <!--<li><input name="cate" type="radio">服装内衣</li>
-          <li><input name="cate" type="radio">布衣甲方</li>
-          <li><input name="cate" type="radio">创意报见</li>
-          <li><input name="cate" type="radio">花翘课了</li>
-          <li><input name="cate" type="radio">数码办公</li>
-          <li><input name="cate" type="radio">照片印刷</li>-->
-        </ul>
+        <dl class="cysearch_head_sort clearfix">
+          <dt class="cysearch_head_sortt">分类：</dt>
+          <dd class="cysearch_head_sortd cysearch_head_sortd-curent">全部</dd>
+          <dd class="cysearch_head_sortd" data-type="1">创意定制</dd>
+          <dd class="cysearch_head_sortd" data-type="2">企业定制</dd>
+          <dd class="cysearch_head_sortd" data-type="3">找代加工</dd>
+          <!--<dd class="cysearch_head_sortd"></dd>-->
+          <!--<dd class="more">更多<i></i>
+            <ul class="moreType clearfix">
+              <li data-id="11">广告牌设计</li>
+              <li data-id="12">横幅设计</li>
+              <li data-id="14">网店设计</li>
+              <li data-id="15">封面设计</li>
+              <li data-id="16">包装设计</li>
+              <li data-id="17">卡通形象设计</li>
+              <li data-id="18">DM设计</li>
+              <li data-id="19">其它宣传品设计</li>
+              <li data-id="20">标签设计</li>
+              <li data-id="21">易拉宝品设计</li>
+              <li data-id="22">户外广告设计</li>
+              <li data-id="23">其它</li>
+            </ul>
+          </dd>-->
+        </dl>
       </div>
       <div class="cont_choose clearfix">
         <ul class="choose_tj">
@@ -185,12 +198,12 @@
         <div class="pagination"></div>
       </div>
     </div>
-  </div>  
+  </div>
   <!--主内容区 结束-->
-  
+
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
   <script src="http://localhost:8070/scripts/jquery.placeholder.js"></script>
-  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>  
+  <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
   <script src="http://localhost:8070/scripts/template.js"></script>
   <script src="http://localhost:8070/scripts/jquery.paging.min.js"></script>
   <script src="http://localhost:8070/scripts/srdzList.js"></script>
@@ -205,9 +218,7 @@
       $(".choose_jg li").removeClass("active");
       $(this).addClass("active");
     });
-    
-    
-    
   </script>
 </body>
+
 </html>
