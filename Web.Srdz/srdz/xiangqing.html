@@ -360,7 +360,7 @@
   <script src="http://localhost:8070/scripts/jquery.loaddata.js"></script>
   <script>
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-    
+    console.log($('.topDetail_r_style_span').length )
     $('.topDetail_r_btn').click(function () {
       // var mainurl = dhw.mainurl;
       // var localurl = encodeURIComponent(window.location.href);
@@ -375,7 +375,7 @@
       count: count,
       body: text
     }
-    if (text === '') {
+    if (text === '' && $('.topDetail_r_style_span').length > 0) {
       alert('请选择类型');
       return false;
     }

@@ -431,7 +431,7 @@
 }
 .index_type_show {
   position: absolute;
-  top: 0;
+  top: -4320px;
   left: 0;
   width: 180px;
   height: 8100px;

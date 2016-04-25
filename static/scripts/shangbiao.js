@@ -107,7 +107,7 @@ function getData(pcode) {
   })
 }
 
-getData('01')
+getData('25')
 
 $('.sbcs_filterbox_items dd').click(function() {
   var index = $(this).index();
