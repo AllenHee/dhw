@@ -55,19 +55,19 @@
     <div class="searchWrap">
       <div class="search clearfix">
         <label class="search_lable">
-          <i class="module_icon xhhrIcon"></i>
+          <i class="module_search"></i>
           <ul class="search_label_items">
-            <li class="search_label_item"><i class="module_icon xhhrIcon"></i>寻合伙人</li>
-            <li class="search_label_item"><i class="module_icon kjfwIcon"></i>注册公司</li>
-            <li class="search_label_item"><i class="module_icon rczpIcon"></i>招兵买马</li>
-            <li class="search_label_item"><i class="module_icon cysjIcon"></i>创意设计</li>
-            <li class="search_label_item"><i class="module_icon zchuangIcon"></i>众创</li>
-            <li class="search_label_item"><i class="module_icon zchouIcon"></i>众筹</li>
-            <li class="search_label_item"><i class="module_icon zbaoIcon"></i>众包</li>
-            <li class="search_label_item"><i class="module_icon cqbhIcon"></i>产权保护</li>
-            <li class="search_label_item"><i class="module_icon srdzIcon"></i>私人定制</li>
-            <li class="search_label_item"><i class="module_icon zxsjIcon"></i>转型升级</li>
-            <li class="search_label_item"><i class="module_icon ssgsIcon"></i>上市公司</li>
+            <li class="search_label_item" data-type="1"><i class="module_icon xhhrIcon"></i>寻合伙人</li>
+            <li class="search_label_item" data-type="2"><i class="module_icon kjfwIcon"></i>注册公司</li>
+            <li class="search_label_item" data-type="3"><i class="module_icon rczpIcon"></i>招兵买马</li>
+            <li class="search_label_item" data-type="4"><i class="module_icon cysjIcon"></i>创意设计</li>
+            <li class="search_label_item" data-type="5"><i class="module_icon zchuangIcon"></i>众创</li>
+            <li class="search_label_item" data-type="6"><i class="module_icon zchouIcon"></i>众筹</li>
+            <li class="search_label_item" data-type="7"><i class="module_icon zbaoIcon"></i>众包</li>
+            <li class="search_label_item" data-type="8"><i class="module_icon cqbhIcon"></i>产权保护</li>
+            <li class="search_label_item" data-type="9"><i class="module_icon srdzIcon"></i>私人定制</li>
+            <li class="search_label_item" data-type="10"><i class="module_icon zxsjIcon"></i>转型升级</li>
+            <li class="search_label_item" data-type="11"><i class="module_icon ssgsIcon"></i>上市公司</li>
           </ul>
         </label>
         <input class="search_box" type="text">
@@ -185,10 +185,12 @@
   <script src="http://localhost:8070/scripts/dhwCtrl.js"></script>
   <script>
     $('input, textarea').placeholder();
-    
-    // 搜索框下拉
-    $('.search_lable>.module_icon').click(function(e) {
+    var keyword;
+    var url;
+    // 点击搜索按钮时 搜索框下拉
+    $('.search_btn').click(function(e) {
       e.stopPropagation();
+      keyword = $('.search_box').val();
       $('.search_label_items').slideToggle();
     });
     $(document).click(function() {
@@ -196,8 +198,47 @@
     });
     $('.search_label_item').click(function() {
       var _class = $(this).children('i').attr('class');
-      $('.search_lable>.module_icon').attr('class', _class);
+      // 判读选中的是哪一个 让他跳转到对应的模块
+      var dataType = $(this).attr('data-type');
+      switch(dataType) {
+        case '1':
+        url = "http://hr.dreamhiway.com/jobs?su=" + keyword;
+        break;
+        case '2':
+        url = 'http://kj.dreamhiway.com/accounting?searchkey=' + keyword;
+        break;
+        case '3':
+        url = "http://hr.dreamhiway.com/jobs?su=" + keyword;
+        break;
+        case '4':
+        url = 'http://diy.dreamhiway.com/CyList/List?keyword=' + keyword;
+        break;
+        case '5':
+        url = 'http://zckj.dreamhiway.com/';
+        break;
+        case '6':
+        url = 'http://zc.dreamhiway.com/';
+        break;
+        case '7':
+        url = 'http://zb.dreamhiway.com/list?keyword=' + keyword;
+        break;
+        case '8':
+        url = 'http://cqbh.dreamhiway.com/';
+        break;
+        case '9':
+        url = 'http://srdz.dreamhiway.com/Srdzs?su=' +　keyword;
+        break;
+        case '10':
+        url = 'http://zxsj.dreamhiway.com/';
+        break;
+        case '11':
+        url = 'http://gsss.dreamhiway.com/';
+        break;
+        
+      }
+      $('.search_lable>.module_search').attr('class', _class);
       $('.search_label_items').hide();
+      location.href = url
     });
     
     // 导航栏弹出

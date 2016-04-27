@@ -120,6 +120,14 @@ body {
 .search_label_item:hover {
   background: #f5f5f5;
 }
+.module_search {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  background-image: url('../images/index_module_search.png');
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
 .module_icon {
   display: inline-block;
   width: 23px;
