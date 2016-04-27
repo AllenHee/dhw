@@ -75,8 +75,8 @@ function collection() {
 var para = {};
 
 var uploader = WebUploader.create({
-  swf: '../Uploader.swf',
-  server: 'http://192.168.2.10:82/uploadfj?key=zb',
+  swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
+  server: dhw.fileuploadurl + '?key=zb',
   pick: '#picker',
   resize: false,
   auto: true
@@ -120,58 +120,46 @@ uploader.on('uploadComplete', function (file) {
 });
 
 
-
 // 数据传输
-// $('.container_but').click(function() {
-//   var contact = $('.qqnumber').find('input').val();
-//   var workCycle = $('.overtime').find('input').val();
-//   var misid = $(this).parents('.subPrjt').attr('data-id');
-//   var fpid = subjectID;
-//   para.fpid = fpid;
-//   para.misid = misid;
-//   para.workCycle = workCycle;
-//   para.contact = contact;
-//   $.post('/Detail/Delivery', para).success(function (d) {
-//      if (d.success) {
-//        alert('接单成功，可到个人中心进行查看')
-//      } else {
-//        alert('因网络原因接单失败,请稍后重试');
-//      }
-//   })
-// })
+var project_id = 1;
+$('.btn_order').click(function () {
 
+  // var contact = $('.qqnumber').find('input').val();
+  // var workCycle = $('.overtime').find('input').val();
+  var misid = $(this).parents('.subPrjt').attr('data-id');
+  var fpid = project_id;;
+  var contact = $('.toubiao_input_contact').val();
+  var txt = $('textarea').val();
+  var fujian = para.attachment;
+  var fujian_name = para.attachment_orgin;
+  if (contact === "" || txt === "") {
+    alert("请填写完整在接单！")
+  } else {
+    para.fpid = fpid;
+    para.misid = misid;
+    para.contact = contact;
+    para.content = txt;
+    para.attachment = fujian;
+    para.attachmentname = fujian_name;
+    // para.workCycle = workCycle;
+    // para.contact = contact;
+    $.post("/detail/zbadd", para).success(function (d) {
+      if (d.success) {
+        alert('接单成功，可到个人中心进行查看')
+      } else {
+        alert('因网络原因接单失败,请稍后重试');
+      }
+    })
+  }
+})
 
-//弹出弹窗
+// //弹出弹窗
 // $('.btn_order').click(function () {
-//   $('.toubiao_pupop').css("display", "block");
+//   $('.pupop_bg').css("display", "block");
+//   $('.pupop').css("display", "block");
 // });
 // //关闭弹窗
 // $('.close_toubiao_pupop').click(function () {
+//   $('.pupop_bg').css("display", "none");
 //   $('.toubiao_pupop').css("display", "none");
 // })
-//附件上传
-
-//稿件提交
-$('.toubiao_submit').click(function () {
-  var project_id = project_id;
-  var id = $(this).find('.container_cont_r').find('input').val();
-  var phone = $('#toubiao_phone').val();
-  var txt = $('textarea').val();
-  var fujian = data.saveaddr;
-  var fujian_name = res.name;
-  var para = {
-    fpid: project_id,
-    misid: id,
-    contact: phone,
-    content: txt,
-    attachment: fujian,
-    attachmentname: fujian_name
-  }
-  $.post("/detail/zbadd", para).success(function (data) {
-    if (data.success) {
-      alert('接单成功，可到个人中心进行查看')
-    } else {
-      alert('因网络原因接单失败,请稍后重试');
-    }
-  })
-});

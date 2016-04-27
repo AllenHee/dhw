@@ -26,7 +26,7 @@
       </li>
       {{/each}}
   </script>
-    <script type="text/javascript">
+  <script type="text/javascript">
     var dhw = {
       imgurl: 'http://192.168.2.10:81/img/',
       imguploadurl: 'http://192.168.2.10:82/uploadimg',
@@ -249,13 +249,17 @@
           </p>
           <div class="container_cont_l_toubiao">
             <h2>我要投标</h2>
-            <div class="container_cont_l_toubiao_item overtime">
+            <!--<div class="container_cont_l_toubiao_item overtime">
               <i> </i>
               <input class="toubiao_input" type="text" placeholder="完成的时间">
             </div>
             <div class="container_cont_l_toubiao_item qqnumber">
               <i> </i>
               <input class="toubiao_input" type="text" placeholder="输入QQ号">
+            </div>-->
+            <div class="container_cont_l_toubiao_item contactnum">
+              <label>联系方式：</label>
+              <input class="toubiao_input_contact" type="text">
             </div>
             <div class="container_cont_l_toubiao_item fujian">
               <textarea placeholder="描述你的优势，上传服务过的类似案例，或花点时间根据需求出个初案，更容易打动客户"></textarea>
@@ -287,7 +291,7 @@
       </div>
     </div>
     <!--数据库编写-->
-    <!--<div class="subPrjt" id="subPrjt2">
+    <div class="subPrjt" id="subPrjt2">
       <div class="container_title">
         <p></p>
         <div>
@@ -384,7 +388,7 @@
       </div>
     </div>
     <!--代码实现-->
-    <!--<div class="subPrjt" id="subPrjt3">
+    <div class="subPrjt" id="subPrjt3">
       <div class="container_title">
         <p></p>
         <div>
@@ -479,7 +483,7 @@
           <div class="pagination"></div>
         </div>
       </div>
-    </div>-->
+    </div>
   </div>
   <!--主内容区 结束-->
 
@@ -546,20 +550,25 @@
     </div>
   </div>
   <!--通用底栏 结束-->
-
-
   <!--弹窗开始-->
-  <!--<div class="toubiao_pupop">
+  <!--<div class="pupop_bg"></div>
+  <div class="pupop toubiao_pupop">
     <div class="toubiao_pupop_head clearfix">
       <h1>我要交稿</h1>
       <span class="close_toubiao_pupop">×</span>
     </div>
-    <div class="toubiao_pupop_content">
-      <textarea placeholder="根据需求针对性的准备方案，一份含金量的投标，，更容易打动卖家，中标率远高于千篇一律的投标。"></textarea>
-      <div class="toubiao_pupop_other clearfix">
-        <div class="pupop_wu-example">
-          <div class="pupop_uploader-list"></div>
-          <div id="picker">sss</div>
+    <div class="container_cont_l_toubiao_item fujian">
+      <textarea placeholder="描述你的优势，上传服务过的类似案例，或花点时间根据需求出个初案，更容易打动客户"></textarea>
+      <div class="toubiao_pupop_other">
+        <div class="web_uploader clearfix">
+          <div id="uploader" class="wu-example">
+            <div id="thelist" class="uploader-list"></div>
+            <div class="btns">
+              <div class="picker clearfix" id="picker">
+                <div class="fujianPic"><img src="images/fujian1_03.png" alt=""></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="toubiao_pupop_contact">
           <label>联系方式：</label>
@@ -571,6 +580,7 @@
       <p>请遵守投标规范，若稿件被认定为无效稿件，系统将屏蔽盖稿件并扣除。</p>
       <button class="toubiao_submit">提交</button>
     </div>
+  </div>
   </div>-->
   <!--弹窗结束-->
 

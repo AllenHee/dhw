@@ -7,9 +7,9 @@
 */
 /*标题*/
 .header {
-  /*border-top: 1px solid #d3d3d3;*/
+  border-top: 1px solid #d3d3d3;
   border-bottom: 1px solid #eaeaea;
-  /*background-color: #f3f3f3;*/
+  background-color: #f3f3f3;
 }
 .header_main {
   width: 1024px;
@@ -2420,4 +2420,42 @@ label.error {
   float: left;
   height: 24px;
   margin-right: 50px;
+}
+
+.header_main_find {
+  float: right;
+  position: relative;
+  height: 37px;
+  width: 250px;
+  margin-top: 25px;
+  margin-right: 20px;
+  background: url(../images/zbsy11-21_r2_c2.png) -11px -11px no-repeat;
+}
+.header_main_find_input {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  height: 37px;
+  line-height: 37px;
+  width: 190px;
+  padding: 0;
+  border: 0;
+  color: #666;
+}
+.header_main_find_btn {
+  position: absolute;
+  right: 20px;
+  top: 6px;
+  height: 25px;
+  width: 25px;
+  border: 0;
+  background: url(../images/zbsy11-21_r2_c2.png) -10px -59px no-repeat;
+  cursor: pointer;
+  padding: 0;
+}
+.cysj_ttl {
+  width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

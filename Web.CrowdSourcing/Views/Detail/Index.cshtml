@@ -68,8 +68,9 @@
                         <img  class="hd_cont_r_head_toux" src="@zb["logo"]" alt="头像"></a>
                     <div class="hd_cont_r_head_six">
                         <a href="#" class="hd_cont_r_head-size">@zb["name"]</a>
+                         <a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=@ViewBag.to" target="_blank">
                         <button>
-                            私信</button>
+                            私信</button></a>
                     </div>
                 </div>
                 <ul class="hd_cont_r_haop">
@@ -98,32 +99,32 @@
         <div class="hd_jind">
             <div class="jd">
                 <ul class="clearfix">
-                    <li class="jd_item jd_item-first @if ((byte)@zb["state"] >= 0)
+                    <li class="jd_item jd_item-first @if ((byte)zb["state"] >= 0)
                                                      {<text>success</text>}"><i></i><span>发布<br>
                                                          @{ string time = ((DateTime)zb["time"]).ToString("yyyy-MM-dd");@time}
                                                      </span></li>
-                    <li class="jd_item jd_item-2 @if ((byte)@zb["state"] >= 1)
+                    <li class="jd_item jd_item-2 @if ((byte)zb["state"] >= 1)
                                                  {<text>success</text>}"><i></i><span>审核通过<br>
-                                                     @if ((byte)@zb["state"] >= 1)
+                                                     @if ((byte)zb["state"] >= 1)
                                                      {
-                                                         string shtime = ((DateTime)zb["shtime"]).ToString("yyyy-MM-dd");@shtime
+                                                         string shtime = zb["shtime"].ToString() == "" ? "" : ((DateTime)zb["shtime"]).ToString("yyyy-MM-dd");@shtime
                                                      }
                                                  </span></li>
-                    <li class="jd_item jd_item-3 @if ((byte)@zb["state"] >= 2)
+                    <li class="jd_item jd_item-3 @if ((byte)zb["state"] >= 2)
                                                  {<text>success</text>}"><i></i><span>资金托管</span></li>
-                    <li class="jd_item jd_item-4 @if ((byte)@zb["state"] >= 2)
+                    <li class="jd_item jd_item-4 @if ((byte)zb["state"] >= 2)
                                                  {<text>success</text>}"><i></i><span>报名中</span></li>
-                    <li class="jd_item jd_item-5 @if ((byte)@zb["state"] >= 3)
+                    <li class="jd_item jd_item-5 @if ((byte)zb["state"] >= 3)
                                                  {<text>success</text>}"><i>
                                                      <div id="myStat" data-dimension="28" data-width="4" data-fgcolor="#d54844" data-bgcolor="#eee"
                                                          data-fill="#ddd" data-total="100" data-part="66">
                                                      </div>
                                                  </i><span>项目进行中<br>
-                                                     @if ((byte)@zb["state"] >= 3)
+                                                     @if ((byte)zb["state"] >= 3)
                                                      {
                                                          <text>66%</text>
                                                      }</span></li>
-                    <li class="jd_item jd_item-last @if ((byte)@zb["state"] >= 4)
+                    <li class="jd_item jd_item-last @if ((byte)zb["state"] >= 4)
                                                     {<text>success</text>}"><i></i><span>已结赏</span></li>
                 </ul>
             </div>
@@ -150,11 +151,14 @@
         <div class="container_cont">
             <div class="container_cont_l">
                 <p>
-                    @zb["intro"]
+                    @Html.Raw(zb["intro"])
                 </p>
             </div>
         </div>
-        <a href="@BaseConfigs.GetImgPath@zb["attachment_orgin"]">@zb["attachment"] 下载</a>
+        @if (zb["attachment"].ToString() != "")
+        {
+            <a href="@BaseConfigs.GetUrlFj@zb["attachment"]" target="_blank">@zb["attachment_orgin"]
+                下载</a>}
     </div>
     <!--界面设计-->
     @for (int i = 0; i < ViewBag.xmzb.Rows.Count; i++)
@@ -178,7 +182,8 @@
                             <span class="container_cont_l_money-l">￥@it["unitprice"]</span><span class="container_cont_l_money-r">@it["jdrs"]/@it["mipnum"]</span>
                         </div>
                         <div class="container_cont_l_time">
-                            完成时间：<span>@{ string str = ((DateTime)zb["shtime"]).ToString("yyyy-MM-dd");@str}
+                            完成时间：<span>@{ string str = zb["shtime"].ToString() == "" ? "" : ((DateTime)zb["shtime"]).ToString("yyyy-MM-dd");@str}
+
                             </span>
                         </div>
                     </div>
@@ -225,7 +230,7 @@
         <img class="touxiang" src="{{record.logo}}_100x100.jpg" alt="">
         <i></i>
         <p>{{record.name}}</p>
-        <span>record.date</span>
+        <span>{{record.date}}</span>
       </li>
       {{/each}}
     </script>

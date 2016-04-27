@@ -1,15 +1,13 @@
 $(function() {
-  var serch_name = $(".header_main_find_input").val();
-  
   var para = {
-      name: serch_name,
-      type :dhwtempvar.type,
+      // type :dhwtempvar.type,
+      type: '',
       pageIndex: 1,
       pageSize: 9
     }
-
-    $(".cont_fl li input").eq(para.type).attr("checked","checked");
     loadData("/List/Index", para, "List", ".cont_main_ul", false);
+    // $(".cont_fl li input").eq(para.type).attr("checked","checked");
+    // loadData("/List/Index", para, "List", ".cont_main_ul", false);
     
     $(".choose_jg li").click(function() {
       if($(this).text() == "全部") {
@@ -22,11 +20,23 @@ $(function() {
       loadData("/List/Index", para, "List", ".cont_main_ul", false);
     });
     
-    $(".cont_fl li input").click(function(){
-      if($(this).text() == "全部") {
-        location.search = ""; 
-      }
-       var datatype = !$(this).attr('data-type') ? null : $(this).attr('data-type');
-       location.search = "?type="+datatype;
-    }); 
+    // $(".cont_fl li input").click(function(){
+    //   if($(this).text() == "全部") {
+    //     location.search = "";
+    //   }
+    //    var datatype = !$(this).attr('data-type') ? null : $(this).attr('data-type');
+    //    location.search = "?type=" + datatype;
+    // }); 
+    $('.cysearch_head_sortd').on('click', function () {
+      var index = $(this).index();
+      $('.cysearch_head_sortd').removeClass('cysearch_head_sortd-curent').eq(index - 1).addClass('cysearch_head_sortd-curent');
+      if($(this).text() === "全部") {
+         para.type = '';
+         loadData("/List/Index", para, "List", ".cont_main_ul", false);
+         return false;
+       }
+       var datatype = $(this).attr('data-type');
+       para.type = datatype;
+       loadData("/List/Index", para, "List", ".cont_main_ul", false);
+    })
 })

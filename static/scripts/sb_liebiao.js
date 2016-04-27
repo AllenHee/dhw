@@ -32,7 +32,7 @@ var para = {
   price1: '',
   price2: '',
   type: '',
-  pcode: '01',
+  pcode: '25',
   pageSize: 20,
   pageIndex: 1,
   orderby: '综合'
@@ -56,7 +56,7 @@ if (type) {
 }
 if (keyword) {
   $('.sbcs_search_input').val(decodeURI(escape(keyword)))
-  para.keyword = keyword;
+  para.keyword = decodeURI(escape(keyword));
 }
 if (year1) {
   para.year1 = year1;
@@ -83,7 +83,6 @@ if (para.type !== 0) {
     }
   }
 } else {
-  console.log(1)
   $('.sbcs_filterbox_items').eq(2).find('dd').removeClass('sbcs_filterbox_current').eq(0).addClass('sbcs_filterbox_current')
 }
 loadData("/Trademark/list", para, "sbTemplate", ".items", false);

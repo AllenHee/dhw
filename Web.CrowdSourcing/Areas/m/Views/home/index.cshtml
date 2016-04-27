@@ -1,0 +1,197 @@
+﻿@{
+    var ad = ViewBag.ad;
+    var tj = ViewBag.tj;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0,  minimum-scale=1, maximum-scale=1">
+    <title>众包 - 首页 - 梦高速</title>
+    <link rel="stylesheet" href="@BaseConfigs.GetStaticPath/mstatic/css/zb.css">
+    <script src="@BaseConfigs.GetStaticPath/mstatic/cdn.dreamhiway.com/mstatic/lib/flexible.js"></script>
+</head>
+<body>
+    <div class="page">
+        <!--头部 开始-->
+        <header class="header header-reverse header-noleft header-logo">
+      <div class="header_sect">
+        <div class="header_sect header_sect-menu">
+            <span class="header_menu"><i></i><i></i><i></i></span>
+            <div class="header_menu_wrap">
+                <div class="arrow-wrap"><i class="arrow"></i></div>
+                <ul class="header_menu_list">
+                    <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetMainPath}m">梦高速首页</a></li>
+                    @if (!ViewBag.DUser.HasLogin)
+                    {
+                        <li class="header_menu_list_item"><a rel="nofollow" href="@{@BaseConfigs.GetUrlMain}m/main/denglu?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">登录</a></li>
+                    }
+                    else
+                    {
+                        <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetMainPath}m/user">个人中心</a></li>
+                        <li class="header_menu_list_item"><a href="@{@BaseConfigs.GetUrlMain}m/main/logout?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}">退出</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+      </div>
+    </header>
+        <!--头部 结束-->
+        <!--轮播图开始-->
+        <div class="sliderBox" style="visibility: hidden;">
+            <ul class="slider">
+                @for (int i = 0; i < ad.Count; i++)
+                {
+                    var img = ad[i]["img"] + ".jpg";
+                    <li><a href="@ad[i]["url"]" target="_blank">
+                        <img src="@{@BaseConfigs.GetImgPath}@img" alt="众包首页大图"></a></li>
+                }
+            </ul>
+            <ul class="dots">
+            </ul>
+        </div>
+        <!--轮播图结束-->
+        <!--搜索框 开始-->
+        <div class="srch srch-join">
+            <div class="srch_wrap">
+                <label class="srch_label" for="search">
+                    <i class="fa fa-search"></i>
+                </label>
+                <input class="srch_input" id="search" type="search" placeholder="请输入关键词">
+            </div>
+            <button class="srch_btn" type="button">
+                搜索</button>
+        </div>
+        <!--搜索框 结束-->
+        <!--分类栏 开始-->
+        <ul class="grid">
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=">
+                <div class="grid_item_icon">
+                    <i class="fa fa-qrcode"></i>
+                </div>
+                <div class="grid_item_text">
+                    全部分类</div>
+            </a></li>
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=1">
+                <div class="grid_item_icon">
+                    <i class="fa fa-cart-plus"></i>
+                </div>
+                <div class="grid_item_text">
+                    开发众包</div>
+            </a></li>
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=2">
+                <div class="grid_item_icon">
+                    <i class="fa fa-cart-plus"></i>
+                </div>
+                <div class="grid_item_text">
+                    装修众包</div>
+            </a></li>
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=3">
+                <div class="grid_item_icon">
+                    <i class="fa fa-cart-plus"></i>
+                </div>
+                <div class="grid_item_text">
+                    营销众包</div>
+            </a></li>
+        </ul>
+        <ul class="grid">
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=4">
+                <div class="grid_item_icon">
+                    <i class="fa fa-line-chart"></i>
+                </div>
+                <div class="grid_item_text">
+                    电商众包</div>
+            </a></li>
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=5">
+                <div class="grid_item_icon">
+                    <i class="fa fa-line-chart"></i>
+                </div>
+                <div class="grid_item_text">
+                    其他</div>
+            </a></li>
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=4">
+                <div class="grid_item_icon">
+                    <i class="fa fa-cart-plus"></i>
+                </div>
+                <div class="grid_item_text">
+                    电商众包</div>
+            </a></li>
+            <li class="grid_item"><a href="@{@BaseConfigs.GetUrlZb}m/home/search?typeid=5">
+                <div class="grid_item_icon">
+                    <i class="fa fa-cart-plus"></i>
+                </div>
+                <div class="grid_item_text">
+                    其他</div>
+            </a></li>
+        </ul>
+        <!--分类栏 结束-->
+        <!--推荐  开始-->
+        <div class="hotwrap">
+            <!--标题  开始-->
+            <div class="hottitle">
+                <h3 class="titleA">
+                    为你推荐</h3>
+                <a class="hottitle_more" href="@{@BaseConfigs.GetUrlZb}/m/home/search">更多></a>
+            </div>
+            <!--标题  结束-->
+            <!--推荐列表  开始-->
+            <ul class="hostlist">
+                @for (int i = 0; i < tj.Count; i++)
+                {
+                    <li class="hostlist_item"><a class="hostlist_item_a" href="@{@BaseConfigs.GetUrlZb}m/home/detail/@{@tj[i]["id"]}">
+                        <div class="hostlist_content">
+                            <div class="base_title_wrap">
+                                <h2 class="base_title_text base_title_text-small">
+                                    <span class="base_title_wrap_label">[@tj[i]["statemc"]]</span>@tj[i]["title"]</h2>
+                                <span class="base_title_tag">@tj[i]["typename"]</span>
+                            </div>
+                            <div class="hostlist_item_info">
+                                <div class="hostlist_item_info_item hostlist_item_info_item-em">
+                                    ￥<strong>@Convert.ToInt32(tj[i]["totalfin"])</strong>
+                                </div>
+                                <div class="hostlist_item_info_item">
+                                    @tj[i]["num"]<span class="hostlist_item_info_item_label">人参与</span> | <span class="hostlist_item_info_item_label">
+                                        交付周期：</span>@tj[i]["procycle"]天
+                                </div>
+                                <div class="hostlist_item_info_item">
+                                    <span class="hostlist_item_info_item_label">发布者：</span>@tj[i]["fbzname"]
+                                </div>
+                            </div>
+                        </div>
+                    </a></li>
+                }
+            </ul>
+            <!--推荐列表  结束-->
+        </div>
+        <!--推荐  结束-->
+        <!--导航 开始-->
+        <nav class="nav">
+      <a class="nav_link nav_link-active" href="@{@BaseConfigs.GetUrlZb}m">
+      <div class="nav_link_wrap">
+        <i class="fa fa-bullseye"></i>
+        <p>众包</p>
+        </div>
+      </a>
+      <a class="nav_link" href="@{@BaseConfigs.GetUrlDiy}m">
+      <div class="nav_link_wrap">
+        <i class="fa fa-lightbulb-o"></i>
+        <p>创意设计</p>
+        </div>
+      </a>
+      <a class="nav_link" href="@{@BaseConfigs.GetUrlSrdz}m">
+      <div class="nav_link_wrap">
+        <i class="fa fa-gift"></i>
+        <p>私人订制</p>
+        </div>
+      </a>
+        @if (!ViewBag.DUser.HasLogin)
+        {
+            <a class="nav_link" rel="nofollow" href="@{@BaseConfigs.GetUrlMain}m/main/denglu?redirectURL=@{@(Server.UrlEncode(Request.Url.ToString()))}"><div class="nav_link_wrap"><i class="fa fa-user"></i><p>我的</p></div></a>
+        }
+        else
+        {
+            <a class="nav_link" href="@{@BaseConfigs.GetUrlMain}m/user"><div class="nav_link_wrap"><i class="fa fa-user"></i><p>我的</p></div></a>
+        }
+    </nav>
+        <!--导航 结束-->
+    </div>
+    <script src="@BaseConfigs.GetStaticPath/mstatic/js/zb.js"></script>
+</body>

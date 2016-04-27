@@ -1,6 +1,6 @@
-$('.more').mouseenter(function() {
+$('.more').mouseenter(function () {
   $(this).find("ul").show();
-}).mouseleave(function() {
+}).mouseleave(function () {
   $(this).find("ul").hide();
 })
 
@@ -26,8 +26,8 @@ if (txt) {
     $(".cysearch_head_sort").eq(0).children('dd').removeClass("cysearch_head_sortd-curent")
     $(".cysearch_head_sort").eq(0).children('.more').prev().addClass("cysearch_head_sortd-curent").text(txt);
   } else {
-    for(var i = 0; i < 7; i++) {
-      if($(".cysearch_head_sort").eq(0).children('dd').eq(i).text() === txt) {
+    for (var i = 0; i < 7; i++) {
+      if ($(".cysearch_head_sort").eq(0).children('dd').eq(i).text() === txt) {
         $(".cysearch_head_sort").eq(0).children('dd').removeClass('cysearch_head_sortd-curent').eq(i).addClass('cysearch_head_sortd-curent')
       }
     }
@@ -37,13 +37,34 @@ if (txt) {
 if (id) {
   para.type = id;
 }
-
+if (getQueryString('keyword')) {
+  para.keyword = decodeURI(escape(getQueryString('keyword')));
+}
 
 loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
 
 
+$('.header_main_find_btn').on('click', function () {
+  var keyword = $('.header_main_find_input').val();
+  if (keyword === '') {
+    return false;
+  }
+  para.keyword = keyword;
+  loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
+})
+$(document).keypress(function (event) {
+  if (event.keyCode === 13) {
+    var keyword = $('.header_main_find_input').val();
+    if (keyword === '') {
+      return false;
+    }
+    para.keyword = keyword;
+    loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
+  }
+})
+
 // 认证的选择
-$(".checkbox").click(function() {
+$(".checkbox").click(function () {
   $(this).parent().children().removeClass("cysearch_head_sortd-curent")
   $(this).addClass("cysearch_head_sortd-curent")
   para.du_type = $(this).val();
@@ -52,7 +73,7 @@ $(".checkbox").click(function() {
 
 
 // 分类的选择
-$(".cysearch_head_sort").eq(0).find("dd").click(function() {
+$(".cysearch_head_sort").eq(0).find("dd").click(function () {
   if ($(this).hasClass('more')) {
     return false;
   }
@@ -62,7 +83,7 @@ $(".cysearch_head_sort").eq(0).find("dd").click(function() {
   para.type = type;
   loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
 })
-$(".moreType li").click(function(event) {
+$(".moreType li").click(function (event) {
   event.stopPropagation();
   $(this).parent().hide();
   $(".cysearch_head_sort").eq(0).children('dd').removeClass("cysearch_head_sortd-curent")
@@ -73,7 +94,7 @@ $(".moreType li").click(function(event) {
 
 
 // 地区的选择
-$(".cysearch_head_sort").eq(1).children("dd").click(function() {
+$(".cysearch_head_sort").eq(1).children("dd").click(function () {
   if ($(this).hasClass('more')) {
     return false;
   }
@@ -83,7 +104,7 @@ $(".cysearch_head_sort").eq(1).children("dd").click(function() {
   para.city_code = city_code;
   loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
 })
-$(".moreAddr li").click(function(event) {
+$(".moreAddr li").click(function (event) {
   event.stopPropagation();
   $(this).parent().hide();
   $(".cysearch_head_sort").eq(1).children('dd').removeClass("cysearch_head_sortd-curent")
@@ -92,7 +113,7 @@ $(".moreAddr li").click(function(event) {
   loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');
 })
 // 价格
-$('.search').click(function() {
+$('.search').click(function () {
   para.minmoney = $('#minmoney').val();
   para.maxmoney = $('#maxmoney').val();
   loadData('/CyList/Index', para, 'cysearchTem', '.cysearch_result');

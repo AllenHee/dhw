@@ -179,7 +179,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><a href="#">房地产/建筑无字数要求品牌取名</a></td>
+            <td><a class="cysj_ttl" href="#">房地产/建筑无字数要求品牌取名</a></td>
             <td class="zxxm-red">￥750</td>
             <td>51个</td>
             <td>2015-11-11</td>
@@ -379,6 +379,16 @@
       var txt = $(this).text();
       var url = 'CyList/List?id=' + id + '&&txt=' + txt;
       window.location.href = encodeURI(url);
+    })
+    $('.header_main_find_btn').on('click', function () {
+      var keyword = $('.header_main_find_input').val();
+      window.location.href = 'CyList/List?txt=' + keyword;
+    })
+    $(document).keypress(function (event) {
+      if (event.keyCode === 13) {
+        var keyword = $('.header_main_find_input').val();
+        window.location.href = 'CyList/List?txt=' + keyword;
+      }
     })
   </script>
 </body>
