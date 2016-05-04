@@ -1502,3 +1502,7 @@ label.error {
   display: block;
   color: #EF5050
 }
+.webuploader-element-invisible {
+  opacity: 0;
+  filter:alpha(opacity=0);
+}

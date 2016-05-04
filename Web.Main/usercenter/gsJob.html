@@ -232,6 +232,7 @@
               </tr>
             </tbody>
           </table>
+          <div class="pagination joblist_pagination"></div>
         </div>
       </div>
       <div class="gsJob_right">
@@ -239,7 +240,7 @@
         <div class="gsJob_pj">
         <dl>
         </dl>
-        <div class="pagination"></div>
+        <div class="pagination pj_pagination"></div>
         <!--<span class="gsJob_bemore"><a href="#">更多></a></span>-->
         </div>
       </div>
@@ -266,14 +267,14 @@
       pageIndex : 1,
       pageSize :10
     }
-    loadData('/CompanyHome/ZhaopinList',para,'jobList',".gsJob_table tbody");
+    loadData('/CompanyHome/ZhaopinList',para,'jobList', ".gsJob_table tbody", false , '.joblist_pagination');
     // 面试评价列表数据
    var interviewpara = {
      companyid :51,
      pageIndex : 1,
      pageSize : 8
    }
-   loadData('/CompanyHome/PingjiaList',interviewpara,'interview','.gsJob_pj dl');
+   loadData('/CompanyHome/PingjiaList',interviewpara,'interview','.gsJob_pj dl', false, '.pj_pagination');
    
    $(".gsJob_pj").on("click",'.gsJob_sum', function(){
      var that = $(this);

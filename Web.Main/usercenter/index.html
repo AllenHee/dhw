@@ -187,19 +187,68 @@
     $('input, textarea').placeholder();
     var keyword;
     var url;
+    var isClick = false;
+    var isfirstclick = true;
+    var dataType;
     // 点击搜索按钮时 搜索框下拉
     $('.search_btn').click(function(e) {
       e.stopPropagation();
       keyword = $('.search_box').val();
-      $('.search_label_items').slideToggle();
+      isfirstclick = false;
+      if(!isClick) {
+        $('.search_label_items').slideToggle();
+      } else {
+        switch(dataType) {
+        case '1':
+        url = "http://hr.dreamhiway.com/jobs?su=" + keyword;
+        break;
+        case '2':
+        url = 'http://kj.dreamhiway.com/accounting?searchkey=' + keyword;
+        break;
+        case '3':
+        url = "http://hr.dreamhiway.com/jobs?su=" + keyword;
+        break;
+        case '4':
+        url = 'http://diy.dreamhiway.com/CyList/List?keyword=' + keyword;
+        break;
+        case '5':
+        url = 'http://zckj.dreamhiway.com/';
+        break;
+        case '6':
+        url = 'http://zc.dreamhiway.com/';
+        break;
+        case '7':
+        url = 'http://zb.dreamhiway.com/list?keyword=' + keyword;
+        break;
+        case '8':
+        url = 'http://cqbh.dreamhiway.com/';
+        break;
+        case '9':
+        url = 'http://srdz.dreamhiway.com/Srdzs?su=' +　keyword;
+        break;
+        case '10':
+        url = 'http://zxsj.dreamhiway.com/';
+        break;
+        case '11':
+        url = 'http://gsss.dreamhiway.com/';
+        break;
+      }
+       location.href = url;
+      }
     });
+    // 点击按钮出现下拉
+    $('.search_lable>.module_search').click(function(e) {
+      e.stopPropagation();
+      $('.search_label_items').slideToggle(); 
+    })
     $(document).click(function() {
       $('.search_label_items').slideUp();
     });
     $('.search_label_item').click(function() {
       var _class = $(this).children('i').attr('class');
+      console.log(_class);
       // 判读选中的是哪一个 让他跳转到对应的模块
-      var dataType = $(this).attr('data-type');
+      dataType = $(this).attr('data-type');
       switch(dataType) {
         case '1':
         url = "http://hr.dreamhiway.com/jobs?su=" + keyword;
@@ -234,11 +283,15 @@
         case '11':
         url = 'http://gsss.dreamhiway.com/';
         break;
+      }
+      $('.search_lable > i').attr('class', _class);
+      $('.search_label_items').hide();
+      isClick = true;
+      if(!isfirstclick) {
+       location.href = url;
+      } else {
         
       }
-      $('.search_lable>.module_search').attr('class', _class);
-      $('.search_label_items').hide();
-      location.href = url
     });
     
     // 导航栏弹出
