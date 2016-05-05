@@ -169,7 +169,17 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         });
       }
     };
-    
+    // 5-4 新增监听鼠标滚轮事件来控制路由的切换
+    $(document).on('mousewheel DOMMouseScroll', function (e) {
+      e.preventDefault();
+      e.returnValue = false;
+      var _delta = parseInt(e.originalEvent.wheelDelta || -e.originalEvent.detail);
+      if (_delta > 0) {
+        s.moduleSwitch('right', s.urlstate.current.name);
+      } else {
+        s.moduleSwitch('left', s.urlstate.current.name);
+      }
+    })
     // 路由切换
     s.moduleSwitch = function (dir, prev) {
       // 如果有进行中的路由切换动画，不往下执行
@@ -193,9 +203,27 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         r.dir = dir;
         
         function setNext() {
-          prevIndex = dir == 'left' ? prevIndex + 1 : prevIndex - 1;
+          console.log('1  ' + prevIndex)
+          // if(prevIndex + 1 < s.modules.length) {
+          //   prevIndex = if (dir == 'left' ) prevIndex + 1 : prevIndex - 1;
+          // } else {
+          //   prevIndex = 0
+          // }
+          if(dir == 'left') {
+            prevIndex = prevIndex + 1;
+            if (prevIndex >= s.modules.length) {
+              prevIndex = 0;
+            }
+          } else {
+            if (prevIndex === 0) {
+              prevIndex = 11;
+            }
+            prevIndex = prevIndex -1
+          }
+          console.log(prevIndex)
           if (s.modules[prevIndex].show == true) {
             next = s.modules[prevIndex].name;
+            console.log(next)
           } else {
             setNext()
           }
@@ -217,7 +245,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
       
       // 如果下一个模块是存在的，执行路由切换
       if (next) {
-        l.path(next);
+        //l.path(next);
+        window.location.hash = '#/' + next;
+        //s.$apply()
+
       }
       
     };
