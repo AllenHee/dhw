@@ -1642,6 +1642,9 @@ body {
   line-height: 30px;
   padding-left: 17px;
 }
+.edu_remlist a {
+  color: #000;
+}
 .edu_remlist_dot {
   display: inline-block;
   width: 5px;
