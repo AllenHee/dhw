@@ -1532,3 +1532,189 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
+
+/*首页界面替换之后的样式*/
+.top_banner {
+    position: relative;
+    width: 873px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.bannerUl {
+  position: absolute;
+  left: 0;
+  width: 2316px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.bannerList {
+  float:left;
+  margin-right:93px
+}
+.bannerList {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.bannerList_latest {
+  margin-right: 0px;
+} 
+.left_btn {
+  position:absolute;
+  width: 61px;
+  height: 61px;
+  top: 34px;
+  left: 59px;
+  border-radius: 50%;
+  background: url('../images/left_arrow_btn.png');
+}
+.right_btn {
+  position:absolute;
+  width: 61px;
+  height: 61px;  
+  top: 34px;
+  right: 59px;
+  border-radius: 50%;
+  background: url('../images/right_arrow_btn.png');
+}
+.rem_area {
+  float: left;
+  margin-top: 24px;
+}
+.slide {
+  position: relative;
+  width: 217px;
+  height: 311px;
+  margin-right: 11px;
+}
+
+.slide-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1085px;
+  height: 311px;
+}
+
+.slide-wrap li {
+  float: left;
+  width: 217px;
+  height: 311px;
+  background-color: rebeccapurple;
+  color: #fff;
+}
+.slider {
+  position: absolute;
+  bottom: 3px;
+  left: 68px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.slider_items {
+  float: left;
+  width: 12px;
+  height: 15px;
+  margin-right: 4px;
+  background: url(../images/zbsy11-21_r2_c2.png) -74px -60px no-repeat;
+}
+
+.slider_items.current {
+  background: url(../images/zbsy11-21_r2_c2.png) -97px -60px no-repeat;
+}
+.edu_remmend {
+  width: 215px;
+  height: 310px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+.remmend_title {
+   height: 40px;
+   line-height: 40px;
+   padding-left:  10px;
+   background-color: #ff6600;
+   font-size: 16px;
+   color: #fff;
+}
+.edu_remlist {
+  line-height: 30px;
+  padding-left: 17px;
+}
+.edu_remlist_dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: #3da7c2;
+}
+.ad_area {
+  width: 340px;
+  margin-right: 18px;
+}
+.pic {
+  width: 165px;
+  float: left;
+  margin-right: 10px;
+  text-align: center;
+}
+.pic img{
+  width: 165px;
+  height: 120px;
+}
+.del_margin {
+  margin: 0;
+}
+.pic_intro {
+  line-height: 40px;
+}
+.new_list {
+  width: 348px;
+}
+.newlistItem {
+  height: 114px;
+  font-size: 14px;
+  border-bottom: 1px dashed #ccc;
+}
+.newlistItem_content {
+  width: 200px;
+  height: 96px;
+  overflow: hidden;
+}
+.newlistItem_latest {
+  border-bottom: 0;
+}
+.newlistItem_title {
+  display: inline-block;
+  width: 100%;
+  font-size: 15px;
+  color: #000;
+  padding: 5px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.newlistItem img {
+  float: left;
+  width: 131px;
+  height: 102px;
+  margin-right: 5px;
+}
+.newlistItem_content {
+  float: left;
+}
+.newlistItem_first_intro {
+  font-size: 12px;
+}
+.module_home_bottom_pic {
+  width: 150px;
+  height: 60px;
+  float: left;
+  margin-right: 20px;
+  background-color: #ccc;
+}
+.home_bottom_pic_latest {
+  margin-right: 0px;
+}
