@@ -73,16 +73,19 @@ function collection() {
 
 // 上传文件插件
 var para = {};
-
+var web_uploader;
+$('.picker').on('click', function() {
+  web_uploader = $(this).parents('.subPrjt').find('.web_uploader');
+})
 var uploader = WebUploader.create({
   swf: '//cdn.dreamhiway.com/static/lib/Uploader.swf',
-  server: dhw.fileuploadurl + '?key=zb',
-  pick: '#picker',
+  server: dhw.urlfjupload + '?key=zb',
+  pick: '.picker',
   resize: false,
   auto: true
 });
 uploader.on('fileQueued', function (file) {
-  $('.web_uploader').append('<div id="' + file.id + '" class="item">' +
+  web_uploader.append('<div id="' + file.id + '" class="item">' +
     '<h4 class="info">' + file.name + '</h4>' +
     '<p class="state">等待上传...</p>' +
     '</div>');
@@ -108,7 +111,7 @@ uploader.on('uploadSuccess', function (file, res) {
   $('#' + file.id).find('p.state').text('已上传');
   para.attachment_orgin = file.name
   para.attachment = res._raw;
-  console.log(para.attachment_orgin, para.attachment)
+  //console.log(para.attachment_orgin, para.attachment)
 });
 
 uploader.on('uploadError', function (file) {
@@ -121,15 +124,15 @@ uploader.on('uploadComplete', function (file) {
 
 
 // 数据传输
-var project_id = 1;
+//var project_id = 1;
 $('.btn_order').click(function () {
 
   // var contact = $('.qqnumber').find('input').val();
   // var workCycle = $('.overtime').find('input').val();
   var misid = $(this).parents('.subPrjt').attr('data-id');
-  var fpid = project_id;;
-  var contact = $('.toubiao_input_contact').val();
-  var txt = $('textarea').val();
+  var fpid = subjectID;
+  var contact = $(this).parents('.subPrjt').find('.toubiao_input_contact').val();
+  var txt = $(this).parents('.subPrjt').find('textarea').val();
   var fujian = para.attachment;
   var fujian_name = para.attachment_orgin;
   if (contact === "" || txt === "") {
