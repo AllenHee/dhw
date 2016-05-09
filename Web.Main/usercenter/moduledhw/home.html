@@ -181,30 +181,46 @@
             </span>
             </a>
             <p class="newlistItem_first_intro">
-              4月14日,以联合国秘书长青年特使艾哈迈德 · 阿尔汉达维为团长的联合国系统青年事务官员代表团，访问了猪八戒网知名..
+              4月14日,以联合国秘书长青年特使艾哈迈德 · 阿尔汉达维为团长
             </p>
+            <span class="newlistItem_time">2012-05-6</span>
           </div>
         </li>
         <li class="newlistItem">
           <a href="javascript:;"><span class="newlistItem_title">猪八戒网第一个揽获百万地推订单服务商的心路历程</span></a>
-          <p>此前，乐快推已经为平安财富宝、金信网、借贷宝、易宝支付、美团等知名企业提供过地推服务，也接过许多大订单，所以本次揽获100万</p>
+          <p>此前，乐快推已经为平安财富宝、金信网、借贷宝、易宝支付、美团等知名企业</p>
+          <span class="newlistItem_time">2012-05-6</span>
         </li>
         <li class="newlistItem newlistItem_latest">
           <a href="javascript:;"><span class="newlistItem_title">50多岁大妈连QQ都不会用为何还要选择互联网创业</span></a>
-          <p>在传统的观念中，老年人过的日子应该是在家里逗逗小孙子，外出溜溜弯，以享受天伦之乐。可现如今，50岁以上创业的中年人越来越多，而...</p>
+          <p>在传统的观念中，老年人过的日子应该是在家里逗逗小孙子，外出溜溜弯，以享受天伦之乐。</p>
+          <span class="newlistItem_time">2012-05-6</span>
         </li>
       </ul>
     </div>
   </div>
   <div class="module_home_bottom">
     <ul>
-      <li class="module_home_bottom_pic"><a href="javascript:;"><img src="images/module_home_pic1.png" alt=""></a></li>
-      <li class="module_home_bottom_pic"><a href="javascript:;"><img src="images/module_home_pic2.png" alt=""></a></li>
-      <li class="module_home_bottom_pic"><a href="javascript:;"><img src="images/module_home_pic3.png" alt=""></a></li>
-      <li class="module_home_bottom_pic"><a href="javascript:;"><img src="images/module_home_pic4.png" alt=""></a></li>
-      <li class="module_home_bottom_pic"><a href="javascript:;"><img src="images/module_home_pic5.png" alt=""></a></li>
-      <li class="module_home_bottom_pic"><a href="javascript:;"><img src="images/module_home_pic6.png" alt=""></a></li>
-      <li class="module_home_bottom_pic home_bottom_pic_latest"><a href="javascript:;"><img src="images/module_home_pic7.png" alt=""></li>
+      <li class="module_home_bottom_pic">
+        <a href="javascript:;"><img src="images/module_home_pic1.png" alt=""></a>
+      </li>
+      <li class="module_home_bottom_pic">
+        <a href="javascript:;"><img src="images/module_home_pic2.png" alt=""></a>
+      </li>
+      <li class="module_home_bottom_pic">
+        <a href="javascript:;"><img src="images/module_home_pic3.png" alt=""></a>
+      </li>
+      <li class="module_home_bottom_pic">
+        <a href="javascript:;"><img src="images/module_home_pic4.png" alt=""></a>
+      </li>
+      <li class="module_home_bottom_pic">
+        <a href="javascript:;"><img src="images/module_home_pic5.png" alt=""></a>
+      </li>
+      <li class="module_home_bottom_pic">
+        <a href="javascript:;"><img src="images/module_home_pic6.png" alt=""></a>
+      </li>
+      <li class="module_home_bottom_pic home_bottom_pic_latest">
+        <a href="javascript:;"><img src="images/module_home_pic7.png" alt=""></li>
     </ul>
   </div>
 </div>
@@ -233,20 +249,29 @@
      // 向左切换
    $('.left_btn').on('click', function() {
      bannerUlLeft = parseInt($('.bannerUl').css('left'));
-     if(bannerUlLeft === 0) {
-       $('.bannerUl').css('left', 0);
-     } else {
-       $('.bannerUl').css('left', bannerUlLeft + move +　'px');
-     }
+      if($('.bannerUl').is(':animated')) {
+        return false;
+      } else {
+        $('.bannerUl').stop(false, true);
+        if(bannerUlLeft === 0) {
+          $('.bannerUl').animate({left: 0});
+        } else {
+          $('.bannerUl').animate({left: bannerUlLeft + move +　'px'});
+        }
+      }
    })
    // 向右切换
    $('.right_btn').on('click', function() {
      bannerUlLeft = parseInt($('.bannerUl').css('left'));
-     if( - bannerUlLeft >= 1351 ) {
-       $('.bannerUl').css('left', -1351 + 'px');
-     } else {
-       $('.bannerUl').css('left', bannerUlLeft - move +　'px');
-     }
+      if($('.bannerUl').is(':animated')) {
+        return false;
+      } else {
+        if( - bannerUlLeft >= 1351 ) {
+          $('.bannerUl').animate({left: -1351 + 'px'});
+        } else {
+          $('.bannerUl').animate({left: bannerUlLeft - move +　'px'});
+        }
+      }
    })
  })
 

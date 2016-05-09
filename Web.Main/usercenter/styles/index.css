@@ -1556,7 +1556,6 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #ccc;
 }
 .bannerList_latest {
   margin-right: 0px;
@@ -1671,6 +1670,7 @@ body {
   margin: 0;
 }
 .pic_intro {
+  display: inline-block;
   line-height: 40px;
 }
 .new_list {
@@ -1680,6 +1680,9 @@ body {
   height: 114px;
   font-size: 14px;
   border-bottom: 1px dashed #ccc;
+}
+.newlistItem p {
+  color: #888;
 }
 .newlistItem_content {
   width: 200px;
@@ -1699,6 +1702,10 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.newlistItem_time {
+  font-size: 11px;
+  line-height: 36px;
+}
 .newlistItem img {
   float: left;
   width: 131px;
@@ -1715,8 +1722,9 @@ body {
   width: 150px;
   height: 60px;
   float: left;
-  margin-right: 20px;
+  margin-right: 19px;
   background-color: #ccc;
+  border: 1px solid #ccc;
 }
 .home_bottom_pic_latest {
   margin-right: 0px;

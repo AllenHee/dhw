@@ -1,0 +1,235 @@
+/*app下载页面样式*/
+.nav {
+  width: 100%;
+  height: 150px;
+  line-height: 150px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.logo {
+  float: left;
+}
+.by {
+  float: left;
+  margin-left: 10px;
+}
+.by_logo {
+  display: inline-block;
+  width: 46px;
+  height: 50px;
+  background: url('../images/xinhao.png') no-repeat;
+}
+.nav_content {
+  width: 1200px;
+  margin: 0 auto;
+}
+.nav-list {
+  float: right;
+  width: 420px;
+}
+.nav-list li{
+  float: left;
+  margin-left: 32px;
+}
+/*中间部分*/
+.app_bg {
+  position: relative;
+}
+.app_bg_pic {
+  height: 100%;
+  width: 100%;
+  min-width: 1300px;
+}
+.app_mid_center {
+  position: absolute;
+  width: 100%;
+  height: 544px;
+  top: 50px;
+  /*left: 50%;
+  margin-left: -600px;
+  margin-top: -272px;*/
+}
+.left_part {
+  width: 1200px;
+  margin: 0 auto;
+  /*float: right;*/
+}
+.app_mid_intro {
+  float: right;
+  width: 276px;
+  margin-right: 72px;
+  text-align: right;
+}
+.app_mid_intro h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.app_zx {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 47px;
+}
+.app_mid_intro p {
+  line-height: 30px;
+  font-size: 14px;
+}
+.app_down_ewm {
+  float: right;
+  width: 320px;
+  height: 455px;
+  border: 12px solid #fcce93;
+  background-color: #e69021;
+  text-align: center;
+}
+.app_down_ewm img {
+  width: 272px;
+  height: 287px;
+  margin-top: 29px;
+}
+.app_down_ewm button {
+  width: 258px;
+  height: 67px;
+  border:0;
+  border-radius: 5px;
+  margin-top: 35px;
+  font-size: 20px;
+  color: #e69021;
+  background-color: #fff;
+}
+/*弹框*/
+.app_modal {
+  display: none;
+}
+.app_modalbg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #696969;
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  opacity: 0.5;
+}
+.app_download {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 544px;
+  padding-top: 44px;
+  margin-left: -450px;
+  margin-top: -294px;
+  background-color: #fff;
+}
+.app_alpha {
+  width: 764px;
+  height: 181px;
+  margin: 0 auto;
+}
+.app_alpha_icon {
+  position: relative;
+  float: left;
+  width: 112px;
+  margin-right: 48px;
+  /*border: 1px solid #e69023;*/
+  /*border-radius: 50%;*/
+}
+.app_icon {
+  display: block;
+  width: 112px;
+  height: 112px;
+  background: url('../images/app_download.png') no-repeat;
+  cursor: pointer;
+}
+/*手机端苹果*/
+.iphone_dark {
+  background-position: -9px -125px;
+}
+.current .iphone_light {
+  background-position: -9px -8px;
+}
+/*安卓手机*/
+.Android_dark {
+  background-position: -9px -359px;
+}
+.current .Android_light {
+  background-position: -9px -242px;
+}
+/*平板电脑*/
+.iPad_dark {
+  background-position: -9px -593px;
+}
+.current .iPad_light {
+  background-position: -9px -476px;
+}
+/*安卓平板*/
+.AndroidiPad_dark {
+  background-position: -9px -827px;
+}
+.current .AndroidiPad_light {
+  background-position: -9px -710px;
+}
+/*wap版*/
+.Wap_dark {
+  background-position: -9px -1061px;
+}
+.current .Wap_light {
+  background-position: -9px -944px;
+}
+.app_alpha_icon_last {
+  margin-right: 0px;
+}
+.app_alpha_text {
+  position: absolute;
+  bottom: -36px;
+  width: 112px;
+  text-align: center;
+}
+.app_alpha_text_cur {
+  color: #e69023
+}
+.app_sm_list {
+  display: none;
+  float: left;
+  width: 100%;
+  height: 363px;
+  line-height: 363px;
+  color: #666666;
+  text-align: center;
+  font-size: 70px;
+  background-color: #eeeeee;
+}
+.app_sm_list_current {
+  display: block;
+}
+.app_close_btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 13px;
+  height: 13px;
+  background: url('../images/closeBtn.png') no-repeat;
+}
+.app_down_btn {
+  display: inline-block;
+  width: 250px;
+  height: 69px;
+  margin-right: 61px;
+  border-radius: 5px;
+  line-height: 69px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #e69023;
+}
+.app_down_icon {
+  display: inline-block;
+  width: 25px;
+  height: 32px;
+  margin-left: 9px;
+  vertical-align: middle;
+  background: url('../images/app_down_icon.png') no-repeat;
+}
+.app_sm_list_pic {
+  vertical-align: middle;
+}

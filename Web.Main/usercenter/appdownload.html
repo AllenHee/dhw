@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>梦高速App下载页面</title>
+  <link rel="stylesheet" href="http://localhost:8070/styles/general.css">
+  <link rel="stylesheet" href="styles/appdownload.css">
+</head>
+
+<body>
+  <div class="nav">
+    <div class="nav_content">
+      <div class="logo">
+        <img src="images/index_logo.png" alt="">
+      </div>
+      <div class="by">
+        <i class="by_logo"></i>
+        <span class="xinhao">更多精彩尽在梦高速手机App!</span>
+      </div>
+      <div class="nav-list">
+        <ul>
+          <li class="nav_list_item">iPhone</li>
+          <li class="nav_list_item">Android</li>
+          <li class="nav_list_item">iPad</li>
+          <li class="nav_list_item">AndroidiPad</li>
+          <li class="nav_list_item">Wap</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="app_bg">
+    <img src="images/app_bg.jpg" alt="" class="app_bg_pic">
+    <div class="app_mid_center">
+      <div class="left_part clearfix">
+        <!--微信二维码-->
+        <div class="app_down_ewm">
+          <img src="images/appdown_sm.png" alt="">
+          <button type="button">立即下载</button>
+        </div>
+        <div class="app_mid_intro">
+          <h2>下载梦高速手机App</h2>
+          <span class="app_zx">"App专享价"更省钱！更方便！更快捷！</span>
+          <p>
+            "会记服务"给公司一个快捷的通道！<br/> "梦高速众包"分散式承包平台！
+            <br/> "众创空间"云端创客孵化平台！
+            <br/> "私人定制"个性化定制服务！
+            <br/> "转型升级"产业结构高级化！
+            <br/> "梦云街"智慧o2o城市
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="app_modal">
+    <!--黑色遮罩-->
+    <div class="app_modalbg"></div>
+    <!--弹层-->
+    <div class="app_download">
+      <!--弹框导航开始-->
+      <div class="app_alpha">
+        <ul>
+          <li class="app_alpha_icon current">
+            <i class="iphone_dark app_icon iphone_light"></i>
+            <span class="app_alpha_text app_alpha_text_cur">iPhone</span>
+          </li>
+          <li class="app_alpha_icon">
+            <i class="Android_dark app_icon Android_light"></i>
+            <span class="app_alpha_text">Android</span>
+          </li>
+          <li class="app_alpha_icon">
+            <i class="iPad_dark app_icon iPad_light"></i>
+            <span class="app_alpha_text">iPad</span>
+          </li>
+          <li class="app_alpha_icon">
+            <i class="AndroidiPad_dark app_icon AndroidiPad_light"></i>
+            <span class="app_alpha_text">AndroidiPad</span>
+          </li>
+          <li class="app_alpha_icon app_alpha_icon_last">
+            <a href="javascript:"><i class="Wap_dark app_icon Wap_light"></i></a>
+            <span class="app_alpha_text">Wap</span>
+          </li>
+        </ul>
+      </div>
+       <!--弹框导航结束-->
+      <!--弹框内容开始-->
+      <div class="app_sm">
+        <ul>
+          <li class="app_sm_list app_sm_list_current">即将上线，敬请期待...</li>
+          <li class="app_sm_list">
+            <span class="app_down_btn">
+              下载到电脑
+              <i class="app_down_icon"></i>
+            </span>
+            <img src="images/appdown_sm.png" class="app_sm_list_pic" alt="">
+          </li>
+          <li class="app_sm_list">即将上线，敬请期待...</li>
+          <li class="app_sm_list">即将上线，敬请期待...</li>
+          <li class="app_sm_list"></li>
+        </ul>
+      </div>
+      <!--弹框内容结束-->
+      <span class="app_close_btn"></span>
+    </div>
+  </div>
+  <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>
+  <script>
+    // 点击头部导航出现弹框
+    $('.nav_list_item').on('click',function() {
+      var titleindex = $(this).index();
+      // 弹框出来对应跳到相应用户点击的导航
+      $('.app_alpha_icon').eq(titleindex).addClass('current').siblings().removeClass('current');
+       $('.app_alpha_text').each(function(){
+         $(this).removeClass('app_alpha_text_cur')
+       })
+      $('.app_alpha_icon').eq(titleindex).children('.app_alpha_text').addClass('app_alpha_text_cur');
+      $('.app_sm_list').eq(titleindex).addClass('app_sm_list_current').siblings().removeClass('app_sm_list_current');
+      $('.app_modal').css('display', 'block');
+    })
+    $('.app_down_ewm > button').on('click', function() {
+      $('.app_modal').css('display', 'block');
+    })
+    // 监听窗口变化
+    var height;
+    height = $(window).height() - $('.nav').height();
+    $('.app_bg > img').height(height);
+    $(window).resize(function() {
+      height = $(window).height() - $('.nav').height();
+      if(height > 700) {
+        $('.app_bg > img').height(height);
+      } else {
+        
+      }
+    })
+    $('.app_alpha_icon').on('click', function() {
+       var index = $(this).index();
+       $(this).addClass('current').siblings().removeClass('current');
+       $('.app_alpha_text').each(function(){
+         $(this).removeClass('app_alpha_text_cur')
+       })
+       $(this).children('.app_alpha_text').addClass('app_alpha_text_cur')
+       $('.app_sm_list').eq(index).addClass('app_sm_list_current').siblings().removeClass('app_sm_list_current');
+    })
+    $('.app_close_btn').on('click',function() {
+      $('.app_modal').css('display', 'none');
+    })
+  </script>
+</body>
+
+</html>
