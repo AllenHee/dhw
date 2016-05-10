@@ -110,7 +110,8 @@ uploader.on('uploadProgress', function (file, percentage) {
 uploader.on('uploadSuccess', function (file, res) {
   $('#' + file.id).find('p.state').text('已上传');
   para.attachment_orgin = file.name
-  para.attachment = res._raw;
+  para.attachment = res.path + res.name;
+  //console.log(res.path + res.name)
   //console.log(para.attachment_orgin, para.attachment)
 });
 
