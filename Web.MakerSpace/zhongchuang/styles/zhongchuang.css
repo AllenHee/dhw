@@ -376,6 +376,11 @@
 .main_picture li{
   float: left;
   margin-right: 30px;
+  margin-bottom: 10px;
+}
+.main_pictures{
+  width: 200px;
+  height: 150px;
 }
 .main_introduce {
   margin-bottom: 50px;
