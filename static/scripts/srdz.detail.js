@@ -5,10 +5,19 @@ $(function () {
     $(".Mtitle_items").removeClass("Mtitle_items_current").eq(indexs).addClass("Mtitle_items_current");
     $(".show").hide().eq(indexs).show();
   })
+  $('.topDetail_r_style_l')
   // 款式的选择
+  var sku = {
+    
+  };
+  var text;
+  var skuname;  
   $(".topDetail_r_style_span").click(function () {
     var list = $(this).parent();
     var index = $(this).index();
+    skuname = $(this).parents('.topDetail_r_style').find('.topDetail_r_style_l').attr('data-name');
+    text = $(this).text();
+    sku[skuname] = text;
     list.find(".topDetail_r_style_span").removeClass("active").eq(index).addClass("active");
   })
   // 显示和隐藏详细信息
@@ -65,11 +74,48 @@ $(function () {
     var total = data.result.total;
     $(".recordTotal").text(total);
   }, '.pagination-jl');
+  
+  // 立即定制事件
+  $('.topDetail_r_btn').click(function () {
+      
+      // 判断是否已经登录
+      var mainurl = dhw.mainurl;
+      var localurl = encodeURIComponent(window.location.href);
+      var url = mainurl + "login?redirectURL=" + localurl;
+      if (!$.cookie("accountType")) {
+          location.href = url;
+      }
+      var text = $('.active').text();
+      var jsonbody = JSON.stringify(sku);
+      var count = parseInt($('.topDetail_r_qua_input').val());
+      var para = {
+      productid: fpid,
+      count: count,
+      body: text,
+      sc_sku: jsonbody
+    }
+    if (text === '' && $('.topDetail_r_style_span').length > 0) {
+      alert('请选择类型');
+      return false;
+    }
+    $.post('/ShoppingCart/ShoppingCartAdd', para).success(function (d)
+    {
+      if (d.success) {
+        var id = d.result;
+        window.location.href = '/pay1/' + id;
+      } else {
+        alert('您需要先登录')
+      }
+    })
+    });
+  
+  
 });
 var quantity = parseInt($('.hd_cont_l_keep span').text());
 if (quantity > 999) {
   $('.hd_cont_l_keep span').text('999+');
 }
+// 关注
 function atten() {
   var attention = parseInt($('.hd_cont_l_keep').attr('data-attention'))
   var para = {

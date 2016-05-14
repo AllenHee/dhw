@@ -1,3 +1,7 @@
+// $('.hd_cont_r_head_img img').error(function() {  
+//   console.log(1)
+//   $(this).prop("src", "http://cdn.dreamhiway.com/images/srdz_defult_logo.png");  
+// }); 
 $(function () {
   // 详情导航
   // 各个子项目距离文档顶部的距离
@@ -127,7 +131,7 @@ uploader.on('uploadComplete', function (file) {
 // 数据传输
 //var project_id = 1;
 $('.btn_order').click(function () {
-
+  
   // var contact = $('.qqnumber').find('input').val();
   // var workCycle = $('.overtime').find('input').val();
   var misid = $(this).parents('.subPrjt').attr('data-id');

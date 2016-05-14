@@ -658,6 +658,8 @@ body.zbxq {
   overflow: hidden;
 }
 .hd_cont_r_head_toux {
+  width: 75px;
+  height: 75px;
   margin-right: 20px;
 }
 .hd_cont_r_head_img {
@@ -665,25 +667,31 @@ body.zbxq {
 }
 .hd_cont_r_head_six {
   float: left;
-  line-height: 70px;
+  line-height: 63px;
 }
 .hd_cont_r_head_six button {
-  padding: 0 8px;
+  padding: 0 6px;
   border: 1px solid #bbb;
   border-radius: 2px;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeeee');
   background: linear-gradient(top, #fff,  #eee);
   background: -moz-linear-gradient(top, #fff,  #eee);
   background: -webkit-linear-gradient(top, #fff,  #eee);
-  line-height: 24px;
+  line-height: 20px;
   color: #bbb;
   color: #333\9;
   cursor: pointer;
 }
 .hd_cont_r_head-size {
-  font-size: 20px;
+  display: inline-block;
+  font-size: 15px;
   margin-right: 10px;
   color: #333;
+  width: 97px;
+  vertical-align: middle;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .hd_cont_r_haop li {
   float: left;

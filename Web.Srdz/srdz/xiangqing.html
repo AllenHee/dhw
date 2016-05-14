@@ -145,8 +145,9 @@
           <!--<button class="less_btn">∧</button>
           <button class="more_btn">∨</button>-->
         </div>
+        <!--规格展示模块-->
         <div class="topDetail_r_style">
-          <div class="topDetail_r_style_l">
+          <div class="topDetail_r_style_l" data-name="款式">
             <label>款式 :</label>
           </div>
           <ul class="topDetail_r_style_r clearfix">
@@ -161,6 +162,23 @@
             <li class="topDetail_r_style_span">特制款<i></i></li>
           </ul>
         </div>
+        <div class="topDetail_r_style">
+          <div class="topDetail_r_style_l" data-name="大小">
+            <label>大小 :</label>
+          </div>
+          <ul class="topDetail_r_style_r clearfix">
+            <li class="topDetail_r_style_span">简洁款<i></i></li>
+            <li class="topDetail_r_style_span">经款<i></i></li>
+            <li class="topDetail_r_style_span">特制特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制制款<i></i></li>
+            <li class="topDetail_r_style_span">特特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+            <li class="topDetail_r_style_span">特制款<i></i></li>
+          </ul>
+        </div>
+        <!--规格展示模块-->
         <div class="topDetail_r_qua">
           <label>件数 :</label>
           <span class="topDetail_r_qua_red minus"></span>
@@ -361,34 +379,6 @@
   <script>
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
     console.log($('.topDetail_r_style_span').length )
-    $('.topDetail_r_btn').click(function () {
-      // var mainurl = dhw.mainurl;
-      // var localurl = encodeURIComponent(window.location.href);
-      // var url = mainurl + "login?redirectURL=" + localurl;
-      // if (!$.cookie("accountType")) {
-      //     location.href = url;
-      // }
-      var text = $('.active').text();
-      var count = parseInt($('.topDetail_r_qua_input').val());
-      var para = {
-      productid: fpid,
-      count: count,
-      body: text
-    }
-    if (text === '' && $('.topDetail_r_style_span').length > 0) {
-      alert('请选择类型');
-      return false;
-    }
-    $.post('/ShoppingCart/ShoppingCartAdd', para).success(function (d)
-    {
-      if (d.success) {
-        var id = d.result;
-        window.location.href = '/pay1/' + id;
-      } else {
-        alert('您需要先登录')
-      }
-    })
-    });
   </script>
 </body>
 
