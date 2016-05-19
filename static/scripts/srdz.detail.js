@@ -91,8 +91,7 @@ $(function () {
       var para = {
       productid: fpid,
       count: count,
-      body: text,
-      sc_sku: jsonbody
+      body: text
     }
     if (text === '' && $('.topDetail_r_style_span').length > 0) {
       alert('请选择类型');
