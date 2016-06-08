@@ -90,7 +90,7 @@ $(function () {
       var count = parseInt($('.topDetail_r_qua_input').val());
       var para = {
       productid: fpid,
-      count: count,
+      // count: count,
       body: text
     }
     if (text === '' && $('.topDetail_r_style_span').length > 0) {

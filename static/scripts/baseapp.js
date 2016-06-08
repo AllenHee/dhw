@@ -108,7 +108,7 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
         s.city = { code: citys.code, name: citys.name };
         s.district = { code: s.countrys[0].code, name: s.country };
 
-        s.area = {
+        s.data.area = {
           province: s.province,
           city: s.city,
           district: s.district
@@ -120,7 +120,7 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
         console.log("我选择的乡村是" + countrys.name);
         s.country = countrys.name;
         s.district = { code: countrys.code, name: s.country };
-        s.area = {
+        s.data.area = {
           province: s.province,
           city: s.city,
           district: s.district

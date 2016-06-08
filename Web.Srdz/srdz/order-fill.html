@@ -16,7 +16,7 @@
         };
         var shoppingCartID = [5];
   </script>
-  <script type="text/html" id="addressTem">
+  <!--<script type="text/html" id="addressTem">
     {{each result as addr}} {{if addr.isDefault === false}}
     <div class="areaSelect clearfix">
       {{/if}} {{if addr.isDefault === true}}
@@ -34,7 +34,7 @@
       </div>
       {{/each}}
 
-  </script>
+  </script>-->
 
 </head>
 
@@ -63,9 +63,9 @@
         <span></span> 请在下单15分钟内付款,否则您的订单会被自动取消
       </div>
       <div class="orderfill_cont">
-        <h2 class="order_secondTtl">收货地址</h2>
+        <h2 class="order_secondTtl">个人信息</h2>
         <div class="address_tem">
-          <div class="areaSelect clearfix">
+          <!--<div class="areaSelect clearfix">
             <label class="sendFor"><i></i>寄送至</label>
             <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">黄文明</span><span class="orderfill_phone">12345678910</span>
               <span class="orderfill_addr">福建省 泉州市 <span class="district_name" data-code="110000">鸿山镇</span> 创企信息科技有限公司</span>
@@ -75,20 +75,28 @@
               <li class="operate_items" id="modify" data-id="">修改</li>
               <li class="operate_items" id="delete">删除</li>
             </ul>
+          </div>-->
+          <div class="address_tem_input">
+            <label for="" class="">联系人姓名：</label>
+            <input type="text"  class="invoiceInput orderfill_name" placeholder="请填写联系人姓名">
+          </div>
+          <div class="address_tem_input">
+            <label for="" class="">联系电话：</label>
+            <input type="text" class="invoiceInput orderfill_phone" placeholder="请填写联系方式">
           </div>
         </div>
-        <p class="newAddr">使用新地址</p>
-        <h2 class="order_secondTtl">发票信息</h2>
+        <!--<p class="newAddr">使用新地址</p>-->
+        <!--<h2 class="order_secondTtl">发票信息</h2>-->
         <div>
-          <p class="invoice"><i class="select_icon notNeed_invo"></i>无需发票</p>
-          <p class="invoice"><i class="select_icon need_invo"></i>需要发票</p>
-          <div class="invoice_div">
+          <!--<p class="invoice"><i class="select_icon notNeed_invo"></i>无需发票</p>
+          <p class="invoice"><i class="select_icon need_invo"></i>需要发票</p>-->
+          <!--<div class="invoice_div">
             <label class="invoiceLabel"><span class="redStar">*</span>发票抬头 :</label>
             <input class="invoiceInput" type="text" placeholder="个人">
-          </div>
+          </div>-->
           <div class="invoice_div">
-            <label class="invoiceLabel">备注 :</label>
-            <input class="invoiceInput_long" type="text" placeholder="您可以填写关于回报或您希望发起人知道的信息,鼓励一下也好~~">
+            <label class="invoiceLabel">你要请教的问题 :</label>
+            <textarea class="invoiceInput_long_textarea" type="text" placeholder="描述你要请教的问题，以及介绍自己当前的情况。清晰明确的问题描述和个人介绍将有助于服务商更好地帮到你。"></textarea>
           </div>
         </div>
         <div class="riskDetail">
@@ -109,7 +117,7 @@
       </div>
     </div>
     <!--弹出层 开始-->
-    <div class="model_bg"></div>
+    <!--<div class="model_bg"></div>
     <div class="model newaddr_model">
       <h1 class="model_ttl">添加收货地址<span class="model_cancel">×</span></h1>
       <div class="model_cont">
@@ -153,7 +161,7 @@
           <button class="newaddrForm_btn" type="button">保存</button>
         </form>
       </div>
-    </div>
+    </div>-->
     <!--弹出层 结束-->
   </div>
   <script src="http://localhost:8070/scripts/jquery-1.11.3.min.js"></script>

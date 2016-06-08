@@ -996,6 +996,18 @@
   font-size: 18px;
   line-height: 55px;
 }
+/*去除旧版选择详细地址，新增新的用户填写方式*/
+.address_tem_input {
+  margin: 0px 0px 20px 0px; 
+}
+.address_tem_input label {
+  display: inline-block;
+  width: 116px;
+  height: 37px;
+  line-height: 37px;
+  font-size: 14px;
+  text-align: right;
+}
 .areaSelect {
   position: relative;
   height: 30px;
@@ -1060,10 +1072,10 @@
 .selected_addr .operate {
   display: block;
 }
-.orderfill_name,
+/*.orderfill_name,
 .orderfill_phone {
   margin-right: 10px;
-}
+}*/
 .operate_items {
   float: left;
   height: 13px;
@@ -1100,8 +1112,10 @@
   margin-bottom: 25px;
 }
 .invoiceLabel {
+  display: inline-block;
+  width: 115px;
   height: 35px;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   line-height: 35px;
   font-size: 14px;
 }
@@ -1112,8 +1126,12 @@
   padding-left: 10px;
   border: 1px solid #ededed;
 }
-.invoiceInput_long {
+.invoiceInput_long_textarea {
   width: 480px;
+  height: 300px;
+  padding-left: 10px;
+  border: 1px solid #ededed;
+  vertical-align: top;
 }
 .riskDetail {
   padding: 12px 15px;
