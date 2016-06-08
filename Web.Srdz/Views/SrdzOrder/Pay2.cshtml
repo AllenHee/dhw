@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "订单信息确认 - 梦高速"; 
+}
+@model System.Data.DataRow
+<!--主内容区 开始-->
+<ul class="pay_progress clearfix">
+    <li class="pay_progress_items">1.订单信息填写 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+    </i></li>
+    <li class="pay_progress_items complete">2.订单信息确认 <i class="triangle white_trian"></i>
+        <i class="triangle grey_trian"></i></li>
+    <li class="pay_progress_items">3.支付 <i class="triangle white_trian"></i><i class="triangle grey_trian">
+    </i></li>
+    <li class="pay_progress_items">4.完成 </li>
+</ul>
+<div class="order">
+    <h2 class="order_firstTtl">
+        <i></i>订单提交成功 : @Model["subject"]</h2>
+    <div class="order_content">
+        <p class="order_secondTtl">
+            订单信息</p>
+        <div>
+            <div class="buyerInfor">
+                <p>
+                    <label class="inforLabel">
+                        订单号 :
+                    </label>
+                    <span>@Model["number"]</span></p>
+                <p>
+                    <label class="inforLabel">
+                        联系人 :
+                    </label>
+                    <span>@Model["receiveName"]</span></p>
+                <p>
+                    <label class="inforLabel">
+                        联系方式 :
+                    </label>
+                    <span>@Model["receivePhone"]</span></p>
+                <p>
+                    <label class="inforLabel">
+                        你要请教的问题 :
+                    </label>
+                    <span>@Model["remark"]</span></p>
+            </div>
+        </div>
+        <table class="order_table" cellspacing="0">
+            <colgroup>
+                <col width="285px">
+                <col width="125px">
+                <col width="90px">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        话题名称
+                    </th>
+                    <th>
+                        价格
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model["subject"]
+                    </td>
+                    <td class="redWord">
+                        ¥@Model["price"]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="order_secondTtl">
+            选择支付方式</p>
+        <ul class="payWay clearfix">
+            <li class="fukuan_radiot fukuan_radioo" data-payment="aplipay"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            @* <li class="fukuan_radiot"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            <li class="fukuan_radiot"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            <li class="fukuan_radiot"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>
+            <li class="fukuan_radiot fukuan_radiot-last"><i></i>
+                <img class="fukuan_pic" src="@{@BaseConfigs.GetUrlCdn}srdz/images/zhifubao.png" alt="">
+            </li>*@
+        </ul>
+        <div class="bottom">
+            <button class="paynow">
+                立即付款</button>
+            <button class="return">
+                返回</button>
+        </div>
+    </div>
+</div>
+<!--主内容区 结束-->
+@section scripts{
+    <script>
+        var orderno = '@Model["number"]'
+    </script>
+    <script>
+        // 点击立即付款
+        $('.paynow').click(function () {
+            var payment = $('.fukuan_radiot').attr('data-payment');
+            var url = '/srdzorder/Alipay?number=' + orderno + '&payment=' + payment;
+            window.open(url, '_blank');
+            window, location.href = '/pay3' + '/' + orderno;
+        })
+    </script>
+}

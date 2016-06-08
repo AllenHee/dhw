@@ -22,7 +22,7 @@
                 @for (int i = 0; i < @ViewBag.srdzxt.Count; i++)
                 {
                     var imgs = @ViewBag.srdzxt[i]["img"] + ".jpg";
-                    <li><a href=@ViewBag.srdzxt[i]["url"] target="_blank">
+                    <li><a href="@ViewBag.srdzxt[i]["url"]" target="_blank">
                         <img src="@{@BaseConfigs.GetImgPath}@imgs" alt="私人定制首页大图"></a></li> 
                 }
             </ul>
@@ -37,12 +37,13 @@
             </div>
         </div>
         <div class="topNav_r">
-            <div class="topNav_r_t">
-                <a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_05.png" alt=""></a></div>
-            <div>
-                <a href="#">
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_05.png" alt=""></a></div>
+            @for (int j = 0; j < ViewBag.srxt.Count; j++)
+            {
+                var imgs = @ViewBag.srxt[j]["img"] + ".jpg";
+                <div class="topNav_r_t">
+                    <a href="@ViewBag.srxt[j]["url"]" target="_blank">
+                        <img src="@{@BaseConfigs.GetImgPath}@imgs" alt=""></a></div>
+            }
         </div>
     </div>
     <!--分类栏 结束-->
@@ -91,35 +92,52 @@
     <!--定制你的生活 结束-->
     <!--优质定制店推荐 开始-->
     <div class="store_recom">
+        @{var ser = ViewBag.service[0];
+          int level = ser["level"];
+          string url;
+          if (ser["type"].ToString() == "1")
+          {
+              url = @BaseConfigs.GetUrlMain + "person/" + ser["personid"] + "/index";
+          }
+          else
+          {
+              int? comanyid = ser["companyid"] as int?;
+              url = @BaseConfigs.GetUrlMain + "Company/Index/" + comanyid;
+          }
+        }
         <h2>
             优质定制店推荐</h2>
         <div>
             <a href="#">
-                <img class="store_recom_logo" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_17.png" alt=""></a>
+                <img class="store_recom_logo" src="@{@BaseConfigs.GetImgPath@ser["logo"]}_100x100.jpg" alt=""></a>
             <div class="store_recom_m">
                 <h3>
-                    <a href="#">个人牛仔定制</a></h3>
+                    <a target="_blank" href=@url >@ser["dname"]</a></h3>
                 <div class="store_recom_m_m">
                     <p>
-                        店主 : <span>admin</span></p>
-                    <img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_22.png" alt=""></div>
+                        店主 : <span>@ser["name"]</span></p>
+                    @*<img src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/srdz_22.png" alt="">*@
+                </div>
                 <p class="level">
-                    店铺等级 : <i></i><i></i>
+                    店铺等级 :
+                    @for (int i = 0; i < level; i++)
+                    {
+                        <i></i>}
                 </p>
                 <p class="store_recom_m_b">
-                    店铺粉丝 <span class="special">9</span>宝贝 <span>7</span></p>
+                    @*店铺粉丝 <span class="special">9</span>*@宝贝 <span>@ser["number"]</span></p>
             </div>
             <ul class="store_recom_pic">
-                <li class="store_recom_pic_items"><a href="#">
-                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_1.jpg" alt=""></a></li>
-                <li class="store_recom_pic_items"><a href="#">
-                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_2.jpg" alt=""></a></li>
-                <li class="store_recom_pic_items"><a href="#">
-                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_3.jpg" alt=""></a></li>
-                <li class="store_recom_pic_items"><a href="#">
-                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_4.jpg" alt=""></a></li>
-                <li class="store_recom_pic_items store_recom_pic_items-last"><a href="#">
-                    <img style=" width:112px; height:112px;" src="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/images/index_zj_5.jpg" alt=""></a></li>
+                @for (int j = 0; j < ViewBag.project.Rows.Count; j++)
+                {
+                    var project = ViewBag.project.Rows[j];
+                    var img = project["productlmg"].ToString();
+                    <li class="store_recom_pic_items @if (j == 4)
+                                                     {<text>store_recom_pic_items-last</text>}"><a href="/Detail/@project["id"]">
+                                                         <img style=" width:112px; height:112px;" src="@if (img == "")
+                                                                                                       {<text>@{@BaseConfigs.GetStaticPath}/images/srdz_defult_logo.png</text>}
+                                                                                                       else
+                                                                                                       {<text>@{@BaseConfigs.GetImgPath@img}_310x310.jpg</text>}" alt="" title="@project["title"]"></a></li>}
             </ul>
         </div>
     </div>

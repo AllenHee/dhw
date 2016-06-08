@@ -1,4 +1,7 @@
-﻿<!--主内容区 开始-->
+﻿@{
+    ViewBag.Title = "列表 - 私人定制 - 梦高速";
+}
+<!--主内容区 开始-->
 <div class="content">
     @*   <div class="liebiao_top clearfix">
         <div class="lb_text">
@@ -13,18 +16,29 @@
     </div>*@
     <div class="main">
         <div class="cont_fl clearfix">
-            <h4>
-                分类</h4>
-            <ul>
-                <li>
-                    <input name="cate" type="radio" checked="checked">全部</li>
-                <li>
-                    <input name="cate" type="radio" data-type="1">创意定制</li>
-                <li>
-                    <input name="cate" type="radio" data-type="2">企业定制</li>
-                <li>
-                    <input name="cate" type="radio" data-type="3">找代加工</li>
-            </ul>
+            <dl class="cysearch_head_sort clearfix">
+                <dt class="cysearch_head_sortt">分类：</dt>
+                <dd class="cysearch_head_sortd cysearch_head_sortd-curent">
+                    全部</dd>
+                <dd class="cysearch_head_sortd" data-type="20">
+                    互联网+</dd>
+                <dd class="cysearch_head_sortd" data-type="21">
+                    创业和投融资</dd>
+                <dd class="cysearch_head_sortd" data-type="22">
+                    生活休闲</dd>
+                <dd class="cysearch_head_sortd" data-type="23">
+                    心理</dd>
+                <dd class="cysearch_head_sortd" data-type="24">
+                    职场发展</dd>
+                <dd class="cysearch_head_sortd" data-type="25">
+                    行业经验</dd>
+                <dd class="cysearch_head_sortd" data-type="26">
+                    投资理财</dd>
+                <dd class="cysearch_head_sortd" data-type="27">
+                    教育学习</dd>
+                <dd class="cysearch_head_sortd" data-type="28">
+                    其他</dd>
+            </dl>
         </div>
         <div class="cont_choose clearfix">
             <ul class="choose_tj">
@@ -61,11 +75,11 @@
       <li>
         <a  target="_blank" href="/Detail/{{list.id}}">
           {{if list.img}}
-           <img src="{{domain}}{{list.img}}_310x310.jpg" alt=""></a>      
+           <img src="{{domain}}{{list.img}}_310x310.jpg" alt="">      
           {{/if}}
           {{if !list.img}}
           <img src="@{@BaseConfigs.GetStaticPath}/images/srdz_defult_logo.png" alt="">
-          {{/if}}
+          {{/if}}</a>
         <div class="cont_main_text">
           <a target="_blank" href="/Detail/{{list.id}}">{{list.title}}</a>
           <!--<span>￥399.00</span></br>-->

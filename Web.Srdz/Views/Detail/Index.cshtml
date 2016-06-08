@@ -4,6 +4,27 @@
     var title = item.title;
     ViewBag.Title = title + " - " + ViewBag.name + " - 梦高速";
 }
+@section head{
+    <style>
+        .content .cjjl
+        {
+            height: 570px;
+        }
+        .content .cjjl span
+        {
+            line-height: 50px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .content .cjjl p
+        {
+            font-size: 15px;
+            line-height: 25px;
+            text-indent: 30px;
+        }
+    </style>
+}
+}
 <!--主内容区 开始-->
 <div class="content">
     @* <p class="title">
@@ -11,7 +32,7 @@
     <!--顶部详情-->
     <div class="topDetail">
         <div class="topDetail_l">
-            <img src="@if (item.logo == "")
+            <img src="@if (item.logo.ToString() == "")
                       {<text>@{@BaseConfigs.GetStaticPath}/images/srdz_defult_logo.png</text>}
                       else
                       {<text>@{@BaseConfigs.GetImgPath@item.logo}_100x100.jpg</text>}">
@@ -22,14 +43,19 @@
                 </i><i class="topDetail_l_level_item"></i><i class="topDetail_l_level_item"></i>
             </div>
             <div class="topDetail_l_butWrap">
-                <button class="topDetail_l_but">
-                </button>
-                发私信
+                <a href="@{@BaseConfigs.GetUrlMain}apphome#/email/write?to=@item.dname" target="_blank">
+                    <button class="topDetail_l_but">
+                    </button>
+                </a>发私信
             </div>
             <p class="topDetail_l_addr">
-                所在地：<span>@item.province @item.city</span></p>
+                所在地：<span>@item.province ·@item.city</span></p>
             <p class="topDetail_l_addr">
                 好评率：<span>99%</span></p>
+            @if (item.type == "2")
+            {
+                <p class="topDetail_l_addr">
+                    公司主页：<a href="@{@BaseConfigs.GetUrlMain}Company/Index/@item.companyid" target="_blank"><span>点击进入</span></a></p>}
         </div>
         <div class="topDetail_c">
             <div class="topDetail_c_imgWrap">
@@ -55,13 +81,13 @@
                 <!--<button class="less_btn">∧</button>
           <button class="more_btn">∨</button>-->
             </div>
-            @if (@item.sku != null)
+            @* @if (@item.sku != null)
             {
                 foreach (JProperty jp in item.sku as JToken)
                 {
                     JArray iitem = jp.Value as JArray;
                 <div class="topDetail_r_style">
-                    <div class="topDetail_r_style_l">
+                    <div class="topDetail_r_style_l" data-name="@jp.Name">
                         <label>
                             @jp.Name:</label></div>
                     <ul class="topDetail_r_style_r clearfix">
@@ -74,20 +100,20 @@
                 </div>
                 }
             }
-            <div class="topDetail_r_qua">
+ <div class="topDetail_r_qua">
                 <label>
                     件数 :</label>
                 <span class="topDetail_r_qua_red minus"></span>
                 <input class="topDetail_r_qua_input" type="text" value="1">
                 <span class="topDetail_r_qua_add plus"></span><span class="topDetail_r_qua_total" data-kc="@item.inventory">
                     件（库存 @item.inventory 件）</span>
-            </div>
+            </div>*@
             <div class="topDetail_r_price">
                 <label>
                     价格 :</label><span>¥@item.price</span>
             </div>
             <div class="topDetail_r_bt">
-                <botton class="topDetail_r_btn">立即定制</botton>
+                <botton class="topDetail_r_btn">申请约见</botton>
             </div>
             <div class="topDetail_r_b">
                 <ul class="topDetail_r_b clearfix">
@@ -116,9 +142,10 @@
     <!--顶部详情 结束-->
     <div>
         <ul class="Mtitle">
-            <li class="Mtitle_items Mtitle_items_current">商品详情</li>
+            <li class="Mtitle_items Mtitle_items_current">话题描述</li>
             <li class="Mtitle_items">用户评价(<span class="commentTotal">18</span>)</li>
             <li class="Mtitle_items">成交记录(<span class="recordTotal">26</span>)</li>
+            <li class="Mtitle_items">交易必读</li>
         </ul>
         <!--商品详情 开始-->
         <div class="spxq show">
@@ -161,12 +188,45 @@
             </div>
         </div>
         <!--成交记录 结束-->
+        <!--交易必读 开始-->
+        <div class="cjjl show">
+            <span>一、私人定制是什么？</span>
+            <p>
+                1、当你遇到任何领域的问题或是个性化的服务需求，都可以在这里，径直找到一个可以帮助你的人，答疑解惑，出谋划策，定制服务。
+            </p>
+            <p>
+                2、私人定制实行线上预约，线下服务，即线上简单填写需求，线下面对面约见。告别传统人情关系债，体会教学相长的乐趣。</p>
+            <p>
+                3、目前私人定制的每位服务商都经过梦高速审核，确保身份真实。
+            </p>
+            <span>二、私人定制交易流程</span>
+            <p>
+                用户申请约见→用户付费→预约时间地点→双方见面→服务商确认见过→用户评价→服务商确认见过后72小时后学费将全部转入服务商余额，服务商可随时支取
+            </p>
+            <span>三、约见的规范是怎样的？</span><p>
+                为了保证用户和服务商的约见体验良好，我们对约见双方制定了如下规范：</p>
+            <p>
+                1、用户在申请约见时清楚写明自己的问题和个人相关背景；</p>
+            <p>
+                2、服务商在约见前根据用户的问题提前做好准备；</p>
+            <p>
+                3、面谈时，服务商以用户的问题为核心，从用户自身情况出发，为其答疑解惑、出谋划策、提出问题的解决之道；避免泛泛而谈或者脱离用户实际情况；</p>
+            <p>
+                4、双方见面不迟到，在面谈过程手机保持静音，不查收信息或接打电话；</p>
+            <p>
+                5、双方改期需提前24小时通知。</p>
+            <span>四、免责声明</span>
+            <p>
+                私人定制服务商所提供法律、心理等方面信息，只限于知识普及和经验指导的范畴，服务商和用户双方并未形成正式的委托关系，服务商及梦高速所在公司对此不负相关法律责任。</p>
+        </div>
+        <!--交易必读 结束-->
     </div>
 </div>
 <!--主内容区 结束-->
 @section scripts{
+    <script src="@BaseConfigs.GetStaticPath/lib/jquery.cookie.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}/scripts/srdz.detail.js"></script>
-    <script src="@{@BaseConfigs.GetUrlCdn}/scripts/jquery.paging.min.js"></script>
+    @* <script src="@{@BaseConfigs.GetUrlCdn}/scripts/jquery.paging.min.js"></script>*@
     <script src="@{@BaseConfigs.GetUrlCdn}/scripts/template.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}/scripts/jquery.loaddata.js"></script>
     <script>
@@ -210,29 +270,5 @@
       <td>{{cj.date}}</td>
     </tr>  
     {{/each}}
-    </script>
-    <script>
-        var para = {
-            fpid: fpid,
-            pageIndex: 1,
-            pageSize: 5
-        }
-
-        loadData("/Detail/Pjxx", para, "yhpjid", ".yhpj_wrap", function (data) {
-            for (var j = 0; j < data.result.data.length; j++) {
-                data.result.data[j].rankArr = [];
-                for (var i = 0; i < data.result.data[j].rank; i++) {
-                    data.result.data[j].rankArr.push("");
-                }
-            }
-            var total = data.result.total;
-            $(".commentTotal").text(total);
-        }, '.pagination-pj');
-
-        loadData("/Detail/Cjjl", para, "cjjlid", ".cjjl_tbody", function (data) {
-            var total = data.result.total;
-            $(".recordTotal").text(total);
-        }, '.pagination-jl');
-    
     </script>
 }

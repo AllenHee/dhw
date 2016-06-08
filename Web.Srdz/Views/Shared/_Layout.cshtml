@@ -2,11 +2,14 @@
     Layout = "~/Views/Shared/_BaseLayout.cshtml";
 }
 @section head{
+    <link rel="stylesheet" href="@Html.Raw(@BaseConfigs.GetUrlCdn)fonts/iconfont.css">
+    <link rel="stylesheet" href="@Html.Raw(@BaseConfigs.GetUrlCdn)styles/general.css">
     <link rel="stylesheet" href="@Html.Raw(@BaseConfigs.GetUrlCdn)zhongbao/styles/style.css">
     <link rel="stylesheet" href="@Html.Raw(@BaseConfigs.GetUrlCdn)srdz/styles/srdz.css">
     @RenderSection("head", required: false)
 }
 @section scripts{
+    <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery-1.11.3.min.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/jquery.placeholder.js"></script>
     <script type="text/javascript">
         $("#su").keydown(function (event) {

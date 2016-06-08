@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "订单详情 - 梦高速"; 
+}
+@model System.Data.DataRow
+<div class="order">
+ @HelperWL.display_wl(ViewBag.wlmodel)
+    <h1 class="order_firstTtl">
+        订单详情</h1>
+    <div class="order_content">
+        <h2 class="order_secondTtl">
+            卖家信息</h2>
+        <div class="order_detail_det clearfix">
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    昵称 :
+                </label>
+                <span>@Model["name"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    真是姓名 :
+                </label>
+                <span>@Model["realname"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    城市 :
+                </label>
+                <span>@Model["city_name"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    联系电话 :
+                </label>
+                <span>@Model["phone"]</span></div>
+        </div>
+        <h2 class="order_secondTtl">
+            订单信息</h2>
+        <div class="order_detail_det clearfix">
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    订单编号 :
+                </label>
+                <span>@Model["number"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    支付宝交易号 :
+                </label>
+                <span>@Model["trade_no"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    创建时间 :
+                </label>
+                <span>@Model["date"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    付款时间 :
+                </label>
+                <span>@Model["payfinishedtime"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    收货地址 :
+                </label>
+                <span>@Model["receiveAddress"]</span></div>
+            <div class="order_detail_set">
+                <label class="inforLabel">
+                    备注 :
+                </label>
+                <span>@Model["remark"]</span></div>
+        </div>
+        <table class="detail_table order_table" cellspacing="0">
+            <colgroup>
+                <col width="290px">
+                <col width="355px">
+                <col width="165px">
+                <col width="110px">
+                <col width="90px">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        商品名称
+                    </th>
+                    <th>
+                        商品描述
+                    </th>
+                    <th>
+                        数量
+                    </th>
+                    <th>
+                        单价
+                    </th>
+                    <th>
+                        配送费用
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model["subject"]
+                    </td>
+                    <td>
+                        @Model["body"]
+                    </td>
+                    <td>
+                        @Model["count"]
+                    </td>
+                    <td class="redWord">
+                        ¥@Model["price"]
+                    </td>
+                    <td>
+                        @Model["deliveryPrice"]
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
