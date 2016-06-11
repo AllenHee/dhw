@@ -114,9 +114,9 @@ app.controller('regCtrl', ['$scope', '$http', function (s, h) {
       if (data.success) {
         $('.errorPop_wrap').show();
         $('.successPop').show();
-        // setTimeout(function () {
-        //   location.pathname = "/login";
-        // }, 3000)
+        setTimeout(function () {
+          location.pathname = "/login";
+        }, 3000)
       } else {
         $('.errorPop_wrap').show();
         $('.verifyCodeError').html(data.msg)
