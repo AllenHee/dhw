@@ -90,13 +90,16 @@
   <!--主内容区 开始-->
 
   <div class="content">
-    <div class="liebiao_top clearfix">
+    <!--<div class="liebiao_top clearfix">
       <div class="lb_text"><a href="#">首页</a> > <a href="#">所有分类</a> ></div>
       <div class="lb_input">
         <input type="text" placeholder="在当前条件下搜索">
         <button type="button" href="#"></button>
       </div>
       <div class="lb_r">共848款</div>
+    </div>-->
+    <div>
+      <img src="images/gg.gif" alt="" style="width:1024px;heigth:80px">
     </div>
     <div class="main">
       <div class="cont_fl clearfix">
@@ -209,7 +212,9 @@
   <script src="http://localhost:8070/scripts/srdzList.js"></script>
   <script>
     $('input, textarea').placeholder();
-    
+    var dhwtempvar = {
+      type : '3'
+    }
     $(".choose_tj li").click(function() {
       $(".choose_tj li").removeClass("active");
       $(this).addClass("active");

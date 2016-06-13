@@ -299,7 +299,9 @@ $(function () {
   //轮播图
   $(".zc_rank_left").click(function () {
     var left = parseInt($(".zc_rank_items").css('left')),
+    // 计算剩余个数
       num = li_num - 5,
+    // 计算剩余长度
       length = num * 202,
       a = length + left,
       l;
