@@ -83,6 +83,7 @@ angular.module("baseapp", ['ui.bootstrap.pagination']).run(['$rootScope', functi
         s.prov = provinces.name;
         //清空县区的数据
         s.country = '';
+        s.countrys = [];
         //此操作为用户只进行选择省份的操作
         s.province = { code: provinces.code, name: provinces.name };
         s.city = { code: s.citys[0].code, name: s.citym };

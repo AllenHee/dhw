@@ -114,12 +114,15 @@ app.controller('regCtrl', ['$scope', '$http', function (s, h) {
       if (data.success) {
         $('.errorPop_wrap').show();
         $('.successPop').show();
-        setTimeout(function () {
-          location.pathname = "/login";
-        }, 3000)
+        alert('提交成功,点击确定到登录界面进行登录');
+        location.pathname = "/login";
+        // setTimeout(function () {
+        //   location.pathname = "/login";
+        // }, 3000)
       } else {
+        alert('提交失败,请重新尝试');
         $('.errorPop_wrap').show();
-        $('.verifyCodeError').html(data.msg)
+        $('.verifyCodeError').html("请确保信息填写完整以及验证码是否正确")
         $('.errorPop').fadeIn(function () {
           s.codeRefresh();
         });
