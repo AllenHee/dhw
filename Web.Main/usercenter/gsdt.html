@@ -72,8 +72,8 @@
   <!--内容 开始-->
   <div class="content gsdt clearfix">
     <div class="ban_btns">
-      <a class="current emColorBG" href="#" data-index='2'>公司动态</a>
-      <a href="#" data-index='1'>行业动态</a>
+      <a class="current emColorBG" href="javascript:;" data-index='2'>公司动态</a>
+      <a href="javascript:;" data-index='1'>行业动态</a>
     </div>
     <!--公司动态-->
     <div class="comDt show">
@@ -158,17 +158,17 @@
     $(".ban_btns a").click(function() {
       $(this).addClass("current").siblings().removeClass("current");
       para.type = $(this).attr('data-index');
-      var i = $(this).index();
-      $(".gsdt").children("div").eq(i + 1).addClass("show").siblings().removeClass("show");
+      // var i = $(this).index();
+      // $(".gsdt").children("div").eq(i + 1).addClass("show").siblings().removeClass("show");
       loadData("/CompanyHome/DTList", para, "dongtai", ".gongsi", false);
-      loadData("/CompanyHome/DTList", para, "dongtai", ".hangye", false);
+      //loadData("/CompanyHome/DTList", para, "dongtai", ".hangye", false);
     })
     loadData("/CompanyHome/DTList", para, "dongtai", ".gongsi", false);
    })
   </script>
   
   <script>
-    var ddid = 51;
+    var ddid = 48;
   </script>
 </body>
 </html>

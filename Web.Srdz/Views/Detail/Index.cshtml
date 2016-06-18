@@ -81,33 +81,28 @@
                 <!--<button class="less_btn">∧</button>
           <button class="more_btn">∨</button>-->
             </div>
-            @* @if (@item.sku != null)
+            @foreach (DHW.Common.prop items in ViewBag.props)
             {
-                foreach (JProperty jp in item.sku as JToken)
-                {
-                    JArray iitem = jp.Value as JArray;
                 <div class="topDetail_r_style">
-                    <div class="topDetail_r_style_l" data-name="@jp.Name">
+                    <div class="topDetail_r_style_l">
                         <label>
-                            @jp.Name:</label></div>
+                            @items.name：</label></div>
                     <ul class="topDetail_r_style_r clearfix">
-                        @for (int i = 0; i < iitem.Count; i++)
+                        @foreach (var item2 in items.propEnum)
                         {
-                           
-                            <li class="topDetail_r_style_span">@iitem[i]<i></i></li>
+                            <li class="topDetail_r_style_span" data-lev="@items.lev" data-index="@item2.index" title="@item2.remark">@item2.name<i></i></li>
                         }
                     </ul>
                 </div>
-                }
             }
- <div class="topDetail_r_qua">
+            <div class="topDetail_r_qua">
                 <label>
-                    件数 :</label>
+                    数量 :</label>
                 <span class="topDetail_r_qua_red minus"></span>
-                <input class="topDetail_r_qua_input" type="text" value="1">
-                <span class="topDetail_r_qua_add plus"></span><span class="topDetail_r_qua_total" data-kc="@item.inventory">
-                    件（库存 @item.inventory 件）</span>
-            </div>*@
+                <input class="topDetail_r_qua_input" type="number" value="1">
+                <span class="topDetail_r_qua_add plus"></span>@*<span class="topDetail_r_qua_total" data-kc="@item.inventory">
+                    件（库存 @item.inventory 件）</span>*@
+            </div>
             <div class="topDetail_r_price">
                 <label>
                     价格 :</label><span>¥@item.price</span>
@@ -224,6 +219,9 @@
 </div>
 <!--主内容区 结束-->
 @section scripts{
+    <script>
+        var product={skus:@Html.Raw(ViewBag.sku)};
+    </script>
     <script src="@BaseConfigs.GetStaticPath/lib/jquery.cookie.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}/scripts/srdz.detail.js"></script>
     @* <script src="@{@BaseConfigs.GetUrlCdn}/scripts/jquery.paging.min.js"></script>*@

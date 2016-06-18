@@ -14,6 +14,12 @@
         <div class="lb_r">
             共848款</div>
     </div>*@
+    @if (ViewBag.types != null)
+    {
+        <div>
+            <img src="http://cdn.dreamhiway.com/images/gg.gif" alt="" style="width: 1024px; heigth: 80px">
+        </div>
+    }
     <div class="main">
         <div class="cont_fl clearfix">
             <dl class="cysearch_head_sort clearfix">
@@ -67,7 +73,8 @@
 @section scripts{
     <script type="text/javascript">
         var dhwtempvar = {
-            type: '@ViewBag.type'
+            type: '@ViewBag.type',
+            types:'@ViewBag.types'
         }
     </script>
     <script type="text/html" id="List">

@@ -1,42 +1,44 @@
 // 默认地址与发票的选择
-$('.invoice').click(function () {
-  var index = $(this).index();
-  $('.invoice i').removeClass('selected_icon').eq(index).addClass('selected_icon');
-  if ($('.notNeed_invo').hasClass('selected_icon')) {
-    $('.invoiceInput').attr('disabled', 'disabled')
-  }
-  if ($('.need_invo').hasClass('selected_icon')) {
-    $('.invoiceInput').removeAttr('disabled')
-  }
-})
-$('.address_tem').on('mouseover', '.areaSelect', function () {
-  $(this).addClass('selected_addr');
-})
-$('.address_tem').on('mouseout', '.areaSelect', function () {
-  if ($(this).hasClass('confirm')) {
-    return false;
-  }
-  $(this).removeClass('selected_addr');
-})
-$('.address_tem').on('click', '.areaSelect', function () {
-  var index = $(this).index();
-  $('.areaSelect').removeClass('confirm selected_addr').eq(index).addClass('confirm selected_addr');
-})
+// $('.invoice').click(function () {
+//   var index = $(this).index();
+//   $('.invoice i').removeClass('selected_icon').eq(index).addClass('selected_icon');
+//   if ($('.notNeed_invo').hasClass('selected_icon')) {
+//     $('.invoiceInput').attr('disabled', 'disabled')
+//   }
+//   if ($('.need_invo').hasClass('selected_icon')) {
+//     $('.invoiceInput').removeAttr('disabled')
+//   }
+// })
+// $('.address_tem').on('mouseover', '.areaSelect', function () {
+//   $(this).addClass('selected_addr');
+// })
+// $('.address_tem').on('mouseout', '.areaSelect', function () {
+//   if ($(this).hasClass('confirm')) {
+//     return false;
+//   }
+//   $(this).removeClass('selected_addr');
+// })
+// $('.address_tem').on('click', '.areaSelect', function () {
+//   var index = $(this).index();
+//   $('.areaSelect').removeClass('confirm selected_addr').eq(index).addClass('confirm selected_addr');
+// })
 
 // 点击修改与添加新地址
-$('.address_tem').on('click', '#modify', function () {
-  $('.model_bg').show();
-  $('.model').show();
-})
-$('.orderfill_cont').on('click', '.newAddr', function () {
-  $('.model_bg').show();
-  $('.model').show();
-  document.getElementById('addrForm').reset();
-})
+// $('.address_tem').on('click', '#modify', function () {
+//   $('.model_bg').show();
+//   $('.model').show();
+// })
+// $('.orderfill_cont').on('click', '.newAddr', function () {
+//   $('.model_bg').show();
+//   $('.model').show();
+//   document.getElementById('addrForm').reset();
+// })
 
 // 读取数据
 
-var addrData = [];
+// var addrData = [];
+
+// 传到后台的数据
 var para = {
   model: {}
 };
@@ -79,80 +81,80 @@ var para = {
 
 // 地区的选择
 
-var provinces = [];
-var cities = [];
-var counties = [];
-$.getJSON(dhw.urlmain + '/Dict/city2?callback=?', function (data) {
-  var provinces = data.result;
-  // 循环取得省
-  for (var i = 0, pLen = provinces.length; i < pLen; i++) {
-    var content = provinces[i].name;
-    var code = provinces[i].code;
-    var html = '<li data-code="' + code + '">' + content + '</li>'
-    $('.addr_province').append(html);
-  }
-  // 循环取得市
-  $('.addr_province li').click(function () {
-    cities = [];
-    $('.addr_city').empty();
-    var province = $(this).html();
-    $('#province').val(province);
-    for (var i = 0, len = provinces.length; i < len; i++) {
-      if (province === provinces[i].name) {
-        cities = provinces[i].citys;
-      }
-    }
-    for (var i = 0, cLen = cities.length; i < cLen; i++) {
-      var content = cities[i].name;
-      var code = cities[i].code;
-      var html = '<li data-code="' + code + '">' + content + '</li>'
-      $('.addr_city').append(html);
-    }
-    $('.addr_province').hide();
-    $('.addr_city').show();
-    $('#province').attr('data-code', $(this).attr('data-code'));
-  })
-  // 循环取得县
-  $('.addr_city').on('click', 'li', function () {
-    counties = [];
-    $('.addr_county').empty();
-    var city = $(this).html();
-    $('#city').val(city);
-    for (var i = 0, cLen = cities.length; i < cLen; i++) {
-      if (city === cities[i].name) {
-        counties = cities[i].districts
-      }
-    }
-    for (var i = 0, coLen = counties.length; i < coLen; i++) {
-      var content = counties[i].name;
-      var code = counties[i].code;
-      var html = '<li data-code="' + code + '">' + content + '</li>'
-      $('.addr_county').append(html);
-    }
-    $('.addr_city').hide();
-    $('.addr_county').show();
-    $('#city').attr('data-code', $(this).attr('data-code'));
-  })
+// var provinces = [];
+// var cities = [];
+// var counties = [];
+// $.getJSON(dhw.urlmain + '/Dict/city2?callback=?', function (data) {
+//   var provinces = data.result;
+//   // 循环取得省
+//   for (var i = 0, pLen = provinces.length; i < pLen; i++) {
+//     var content = provinces[i].name;
+//     var code = provinces[i].code;
+//     var html = '<li data-code="' + code + '">' + content + '</li>'
+//     $('.addr_province').append(html);
+//   }
+//   // 循环取得市
+//   $('.addr_province li').click(function () {
+//     cities = [];
+//     $('.addr_city').empty();
+//     var province = $(this).html();
+//     $('#province').val(province);
+//     for (var i = 0, len = provinces.length; i < len; i++) {
+//       if (province === provinces[i].name) {
+//         cities = provinces[i].citys;
+//       }
+//     }
+//     for (var i = 0, cLen = cities.length; i < cLen; i++) {
+//       var content = cities[i].name;
+//       var code = cities[i].code;
+//       var html = '<li data-code="' + code + '">' + content + '</li>'
+//       $('.addr_city').append(html);
+//     }
+//     $('.addr_province').hide();
+//     $('.addr_city').show();
+//     $('#province').attr('data-code', $(this).attr('data-code'));
+//   })
+//   // 循环取得县
+//   $('.addr_city').on('click', 'li', function () {
+//     counties = [];
+//     $('.addr_county').empty();
+//     var city = $(this).html();
+//     $('#city').val(city);
+//     for (var i = 0, cLen = cities.length; i < cLen; i++) {
+//       if (city === cities[i].name) {
+//         counties = cities[i].districts
+//       }
+//     }
+//     for (var i = 0, coLen = counties.length; i < coLen; i++) {
+//       var content = counties[i].name;
+//       var code = counties[i].code;
+//       var html = '<li data-code="' + code + '">' + content + '</li>'
+//       $('.addr_county').append(html);
+//     }
+//     $('.addr_city').hide();
+//     $('.addr_county').show();
+//     $('#city').attr('data-code', $(this).attr('data-code'));
+//   })
 
-  $('.addr_county').on('click', 'li', function () {
-    var county = $(this).html()
-    $('#county').val(county)
-    $('.addr_county').hide();
-    $('#county').attr('data-code', $(this).attr('data-code'));
-  })
+//   $('.addr_county').on('click', 'li', function () {
+//     var county = $(this).html()
+//     $('#county').val(county)
+//     $('.addr_county').hide();
+//     $('#county').attr('data-code', $(this).attr('data-code'));
+//   })
 
-  $('#province').click(function () {
-    $('.addr_province').show();
-    $('#city').val('');
-    $('#county').val('');
-  })
-  $('#city').click(function () {
-    $('.addr_city').show();
-  })
-  $('#county').click(function () {
-    $('.addr_county').show();
-  })
-})
+//   $('#province').click(function () {
+//     $('.addr_province').show();
+//     $('#city').val('');
+//     $('#county').val('');
+//   })
+//   $('#city').click(function () {
+//     $('.addr_city').show();
+//   })
+//   $('#county').click(function () {
+//     $('.addr_county').show();
+//   })
+// })
 
 // 关闭弹出层
 $('.model_cancel').click(function () {
@@ -165,10 +167,10 @@ var confirm_addr = $('.address_tem');
 $('.nextBtn_btn').click(function () {
   var receiveName = confirm_addr.find('.orderfill_name').val();
   var receivePhone = confirm_addr.find('.orderfill_phone').val();
+  var remark = $('.invoiceInput_long').val();
   //var receiveAddress = confirm_addr.find('.orderfill_addr').text();
   //var districtCode = confirm_addr.find('.district_name').attr('data-code')
   //var invoicehead = $('.invoiceInput').val();
-  var remark = $('.invoiceInput_long').val();
   //var isinvoice;
   // if ($('.need_invo').hasClass('selected_icon')) {
   //   isinvoice = true;
@@ -181,14 +183,16 @@ $('.nextBtn_btn').click(function () {
     model: {
       receiveName: receiveName,
       receivePhone: receivePhone,
+      remark: remark,
+      shoppingCartID: shoppingCartID,
+      skuid: skuid,
       // receiveAddress: receiveAddress,
       // districtCode: districtCode,
       //invoicehead: invoicehead,
-      remark: remark,
       // isinvoice: isinvoice,
-      shoppingCartID: shoppingCartID
     }
   }
+  if (receiveName != '' && receivePhone != '' && remark != '') {
   $.ajax({
     url: '/srdzorder/add',
     type: 'POST',
@@ -199,14 +203,17 @@ $('.nextBtn_btn').click(function () {
       //console.log(orderno)
       window.location.href = '/pay2/' + orderno;
     }
-  })
-})
+  });
+  } else {
+    alert('请填写完整的信息');
+  }
+});
 
 // 地址的修改与保存
 
-$('.orderfill_cont').on('click', '.newAddr', function () {
-  $('.newaddrForm_btn').removeClass('addrModify').addClass('addNewAddr')
-})
+// $('.orderfill_cont').on('click', '.newAddr', function () {
+//   $('.newaddrForm_btn').removeClass('addrModify').addClass('addNewAddr')
+// })
 
 // function address(path) {
 //   var province = $('#province').val();
@@ -276,22 +283,22 @@ $('.orderfill_cont').on('click', '.newAddr', function () {
 // });
 
 // 删除客户信息
-$('.address_tem').on('click', '#delete', function () {
-  var conf = confirm('是否确定删除?');
-  if (conf) {
-    var id = $(this).siblings('#modify').attr('data-id')
-    $.post('/useraddr/del', { id: id }).success(function () {
-      $.post('/useraddr/list').success(function (data) {
-        addrData = data.result;
-        var html = template('addressTem', data);
-        $('.address_tem').html(html)
-      })
-    })
-  }
-})
+// $('.address_tem').on('click', '#delete', function () {
+//   var conf = confirm('是否确定删除?');
+//   if (conf) {
+//     var id = $(this).siblings('#modify').attr('data-id')
+//     $.post('/useraddr/del', { id: id }).success(function () {
+//       $.post('/useraddr/list').success(function (data) {
+//         addrData = data.result;
+//         var html = template('addressTem', data);
+//         $('.address_tem').html(html);
+//       })
+//     })
+//   }
+// })
 
 // 设置默认地址
-$('.address_tem').on('click', '.operate_items_grey', function () {
-  var id = $(this).siblings('#modify').attr('data-id')
-  $.post('/useraddr/setdefault', { id: id }).success(function () { })
-})
+// $('.address_tem').on('click', '.operate_items_grey', function () {
+//   var id = $(this).siblings('#modify').attr('data-id');
+//   $.post('/useraddr/setdefault', { id: id }).success(function () { });
+// })

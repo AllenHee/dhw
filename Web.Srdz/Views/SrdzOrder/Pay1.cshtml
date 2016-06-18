@@ -19,27 +19,24 @@
         </div>
         <div class="orderfill_cont">
             <h2 class="order_secondTtl">
-                收货地址</h2>
+                个人信息</h2>
             <div class="address_tem">
-            </div>
-            <p class="newAddr">
-                使用新地址</p>
-            <h2 class="order_secondTtl">
-                发票信息</h2>
-            <div>
-                <p class="invoice">
-                    <i class="select_icon notNeed_invo"></i>无需发票</p>
-                <p class="invoice">
-                    <i class="select_icon need_invo"></i>需要发票</p>
-                <div class="invoice_div">
-                    <label class="invoiceLabel">
-                        <span class="redStar">*</span>发票抬头 :</label>
-                    <input class="invoiceInput" type="text" placeholder="个人">
+                <div class="address_tem_input">
+                    <label for="" class="">
+                        联系人姓名：</label>
+                    <input type="text" class="invoiceInput orderfill_name" placeholder="请填写联系人姓名">
                 </div>
+                <div class="address_tem_input">
+                    <label for="" class="">
+                        联系电话：</label>
+                    <input type="text" class="invoiceInput orderfill_phone" placeholder="请填写联系方式">
+                </div>
+            </div>
+            <div>
                 <div class="invoice_div">
                     <label class="invoiceLabel">
-                        备注 :</label>
-                    <input class="invoiceInput_long" type="text" placeholder="您可以填写关于回报或您希望发起人知道的信息,鼓励一下也好~~">
+                        你要请教的问题 :</label>
+                    <textarea class="invoiceInput_long_textarea" type="text" placeholder="描述你要请教的问题，以及介绍自己当前的情况。清晰明确的问题描述和个人介绍将有助于服务商更好地帮到你。"></textarea>
                 </div>
             </div>
             <div class="riskDetail">
@@ -63,99 +60,11 @@
             </div>
         </div>
     </div>
-    <!--弹出层 开始-->
-    <div class="model_bg">
-    </div>
-    <div class="model newaddr_model">
-        <h1 class="model_ttl">
-            添加收货地址<span class="model_cancel">×</span></h1>
-        <div class="model_cont">
-            <h2 class="newaddr_ttl">
-                <span>新增收货地址</span>除电话号码外,其余均为必填项</h2>
-            <form id="addrForm">
-            <div class="newaddrForm addrForm">
-                <label class="newaddrForm_label">
-                    所在地区<span class="newaddrForm_label_required" class="newaddrForm_label_required">*</span></label>
-                <input class="newaddrForm_input newaddrForm_input-short" type="text" id="province"
-                    required>
-                <ul class="order_addr addr_province">
-                </ul>
-                <input class="newaddrForm_input newaddrForm_input-short" type="text" id="city" required>
-                <ul class="order_addr addr_city">
-                </ul>
-                <input class="newaddrForm_input newaddrForm_input-short" type="text" id="county"
-                    required>
-                <ul class="order_addr addr_county">
-                </ul>
-            </div>
-            <div class="newaddrForm">
-                <label class="newaddrForm_label">
-                    详细地址<span class="newaddrForm_label_required">*</span></label>
-                <textarea class="newaddrForm_textarea" id="address" placeholder="建议您如实填写详细收货地址,例如街道名,名牌号码,楼层和房间号等信息"
-                    required></textarea>
-            </div>
-            <div class="newaddrForm">
-                <label class="newaddrForm_label">
-                    邮政编码<span class="newaddrForm_label_required">*</span></label>
-                <input class="newaddrForm_input" id="code" type="text" placeholder="如您不知道邮政编码,请填写000000"
-                    required>
-            </div>
-            <div class="newaddrForm">
-                <label class="newaddrForm_label">
-                    收货人姓名<span class="newaddrForm_label_required">*</span></label>
-                <input class="newaddrForm_input" id="name" type="text" placeholder="长度不超过20字符" required>
-            </div>
-            <div class="newaddrForm">
-                <label class="newaddrForm_label">
-                    手机号码<span class="newaddrForm_label_required">*</span></label>
-                <input class="newaddrForm_input" id="mobile" type="text" placeholder="请填写您的手机号码"
-                    required>
-            </div>
-            <div class="newaddrForm">
-                <label class="newaddrForm_label">
-                    电话号码</label>
-                <input class="newaddrForm_input newaddrForm_input-short" id="quhao" placeholder="区号"
-                    type="text">-
-                <input class="newaddrForm_input newaddrForm_input-short" id="phone" placeholder="电话号码"
-                    type="text">-
-                <input class="newaddrForm_input newaddrForm_input-short" id="fenji" placeholder="分机"
-                    type="text">
-            </div>
-            <div class="newaddrForm">
-                <label class="newaddrForm_label">
-                </label>
-                <input type="checkbox" id="default">设置为默认地址
-            </div>
-            <button class="newaddrForm_btn" type="button">
-                保存</button>
-            </form>
-        </div>
-    </div>
-    <!--弹出层 结束-->
 </div>
 @section scripts{
     <script>
-         var shoppingCartID=@ViewBag.shoppingCartID;
+         var shoppingCartID=@ViewBag.shoppingCartID;var skuid=@ViewBag.skuid;
     </script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/srdz.order.js"></script>
     <script src="@{@BaseConfigs.GetUrlCdn}scripts/template.js"></script>
-    <script type="text/html" id="addressTem">
-    {{each result as addr}} {{if addr.isDefault === false}}
-    <div class="areaSelect clearfix">
-      {{/if}} {{if addr.isDefault === true}}
-      <div class="areaSelect clearfix confirm selected_addr">
-        {{/if}}
-        <label class="sendFor"><i></i>寄送至</label>
-        <p class="user_infor"><i class="select_icon"></i><span class="orderfill_name">{{addr.name}}</span><span class="orderfill_phone">{{addr.mobile}}</span>
-          <span class="orderfill_addr">{{addr.province_name}} {{addr.city_name}} <span class="district_name" data-code="{{addr.district_code}}">{{addr.district_name}}</span>          {{addr.address}}</span>
-        </p>
-        <ul class="operate clearfix">
-          <li class="operate_items operate_items_grey">默认地址</li>
-          <li class="operate_items" id="modify" data-id="{{addr.id}}">修改</li>
-          <li class="operate_items" id="delete">删除</li>
-        </ul>
-      </div>
-      {{/each}}
-
-    </script>
 }
