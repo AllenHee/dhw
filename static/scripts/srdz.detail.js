@@ -35,15 +35,12 @@ $(function () {
     skuList.each(function(i, el) {
       if (!$(el).has('.active').length) pointCompleted = false;
       point[i] = $(el).find('.active').attr('data-index');
-      console.log($(el).find('.active').attr('data-index'));
-      console.log('选择项' + point);
     });
 
     if (pointCompleted) {
       sku = window.product.skus[point.toString()];
-      price.text('¥' + sku.price.toFixed(2));
+      price.text('¥' + sku.price.toFixed(2) + '/小时');
       skuid = sku.id;
-      console.log("skuid  " + skuid);
     }
   });
   // 显示和隐藏详细信息
