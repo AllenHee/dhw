@@ -74,7 +74,7 @@
           <div class="formSet clearfix" ng-if="valiType==0">
             <div class="formSetWrap">
               <label class="formSet_label">验证手机：</label>
-              <input class="formSet_input" name="mobile" type="text" ng-model="dataP.phone" ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
+              <input class="formSet_input" name="mobile" type="text" ng-model="dataP.phone" ng-pattern="/^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|70)\d{8}$/"
               ng-focus="mobileTipP=true" ng-blur="mobileTipP=false; validate(dataP.phone, 'mobileP')" ng-change="isValid.mobileP=undefined"
               required>
               <i class="formSet_icon phone"></i>
@@ -191,7 +191,7 @@
           <div class="formSet clearfix">
             <div class="formSetWrap">
               <label class="formSet_label">手机号码：</label>
-              <input class="formSet_input" name="mobile" type="text" ng-model="data.cellphone" ng-pattern="/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57]|01[0])[0-9]{8}$/"
+              <input class="formSet_input" name="mobile" type="text" ng-model="data.cellphone" ng-pattern="/^1(3[0-9]|4[57]|5[0-35-9]|8[0-9]|70)\d{8}$/"
               ng-focus="mobileTipC=true" ng-blur="mobileTipC=false; validate(data.cellphone, 'cellphoneC')" ng-change="isValid.nameC=undefined" required>
               <i class="formSet_icon phone"></i>
               <i class="formSet_icon success" ng-show="registerC.mobile.$dirty && registerC.mobile.$valid"></i>
